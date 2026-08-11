@@ -1,0 +1,81 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+        switches/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw (0,0)
+        node [spdt, yscale=-1](sw1){} ++(0,0);
+    \draw (sw1.in)
+        node [antenna]{};
+    \draw (sw1.south) node[anchor=south] {RX};
+    \draw (sw1.north) node[anchor=north] {TX};
+
+    %RX Path:
+    \draw(sw1.out 2)
+        |- ++(0.5,2) node[inputarrow](){}
+        node [ampshape, boxed, anchor=west](amp1){};
+    \draw (amp1.east)
+        to [short, name={l1}] ++(2,0) node[inputarrow](){}
+        node [mixer, boxed, anchor=west](mix1){};
+    \draw(amp1.north) node[anchor=south](){HF};
+    \draw(mix1.north) node[anchor=south](){Mélangeur RX};
+
+    %TX Path:
+    \draw(sw1.out 1)
+        |- ++(0.5,-2) 
+        node [ampshape, boxed, anchor=east, rotate=180](amp2){};
+    \draw(amp2.west)
+        node[inputarrow, rotate=180](){}
+        to [amp, boxed, invert, >, name=amp3] ++(2,0) 
+        node [mixer, boxed, anchor=west](mix2){};
+    \draw(mix2.south) node[anchor=north](){Mélangeur TX};
+    \draw(amp3.north) node[anchor=south](){Étage pilote};
+    \draw(amp2.north) node[anchor=north](){PA};
+
+    % Help Coordinate:
+    \draw(amp1.south)
+        to [open, name={h1}] (amp2.south);
+
+    \draw(mix1.south)
+        node[inputarrow, rotate=90](){}
+        to [short, name={h2}] (mix2.north)
+        node[inputarrow, rotate=-90](){};
+
+    \draw (h2.center)
+        to [open] ++(1.5,0)
+        node [spdt, xscale=-1, yscale=-1](sw2){};
+    \draw (sw2.south) node[anchor=south] {RX};
+    \draw (sw2.north) node[anchor=north] {TX};
+
+    \draw(mix1.east)
+        -| (sw2.out 2);
+
+    \draw(mix2.east)
+        -| (sw2.out 1);
+
+    \draw(sw2.in)
+        node [twoportshape, anchor=west, t={\footnotesize TRX}](trx){};
+
+    % Mid Path:
+    \draw(h1.center)
+        node[qgeneratorshape, t={G}](gen){};
+    \draw(gen.east)
+        to [twoportsplit,t1=1,t2=3,>,-*] (h2.center);
+    \draw(h2.center) node[rotate=90, anchor=north](){\qty{116}{\mega\hertz}};
+
+    % Labels:
+    \draw(gen.north) node [anchor=south](){38,666};
+    \draw(gen.south) node [anchor=north](){\unit{\mega\hertz}};
+    \draw(trx.north) node [anchor=south](){28-30};
+    \draw(trx.south) node [anchor=north](){\unit{\mega\hertz}};
+    %
+    %\draw(sw2.north|-mix1.west) node[](rrx){\Large RX:};
+    \draw(sw2.south|-mix2.west) node[](ttx){\Large TX:};
+    %
+    %\draw(rrx.east) node[anchor=west, align=left](){$\qty{144}{\mega\hertz}-\qty{116}{\mega\hertz}=\qty{28}{\mega\hertz}$\\$\qty{146}{\mega\hertz}-\qty{116}{\mega\hertz}=\qty{30}{\mega\hertz}$};
+    \draw(ttx.east) node[anchor=west, align=left](){$\qty{28}{\mega\hertz}+\qty{116}{\mega\hertz}=\qty{144}{\mega\hertz}$\\$\qty{30}{\mega\hertz}+\qty{116}{\mega\hertz}=\qty{146}{\mega\hertz}$};
+\end{circuitikz}

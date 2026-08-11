@@ -1,0 +1,33 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+    % Earth:
+    \draw[very thick] (0,0) arc (65:115:3);
+    % 10km:
+    \draw[dashed, gray] (0,0.5) node[anchor=west](){\qty{ 10}{\kilo\metre}} arc (65:115:3) coordinate(c1);
+    \draw[dashed, gray] (0,1.0) node[anchor=west](){\qty{ 50}{\kilo\metre}} arc (65:115:3) coordinate(c2);
+    \draw[dashed, gray] (0,1.1) node[anchor=west](){\qty{ 90}{\kilo\metre}} arc (65:115:3) coordinate(c3);
+    \draw[dashed, gray] (0,1.2) node[anchor=west](){\qty{130}{\kilo\metre}} arc (65:115:3) coordinate(c4);
+    \draw[dashed, gray] (0,1.3) node[anchor=west](){\qty{200}{\kilo\metre}} arc (65:115:3) coordinate(c5);
+    \draw[dashed, gray] (0,1.5) node[anchor=west](){\qty{400}{\kilo\metre}} arc (65:115:3) coordinate(c6);
+    \draw(c6) to [open, name={h4}] (c5);
+    \draw(c5) to [open, name={h3}] (c4);
+    \draw(c4) to [open, name={h2}] (c3);
+    \draw(c3) to [open, name={h1}] (c2);
+    \draw[gray](h1) node [anchor=east, text width=0.35cm](){D};
+    \draw[gray](h2) node [anchor=east, text width=0.35cm](){E};
+    \draw[gray](h3) node [anchor=east, text width=0.35cm](){$\text{F}_1$};
+    \draw[gray](h4) node [anchor=east, text width=0.35cm](){$\text{F}_2$};
+    %
+    \path(0,0) arc (65:110:3) coordinate(tx);
+    \path(0,0) arc (65:70:3)  coordinate(rx);
+    \path(0,0) arc (65:90:3)  coordinate(mid1);
+    \draw(tx) node[antenna,scale=0.25,rotate=+20](){};
+    \draw(rx) node[antenna,scale=0.25,rotate=-20](){};
+    \draw[DARCred, ultra thick, -Triangle] (tx) arc (110:97.5:3)  node[pos=0.5, anchor=north, rotate=13](){Onde de sol} coordinate(bw);
+    \path(mid1) ++(0,1.75) coordinate(mid2);
+    \draw(mid2) node[anchor=south](){Réflexion apparente};
+    \draw[dashed] (tx) -- (mid2) -- (rx);
+    \draw[DARCred, ultra thick] (tx) .. controls (mid2) and (mid2) .. (rx) node[pos=0.5, anchor=south]{\bfseries Réfraction};
+    \draw(mid1) node[anchor=south west](){Zone de silence};
+\end{tikzpicture}

@@ -1,0 +1,88 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+    \begin{axis}[%
+        title={Signal d'entrée},
+        axis lines=middle,
+        yticklabel=\empty,
+        xmin=0,
+        xmax=7,
+        ymin=-4,
+        ymax=4,
+        xtick={0},
+        ytick={0},
+        xticklabels={},
+        axis line style={-Triangle},
+        xticklabel style={/pgf/number format/.cd,fixed,precision=1,use comma,fixed,fixed zerofill},
+        xlabel style={at={(ticklabel* cs:1)},anchor=north east},
+        ylabel style={at={(ticklabel* cs:1)},anchor=south east,rotate=90},
+        ylabel={Amplitude},
+        xlabel={$t$},
+        scale only axis,
+        height=3cm,
+        width=0.3*\linewidth*\getDarcImageFactor        
+    ]
+    \addplot[DARCblue, smooth, domain=0:6.28, samples=100, thick] {0.15*sin(deg(x))}; 
+    \addplot[DARCdarkblue, smooth, domain=0:6.28, samples=100, thick] {0.25*sin(deg(x))}; 
+    \addplot[black, smooth, domain=0:6.28, samples=100, thick] {0.35*sin(deg(x))}; 
+    \end{axis}
+\end{tikzpicture}%
+\begin{tikzpicture}
+    \begin{axis}[%
+        title={Amplification},
+        axis lines=middle,
+        yticklabel=\empty,
+        xmin=0,
+        xmax=7,
+        ymin=-4,
+        ymax=4,
+        xtick={0},
+        ytick={0},
+        xticklabels={},
+        axis line style={-Triangle},
+        xticklabel style={/pgf/number format/.cd,fixed,precision=1,use comma,fixed,fixed zerofill},
+        xlabel style={at={(ticklabel* cs:1)},anchor=north east},
+        ylabel style={at={(ticklabel* cs:1)},anchor=south east,rotate=90},
+        ylabel={Amplitude},
+        xlabel={$t$},
+        scale only axis,
+        height=3cm,
+        width=0.3*\linewidth*\getDarcImageFactor        
+    ]
+    \addplot[DARCred, domain=0:6.28, thick] {0.75} node[anchor=south east](){\tiny Écrêtage};
+    \addplot[DARCred, domain=0:6.28, thick] {-0.75};
+    \addplot[DARCblue, smooth, domain=0:6.28, samples=100, thick] {7*0.15*sin(deg(x))}; 
+    \addplot[DARCdarkblue, smooth, domain=0:6.28, samples=100, thick] {7*0.25*sin(deg(x))}; 
+    \addplot[black, smooth, domain=0:6.28, samples=100, thick] {7*0.35*sin(deg(x))}; 
+    \end{axis}
+\end{tikzpicture}%
+\begin{tikzpicture}
+    \begin{axis}[%
+        title={Signal de sortie},
+        axis lines=middle,
+        yticklabel=\empty,
+        xmin=0,
+        xmax=7,
+        ymin=-4,
+        ymax=4,
+        xtick={0},
+        ytick={0},
+        xticklabels={},
+        axis line style={-Triangle},
+        xticklabel style={/pgf/number format/.cd,fixed,precision=1,use comma,fixed,fixed zerofill},
+        xlabel style={at={(ticklabel* cs:1)},anchor=north east},
+        ylabel style={at={(ticklabel* cs:1)},anchor=south east,rotate=90},
+        ylabel={Amplitude},
+        xlabel={$t$},
+        scale only axis,
+        height=3cm,
+        width=0.3*\linewidth*\getDarcImageFactor        
+    ]
+    \addplot[DARCblue, smooth, domain=0:3.14, samples=100, thick] {min(0.75,7*0.15*sin(deg(x)))}; 
+    \addplot[DARCblue, smooth, domain=3.14:6.28, samples=100, thick] {max(-0.75,7*0.15*sin(deg(x)))}; 
+    \addplot[DARCdarkblue, smooth, domain=0:3.14, samples=100, thick] {min(0.75,7*0.25*sin(deg(x)))}; 
+    \addplot[DARCdarkblue, smooth, domain=3.14:6.28, samples=100, thick] {max(-0.75,7*0.25*sin(deg(x)))}; 
+    \addplot[black, smooth, domain=0:3.14, samples=100, thick] {min(0.75,7*0.35*sin(deg(x)))}; 
+    \addplot[black, smooth, domain=3.14:6.28, samples=100, thick] {max(-0.75,7*0.35*sin(deg(x)))}; 
+    \end{axis}
+\end{tikzpicture}%

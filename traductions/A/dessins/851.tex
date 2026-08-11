@@ -1,0 +1,17 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{circuitikz}
+    % Anpassteur:
+    \draw(0,0) node[ground, anchor=north](gnd){};
+    \draw(gnd) node[twoportshape, anchor=south](ag){};
+    \draw[very thick] (ag.east) coordinate(feed) to [short] ++(2.5,0) coordinate(mid) to [short] ++(2.5,0) coordinate(end);
+    \draw (ag) node[above](){\tiny Adapta-};
+    \draw (ag) node[below](){\tiny teur};
+    \draw (ag.west) -- ++(-0.5,0) node[bnc]{};
+    %
+    \draw[thick, DARCblue](mid) sin ++( 2.5, 0.75);
+    \draw[thick, DARCblue](mid) sin ++(-2.5,-0.75);
+    \draw[DARCblue] (mid) node[anchor=north](){$U$};
+
+    \DARCmeasure{feed}{end}{0,1.25}{0}{$\dfrac{\lambda}{2}$}
+\end{circuitikz}

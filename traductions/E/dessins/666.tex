@@ -1,0 +1,24 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw (0.0,1.2) to [short, i={~}, name={foo}] ++(0.666666,0)
+                    to [stroke diode] ++(0.666666,0)
+                    to [short, i={~}, name ={bar}] ++(0.666666,0);
+    \draw (0.0,0.0) to [short] ++(2,0);
+    \draw (foo.center) node[anchor=south east](){Anode};
+    \draw (bar.center) node[anchor=south west](){CCathode};
+    %
+    \draw[red, thick] (1.280,0) to [short] ++(-1.0,-0.626) coordinate(node);
+    \draw[red, thick] (1.280,0) to [short] ++(-1.0, 0.626);
+    \draw[red, thick] (0.720,0) to [short] ++(0.00, 0.35);
+    \draw[red, thick] (0.720,0) to [short] ++(0.00,-0.35);
+    %
+    \draw[red] (node) node[rotate=-90, anchor=west]{node};
+    %
+    \draw[blue, thick] (1.280,0) to [short] ++(0.00, 0.35);
+    \draw[blue, thick] (1.280,0) to [short] ++(0.00,-0.35);
+    \draw[blue, thick] (1.280,0) to [short] ++(0.35, 0.35);
+    \draw[blue, thick] (1.280,0) to [short] ++(0.35,-0.35) coordinate(Cathode);
+    %
+    \draw[blue] (Cathode) node[anchor=west]{Cathode};
+\end{circuitikz}

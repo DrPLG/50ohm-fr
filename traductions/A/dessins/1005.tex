@@ -1,0 +1,12 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2025
+\begin{circuitikz}[step=\getDarcImageFactor cm]
+    \tikzstyle{help lines}=[black];
+    \draw[style=help lines] (0,-3) grid (8,3);
+    \draw[rounded corners=3mm, ultra thick, black] (0,-2) -- (1,-2) -- (2,2) -- (5,2) -- (6,-2) -- (8,-2);
+    \node[] at (7,-3.5) {50\,\textmu s/Div.};
+    \node[rotate=90] at (-0.5,2) {3\,V/Div.};
+    \node[] at (-0.5,-2) {0\,V};
+    \draw[thick, Triangle-Triangle, DARCred](1.5,0) -- (5.5,0) node[midway, above] {Durée d'impulsion};
+    \draw[thick, Triangle-Triangle, DARCblue](3.5,-2) -- ++(0,2) node[midway, right] {\qty{50}{\percent}};
+\end{circuitikz}

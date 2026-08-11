@@ -1,0 +1,21 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+    %\useasboundingbox (-3.75,-1.0) rectangle (10.5,3);
+    \node[draw, powershape] at (0,0) (netzteil) {};
+    \draw(netzteil.north) ++(0,0.6) node[anchor=south]{Alimentation secteur};
+    \draw(netzteil.south) node[anchor=north]{\textdirectcurrent\qty{13,8}{V}};
+    \node[draw, trxshape] at (8,0) (trx) {};
+    \draw(trx.east) -- ++(1,0) node[antenna]{};
+    \draw(trx.north) ++(0,0.6) node[anchor=south]{Transceiver (TRX)};
+    \draw(trx.south) node[ground]{};
+    %
+    \draw[red](netzteil.plus)
+        to [fuse, l={Fusible}, color=red] ++(2.5,0)
+        to [short, i={Gleichstrom (I)}, color=red] (trx.plus);
+    \draw(trx.minus) to [short, i={}, l={\textcolor{gray}{\small{\textit{Risque de court-circuit et d'inversion de polarité}}}}] (netzteil.minus);
+    \draw(netzteil.u1) to [short, -o] ++(-1,0) coordinate(c1);
+    \draw(netzteil.u2) to [short, -o] ++(-1,0) coordinate(c2);
+    \draw(c1) to [open, l_={$\sim\qty{230}{\volt}$}] (c2);
+    \draw[gray](c1) to [open] ++(-0.5,0.4) node[](c3){\itshape\small Haute tension};
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+% Author: Dr. Matthias Jung
+% Year: 2022
+\begin{tikzpicture}
+    \def\stripe#1#2{\draw[fill=#2,#2] ++(#1,0) +(-0.15,-0.51) rectangle +(0.15,0.51);}
+    % wire
+    \draw[fill=rsilver] (-3,-0.2) rectangle (3,0.2);
+    % resistor
+    \draw[rounded corners,fill=r]
+    ++(0,0.5) -- ++(1.5,0) -- ++(0.2,0.2) -- ++(0.8,0)
+    .. controls +(0.2,-0.5) and +(0.2,0.5) .. ++(0,-1.4) -- ++(-0.8,0)
+    -- ++(-0.2,0.2) -- ++(-3,0) -- ++(-0.2,-0.2) -- ++(-0.8,0)
+    .. controls +(-0.2,0.5) and +(-0.2,-0.5) .. ++(0,1.4) -- ++(0.8,0)
+    -- ++(0.2,-0.2) -- cycle;
+    \stripe{-1.00}{ryellow}
+    \stripe{-0.33}{rviolet}
+    \stripe{ 0.33}{rorange}
+    \stripe{ 1.20}{rsilver}
+    \draw[rounded corners,very thick,black]
+    ++(0,0.5) -- ++(1.5,0) -- ++(0.2,0.2) -- ++(0.8,0)
+    .. controls +(0.2,-0.5) and +(0.2,0.5) .. ++(0,-1.4) -- ++(-0.8,0)
+    -- ++(-0.2,0.2) -- ++(-3,0) -- ++(-0.2,-0.2) -- ++(-0.8,0)
+    .. controls +(-0.2,0.5) and +(-0.2,-0.5) .. ++(0,1.4) -- ++(0.8,0)
+    -- ++(0.2,-0.2) -- cycle;
+    \draw[thick](-1.00,-0.5) -- ++(0,-0.5) -- ++(-1.5,-1.0) node[below]{1. Ziffer};
+    \draw[thick](-0.33,-0.5) -- ++(0,-0.5) -- ++( 0.0,-1.0) node[below]{2. Ziffer};
+    \draw[thick]( 0.33,-0.5) -- ++(0,-0.5) -- ++( 1.5,-1.0) node[below]{Multiplicateur};
+    \draw[thick]( 1.20, 0.5) -- ++(0, 0.5) -- ++(-1.5, 1.0) node[above]{Tolérance};
+\end{tikzpicture}

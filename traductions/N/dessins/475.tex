@@ -1,0 +1,11 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+% 2-TE103A, 2-TE104A, 2-TE105A
+% Relative Applied
+\begin{circuitikz}[european]
+    \draw[-Triangle](0.0,0.0) -- (5.0,0.0)  node[right]{$f$ [\unit{\kilo\hertz}]};
+    \draw[-Triangle](0.0,0.0) -- (0.0,1.75) node[above left, rotate=90] () {Puissance};
+    \draw[thick](0.3,0.0) coordinate(c1) -- ++ (0,1.25) -- ++ (2.4,-0.5) -- (2.7,0) coordinate(c2);
+    \draw(c1) node[below]{$0{,}3$};
+    \draw(c2) node[below]{$2{,}7$};
+\end{circuitikz}

@@ -1,0 +1,106 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+    % Theta (Elevation von Oben), Phi (Azimuth)
+    \def\toCoords#1#2{
+        {sin(#1)*cos(#2)},%
+        {sin(#1)*sin(#2)},%
+        {cos(#1)}%
+    }
+    %% Script to calculate parameters: https://www.nosco.ch/mathematics/en/great-circle.php
+    %import numpy as np
+    %import math
+    %#   theta phi
+    %a = [30, -20]
+    %b = [70, -90]
+    %p1 = [
+    %    math.sin(math.radians(a[0]))*math.cos(math.radians(a[1])),
+    %    math.sin(math.radians(a[0]))*math.sin(math.radians(a[1])),
+    %    math.cos(math.radians(a[0]))
+    %]
+    %p2 = [
+    %    math.sin(math.radians(b[0]))*math.cos(math.radians(b[1])),
+    %    math.sin(math.radians(b[0]))*math.sin(math.radians(b[1])),
+    %    math.cos(math.radians(b[0]))
+    %]
+    %u = p1
+    %w = np.cross(p1,p2)
+    %v = (np.cross(u,w))/(np.linalg.norm(w))
+    %print(u)
+    %print(v)
+    \begin{axis}
+        [
+            width=\linewidth*\getDarcImageFactor,
+            height=\linewidth*\getDarcImageFactor,
+            scale only axis,
+            axis equal,
+            enlargelimits=false,
+            axis lines=none,
+            domain=0:180,
+            samples=32,
+            y domain=0:360,
+            samples y=21,
+            %view={25}{30} % default
+        ]
+        \addplot3 [
+            surf,
+            z buffer=sort,
+            draw=DARCgray,
+            fill=white,
+            colormap={bw}{color=(DARCgray) color=(DARCgray)}
+        ] (
+            {sin(x)*cos(y)},
+            {sin(x)*sin(y)},
+            {cos(x)}
+        );
+        \addplot3 [
+            draw=DARCblue,
+            very thick,
+            samples y=100,
+            y domain=296.5:360,
+        ] (
+            {cos(y)*0.46984631039295416  + sin(y)*0.24133274},
+            {cos(y)*-0.17101007166283433 + sin(y)*0.96856549},
+            {cos(y)*0.8660254037844387   + sin(y)*0.06032751}
+        );
+
+        \addplot3 [
+            draw=DARCred,
+            thick,
+            samples y=100,
+            y domain=45:0,
+        ] (
+            {cos(y)*0.46984631039295416  + sin(y)*0.24133274},
+            {cos(y)*-0.17101007166283433 + sin(y)*0.96856549},
+            {cos(y)*0.8660254037844387   + sin(y)*0.06032751}
+        );
+
+        \addplot3 [
+            draw=DARCred,
+            thick,
+            samples y=100,
+            y domain=296.5:235, 
+        ] (
+            {cos(y)*0.46984631039295416  + sin(y)*0.24133274},
+            {cos(y)*-0.17101007166283433 + sin(y)*0.96856549},
+            {cos(y)*0.8660254037844387   + sin(y)*0.06032751}
+        );
+
+        \addplot3 [
+            draw=DARCred,
+            thick,
+            dashed,
+            samples y=100,
+            y domain=235:45,
+        ] (
+            {cos(y)*0.46984631039295416  + sin(y)*0.24133274},
+            {cos(y)*-0.17101007166283433 + sin(y)*0.96856549},
+            {cos(y)*0.8660254037844387   + sin(y)*0.06032751}
+        );
+
+        \fill[black] (axis cs:\toCoords{30}{-20}) circle (2pt);% node[below right](){a};
+        \fill[black] (axis cs:\toCoords{70}{-90}) circle (2pt);% node[above left](){b};
+        \path[DARCblue](axis cs:\toCoords{30}{-20}) -- (axis cs:\toCoords{70}{-90}) node[pos=0.5,anchor=north,rotate=45](){Trajet court};
+        \path[DARCred](axis cs:\toCoords{70}{-90}) node[anchor=south east,rotate=53](){Trajet long};
+    \end{axis}
+\end{tikzpicture}

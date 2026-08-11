@@ -1,0 +1,153 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2024
+\begin{tikzpicture}[
+    x={(1cm*\getDarcImageFactor,0cm*\getDarcImageFactor)},
+    z={(.5cm*\getDarcImageFactor,.5cm*\getDarcImageFactor)},
+    y={(0cm*\getDarcImageFactor,1cm*\getDarcImageFactor)},
+]
+    %\draw[-Triangle] (0,0,0) -- (1,0,0) node [pos=1.2] {$x$};
+    %\draw[-Triangle] (0,0,0) -- (0,1,0) node [pos=1.2] {$y$};
+    %\draw[-Triangle] (0,0,0) -- (0,0,1) node [pos=1.2] {$z$};
+
+    \draw[fill=DARCgray, draw=none]
+                (+0.0, +0.0, +0.0)
+        rectangle (+1.0, +0.5, +0.0);
+    \path (+0.0, +0.05, +0.0)
+        to [open, name={h2}] (+1.0, +0.45, +0.0);
+    \draw (h2.center) node[](){Fine couche de charge d'espace};
+
+    % N-Gebiet
+    \draw[fill=DARCblue!70, draw=none]
+                (+0.0, +0.30, +0.0)
+        rectangle (+1.0, +0.45, +0.0);
+    \path (+0.0, +0.3, +0.0)
+        to [open, name={h1}] (+1.0, +0.45, +0.0);
+    \draw (h1.center) node[](){Dopé N};
+
+    % P-Gebiet
+    \draw[fill=DARCred!70, draw=none]
+                (+0.0, +0.05, +0.0)
+        rectangle (+1.0, +0.20, +0.0);
+    \path (+0.0, +0.05, +0.0)
+        to [open, name={h3}] (+1.0, +0.20, +0.0);
+    \draw (h3.center) node[](){Dopé P};
+
+    % Elektrode unten:
+    \draw[fill=DARCgray!50!black, draw=none]
+                (+0.0, +0.00, +0.0)
+        rectangle (+1.0, +0.05, +0.0);
+
+    % Elektrode oben:
+    \draw[fill=DARCgray!50!black, draw=none]
+                (+0.0, +0.45, +0.0)
+        rectangle (+1.0, +0.50, +0.0);
+
+    % Top:
+    \draw[fill=DARCblue!70, draw=none]
+             (+0.0, +0.5, +0.0)
+        -- ++(+1.0, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-1.0, +0.0, +0.0)
+        -- cycle;
+
+    % Top Elektrode Mitte:
+    \draw[fill=DARCgray!70!black, draw=none]
+             (+0.0, +0.5, +0.0)
+        -- ++(+1.0, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +0.1)
+        -- ++(-1.0, +0.0, +0.0)
+        -- cycle;
+
+    % Top Rechts:
+    \draw[fill=DARCgray!70!black, draw=none]
+             (+0.9, +0.5, +0.0)
+        -- ++(+0.1, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-0.1, +0.0, +0.0)
+        -- cycle;
+
+    % Top Mitte Rechts:
+    \draw[fill=DARCgray!70!black, draw=none]
+             (+0.575, +0.5, +0.0)
+        -- ++(+0.1, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-0.1, +0.0, +0.0)
+        -- cycle;
+
+    % Top Links:
+    \draw[fill=DARCgray!70!black, draw=none]
+             (+0.0, +0.5, +0.0)
+        -- ++(+0.1, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-0.1, +0.0, +0.0)
+        -- cycle;
+
+    % Top Mitte Links:
+    \draw[fill=DARCgray!70!black, draw=none]
+             (+0.325, +0.5, +0.0)
+        -- ++(+0.1, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-0.1, +0.0, +0.0)
+        -- cycle;
+
+    % Seite Rechts
+    \draw[fill=DARCgray, draw=none]
+            (+1.0, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(+0.0, +0.5, +0.0)
+        -- ++(+0.0, +0.0, -1.0)
+        -- cycle;
+
+    % N-Gebiet
+    \draw[fill=DARCblue!50, draw=none]
+            (+1.0, +0.30, +0.0)
+        -- ++(+0.0, +0.00, +1.0)
+        -- ++(+0.0, +0.15, +0.0)
+        -- ++(+0.0, +0.00, -1.0)
+        -- cycle;
+
+    % P-Gebiet
+    \draw[fill=DARCred!50, draw=none]
+            (+1.0, +0.05, +0.0)
+        -- ++(+0.0, +0.00, +1.0)
+        -- ++(+0.0, +0.15, +0.0)
+        -- ++(+0.0, +0.00, -1.0)
+        -- cycle;
+
+    % Elektrode unten:
+    \draw[fill=DARCgray!80!black, draw=none]
+            (+1.0, +0.00, +0.0)
+        -- ++(+0.0, +0.00, +1.0)
+        -- ++(+0.0, +0.05, +0.0)
+        -- ++(+0.0, +0.00, -1.0)
+        -- cycle;
+
+    % Elektrode oben:
+    \draw[fill=DARCgray!80!black, draw=none]
+            (+1.0, +0.45, +0.0)
+        -- ++(+0.0, +0.00, +1.0)
+        -- ++(+0.0, +0.05, +0.0)
+        -- ++(+0.0, +0.00, -1.0)
+        -- cycle;
+
+    % Verbraucher:
+    \path (+1.0, +0.00, +0.0)
+        to [open, name={h4}] (+1.0, +0.05, 1.0);
+    \path (+1.0, +0.45, +0.0)
+        to [open, name={h5}] (+1.0, +0.50, 1.0);
+
+    \draw(h4.center)
+        to [short, *-] ++(1,0,0)
+        to [european resistor, l={Verbraucher}, v={\qty{0.5}{\volt}}] ++(0,0.45,0)
+        to [short, -*] (h5.center);
+
+    \draw[DARCorange, very thick, Triangle-] (0.25,0.50,0.25) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.50,0.50,0.25) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.75,0.50,0.25) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.25,0.50,0.50) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.50,0.50,0.50) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.75,0.50,0.50) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.25,0.50,0.75) -- ++(0.25,0.5,0.25);
+    \draw[DARCorange, very thick, Triangle-] (0.50,0.50,0.75) -- ++(0.25,0.5,0.25) node[anchor=south](){Lumière solaire};
+    \draw[DARCorange, very thick, Triangle-] (0.75,0.50,0.75) -- ++(0.25,0.5,0.25);
+\end{tikzpicture}

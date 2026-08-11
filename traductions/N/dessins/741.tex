@@ -1,0 +1,36 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    \draw [fill=DARCblue,domain=45:135] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c1);
+    \path [domain=135:45] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c0);
+    \path [domain=45:90] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c2);
+    \draw [very thick,domain=90:120] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c5);
+    %
+    \draw [DARCred!50, line width=20, domain=45:135] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)});
+    \path [domain=45:67.5] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)}) coordinate(c3);
+    \path [domain=45:112.5] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)}) coordinate(c4);
+    %
+    \draw (c1) node [dinantenna, scale={\getDarcImageFactor*0.5}, rotate=+45](tx){};
+    \draw (c0) node [dinantenna, scale={\getDarcImageFactor*0.5}, rotate=-45](rx){};
+    %
+    \draw[DARCred, ultra thick] (tx.right) {[rounded corners]
+    -- (c4)}
+    -- (c2){[rounded corners]
+    -- (c3)
+    -- (rx.left)};
+    %
+    \draw[DARCgreen, ultra thick] (tx.right) -- ++(0.5,0.5) coordinate(end);
+    %
+    \draw(tx.left) node[below left]() {Émetteur};
+    \draw(rx.right) node[below right]() {Récepteur};
+    %
+    \draw(c4) to [open, name={h1}] (c2);
+    \draw[DARCred](h1.center) node[above, rotate=-44](){\small~~~Raumwelle};
+    %
+    \draw[DARCgreen](end) node[above](){\footnotesize\quad\quad~~Bodenwelle};
+    %
+    \draw(c2) node[](){|};
+    \draw(c5) node[rotate=30](){|};
+    \draw(-0.25,2.25) node[](){Zone de silence};
+    %
+\end{circuitikz}

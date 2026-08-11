@@ -1,0 +1,48 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\tdplotsetmaincoords{60}{103}
+\tikzstyle{area}=[draw=DARCblue,fill=DARCblue!80,fill opacity=0.6]
+\begin{tikzpicture}[scale=2.8,tdplot_main_coords]
+  
+  \def\rvec{1.0}
+  \def\thetavec{35}
+  \def\phivec{45}
+  \def\dtheta{10}
+  \def\dphi{16}
+  \def\sphere#1#2#3{plot[domain=#1]({\rvec*sin(#2)*cos(#3)},{\rvec*sin(#2)*sin(#3)},{\rvec*cos(#2)})}
+  
+  \coordinate (O) at (0,0,0);
+  \draw[thick,-Triangle] (0,0,0) -- (1.16*\rvec,0,0);
+  \draw[thick,-Triangle] (0,0,0) -- (0,1.1*\rvec,0);
+  \draw[thick,-Triangle] (0,0,0) -- (0,0,1.25*\rvec);
+  
+  \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+  \tdplotsetcoord{PB}{\rvec}{\thetavec+\dtheta}{\phivec}
+  \tdplotsetcoord{PR}{\rvec}{\thetavec}{\phivec+\dphi}
+  \tdplotsetcoord{PBR}{\rvec}{\thetavec+\dtheta}{\phivec+\dphi}
+  
+  \draw[DARCblue] (O)  -- (PBR);
+  \draw[DARCblue] (O)  -- (PR);
+  \draw[DARCblue] (O)  -- (P);
+  \draw[DARCblue] (O)  -- (PB);
+
+  \shade[ball color=blue!10!white,opacity=0.2] 
+        (1cm,0) arc (0:-180:1cm and 5mm)
+                arc (180:0:1cm and 0.866cm);
+  
+  \draw[DARCgray] plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec)},{\rvec*sin(\x)*sin(\phivec)},{\rvec*cos(\x)}) coordinate (BL);
+  \draw[DARCgray] plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec+\dphi)},{\rvec*sin(\x)*sin(\phivec+\dphi)},{\rvec*cos(\x)}) coordinate (BR);
+  \draw[DARCgray] (O)  -- (BL); 
+  \draw[DARCgray] (O)  -- (BR);
+  
+  \draw[area]
+    plot[domain=0:.99*\dphi]({\rvec*sin(\thetavec)*cos(\phivec+\x)},{\rvec*sin(\thetavec)*sin(\phivec+\x)},{\rvec*cos(\thetavec)}) --
+    plot[domain=0:.99*\dtheta]({\rvec*sin(\thetavec+\x)*cos(\phivec+\dphi)},{\rvec*sin(\thetavec+\x)*sin(\phivec+\dphi)},{\rvec*cos(\thetavec+\x)}) --
+    plot[domain=.99*\dphi:0]({\rvec*sin(\thetavec+\dtheta)*cos(\phivec+\x)},{\rvec*sin(\thetavec+\dtheta)*sin(\phivec+\x)},{\rvec*cos(\thetavec+\dtheta)}) --
+    plot[domain=.99*\dtheta:0]({\rvec*sin(\thetavec+\x)*cos(\phivec)},{\rvec*sin(\thetavec+\x)*sin(\phivec)},{\rvec*cos(\thetavec+\x)}) --
+    cycle;
+
+	\draw[DARCred, fill=DARCred](0,0,0) to [open,-*,fill=DARCred,color=DARCred] ++(0,0);
+	\draw[DARCred, fill=DARCred](0,0,0) node[above left, align=right] (){Radiateur\\isotrope};
+  
+\end{tikzpicture}

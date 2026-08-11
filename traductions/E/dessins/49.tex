@@ -1,0 +1,78 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{tikzpicture} [
+    pencildraw/.style={
+      black,
+      decorate,
+      decoration={random steps,segment length=5pt,amplitude=2pt}
+    }
+]
+\def\s{200}
+
+% Innen unten:
+\begin{scope}[shift={(0,-0.85)}]
+    \draw[isometric view](0,0) plot [domain=360*2.694:360*2.787,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)});
+    \draw[isometric view](0,0) plot [domain=360*1.723:360*1.817,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)});
+    \draw[isometric view](0,0) plot [domain=360*1.968:360*2.068,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)});
+    \draw[isometric view](0,0) plot [domain=360*0.905:360*1.025,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)});
+\end{scope}
+
+% Außen oben:
+\draw[isometric view](0,0) % Anfang und Ende
+    coordinate(sA)
+    plot [domain=0:360*2.89,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)})
+    coordinate(eA);
+
+% Außen unten:
+\begin{scope}[shift={(0,-4)}]
+    \draw[isometric view](0,0)
+        plot [domain=360*2.14:360*2.63,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)});
+\end{scope}
+
+
+% Koordinaten Außen:
+\path[isometric view](0,0) plot [domain=0:360*2.14,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a1);
+\path[isometric view](0,0) plot [domain=0:360*2.63,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a2);
+\path[isometric view](0,0) plot [domain=0:360*1.63,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a3);
+\path[isometric view](0,0) plot [domain=0:360*1.14,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a4);
+\path[isometric view](0,0) plot [domain=0:360*0.63,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a5);
+\path[isometric view](0,0) plot [domain=0:360*0.00,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a6);
+\path[isometric view](0,0) plot [domain=0:360*2.00,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a7);
+\path[isometric view](0,0) plot [domain=0:360*0.23,samples=\s] ({\x/360*cos(-\x)},{\x/360*sin(-\x)}) coordinate(a8);
+
+% Innen:
+\draw[isometric view](0,0)
+    coordinate(sI)
+    plot [domain=0:360*2.89,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)})
+    coordinate(eI);
+
+% Koordinaten Innen:
+\path[isometric view](0,0) plot [domain=0:360*2.495,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)}) coordinate(i3);
+\path[isometric view](0,0) plot [domain=0:360*2.288,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)}) coordinate(i4);
+\path[isometric view](0,0) plot [domain=0:360*1.450,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)}) coordinate(i5);
+\path[isometric view](0,0) plot [domain=0:360*0.378,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)}) coordinate(i6);
+\path[isometric view](0,0) plot [domain=0:360*1.353,samples=\s] ({0.95*\x/360*cos(-\x)},{0.95*\x/360*sin(-\x)}) coordinate(i8);
+
+% Außenwände:
+\draw(a1) -- ++(0,-4) coordinate(a11);
+\draw(a2) -- ++(0,-4) coordinate(a22);
+\draw(a3) -- (i3);
+\draw(a4) -- (i4);
+\draw(a5) -- (i5);
+\draw(a6) -- (i6);
+\draw(a8) -- (i8);
+\draw(eI) -- ++(4,0) coordinate(eII);
+\pgfmathsetseed{43} % Um die Form gleich zu halten
+\draw[pencildraw](eII) -- ++(0,-4) coordinate(eIII); 
+\draw(eIII) -| (a11);
+\draw(eA) -- ++(5,0) |- (eIII);
+\draw(a7) -- ++(2,0) coordinate(x1) -- ++(0,-2.5) coordinate(x2) -| (a11);
+\draw(x1) to [open] ++(0.9,0) -- ++(0.5,0) -- ++(0,-2.5) -- ++(-0.5,0) to [open] (x2);
+
+% Beschriftung:
+\draw(2.85,-2) -- ++(1,-1) coordinate(m1) -- ++(1,1);
+\draw(m1) node[anchor=north](){Diélectrique};
+\draw(2.6,0.5) -- ++(1,1.5) coordinate(m2) -- ++(1,-1.5);
+\draw(m2) node[anchor=south](){Armatures métalliques};
+\draw(1.5,-3.5) -- ++(1.5,-1) node[anchor=west](){Enroulement};
+\end{tikzpicture}

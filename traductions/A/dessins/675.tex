@@ -1,0 +1,11 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw(0,0) 
+        to [short] ++ (1,0)
+        to [twoportsplit, >, l ={\footnotesize Codeur de source}, name={qc}] ++(1,0)
+        to [short, >] ++ (1,0) node[inputarrow]{};
+    %% Decoration:
+    \draw (qc.north west) node[anchor=north west](){\tiny\texttt{0101}};
+    \draw (qc.south east) node[anchor=south east](){\texttt{01}};
+\end{circuitikz}

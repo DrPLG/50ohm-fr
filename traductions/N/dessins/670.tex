@@ -1,0 +1,23 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+    \draw(0,0) node[trxshape, anchor=east](trx){}
+        to [short, name=h1] ++(1,0)
+        node[swrshape, anchor=west](swr){};
+    \draw(swr.east) 
+        to [short, name=h2] ++(2,0) 
+        to [short] ++(0,1) 
+        node[bareantenna](ant){};
+    \draw(trx.south) node[below]{Émetteur-récepteur};
+    \draw(swr.south) node[below]{ROSmètre};
+    \draw(ant.top) node[anchor=south]{Antenne};
+    %
+    \draw[DARCblue,-Triangle] (h2.center) ++(0,0.75) coordinate(c0) -- ++(0.25,0);
+    \draw[DARCblue] (h2.center) ++(0,0.75) -- ++(-0.25,0);
+    %
+    \draw[DARCred,-Triangle] (h2.center) ++(0,0.25) coordinate(c1) -- ++(-0.25,0);
+    \draw[DARCred] (h2.center) ++(0,0.25) -- ++(0.25,0);
+    %
+    \draw[DARCblue] (c0) node[above](){\small Incident};
+    \draw[DARCred] (c1) node[above](){\small Réfléchi};
+\end{tikzpicture}

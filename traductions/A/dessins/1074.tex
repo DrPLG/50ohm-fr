@@ -1,0 +1,29 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{tikzpicture}[scale=0.7]
+    \newcommand{\metal}{[fill=gray]}
+    \newcommand{\pdiff}{[fill=DARCred!50]}
+    \newcommand{\ndiff}{[fill=DARCblue!30]}
+    \newcommand{\oxide}{[fill=black]}
+    \newcommand{\silicon}{[fill = gray!50!white]}
+    \draw \pdiff (0,1) -- (0,3) -- (1,3) -- (1,2.5) to [out=270,in=180] (1.5,2) -- (3.75,2) to [out=0,in=270] (4.25,2.5) -- (4.25,3) -- (6.75,3) -- (6.75,2.5) to [out=270,in=180] (7.25,2) -- (9.5,2) to [out=0,in=270] (10,2.5) -- (10,3) -- (11,3) -- (11,1) -- (0,1);
+    \draw \silicon (0,0.75) rectangle (11,1.25) node [midway] {\footnotesize Substrat Si (bulk)};
+    \draw \oxide (4,3) rectangle (7,4) node [pos=.5] {\textcolor{white}{$\text{SiO}_\text{2}$}};
+    \draw \metal (4,4) rectangle (7,4.5);
+    \draw \ndiff (4.25,3) -- (1,3) -- (1,2.5) to [out=270,in=180] (1.5,2) -- (3.75,2) to [out=0,in=270] (4.25,2.5) -- (4.25,3) node at (2.625,2.5) [align=center] {\textcolor{DARCblue}{N}};
+    \draw \ndiff (10,3) -- (6.75,3) -- (6.75,2.5) to [out=270,in=180] (7.25,2) -- (9.5,2) to [out=0,in=270] (10,2.5) -- (10,3) node at (8.375,2.5) [align=center] {\textcolor{DARCblue}{N}};
+    \draw[DARCblue!30, line width=2mm] (4,2.85) -- (7,2.85);
+    \draw[gray!50!white, line width=2mm] (4.25,2.575) -- (6.75,2.575);
+    \draw \metal (1.25,3) rectangle (3,3.5);
+    \draw \metal (8,3) rectangle (9.75,3.5);
+    \draw (2.125,5) coordinate(source) node [above, left] {Source} to [short, o-] (2.125,3.5);
+    \draw (8.975,5) coordinate(drain)  node [above, right] {Drain}  to [short, o-] (8.975,3.5);
+    \draw (5.5,5)   coordinate(gate)   node [above, right] {Gate}   to [short, o-] (5.5,4.5);
+    \draw[DARCred](4.5,4.25) node[](){\bfseries$+$};
+    \draw[DARCred](5.125,4.25) node[](){\bfseries$+$};
+    \draw[DARCred](6.0-0.125,4.25) node[](){\bfseries$+$};
+    \draw[DARCred](6.5,4.25) node[](){\bfseries$+$};
+    \draw(5.5,1.75) node [] {\textcolor{DARCred}{P}};
+    \draw (0,0.75) rectangle (11,3);
+    \draw(gate) to [open, v=$U_{GS}$] (source);
+\end{tikzpicture}

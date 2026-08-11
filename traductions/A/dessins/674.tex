@@ -1,0 +1,12 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+    \draw[](0,0) node[trxshape](tx){};
+    \draw(tx.east) node[txantenna, scale=0.5]{};
+    \draw(tx.north) node[anchor=south]{Émetteur};
+    \AsymCloud{(5.5,1)}{Canal}{1}
+    \draw(6,0.5) node[](){\Huge\Lightning};
+    \draw[](10,0) node[trxshape](rx){};
+    \draw(rx.west) node[rxantenna, xscale=-1, scale=0.5]{};
+    \draw(rx.north) node[anchor=south]{Récepteur};
+\end{tikzpicture}

@@ -1,0 +1,47 @@
+% 2024 
+\begin{tikzpicture}
+	% Masten
+	\def\yMast{2.4}
+	\def\breiteMast{0.2}
+	\def\deltaYRichtfunk{2.2}
+	\def\xm{2}
+    {
+	    \foreach \y in {0, 1, 2}
+    	{
+    		\draw (\xm, \y+\yMast) to ++(\breiteMast, 1);
+        	\draw (\xm+\breiteMast, \y+\yMast) to ++(-\breiteMast, 1);
+    	}
+    	\draw (\xm, \yMast) rectangle ++(\breiteMast, 3); 
+        \draw[very thick, DARCblue](\xm+\breiteMast,\yMast+3) node[waves, anchor=left](){};
+        \draw[very thick, DARCblue](\xm,\yMast+3) node[waves, anchor=left, rotate=180](){};
+	}
+	\node [text height=0.2cm] at (2 + \breiteMast / 2, \yMast-0.2) {\tiny Distant};
+    
+    % Haus
+    \def\xHaus{3.6}
+    \def\yHaus{2.6}
+    \def\breiteHaus{1.7}
+    \def\hoeheHaus{0.8}
+    \draw (\xHaus, \yHaus) rectangle ++(\breiteHaus, \hoeheHaus);
+    \draw (\xHaus-0.2, \yHaus+\hoeheHaus-0.1) to (\xHaus+\breiteHaus/2, \hoeheHaus+\yHaus+0.5);
+    \draw (\xHaus+\breiteHaus++0.2, \yHaus+\hoeheHaus-0.1) to (\xHaus+\breiteHaus/2, \hoeheHaus+\yHaus+0.5);
+    
+    % DL1FLO mit Bildschirm und Transceiver
+    \draw(\xHaus+1.1,\yHaus+0.45) node[trxshape, scale=0.5*\getDarcImageFactor](trx){};
+    \path(trx.north west) -- ++(-0.1,+0.10) coordinate(nw); 
+    \path(trx.south east) -- ++(+0.1,-0.10) coordinate(se); 
+    \path(trx.south east) -- ++(+0.1,-0.15) coordinate(k1); 
+    \path(trx.south west) -- ++(-0.1,-0.225) coordinate(k2); 
+    \draw[rounded corners=1pt*\getDarcImageFactor, double](nw) rectangle (se);
+    \draw[rounded corners=1pt*\getDarcImageFactor](k1) rectangle (k2);
+    \node [text height=0.2cm] at (\xHaus+1.1, \yMast-0.2) {\tiny DL1FLO};
+    
+	% Internet
+	\def\xInternet{3}
+	\def\yInternet{2.4}
+	\node[cloud, draw=gray, minimum width=27, minimum height=13, cloud puffs = 11, cloud puff arc = 105] (internet) at (\xInternet, \yInternet) {};
+	\node[] at (\xInternet, \yInternet) {\tiny Internet};
+	\draw [thick, draw=gray] (internet.east) to (\xHaus+1.1, \yHaus);    % Linie zu DL1FLO
+	\draw [thick, draw=gray] (internet.west) to (2+\breiteMast, \yHaus-0.12);  			% Linie zum linken Mast
+	
+\end{tikzpicture}

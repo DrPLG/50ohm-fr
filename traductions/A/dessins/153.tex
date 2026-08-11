@@ -1,0 +1,57 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[american]
+    \ctikzset{
+        transformer L1/.style={inductors/width=1.5, inductors/coils=6},
+        transformer L2/.style={inductors/width=1.5, inductors/coils=6},
+        quadpoles/transformer core/height=2,
+    	capacitors/scale=\getDarcImageFactor,
+        diodes/scale=\getDarcImageFactor,
+    	inductors/scale=\getDarcImageFactor
+	}
+    \draw(0,0) coordinate(start)
+        to [short, o-*] ++(2.0,0)
+        node [transformer core, anchor=A1](T1){};
+
+    \draw(T1.A1)
+        to [vC,-*,invert, mirror] (T1.A2)
+        to [short,-o] ++(0,-1)
+        node [anchor=north](){+};
+
+    \draw(T1.B1) 
+        to [stroke diode] ++(2,0)
+        node [transformer core, anchor=A1](T2){};
+    \draw(T1.B2)     to [stroke diode, name={D}]   (T2.A2);
+    \draw(T1.B1)     to [open, name={h1}]          (T2.A2);
+    \draw(T1.B1)     to [stroke diode, invert, *-] (h1.center);
+    \draw(h1.center) to [short, -*]                (T2.A2);
+    \draw(T1.B2)     to [open, name={h2}]          (T2.A1);
+    \draw(T1.B2)     to [stroke diode, invert, *-] (h2.center);
+    \draw(h2.center) to [short, -*]                (T2.A1);
+
+    \draw(T1-L2.midtap)
+        to [short, *-] ++(0.25,0)
+        to [short] ++(0,-2.25) coordinate(h3)
+        to [short, -*] (h3-|D) coordinate(h4)
+        -| (T2.B2);
+    
+    \draw(h4)
+        to [short] ++(0,-1) coordinate(h6)
+        to [C, *-*] ++(1.25,0) coordinate(h5)
+        |- (T2-L1.midtap) 
+        to [short, -*] ++(0,0);
+
+    \draw(T2.B1)
+        to [short, -o] ++(1.0,0) coordinate(end1);
+
+    \draw(h5)
+        to [short,-o] (h5-|end1) coordinate(end2);
+
+    \draw(h6)
+        to [short] ++(0,-0.5)
+        node[rground](){};
+
+    \draw(start) node[anchor=north west](){Ampli FI};
+    \draw(end1) node[anchor=north east](){BFO};
+    \draw(end2) node[anchor=north east](){NF};
+\end{circuitikz}

@@ -1,0 +1,53 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+    \pgfplotsset{every tick label/.append style={rotate=-90}}
+    \begin{axis}[%
+        axis lines=middle,
+        yticklabel=\empty,
+        xmin=0,
+        xmax=2.1,
+        ymin=0,
+        ymax=6,
+        xtick={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8},
+        xticklabels={
+            ~,
+            \qty{0.2}{\volt},
+            ~,
+            \qty{0.4}{\volt},
+            ~,
+            \qty{0.6}{\volt},
+            ~,
+            \qty{0.8}{\volt},
+            ~,
+            \qty{1.0}{\volt},
+            ~,
+            \qty{1.2}{\volt},
+            ~,
+            \qty{1.4}{\volt},
+            ~,
+            \qty{1.6}{\volt},
+            ~,
+            \qty{1.8}{\volt}},
+        ytick={0},
+        axis line style={-Triangle},
+        xticklabel style={/pgf/number format/.cd,fixed,precision=1,use comma,fixed,fixed zerofill},
+        xlabel style={at={(ticklabel* cs:1)},anchor=north east},
+        ylabel style={at={(ticklabel* cs:1)},anchor=north east},
+        ylabel={$I_\mathrm{F}$},
+        xlabel={$U_\mathrm{F}$},
+        scale only axis,
+        height=5cm,
+        width=\linewidth*\getDarcImageFactor        
+    ]
+    \addplot [forget plot]
+        table[row sep=crcr]{%
+        0	3.67879441171442e-13\\
+    };
+    \draw[thick,DARCred] (0,0) to [short] ++(axis cs: 0.20,0) parabola ++(axis cs:0.10,3) to [open] ++(axis cs:0.0,0.3) node[rotate=90, anchor=west](){Diode Schottky}; 
+    \draw[thick,DARCred] (0,0) to [short] ++(axis cs: 0.25,0) parabola ++(axis cs:0.38,3) to [open] ++(axis cs:0.0,0.3) node[rotate=90, anchor=west](){Germanium};
+    \draw[thick,DARCred] (0,0) to [short] ++(axis cs: 0.60,0) parabola ++(axis cs:0.13,3) to [open] ++(axis cs:0.0,0.3) node[rotate=90, anchor=west](){Silicium};
+    \draw[thick,DARCred] (0,0) to [short] ++(axis cs: 1.47,0) parabola ++(axis cs:0.28,3) to [open] ++(axis cs:0.0,0.3) node[rotate=90, anchor=west](){LED};
+ 
+    \end{axis}
+\end{tikzpicture}%

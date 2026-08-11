@@ -1,0 +1,11 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw(2,0) 
+        to [short] ++ (1,0)
+        to [twoportsplit, >, l ={\footnotesize Codeur de canal}, name={kc}] ++(1,0)
+        to [short, >] ++ (1,0) node[inputarrow]{};
+    %% Decoration:
+    \draw (kc.north west) node[anchor=north west](){\texttt{01}};
+    \draw (kc.south east) node[anchor=south east](){\tiny\texttt{0101}};
+\end{circuitikz}

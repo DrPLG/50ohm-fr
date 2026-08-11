@@ -12,7 +12,21 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.14
+Version du script : v0.15
+    v0.15 — Fork optionnel des dessins côté français. Un dessin amont
+            (contents/drawings/<id>.tex) est du TikZ/pgfplots : le texte
+            allemand qu'il affiche (légendes d'axes, libellés de nœuds) est
+            du texte LaTeX, mais contrairement aux sections, rien ne
+            permettait jusqu'ici de lui substituer une version française —
+            le script copiait toujours l'amont sans jamais regarder
+            --translations. Ajout d'un sous-dossier dessins/ à côté de
+            sections/ dans chaque répertoire --translations, avec la MÊME
+            priorité que pour les sections (premier répertoire cité
+            l'emporte en cas de doublon). Un dessin non forké continue de
+            sortir tel quel depuis l'amont, sans avertissement : c'est le
+            cas par défaut, aucune traduction de dessin n'existe encore.
+            cf. docs/ANALYSE-DESSINS.md pour l'inventaire et la méthode de
+            suivi de la dérive amont (hors du périmètre de ce script).
     v0.14 — fix_latex() : \\qty{120\\pi}{\\ohm} -> 120\\pi\\,\\unit{\\ohm}. siunitx v3
             rejette un nombre contenant une macro (« Invalid number '120\\mitpi' »)
             puis part en runaway argument : la compilation de la classe A échouait
@@ -1221,6 +1235,10 @@ def main():
     (out / "sections").mkdir(parents=True, exist_ok=True)
     (out / "img").mkdir(exist_ok=True)
 
+    # tr_dirs sert dès l'étape 2 (fork des dessins) ; calculé ici plutôt qu'à
+    # l'étape 4 (Renderers) où il vivait jusqu'en v0.14.
+    tr_dirs = [Path(x).resolve() for x in args.translations]
+
     # 1. Fichiers LaTeX du dépôt de contenus
     for f in (contents / "latex").glob("*"):
         shutil.copy(f, out / f.name)
@@ -1267,8 +1285,20 @@ def main():
     (out / "latexmkrc").write_text(LATEXMKRC, encoding="utf-8")
 
     # 2. Dessins TikZ -> img/{id}include.tex (convention \DARCimage)
+    #
+    # v0.15 — fork optionnel : traductions/<CLASSE>/dessins/<id>.tex prime sur
+    # l'amont s'il existe, même priorité que pour sections/ (premier
+    # répertoire --translations cité qui contient le fichier l'emporte).
+    n_dessins_forkes = 0
     for f in (contents / "contents/drawings").glob("*.tex"):
-        shutil.copy(f, out / "img" / f"{f.stem}include.tex")
+        src = f
+        for d in tr_dirs:
+            candidat = d / "dessins" / f.name
+            if candidat.exists():
+                src = candidat
+                n_dessins_forkes += 1
+                break
+        shutil.copy(src, out / "img" / f"{f.stem}include.tex")
 
     # v0.12 — Précompilation des dessins hors gabarit.
     #
@@ -1296,7 +1326,6 @@ def main():
         link_dir(link, contents / "contents/photos")
 
     # 4. Renderers
-    tr_dirs = [Path(x).resolve() for x in args.translations]
     q_translations = {}
     # Fusion en ordre INVERSE : le premier répertoire cité écrase les suivants,
     # ce qui rend la priorité conforme à celle de la recherche des sections.
@@ -1399,7 +1428,8 @@ def main():
 
     print(f"OK : {n_sections} sections rendues dans {out}"
           + (f" ({n_translated} traduites)" if tr_dirs else "")
-          + (f", {qb.n_translated_q} questions traduites" if q_translations else ""))
+          + (f", {qb.n_translated_q} questions traduites" if q_translations else "")
+          + (f", {n_dessins_forkes} dessin(s) francisé(s)" if n_dessins_forkes else ""))
     # Une section sans fichier français sort EN ALLEMAND sans erreur ni message.
     # Sur une édition combinée, c'est le défaut le plus facile à ne pas voir :
     # le livre compile, il est simplement bilingue par endroits.

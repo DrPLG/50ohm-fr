@@ -1,0 +1,32 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    \draw [fill=DARCblue,thick,domain=45:135] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c1);
+    \path [domain=135:45] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c0);
+    \draw [DARCblue!50,   line width=5,  domain=45:135] plot ({3*cos(\x)}, {3*sin(\x)});
+    \draw [DARCgray!50,   line width=10, domain=45:135] plot ({3*1.2*cos(\x)}, {3*1.2*sin(\x)});
+    \draw [DARCorange!50, line width=10, domain=45:135] plot ({3*1.3*cos(\x)}, {3*1.3*sin(\x)});
+    \draw [DARCred!50,    line width=20, domain=45:135] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)});
+    %
+    \draw [-Triangle] (c1) -- ++(-2,2) node[above,rotate=45](){Höhe [\unit{\kilo\metre}]};
+    \draw (c1) ++(-0.15,0.15) node[left,rotate=45](){bis 10};
+    \draw (c1) ++(-0.50,0.50) node[left,rotate=45](){50-90};
+    \draw (c1) ++(-0.85,0.85) node[left,rotate=45](){90-130};
+    \draw (c1) ++(-1.42,1.42) node[left,rotate=45](){130-400};
+    %
+    \draw [white] (0,2.25) node[](){Terre};
+    %
+    \draw [-Triangle] (c0) -- ++(+2,2);
+    \draw (c0) ++(+0.15,0.15) node[right,rotate=-45](){Troposphère};
+    \draw (c0) ++(+0.50,0.50) node[right,rotate=-45](){D-Region};
+    \draw (c0) ++(+0.85,0.85) node[right,rotate=-45](){E-Region};
+    \draw (c0) ++(+1.42,1.42) node[right,rotate=-45](){$\text{F}_1+\text{F}_2$-Regionen};
+    %
+    \draw [Triangle-Triangle] (0,3.35) -- ++(0,1.75);
+    %
+    \draw (0,4.50) node [right](){Ionosphère};
+    %
+    \draw(1.75,3.45) node[ellipse, rotate=-30, fill={DARCorange!50!DARCgray}, minimum height=0.25cm, minimum width=0.5cm, inner sep=0pt](sporadic){};
+    %
+    \draw(sporadic.center) -- (0,1) node[below](){Sporadic-E};
+\end{circuitikz}

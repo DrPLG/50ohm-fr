@@ -1,0 +1,72 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+
+    % X-Axis:
+    \draw[-Triangle](0,+0.0) -- (5.5,0.0) node[anchor=north](){$t$} coordinate(x1end);
+    \draw(x1end) ++(0.25,0) node[anchor=west](){Temps};
+
+    % Y-Axis:
+    \draw[-Triangle](0,-1) -- (0,1.5) node[anchor=south east](){$U$};
+
+    % Sinve Wave:
+    \draw[DARCgray, thick]
+        (0,+0) sin (1,+1)
+        (1,+1) cos (2,+0)
+        (2,+0) sin (3,-1)
+        (3,-1) cos (4,+0)
+        (4,+0) sin (5,+1);
+
+    % Axis Caption:
+    \draw(0,0) node[anchor=north west](){$0$};
+    \draw(1,0.1) -- (1,-0.1) node[anchor=north](){$\frac{T}{4}$};
+    \draw(2,0.1) -- (2,-0.1) node[anchor=north](){$\frac{T}{2}$};
+    \draw(3,0.1) -- (3,-0.1) node[anchor=north](){$\frac{3T}{4}$};
+    \draw(4,0.1) -- (4,-0.1) node[anchor=north](){$T$};
+    \draw(5,0.1) -- (5,-0.1) node[anchor=north](){$\frac{5T}{4}$};
+
+    % X-Axis 2:
+    \draw[-Triangle](0,-1.5) -- ++(5.5,0) node[anchor=north](){$\varphi$} coordinate(x2end);
+    \draw(x2end) ++(0.25,0) node[anchor=west](){Angle de rotation};
+
+    % Axis Caption:
+    \draw(0,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){0\textdegree};
+    \draw(1,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){90\textdegree};
+    \draw(2,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){180\textdegree};
+    \draw(3,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){270\textdegree};
+    \draw(4,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){360\textdegree};
+    \draw(5,-1.5+0.1) -- ++(0,-0.2) node[anchor=north](){450\textdegree};
+
+    % X-Axis 2:
+    \draw[-Triangle](0,-2.5) -- ++(5.5,0) node[anchor=north](){$\varphi$} coordinate(x3end);
+    \draw(x3end) ++(0.25,0) node[anchor=west](){Radian};
+
+    % Axis Caption:
+    \draw(0,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){0}; 
+    \draw(1,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){$\frac{\pi}{2}$};  
+    \draw(2,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){$\pi$};  
+    \draw(3,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){$\frac{3\pi}{2}$}; 
+    \draw(4,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){$2\pi$};            
+    \draw(5,-2.5+0.1) -- ++(0,-0.2) node[anchor=north](){$\frac{5\pi}{2}$}; 
+
+    % Circle
+    \draw[DARCgray](-2,0) coordinate(c1) circle (1);
+    \draw[-Triangle, DARCorange] (c1) -- ++( 45:1) coordinate(c2);
+    \draw[-Triangle, DARCgreen]  (c1) -- ++( 90:1) coordinate(c3);
+    \draw[-Triangle, DARCred]    (c1) -- ++(180:1) coordinate(c4);
+    \draw[-Triangle, DARCblue]   (c1) -- ++(270:1) coordinate(c5);
+
+    \draw[thick, dotted, DARCorange] (c2) -- (0.5,+0.7);
+    \draw[thick, dotted, DARCgreen]  (c3) -- (1.0,+1.0);
+    \draw[thick, dotted, DARCred]    (c1) -- (2.0,+0.0);
+    \draw[thick, dotted, DARCblue]   (c5) -- (3.0,-1.0);
+
+    \draw[DARCorange] (c2) node[anchor=north west]() {A};
+    \draw[DARCgreen]  (c3) node[anchor=south]()      {B};
+    \draw[DARCred]    (c4) node[anchor=east]()       {C};
+    \draw[DARCblue]   (c5) node[anchor=north]()      {D};
+
+    \draw(c1) node[circ, fill](){};
+
+
+\end{tikzpicture}%

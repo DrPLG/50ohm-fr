@@ -1,0 +1,20 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{circuitikz}
+    \draw[very thick, DARCblue, name path=curveA]
+        (0.00,0.00) .. controls (0.4,0.1) and (0.3,0.9) .. (0.50,0.90)
+        (0.50,0.90) .. controls (0.7,0.9) and (0.6,0.1) .. (1.00,0.00)
+    coordinate[pos=0.5] (min);
+    %
+    \draw[-Triangle](0,0) coordinate(s6) -- ++(0,1) node[above]{$P$};
+    \draw[-Triangle](s6) -- ++(1.1,0) node[right]{$f$};
+    %
+    \draw[dashed, gray] (0,0.9) -- (1,0.9) node[right]{$\qty{100}{\percent}$};
+    \draw[dashed, gray, name path=curveB] (0,0.9*0.5) -- (1,0.9*0.5) node[right]{$\qty{50}{\percent}$};
+    % Schnittpunkte berechnen:
+    \path[name intersections={of=curveA and curveB, by={p1,p2}}];
+    % Markieren:
+    \draw[dashed, gray](p1) -- (p1|-s6) -- ++(0,-0.05) coordinate(a1) -- ++(0,-0.05);
+    \draw[dashed, gray](p2) -- (p2|-s6) -- ++(0,-0.05) coordinate(a2) -- ++(0,-0.05);
+    \draw[Triangle-Triangle] (a1) -- (a2) node[midway, below]{Largeur de bande};
+\end{circuitikz}

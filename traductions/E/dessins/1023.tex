@@ -1,0 +1,17 @@
+% Author: Prof. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{circuitikz}
+    \draw(0,0) coordinate(e2)
+        to [short, o-*] ++(3.5,0) coordinate(x1)
+        to [short, *-o] ++(1.5,0) coordinate(a2);
+    \draw(0,3) coordinate(e1)
+        to [C, o-, name={c1}] ++(3,0)
+        to [short, -*] ++(0.5,0) coordinate(x2)
+        to [short, -o] ++(1.5,0) coordinate(a1);
+    \draw(x1) to [european resistor] (x2);
+    %
+    \draw[DARCred, ultra thick] (c1.north west) -- (c1.south west);
+    \draw[DARCred, ultra thick] (c1.north east) -- (c1.south east);
+    \draw[DARCred, ultra thick] (c1.west) -- (c1.east);
+    \draw[DARCred] (c1.south east) node[anchor=west](){Passe-haut};
+\end{circuitikz}

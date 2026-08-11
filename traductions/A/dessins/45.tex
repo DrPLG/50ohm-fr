@@ -1,0 +1,38 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+    \draw(0,0) 
+        node [qgeneratorshape, t={G}](gen){};
+    \draw(gen.east)
+        to [short, name={h1}] ++(1,0) node[inputarrow](){}
+        node[phaseshiftershape, anchor=west](phi){};
+    \draw(phi.east)
+        to [short, name={h2}] ++(1,0) node[inputarrow](){}
+        node[lowpassshape, anchor=west](low){};
+    \draw(low.east)
+        to [short, name={h3}] ++(1,0) node[inputarrow](){}
+        node[twoportshape, t={VCO}, anchor=west](vco){};
+    \draw(vco.east)
+        to [short, name={h4}, -o] ++(1,0)
+        node[anchor=south east, rotate=90](){Sortie};
+
+    % Bogen
+    \draw(vco.south) 
+        to [short] ++(0,-2) coordinate(h5)
+        to [twoport,>, t={:n}] (h5-|phi.south)
+        to [short] (phi.south)
+        node [inputarrow, rotate=90](){};
+
+    % Taps
+    \draw(h1.center)
+        to [short, *-o] ++(0,1)
+        node[anchor=south](){A};
+
+    \draw(h5-|h3)
+        to [short, *-o] ++(0,1)
+        node[anchor=south](){C};
+        
+    \draw(h5-|h2)
+        to [short, *-o] ++(0,1)
+        node[anchor=south](){B};
+\end{circuitikz}

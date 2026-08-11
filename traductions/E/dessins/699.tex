@@ -1,0 +1,61 @@
+% Author: Michael Groni, DB7YI
+% Year: 2023
+\begin{tikzpicture}		
+    \tikzstyle{box}=[minimum width=1.1cm, minimum height=0.5cm, align=center]
+
+    \tikzstyle{dezimalbox}=[box]
+    \tikzstyle{dezimalboxGelb}=[dezimalbox, fill=DARCorange]
+    \tikzstyle{dezimalboxBlau}=[dezimalbox, fill=DARCblue]
+
+    \tikzstyle{dualbox}=[box, inner sep=0]
+    \tikzstyle{dualboxGelb}=[dualbox, fill=DARCorange]
+    \tikzstyle{dualboxBlau}=[dualbox, fill=DARCblue]
+    \tikzstyle{dualboxGrau}=[dualbox, fill=DARCgray]
+
+    \tikzstyle{punkt}=[circle, fill=black, inner sep=0, anchor=west]
+    % Dezimalschreibweise IP-Adresse
+    \node (byteA1) [dezimalboxGelb] at (0, 3) {\small 141};
+    \node (pointA1) [punkt, right=0cm of byteA1.345] {};
+    \node (byteA2) [dezimalboxGelb, right=0cm of pointA1.east, anchor=195] {\small 17};
+    \node (pointA2) [punkt, right=0cm of byteA2.345] {};
+    \node (byteA3) [dezimalboxGelb, right=0cm of pointA2.east, anchor=195] {\small 5};
+    \node (pointA3) [punkt, right=0cm of byteA3.345] {};
+    \node (byteA4) [dezimalboxBlau, right=0cm of pointA3.east, anchor=195] {\small 18};	
+    
+    \node [left=1.45cm of byteA1.west, anchor=west, inner sep=0] {\tiny Adresse IPv4};
+
+    % Dualschreibweise IP-Adresse
+    \node (dualA1) [dualboxGrau, below=0.05 cm of byteA1, anchor=north] {\tiny 10001101};
+    \node (dualA2) [dualboxGrau, below=0.05 cm of byteA2, anchor=north] {\tiny 00010001};
+    \node (dualA3) [dualboxGrau, below=0.05 cm of byteA3, anchor=north] {\tiny 00000101};
+    \node (dualA4) [dualboxGrau, below=0.05 cm of byteA4, anchor=north] {\tiny 00010010};
+    
+    % Dezimalschreibweise Masque réseau
+    \node (byteB1) [dezimalboxGelb, below=0.2cm of dualA1] {\small 255};
+    \node (pointB1) [punkt, right=0cm of byteB1.345] {};
+    \node (byteB2) [dezimalboxGelb, right=0cm of pointB1.east, anchor=195] {\small 255};
+    \node (pointB2) [punkt, right=0cm of byteB2.345] {};
+    \node (byteB3) [dezimalboxGelb, right=0cm of pointB2.east, anchor=195] {\small 255};
+    \node (pointB3) [punkt, right=0cm of byteB3.345] {};
+    \node (byteB4) [dezimalboxBlau, right=0cm of pointB3.east, anchor=195] {\small 0};	
+    
+    \node [left=1.45cm of byteB1.west, anchor=west, inner sep=0] {\tiny Masque réseau};
+
+    % Dualschreibweise Masque réseau
+    \node (dualB1) [dualboxGrau, below=0.05 cm of byteB1, anchor=north] {\tiny 11111111};
+    \node (dualB2) [dualboxGrau, below=0.05 cm of byteB2, anchor=north] {\tiny 11111111};
+    \node (dualB3) [dualboxGrau, below=0.05 cm of byteB3, anchor=north] {\tiny 11111111};
+    \node (dualB4) [dualboxGrau, below=0.05 cm of byteB4, anchor=north] {\tiny 00000000};
+    
+    % senkrechte Linie
+    \node (helper1) [above=0.38cm of pointA3, inner sep=0] {};
+    \node (helper2) [below=1cm of pointB3, inner sep=0] {};
+    \draw [densely dotted, draw=DARCred, inner sep=0] (helper1) -- (pointA3);
+    \draw [densely dotted, draw=DARCred, inner sep=0] (pointA3) -- (pointB3);
+    \draw [densely dotted, draw=DARCred, inner sep=0] (pointB3) -- (helper2);
+    
+    % Beschriftung unten
+    \node [below=0.1 cm of dualB2, anchor=north, text=DARCred, inner sep=0] {\tiny Partie réseau};
+    \node [below=0.1 cm of dualB4, anchor=north, text=DARCred, inner sep=0] {\tiny Partie hôte};
+    
+\end{tikzpicture}

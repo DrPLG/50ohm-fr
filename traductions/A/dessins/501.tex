@@ -1,0 +1,35 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw (0,0)
+        node [twoportshape, t={1}](n1){};
+    \draw(n1.east)
+        node[inputarrow, rotate=180]{}
+        to[short] ++(1,0)
+        node[inputarrow]{}
+        node[cloud, draw, anchor=west, scale={3*\getDarcImageFactor}] (cld) {};
+    \draw(cld.north)
+        node[anchor=south](){Réseau};
+    \draw(cld.east)
+        node[inputarrow, rotate=180]{}
+        to[short] ++(1,0)
+        node[inputarrow]{}
+        node [twoportshape, t={2}, anchor=west](n2){};
+    \draw(n2.east)
+        node[inputarrow, rotate=180]{}
+        to[short, name={h1}] ++(2,0)
+        node[inputarrow]{}
+        node [twoportshape, t={3}, anchor=west](n3){};
+    \draw(n3.east)
+        to[short] ++(1,0)
+        node [antenna](ant){};
+    \draw(h1.north) ++(0,0.75) node[anchor=south](h2){\footnotesize{de contrôle}};
+    \draw(h2.north)            node[anchor=south](h3){\footnotesize{Signaux de commande et}};
+    \draw(h3.north)            node[anchor=south](h4){\footnotesize{Audio (NF) TX}};
+    \draw(h4.north)            node[anchor=south](h5){\footnotesize{Audio (NF) RX}};
+\end{circuitikz}

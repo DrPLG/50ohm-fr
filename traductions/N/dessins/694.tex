@@ -1,0 +1,59 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{circuitikz}
+    \tikzset{german switch/.style={
+        cute open switch, 
+        bipoles/cuteswitch/thickness=0.2,
+        bipoles/cuteswitch/shape=circ,
+        bipoles/cuteswitch/width=0.5,
+    }}
+    \ctikzset{
+        resistors/scale=0.75,
+        inductors/scale=0.75,
+        RF/scale=0.75,
+    }
+    \draw(0,0)
+        to [battery2, name={battery}] ++(1,0)
+        to [open] ++(1,0)
+        to [european resistor, name={resistor}] ++(1,0)
+        to [open] ++(1,0)
+        to [C, name={capacitor}] ++(1,0)
+        to [open] ++(1,0)
+        to [american inductor, name={inductor}] ++(1,0);
+    \draw(0,-2)
+        to [stroke diode, name={diode}] ++(1,0)
+        to [open] ++(1,0)
+        to [stroke led, name={led}] ++(1,0)
+        to [open] ++(1,0)
+        to [german switch, name={switch}] ++(1,0)
+        to [open] ++(1,0)
+        to [open, name={transistor1}] ++(1,0);
+    \draw(transistor1.center) node[npn, tr circle](transistor2){};
+    \draw(0,-4)
+        to [open, name={antenna1}] ++(1,0)
+        to [open] ++(1,0) coordinate(ground1)
+        to [open, name={ground}] ++(1,0)  coordinate(ground2)
+        to [open] ++(1,0)
+        to [rmeter, t=V, name={vm}] ++(1,0)
+        to [open] ++(1,0)
+        to[rmeter, t=A, name={am}] ++(1,0);
+    \draw(antenna1.center) node[bareantenna, anchor=center](antenna2){};
+    \draw(antenna2.south) --  ++(0,-0.5);
+    \draw(ground1) node[rground, anchor=west](){};
+    \draw(ground2) node[ground, anchor=east](){};
+    %
+    \draw(0,-1-|battery.center) node[](){Batterie};
+    \draw(0,-1-|resistor.center) node[](){Résistance};
+    \draw(0,-1-|capacitor.center) node[](){Condensateur};
+    \draw(0,-1-|inductor.center) node[](){Bobine};
+    %
+    \draw(0,-3-|diode.center) node[](){Diode};
+    \draw(0,-3-|led.center) node[](){LED};
+    \draw(0,-3-|switch.center) node[](){Interrupteur};
+    \draw(0,-3-|transistor1.center) node[](){Transistor};
+    %
+    \draw(0,-5-|antenna1.center) node[](){Antenne};
+    \draw(0,-5-|ground.center) node[align=center](){Masse et\\terre};
+    \draw(0,-5-|vm.center) node[align=center](){Volt-\\mètre};
+    \draw(0,-5-|am.center) node[align=center](){Ampère-\\mètre};
+\end{circuitikz} 

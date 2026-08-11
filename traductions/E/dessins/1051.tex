@@ -1,0 +1,39 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{circuitikz}[
+    long/.style={circuitikz/bipoles/twoport/width=1.35}
+]
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+    }
+    \draw (0,0)
+        node [twoportshape, t={TX}](tx){};
+    \draw (tx.east)
+        to [short, name=c1] ++(0.75,0)
+        node [inputarrow]{}
+        node [lowpassshape, anchor=west](lp){};
+    \draw (lp.east)
+        to [TL, name={foo}, bipoles/tline/width=1.25, l={15\,m}] ++(3,0) coordinate(bar);
+    \draw(bar)
+        node [inputarrow]{}
+        node [twoportshape, long, anchor=west] (tuner){};
+    \draw (tuner.east)
+        to [short, name=c4] ++(0.75,0)
+        node [inputarrow]{}
+        node [swrshape, anchor=west, DARCred](swr){};
+    \draw (swr.east)
+        to [short, name=c5] ++(0.75,0)
+        node[antenna]{};
+
+    \draw(foo.bottom left) node[circ]{} node[ground]{};
+    \draw(foo.bottom right) node[circ]{} node[ground]{};
+    \draw(lp.east)
+        to [open, name=c2] (foo.west);
+    \draw(foo.east)
+        to [open, name=c3] (tuner.west);
+    
+    \draw (tuner.north) node[anchor=north]{\footnotesize Coupleur};
+    \draw (tuner.south) node[anchor=south]{\footnotesize tuner};
+    \draw[DARCred] (swr.north) node[anchor=south]{SWR};
+\end{circuitikz}

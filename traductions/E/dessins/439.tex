@@ -1,0 +1,36 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+	\ctikzset{
+    	blocks/scale=\getDarcImageFactor,
+	    RF/scale=\getDarcImageFactor
+	}
+    \draw(0,0)
+        node [twoportshape, t={TX}, anchor=west](tx){};
+    \draw(tx.east)
+        to [amp, box, >, name={amp}] ++(6,0) coordinate(feed)
+        to [short, name={h3}] ++(0,2) 
+        node [bareantenna](ant) {};
+
+    % Helping coordinates
+    \draw(tx.east) 
+        to [open, name={h1}](amp.west);
+    \draw(amp.east) 
+        to [open, name={h2}](feed);
+
+    \draw(h1.center)  node[anchor=north] (h11)  {\footnotesize Kabel 1};
+    \draw(h11.south)  node[anchor=north] (h111) {\footnotesize 2\,dB};
+    \draw(h111.south) node[anchor=north] ()     {\footnotesize Atténuation};
+
+    \draw(amp.north)  node[anchor=south] (amp1) {\footnotesize 6\,dB Verstärkung};
+    \draw(amp1.north) node[anchor=south] () {\footnotesize PA};
+
+    \draw(h2.center)  node[anchor=north] (h22)  {\footnotesize Kabel 2};
+    \draw(h22.south)  node[anchor=north] (h222) {\footnotesize 3\,dB};
+    \draw(h222.south) node[anchor=north] ()     {\footnotesize Atténuation};
+
+    \draw(h3.center)       node[anchor=south west] (h33)  {\footnotesize Antenne};
+    \draw(h33.south west)  node[anchor=north west] (h333) {\footnotesize 2\,dB};
+    \draw(h333.south west) node[anchor=north west] (h333) {\footnotesize Gain};
+
+\end{circuitikz}

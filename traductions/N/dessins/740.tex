@@ -1,0 +1,40 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+
+    \draw[thick](0,0) rectangle (5.5,4);
+
+    \node[circuitikz/seven seg/color on=black, seven segment val=1 dot none box off, anchor=west, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (0.5,3) (v1) {};
+    \node[circuitikz/seven seg/color on=black, seven segment val=3 dot on   box off, anchor=west, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (v1.east) (v2){};
+    \node[circuitikz/seven seg/color on=black, seven segment val=8 dot none box off, anchor=west, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (v2.east) (v3){};
+
+    \node[circuitikz/seven seg/color on=black, seven segment val=0 dot none box off, anchor=east, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (5,3) (a1) {};
+    \node[circuitikz/seven seg/color on=black, seven segment val=0 dot on   box off, anchor=east, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (a1.west) (a2){};
+    \node[circuitikz/seven seg/color on=black, seven segment val=0 dot none box off, anchor=east, circuitikz/displays/scale=0.6*\getDarcImageFactor, circuitikz/seven seg/thickness=4pt*0.6*\getDarcImageFactor] at (a2.west) (a3){};
+
+    \draw[thick](a1.north east) rectangle (a3.south west);
+    \draw[thick](v1.north west) rectangle (v3.south east);
+
+    \draw(v1.north west) node [anchor=south west](){V};
+    \draw(a3.north west) node [anchor=south west](){A};
+
+    \fill[fill=DARCred, very thick] (4.25,0.75) node [circle, draw, fill, minimum width=1*\getDarcImageFactor, minimum height=1*\getDarcImageFactor](plus){};
+    \draw(plus.north) node[above]{$+$};
+
+    \fill[fill=DARCblue, very thick] (3.5,0.75) node [circle, draw, fill, minimum width=1*\getDarcImageFactor, minimum height=1*\getDarcImageFactor](minus){};
+    \draw(minus.north) node[above]{$-$};
+
+    \fill[fill=DARCorange, very thick] (3.5,1.75) node [circle, draw, fill, minimum width=1*\getDarcImageFactor, minimum height=1*\getDarcImageFactor](ul){};
+    \draw(ul.east) node [right](){Surcharge};
+
+    \draw[thick] (2.25,1.5) circle (0.5);
+    \draw[thick] (2.25,2.0) -- ++(0,-0.25);
+
+    \draw[thick] (0.5,0.25) rectangle ++(0.8,1);
+    \draw[thick] (0.5,0.75) -- ++(0.8,0);
+
+    \draw(2.25,2.25) node [](){Réglage de tension};
+    \draw(3.875,0.35) node [](){Sortie};
+    \draw(0.9,1.00) node[](){ON};
+    \draw(0.9,0.50) node[](){OFF};
+\end{tikzpicture}

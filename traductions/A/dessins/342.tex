@@ -1,0 +1,21 @@
+% Author: 	Dr. Matthias Jung, DL9MJ
+%			Stephan Kregel, DG1HXJ
+% Year: 2022
+\begin{circuitikz}[american]
+    \tikzset{%
+        circuitikz/resistors/scale=\getDarcImageFactor,
+        circuitikz/sources/scale=\getDarcImageFactor
+    }	
+    \draw (0,1) coordinate(I1) to [sV, l2_={$R_\mathrm{L}$} and \qty{50}{\ohm}, name={gen}] ++(0,-3) coordinate(I2) ;
+    \draw (I1) to [short, -*] ++(1.5,0) coordinate(C0)
+    to [european resistor, l={$R_\mathrm{2}$}] ++(3,0) coordinate(C1);
+    \draw (C0) to [european resistor, l={$R_\mathrm{1}$}] ++ (0,-3)
+    to [short] (I2);
+    \draw(C1) to [european resistor, l_={$R_\mathrm{3}$}, *-*] ++(0,-3);
+    \draw(C1)
+        to [short] ++(1.5,0)
+        to [european resistor, l={$R_\mathrm{L}$}, name={h3}] ++(0,-3)
+        to [short, -*] ++(-1.5,0)
+        to [short, -*, name={h7}] ++(-3,0);
+    \draw (h7.center) node[anchor=north](){Atténuateur};
+\end{circuitikz}

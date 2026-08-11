@@ -1,0 +1,68 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2024
+\begin{tikzpicture}[
+    x={(1cm*\getDarcImageFactor,0cm*\getDarcImageFactor)},
+    z={(.5cm*\getDarcImageFactor,.5cm*\getDarcImageFactor)},
+    y={(0cm*\getDarcImageFactor,1cm*\getDarcImageFactor)},
+]
+    \draw[rounded corners=5*\getDarcImageFactor]
+                        (+0.00,+0.25,+0.25)
+        to [short]     ++(-0.75,+0.00,+0.00)
+        to [short, -o] ++(+0.00,+0.00,-1.00);
+    %
+    \draw[fill=DARCred, draw=none]
+                (+0.0, +0.0, +0.0)
+        rectangle (+1.0, +0.5, +0.0);
+    \draw[fill=DARCgray!80!black, rounded corners=1.5*\getDarcImageFactor, draw=none]
+                (+0.025, +0.025, +0.000)
+        rectangle (+0.275, +0.475, +0.000);
+    \draw[fill=DARCgray!80!black, rounded corners=1.5*\getDarcImageFactor, draw=none]
+                    (+0.975, +0.025, +0.000)
+        rectangle ++(-0.250, +0.450, +0.000);
+    \draw[fill=DARCred, draw=none]
+                (+0.15, +0.0, +0.0)
+        rectangle (+0.85, +0.5, +0.0);
+    \draw[fill=DARCgray!10!white, rounded corners=1.5*\getDarcImageFactor, draw=none]
+                (+0.05, +0.05, +0.00)
+        rectangle (+0.95, +0.45, +0.00);
+    % Top:
+    \draw[fill=DARCred!90, draw=none]
+            (+0.0, +0.5, +0.0)
+        -- ++(+1.0, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(-1.0, +0.0, +0.0)
+        -- cycle;
+    \draw[fill=DARCred!80!black, draw=none]
+            (+1.0, +0.0, +0.0)
+        -- ++(+0.0, +0.0, +1.0)
+        -- ++(+0.0, +0.5, +0.0)
+        -- ++(+0.0, +0.0, -1.0)
+        -- cycle;
+    % Connections Right:
+    \draw[rounded corners=5*\getDarcImageFactor]
+                        (+1.00,+0.25,+0.25)
+        to [short]     ++(+1.00,+0.00,+0.00)
+        to [short, -o] ++(+0.00,+0.00,-1.00);
+    % Alloy:
+    \draw[DARCblue, very thick]
+        (+0.05,+0.10,+0.00) -- ++(+0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.05,+0.20,+0.00) -- ++(+0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.05,+0.30,+0.00) -- ++(+0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.05,+0.40,+0.00) -- ++(+0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.95,+0.15,+0.00) -- ++(-0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.95,+0.25,+0.00) -- ++(-0.75,+0.00,+0.00);
+    \draw[DARCblue, very thick]
+        (+0.95,+0.35,+0.00) -- ++(-0.75,+0.00,+0.00);
+    % Beschriftung: 
+    \draw[thick, Triangle-] (+0.50,+0.50,+0.50) -- ++(-0.75,+0.25,+0.00)
+        node [above] {Boîtier plastique};
+    \draw[thick, Triangle-] (+0.85,+0.10,+0.00) -- ++(+0.50,-0.50,+0.00)
+        node [below] {Diélectrique céramique};
+    \draw[thick, Triangle-] (+0.15,+0.10,+0.00) -- ++(-0.50,-0.25,+0.00)
+        node [below] {Alliage métallique};
+\end{tikzpicture}

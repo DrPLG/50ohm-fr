@@ -1,0 +1,41 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2025
+\begin{tikzpicture}
+    % Earth:
+    \draw[very thick] (0,0) arc (60:120:3);
+    %
+    \path(0,0) arc (60:110:3) coordinate(tx);
+    \path(0,0) arc (60:70:3)  coordinate(rx);
+    \path(0,0) arc (60:75:3)  coordinate(aa);
+    \path(0,0) arc (60:90:3)  coordinate(mid1);
+    % Tropospheric Duct:
+    \fill[DARCblue, name path=P1]
+        (0,1.2) coordinate(start) arc (60:120:3) 
+        -- ++(0,+0.05)
+        arc (120:60:3) coordinate(c6)
+        -- (start);
+    \fill[DARCblue, name path=P3]
+        (aa) ++(0,0.8) coordinate(start) arc (75:105:3)
+        -- ++(0,+0.05)
+        arc (105:75:3)
+        -- (start);
+    % Anchor points top:
+    \path (0,1.225) arc (60:120:3)
+        node[pos=0.25](top3){}
+        node[pos=0.50](top2){}
+        node[pos=0.75](top1){};
+    % Anchor points bottom:
+    \path (aa) ++(0,0.825) arc (75:105:3)
+        node[pos=0.25](bottom3){}
+        node[pos=0.50](bottom2){}
+        node[pos=0.75](bottom1){};
+    
+    \draw[DARCred, ultra thick, rounded corners]
+        (tx) -- (top1.center) -- (bottom1.center) -- (top2.center) -- (bottom3.center) -- (top3.center) -- (rx);
+    \draw(tx) node[antenna,scale=0.25,rotate=+20](ant1){};
+    \draw(rx) node[antenna,scale=0.25,rotate=-20](ant2){};
+    % Legend:
+    \draw[DARCblue](top2.north) node[anchor=south] {Couche d'inversion};
+    \draw[DARCblue](bottom2.south) node[anchor=north] {Couche d'inversion};
+    \path(top2) -- (bottom2) node[pos=0.5, DARCred](){Duct};
+\end{tikzpicture}

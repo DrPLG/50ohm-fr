@@ -1,0 +1,29 @@
+% Author: Florian Schmid DL1FLO
+% Year: 2023
+\begin{tikzpicture}
+    \tikzstyle{letter}=[minimum width=1cm*\getDarcImageFactor, minimum height=1cm]
+    \draw[DARCgreen] (0,0)     node(w)[letter, anchor=west] {\Huge W};
+    \draw[DARCgreen] (w.east)  node(z)[letter, anchor=west] {\Huge Z};
+    \draw[DARCred]   (z.east)  node(s)[letter, anchor=west] {\Huge 6};
+    \draw[DARCblue]  (s.east)  node(y)[letter, anchor=west] {\Huge Y};
+    %
+    \draw[DARCgreen] (w.south) node(d)[letter, anchor=north]{\Huge D};
+    \draw[DARCgreen] (d.east)  node(l)[letter, anchor=west] {\Huge L};
+    \draw[DARCred]   (l.east)  node(n)[letter, anchor=west] {\Huge 1};
+    \draw[DARCblue]  (n.east)  node(f)[letter, anchor=west] {\Huge F};
+    \draw[DARCblue]  (f.east)  node(m)[letter, anchor=west] {\Huge L};
+    \draw[DARCblue]  (m.east)  node(o)[letter, anchor=west] {\Huge O};
+    %
+    \draw[DARCgreen] (z.north) node(k)[letter, anchor=south]{\Huge K};
+    \draw[DARCred]   (k.east)  node(v)[letter, anchor=west]{\Huge 4};
+    \draw[DARCblue]  (v.east)  node(e)[letter, anchor=west]{\Huge E};
+    \draw[DARCblue]  (e.east)  node(a)[letter, anchor=west]{\Huge A};
+    \draw[DARCblue]  (a.east)  node(x)[letter, anchor=west]{\Huge X};
+    %
+    \draw (d.south) to [open, name={p}] (l.south);
+    \draw (f.south) to [open, name={s}] (o.south);
+    %
+    \draw[DARCgreen](p.center) node()[anchor=north]{Préfixe};
+    \draw[DARCred]  (n.south)  node()[anchor=north]{Numeral};
+    \draw[DARCblue] (s.center) node()[anchor=north]{Suffixe};
+\end{tikzpicture}

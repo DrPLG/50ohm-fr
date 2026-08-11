@@ -1,0 +1,32 @@
+%DL9MJ 2025
+\begin{circuitikz}
+    \node (c) [
+        thick,
+        cylinder,
+        shape border rotate=180,
+        draw, minimum height=6cm,
+        minimum width=2cm,
+        fill=white
+    ] {};
+    \draw(c.west-|c.before top)
+        to [short, *-] ++(0,2) coordinate(foo);
+    \draw(c.west)
+        node[anchor=east](){$-$};
+    \draw(c.east) 
+        to [short] ++(0,2)
+        to [battery2, v>={$U$}] (foo);
+    \draw(c.east)
+        node[anchor=west](){$+$};
+
+    \draw[-Triangle] (c.150 |-c.170) node[circle, draw=DARCblue, inner sep=0pt, anchor=east, minimum size=0.35cm*\getDarcImageFactor]() {\textcolor{DARCblue}{$e^-$}} -- ++(0.5,0);
+    \draw[-Triangle] (c.0  -| c.90 ) node[circle, draw=DARCblue, inner sep=0pt, anchor=east, minimum size=0.35cm*\getDarcImageFactor]() {\textcolor{DARCblue}{$e^-$}} -- ++(0.5,0);
+    \draw[-Triangle] (c.350-| c.330) node[circle, draw=DARCblue, inner sep=0pt, anchor=east, minimum size=0.35cm*\getDarcImageFactor]() {\textcolor{DARCblue}{$e^-$}} -- ++(0.5,0);
+    \draw[-Triangle] (c.60  |-c.170) node[circle, draw=DARCblue, inner sep=0pt, anchor=east, minimum size=0.35cm*\getDarcImageFactor]() {\textcolor{DARCblue}{$e^-$}} -- ++(0.5,0);
+    \draw[-Triangle] (c.130 |-c.190) node[circle, draw=DARCblue, inner sep=0pt, anchor=east, minimum size=0.35cm*\getDarcImageFactor]() {\textcolor{DARCblue}{$e^-$}} -- ++(0.5,0);
+
+    \draw(c.south) ++(0,-0.5) node[](ps){Sens physique du courant};
+    \draw[-Triangle] (ps.east)  -- ++(0.5,0);
+
+    \draw(ps.south) ++(0,-0.25) node[](ts){Sens conventionnel du courant};
+    \draw[-Triangle] (ts.west)  -- ++(-0.5,0);
+\end{circuitikz}

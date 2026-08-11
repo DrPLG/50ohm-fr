@@ -1,0 +1,13 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{circuitikz}
+    \draw(0,0)
+        to [short, o-*] ++(0.5,0) coordinate(x1)
+        to [C, -*] ++(2,0) coordinate(x2)
+        to [european resistor, l=$R_\mathrm{ESR}$] ++(2,0) coordinate(x3)
+        to [american inductor, -o, l={$L_\mathrm{ESL}$}] ++(2,0) coordinate(x4);
+    \draw(x1)
+        to [short] ++(0,1)
+        to [european resistor, l=$R_\mathrm{isol}$] ++(2,0) 
+        to [short] (x2);
+\end{circuitikz}

@@ -1,0 +1,13 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2021
+\begin{circuitikz}
+    % Anpassteur:
+    \draw(0,0) node[tlground]{}
+        to [twoport, name=ag, -*] ++(0,2)  coordinate(feed);
+    \draw[very thick] (feed) to [short] ++(5,0) coordinate(end);
+    \draw (ag) node[above](){\tiny Adapta-};
+    \draw (ag) node[below](){\tiny teur};
+    \draw(ag.north) -- ++(-0.5,0) node[bnc]{};
+
+    \DARCmeasure{feed}{end}{0,0.5}{0}{$\frac{\lambda}{2}$}
+\end{circuitikz}

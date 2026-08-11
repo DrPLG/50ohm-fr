@@ -1,0 +1,28 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2025
+\begin{circuitikz}
+    \draw(0,0) 
+        to [short, -*] ++(1,0) coordinate(x1)
+        to [short] ++(0.5,0) coordinate(i1)
+        to [short, -o] ++(0.5,0) 
+        to [short, i=I] ++(1,0)
+        to [R, l={$R_L$}] ++(0,-2)
+        to [short, -o] ++(-1,0) coordinate(i2)
+        to [short] ++(-0.5,0) 
+        to [short, -*] ++(-0.5,0) coordinate(x2)
+        to [short] ++(-1,0)
+        to [european current source, name={sq}] (0,0);
+    \draw(x1) to [R, l={$R_i$}] (x2);
+    \draw (sq.north) node[anchor=east](uq){$I_q$};
+    \begin{scope}[on background layer]
+        \draw[dashed, DARCblue, fill=DARCblue!20](i1)
+            -- ++(0,0.25)
+            -| (uq.west)
+            -- (uq.west|-x2)
+            -- ++(0,-0.25) coordinate(h1)
+            -- (h1-|i1) coordinate(h2)
+            -- (i1);
+        \draw(h1) to [open, name={h3}] (h2);
+        \draw[DARCblue](h3.center) node[anchor=north]{Source de courant réelle};
+    \end{scope} 
+\end{circuitikz}

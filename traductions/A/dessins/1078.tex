@@ -1,0 +1,38 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{tikzpicture}
+    \pgfplotsset{samples=300}
+    \begin{axis}[
+        ymin = 0.5,
+        ymax = 1.5,
+        xmin = 10,
+        xmax = 100,
+        xmode = log,
+        log ticks with fixed point,
+        domain = 10:100,
+        xtick = {10,30,50,77,100},
+        grid=both,
+        xlabel = {Wellenwiderstand $Z_0$ in $\unit{\ohm}$ (log)},
+        ylabel = {Valeur normalisée},
+        thick,
+        smooth,
+        no markers,
+        legend pos=north east,
+    ]
+
+        % Normierte Leistungsübertragung / Leistungsbelastbarkeit
+        % Maximum bei ca. 30 Ohm
+        \addplot+[ultra thick, DARCred] {
+            (x/30) * exp(1 - x/30)
+        };
+        \addlegendentry{Leistung}
+
+        % Normierte Dämpfung
+        % Näherungsweise Minimum bei ca. 77 Ohm
+        \addplot+[ultra thick, DARCblue] {
+            ((exp(x/60) + 1)/x) / ((exp(77/60) + 1)/77)
+        };
+        \addlegendentry{Dämpfung}
+
+    \end{axis}
+\end{tikzpicture}

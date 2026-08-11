@@ -1,0 +1,11 @@
+% Author: Dr. Matthias Jung
+% Year: 2022
+\begin{tikzpicture}
+    \draw(0,0) node[trxshape](trx){};
+    \draw(trx.east)
+        to [short, l={Câble}] ++(2.5,0)
+        to [short] ++(0,1.5) 
+        node[bareantenna](ant){};
+    \draw(trx.north) node[above]{Émetteur-récepteur};
+    \draw(ant.top) node[above]{Antenne};
+\end{tikzpicture}

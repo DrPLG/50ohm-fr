@@ -1,0 +1,23 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2025
+\begin{circuitikz}
+    \draw(0,0) coordinate(start)
+        to [short, o-] ++(1,0) coordinate(i1)
+        to [short, -*] ++(1,0) coordinate(x1)
+        to [short] ++(1,0) coordinate(i2)
+        to [rmeter, t=V] ++(0,-1) coordinate(x2)
+        to [short, -*] (x2-|x1) coordinate(x3)
+        to [short, -o] (x3-|start);
+    \draw(x1)
+        to [european resistor, l=$R_i$, name={r1}, i={$I$}] (x3);
+    \begin{scope}[on background layer]
+        \draw[dashed, DARCblue, fill=DARCblue!20](i1)
+            -- ++(0,0.25) coordinate(h1)
+            -- (h1-|i2) coordinate(i3) 
+            -- ++(0.5,0) coordinate(h2)
+            -- (h2|-x2)
+            -- ++(0,-0.25) coordinate(h3)
+            -- (h3-|i1) node[midway, below](){Voltmètre réel}
+            -- cycle;
+    \end{scope} 
+\end{circuitikz}

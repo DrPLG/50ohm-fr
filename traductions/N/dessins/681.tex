@@ -1,0 +1,37 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+    \tikzset{
+        buffer/.style={
+            draw,
+            very thick,
+            shape border rotate=0,
+            regular polygon,
+            regular polygon sides=3,
+            fill=DARCred,
+            minimum height=4em,
+            rounded corners = 4pt
+        }
+    }
+    \draw[DARCred](0,0) node[ground, color=DARCred](gnd){};
+    \draw(gnd) -- ++(-2,0);
+    \draw[DARCred](gnd) to [short, i<={~}, color=DARCred] ++( 2,0) coordinate(b1);
+    \draw(b1) -- ++(1,0) coordinate(b2) -- ++(1,0) to [short, -o] ++(0.5,0) coordinate(gnd2);
+    \draw[thick, DARCred](b1) to [short, i<={~}, color=DARCred] ++(0.5,1) coordinate(geschlechtsteil);
+    \draw[thick](b2) -- (geschlechtsteil);
+    \draw[thick, DARCred](geschlechtsteil) to [short, i<={~}, color=DARCred] ++(0,1) coordinate(hals);
+    \draw[thick, DARCred](hals) to [short, i<={\qty{120}{\milli\ampere}}, color=DARCred] ++( 0.5,-1) coordinate(h1);
+    \draw[thick](hals) -- ++(-0.5,-1) coordinate(h2);
+    \draw[thick](hals) to [open] ++(0,0.5) circle (0.5);
+    \draw[thick](hals) to [open] ++(0,0.25) arc (90:55:0.45);
+    \draw[thick](hals) to [open] ++(0,0.25) arc (90:125:0.45);
+    \draw[thick](hals) to [open, -*] ++(-0.2,0.65);
+    \draw[thick](hals) to [open, -*] ++(+0.2,0.65);
+    \draw(h1) to [short, *-o] ++(1.5,0) coordinate(end);
+    \draw(end) to [open, v={~}, name={h1}, voltage=straight] (gnd2);
+    \draw(h1.center) node[left](){\textdirectcurrent\,\qty{120}{V}};
+    \draw(h2) node[anchor=east](){$\sim\qty{1}{\kilo\ohm}$};
+    \draw(gnd) ++(0,2.5) node[buffer](sign){};
+    \draw(sign) node[](){\textbf{!}};
+    \draw[DARCred](sign.south) node[anchor=north](){Danger de mort};
+\end{tikzpicture}

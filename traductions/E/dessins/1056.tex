@@ -1,0 +1,37 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    \begin{scope}
+        \draw[-Triangle](0.0,0.0) -- (3.5,0.0)  node[right]{$f$};
+        \draw[-Triangle](0.0,0.0) -- (0.0,1.75) node[above left, rotate=90] () {Puissance};
+        \draw[DARCblue, very thick] (1.0,0.0) coordinate(c1) -- ++ (0,1.25);
+        \draw(c1) node[anchor=north]{$\qty{1}{\kilo\hertz}$};
+        %
+        \draw[-Triangle, DARCblue] (4,0.75) -- ++(1,0);  
+        \draw[DARCblue] (4.5,1.25) node [](){USB};
+        %
+        \draw[-Triangle](5.5,0.0) -- ++(5.0,0.0) node[anchor=west] () {$f$};
+        \draw[-Triangle](5.5,0.0) -- ++(0.0,1.75);
+        \draw[DARCblue, very thick] (5.5+3.5,0.0) coordinate(c2) -- ++ (0,1.25) coordinate(f1);
+        \draw[DARCblue] (f1) node[anchor=south]{$\qty{7,101}{\mega\hertz}$};
+        \draw[dashed] (5.5+2.5,0.0) coordinate(c3) -- ++ (0,1.25) coordinate(f2);
+        \draw(c3) node[anchor=north] () {$f_\mathrm{T}=\qty{7,100}{\mega\hertz}$};
+    \end{scope}
+    %
+    \begin{scope}[yshift=-3cm]
+        \draw[-Triangle](0.0,0.0) -- (3.5,0.0)  node[right]{$f$};
+        \draw[-Triangle](0.0,0.0) -- (0.0,1.75) node[above left, rotate=90] () {Puissance};
+        \draw[DARCblue, very thick] (1.0,0.0) coordinate(c1) -- ++ (0,1.25);
+        \draw(c1) node[anchor=north]{$\qty{1}{\kilo\hertz}$};
+        %
+        \draw[-Triangle, DARCblue] (4,0.75) -- ++(1,0);  
+        \draw[DARCblue] (4.5,1.25) node [](){LSB};
+        %
+        \draw[-Triangle](5.5,0.0) -- ++(5.0,0.0) node[anchor=west] () {$f$};
+        \draw[-Triangle](5.5,0.0) -- ++(0.0,1.75);
+        \draw[DARCblue, very thick] (5.5+1.5,0.0) coordinate(c2) -- ++ (0,1.25) coordinate(f1);
+        \draw[DARCblue] (f1) node[anchor=south]{$\qty{7,099}{\mega\hertz}$};
+        \draw[dashed] (5.5+2.5,0.0) coordinate(c3) -- ++ (0,1.25) coordinate(f2);
+        \draw(c3) node[anchor=north] () {$f_\mathrm{T}=\qty{7,100}{\mega\hertz}$};
+    \end{scope}
+\end{circuitikz}

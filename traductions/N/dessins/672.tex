@@ -1,0 +1,20 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw[dashed] (0,0) -- (-1.0,0);
+    \draw[>=triangle 60, ->] (0,0) 
+        -- ++(2,0) coordinate(c1)
+        -- ++(3,0) coordinate(c2)
+        -- ++(2,0) 
+        node[anchor=west](){$f$};
+    \draw(c1) -- ++(0,-0.25)
+        node[anchor=north](n1){\qty{28,410}{\mega\hertz}};
+    \draw(c2) -- ++(0,-0.25)
+        node[anchor=north](n2){\qty{28,415}{\mega\hertz}};
+    \draw(c1) -- ++(0,+0.25)
+        node[anchor=south, align=center](n3){Station\\recherchée};
+    \draw(c2) -- ++(0,+0.25)
+        node[anchor=south, align=center](n4){Fréquence\\d'écoute};
+    \draw [decorate, decoration = {brace}] (n2.south) -- (n1.south)
+    node[pos=0.5, above=-0.55, black]{\qty{5}{\kilo\hertz}};
+\end{circuitikz}

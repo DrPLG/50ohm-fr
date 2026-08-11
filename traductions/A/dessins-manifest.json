@@ -1,0 +1,272 @@
+{
+  "1000": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "c0255c30d4794ea0dcd0650bb838a1edfaaca1c313cd4ba0a4677d0459846b04"
+  },
+  "1002": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "6da1d3457a5ca73db53af010563f67a934276bf42c71666e00b0a5fb019dc453"
+  },
+  "1003": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "8cf2fabe95526bb7a80f8c8c4b92585a0b9fc68a5a4434ff73562879780f1b4f"
+  },
+  "1004": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "617680ebcd0f9e204419b15f28385d17142c1f767c8e4cd9eea2e3621efe48a3"
+  },
+  "1005": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "07f6015964c0f897f6162b649c1bccbb4715110c80f3e5e05c8cf11f255cad33"
+  },
+  "1007": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "c78170bb66cf8ab757a307852a318cce3bd98e94a72002e7723dcdf7c89bda64"
+  },
+  "1018": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "31f92884ab36c872d95434c858bfcf39a777ab91fa3236381ca2b916adfe46c1"
+  },
+  "1058": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f1ad7b1d8f456a876cd8941b77717652803c9e68111cca0071208c515e97aa55"
+  },
+  "1065": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "a030f328a2f97bd60b992e87b0b20cd8fbd264ebf570931879b7cd8e1a1eba0e"
+  },
+  "1071": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "9fe8d635e0cb75f24c743836611d8c680beea2d4722cc6335bfd338db2143ddb"
+  },
+  "1072": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "a0eb2921e165f6a3fafcdfe1dc559e2a9eae16e9355eeb132b54b76384899cbc"
+  },
+  "1073": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f6d7c6a017b34eae3adfbf68b2a82f5bf6b968870545465c320a82a5a2ae90d8"
+  },
+  "1074": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f4ad3d6eb282c925e83646d8f603cedfa3f50b52d6b615e791737d813230cb5f"
+  },
+  "1075": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f01192947e69752edfa65cd41d7c0768d6180d14bb87b7c42eae68b4aae2ed5b"
+  },
+  "1078": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "6025dcecfeee3a9c93e1a7c5349b862d20904977279b2305885b516ff73a66af"
+  },
+  "1082": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "8b79dc541a1a14e8317c4c28867b4d0dc6ec50502c45dc0c6bd88355a3b30f9a"
+  },
+  "1095": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "3d40052f33f8cf24a8de76f5f570b82615ee69ab30f11bb98ef2420d485944ef"
+  },
+  "1096": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "15aed9159a01310835b655456bde291a5fc5302c5032090596129e93d8dcfac7"
+  },
+  "1097": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f614ca8088c3694dd62b0c7933cde531622700bb678ee9d6c39ebc60e6ee77df"
+  },
+  "1113": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "c9bf0f018b5efbf474d442ec9689f4545bc433dc0c3824a9ea0f90a533aaa73e"
+  },
+  "1114": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "5ceffddc1a20a879e9299dec6046221dc4f1a02a857888ead32ca25de02d954e"
+  },
+  "1115": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "1462f4c725ce6e44cd391884145481dce3d1eeadcca612b0a01b3a2a1beddf3b"
+  },
+  "1116": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "2db4cbba7e268933ba21724031f67bffec6ecc8916bb5eea7885888a5ce00d41"
+  },
+  "1117": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "5760e3840450e4b8eba87958c385fc841b009887bcfe86f4efe0dd089177cfbc"
+  },
+  "1118": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "cada1668a365f59c495557f5a6ff9f7e238316929716de709ff3db7eed04caaa"
+  },
+  "1119": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "86f14ea7de156a134d59622bffa81f193bef99171583bbf6205166ba8dd7924f"
+  },
+  "1120": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "d856bda56ccb8560c0c2d720f38c3c60da603b597bc38b26a1a87d3f04ddb8b4"
+  },
+  "153": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "b6f816d41a50c2fde943e814c9fcf8ad2316a973b4cd2cc57fd83840db079300"
+  },
+  "341": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "b01ce3308af4cbc35b217db766535fedf4d2f4002a52e06ceaab882b2d687356"
+  },
+  "342": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "6a2dcdf2774dc9397eeee14ff19eb9c91ee79733e62a60255c931ce58ef6b167"
+  },
+  "354": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "c04a88e6cccb4448b8233eaea00c4396fa065d2cbf69625ebd74ce1da55ca756"
+  },
+  "45": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "87b51c976821e27a703b702264f6e0375af461cb5a013429e67f17bfb3e67143"
+  },
+  "501": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "cc42adff7b443f5f6f763404c05566fb8bbb8bb59b7b77507ed67e15afbd1f7f"
+  },
+  "674": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "34d330fe6fe6acabc475c1837ee609f7344344387bcc196ce6258184081350ab"
+  },
+  "675": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "000d90c21a06bffe2488a3a19ccf67b827e1fbdc6d4b32682165474be95e1e70"
+  },
+  "676": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "41befcb9d200eeda1643519213266cd4dccfdcddb0d6d5ee7b9e0481ec9a0363"
+  },
+  "733": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "293da1964ed8005461c9adac7d76c359eab93c5d04fabdb21b9f8f26434f6156"
+  },
+  "737": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "c5cdd4783ac09c6a1b1f000afb0c82d0724572d505a1ea5f339a96b96b95c967"
+  },
+  "810": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "8eb8b4f1be036470ca3a07c06b74f7a789a0462c197311330f81bae2d7c73a42"
+  },
+  "828": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "dfe30a6cb0fa41b69b6beba243e3b0703249149a3a112b0f7209935ff3960235"
+  },
+  "85": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "8fb067c72072421035ce494acbbf36558cb7783a99dca7e89537e4b31dcfb4ec"
+  },
+  "851": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "5c3fbd2ee46c8bafb92fb689cd44c02ae10af117b55bcebc7fc07c1f4679e1c3"
+  },
+  "852": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "65c5c8234294bb7c0edcaa0b0259b2b0c2fff07c70ab34955f19a9ec5c86c94e"
+  },
+  "867": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "d5753af52937b04f3db7a40ff869f8448b676adde43ffdaef3b23cbd6db3f8b2"
+  },
+  "870": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "87531e63c820f02c4ce0fe97afaca369d4e3488973423d7e80bbaa2da20809fa"
+  },
+  "872": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "48e1ec49555a2cca496ff69961189e3487beca3183388851ac89053a295cdc41"
+  },
+  "874": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "9d6119531eb2defa39b1fe6b57cca670e918b69642d4bdc3cd608ee3edaedeeb"
+  },
+  "878": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "fd8f5f797aaa7ec96c82e7347be27c7ada540585f700a7315be7f223bba55f61"
+  },
+  "937": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "fc96f381e9c4a8f1fb53ac213eea95e9392f400662906d15325b1ecfb3729993"
+  },
+  "940": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "671a42ddc1624c6a68ca2c4cd9fb705f31b5d3e1476292ccce4195e09fcdc78b"
+  },
+  "941": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "f56443f32cb20419a39ca0fd9a7f414f0857e6fffa52c7a1a98473df031f948a"
+  },
+  "958": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "841fc1ec2e00b2c1d1f3a2be494fdabb5640e71d89186b80b098a90dc0751ba1"
+  },
+  "987": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "a17d791a8550481fa89861d04e156be7db33d78e9891f4ebb27f80c6b2fb284d"
+  },
+  "988": {
+    "date_fork": "2026-08-11",
+    "note": "fork initial (session 2026-08-11)",
+    "sha256_amont": "65bb6ad719ca6f483c5d6a9126f86dab536f8eaa3ea6a8f394bbd74800802c52"
+  }
+}

@@ -1,0 +1,81 @@
+% Author: Dr. Matthias Jung, DL9MJ 
+% Year: 2022
+\begin{tikzpicture}[rotate=90]
+    %Create shade from 380 nm to 780 nm 
+    \pgfspectraplotshade{myPlotShadeA}
+
+    % Dashed Lines
+    \draw[dashed, gray] (8.38,0) -- (0.5,3);
+    \draw[dashed, gray] (8.78,0) -- (20.5,3);
+
+    % Lambda Skala:
+    \draw[>=triangle 60, ->](-0.5,0) -- ++(22.0,0) coordinate(c1);
+    \draw(c1) ++ (0.5,0) node(){$\lambda$~[m]};
+
+    \foreach \x [evaluate={\i=int(\x+15)}] in {-15,...,6}{
+        \draw (\i,-0.15) -- (\i,0.15) coordinate(c2);
+        \draw[gray](c2) ++ (0,0.35) node[rotate=-90](){$10^{\x}$};
+    }
+
+    % Beschriftung Lambda:
+    \draw(0,1) node[rotate=-90](){\SI{1}{\femto\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\pico\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\nano\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\micro\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\milli\metre}}
+       ++(1,0) node[rotate=-90](){\SI{1}{\centi\metre}}
+       ++(2,0) node[rotate=-90](){\SI{1}{\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\kilo\metre}}
+       ++(3,0) node[rotate=-90](){\SI{1}{\mega\metre}};
+
+    % Hintergrund zur Berechnung: 
+    % c = \lambda \cdot f    
+    % f = \frac{c}{\lambda}    | log(...)
+    % log(f) = log(c) - log(\lambda)
+    % log(c=299792458) = 8.47682070293
+    % 1-0.47682070293 = 0.52317929707
+
+    % Frequency Skala:   
+    \draw[Triangle-](-0.5,-2) coordinate(c3) -- ++(22.0,0);
+    \draw(c3) ++ (-0.5,0) node(){$f$~[\SI{}{\hertz}]};
+
+    \foreach \x [evaluate={\i=int(\x+15);\exp=int(8-\x)}] in {-15,...,6}{
+        \draw (\i+0.52317929707,-2.15) -- (\i+0.52317929707,-1.85) coordinate(c5);
+        \draw[gray](c5) ++ (0,-0.65) node[rotate=-90](){$10^{\exp}$};
+    }
+
+    % Beschriftung Lambda:
+    \draw(2+0.52317929707,-3) node[rotate=-90](){\SI{1}{\zetta\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\exa\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\peta\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\tera\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\giga\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\mega\hertz}}
+        ++(3,0) node[rotate=-90](){\SI{1}{\kilo\hertz}};
+
+    %Create shade from 380 nm to 780 nm 
+    \fill[shading=myPlotShadeA, shading angle=+90] (8.38,0) rectangle (8.78,-2);
+
+    % Begriffe
+    \draw( 1.00,-0.75) node[fill=white,rotate=-90](){\small Rayonnement cosmique};
+    \draw( 2.50,-1.25) node[fill=white,rotate=-90](){\small Rayons gamma};
+    \draw( 5.00,-0.75) node[fill=white,rotate=-90](){\small Rayons X};
+    \draw( 7.50,-1.50) node[fill=white,rotate=-90](){\small Ultraviolet};
+    \draw( 8.60,-1.00) node[fill=white,rotate=-90](){\small Lumière};
+    \draw( 9.75,-0.50) node[fill=white,rotate=-90](){\small Infrarouge};
+    \draw(11.00,-1.00) node[fill=white,rotate=-90](){\small Rayonnement térahertz};
+    \draw(12.50,-0.50) node[fill=white,rotate=-90](){\small Radar};
+    \draw(13.25,-1.50) node[fill=white,rotate=-90](){\small Rayonnement micro-ondes};
+    \draw(16.50,-1.00) node[fill=white,rotate=-90](){\small Ondes radio};
+    \draw(20.50,-1.00) node[fill=white,rotate=-90](){\small Courants alternatifs};
+
+    \draw[-Triangle](-0.5,3) -- ++(22.0,0) coordinate(c6);
+    \draw(c1) ++ (0.6,3) node(){$\lambda$~[\SI{}{\nano\metre}]};
+    \fill[shading=myPlotShadeA, shading angle=+90] (0.5,3.5) rectangle (20.5,4.0);
+
+    \foreach \x [evaluate={\i=int(380+\x*20)}] in {0,...,20}{
+        \draw (\x+0.5,3.15) -- (\x+0.5,2.85) coordinate(c7);
+        \draw(c7) ++ (0,-0.35) node(){$\i$};
+    }
+
+\end{tikzpicture}

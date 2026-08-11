@@ -1,0 +1,61 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{circuitikz}
+    \ctikzset{
+        resistors/scale=\getDarcImageFactor,
+        capacitors/scale=\getDarcImageFactor,
+        inductors/scale=\getDarcImageFactor,
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+        switches/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw(0,0)
+        node[antenna]{} coordinate(f0);
+    \draw[DARCblue] (f0)
+        to [amp, box, >, l_=HF, name={amp1}, DARCblue] ++ (2,0) coordinate(f1);
+    \draw(f1)
+        node[inputarrow](){}
+        node[mixer, box, anchor=west, DARCred] (mix1) {};
+    \draw[DARCblue](mix1.east)
+        to [amp, box, >, l_=1.ZF, name={amp2}] ++ (2,0) coordinate(f3);
+    \draw(f3)
+        node[inputarrow](){}
+        node[mixer, box, anchor=west, DARCred] (mix2) {};
+    \draw[DARCblue](mix2.east)
+        to [amp, box, >, l_=2.ZF, name={amp3}] ++ (2,0) coordinate(f4);
+    \draw(f4)
+        node[inputarrow](){}
+        node[mixer, box, anchor=west, DARCred](mix3){};
+    \draw[DARCblue](mix3.east)
+        to [amp, box, >, l_=NF, name={amp4}] ++ (2,0) coordinate(f5);
+    \draw(f5)
+        node[inputarrow](){}
+        node[loudspeakershape, anchor=south, rotate=-90](L){};
+
+    \draw(mix1.south) node[inputarrow, rotate=90] {} 
+        to [short] ++(0,-1)
+        node [vallpassshape, anchor=north](x){};
+
+    \draw(mix2.south) node[inputarrow, rotate=90] {} 
+        to [short] ++(0,-1)
+        node [qgeneratorshape, t={G}, anchor=north](y){};
+
+    \draw(mix3.south) node[inputarrow, rotate=90] {} 
+        to [short] ++(0,-1)
+        node [allpassshape, anchor=north](z){};
+
+    \draw[DARCorange](mix3.north) to [short] ++(0,1) coordinate(e1);
+    \draw[DARCorange](e1) -| (amp3.north) node[inputarrow,rotate=-90, DARCorange](){};
+    \draw[DARCorange](e1-|amp3.north) node[circ, DARCorange](tops){} -| (amp2.north) node[inputarrow,rotate=-90, DARCorange](){};
+    \draw[DARCorange](e1-|amp2.north) node[circ, DARCorange](){} -| (amp1.north) node[inputarrow,rotate=-90, DARCorange](){};
+    \draw[DARCorange](tops) node[anchor=south](){AGC};
+
+    %\draw(x.east) node[anchor=west](){X};
+    %\draw(y.east) node[anchor=west](){Y};
+    %\draw(z.east) node[anchor=west](e){Z};
+
+    \draw[DARCred](mix1.north) node[anchor=south](){1. Mischer};
+    \draw[DARCred](mix2.north) node[anchor=south](){2. Mischer};
+    \draw[DARCred](mix3.north) node[anchor=south west](){Détecteur de produit};
+\end{circuitikz}

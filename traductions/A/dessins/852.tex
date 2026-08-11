@@ -1,0 +1,32 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{circuitikz}
+    % Anpassteur:
+    \draw(0,0) node[ground, anchor=north](gnd){};
+    \draw(gnd) node[twoportshape, anchor=south](ag){};
+    \draw[very thick] (ag.east) coordinate(feed)
+        to [short] ++(5/8,0) coordinate(f1)
+        to [short] ++(5/8,0) coordinate(f2)
+        to [short] ++(5/8,0) coordinate(f3)
+        to [short] ++(5/8,0) coordinate(mid)
+        to [short] ++(5/8,0) coordinate(e3)
+        to [short] ++(5/8,0) coordinate(e2)
+        to [short] ++(5/8,0) coordinate(e1)
+        to [short] ++(5/8,0) coordinate(end);
+    \draw (ag) node[above](){\tiny Adapta-};
+    \draw (ag) node[below](){\tiny teur};
+    \draw (ag.west) -- ++(-0.5,0) node[bnc]{};
+    %
+    \draw[thick, DARCblue](f1) sin ++(-5/8,-0.75);
+    \draw[thick, DARCblue](f1)  
+        sin ++(+5/8,+0.75)
+        cos ++(+5/8,-0.75)
+        sin ++(+5/8,-0.75)
+        cos ++(+5/8,+0.75)
+        sin ++(+5/8,+0.75)
+        cos ++(+5/8,-0.75)
+        sin ++(+5/8,-0.75);
+    \draw[DARCblue] (mid) node[anchor=north](){$U$};
+
+    \DARCmeasure{feed}{end}{0,1.25}{0}{$2\cdot\lambda$}
+\end{circuitikz}
