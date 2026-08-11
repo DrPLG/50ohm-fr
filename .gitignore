@@ -96,3 +96,7 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+
+# --- Instructions de session (locales uniquement, jamais publiées) --------
+CLAUDE.md
