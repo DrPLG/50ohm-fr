@@ -1,0 +1,93 @@
+NOTICE — Attribution et mentions légales
+========================================
+
+Ce fichier satisfait aux obligations d'attribution de la licence
+Creative Commons Attribution 4.0 International (CC BY 4.0), applicable à
+l'œuvre d'origine comme à la présente œuvre dérivée.
+
+
+1. ŒUVRE D'ORIGINE
+------------------
+
+Titre        : 50ohm.de — Ausbildungsmaterialien für den Amateurfunk
+Auteurs      : 50ohm.de-Autorenteam, coordonné par le référat AJW
+               du DARC e. V. (Deutscher Amateur-Radio-Club e. V.)
+Source       : https://50ohm.de
+               https://github.com/DARC-e-V/50ohm-contents-dl
+Licence      : CC BY 4.0
+               https://creativecommons.org/licenses/by/4.0/
+
+Le générateur de documents provient d'un dépôt distinct :
+               https://github.com/DARC-e-V/50ohm
+
+
+2. ŒUVRE DÉRIVÉE
+----------------
+
+Titre        : 50ohm-fr — Préparation à l'examen radioamateur allemand,
+               en français
+Auteur       : Pierre, indicatif F4JWI
+Source       : https://github.com/DrPLG/50ohm-fr
+Licence      : CC BY 4.0 (identique à l'œuvre d'origine)
+
+
+3. MODIFICATIONS APPORTÉES
+--------------------------
+
+Conformément à l'article 3.a.1.B de la licence, les modifications suivantes
+sont signalées :
+
+  a. Traduction en français de l'intégralité des sections pédagogiques des
+     classes N, E et A (387 sections), ainsi que des titres de chapitres,
+     des titres de sections et des résumés.
+
+  b. Traduction en français des questions de l'examen officiel de la BNetzA
+     (1 750 questions). Les questions traduites sont fournies à titre d'aide
+     à la compréhension ; seule la version allemande publiée par la BNetzA
+     fait foi lors de l'examen.
+
+  c. Ajout d'encarts intitulés « En France », signalant les différences entre
+     la réglementation allemande exposée dans le texte et la réglementation
+     française en vigueur (66 encarts au total). Ces compléments s'ajoutent au
+     texte d'origine : aucun passage du contenu allemand n'a été retiré,
+     réécrit ni corrigé.
+
+  d. Francisation des indices et notations dans les formules du corps du
+     texte.
+
+  e. Mise en page en volume relié (format A4, une colonne, colonne de marge),
+     distincte de la présentation web d'origine, au moyen d'un générateur
+     LaTeX écrit pour ce projet.
+
+  f. Adaptation des éléments interactifs du site, sans équivalent imprimé, en
+     renvois vers 50ohm.de.
+
+Les défauts constatés dans les sources allemandes ont été PRÉSERVÉS à
+l'identique et consignés dans docs/defauts-amont.md, afin d'être signalés au
+DARC. Ils n'ont pas été corrigés dans l'œuvre dérivée.
+
+Les fichiers sources du dépôt amont n'ont fait l'objet d'aucune modification.
+
+
+4. AVERTISSEMENT SUR LES CONTENUS RÉGLEMENTAIRES FRANÇAIS
+---------------------------------------------------------
+
+Les encarts « En France » sont rédigés exclusivement à partir des textes
+officiels en vigueur (Légifrance, ARCEP). Ils sont fournis à titre
+d'information et n'ont aucune valeur juridique. Ils ne constituent pas une
+préparation à l'examen français délivré par l'ANFR.
+
+Aucun contenu n'a été repris de documentations radioamateur françaises
+existantes placées sous licence non compatible.
+
+
+5. MENTION D'ATTRIBUTION À REPRODUIRE
+-------------------------------------
+
+Toute réutilisation de cet ouvrage doit conserver la mention suivante :
+
+    D'après « 50ohm.de » du 50ohm.de-Autorenteam / DARC e. V.
+    (https://50ohm.de), sous licence CC BY 4.0.
+    Traduction française et compléments : Pierre F4JWI
+    (https://github.com/DrPLG/50ohm-fr), sous licence CC BY 4.0.
+    Œuvre modifiée.

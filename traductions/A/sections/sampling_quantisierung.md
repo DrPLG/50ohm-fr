@@ -1,0 +1,15 @@
+Comme expliqué dans les chapitres précédents, les signaux analogiques sont d'abord convertis en valeurs numériques par échantillonnage. Un signal analogique ne peut être mesuré (on dit aussi échantillonné) qu'à certains intervalles. Les valeurs échantillonnées ne représentent donc jamais qu'un état instantané à l'instant de l'échantillonnage, et le signal analogique peut, entre les différentes prises d'échantillons, varier arbitrairement au cours du temps. Comme les signaux analogiques ne possèdent pas de plus petite résolution temporelle et sont donc continus dans le temps, on les qualifie aussi de signaux à temps continu. Par opposition, on qualifie de signaux à temps discret les échantillons qui ne permettent qu'une résolution temporelle maximale et définie d'un signal, puisqu'il existe un intervalle temporel maximal possible et définissable (donc discret) entre les différentes valeurs mesurées.
+
+<indepth>
+[include:quantisierung_und_sampling]
+</indepth>
+
+[question:AF601]
+[question:AF603]
+
+Examinons encore le processus d'échantillonnage sous un autre angle. Les signaux analogiques peuvent prendre des valeurs de tension quelconques et varier entre celles-ci sans paliers intermédiaires. Comme ces variations peuvent, pour les signaux analogiques, être arbitrairement petites ou grandes, on qualifie cette propriété des signaux analogiques de continue en valeur. À l'inverse, lors de la numérisation d'un signal analogique, seuls des échelons limités sont disponibles pour représenter les valeurs de tension mesurées (p. ex. de $\num{-128}$ à $\num{+127}$, comme évoqué plus haut). C'est pourquoi on qualifie à cet égard les échantillons numériques de discrets en valeur, puisque seules certaines valeurs de tension, sous forme d'échelons de tension, sont disponibles lors de la mesure d'une valeur de signal analogique. Si donc, p. ex., une valeur de signal analogique se situe entre deux échelons de tension, le convertisseur A/N doit décider vers quelle valeur de signal la valeur mesurée penche le plus. Ce processus est appelé quantification. Le signal jusqu'alors continu est ici représenté sur un nombre fini de valeurs.
+
+Voici, pour illustrer, un exemple pratique fondé sur un variateur analogique et un commutateur à crans. Si un variateur est réalisé au moyen d'un circuit analogique, on peut régler la luminosité d'une lampe de façon aussi fine que l'on veut. À l'inverse, avec un commutateur à crans comportant p. ex. $\num{5}$ crans, on ne pourrait commuter la lampe que sur $\num{5}$ valeurs de luminosité — aucun niveau intermédiaire n'est possible ici. C'est pourquoi on qualifierait aussi ce commutateur à crans de discret en valeur. Si l'on essaie maintenant de reproduire, au moyen du commutateur à crans, les valeurs de luminosité réglées avec le variateur analogique, on est limité aux crans fixes imposés. On choisirait dans ce  cas le réglage le plus approprié sur le commutateur à crans et l'on procéderait ainsi à une quantification de la valeur de luminosité analogique.
+
+[question:AF602]
+[question:AF604]

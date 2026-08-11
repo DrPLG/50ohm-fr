@@ -1,0 +1,98 @@
+# ---------------------------------------------------------------------------
+# 50ohm-fr — fichiers exclus du dépôt
+#
+# Principe : on versionne la SOURCE de l'œuvre dérivée (sections traduites,
+# JSON de titres et de questions, générateur, documentation). Tout ce qui se
+# reconstruit par compilation reste hors du dépôt.
+# ---------------------------------------------------------------------------
+
+
+# --- Sortie du générateur --------------------------------------------------
+# build_book.py y recopie les fichiers LaTeX amont, y génère les sections .tex,
+# y crée les liens vers contents/photos et y compile. Rien n'y est source.
+build-book/
+build-book-*/
+out/
+
+
+# --- Jonctions de répertoire Windows ---------------------------------------
+# link_dir() crée foto, img/foto et photo pointant vers contents/photos
+# (près de 500 Mo). Git ne les traite PAS comme des liens : il suivrait le
+# contenu et l'embarquerait intégralement. Ces trois lignes sont un garde-fou
+# au cas où --output désignerait la racine du projet.
+/foto/
+/photo/
+/img/
+
+
+# --- Dépôts amont ----------------------------------------------------------
+# Les contenus du DARC et le générateur qui fournit le paquet « renderer » ne
+# sont pas notre œuvre et ne se versionnent pas ici. Le snapshot amont, s'il
+# est adopté, ira dans un emplacement dédié et devra être retiré de cette liste.
+50ohm/
+50ohm-main/
+50ohm-contents-dl/
+50ohm-contents-dl-main/
+/renderer/
+
+
+# --- Auxiliaires LaTeX -----------------------------------------------------
+*.aux
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+*.bbl
+*.blg
+
+
+# --- Dessins précompilés ---------------------------------------------------
+# Produits par precompile_drawing() à partir des sources amont.
+*include-fig.pdf
+*include-fig.tex
+
+
+# --- Documents compilés ----------------------------------------------------
+# Les PDF de livraison sont publiés dans les Releases, pas versionnés :
+# ils sont volumineux, binaires, et se régénèrent depuis les sources.
+*.pdf
+
+
+# --- Archives de transfert -------------------------------------------------
+*.zip
+*.tar.gz
+*.tgz
+
+
+# --- Python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+
+# --- Claude Code -----------------------------------------------------------
+# CLAUDE.md est versionné (c'est le contexte partagé du projet) ;
+# les réglages locaux ne le sont pas.
+.claude/settings.local.json
+.claude/*.local.*
+
+
+# --- Système et éditeurs ---------------------------------------------------
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

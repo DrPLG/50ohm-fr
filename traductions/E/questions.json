@@ -1,0 +1,2640 @@
+{
+ "EA110": {
+  "question": "4200000 Hz correspond à ..."
+ },
+ "EA109": {
+  "question": "0,042 A correspond à ..."
+ },
+ "EA108": {
+  "question": "0,00042 A correspond à ..."
+ },
+ "EA116": {
+  "question": "3750 kHz correspond à ..."
+ },
+ "EA114": {
+  "question": "$5 \\cdot 10^{-1}$ W correspond à ..."
+ },
+ "EA111": {
+  "question": "0,01 mV correspond à ..."
+ },
+ "EA112": {
+  "question": "0,002 MOhm correspond à ..."
+ },
+ "EA115": {
+  "question": "0,22 μF correspond à ..."
+ },
+ "EA113": {
+  "question": "$2\\cdot 10^{-7}$ W correspond à ..."
+ },
+ "EB314": {
+  "question": "À quelle fréquence $f$ correspond approximativement une longueur d'onde de 80,0 m en espace libre ?"
+ },
+ "EB315": {
+  "question": "Quelle fréquence correspond approximativement à une longueur d'onde $\\lambda$ de 30 mm en espace libre ?"
+ },
+ "EB316": {
+  "question": "Une longueur d'onde $\\lambda$ de 10 cm en espace libre correspond approximativement à une fréquence de ..."
+ },
+ "EB311": {
+  "question": "À quelle longueur d'onde $\\lambda$ correspond approximativement la fréquence de 1,84 MHz en espace libre ?"
+ },
+ "EB312": {
+  "question": "À quelle longueur d'onde $\\lambda$ correspond approximativement la fréquence $f$ = 21 MHz ?"
+ },
+ "EB313": {
+  "question": "À quelle longueur d'onde $\\lambda$ correspond approximativement la fréquence de 28,5 MHz en espace libre ?"
+ },
+ "EH101": {
+  "question": "Comment la propagation lointaine d'une onde radio se produit-elle sur les bandes des ondes courtes ? Elle se produit par la réfraction sur ...",
+  "answer_a": "des couches d'air électriquement chargées de l'ionosphère.",
+  "answer_b": "des zones de haute et de basse pression de la haute atmosphère.",
+  "answer_c": "les nuages de la basse atmosphère.",
+  "answer_d": "les éléments parasites d'une antenne directive."
+ },
+ "EH102": {
+  "question": "À quelle altitude se situent les régions ionosphériques importantes pour la propagation lointaine (DX) des ondes courtes ? Elles se situent à environ ...",
+  "answer_a": "130 à 450 km d'altitude.",
+  "answer_b": "50 à 90 km d'altitude.",
+  "answer_c": "90 à 130 km d'altitude.",
+  "answer_d": "130 à 200 km d'altitude."
+ },
+ "EH103": {
+  "question": "Quelle région ionosphérique permet pour l'essentiel les liaisons à grande distance dans le domaine des ondes courtes ?",
+  "answer_a": "Région F2",
+  "answer_b": "Région D",
+  "answer_c": "Région E",
+  "answer_d": "Région F1"
+ },
+ "EH104": {
+  "question": "Quelle région ionosphérique permet des liaisons DX dans la bande des 80 m durant la nuit ?",
+  "answer_a": "La région F2",
+  "answer_b": "La région E",
+  "answer_c": "La région D",
+  "answer_d": "La région F1"
+ },
+ "EH105": {
+  "question": "Quelle influence la région D a-t-elle sur la propagation lointaine ?",
+  "answer_a": "De jour, la région D provoque une forte atténuation dans les bandes des 80 et 160 m.",
+  "answer_b": "De jour, la région D réfléchit les ondes dans les bandes des 80 et 160 m.",
+  "answer_c": "De jour, la région D absorbe les ondes dans la bande des 10 m.",
+  "answer_d": "De nuit, la région D empêche la propagation lointaine dans les domaines des ondes longues, des ondes moyennes et du bas des ondes courtes."
+ },
+ "EH106": {
+  "question": "Quelle région ionosphérique procure occasionnellement, durant les mois d'été, une bonne propagation depuis le haut du domaine des ondes courtes jusque dans le domaine VHF ?",
+  "answer_a": "La région E",
+  "answer_b": "La région D",
+  "answer_c": "La région F1",
+  "answer_d": "La région F2"
+ },
+ "EH107": {
+  "question": "L'activité solaire obéit à un cycle régulier. Quelle est approximativement la durée de ce cycle ?",
+  "answer_a": "11 ans",
+  "answer_b": "6 mois",
+  "answer_c": "12 mois",
+  "answer_d": "7 ans"
+ },
+ "EH201": {
+  "question": "Par « zone de silence », on entend la zone ...",
+  "answer_a": "qui n'est plus atteinte par l'onde de sol et pas encore atteinte par l'onde d'espace.",
+  "answer_b": "qui est couverte par l'onde de sol, si bien que les stations DX plus faibles s'en trouvent masquées.",
+  "answer_c": "qui est atteinte par l'onde de sol et inaccessible à l'onde d'espace.",
+  "answer_d": "qui, du fait de la superposition de l'onde de sol et de l'onde d'espace, se trouve dans une zone d'annulation mutuelle."
+ },
+ "EH202": {
+  "question": "Que peut provoquer l'action conjointe de l'onde d'espace et de l'onde de sol ?",
+  "answer_a": "Des fluctuations d'intensité de champ (fading)",
+  "answer_b": "Un décalage de fréquence (effet Doppler)",
+  "answer_c": "Une rétrodiffusion (backscatter)",
+  "answer_d": "Du bruit (noise)"
+ },
+ "EH203": {
+  "question": "Comment appelle-t-on l'évanouissement de l'intensité de champ dû à la superposition de l'onde de sol et de l'onde d'espace ?",
+  "answer_a": "Fading",
+  "answer_b": "Backscatter",
+  "answer_c": "MUF",
+  "answer_d": "Effet Mögel-Dellinger"
+ },
+ "EH204": {
+  "question": "Que signifie la « MUF » dans la propagation des ondes courtes ?",
+  "answer_a": "Fréquence utilisable la plus élevée",
+  "answer_b": "Fréquence utilisable la plus basse",
+  "answer_c": "Fréquence limite critique",
+  "answer_d": "Fréquence utile moyenne"
+ },
+ "EH205": {
+  "question": "Quelle affirmation est exacte concernant le maximum de taches solaires ?",
+  "answer_a": "L'activité solaire est très élevée et conduit à une ionisation plus forte de la région F.",
+  "answer_b": "L'activité solaire est très élevée et conduit à une ionisation plus faible de la région F.",
+  "answer_c": "L'activité solaire diminue fortement et conduit à une ionisation plus forte de la région F.",
+  "answer_d": "L'activité solaire est très élevée la nuit et très faible le jour, et ne conduit donc à aucune ionisation de la région D."
+ },
+ "EH206": {
+  "question": "Une ionisation plus forte de la région F2 conduit à ...",
+  "answer_a": "une MUF plus élevée.",
+  "answer_b": "une absorption plus forte des fréquences élevées.",
+  "answer_c": "une MUF plus basse.",
+  "answer_d": "une plus grande transparence pour les fréquences élevées."
+ },
+ "EH207": {
+  "question": "Vous effectuez du trafic radio près de la fréquence la plus élevée actuellement utilisable (MUF). Pour pouvoir poursuivre le trafic sur des fréquences encore plus élevées, l'ionisation de la région réfractante doit ...",
+  "answer_a": "augmenter.",
+  "answer_b": "diminuer.",
+  "answer_c": "disparaître.",
+  "answer_d": "rester inchangée."
+ },
+ "EH208": {
+  "question": "Duquel des paramètres suivants dépend la distance de saut qu'un signal en ondes courtes peut franchir à la surface de la Terre ? Elle dépend ...",
+  "answer_a": "de l'angle de rayonnement de l'antenne.",
+  "answer_b": "de la polarisation de l'antenne.",
+  "answer_c": "de la puissance d'émission.",
+  "answer_d": "du gain de l'antenne."
+ },
+ "EH209": {
+  "question": "La fréquence utilisable la plus basse (LUF) pour une propagation par onde d'espace entre deux lieux dépend ...",
+  "answer_a": "du degré d'ionisation de la région D.",
+  "answer_b": "de l'angle de rayonnement de l'antenne.",
+  "answer_c": "du degré d'ionisation de la région E.",
+  "answer_d": "de la polarisation de l'antenne."
+ },
+ "EH210": {
+  "question": "Pourquoi les signaux des bandes des 160 et 80 m sont-ils faibles de jour et inadaptés au trafic radio mondial ? Ils sont inadaptés en raison de l'atténuation diurne dans la ...",
+  "answer_a": "région D.",
+  "answer_b": "région F1.",
+  "answer_c": "région F2.",
+  "answer_d": "région A."
+ },
+ "EH211": {
+  "question": "De jour, la propagation des ondes dans la bande des 160 m s'effectue principalement ...",
+  "answer_a": "par l'onde de sol, car, du fait de l'atténuation de la région D, aucune onde d'espace ne peut se former.",
+  "answer_b": "par l'onde d'espace, car la réfraction dans la région D est particulièrement forte pour les fréquences jusqu'à 2 MHz.",
+  "answer_c": "par l'onde d'espace et l'onde de sol, car pour les fréquences inférieures à 2 MHz il ne se produit qu'un faible déphasage entre l'onde réfléchie et l'onde directe.",
+  "answer_d": "par l'onde d'espace, car des réflexions peuvent se produire dans la troposphère, par inversions de température, pour les fréquences inférieures à 2 MHz."
+ },
+ "EH212": {
+  "question": "Laquelle des affirmations suivantes s'applique aux liaisons en ondes courtes s'effectuant par l'onde de sol ?",
+  "answer_a": "L'onde de sol suit la courbure de la Terre et porte au-delà de l'horizon géographique. Elle est plus fortement atténuée dans les domaines de fréquences élevés que dans les domaines de fréquences basses.",
+  "answer_b": "L'onde de sol suit la courbure de la Terre et ne porte pas au-delà de l'horizon géographique. Elle est plus fortement atténuée dans les domaines de fréquences élevés que dans les domaines de fréquences basses.",
+  "answer_c": "L'onde de sol suit la courbure de la Terre et porte au-delà de l'horizon géographique. Elle est plus fortement atténuée dans les domaines de fréquences basses que dans les domaines de fréquences élevés.",
+  "answer_d": "L'onde de sol suit la courbure de la Terre et ne porte pas au-delà de l'horizon géographique. Elle est plus fortement atténuée dans les domaines de fréquences basses que dans les domaines de fréquences élevés."
+ },
+ "EH213": {
+  "question": "Dans la propagation en ondes courtes, la « greyline » joue un rôle particulier. Qu'est-ce que la « greyline » ?",
+  "answer_a": "La zone du crépuscule autour du lever et du coucher du Soleil.",
+  "answer_b": "Les conditions de propagation instables dans la zone équatoriale.",
+  "answer_c": "La période offrant les meilleures possibilités de propagation « short skip ».",
+  "answer_d": "La période de transition avant et après l'hiver, pendant laquelle la région D se dissout puis se reforme."
+ },
+ "EH214": {
+  "question": "Une augmentation soudaine des intensités des rayonnements UV et X après un flare (éruption d'énergie sur le Soleil) conduit à une ionisation accrue de la région D, et donc à une interruption temporaire de la propagation par onde d'espace sur les ondes courtes. On appelle ce phénomène ...",
+  "answer_a": "effet Mögel-Dellinger.",
+  "answer_b": "propagation E sporadique.",
+  "answer_c": "évanouissement critique.",
+  "answer_d": "effet Aurora."
+ },
+ "EH215": {
+  "question": "Quel effet l'effet Mögel-Dellinger a-t-il sur la propagation des ondes courtes ?",
+  "answer_a": "L'interruption temporaire de la propagation par onde d'espace.",
+  "answer_b": "L'évanouissement temporaire par propagation à trajets multiples dans l'ionosphère.",
+  "answer_c": "La distorsion temporaire de la modulation.",
+  "answer_d": "La diaphonie de la modulation d'un émetteur puissant sur d'autres signaux HF transmis par l'ionosphère."
+ },
+ "EH216": {
+  "question": "Que signifie l'expression « trafic radio par le chemin long (long path) » ?",
+  "answer_a": "La liaison radio ne passe pas par le chemin direct vers la station correspondante, mais par la direction opposée au chemin le plus court.",
+  "answer_b": "Par de bonnes conditions de propagation, des réfractions multiples avec de nombreux sauts (hops) se produisent. Il est alors possible de franchir de très grandes distances — de « longs chemins ».",
+  "answer_c": "Par de bonnes conditions de propagation, des réfractions multiples avec de nombreux sauts (hops) se produisent. On entend alors ses propres signaux revenir avec retard dans le récepteur, comme un « écho ». Ils parcourent donc le « long chemin » : une fois le tour de la Terre.",
+  "answer_d": "Par de très bonnes conditions de propagation, les régions réfléchissantes se situent à haute altitude. Les distances de saut deviennent alors très grandes, au point de dépasser de plusieurs fois la portée de l'onde de sol. On peut alors parcourir un « très long chemin » en un seul saut."
+ },
+ "EH217": {
+  "question": "Que signifie l'affirmation selon laquelle un radioamateur en Allemagne a contacté « VK » par le « chemin long » ?",
+  "answer_a": "La liaison avec l'Australie s'est établie, en raison des conditions de propagation, par le chemin indirect et donc plus long, passant au-dessus de l'Amérique du Sud.",
+  "answer_b": "La liaison avec l'Australie s'est établie, en raison des conditions de propagation, par un long chemin direct passant au-dessus de l'Amérique du Sud.",
+  "answer_c": "La liaison avec l'Amérique du Sud s'est établie, en raison des conditions de propagation, par le chemin indirect et donc plus long, passant au-dessus de l'Australie.",
+  "answer_d": "La liaison avec l'Australie ne s'est établie, en raison des mauvaises conditions de propagation, qu'après une longue attente."
+ },
+ "EH218": {
+  "question": "Par « short skip », on entend des liaisons radio, en particulier dans la bande des 10 m, avec des distances de saut inférieures à 1000 km, qui ...",
+  "answer_a": "sont rendues possibles par la réfraction dans des régions E sporadiques.",
+  "answer_b": "sont rendues possibles, sous un angle de rayonnement approprié, par la réfraction dans la région F1.",
+  "answer_c": "sont rendues possibles, sous un angle de rayonnement approprié, par la réfraction dans la région F2.",
+  "answer_d": "sont rendues possibles par la réfraction dans la région D fortement ionisée."
+ },
+ "EH219": {
+  "question": "Quelle bande de fréquences peut être utilisée de jour, au maximum de taches solaires, pour des liaisons radio mondiales, même avec une faible puissance ?",
+  "answer_a": "La bande des 10 m",
+  "answer_b": "La bande des 2 m",
+  "answer_c": "La bande des 80 m",
+  "answer_d": "La bande des 160 m"
+ },
+ "EH301": {
+  "question": "Qu'est-ce que la « troposphère » ? La troposphère est la partie de l'atmosphère ...",
+  "answer_a": "dans laquelle se déroulent les phénomènes météorologiques.",
+  "answer_b": "qui se trouve au-dessus des tropiques.",
+  "answer_c": "dans laquelle des régions E sporadiques peuvent se former.",
+  "answer_d": "dans laquelle des aurores polaires peuvent se produire."
+ },
+ "EH302": {
+  "question": "Les liaisons trans-horizon dans le domaine VHF/UHF s'établissent entre autres par ...",
+  "answer_a": "diffraction, réflexion et diffusion des ondes sur des zones troposphériques de température et de densité différentes.",
+  "answer_b": "diffraction, réflexion et diffusion des ondes dans la troposphère du fait de l'apparition de régions D sporadiques.",
+  "answer_c": "rotations de polarisation dans la troposphère en présence de nuages élevés.",
+  "answer_d": "rotations de polarisation dans la troposphère sur les fronts orageux."
+ },
+ "EH303": {
+  "question": "Pour les liaisons VHF à grande distance, on utilise principalement ...",
+  "answer_a": "la propagation troposphérique.",
+  "answer_b": "la propagation ionosphérique.",
+  "answer_c": "la propagation par onde de sol.",
+  "answer_d": "la propagation par onde de surface."
+ },
+ "EH304": {
+  "question": "Qu'entendez-vous par le terme « Sporadic-E » ?",
+  "answer_a": "La réfraction dans des zones localement limitées, à ionisation inhabituellement élevée, à l'intérieur de la région E.",
+  "answer_b": "Des changements d'inversion soudains et de courte durée dans la région E, qui permettent la propagation lointaine dans le domaine VHF.",
+  "answer_c": "Une forte réflexion, de courte durée, de signaux VHF sur des traînées de météores à l'intérieur de la région E.",
+  "answer_d": "Une disparition locale et de courte durée de la réflexion, due à une ionisation inhabituellement élevée à l'intérieur de la région E."
+ },
+ "EH305": {
+  "question": "Comment un signal Aurora est-il évalué en télégraphie morse ?",
+  "answer_a": "Il est évalué avec R, S et « A » pour Aurora, car la tonalité est très rauque lors d'Aurora et ne peut pas être évaluée.",
+  "answer_b": "Il est évalué avec R, S et T, car les liaisons Aurora se font majoritairement en CW.",
+  "answer_c": "Il est évalué avec R et T, parce que la force du signal fluctue fortement.",
+  "answer_d": "Il est évalué avec R, S, T et « A » pour Aurora."
+ },
+ "EI101": {
+  "question": "Comment les voltmètres électriques se branchent-ils sur les objets à mesurer, et quelles exigences l'appareil de mesure doit-il satisfaire pour que l'erreur de mesure reste la plus faible possible ? Le voltmètre doit être ...",
+  "answer_a": "branché en parallèle sur l'objet à mesurer et être à haute impédance.",
+  "answer_b": "inséré en série dans le circuit et être à basse impédance.",
+  "answer_c": "branché en parallèle sur l'objet à mesurer et être à basse impédance.",
+  "answer_d": "inséré en série dans le circuit et être à haute impédance."
+ },
+ "EI102": {
+  "question": "Quel montage, avec des appareils de mesure idéaux, pourrait être utilisé pour déterminer la valeur d'une résistance à l'aide de la loi d'Ohm ?"
+ },
+ "EI103": {
+  "question": "Quelle tension est indiquée par l'instrument de mesure suivant lorsque son calibre est réglé sur 10 V ?"
+ },
+ "EI104": {
+  "question": "Quelle tension est indiquée par l'instrument de mesure suivant lorsque son calibre est réglé sur 300 V ?"
+ },
+ "EB406": {
+  "question": "Quelle est la valeur crête à crête de la tension représentée sur cette image d'écran ?"
+ },
+ "EB407": {
+  "question": "Quelle est la valeur crête à crête ($U_{\\textrm{ss}}$) de la tension représentée sur la figure ?"
+ },
+ "EB401": {
+  "question": "La valeur de crête d'une alimentation domestique monophasée de 230 V vaut ..."
+ },
+ "EB402": {
+  "question": "La valeur crête à crête de l'alimentation domestique de 230 V vaut ..."
+ },
+ "EB403": {
+  "question": "Un signal sinusoïdal a une valeur efficace de 12 V. Quelle est approximativement la valeur crête à crête ?"
+ },
+ "EB404": {
+  "question": "Une tension alternative sinusoïdale a une valeur de crête de 12 V. Quelle est approximativement la valeur efficace de la tension alternative ?"
+ },
+ "EB405": {
+  "question": "Parmi les tensions continues représentées dans le diagramme suivant, lesquelles dissipent dans une résistance active à peu près la même puissance que la tension alternative sinusoïdale représentée ?",
+  "answer_a": "0,7 V et -0,7 V",
+  "answer_b": "1 V et -1 V",
+  "answer_c": "0,5 V et -0,5 V",
+  "answer_d": "0 V"
+ },
+ "EI301": {
+  "question": "La base de temps d'un oscilloscope est réglée de manière à ce qu'une division corresponde à 0,5 ms. Quelle est la période de la tension appliquée ?"
+ },
+ "EB408": {
+  "question": "Une période de 50 μs correspond à une fréquence de ..."
+ },
+ "EB409": {
+  "question": "Quelle est approximativement la fréquence de la tension représentée sur cet oscillogramme ?"
+ },
+ "EB411": {
+  "question": "Quelle est la fréquence du signal représenté sur cette image d'écran ?"
+ },
+ "EB410": {
+  "question": "Quelle est la fréquence de la tension représentée sur cet oscillogramme ?"
+ },
+ "EI302": {
+  "question": "La base de temps d'un oscilloscope est réglée de manière à ce qu'une division corresponde à 0,5 ms. Quelle est la fréquence de la tension appliquée ?"
+ },
+ "EI304": {
+  "question": "Lequel de ces appareils est utilisé pour visualiser les distorsions BF ?",
+  "answer_a": "Un oscilloscope",
+  "answer_b": "Un voltmètre à transistors",
+  "answer_c": "Un multimètre",
+  "answer_d": "Un fréquencemètre"
+ },
+ "EC114": {
+  "question": "Comment indique-t-on en règle générale la valeur d'une résistance SMD ?",
+  "answer_a": "La valeur est imprimée sur la résistance sous forme de chiffres, le dernier chiffre indiquant la puissance de dix.",
+  "answer_b": "La valeur est imprimée sur la résistance sous forme d'anneaux de couleur, le dernier anneau indiquant la tolérance.",
+  "answer_c": "La valeur est imprimée sur la résistance sous forme d'anneaux de couleur, le dernier anneau indiquant la puissance de dix.",
+  "answer_d": "La valeur est imprimée sur la résistance sous forme de chiffres, le nombre indiqué correspondant à la valeur de la résistance."
+ },
+ "EC115": {
+  "question": "Quelle est la valeur de la résistance SMD représentée ?"
+ },
+ "EC116": {
+  "question": "Quelle est la valeur d'une résistance SMD portant le marquage 221 ?"
+ },
+ "EC117": {
+  "question": "Quelle est la valeur d'une résistance SMD portant le marquage 223 ?"
+ },
+ "EC101": {
+  "question": "Quelles résistances conviennent particulièrement comme résistances de forte charge aux basses fréquences ?",
+  "answer_a": "Les résistances bobinées",
+  "answer_b": "Les résistances à couche métallique",
+  "answer_c": "Les résistances à couche d'oxyde métallique",
+  "answer_d": "Les résistances LDR"
+ },
+ "EC103": {
+  "question": "Quelles résistances sont exemptes d'inductance et conviennent particulièrement à un emploi aux fréquences supérieures à 30 MHz ?",
+  "answer_a": "Les résistances à couche d'oxyde métallique",
+  "answer_b": "Les résistances à couche métallique",
+  "answer_c": "Les résistances bobinées",
+  "answer_d": "Les résistances LDR"
+ },
+ "EC102": {
+  "question": "Quelles résistances ont de faibles tolérances de fabrication et une faible dépendance en température et conviennent particulièrement comme résistances de précision ?",
+  "answer_a": "Les résistances à couche métallique",
+  "answer_b": "Les résistances à couche d'oxyde métallique",
+  "answer_c": "Les résistances bobinées",
+  "answer_d": "Les résistances LDR"
+ },
+ "EC107": {
+  "question": "Une antenne artificielle (charge fictive) pour la plage VHF devrait, pour de meilleures propriétés, être constituée par exemple de ...",
+  "answer_a": "résistances à oxyde métallique non enroulées.",
+  "answer_b": "résistances bobinées de forte charge admissible.",
+  "answer_c": "résistances chauffantes refroidies activement.",
+  "answer_d": "résistances réactives résistant à la température."
+ },
+ "EC104": {
+  "question": "Quelle propriété devraient présenter les composants utilisés pour construire des antennes artificielles (charges fictives) destinées à un emploi dans les plages VHF et UHF ?",
+  "answer_a": "une faible inductance propre et une faible capacité propre",
+  "answer_b": "une faible conductance électrique et électronique",
+  "answer_c": "une forte inductance propre et une forte capacité propre",
+  "answer_d": "une forte conductance électrique et électronique"
+ },
+ "EC106": {
+  "question": "Lesquels des composants suivants pourraient être utilisés pour une antenne artificielle (charge fictive) précise, destinée à être employée à 50 MHz ?",
+  "answer_a": "Dix résistances à couche de carbone de 500 ohms non enroulées, montées en parallèle",
+  "answer_b": "Une seule résistance bobinée de 50 ohms",
+  "answer_c": "Deux résistances bobinées de 100 ohms montées en parallèle",
+  "answer_d": "Deux résistances à couche de carbone de 25 ohms enroulées, montées en série"
+ },
+ "EC105": {
+  "question": "Lesquels des composants suivants pourraient être utilisés pour une antenne artificielle (charge fictive) fonctionnant bien, destinée à être employée à 28 MHz ?",
+  "answer_a": "Dix résistances à couche de carbone de 500 ohms",
+  "answer_b": "Une résistance bobinée de 50 ohms",
+  "answer_c": "Deux résistances bobinées de 100 ohms montées en parallèle",
+  "answer_d": "Une résistance bobinée de 50 ohms montée en parallèle avec un condensateur céramique de 50 nF."
+ },
+ "EC112": {
+  "question": "Une résistance a une tolérance de 10 %. Pour une valeur nominale de 5,6 kΩ, la valeur réelle se situe entre ...",
+  "answer_a": "5040 et 6160 Ω.",
+  "answer_b": "4760 et 6440 Ω.",
+  "answer_c": "4,7 et 6,8 kΩ.",
+  "answer_d": "5,2 et 6,3 kΩ."
+ },
+ "EC113": {
+  "question": "Les anneaux de couleur vert, bleu et rouge ainsi qu'un anneau argent sur une résistance à 4 anneaux de couleur signifient une valeur de résistance comprise entre ...",
+  "answer_a": "5040 et 6160 Ω.",
+  "answer_b": "4760 et 6440 Ω.",
+  "answer_c": "4760 et 6840 Ω.",
+  "answer_d": "5240 et 6360 Ω."
+ },
+ "EC108": {
+  "question": "Quelles résistances ont une dépendance en température caractéristique et conviennent donc particulièrement à la mesure de température ?",
+  "answer_a": "Les résistances NTC",
+  "answer_b": "Les résistances LDR",
+  "answer_c": "Les résistances à couche métallique",
+  "answer_d": "Les résistances bobinées"
+ },
+ "EC109": {
+  "question": "À quel composant correspond le symbole suivant ?"
+ },
+ "EC110": {
+  "question": "Lequel des composants suivants est une résistance NTC ?"
+ },
+ "EC111": {
+  "question": "Lequel des symboles suivants représente une résistance PTC ?"
+ },
+ "EB504": {
+  "question": "Dans une résistance $R$, la puissance électrique $P$ est transformée en chaleur. Vous connaissez les grandeurs $P$ et $R$. Avec laquelle des formules suivantes pouvez-vous déterminer la tension présente aux bornes de la résistance $R$ ?"
+ },
+ "EB505": {
+  "question": "Dans quelle réponse toutes les relations présentées entre courant, tension, résistance et puissance sont-elles correctes ?"
+ },
+ "EB506": {
+  "question": "Dans quelle réponse toutes les relations présentées entre résistance, puissance, tension et courant sont-elles correctes ?"
+ },
+ "EB503": {
+  "question": "Les formules de la puissance dans une résistance purement ohmique valent-elles aussi en tension alternative ?",
+  "answer_a": "Oui, si l'on calcule avec les valeurs efficaces.",
+  "answer_b": "Non, car la variation périodique du courant et de la tension est alors négligée.",
+  "answer_c": "Oui, si l'on calcule avec les valeurs de crête.",
+  "answer_d": "Non, car la puissance réactive n'est pas prise en compte."
+ },
+ "EB507": {
+  "question": "La valeur efficace de la tension aux bornes d'une antenne artificielle de 50 ohms est mesurée à 100 V. La puissance dans la charge vaut ..."
+ },
+ "EB508": {
+  "question": "Quelle puissance est dissipée dans une antenne artificielle de 50 ohms lorsqu'un courant efficace de 2 A la traverse ?"
+ },
+ "EB509": {
+  "question": "Pour quelle puissance une résistance de 100 ohms doit-elle au minimum être dimensionnée si une tension de 10 V doit chuter à ses bornes ?"
+ },
+ "EB510": {
+  "question": "Une résistance de 10 kΩ a une tenue en tension maximale de 700 V et une charge maximale admissible de 1 W. Quelle tension continue peut-on appliquer au maximum à la résistance pour l'exploiter dans la plage spécifiée ?"
+ },
+ "EB511": {
+  "question": "Une résistance de 100 kΩ a une tenue en tension maximale de 1000 V et une charge maximale admissible de 6 W. Quelle tension continue peut-on appliquer au maximum à la résistance sans la surcharger ?"
+ },
+ "EB512": {
+  "question": "Une résistance de 120 Ω a une charge admissible de 23,0 W. Quel courant maximal peut traverser la résistance sans la surcharger ?"
+ },
+ "EB513": {
+  "question": "Un oscilloscope indique une valeur crête à crête sinusoïdale de 25 V aux bornes d'une résistance de 1000 Ω. Le courant efficace traversant la résistance vaut ..."
+ },
+ "EB514": {
+  "question": "Une antenne artificielle de 50 ohms (charge fictive) est constituée de 11 résistances à couche de carbone de 560 ohms montées en parallèle, chacune ayant une charge nominale de 5 W. Quelle charge nominale en résulte-t-il pour l'antenne artificielle ?"
+ },
+ "EA107": {
+  "question": "De combien de décibels le niveau de puissance varie-t-il lorsque la puissance est doublée ?"
+ },
+ "EB101": {
+  "question": "Quel champ s'établit approximativement entre deux plaques parallèles d'un condensateur lorsqu'une tension continue est appliquée ?",
+  "answer_a": "Un champ électrique homogène",
+  "answer_b": "Un champ magnétique homogène",
+  "answer_c": "Un champ électrique polarisé",
+  "answer_d": "Un champ magnétique polarisé"
+ },
+ "EA103": {
+  "question": "Quelle unité utilise-t-on habituellement pour l'intensité du champ électrique ?",
+  "answer_a": "Volt par mètre (V/m)",
+  "answer_b": "Watt par mètre (W/m)",
+  "answer_c": "Ampère par mètre (A/m)",
+  "answer_d": "Henry par mètre (H/m)"
+ },
+ "EB102": {
+  "question": "On applique 9 V à un condensateur plan dont l'écartement des plaques est de 0,6 cm. Quelle est approximativement l'intensité du champ électrique entre les deux plaques ?"
+ },
+ "EB103": {
+  "question": "Une tension de 300 V est appliquée aux armatures métalliques d'un condensateur bobiné dont le diélectrique plastique a une épaisseur de 0,15 mm. Quelle est approximativement l'intensité du champ électrique entre les armatures métalliques ?"
+ },
+ "EB104": {
+  "question": "Un condensateur dans un étage de puissance d'émetteur a pour diélectrique un film de PTFE de 0,15 mm d'épaisseur. La rigidité diélectrique du PTFE est d'environ 400 kV/cm. Quelle serait la tension maximale applicable au condensateur sans que le film ne soit percé ?"
+ },
+ "EB105": {
+  "question": "Comment appelle-t-on les lignes de champ repérées par un X sur une antenne verticale ?",
+  "answer_a": "Lignes de champ électrique",
+  "answer_b": "Lignes de champ magnétique",
+  "answer_c": "Lignes de champ radiales",
+  "answer_d": "Lignes de champ horizontales"
+ },
+ "EB201": {
+  "question": "Lorsqu'un courant continu constant traverse un conducteur tendu, les ...",
+  "answer_a": "lignes de champ magnétique sont des cercles concentriques autour du conducteur.",
+  "answer_b": "lignes de champ électrique sont des cercles concentriques autour du conducteur.",
+  "answer_c": "lignes de champ magnétique rayonnent en étoile autour du conducteur.",
+  "answer_d": "lignes de champ électrique sont parallèles aux lignes de champ magnétique autour du conducteur."
+ },
+ "EA104": {
+  "question": "Quelle unité utilise-t-on habituellement pour l'intensité du champ magnétique ?",
+  "answer_a": "Ampère par mètre (A/m)",
+  "answer_b": "Watt par mètre (W/m)",
+  "answer_c": "Volt par mètre (V/m)",
+  "answer_d": "Henry par mètre (H/m)"
+ },
+ "EB202": {
+  "question": "Quel champ s'établit approximativement à l'intérieur d'une longue bobine cylindrique lorsqu'un courant continu circule ?",
+  "answer_a": "Un champ magnétique homogène",
+  "answer_b": "Un champ électrique homogène",
+  "answer_c": "Un champ magnétique concentrique",
+  "answer_d": "Un champ magnétique centré"
+ },
+ "EB203": {
+  "question": "Un noyau torique a un diamètre moyen de 2,6 cm et porte 6 spires de fil de cuivre. Quelle est l'intensité moyenne du champ magnétique dans le noyau torique si le courant est de 2,5 A ?"
+ },
+ "EB206": {
+  "question": "Comment appelle-t-on les lignes de champ repérées par un X sur une antenne verticale ?",
+  "answer_a": "Lignes de champ magnétique",
+  "answer_b": "Lignes de champ électrique",
+  "answer_c": "Lignes de champ ouvertes",
+  "answer_d": "Lignes de champ verticales"
+ },
+ "EB302": {
+  "question": "Comment s'effectue la propagation d'une onde électromagnétique ? La propagation s'effectue ...",
+  "answer_a": "par une interaction entre le champ électrique et le champ magnétique.",
+  "answer_b": "uniquement par le champ électrique. Le champ magnétique n'agit que dans le champ proche.",
+  "answer_c": "uniquement par le champ magnétique. Le champ électrique n'agit que dans le champ proche.",
+  "answer_d": "par la propagation indépendante du champ électrique et du champ magnétique."
+ },
+ "EB301": {
+  "question": "Comment un champ électromagnétique naît-il par exemple ?",
+  "answer_a": "Un champ électromagnétique naît lorsqu'un courant variable dans le temps traverse un conducteur électrique.",
+  "answer_b": "Un champ électromagnétique naît lorsqu'un courant constant dans le temps traverse un conducteur électrique.",
+  "answer_c": "Un champ électromagnétique naît lorsqu'une tension constante dans le temps est appliquée à un conducteur électrique.",
+  "answer_d": "Un champ électromagnétique naît lorsqu'une tension constante dans le temps est appliquée à un isolant électrique."
+ },
+ "EB303": {
+  "question": "L'angle entre les composantes de champ électrique et magnétique d'un champ électromagnétique, en propagation en espace libre dans le champ lointain, vaut ..."
+ },
+ "EB304": {
+  "question": "Quelle affirmation s'applique au rayonnement électromagnétique dans le champ lointain non perturbé ?",
+  "answer_a": "La composante de champ E, la composante de champ H et la direction de propagation sont perpendiculaires entre elles.",
+  "answer_b": "La composante de champ E et la composante de champ H sont perpendiculaires entre elles. La direction de propagation n'a pas de relation fixe avec elles.",
+  "answer_c": "La composante de champ E et la composante de champ H sont en phase et parallèles entre elles. La direction de propagation leur est perpendiculaire.",
+  "answer_d": "La direction de propagation est parallèle à la composante de champ E et perpendiculaire à la composante de champ H."
+ },
+ "EA101": {
+  "question": "Quelle unité utilise-t-on habituellement pour la capacité ?",
+  "answer_a": "Farad (F)",
+  "answer_b": "Ohm ($\\Omega$)",
+  "answer_c": "Ampères-heures (Ah)",
+  "answer_d": "Henry (H)"
+ },
+ "EC205": {
+  "question": "De laquelle des grandeurs suivantes la capacité d'un condensateur plan ne dépend-elle <u>pas</u> ?",
+  "answer_a": "La tension",
+  "answer_b": "L'écartement des plaques",
+  "answer_c": "La surface des plaques",
+  "answer_d": "Le diélectrique"
+ },
+ "EC204": {
+  "question": "Dans quel cas la capacité d'un condensateur plan diminue-t-elle ?",
+  "answer_a": "Lorsqu'on augmente l'écartement des plaques",
+  "answer_b": "Lorsqu'on augmente la tension appliquée",
+  "answer_c": "Lorsqu'on augmente la surface des plaques",
+  "answer_d": "Lorsqu'on augmente la permittivité relative"
+ },
+ "EC203": {
+  "question": "Qu'est-ce qui diminue la capacité d'un condensateur plan ?",
+  "answer_a": "Un écartement des plaques plus grand.",
+  "answer_b": "Une permittivité plus grande du diélectrique.",
+  "answer_c": "Une tension plus grande.",
+  "answer_d": "Des surfaces de plaques plus grandes."
+ },
+ "EC201": {
+  "question": "Quelle évolution dans le temps a la tension aux bornes d'un condensateur déchargé lorsqu'on le raccorde à une source de tension continue à travers une résistance ?"
+ },
+ "EC202": {
+  "question": "Quel comportement présente la réactance d'un condensateur idéal lorsque la fréquence augmente ?",
+  "answer_a": "Elle diminue.",
+  "answer_b": "Elle diminue jusqu'à un minimum puis augmente de nouveau.",
+  "answer_c": "Elle augmente.",
+  "answer_d": "Elle augmente jusqu'à un maximum puis diminue de nouveau."
+ },
+ "ED216": {
+  "question": "Quels condensateurs faut-il utiliser de préférence pour les filtres HF ?",
+  "answer_a": "Des condensateurs céramique ou à air",
+  "answer_b": "Des condensateurs électrolytiques à l'aluminium",
+  "answer_c": "Des condensateurs électrolytiques au tantale",
+  "answer_d": "Des condensateurs à film"
+ },
+ "EC207": {
+  "question": "Pour laquelle des formes de construction de condensateurs suivantes faut-il respecter la polarité lors du montage ?",
+  "answer_a": "Le condensateur électrolytique",
+  "answer_b": "Le condensateur céramique",
+  "answer_c": "Le condensateur au styroflex",
+  "answer_d": "Le condensateur plan"
+ },
+ "EC206": {
+  "question": "Comment appelle-t-on un composant dont des plaques, montées sur un axe isolé, peuvent tourner entre des plaques fixes ?",
+  "answer_a": "Le condensateur variable",
+  "answer_b": "Le condensateur au styroflex",
+  "answer_c": "Le condensateur céramique",
+  "answer_d": "Le condensateur à rotor"
+ },
+ "EA102": {
+  "question": "Quelle unité utilise-t-on habituellement pour l'inductance ?",
+  "answer_a": "Henry (H)",
+  "answer_b": "Farad (F)",
+  "answer_c": "Ohm ($\\Omega$)",
+  "answer_d": "Ampères-heures (Ah)"
+ },
+ "EC305": {
+  "question": "Comment peut-on augmenter l'inductance d'une bobine cylindrique ?",
+  "answer_a": "En comprimant la bobine dans le sens de la longueur.",
+  "answer_b": "En étirant la bobine dans le sens de la longueur.",
+  "answer_c": "En introduisant un noyau de cuivre dans la bobine.",
+  "answer_d": "En montant la bobine dans un godet de blindage."
+ },
+ "EC306": {
+  "question": "On considère deux bobines dans le même environnement, de même nombre de spires et de même section. La première bobine a une inductance de 12 μH. La deuxième bobine a le double de la longueur de la première. Quelle est l'inductance de la deuxième bobine ?"
+ },
+ "EC307": {
+  "question": "Comment varie l'inductance d'une bobine de 12 μH lorsqu'on double le nombre de spires à longueur d'enroulement constante ?",
+  "answer_a": "L'inductance passe à 48 μH.",
+  "answer_b": "L'inductance passe à 24 μH.",
+  "answer_c": "L'inductance descend à 6 μH.",
+  "answer_d": "L'inductance descend à 3 μH."
+ },
+ "EC304": {
+  "question": "Un morceau de conducteur droit a-t-il une inductance ?",
+  "answer_a": "Oui, tout conducteur possède une inductance, indépendamment de sa forme.",
+  "answer_b": "Non, le conducteur doit avoir au moins une courbure (un quart, une demi ou une spire entière).",
+  "answer_c": "Oui, tant que la réactance vaut 0 ohm.",
+  "answer_d": "Non, dans le vide par exemple il ne se forme pas d'inductance."
+ },
+ "EB204": {
+  "question": "Lequel des matériaux suivants est un corps ferromagnétique à température ambiante ?",
+  "answer_a": "Le fer",
+  "answer_b": "Le chrome",
+  "answer_c": "Le cuivre",
+  "answer_d": "L'aluminium"
+ },
+ "EB205": {
+  "question": "Quel effet diminue l'inductance d'une bobine parcourue par un courant haute fréquence lorsqu'on y introduit un noyau de cuivre ou d'aluminium ?",
+  "answer_a": "Le champ magnétique haute fréquence ne peut pas pénétrer dans le noyau, ce qui réduit la section du champ.",
+  "answer_b": "Le cuivre et l'aluminium sont ferromagnétiques et affaiblissent le champ.",
+  "answer_c": "Le métal conducteur court-circuite le champ, si bien qu'il disparaît à l'intérieur de la bobine.",
+  "answer_d": "Le cuivre et l'aluminium ne sont pas magnétiques et n'ont aucune influence sur le champ."
+ },
+ "EC301": {
+  "question": "On applique une tension continue à une bobine à travers une résistance. Lequel des diagrammes suivants montre l'évolution dans le temps de la tension aux bornes de la bobine ?"
+ },
+ "EC302": {
+  "question": "Si l'on branche simultanément deux sources lumineuses sur une source de tension continue, l'une (lampe 1) à travers une résistance pour équilibrer la luminosité et l'autre (lampe 2) à travers une bobine à nombreuses spires et noyau de fer, alors ...",
+  "answer_a": "la lampe 1 s'allume en premier.",
+  "answer_b": "la lampe 2 s'allume en premier.",
+  "answer_c": "la lampe 1 et la lampe 2 s'allument exactement en même temps.",
+  "answer_d": "la lampe 2 s'allume brièvement puis s'éteint. La lampe 1 reste allumée."
+ },
+ "EC303": {
+  "question": "Quel comportement présente la réactance d'une bobine idéale lorsque la fréquence augmente ?",
+  "answer_a": "Elle augmente.",
+  "answer_b": "Elle diminue.",
+  "answer_c": "Elle diminue jusqu'à un minimum puis augmente de nouveau.",
+  "answer_d": "Elle augmente jusqu'à un maximum puis diminue de nouveau."
+ },
+ "EC401": {
+  "question": "Quelle est la tension entre les points a et b dans ce montage, pour un rapport de transformation de 15:1 ?",
+  "answer_a": "Environ 15 V",
+  "answer_b": "Environ 1 V",
+  "answer_c": "Environ 22 V",
+  "answer_d": "Environ 11 V"
+ },
+ "EC402": {
+  "question": "La bobine primaire d'un transformateur a cinq fois plus de spires que la bobine secondaire. Quelle est la tension secondaire attendue si la bobine primaire est raccordée à une alimentation de 230 V ?"
+ },
+ "EC403": {
+  "question": "Une tension de 230 V est appliquée à l'enroulement primaire d'un transformateur de 600 spires. La tension secondaire est de 11,5 V. Quel est le nombre de spires secondaire ?",
+  "answer_a": "30 spires",
+  "answer_b": "20 spires",
+  "answer_c": "52 spires",
+  "answer_d": "180 spires"
+ },
+ "EC404": {
+  "question": "Une tension de 45 V est appliquée à l'enroulement primaire d'un transformateur de 150 spires. La tension secondaire est de 180 V. Quel est le nombre de spires secondaire ?",
+  "answer_a": "600 spires",
+  "answer_b": "850 spires",
+  "answer_c": "38 spires",
+  "answer_d": "30 spires"
+ },
+ "EC501": {
+  "question": "Une diode polarisée en sens inverse se caractérise en particulier par ...",
+  "answer_a": "une résistance élevée.",
+  "answer_b": "une capacité élevée.",
+  "answer_c": "une faible impédance.",
+  "answer_d": "une inductance élevée."
+ },
+ "EC513": {
+  "question": "Dans quelle condition une diode au silicium devient-elle passante ?",
+  "answer_a": "L'anode est à 5,7 V, la cathode à 5,0 V.",
+  "answer_b": "L'anode est à 5,7 V, la cathode à 6,4 V.",
+  "answer_c": "L'anode est à 5,0 V, la cathode à 5,1 V.",
+  "answer_d": "L'anode est à 5,0 V, la cathode à 5,7 V."
+ },
+ "EC510": {
+  "question": "Les réponses proposées présentent des diodes au silicium à différents points de fonctionnement. Dans quelle réponse la diode est-elle à l'état passant ?"
+ },
+ "EC509": {
+  "question": "Les réponses proposées présentent des diodes au silicium à différents points de fonctionnement. Dans quelle réponse la diode est-elle à l'état passant ?"
+ },
+ "EC511": {
+  "question": "Les réponses proposées présentent des diodes au silicium à différents points de fonctionnement. Dans quelle réponse la diode est-elle à l'état passant ?"
+ },
+ "EC512": {
+  "question": "Les réponses proposées présentent des diodes au silicium à différents points de fonctionnement. Dans quelle réponse la diode est-elle à l'état passant ?"
+ },
+ "EC503": {
+  "question": "Quelles tensions de seuil typiques ont les diodes au germanium et au silicium ? Elles se situent ...",
+  "answer_a": "pour le germanium entre 0,2 et 0,4 V, pour le silicium entre 0,6 et 0,8 V.",
+  "answer_b": "pour le germanium entre 0,6 et 0,8 V, pour le silicium entre 0,2 et 0,4 V.",
+  "answer_c": "pour le germanium entre 1,4 et 1,6 V, pour le silicium entre 0,6 et 0,8 V.",
+  "answer_d": "pour le germanium entre 0,6 et 0,8 V, pour le silicium entre 1,4 et 1,6 V."
+ },
+ "EC506": {
+  "question": "Quelle diode est caractérisée par la caractéristique 2 ?",
+  "answer_a": "La diode au germanium",
+  "answer_b": "La diode au silicium",
+  "answer_c": "La diode Schottky",
+  "answer_d": "La diode électroluminescente"
+ },
+ "EC507": {
+  "question": "Quelle diode est caractérisée par la caractéristique 3 ?",
+  "answer_a": "La diode au silicium",
+  "answer_b": "La diode électroluminescente",
+  "answer_c": "La diode Schottky",
+  "answer_d": "La diode au germanium"
+ },
+ "EC508": {
+  "question": "Quelle diode est caractérisée par la caractéristique 4 ?",
+  "answer_a": "La diode électroluminescente",
+  "answer_b": "La diode au silicium",
+  "answer_c": "La diode Schottky",
+  "answer_d": "La diode au germanium"
+ },
+ "EC514": {
+  "question": "À quoi sert le montage suivant ?",
+  "answer_a": "Un voyant lumineux",
+  "answer_b": "Une élévation de tension",
+  "answer_c": "Une surveillance de puissance",
+  "answer_d": "Une production de courant"
+ },
+ "EC515": {
+  "question": "Une diode électroluminescente de tension directe 1,4 V et de courant direct 20 mA doit être raccordée à une source de tension de 5,0 V. Calculez la résistance série. La valeur de la résistance série nécessaire est de ..."
+ },
+ "EC516": {
+  "question": "Le montage suivant d'une diode électroluminescente est alimenté sous une tension de service de 5,5 V. Le courant dans la diode doit être de 25 mA, la tension directe valant 1,75 V. La résistance série nécessaire doit avoir les valeurs suivantes :"
+ },
+ "EC517": {
+  "question": "Quel composant est symbolisé par ce symbole ?",
+  "answer_a": "La diode Zener",
+  "answer_b": "La diode électroluminescente",
+  "answer_c": "La diode à capacité variable",
+  "answer_d": "La diode de roue libre"
+ },
+ "EC520": {
+  "question": "Dans lequel des montages suivants la diode Zener est-elle correctement utilisée pour la stabilisation de tension ?"
+ },
+ "EC521": {
+  "question": "Une diode Zener non chargée doit stabiliser une tension de service de 13,8 V à 5 V. Un courant de 30 mA doit circuler dans la diode Zener. La sortie du montage ne doit pas être chargée. Calculez la valeur de la résistance série.",
+  "answer_a": "env. 293 Ω",
+  "answer_b": "env. 3,41 \\milliOhm",
+  "answer_c": "env. 460 Ω",
+  "answer_d": "env. 167 Ω"
+ },
+ "EC522": {
+  "question": "Le montage de stabilisation suivant avec diode Zener est donné. Le courant dans la diode Zener doit être de 25 mA et le courant de charge de 20 mA. La valeur de la résistance série nécessaire est de ...",
+  "answer_a": "env. 202 Ω.",
+  "answer_b": "env. 364 Ω.",
+  "answer_c": "env. 188 Ω.",
+  "answer_d": "env. 235 Ω."
+ },
+ "EC504": {
+  "question": "Quelles sont les principales caractéristiques d'une diode Schottky ?",
+  "answer_a": "Très faible tension directe et très haute fréquence de commutation.",
+  "answer_b": "Très faible tension directe et très basse fréquence de commutation.",
+  "answer_c": "Très haute tension directe et très haute fréquence de commutation.",
+  "answer_d": "Très haute tension directe et très basse fréquence de commutation."
+ },
+ "EC505": {
+  "question": "Quelle diode est caractérisée par la caractéristique 1 ?",
+  "answer_a": "La diode Schottky",
+  "answer_b": "La diode au silicium",
+  "answer_c": "La diode au germanium",
+  "answer_d": "La diode électroluminescente"
+ },
+ "EC502": {
+  "question": "À quoi les diodes à semi-conducteur peuvent-elles servir par exemple ?",
+  "answer_a": "au redressement de la tension alternative",
+  "answer_b": "au stockage des courants alternatifs",
+  "answer_c": "comme résistance dans les alimentations",
+  "answer_d": "comme amplificateur dans les alimentations"
+ },
+ "EC518": {
+  "question": "À quel usage les diodes Zener sont-elles principalement employées ?",
+  "answer_a": "À la stabilisation de tension",
+  "answer_b": "À la stabilisation de courant",
+  "answer_c": "À la stabilisation double alternance",
+  "answer_d": "À la stabilisation de puissance"
+ },
+ "EC519": {
+  "question": "À quoi sert le montage suivant ?",
+  "answer_a": "À la stabilisation de tension",
+  "answer_b": "À l'élévation de tension",
+  "answer_c": "À un voyant lumineux",
+  "answer_d": "À la production de courant"
+ },
+ "EC602": {
+  "question": "Un transistor est ...",
+  "answer_a": "un composant à semi-conducteur.",
+  "answer_b": "un composant laser.",
+  "answer_c": "un composant non conducteur.",
+  "answer_d": "un composant à thermistance CTP."
+ },
+ "EC605": {
+  "question": "Quel symbole représente un transistor bipolaire ?"
+ },
+ "EC606": {
+  "question": "Ce composant est ...",
+  "answer_a": "un transistor NPN.",
+  "answer_b": "un transistor PNP.",
+  "answer_c": "un FET à canal N.",
+  "answer_d": "un FET à canal P."
+ },
+ "EC607": {
+  "question": "Ce composant est ...",
+  "answer_a": "un transistor PNP.",
+  "answer_b": "un transistor NPN.",
+  "answer_c": "un FET à canal P.",
+  "answer_d": "un FET à canal N."
+ },
+ "EC608": {
+  "question": "Quelles sont les désignations des bornes d'un transistor bipolaire ?",
+  "answer_a": "Émetteur, base, collecteur",
+  "answer_b": "Émetteur, drain, source",
+  "answer_c": "Grille, source, collecteur",
+  "answer_d": "Drain, grille, source"
+ },
+ "EC609": {
+  "question": "Comment désigne-t-on les bornes du transistor représenté ?",
+  "answer_a": "1 = collecteur, 2 = base, 3 = émetteur",
+  "answer_b": "1 = émetteur, 2 = base, 3 = collecteur",
+  "answer_c": "1 = collecteur, 2 = émetteur, 3 = base",
+  "answer_d": "1 = base, 2 = émetteur, 3 = collecteur"
+ },
+ "EC610": {
+  "question": "Quelle doit être approximativement la tension $U_{BE}$ pour que le transistor soit à l'état passant ?",
+  "answer_a": "0,6 V",
+  "answer_b": "-0,6 V",
+  "answer_c": "0,6 V ou -0,6 V",
+  "answer_d": "0 V"
+ },
+ "EC612": {
+  "question": "Dans un montage, on a mesuré les tensions des bornes du transistor par rapport au potentiel de masse. Pour lequel des transistors suivants un courant de collecteur circule-t-il ?"
+ },
+ "EC613": {
+  "question": "Dans un montage, on a mesuré les tensions des bornes du transistor par rapport au potentiel de masse. Pour lequel des transistors suivants un courant de collecteur circule-t-il ?"
+ },
+ "EC614": {
+  "question": "Dans un montage, on a mesuré les tensions des bornes du transistor par rapport au potentiel de masse. Pour lequel des transistors suivants un courant de collecteur circule-t-il ?"
+ },
+ "EC615": {
+  "question": "Dans un montage, on a mesuré les tensions des bornes du transistor par rapport au potentiel de masse. Pour lequel des transistors suivants un courant de collecteur circule-t-il ?"
+ },
+ "EC603": {
+  "question": "Qu'entend-on par gain en courant pour un transistor ?",
+  "answer_a": "Un faible courant de base commande un grand courant de collecteur.",
+  "answer_b": "Un faible courant d'émetteur commande un grand courant de collecteur.",
+  "answer_c": "Un faible courant d'émetteur commande un grand courant de base.",
+  "answer_d": "Un faible courant de collecteur commande un grand courant d'émetteur."
+ },
+ "EC611": {
+  "question": "Par quelle borne du transistor circule le plus grand courant à l'état passant ?",
+  "answer_a": "L'émetteur",
+  "answer_b": "Le collecteur",
+  "answer_c": "La base",
+  "answer_d": "Le boîtier"
+ },
+ "EC604": {
+  "question": "Quels types de transistors sont des transistors bipolaires ?",
+  "answer_a": "Les transistors NPN et PNP",
+  "answer_b": "Les MOSFET à double grille",
+  "answer_c": "Les FET à grille isolée",
+  "answer_d": "Les FET à jonction"
+ },
+ "EC601": {
+  "question": "Quel composant peut être utilisé comme interrupteur, amplificateur ou résistance ?",
+  "answer_a": "Le transistor",
+  "answer_b": "Le transformateur",
+  "answer_c": "Le condensateur",
+  "answer_d": "La diode"
+ },
+ "ED104": {
+  "question": "Deux résistances $R_1 = 100 Ohm$ et $R_2 = 400 Ohm$ sont montées en parallèle. Quelle est la résistance totale ?"
+ },
+ "ED105": {
+  "question": "Deux résistances $R_1$ = 50 ohms et $R_2$ = 200 ohms sont montées en parallèle. Quelle est la résistance totale ?"
+ },
+ "ED106": {
+  "question": "Trois résistances de même valeur montées en parallèle ont une résistance totale de 1,7 kΩ. Quelle est la valeur de chaque résistance individuelle ?"
+ },
+ "ED111": {
+  "question": "Quelle est la résistance totale du montage ? On donne : $R_1$ = 1 kΩ, $R_2$ = 2000 Ω et $R_3$ = 2 kΩ"
+ },
+ "ED110": {
+  "question": "Quelle est la résistance totale du montage ? On donne : $R_1$ = 500 Ω, $R_2$ = 1000 Ω et $R_3$ = 1 kΩ"
+ },
+ "ED112": {
+  "question": "Quelle est la résistance totale de ce montage si $R_1$ = 1 kΩ, $R_2$ = 3 kΩ et $R_3$ = 1500 Ω ?"
+ },
+ "ED113": {
+  "question": "Quelle est la résistance totale de ce montage si $R_1$ = 10 kΩ, $R_2$ = 2,5 kΩ, $R_3$ = 500 Ω et $R_4$ = 600 Ω ?"
+ },
+ "ED108": {
+  "question": "Quelle est la résistance totale du montage ? On donne : $R_1$ = 500 Ω, $R_2$ = 500 Ω et $R_3$ = 1 kΩ"
+ },
+ "ED109": {
+  "question": "Quelle est la résistance totale du montage ? On donne : $R_1$ = 500 Ω, $R_2$ = 1,5 kΩ et $R_3$ = 2 kΩ"
+ },
+ "ED107": {
+  "question": "Quelle charge admissible peut atteindre l'assemblage de trois résistances de même valeur, de charge admissible individuelle de 1 W chacune, si les 3 résistances sont montées soit en parallèle, soit en série ?",
+  "answer_a": "3 W en montage parallèle comme en montage série.",
+  "answer_b": "3 W en montage parallèle et 1 W en montage série.",
+  "answer_c": "1 W en montage parallèle et 3 W en montage série.",
+  "answer_d": "1 W en montage parallèle comme en montage série."
+ },
+ "ED115": {
+  "question": "Quelle est la résistance totale du montage représenté ?"
+ },
+ "ED116": {
+  "question": "Quelle est la résistance totale du montage représenté ?"
+ },
+ "ED114": {
+  "question": "Quelle est la résistance totale du montage représenté ?"
+ },
+ "ED101": {
+  "question": "Comment la tension se répartit-elle sur deux résistances montées en série si $R_1$ est 5 fois plus grande que $R_2$ ?"
+ },
+ "ED102": {
+  "question": "Comment la tension se répartit-elle sur deux résistances montées en série si $R_1 = \\frac{1}{6}$ de $R_2$ ?"
+ },
+ "ED103": {
+  "question": "La tension totale $U$ aux bornes du diviseur de tension suivant est de 9 V. Les résistances ont pour valeurs $R_1$ = 10 kΩ et $R_2$ = 20 kΩ. Quelle est la tension partielle $U_2$ ?"
+ },
+ "ED117": {
+  "question": "Trois condensateurs de capacités $C_1$ = 0,1 μF, $C_2$ = 150 nF et $C_3$ = 50000 pF sont montés en parallèle. Quelle est la capacité totale ?"
+ },
+ "ED118": {
+  "question": "Quelle est la capacité totale de trois condensateurs de 22 nF, 0,033 μF et 15000 pF montés en parallèle ?"
+ },
+ "ED119": {
+  "question": "Un montage en série se compose de trois condensateurs de 0,33 μF chacun. Quelle est la capacité totale de ce montage ?"
+ },
+ "ED120": {
+  "question": "Quelle capacité totale résulte d'un montage en série des condensateurs 100 μF, 200000 nF et 200 μF ?"
+ },
+ "ED121": {
+  "question": "Quelle est la capacité totale du montage suivant ? On donne : $C_1$ = 10 nF ; $C_2$ = 10 nF ; $C_3$ = 5 nF"
+ },
+ "ED122": {
+  "question": "Quelle est la capacité totale de ce montage si $C_1$ = 2 μF, $C_2$ = 1 μF et $C_3$ = 1 μF ?"
+ },
+ "ED123": {
+  "question": "Quelle est la capacité totale du montage suivant ? On donne : $C_1$ = 8 nF ; $C_2$ = 4 nF ; $C_3$ = 4 nF"
+ },
+ "ED124": {
+  "question": "Quelle est la capacité totale de ce montage si $C_1$ = 200 nF, $C_2$ = 100 nF et $C_3$ = 100000 pF ?"
+ },
+ "ED301": {
+  "question": "Quelles propriétés les sources de tension continue devraient-elles présenter ?",
+  "answer_a": "Les sources de tension continue devraient présenter en charge une grande constance de tension.",
+  "answer_b": "Les sources de tension continue devraient présenter en charge une faible constance de tension.",
+  "answer_c": "Les sources de tension continue devraient augmenter la tension en charge.",
+  "answer_d": "Les sources de tension continue devraient présenter en charge une composante de tension alternative."
+ },
+ "EK205": {
+  "question": "Choisissez les couleurs normalisées de repérage des conducteurs des câbles et lignes d'énergie isolés à 3 conducteurs, dans l'ordre : conducteur de protection, conducteur de phase, conducteur neutre !",
+  "answer_a": "vert-jaune, marron, bleu",
+  "answer_b": "marron, vert-jaune, bleu",
+  "answer_c": "gris, noir, rouge",
+  "answer_d": "vert-jaune, bleu, marron ou noir"
+ },
+ "ED304": {
+  "question": "Quelle est l'allure de la tension $U$ ?"
+ },
+ "ED302": {
+  "question": "Quelles propriétés possède une alimentation à découpage ?",
+  "answer_a": "Rendement élevé, faible poids, faible volume.",
+  "answer_b": "Rendement faible, faible poids, faible volume.",
+  "answer_c": "Rendement élevé, poids élevé, faible volume.",
+  "answer_d": "Rendement élevé, faible poids, grand volume."
+ },
+ "ED303": {
+  "question": "Quel est le principal inconvénient d'une alimentation à découpage ?",
+  "answer_a": "Une alimentation à découpage peut produire des perturbations haute fréquence.",
+  "answer_b": "Une alimentation à découpage a un faible rendement.",
+  "answer_c": "Une alimentation à découpage ne peut pas fournir des courants aussi élevés.",
+  "answer_d": "Une alimentation à découpage a des pertes élevées."
+ },
+ "EK204": {
+  "question": "Vous venez de réparer avec succès un court-circuit dans l'alimentation de votre émetteur ondes courtes. Le défaut a également détruit le fusible miniature de l'alimentation électrique portant l'inscription 20 A « rapide ». Lors du remplacement de ce fusible ...",
+  "answer_a": "il faut mettre en place un fusible de même valeur de courant et de même caractéristique de déclenchement.",
+  "answer_b": "on peut aussi, à valeur de courant égale, mettre en place un fusible de caractéristique de déclenchement « semi-temporisée » ou « temporisée ».",
+  "answer_c": "la valeur de courant peut aussi être supérieure à 20 A, mais il faut mettre en place un fusible de caractéristique de déclenchement « rapide ».",
+  "answer_d": "on peut aussi, à titre de remplacement, mettre en place un pont en fil de cuivre fin."
+ },
+ "ED208": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un passe-bas",
+  "answer_b": "Un circuit bouchon",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-haut"
+ },
+ "ED201": {
+  "question": "Comment appelle-t-on la caractéristique de filtre représentée ?",
+  "answer_a": "Passe-bas",
+  "answer_b": "Passe-haut",
+  "answer_c": "Passe-bande",
+  "answer_d": "Coupe-bande"
+ },
+ "ED211": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un passe-haut",
+  "answer_b": "Un circuit bouchon",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-bas"
+ },
+ "ED202": {
+  "question": "Comment appelle-t-on la caractéristique de filtre représentée ?",
+  "answer_a": "Passe-haut",
+  "answer_b": "Passe-bas",
+  "answer_c": "Passe-bande",
+  "answer_d": "Coupe-bande"
+ },
+ "ED209": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un passe-bas",
+  "answer_b": "Un circuit bouchon",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-haut"
+ },
+ "ED212": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un passe-haut",
+  "answer_b": "Un circuit bouchon",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-bas"
+ },
+ "ED210": {
+  "question": "Quel circuit pourrait être utilisé pour le filtrage passe-bas dans un amplificateur de microphone ?"
+ },
+ "ED213": {
+  "question": "Quel circuit représente un filtre passe-haut ?"
+ },
+ "ED205": {
+  "question": "La réponse en fréquence d'impédance représentée sur l'image suivante est typique ...",
+  "answer_a": "d'un circuit oscillant série.",
+  "answer_b": "d'un circuit oscillant parallèle.",
+  "answer_c": "d'une inductance.",
+  "answer_d": "d'une capacité."
+ },
+ "ED206": {
+  "question": "La réponse en fréquence d'impédance représentée sur l'image suivante est typique ...",
+  "answer_a": "d'un circuit oscillant parallèle.",
+  "answer_b": "d'un condensateur.",
+  "answer_c": "d'une bobine.",
+  "answer_d": "d'un circuit oscillant série."
+ },
+ "ED207": {
+  "question": "Comment se comporte un circuit oscillant parallèle à la fréquence de résonance ?",
+  "answer_a": "Comme une résistance de valeur élevée.",
+  "answer_b": "Comme une résistance de faible valeur.",
+  "answer_c": "Comme un condensateur de très petite capacité.",
+  "answer_d": "Comme une bobine de très grande inductance."
+ },
+ "ED204": {
+  "question": "Comment appelle-t-on la caractéristique de filtre représentée ?",
+  "answer_a": "Coupe-bande",
+  "answer_b": "Passe-bande",
+  "answer_c": "Passe-bas",
+  "answer_d": "Passe-haut"
+ },
+ "ED214": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un circuit bouchon",
+  "answer_b": "Un circuit d'absorption",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-bas"
+ },
+ "ED215": {
+  "question": "Que représente le circuit suivant ? ",
+  "answer_a": "Un circuit d'absorption",
+  "answer_b": "Un circuit bouchon",
+  "answer_c": "Un passe-bande",
+  "answer_d": "Un passe-bas"
+ },
+ "ED203": {
+  "question": "Comment appelle-t-on la caractéristique de filtre représentée ?",
+  "answer_a": "Passe-bande",
+  "answer_b": "Coupe-bande",
+  "answer_c": "Passe-haut",
+  "answer_d": "Passe-bas"
+ },
+ "ED501": {
+  "question": "Qu'est-ce qu'un oscillateur LC ? C'est un générateur d'oscillations, dont la fréquence ...",
+  "answer_a": "est déterminée par une bobine et un condensateur formant un circuit oscillant.",
+  "answer_b": "est déterminée par un quartz de haute stabilité.",
+  "answer_c": "est filtrée au moyen d'un passe-bas LC.",
+  "answer_d": "est filtrée au moyen d'un passe-haut LC."
+ },
+ "ED503": {
+  "question": "Comment évolue la fréquence d'un oscillateur LC lorsque, avec l'augmentation de la température, la capacité du condensateur diminue ?",
+  "answer_a": "La fréquence augmente.",
+  "answer_b": "Les oscillations s'interrompent immédiatement.",
+  "answer_c": "La fréquence diminue.",
+  "answer_d": "La fréquence reste stable."
+ },
+ "ED505": {
+  "question": "Comment évolue la fréquence d'un oscillateur LC lorsque, avec l'augmentation de la température, l'inductance de la bobine diminue ?",
+  "answer_a": "La fréquence augmente.",
+  "answer_b": "La fréquence diminue.",
+  "answer_c": "Les oscillations s'interrompent immédiatement.",
+  "answer_d": "La fréquence reste stable."
+ },
+ "ED502": {
+  "question": "Comment évolue la fréquence d'un oscillateur LC lorsque, avec l'augmentation de la température, la capacité du condensateur augmente ?",
+  "answer_a": "La fréquence diminue.",
+  "answer_b": "Les oscillations s'interrompent immédiatement.",
+  "answer_c": "La fréquence augmente.",
+  "answer_d": "La fréquence reste stable."
+ },
+ "ED504": {
+  "question": "Comment évolue la fréquence d'un oscillateur LC lorsque, avec l'augmentation de la température, l'inductance de la bobine augmente ?",
+  "answer_a": "La fréquence diminue.",
+  "answer_b": "La fréquence augmente.",
+  "answer_c": "La fréquence reste stable.",
+  "answer_d": "Les oscillations s'interrompent immédiatement."
+ },
+ "EF304": {
+  "question": "Le VFO d'un émetteur est soumis à des températures fluctuantes. Quelle pourrait en être la conséquence essentielle ?",
+  "answer_a": "La fréquence de l'oscillateur varie lentement.",
+  "answer_b": "La fréquence de l'oscillateur saute rapidement entre différentes valeurs. ",
+  "answer_c": "L'amplitude de la fréquence de l'oscillateur fluctue lentement.",
+  "answer_d": "L'amplitude de l'oscillateur saute rapidement entre différentes valeurs. "
+ },
+ "ED506": {
+  "question": "Un oscillateur à quartz est un générateur d'oscillations dans lequel la fréquence ...",
+  "answer_a": "est déterminée par un quartz.",
+  "answer_b": "est amplifiée par un quartz.",
+  "answer_c": "est filtrée au moyen d'un passe-bas à quartz.",
+  "answer_d": "est filtrée au moyen d'un passe-haut à quartz."
+ },
+ "ED507": {
+  "question": "L'avantage des oscillateurs à quartz par rapport aux oscillateurs LC réside dans le fait qu'ils ...",
+  "answer_a": "présentent une meilleure stabilité de fréquence.",
+  "answer_b": "ont une courbe de résonance plus large.",
+  "answer_c": "présentent une plage d'accord plus grande.",
+  "answer_d": "ne produisent pas d'harmoniques."
+ },
+ "EF207": {
+  "question": "Comment un oscillateur devrait-il être construit pour éviter les rayonnements indésirables ?",
+  "answer_a": "Il devrait être blindé par un boîtier métallique.",
+  "answer_b": "Il ne devrait pas être blindé.",
+  "answer_c": "Il devrait être découplé HF à basse impédance.",
+  "answer_d": "La tension d'alimentation devrait être non filtrée. "
+ },
+ "EF303": {
+  "question": "Le schéma synoptique représente la chaîne de génération de fréquence d'un émetteur multibande. Quelle fréquence apparaît à la sortie a lorsque le VFO est réglé sur 3,51 MHz ?"
+ },
+ "EF302": {
+  "question": "À la sortie a de cette chaîne de génération de fréquence, on mesure une fréquence de 21,360 MHz. Quelle est la fréquence du VFO ?"
+ },
+ "EF301": {
+  "question": "Sur quelle fréquence l'oscillateur à quartz doit-il osciller pour que, selon le schéma synoptique, la PA amplifie la fréquence 145,200 MHz ?"
+ },
+ "EF201": {
+  "question": "Quelles fréquences de sortie essentielles l'étage représenté sur la figure produit-il ?",
+  "answer_a": "10,7 MHz et 52,7 MHz",
+  "answer_b": "42 MHz et 63,4 MHz",
+  "answer_c": "21 MHz et 63,4 MHz",
+  "answer_d": "21,4 MHz et 105,4 MHz"
+ },
+ "EF202": {
+  "question": "Les fréquences 28 MHz et 38,7 MHz sont appliquées à un mélangeur. Quelles fréquences de mélange sont principalement produites ?",
+  "answer_a": "10,7 MHz et 66,7 MHz",
+  "answer_b": "17,3 MHz et 49,4 MHz",
+  "answer_c": "56 MHz et 77,4 MHz",
+  "answer_d": "45,3 MHz et 88,1 MHz"
+ },
+ "EF203": {
+  "question": "Quels sont les produits souhaités qui apparaissent à la sortie du mélangeur lors du mélange des fréquences 30 MHz et 39 MHz ?",
+  "answer_a": "9 MHz et 69 MHz",
+  "answer_b": "9 MHz et 39 MHz",
+  "answer_c": "30 MHz et 39 MHz",
+  "answer_d": "39 MHz et 69 MHz"
+ },
+ "EF204": {
+  "question": "Les fréquences 136 MHz et 145 MHz sont appliquées à un mélangeur. Quelles fréquences de mélange sont principalement produites ?",
+  "answer_a": "9 MHz et 281 MHz",
+  "answer_b": "127 MHz et 154 MHz",
+  "answer_c": "272 MHz et 290 MHz",
+  "answer_d": "118 MHz et 163 MHz"
+ },
+ "EF205": {
+  "question": "Quels sont les produits souhaités qui apparaissent à la sortie du mélangeur lors du mélange des fréquences 136 MHz et 145 MHz ?",
+  "answer_a": "9 MHz et 281 MHz",
+  "answer_b": "127 MHz et 154 MHz",
+  "answer_c": "272 MHz et 290 MHz",
+  "answer_d": "154 MHz et 281 MHz"
+ },
+ "EF206": {
+  "question": "Comment un étage mélangeur devrait-il être conçu pour éviter les rayonnements indésirables ?",
+  "answer_a": "Il devrait être bien blindé.",
+  "answer_b": "Il devrait être découplé en basse fréquence.",
+  "answer_c": "Il ne devrait pas être mis à la terre.",
+  "answer_d": "Il devrait être couplé aussi lâchement que possible au VFO. "
+ },
+ "EF501": {
+  "question": "Laquelle des réponses suivantes s'applique au fonctionnement d'un transverter ? Un transverter transpose ...",
+  "answer_a": "à la réception, par ex. un signal 70 cm vers la bande des 10 m et, à l'émission, le signal d'émission 10 m vers la bande des 70 cm.",
+  "answer_b": "aussi bien à l'émission qu'à la réception, par ex. un signal 70 cm vers la bande des 10 m.",
+  "answer_c": "aussi bien à l'émission qu'à la réception, par ex. un signal modulé en fréquence en un signal modulé en amplitude.",
+  "answer_d": "aussi bien à l'émission qu'à la réception, par ex. un signal DMR en un signal D-Star."
+ },
+ "EF502": {
+  "question": "Par quel processus un transverter transpose-t-il une gamme de fréquences en une autre ?",
+  "answer_a": "Par mélange",
+  "answer_b": "Par multiplication",
+  "answer_c": "Par division de fréquence",
+  "answer_d": "Par réaction"
+ },
+ "EF504": {
+  "question": "Que représente le circuit suivant ?",
+  "answer_a": "Un convertisseur 13 cm pour un émetteur VHF",
+  "answer_b": "Un transverter 13 cm à placer en amont d'un émetteur VHF",
+  "answer_c": "Un transverter 13 cm à placer en amont d'un récepteur VHF",
+  "answer_d": "Des parties d'un mélangeur I/Q pour la bande des 13 cm"
+ },
+ "EF503": {
+  "question": "Que représente le schéma synoptique suivant ?",
+  "answer_a": "Un transverter pour la bande des 2 m",
+  "answer_b": "Un convertisseur de réception pour la bande des 2 m",
+  "answer_c": "Un préamplificateur pour la bande des 10 m",
+  "answer_d": "Un transceiver pour la bande des 10 m"
+ },
+ "EF505": {
+  "question": "Pourquoi l'oscillateur local (XO) d'un transverter pour trafic satellite avec une fréquence de liaison montante de 2,4 GHz doit-il être stabilisé en température ou synchronisé par un étalon de fréquence de qualité supérieure ?",
+  "answer_a": "Comme la fréquence de l'oscillateur est multipliée pour obtenir la fréquence d'émission, l'écart est multiplié lui aussi, ce qui serait trop grand pour le trafic en SSB. ",
+  "answer_b": "Comme la fréquence de l'oscillateur est abaissée par mélange pour obtenir la fréquence d'émission, l'écart s'en trouve réduit. ",
+  "answer_c": "Comme la fréquence de l'oscillateur est multipliée pour obtenir la fréquence d'émission, les émissions non essentielles augmentent avec l'écart de fréquence. ",
+  "answer_d": "Comme la fréquence de l'oscillateur est abaissée par mélange pour obtenir la fréquence d'émission, le taux de modulation diminue lorsque l'écart de fréquence augmente. "
+ },
+ "ED402": {
+  "question": "De quoi s'agit-il dans ce circuit ?",
+  "answer_a": "Un amplificateur BF",
+  "answer_b": "Un amplificateur FI",
+  "answer_c": "Un amplificateur HF",
+  "answer_d": "Un générateur de tonalité"
+ },
+ "ED403": {
+  "question": "Dans quel but les amplificateurs de puissance HF sont-ils utilisés ?",
+  "answer_a": "Le rehaussement du signal d'émission",
+  "answer_b": "La modulation du signal d'émission",
+  "answer_c": "Le mélange du signal d'émission",
+  "answer_d": "Le filtrage du signal d'émission"
+ },
+ "ED401": {
+  "question": "Qu'entend-on par amplification de puissance en électronique ?",
+  "answer_a": "La puissance de sortie est supérieure à la puissance d'entrée, et une source de tension est nécessaire pour cela.",
+  "answer_b": "La puissance de sortie est supérieure à la puissance d'entrée, bien qu'aucune source de tension ne soit nécessaire.",
+  "answer_c": "La puissance de sortie est égale à la puissance d'entrée, bien qu'aucune source de tension ne soit nécessaire.",
+  "answer_d": "La puissance de sortie est égale à la puissance d'entrée, car une source de tension est nécessaire."
+ },
+ "EF403": {
+  "question": "Comment l'étage de sortie d'un émetteur SSB est-il construit ?  ",
+  "answer_a": "Comme amplificateur linéaire",
+  "answer_b": "Comme amplificateur limiteur",
+  "answer_c": "Comme amplificateur non linéaire",
+  "answer_d": "Comme multiplicateur"
+ },
+ "EF405": {
+  "question": "Comment l'alimentation en courant d'un émetteur devrait-elle être conçue ?",
+  "answer_a": "Elle devrait être bien découplée contre le rayonnement HF.",
+  "answer_b": "Elle devrait être d'impédance aussi élevée que possible.",
+  "answer_c": "Elle devrait passer par le boîtier de l'amplificateur de puissance.",
+  "answer_d": "Elle devrait être conçue avec le moins de capacité possible vers la masse. "
+ },
+ "EF308": {
+  "question": "De quelle largeur de bande l'amplificateur BF représenté sur le schéma synoptique devrait-il au moins disposer pour une bonne intelligibilité de la parole ?",
+  "answer_a": "env. 2,5 kHz",
+  "answer_b": "env. 6,0 kHz",
+  "answer_c": "env. 1,0 kHz",
+  "answer_d": "env. 12,5 kHz"
+ },
+ "EF307": {
+  "question": "Quelle réponse en fréquence convient le mieux à l'amplificateur de microphone d'un appareil de radiotéléphonie ?"
+ },
+ "EE101": {
+  "question": "Lequel des diagrammes suivants montre une porteuse non modulée ?"
+ },
+ "EE203": {
+  "question": "Une porteuse de 21,250 MHz est modulée en SSB (USB) avec la fréquence BF de 1 kHz. Quelle fréquence apparaît dans le signal HF idéalement modulé ?"
+ },
+ "EE204": {
+  "question": "Une porteuse de 3,65 MHz est modulée en SSB (LSB) avec la fréquence BF de 2 kHz. Quelle(s) fréquence(s) apparaît/apparaissent principalement dans le signal HF modulé ?",
+  "answer_a": "3,648 MHz",
+  "answer_b": "3,648 MHz et 3,650 MHz",
+  "answer_c": "3,652 MHz",
+  "answer_d": "3,648 MHz et 3,652 MHz"
+ },
+ "EE202": {
+  "question": "Quelle est approximativement la largeur de bande HF nécessaire à la transmission d'un signal SSB ?",
+  "answer_a": "Elle correspond à la largeur de bande du signal BF.",
+  "answer_b": "Elle correspond à la moitié de la largeur de bande du signal BF.",
+  "answer_c": "Elle correspond au double de la largeur de bande du signal BF.",
+  "answer_d": "Elle est nulle, car en modulation SSB la porteuse HF est supprimée."
+ },
+ "EE201": {
+  "question": "En quoi la SSB se distingue-t-elle de l'AM en ce qui concerne la largeur de bande ?",
+  "answer_a": "La SSB occupe moins de la moitié de la largeur de bande du mode AM.",
+  "answer_b": "La SSB occupe un peu plus de la moitié de la largeur de bande du mode AM.",
+  "answer_c": "La SSB occupe environ 1/4 de la largeur de bande du mode AM.",
+  "answer_d": "La SSB et l'AM ne permettent aucune comparaison, car elles sont produites de manière fondamentalement différente."
+ },
+ "EE207": {
+  "question": "Quelle est la largeur de bande de la CW en comparaison d'un signal vocal en SSB ou en AM ?",
+  "answer_a": "Dans les deux cas, la CW présente une largeur de bande plus petite.",
+  "answer_b": "Dans les deux cas, la CW présente une largeur de bande plus grande.",
+  "answer_c": "La largeur de bande de la CW est plus petite qu'en SSB, mais plus grande qu'en AM.",
+  "answer_d": "La largeur de bande de la CW est plus grande qu'en SSB, mais plus petite qu'en AM."
+ },
+ "EJ211": {
+  "question": "Pour limiter les éventuelles perturbations radio sur les fréquences voisines, la fréquence BF la plus élevée à transmettre en téléphonie SSB devrait ...",
+  "answer_a": "être inférieure à 3 kHz.",
+  "answer_b": "être inférieure à 1 kHz.",
+  "answer_c": "être inférieure à 5 kHz.",
+  "answer_d": "être inférieure à 10 kHz."
+ },
+ "EJ210": {
+  "question": "Pour minimiser les perturbations sur les fréquences voisines, la largeur de bande de transmission en SSB devrait ...",
+  "answer_a": "être au maximum de 2,7 kHz.",
+  "answer_b": "être au maximum de 1,8 kHz.",
+  "answer_c": "être au maximum de 3,1 kHz.",
+  "answer_d": "être au maximum de 15,0 kHz."
+ },
+ "EF310": {
+  "question": "Quelle largeur de bande le filtre placé en aval, destiné à supprimer une bande latérale lors de la production d'un signal de téléphonie SSB, devrait-il avoir ?"
+ },
+ "EJ215": {
+  "question": "Que provoque en règle générale un gain de microphone trop élevé sur un transceiver SSB ?",
+  "answer_a": "Des perturbations chez les stations travaillant sur des fréquences très voisines",
+  "answer_b": "Des perturbations de stations travaillant sur une autre bande de fréquences",
+  "answer_c": "Des perturbations de l'alimentation du transceiver",
+  "answer_d": "Des perturbations d'autres appareils électroniques"
+ },
+ "EE206": {
+  "question": "Que provoque un gain de microphone trop faible sur un transceiver SSB ?",
+  "answer_a": "Une puissance de sortie faible",
+  "answer_b": "Des perturbations de stations travaillant sur une autre bande de fréquences",
+  "answer_c": "Une largeur de bande faible",
+  "answer_d": "Des perturbations chez les stations travaillant sur des fréquences très voisines"
+ },
+ "EE205": {
+  "question": "Laquelle des mesures citées réduit la puissance de sortie d'un émetteur SSB ?",
+  "answer_a": "Réduire l'amplitude BF",
+  "answer_b": "Parler plus fort dans le microphone ",
+  "answer_c": "Réduire le réglage du squelch ",
+  "answer_d": "Augmenter la largeur de bande BF"
+ },
+ "EE301": {
+  "question": "Quel procédé de modulation l'image montre-t-elle ?"
+ },
+ "EE306": {
+  "question": "Par quoi l'information de volume sonore est-elle transmise en modulation de fréquence ?",
+  "answer_a": "Par l'excursion de la fréquence porteuse.",
+  "answer_b": "Par la cadence des changements de la fréquence porteuse.",
+  "answer_c": "Par la cadence de l'excursion de fréquence.",
+  "answer_d": "Par la grandeur de l'amplitude du signal HF."
+ },
+ "EE304": {
+  "question": "Une excursion de fréquence plus grande conduit, pour un émetteur FM, à ...",
+  "answer_a": "une largeur de bande HF plus grande.",
+  "answer_b": "une augmentation de la puissance de sortie de l'émetteur.",
+  "answer_c": "une augmentation de l'amplitude de la fréquence porteuse.",
+  "answer_d": "une réduction des amplitudes des bandes latérales."
+ },
+ "EE305": {
+  "question": "Par quelle mesure une largeur de bande trop grande d'une émission FM peut-elle être réduite ? Par la réduction ...",
+  "answer_a": "du réglage de l'excursion.",
+  "answer_b": "de la limitation HF.",
+  "answer_c": "du réglage de la tension de polarisation.",
+  "answer_d": "de la fréquence porteuse."
+ },
+ "EE302": {
+  "question": "Par rapport à la SSB, la FM a l'avantage ...",
+  "answer_a": "d'être moins affectée par les perturbations d'amplitude.",
+  "answer_b": "de faibles exigences en matière de largeur de bande.",
+  "answer_c": "de franchir de plus grandes distances.",
+  "answer_d": "d'une consommation plus faible en l'absence de modulation."
+ },
+ "EE303": {
+  "question": "Lequel des procédés de modulation suivants est le moins affecté par les perturbations d'amplitude dans les véhicules à moteur ?"
+ },
+ "EA105": {
+  "question": "Quelle unité est habituellement utilisée pour la largeur de bande ?",
+  "answer_a": "Le hertz (Hz)",
+  "answer_b": "Le baud (Bd)",
+  "answer_c": "Le bit par seconde (Bit/s)",
+  "answer_d": "Le décibel (dB)"
+ },
+ "EF306": {
+  "question": "Comment s'appelle l'étage d'un émetteur qui a la propriété de rehausser quelque peu les composantes faibles d'un signal vocal par rapport aux composantes fortes ?"
+ },
+ "EF101": {
+  "question": "Que représente le schéma suivant ?",
+  "answer_a": "Un récepteur à détecteur",
+  "answer_b": "Un amplificateur",
+  "answer_c": "Un oscillateur",
+  "answer_d": "Un modulateur"
+ },
+ "EF102": {
+  "question": "Quel avantage un récepteur superhétérodyne offre-t-il par rapport à un récepteur à amplification directe ?",
+  "answer_a": "Une meilleure sélectivité",
+  "answer_b": "Des largeurs de bande plus élevées",
+  "answer_c": "Des exigences moindres envers la stabilité du VFO",
+  "answer_d": "Une construction nettement plus simple"
+ },
+ "EF208": {
+  "question": "Où se situe habituellement, dans un récepteur à conversion directe, la fréquence de l'oscillateur pour le mélangeur ?",
+  "answer_a": "Elle se situe au plus près de la fréquence de réception.",
+  "answer_b": "Elle se situe très au-dessus de la fréquence de réception.",
+  "answer_c": "Elle se situe très en dessous de la fréquence de réception.",
+  "answer_d": "Elle se situe à la fréquence intermédiaire."
+ },
+ "EF210": {
+  "question": "À quoi conduit une largeur de bande étroite du récepteur ?",
+  "answer_a": "Une haute sélectivité.",
+  "answer_b": "Une faible sélectivité.",
+  "answer_c": "Une faible réjection de la fréquence image.",
+  "answer_d": "Une haute réjection de la fréquence image."
+ },
+ "EF209": {
+  "question": "À quoi sert un BFO dans un récepteur ?",
+  "answer_a": "À produire une porteuse auxiliaire pour rendre audibles les signaux CW ou SSB",
+  "answer_b": "Au mélange avec un signal reçu pour produire la FI",
+  "answer_c": "À supprimer la superposition d'amplitude",
+  "answer_d": "À supprimer les signaux FM"
+ },
+ "EF217": {
+  "question": "Quel module réduit la saturation d'une entrée de récepteur ?",
+  "answer_a": "Un atténuateur",
+  "answer_b": "Un filtre FI",
+  "answer_c": "Un squelch",
+  "answer_d": "Un oscillateur"
+ },
+ "EF218": {
+  "question": "À quel endroit d'une installation radioamateur un préamplificateur UHF devrait-il être inséré ?",
+  "answer_a": "Le plus près possible de l'antenne UHF",
+  "answer_b": "Le plus près possible de l'entrée du récepteur",
+  "answer_c": "Entre la sortie de l'émetteur et le câble d'antenne",
+  "answer_d": "Entre le SWR-mètre et l'entrée du récepteur"
+ },
+ "EF211": {
+  "question": "Avec quoi réduit-on les fluctuations de niveau du signal de sortie BF provoquées par des fluctuations du signal d'entrée HF ?",
+  "answer_a": "La régulation automatique de gain",
+  "answer_b": "Un éliminateur de parasites BF",
+  "answer_c": "Un filtre BF",
+  "answer_d": "Une régulation de polarisation BF"
+ },
+ "EF212": {
+  "question": "Que signifie l'abréviation AGC sur un commutateur d'un récepteur ?",
+  "answer_a": "Régulation automatique de gain",
+  "answer_b": "Boîte d'accord d'antenne automatique",
+  "answer_c": "Commande de synchronisation automatique",
+  "answer_d": "Correction automatique de fréquence"
+ },
+ "EF215": {
+  "question": "Quel module peut, côté réception, supprimer des perturbations dans une plage de fréquences étroite ?",
+  "answer_a": "Un filtre notch",
+  "answer_b": "Un filtre passe-bas",
+  "answer_c": "Un filtre passe-haut",
+  "answer_d": "Un filtre passe-bande"
+ },
+ "EF213": {
+  "question": "Quelle est la fonction du procédé de réduction du bruit (Noise Reduction) dans un récepteur ?",
+  "answer_a": "Réduire la part de bruit dans le signal",
+  "answer_b": "Réduire la part de bruit dans la tension d'alimentation",
+  "answer_c": "Réduire les bruits ambiants dans le casque",
+  "answer_d": "Réduire la plage dynamique du signal FI"
+ },
+ "EF214": {
+  "question": "Quel module pourrait, le cas échéant, être utilisé dans un récepteur pour éliminer des parasites impulsifs ?",
+  "answer_a": "Un Noise Blanker",
+  "answer_b": "Un filtre notch",
+  "answer_c": "Un Passband Tuning",
+  "answer_d": "Une Automatic Gain Control"
+ },
+ "EI501": {
+  "question": "Avec quoi peut-on mesurer la fréquence d'un signal haute fréquence non modulé ? Avec un ...",
+  "answer_a": "fréquencemètre (compteur de fréquence).",
+  "answer_b": "ohmmètre.",
+  "answer_c": "voltmètre alternatif.",
+  "answer_d": "compteur de courant alternatif."
+ },
+ "EI502": {
+  "question": "L'image représente l'affichage d'un fréquencemètre. Quel est le poids du chiffre marqué d'un X ?",
+  "answer_a": "un kilohertz",
+  "answer_b": "un hertz",
+  "answer_c": "cent hertz",
+  "answer_d": "dix hertz"
+ },
+ "EI503": {
+  "question": "L'image représente l'affichage d'un fréquencemètre. Quel est le poids du chiffre marqué d'un X ?",
+  "answer_a": "dix hertz",
+  "answer_b": "un hertz",
+  "answer_c": "cent hertz",
+  "answer_d": "un kilohertz"
+ },
+ "EF305": {
+  "question": "Que fait l'ALC (Automatic Level Control) dans un transceiver en cas de signal BF trop fort ?",
+  "answer_a": "Elle réduit l'amplitude du signal dans la chaîne d'émission avant l'amplificateur de puissance.",
+  "answer_b": "Elle augmente l'amplitude du signal dans la chaîne d'émission avant l'amplificateur de puissance.",
+  "answer_c": "Elle réduit le gain d'étages amplificateurs dans la partie réception.",
+  "answer_d": "Elle augmente le gain d'étages amplificateurs dans la partie réception."
+ },
+ "EF401": {
+  "question": "La puissance de sortie d'un émetteur est la puissance mesurable immédiatement après ...",
+  "answer_a": "la sortie de l'émetteur, avant qu'elle ne traverse des appareils supplémentaires.",
+  "answer_b": "la sortie de l'émetteur, comme différence entre la puissance directe et la puissance réfléchie.",
+  "answer_c": "l'antenne, pouvant être déterminée par un mesureur de champ dans le champ proche.",
+  "answer_d": "la sortie de l'émetteur, comme somme de la puissance directe et de la puissance réfléchie."
+ },
+ "EF402": {
+  "question": "Comment et où mesure-t-on la puissance de sortie d'un émetteur SSB ? La puissance maximale d'enveloppe (PEP) est mesurée ...",
+  "answer_a": "directement à la sortie de l'émetteur, avec une excitation à une ou deux tonalités.",
+  "answer_b": "entre la boîte d'accord et le point d'alimentation de l'antenne, avec porteuse non modulée.",
+  "answer_c": "entre la boîte d'accord et le point d'alimentation, avec modulation par la parole.",
+  "answer_d": "directement à la sortie de l'émetteur, avec porteuse non modulée."
+ },
+ "EB501": {
+  "question": "La puissance de crête d'un émetteur (PEP) est ...",
+  "answer_a": "la puissance que l'émetteur, dans des conditions normales d'exploitation, peut fournir en moyenne à une charge résistive réelle pendant une période de l'oscillation haute fréquence, au sommet le plus élevé de l'enveloppe de modulation.",
+  "answer_b": "la puissance mesurable immédiatement après la sortie de l'émetteur, sur les crêtes de la période d'une oscillation haute fréquence moyenne, avant traversée d'appareils supplémentaires (par exemple boîtes d'accord).",
+  "answer_c": "la puissance moyenne qu'un émetteur, dans des conditions normales d'exploitation, fournit à la ligne d'alimentation de l'antenne pendant un intervalle de temps suffisamment long par rapport à la période de la fréquence de modulation la plus basse.",
+  "answer_d": "le produit de la puissance fournie directement à l'antenne par son facteur de gain dans une direction, rapporté au dipôle demi-onde."
+ },
+ "EB502": {
+  "question": "La puissance moyenne d'un émetteur est ...",
+  "answer_a": "la puissance moyenne qu'un émetteur, dans des conditions normales d'exploitation, fournit à la ligne d'alimentation de l'antenne pendant un intervalle de temps suffisamment long par rapport à la période de la fréquence de modulation la plus basse.",
+  "answer_b": "la puissance mesurable immédiatement après la sortie de l'émetteur, sur les crêtes de la période d'une oscillation haute fréquence moyenne, avant traversée d'appareils supplémentaires (par exemple boîtes d'accord).",
+  "answer_c": "la puissance moyenne qu'un émetteur, dans des conditions normales d'exploitation, fournit à la ligne d'alimentation de l'antenne pendant une période de l'oscillation haute fréquence, au sommet le plus élevé de l'enveloppe de modulation.",
+  "answer_d": "le produit de la puissance fournie directement à l'antenne par son facteur de gain dans une direction, rapporté au dipôle demi-onde."
+ },
+ "EJ209": {
+  "question": "Comment s'effectue la mesure des puissances conduisant à des émissions non désirées ?",
+  "answer_a": "La mesure s'effectue à la sortie de l'émetteur, en incluant le SWR-mètre éventuellement utilisé et le filtre passe-bas éventuellement utilisé.",
+  "answer_b": "La mesure s'effectue au point d'alimentation de l'antenne utilisée en trafic, en incluant la boîte d'accord d'antenne éventuellement utilisée.",
+  "answer_c": "La mesure s'effectue à la sortie de la ligne d'antenne, en incluant la boîte d'accord d'antenne utilisée en trafic.",
+  "answer_d": "La mesure s'effectue à la sortie de l'émetteur, avec une sonde HF à haute impédance et un voltmètre à transistors raccordé."
+ },
+ "EJ201": {
+  "question": "Quelle forme de signal la porteuse d'une oscillation haute fréquence devrait-elle avoir pour éviter des perturbations par harmoniques ?",
+  "answer_a": "sinusoïdale",
+  "answer_b": "rectangulaire",
+  "answer_c": "triangulaire",
+  "answer_d": "circulaire"
+ },
+ "EJ202": {
+  "question": "Comment peut-on réduire des perturbations haute fréquence provoquées par des harmoniques ? Elles peuvent être réduites par un ...",
+  "answer_a": "filtre d'harmoniques.",
+  "answer_b": "filtre de canal adjacent.",
+  "answer_c": "filtre FI.",
+  "answer_d": "filtre passe-haut."
+ },
+ "EJ204": {
+  "question": "Quel filtre, inséré entre la sortie de l'émetteur et l'antenne, conviendrait le mieux pour réduire le rayonnement d'harmoniques ?",
+  "answer_a": "Un filtre passe-bas",
+  "answer_b": "Un filtre passe-haut",
+  "answer_c": "Un filtre d'antenne",
+  "answer_d": "Un filtre à circuit bouchon"
+ },
+ "EJ205": {
+  "question": "Pour minimiser les émissions d'harmoniques d'un émetteur UHF, il faut placer à la suite de l'appareil ...",
+  "answer_a": "un filtre passe-bas.",
+  "answer_b": "un filtre passe-haut.",
+  "answer_c": "un filtre coupe-bande en amont.",
+  "answer_d": "un filtre notch en amont."
+ },
+ "EJ203": {
+  "question": "Quel type de filtre doit être inséré entre le transceiver et la ligne d'antenne pour réduire les harmoniques ?",
+  "answer_a": "Un filtre passe-bas",
+  "answer_b": "Un filtre passe-haut",
+  "answer_c": "Un filtre CW",
+  "answer_d": "Un filtre BF"
+ },
+ "EF404": {
+  "question": "Quand un émetteur devrait-il être contrôlé quant à d'éventuelles émissions d'harmoniques ?",
+  "answer_a": "Lorsque le point de fonctionnement de l'étage final a été réajusté.",
+  "answer_b": "À la réception d'un signal perturbateur.",
+  "answer_c": "Avant chaque passage en émission.",
+  "answer_d": "Lorsque des perturbations de type splatter sont audibles."
+ },
+ "EJ213": {
+  "question": "La saturation d'un amplificateur de puissance conduit à ...",
+  "answer_a": "une forte proportion d'émissions parasites.",
+  "answer_b": "des distorsions seulement minimes à la réception.",
+  "answer_c": "une meilleure intelligibilité au lieu de réception.",
+  "answer_d": "une diminution de la puissance de sortie."
+ },
+ "EJ214": {
+  "question": "Un émetteur SSB provoquera des perturbations sur les fréquences voisines si ...",
+  "answer_a": "l'amplificateur de puissance est saturé.",
+  "answer_b": "le câble d'antenne est interrompu.",
+  "answer_c": "l'excitation de l'étage BF est trop faible.",
+  "answer_d": "la boîte d'accord d'antenne est mal réglée."
+ },
+ "EJ212": {
+  "question": "Vous modulez votre émetteur FM avec un signal AFSK (déplacement de fréquence en basse fréquence). Comment pouvez-vous réduire la largeur de bande de l'émission ? En ...",
+  "answer_a": "abaissant le niveau BF ou l'excursion de fréquence",
+  "answer_b": "augmentant le niveau BF ou l'excursion de fréquence",
+  "answer_c": "abaissant la puissance d'émission ou la FI",
+  "answer_d": "augmentant la puissance d'émission ou la FI"
+ },
+ "EJ216": {
+  "question": "Quel effet indésirable une stabilité de fréquence insuffisante d'un émetteur peut-elle avoir ?",
+  "answer_a": "Des émissions en dehors des limites de bande",
+  "answer_b": "Des amorçages de tension dans l'étage final de l'émetteur",
+  "answer_c": "Une surcharge de l'étage final de l'émetteur",
+  "answer_d": "Un rayonnement d'harmoniques renforcé à l'intérieur des limites de bande"
+ },
+ "EJ102": {
+  "question": "Dans quel cas parle-t-on de pénétration par rayonnement (Einstrahlung) en CEM ? Il y a pénétration par rayonnement lorsque la haute fréquence ...",
+  "answer_a": "parvient dans l'électronique par le boîtier insuffisamment blindé.",
+  "answer_b": "parvient dans l'appareil perturbé par des lignes ou des câbles.",
+  "answer_c": "parvient au récepteur perturbé par des câbles insuffisamment blindés.",
+  "answer_d": "est rayonnée en retour vers l'émetteur à cause d'un mauvais rapport d'ondes stationnaires."
+ },
+ "EJ101": {
+  "question": "Dans quel cas parle-t-on de pénétration par conduction (Einströmung) ? Il y a pénétration par conduction lorsque la haute fréquence ...",
+  "answer_a": "parvient dans un appareil par des lignes ou des câbles.",
+  "answer_b": "parvient dans l'électronique par le boîtier insuffisamment blindé.",
+  "answer_c": "est amenée à la boîte d'accord par des câbles insuffisamment blindés.",
+  "answer_d": "reflue vers l'émetteur à cause d'un mauvais rapport d'ondes stationnaires."
+ },
+ "EJ106": {
+  "question": "Une antenne d'émission 432 MHz à gain élevé est pointée directement sur une antenne de réception de télévision. Cela conduit éventuellement à ...",
+  "answer_a": "une saturation d'un récepteur de télévision.",
+  "answer_b": "des problèmes avec le récepteur 432 MHz.",
+  "answer_c": "des oscillations propres de l'émetteur 432 MHz.",
+  "answer_d": "un claquage du câble coaxial de l'antenne TV."
+ },
+ "EJ107": {
+  "question": "À quoi pouvez-vous reconnaître la saturation d'un récepteur ?",
+  "answer_a": "Une diminution de la sensibilité",
+  "answer_b": "Une augmentation de la sensibilité",
+  "answer_c": "L'apparition de sifflements sur toute la plage d'accord",
+  "answer_d": "Un blocage temporaire du réglage de fréquence"
+ },
+ "EJ103": {
+  "question": "Dès l'émission du seul signal utile, des perturbations de la réception d'autres fréquences peuvent apparaître dans des récepteurs voisins. Il s'agit alors d'une ...",
+  "answer_a": "saturation ou influence perturbatrice.",
+  "answer_b": "perturbation par émissions non désirées.",
+  "answer_c": "perturbation par émissions parasites non désirées.",
+  "answer_d": "perturbation à tolérer."
+ },
+ "EJ112": {
+  "question": "Quel appareil peut présenter des influences perturbatrices dues aux émissions d'un émetteur radioamateur ?",
+  "answer_a": "Une lampe à LED raccordée au secteur",
+  "answer_b": "Un fer à repasser à vapeur avec régulateur de température bilame",
+  "answer_c": "Un aspirateur avec moteur à collecteur",
+  "answer_d": "Un rotor d'antenne avec moteur à courant alternatif"
+ },
+ "EJ122": {
+  "question": "Votre voisin se plaint de perturbations de sa réception de télévision et soupçonne vos émissions radioamateur d'en être la cause. Quelle première démarche s'impose ?",
+  "answer_a": "Vous vérifiez la corrélation temporelle entre les perturbations et vos émissions.",
+  "answer_b": "Vous vérifiez si le voisin a déclaré son téléviseur en bonne et due forme.",
+  "answer_c": "Vous recommandez la mise à la terre du téléviseur par un revendeur local.",
+  "answer_d": "Vous renvoyez le voisin aux offres des plateformes de streaming sur Internet."
+ },
+ "EJ124": {
+  "question": "Les efforts pour réduire les perturbations de la télévision provoquées par une station d'amateur située à proximité ont échoué. L'étape suivante consiste à ...",
+  "answer_a": "prier l'antenne régionale compétente de la Bundesnetzagentur d'examiner la situation.",
+  "answer_b": "envoyer l'émetteur à la Bundesnetzagentur.",
+  "answer_c": "retirer le panneau arrière du téléviseur et mettre le boîtier à la terre.",
+  "answer_d": "prier un technicien TV du commerce spécialisé d'examiner le téléviseur."
+ },
+ "EJ104": {
+  "question": "Pour réduire la probabilité de perturbations, la puissance d'émission utilisée devrait ...",
+  "answer_a": "être réglée au minimum nécessaire à une communication satisfaisante.",
+  "answer_b": "être réglée uniquement au niveau admissible.",
+  "answer_c": "être réglée aux 100 W nécessaires à une communication satisfaisante.",
+  "answer_d": "représenter la moitié du niveau maximal admissible."
+ },
+ "EJ105": {
+  "question": "Si l'on habite dans une agglomération, il est recommandé, pendant les heures de télévision du soir, ...",
+  "answer_a": "de ne pas émettre avec une puissance supérieure à celle nécessaire à une communication sûre.",
+  "answer_b": "de n'émettre qu'avec la puissance effective.",
+  "answer_c": "de n'émettre qu'avec une antenne directive à gain élevé.",
+  "answer_d": "d'abaisser l'antenne en dessous de la hauteur du toit."
+ },
+ "EJ120": {
+  "question": "Quels effets de réception sont provoqués par l'intermodulation ?",
+  "answer_a": "Des signaux fantômes apparaissent, qui disparaissent lorsqu'on coupe l'une des fréquences de mélange impliquées.",
+  "answer_b": "Le signal utile est modulé par un autre signal et devient ainsi plus intelligible.",
+  "answer_c": "Des signaux fantômes apparaissent, qui ne disparaissent pas même en insérant un atténuateur dans le trajet du signal HF.",
+  "answer_d": "Un bruit pulsé se superpose au signal reçu et nuit à l'intelligibilité."
+ },
+ "EJ113": {
+  "question": "Comment des bruits provenant des haut-parleurs d'une chaîne stéréo éteinte peuvent-ils éventuellement se produire ?",
+  "answer_a": "Par redressement de signaux HF puissants dans l'étage final BF de la chaîne stéréo.",
+  "answer_b": "Par redressement des signaux HF rayonnés dans le réseau électrique sur les diodes de l'alimentation.",
+  "answer_c": "Par redressement de signaux HF rayonnés sur des jonctions PN dans le préamplificateur BF.",
+  "answer_d": "Par une saturation du tuner par le signal HF capté via la ligne d'antenne."
+ },
+ "EJ121": {
+  "question": "Un raccord corrodé sur l'antenne de réception de télévision du voisin peut, en combinaison avec ...",
+  "answer_a": "le signal d'émetteurs proches, produire des produits de mélange indésirables qui perturbent la réception de la télévision.",
+  "answer_b": "le signal de l'oscillateur du récepteur de télévision, produire des produits de mélange indésirables qui perturbent la réception de la télévision.",
+  "answer_c": "des parasites provenant du réseau électrique, provoquer par intermodulation des perturbations de l'image et du son.",
+  "answer_d": "le signal d'émetteurs proches, produire des oscillations paramétriques qui provoquent un niveau de signal utile excessif."
+ },
+ "EJ108": {
+  "question": "Comment un boîtier de blindage pour modules HF devrait-il être conçu ?",
+  "answer_a": "Un boîtier métallique aussi fermé que possible",
+  "answer_b": "Un boîtier en plastique à faible permittivité",
+  "answer_c": "Une tôle métallique sous le module HF",
+  "answer_d": "Un boîtier en plastique à haute permittivité"
+ },
+ "EJ109": {
+  "question": "Si une antenne d'émission décamétrique se trouve à proximité et parallèlement à une ligne de courant alternatif 230 V, ...",
+  "answer_a": "des courants haute fréquence peuvent être couplés dans le réseau.",
+  "answer_b": "des oscillations harmoniques peuvent être produites.",
+  "answer_c": "une surtension considérable pourrait être produite dans le réseau.",
+  "answer_d": "une modulation à 50 Hz de tous les signaux peut apparaître."
+ },
+ "EJ111": {
+  "question": "Pour réduire la probabilité de perturbations dans sa propre maison, il est recommandé de préférence ...",
+  "answer_a": "d'utiliser une ligne de terre HF séparée pour les antennes d'émission.",
+  "answer_b": "d'installer les antennes d'émission dans les combles.",
+  "answer_c": "de relier les appareils radioamateur à une conduite d'eau.",
+  "answer_d": "de mettre les appareils radioamateur à la terre par le conducteur de protection."
+ },
+ "EJ116": {
+  "question": "Un émetteur 28 MHz influence le récepteur d'un téléviseur DVB-T2 par son entrée d'antenne. Que faut-il insérer devant l'entrée d'antenne du téléviseur pour y remédier ?",
+  "answer_a": "Un filtre passe-haut",
+  "answer_b": "Un filtre passe-bas",
+  "answer_c": "Un atténuateur UHF",
+  "answer_d": "Un filtre coupe-bande UHF"
+ },
+ "EJ118": {
+  "question": "Une self de blocage des courants de gaine dans un câble d'antenne de télévision ...",
+  "answer_a": "supprime les signaux perturbateurs HF de mode commun.",
+  "answer_b": "supprime les signaux perturbateurs basse fréquence.",
+  "answer_c": "supprime tous les signaux à courant alternatif.",
+  "answer_d": "supprime le ronflement secteur."
+ },
+ "EJ119": {
+  "question": "Les signaux d'un émetteur 144 MHz sont induits dans le câble coaxial d'antenne d'un récepteur de radiodiffusion FM/DAB et provoquent des perturbations. Une possibilité de réduire les perturbations consiste à ...",
+  "answer_a": "monter un bloqueur de courants de gaine dans le câble, devant le récepteur de radiodiffusion.",
+  "answer_b": "débrancher la liaison de terre de l'émetteur.",
+  "answer_c": "débrancher la tresse de blindage au connecteur d'antenne du récepteur.",
+  "answer_d": "équiper l'émetteur 144 MHz d'un filtre passe-bas."
+ },
+ "EJ115": {
+  "question": "Dans une maison individuelle, l'interphone de porte est perturbé par le fonctionnement d'un émetteur proche. Une possibilité de réduire les influences consiste à ...",
+  "answer_a": "utiliser un câble de liaison blindé pour l'interphone de porte.",
+  "answer_b": "doubler la longueur du câble de l'interphone de porte.",
+  "answer_c": "utiliser pour l'interphone de porte une ligne de section plus faible.",
+  "answer_d": "utiliser pour l'interphone de porte une ligne à fils de cuivre argentés."
+ },
+ "EJ114": {
+  "question": "Sur la chaîne hi-fi du voisin, une pénétration par conduction dans l'étage final BF est constatée. Un remède possible serait ...",
+  "answer_a": "d'utiliser des câbles de haut-parleurs blindés.",
+  "answer_b": "d'insérer un filtre BF dans le câble coaxial.",
+  "answer_c": "de monter un condensateur série dans le câble de haut-parleur.",
+  "answer_d": "d'utiliser un câble secteur blindé pour l'ampli-tuner."
+ },
+ "EJ123": {
+  "question": "Lors du fonctionnement d'un émetteur 2 m, un récepteur de télévision utilisé avec une antenne d'intérieur est perturbé chez un voisin. Pour résoudre le problème, ...",
+  "answer_a": "vous proposez au voisin d'installer une antenne de télévision extérieure.",
+  "answer_b": "il faut utiliser un câble coaxial à double blindage pour la ligne d'antenne.",
+  "answer_c": "il faut insérer un préamplificateur dans la ligne d'antenne.",
+  "answer_d": "il faut changer le récepteur de télévision."
+ },
+ "EA201": {
+  "question": "Quel est l'avantage du système de numération binaire par rapport au système décimal dans les circuits électroniques ?",
+  "answer_a": "Les chiffres binaires 0 et 1 peuvent être représentés par deux états électriques et ainsi être traités simplement au moyen d'éléments de commutation (par exemple des transistors).",
+  "answer_b": "La précision du système binaire (avec deux chiffres) est supérieure d'un facteur 5 à celle du système décimal (avec 10 chiffres).",
+  "answer_c": "La zone intermédiaire entre 0 et 1 peut être reproduite avec une grande précision par des circuits amplificateurs analogiques.",
+  "answer_d": "Chaque chiffre peut transporter plus d'un bit d'information (1 chiffre binaire permet la transmission de 8 chiffres décimaux)."
+ },
+ "EE402": {
+  "question": "Quelle modulation règle-t-on sur le transceiver pour transposer en HF, en conservant la largeur de bande, un signal numérique à bande étroite (par exemple BPSK31 ou FT8) injecté en BF comme signal audio ?",
+  "answer_a": "La modulation à bande latérale unique (SSB)",
+  "answer_b": "La modulation de fréquence (FM)",
+  "answer_c": "La modulation d'amplitude (AM)",
+  "answer_d": "La modulation de phase (PM)"
+ },
+ "EE404": {
+  "question": "Combien de signaux numériques de stations différentes peuvent être reçus et décodés simultanément avec un poste radio analogique (largeur de bande SSB de 2,4 kHz) et un ordinateur raccordé par l'interface audio ?",
+  "answer_a": "Selon la nature des signaux, un ou plusieurs signaux peuvent être reçus.",
+  "answer_b": "Au maximum deux signaux peuvent être reçus (un par bande latérale).",
+  "answer_c": "Au maximum un signal peut être reçu, puisqu'une seule bande latérale est utilisée.",
+  "answer_d": "Au maximum un signal peut être reçu, sauf si le poste dispose d'une largeur de canal double."
+ },
+ "EE415": {
+  "question": "Quelle différence entre l'ATV et la SSTV est correcte ?",
+  "answer_a": "La SSTV transmet des images fixes, l'ATV des images animées.",
+  "answer_b": "La SSTV n'est utilisée qu'en ondes courtes, l'ATV en VHF.",
+  "answer_c": "La SSTV occupe une largeur de bande plus grande que l'ATV.",
+  "answer_d": "La SSTV est en noir et blanc, l'ATV en couleur."
+ },
+ "EF309": {
+  "question": "Lequel des points repérés dans un émetteur FM convient le mieux pour l'injection d'un signal de données à 9600 bauds ?",
+  "answer_a": "Le point 2",
+  "answer_b": "Le point 1",
+  "answer_c": "Le point 3",
+  "answer_d": "Le point 4"
+ },
+ "EF219": {
+  "question": "Certains transceivers FM disposent d'un connecteur de données analogique (par exemple repéré DATA ou désigné port 9600). Quel point de la chaîne de réception représentée est habituellement sorti sur ce connecteur ?",
+  "answer_a": "Le point 4",
+  "answer_b": "Le point 1",
+  "answer_c": "Le point 2",
+  "answer_d": "Le point 3"
+ },
+ "EJ218": {
+  "question": "Avec les procédés de transmission numériques (par exemple FT8, JS8, PSK31), comment le niveau BF à l'entrée d'un poste radio à régulation automatique de niveau (ALC) doit-il être réglé en trafic SSB pour éviter des perturbations ?",
+  "answer_a": "Suffisamment bas pour que la régulation automatique de niveau (ALC) n'intervienne pas.",
+  "answer_b": "18 dB plus haut que le volume auquel la régulation automatique de niveau (ALC) intervient.",
+  "answer_c": "Tous les organes de réglage doivent être réglés au maximum.",
+  "answer_d": "Le volume BF doit être de $-\\infty$ dB (c'est-à-dire nul)."
+ },
+ "EJ217": {
+  "question": "Que peut-il se produire lorsque, avec les procédés de transmission numériques (par exemple RTTY, FT8, Olivia), la régulation automatique de niveau (ALC) d'un poste radio intervient en trafic SSB ?",
+  "answer_a": "Des perturbations de transmissions sur les fréquences voisines",
+  "answer_b": "Des perturbations d'ordinateurs ou d'autres appareils numériques",
+  "answer_c": "Des perturbations de stations sur d'autres bandes de fréquences",
+  "answer_d": "Des perturbations d'émissions ultérieures sur la même fréquence"
+ },
+ "EJ219": {
+  "question": "Que faut-il faire lorsque, avec les procédés de transmission numériques, des perturbations surviennent parce que la régulation automatique de niveau (ALC) d'un poste radio intervient en trafic SSB ?",
+  "answer_a": "Le niveau BF à l'entrée du poste radio devrait être réduit.",
+  "answer_b": "La puissance d'émission devrait être augmentée.",
+  "answer_c": "Le filtre d'harmoniques devrait être coupé.",
+  "answer_d": "Il faudrait compenser avec le RIT."
+ },
+ "EE405": {
+  "question": "Comment pouvez-vous obtenir des rapports de réception automatiques sur vos émissions, par exemple pour tester la portée de votre installation d'émission ?",
+  "answer_a": "En émettant un message au moyen d'un procédé numérique approprié (par exemple CW ou WSPR) et en recherchant votre indicatif sur les plateformes Internet adéquates",
+  "answer_b": "En émettant un message au moyen d'un procédé numérique approprié (par exemple CW ou WSPR) en indiquant votre adresse e-mail et le nombre maximal de rapports de réception souhaités",
+  "answer_c": "En émettant votre indicatif en télégraphie (5 mots/min) avec la mention \"AUTO RSVP\" (du français \"répondez s'il vous pla\\^it\") et en écoutant la fréquence située 10 kHz plus haut",
+  "answer_d": "En émettant votre indicatif en télégraphie (12 mots/min) avec la mention \"R\" (pour Report) et en écoutant la fréquence située 10 kHz plus bas"
+ },
+ "EE414": {
+  "question": "Le protocole Internet (IP) peut-il être utilisé dans le service radioamateur ?",
+  "answer_a": "Oui, il n'est pas limité à Internet.",
+  "answer_b": "Oui, le codage de l'indicatif radioamateur s'effectue dans le masque de sous-réseau.",
+  "answer_c": "Non, les utilisateurs d'Internet auraient ainsi accès aux bandes radioamateur.",
+  "answer_d": "Non, la largeur de bande nécessaire n'est pas disponible dans le service radioamateur."
+ },
+ "EE412": {
+  "question": "Comment des informations peuvent-elles être échangées, au sein d'un réseau à commutation de paquets, entre deux stations qui ne peuvent pas s'atteindre directement ?",
+  "answer_a": "Par relayage via des stations intermédiaires (relayage de paquets)",
+  "answer_b": "Par émission répétée (répétition de paquets)",
+  "answer_c": "Par dépaquetage avant l'émission (décompression de paquets)",
+  "answer_d": "Par regroupement de transmissions (défragmentation de paquets)"
+ },
+ "EE413": {
+  "question": "Que déduit-on de l'adresse IP et du masque de sous-réseau réglés sur une interface de communication avec le protocole Internet (IP) ?",
+  "answer_a": "La plage d'adresses atteignable directement (c'est-à-dire sans routeur) par l'interface",
+  "answer_b": "Le numéro de protocole et le numéro de port du protocole utilisé par l'interface",
+  "answer_c": "Le correspondant et la largeur de bande utilisée par le sous-réseau",
+  "answer_d": "La passerelle par défaut et le nombre maximal de stations intermédiaires (hops)"
+ },
+ "EE408": {
+  "question": "Qu'est-ce que l'Audio Frequency Shift Keying (AFSK) ?",
+  "answer_a": "Un signal BF produit par déplacement de fréquence, avec lequel une porteuse haute fréquence peut être modulée (par exemple en FM)",
+  "answer_b": "Un signal PSK haute fréquence transposé par commutation automatique sur deux porteuses BF afin d'économiser de la largeur de bande",
+  "answer_c": "Une combinaison de modulation numérique d'amplitude et de fréquence, pour transmettre deux informations simultanément",
+  "answer_d": "Une porteuse haute fréquence non modulée dont l'écart de fréquence se situe dans le domaine audible"
+ },
+ "EA106": {
+  "question": "Quelle unité utilise-t-on habituellement pour le débit de données ?",
+  "answer_a": "Le bit par seconde (bit/s)",
+  "answer_b": "Le baud (Bd)",
+  "answer_c": "Le hertz (Hz)",
+  "answer_d": "Le décibel (dB)"
+ },
+ "EE401": {
+  "question": "Quelle différence existe-t-il entre la largeur de bande et le débit de données ?",
+  "answer_a": "On appelle largeur de bande la plage de fréquences utilisée (en Hz) et débit de données la quantité de données transmise par unité de temps (en bit/s).",
+  "answer_b": "On appelle largeur de bande la quantité de données transmise (en Hz) et débit de données les symboles transmis par unité de temps (en bauds).",
+  "answer_c": "Le débit de données (en bit/s) correspond à la rapidité de modulation (en bauds). La largeur de bande (en Hz) correspond au débit de données maximal possible (en bit/s).",
+  "answer_d": "Le débit de données (en bauds) correspond à la rapidité de modulation (en bit/s). La largeur de bande (en Hz) correspond au débit de données minimal possible (en bauds)."
+ },
+ "EE409": {
+  "question": "Comment plusieurs signaux sont-ils transmis simultanément avec le multiplexage temporel (TDMA) ?",
+  "answer_a": "En alternance temporelle rapide sur la même fréquence",
+  "answer_b": "Simultanément sur des fréquences différentes",
+  "answer_c": "Simultanément avec codage par étalement dans le même domaine de fréquences",
+  "answer_d": "Simultanément par des chemins différents"
+ },
+ "EE410": {
+  "question": "Comment plusieurs signaux sont-ils transmis simultanément avec le multiplexage fréquentiel (FDMA) ?",
+  "answer_a": "Simultanément sur des fréquences différentes",
+  "answer_b": "En alternance temporelle rapide sur la même fréquence",
+  "answer_c": "Simultanément avec codage par étalement dans le même domaine de fréquences",
+  "answer_d": "Simultanément par des chemins différents"
+ },
+ "EE411": {
+  "question": "Comment plusieurs signaux sont-ils transmis simultanément avec le multiplexage par code (CDMA) ?",
+  "answer_a": "Simultanément avec codage par étalement dans le même domaine de fréquences",
+  "answer_b": "Simultanément sur des fréquences différentes",
+  "answer_c": "En alternance temporelle rapide sur la même fréquence",
+  "answer_d": "Simultanément par des chemins différents"
+ },
+ "EF216": {
+  "question": "Quel diagramme représente la réponse en fréquence d'un filtre notch de récepteur ?"
+ },
+ "EI504": {
+  "question": "Si un diviseur de fréquence 10:1 est placé devant un fréquencemètre et que le compteur affiche 14,5625 MHz, la fréquence réelle vaut ..."
+ },
+ "EJ206": {
+  "question": "Quel circuit, inséré entre la sortie de l'émetteur et l'antenne, conviendrait le mieux pour réduire le rayonnement d'harmoniques ?"
+ },
+ "EJ207": {
+  "question": "Quelle caractéristique un filtre destiné à réduire les harmoniques d'un émetteur décamétrique devrait-il avoir ?"
+ },
+ "EJ208": {
+  "question": "Quelle caractéristique de filtrage conviendrait le mieux à la sortie d'un émetteur décamétrique multibande ?"
+ },
+ "EJ117": {
+  "question": "Une station d'amateur décamétrique provoque en émission des perturbations dans un récepteur de télévision utilisé à proximité. Quel filtre insérez-vous dans le câble d'antenne du téléviseur pour réduire la probabilité de perturbations ?"
+ },
+ "EA206": {
+  "question": "Calculez la valeur décimale du nombre binaire 10001110. Le nombre décimal est :"
+ },
+ "EA207": {
+  "question": "Calculez la valeur décimale du nombre binaire 10011100. Le nombre décimal est :"
+ },
+ "EA208": {
+  "question": "Calculez la valeur décimale du nombre binaire 11111000. Le nombre décimal est :"
+ },
+ "EA205": {
+  "question": "Calculez la valeur décimale du nombre binaire 01001110. Le nombre décimal est :"
+ },
+ "EA204": {
+  "question": "Combien de valeurs différentes peuvent être représentées avec un nombre binaire à cinq chiffres ?"
+ },
+ "EA202": {
+  "question": "Combien d'états différents peuvent être représentés avec un nombre binaire constitué d'une suite de 3 bits ?"
+ },
+ "EA203": {
+  "question": "Combien d'états différents peuvent être représentés avec un nombre binaire constitué d'une suite de 4 bits ?"
+ },
+ "EE403": {
+  "question": "Lors de l'émission d'un signal numérique au moyen d'un poste radio réglé en SSB, la largeur de bande BF du signal injecté dans le poste est de 50 Hz. Quelle est la largeur de bande HF ?"
+ },
+ "EE406": {
+  "question": "Lequel des diagrammes suivants montre une porteuse modulée de manière reconnaissable par déplacement d'amplitude (ASK) ?"
+ },
+ "EE407": {
+  "question": "Lequel des diagrammes suivants montre une porteuse modulée de manière reconnaissable par déplacement de fréquence (FSK) ?"
+ },
+ "EF603": {
+  "question": "Qu'indique la désignation SDR pour un transceiver ou un récepteur ?",
+  "answer_a": "Au moins une partie du traitement du signal est réalisée en logiciel.",
+  "answer_b": "Des connecteurs d'antenne spéciaux pour signaux numériques sont utilisés.",
+  "answer_c": "Au moins dans le domaine BF, la technique analogique est employée pour obtenir un meilleur son.",
+  "answer_d": "L'émission ou la réception s'effectue par Internet et non par radio."
+ },
+ "EF602": {
+  "question": "Quelle est la condition préalable pour filtrer un signal analogique par traitement numérique du signal ? Le signal d'entrée doit d'abord être ...",
+  "answer_a": "numérisé.",
+  "answer_b": "démodulé.",
+  "answer_c": "débarrassé du bruit.",
+  "answer_d": "débarrassé des harmoniques."
+ },
+ "EF601": {
+  "question": "Le schéma fonctionnel suivant représente le principe d'un traitement numérique du signal. Quelles sont les fonctions des deux blocs 1 et 2 ?",
+  "answer_a": "1 : convertisseur A/N, 2 : convertisseur N/A",
+  "answer_b": "1 : convertisseur N/A, 2 : convertisseur A/N",
+  "answer_c": "les deux sont des convertisseurs N/A",
+  "answer_d": "les deux sont des convertisseurs A/N"
+ },
+ "EB309": {
+  "question": "La polarisation du signal d'émission dans la direction principale de rayonnement de cette antenne directive est ...",
+  "answer_a": "horizontale.",
+  "answer_b": "verticale.",
+  "answer_c": "circulaire droite.",
+  "answer_d": "circulaire gauche."
+ },
+ "EB310": {
+  "question": "La polarisation du signal d'émission dans la direction principale de rayonnement de cette antenne directive est ...",
+  "answer_a": "verticale.",
+  "answer_b": "horizontale.",
+  "answer_c": "circulaire droite.",
+  "answer_d": "circulaire gauche."
+ },
+ "EG222": {
+  "question": "La polarisation d'une antenne ...",
+  "answer_a": "s'indique d'après l'orientation de la composante de champ électrique dans la direction principale de rayonnement par rapport à la surface de la Terre.",
+  "answer_b": "s'indique d'après l'orientation de la composante de champ magnétique dans la direction principale de rayonnement par rapport à la surface de la Terre.",
+  "answer_c": "correspond à la direction de la composante de champ magnétique du champ reçu ou émis par rapport à la direction du nord (azimut).",
+  "answer_d": "correspond à la direction de la composante de champ électrique du champ reçu ou émis par rapport à la direction du nord (azimut)."
+ },
+ "EB305": {
+  "question": "La polarisation d'une onde électromagnétique est déterminée par la direction ...",
+  "answer_a": "du champ électrique (vecteur du champ E).",
+  "answer_b": "du pôle nord magnétique (par rapport à l'antenne).",
+  "answer_c": "de la propagation (vecteur S/vecteur de Poynting).",
+  "answer_d": "du champ proche immédiat (zone $\\lambda/4$)."
+ },
+ "EB306": {
+  "question": "L'image suivante montre un instantané d'un champ électromagnétique. Quelle est la polarisation de l'onde esquissée ?",
+  "answer_a": "Polarisation horizontale",
+  "answer_b": "Polarisation verticale",
+  "answer_c": "Polarisation circulaire droite",
+  "answer_d": "Polarisation circulaire gauche"
+ },
+ "EB307": {
+  "question": "L'image suivante montre un instantané d'un champ électromagnétique. Quelle est la polarisation de l'onde esquissée ?",
+  "answer_a": "Polarisation verticale",
+  "answer_b": "Polarisation horizontale",
+  "answer_c": "Polarisation circulaire gauche",
+  "answer_d": "Polarisation circulaire droite"
+ },
+ "EB308": {
+  "question": "L'image suivante montre un instantané d'un champ électromagnétique. Quelle est la polarisation de l'onde esquissée ?",
+  "answer_a": "Polarisation circulaire",
+  "answer_b": "Polarisation horizontale",
+  "answer_c": "Polarisation verticale",
+  "answer_d": "Polarisation diagonale"
+ },
+ "EG213": {
+  "question": "Quelle antenne ne fait <u>pas</u> partie des antennes symétriques ?",
+  "answer_a": "Groundplane",
+  "answer_b": "Dipôle replié",
+  "answer_c": "Yagi-Uda longue",
+  "answer_d": "Dipôle $\\lambda$/2 alimenté au centre"
+ },
+ "EG101": {
+  "question": "Comment appelle-t-on une antenne cadre composée de trois morceaux de fil de même longueur ?",
+  "answer_a": "Antenne Delta-Loop",
+  "answer_b": "Antenne Quad-Loop 3 éléments",
+  "answer_c": "Antenne W3DZZ",
+  "answer_d": "Beam 3 éléments"
+ },
+ "EG105": {
+  "question": "Quelle forme d'antenne convient à l'émission tout en présentant un fort champ magnétique dans le champ proche ?",
+  "answer_a": "Une antenne boucle magnétique d'une circonférence d'environ $\\lambda$/10",
+  "answer_b": "Une antenne à barreau de ferrite",
+  "answer_c": "Un dipôle replié",
+  "answer_d": "Une antenne Cubical-Quad"
+ },
+ "EG104": {
+  "question": "Quel type d'antenne est représenté ici ?  ",
+  "answer_a": "Antenne Fuchs",
+  "answer_b": "Antenne Windom",
+  "answer_c": "Antenne dipôle",
+  "answer_d": "Antenne Groundplane"
+ },
+ "EG103": {
+  "question": "Quelle antenne est représentée ici ?",
+  "answer_a": "Antenne alimentée en extrémité avec dispositif d'adaptation simple",
+  "answer_b": "Dipôle en V mis à la terre d'un côté avec filtre d'harmoniques",
+  "answer_c": "Antenne alimentée en extrémité avec filtre de Collins pour l'adaptation",
+  "answer_d": "Antenne filaire monobande avec présélecteur"
+ },
+ "EG215": {
+  "question": "Pour quelle antenne ce diagramme de rayonnement est-il typique ?",
+  "answer_a": "Dipôle demi-onde",
+  "answer_b": "Antenne Yagi-Uda",
+  "answer_c": "Groundplane",
+  "answer_d": "Radiateur sphérique"
+ },
+ "EG219": {
+  "question": "Une antenne verticale $\\lambda$/2 produit ...",
+  "answer_a": "un angle de rayonnement bas.",
+  "answer_b": "une polarisation circulaire.",
+  "answer_c": "un angle de rayonnement élevé.",
+  "answer_d": "une polarisation elliptique."
+ },
+ "EG108": {
+  "question": "Pourquoi une antenne 5/8 $\\lambda$ convient-elle mieux qu'une antenne $\\lambda$/4 pour le trafic mobile VHF-UHF ? Elle ...",
+  "answer_a": "a plus de gain.",
+  "answer_b": "supporte plus de puissance.",
+  "answer_c": "est plus facile à monter.",
+  "answer_d": "est moins sensible aux perturbations."
+ },
+ "EG216": {
+  "question": "Pour quelle antenne ce diagramme de rayonnement est-il typique ?",
+  "answer_a": "Groundplane",
+  "answer_b": "Radiateur sphérique",
+  "answer_c": "Dipôle",
+  "answer_d": "Yagi-Uda"
+ },
+ "EG217": {
+  "question": "Ce diagramme de rayonnement est typique ...",
+  "answer_a": "d'une antenne directive.",
+  "answer_b": "d'un dipôle demi-onde.",
+  "answer_c": "d'un radiateur quart d'onde.",
+  "answer_d": "d'une antenne Marconi."
+ },
+ "EG106": {
+  "question": "Quelles sont les antennes d'émission radioamateur usuelles en ondes courtes ?",
+  "answer_a": "Antenne long-fil, antenne Yagi-Uda, antenne dipôle, antenne Windom, antenne Delta-Loop",
+  "answer_b": "Antenne long-fil, antenne Groundplane, antenne parabolique, antenne Windom, antenne Delta-Loop",
+  "answer_c": "Antenne Groundplane, antenne dipôle, antenne Windom, antenne Delta-Loop, antenne patch",
+  "answer_d": "Antenne à fente, antenne Groundplane, cornet, antenne dipôle, antenne Windom"
+ },
+ "EG107": {
+  "question": "Vous voulez tester différentes antennes pour le trafic en ondes courtes sur la bande des 80 m. Quelles sont les trois antennes particulièrement appropriées ?  ",
+  "answer_a": "Dipôle, Delta-Loop, antenne W3DZZ",
+  "answer_b": "Yagi-Uda croisée, antenne Groundplane, dipôle",
+  "answer_c": "Dipôle, antenne à pot de blocage, antenne W3DZZ",
+  "answer_d": "Dipôle, Delta-Loop, réflecteur parabolique"
+ },
+ "EG102": {
+  "question": "Une antenne filaire pour le radioamateurisme dans le domaine des ondes courtes ...",
+  "answer_a": "peut en principe avoir une longueur quelconque.",
+  "answer_b": "doit impérativement avoir une longueur de $\\lambda/2$.",
+  "answer_c": "doit avoir une longueur d'exactement $\\lambda/4$.",
+  "answer_d": "doit avoir une longueur de $3/4 \\lambda$."
+ },
+ "EG110": {
+  "question": "La longueur du fil nécessaire à la fabrication d'un dipôle replié correspond à ...",
+  "answer_a": "une longueur d'onde.",
+  "answer_b": "une demi-longueur d'onde.",
+  "answer_c": "deux longueurs d'onde.",
+  "answer_d": "quatre longueurs d'onde."
+ },
+ "EG201": {
+  "question": "Le coefficient de vélocité est ...",
+  "answer_a": "le rapport de la vitesse de propagation le long d'une ligne à la vitesse de propagation dans le vide.",
+  "answer_b": "le rapport du diamètre à la longueur d'un conducteur.",
+  "answer_c": "le rapport de la résistance du conducteur à la résistance au point d'alimentation de l'antenne.",
+  "answer_d": "la racine carrée du rapport de l'inductance à la capacité d'une ligne."
+ },
+ "EG208": {
+  "question": "La résistance au point d'alimentation au centre d'un dipôle demi-onde vaut, selon la hauteur d'installation, environ ...",
+  "answer_a": "40 à 90 ohms.",
+  "answer_b": "100 à 120 ohms.",
+  "answer_c": "120 à 240 ohms.",
+  "answer_d": "240 à 600 ohms."
+ },
+ "EG209": {
+  "question": "Quelle est la résistance d'entrée d'un dipôle demi-onde tendu alimenté au centre ?",
+  "answer_a": "env. 40 à 90 ohms",
+  "answer_b": "env. 30 ohms",
+  "answer_c": "env. 120 ohms",
+  "answer_d": "env. 240 à 300 ohms"
+ },
+ "EG210": {
+  "question": "Quelle est la résistance d'entrée, respectivement au point d'alimentation, d'un dipôle replié ?",
+  "answer_a": "env. 240 à 300 ohms",
+  "answer_b": "env. 30 à 60 ohms",
+  "answer_c": "env. 60 ohms",
+  "answer_d": "env. 120 ohms"
+ },
+ "EG211": {
+  "question": "Quelle est la résistance d'entrée d'une antenne Groundplane ?",
+  "answer_a": "env. 30 à 50 ohms",
+  "answer_b": "env. 60 à 120 ohms",
+  "answer_c": "env. 600 ohms",
+  "answer_d": "env. 240 ohms"
+ },
+ "EG111": {
+  "question": "L'image suivante contient une antenne directive simple. Les désignations des éléments dans l'ordre numérique sont ...",
+  "answer_a": "1 réflecteur, 2 radiateur et 3 directeur.",
+  "answer_b": "1 radiateur, 2 directeur et 3 réflecteur.",
+  "answer_c": "1 directeur, 2 radiateur et 3 réflecteur.",
+  "answer_d": "1 directeur, 2 réflecteur et 3 radiateur."
+ },
+ "EG212": {
+  "question": "Sur quel élément d'une antenne Yagi-Uda s'effectue l'injection d'énergie ? Elle s'effectue sur ...",
+  "answer_a": "le radiateur",
+  "answer_b": "le directeur",
+  "answer_c": "le réflecteur",
+  "answer_d": "le radiateur et le réflecteur simultanément"
+ },
+ "EG218": {
+  "question": "Pour quelle antenne ce diagramme de rayonnement est-il typique ?",
+  "answer_a": "Yagi-Uda",
+  "answer_b": "Groundplane",
+  "answer_c": "Dipôle",
+  "answer_d": "Radiateur sphérique"
+ },
+ "EG113": {
+  "question": "Une antenne à forte focalisation pour le domaine des micro-ondes se compose fréquemment ...",
+  "answer_a": "d'un réflecteur de forme paraboloïde et d'une antenne d'excitation (feed).",
+  "answer_b": "d'un réflecteur de forme paraboloïde et d'un radiateur isotrope.",
+  "answer_c": "d'un réflecteur cylindrique convexe et d'une antenne d'excitation (feed).",
+  "answer_d": "d'un réflecteur hyperbolique concave et d'un radiateur isotrope."
+ },
+ "EG114": {
+  "question": "Quel diamètre faut-il choisir pour une antenne à réflecteur parabolique en vue d'un gain aussi élevé que possible ?",
+  "answer_a": "Au moins cinq longueurs d'onde (lambda) de la fréquence utilisée.",
+  "answer_b": "Exactement deux longueurs d'onde (lambda) de la fréquence utilisée.",
+  "answer_c": "Au plus trois longueurs d'onde (lambda) de la fréquence utilisée.",
+  "answer_d": "Une longueur d'onde (lambda) de la fréquence utilisée."
+ },
+ "EG203": {
+  "question": "Quelle affirmation sur la répartition du courant et de la tension sur un dipôle est correcte ?",
+  "answer_a": "Aux extrémités d'un dipôle apparaissent toujours un nœud de courant et un ventre de tension.",
+  "answer_b": "Aux extrémités d'un dipôle apparaissent toujours un nœud de tension et un ventre de courant.",
+  "answer_c": "Au point d'alimentation d'un dipôle apparaissent toujours un nœud de tension et un ventre de courant.",
+  "answer_d": "Au point d'alimentation d'un dipôle apparaissent toujours un ventre de tension et un nœud de courant."
+ },
+ "EG204": {
+  "question": "Un dipôle est alimenté en courant lorsque, à son point d'alimentation, ...",
+  "answer_a": "un nœud de tension et un ventre de courant sont présents. Il est alors à basse impédance.",
+  "answer_b": "un ventre de tension et un nœud de courant sont présents. Il est alors à haute impédance.",
+  "answer_c": "un ventre de tension et un ventre de courant sont présents. Il est alors à basse impédance.",
+  "answer_d": "un nœud de tension et un nœud de courant sont présents. Il est alors à haute impédance."
+ },
+ "EG205": {
+  "question": "Un dipôle est alimenté en tension lorsque, à son point d'alimentation, se trouvent ...",
+  "answer_a": "un ventre de tension et un nœud de courant. Il est alors à haute impédance.",
+  "answer_b": "un nœud de tension et un ventre de courant. Il est alors à basse impédance.",
+  "answer_c": "un ventre de tension et un ventre de courant. Il est alors à basse impédance.",
+  "answer_d": "un nœud de tension et un nœud de courant. Il est alors à haute impédance."
+ },
+ "EG206": {
+  "question": "Un dipôle demi-onde, sur sa fréquence fondamentale, est alimenté au centre ...",
+  "answer_a": "en courant.",
+  "answer_b": "en tension.",
+  "answer_c": "en extrémité.",
+  "answer_d": "en parallèle."
+ },
+ "EG220": {
+  "question": "Le gain des antennes est fréquemment indiqué en dBi. À quelle antenne de référence se rapporte-t-on ? On se rapporte au ...",
+  "answer_a": "radiateur isotrope.",
+  "answer_b": "radiateur demi-onde.",
+  "answer_c": "radiateur horizontal.",
+  "answer_d": "radiateur vertical."
+ },
+ "EG223": {
+  "question": "Une antenne d'émission installée à l'extérieur a l'avantage que ...",
+  "answer_a": "le couplage avec les lignes électriques de la maison est réduit.",
+  "answer_b": "elle est soumise dans une moindre mesure aux rayonnements.",
+  "answer_c": "elle rayonne un plus petit nombre d'harmoniques.",
+  "answer_d": "le signal d'émission présente un niveau plus bas."
+ },
+ "EJ110": {
+  "question": "Un radioamateur habite dans une maison mitoyenne. À quel endroit une antenne filaire pour l'émission sur la bande des 80 m devrait-elle être installée pour éviter autant que possible les influences perturbatrices ?",
+  "answer_a": "Fil tendu perpendiculairement à la rangée de maisons",
+  "answer_b": "Sur la cheminée commune, à côté de l'antenne de télévision",
+  "answer_c": "Le long de la rangée de maisons, à hauteur de la gouttière",
+  "answer_d": "Autant que possible à l'intérieur des combles"
+ },
+ "EG112": {
+  "question": "Quel emplacement convient le mieux à une antenne directive HF pour éviter d'éventuelles influences sur les appareils du voisin ?",
+  "answer_a": "Aussi haut et aussi loin que possible",
+  "answer_b": "Sur le mur mitoyen avec le voisin",
+  "answer_c": "Sur le toit, la surface du toit du voisin devant être également couverte",
+  "answer_d": "Aussi bas et aussi près de la maison que possible"
+ },
+ "EG301": {
+  "question": "L'impédance caractéristique d'une ligne ...",
+  "answer_a": "est à peu près constante dans le domaine HF et indépendante de la terminaison de la ligne.",
+  "answer_b": "est totalement indépendante de la fréquence.",
+  "answer_c": "dépend de ce qui est raccordé à l'extrémité de la ligne.",
+  "answer_d": "dépend de la longueur de la ligne et de ce qui est raccordé à son extrémité."
+ },
+ "EG302": {
+  "question": "Quelles lignes devraient être utilisées pour les liaisons HF entre les équipements de la station radioamateur, afin d'éviter les rayonnements indésirables ?",
+  "answer_a": "Des câbles coaxiaux de haute qualité",
+  "answer_b": "Des lignes d'alimentation symétriques",
+  "answer_c": "Des lignes d'alimentation non accordées",
+  "answer_d": "Des câbles d'alimentation secteur blindés de haute qualité"
+ },
+ "EG306": {
+  "question": "Pour mettre de l'ordre dans la station radioamateur, vous posez tous les câbles d'alimentation secteur et les lignes d'alimentation HF dans une goulotte. Quel inconvénient cette mesure peut-elle avoir ?",
+  "answer_a": "Les câbles HF et secteur posés côte à côte peuvent provoquer des couplages dans le réseau d'alimentation.",
+  "answer_b": "Les câbles HF et secteur posés côte à côte peuvent conduire à une modulation indésirable à 50 Hz sur le câble coaxial.",
+  "answer_c": "Des amorçages de tension peuvent se produire entre les câbles HF et secteur posés côte à côte.",
+  "answer_d": "Les câbles HF et secteur posés côte à côte ne peuvent pas s'influencer mutuellement si l'isolation est bonne."
+ },
+ "EG304": {
+  "question": "Quand une ligne d'alimentation est-elle asymétrique ?",
+  "answer_a": "Lorsque les deux conducteurs ont des formes différentes, par exemple un câble coaxial.",
+  "answer_b": "Lorsque les puissances aller et retour sont différentes.",
+  "answer_c": "Lorsqu'elle est exploitée en dehors de sa fréquence de résonance.",
+  "answer_d": "Lorsque la longueur ne correspond pas à un multiple de $\\lambda$/2."
+ },
+ "EG305": {
+  "question": "Quels avantages une ligne d'alimentation bifilaire a-t-elle par rapport à l'alimentation par un câble coaxial ?",
+  "answer_a": "Elle a une atténuation plus faible et une tenue en tension élevée.",
+  "answer_b": "Elle évite les ondes de gaine par l'absence de blindage.",
+  "answer_c": "Elle permet un contrôle plus facile de l'impédance caractéristique en déplaçant les écarteurs.",
+  "answer_d": "Elle offre une bonne protection contre la foudre grâce à des fils à basse impédance."
+ },
+ "EG303": {
+  "question": "Lequel des connecteurs coaxiaux suivants possède une impédance caractéristique définie de 50 ohms jusque dans le domaine des GHz et présente la meilleure tenue en tension pour la transmission de puissances élevées ?",
+  "answer_a": "Connecteur N",
+  "answer_b": "Connecteur SMA",
+  "answer_c": "Connecteur UHF",
+  "answer_d": "Connecteur BNC"
+ },
+ "EI401": {
+  "question": "Un appareil de mesure d'ondes stationnaires est utilisé sur les émetteurs pour la mesure ...",
+  "answer_a": "de l'adaptation de l'antenne.",
+  "answer_b": "de la puissance de sortie des harmoniques.",
+  "answer_c": "de la bande passante.",
+  "answer_d": "du rendement."
+ },
+ "EI402": {
+  "question": "Avec quel instrument peut-on afficher l'adaptation entre un émetteur UHF et la ligne d'alimentation vers l'antenne ?",
+  "answer_a": "SWR-mètre",
+  "answer_b": "Multimètre avec affichage de résistance",
+  "answer_c": "Interféromètre",
+  "answer_d": "Transformateur d'adaptation"
+ },
+ "EI403": {
+  "question": "Comment mesure-t-on le rapport d'ondes stationnaires en émission ? On le mesure ...",
+  "answer_a": "avec un pont de mesure SWR.",
+  "answer_b": "avec un ondemètre à absorption.",
+  "answer_c": "par mesure du courant au début et à la fin de la ligne d'alimentation.",
+  "answer_d": "par mesure de la tension au début et à la fin de la ligne d'alimentation."
+ },
+ "EI404": {
+  "question": "À quel endroit un SWR-mètre doit-il être inséré pour pouvoir donner des indications aussi précises que possible sur l'antenne ? Le SWR-mètre doit être inséré entre ...",
+  "answer_a": "le câble d'antenne et l'antenne.",
+  "answer_b": "la sortie de l'émetteur et le câble d'antenne.",
+  "answer_c": "la boîte d'accord et le câble d'antenne.",
+  "answer_d": "la sortie de l'émetteur et la boîte d'accord d'antenne."
+ },
+ "EI405": {
+  "question": "À quel point l'appareil de mesure d'ondes stationnaires devrait-il être inséré pour vérifier si l'installation d'antenne est bien adaptée à l'émetteur ? ",
+  "answer_a": "Point 1",
+  "answer_b": "Point 2",
+  "answer_c": "Point 3",
+  "answer_d": "Point 4"
+ },
+ "EI201": {
+  "question": "À quoi sert par exemple un « analyseur de réseau vectoriel » (VNA) ?",
+  "answer_a": "À déterminer plus précisément les fréquences de résonance et les impédances de circuits oscillants et d'antennes.",
+  "answer_b": "À enregistrer l'évolution temporelle de courants alternatifs rapides.",
+  "answer_c": "À vérifier la pureté spectrale d'un émetteur.",
+  "answer_d": "À déterminer la résistance de terre d'une station radioamateur."
+ },
+ "EI202": {
+  "question": "Comment détermine-t-on la fréquence de résonance d'un circuit oscillant ? On la détermine ...",
+  "answer_a": "par mesure de $L$ et $C$ et calcul, ou par exemple avec un analyseur de réseau vectoriel (VNA).",
+  "answer_b": "avec un fréquencemètre ou un oscilloscope.",
+  "answer_c": "avec un multimètre numérique en position mesure de fréquence.",
+  "answer_d": "à l'aide de l'affichage du S-mètre en raccordant le circuit oscillant à l'entrée du récepteur."
+ },
+ "EI203": {
+  "question": "Avec quel appareil de mesure peut-on mesurer directement des impédances, des réactances et des rapports d'ondes stationnaires ?",
+  "answer_a": "analyseur de réseau vectoriel",
+  "answer_b": "multimètre analogique",
+  "answer_c": "oscilloscope numérique à mémoire",
+  "answer_d": "voltmètre True RMS"
+ },
+ "EI204": {
+  "question": "À quoi un analyseur de réseau vectoriel (VNA) est-il par exemple approprié ?",
+  "answer_a": "Mesurer des impédances.",
+  "answer_b": "Relever des débits de transmission de données dans des réseaux.",
+  "answer_c": "Mesurer directement la puissance d'émission.",
+  "answer_d": "Mesurer des harmoniques."
+ },
+ "EI205": {
+  "question": "Quelle mesure faut-il effectuer avant l'utilisation d'un analyseur de réseau vectoriel (VNA) avec le montage de mesure ?",
+  "answer_a": "Calibrage",
+  "answer_b": "Réglage du zéro",
+  "answer_c": "Réglage du seuil de déclenchement",
+  "answer_d": "Activer la réduction de bruit"
+ },
+ "EI206": {
+  "question": "Vous déterminez la fréquence de résonance et l'impédance de vos antennes de fabrication personnelle à l'aide d'un analyseur de réseau vectoriel (VNA). Comment pourriez-vous vérifier au préalable le fonctionnement de l'appareil ?",
+  "answer_a": "En vérifiant les valeurs affichées dans les états de fonctionnement court-circuit, circuit ouvert et adaptation. Le SWR devrait être proche de 1 en adaptation, et infini en court-circuit et en circuit ouvert.",
+  "answer_b": "En vérifiant les valeurs affichées dans les états de fonctionnement circuit ouvert et adaptation. La prise de mesure de l'appareil ne doit en aucun cas être court-circuitée.",
+  "answer_c": "En raccordant une résistance de terminaison à l'entrée de mesure du VNA. Le SWR affiché devrait être supérieur à 2 sur toute la plage de fréquences.",
+  "answer_d": "En raccordant une réactance à l'entrée de mesure du VNA. La valeur affichée du SWR doit être proche de 1 à toutes les fréquences."
+ },
+ "EG405": {
+  "question": "Les ondes de gaine sur le câble coaxial vers l'antenne ...",
+  "answer_a": "peuvent conduire à des perturbations d'autres appareils et à des perturbations de sa propre réception.",
+  "answer_b": "sont nécessaires au fonctionnement de toute antenne alimentée en coaxial.",
+  "answer_c": "sont causées par une désadaptation et une surcharge du transceiver.",
+  "answer_d": "sont utilisées pour la mesure du courant lors du SWR."
+ },
+ "EG406": {
+  "question": "Quels effets apparaissent lorsqu'un dipôle demi-onde est alimenté au centre par un câble coaxial de même impédance ?",
+  "answer_a": "La caractéristique de directivité de l'antenne est déformée et des ondes de gaine apparaissent.",
+  "answer_b": "Aucun effet notable n'apparaît, puisque l'antenne est adaptée et que l'alimentation s'effectue par un câble coaxial dont le conducteur extérieur est au potentiel de la terre.",
+  "answer_c": "Au point d'alimentation de l'antenne apparaissent des tensions et des courants en opposition de phase et de même grandeur, qui provoquent une désadaptation.",
+  "answer_d": "Des rotations de polarisation apparaissent, qui dépendent de la longueur du câble."
+ },
+ "EG404": {
+  "question": "La représentation montre les courants apparaissant lors du couplage d'un câble coaxial à une antenne. Comment appelle-t-on le courant désigné par $I_3$ ?",
+  "answer_a": "Courant de gaine",
+  "answer_b": "Courant de retour",
+  "answer_c": "Courant de potentiel",
+  "answer_d": "Courant fantôme"
+ },
+ "EG407": {
+  "question": "À quoi sert par exemple un symétriseur (balun) ?",
+  "answer_a": "Au raccordement d'un câble coaxial à une antenne dipôle",
+  "answer_b": "Au réglage du décalage de fréquence pour le trafic via relais",
+  "answer_c": "À l'utilisation d'une alimentation en tension alternative sur la prise courant continu d'un transceiver",
+  "answer_d": "À la commutation entre polarisation horizontale et verticale d'une Yagi-Uda croisée"
+ },
+ "EG408": {
+  "question": "Quelques spires de câble coaxial sont enroulées sur un noyau de ferrite. Avec ce montage, ...",
+  "answer_a": "on peut atténuer les ondes de gaine.",
+  "answer_b": "on peut empêcher les charges statiques.",
+  "answer_c": "on peut améliorer la sélectivité.",
+  "answer_d": "on peut supprimer les harmoniques."
+ },
+ "EG501": {
+  "question": "La puissance isotrope rayonnée équivalente (EIRP) est ...",
+  "answer_a": "le produit de la puissance fournie directement à l'antenne par son gain dans une direction, rapporté au radiateur isotrope.",
+  "answer_b": "le produit de la puissance fournie directement à l'antenne par son gain dans une direction, rapporté au dipôle.",
+  "answer_c": "la puissance moyenne au sommet le plus élevé de l'enveloppe de modulation, fournie à l'antenne, et son gain dans une direction, rapporté au radiateur isotrope.",
+  "answer_d": "la puissance moyenne au sommet le plus élevé de l'enveloppe de modulation, fournie à l'antenne, et son gain dans une direction, rapporté au dipôle."
+ },
+ "EG502": {
+  "question": "Selon laquelle des réponses l'EIRP peut-elle être calculée ?",
+  "answer_a": "$P_{\\textrm{EIRP}} = (P_{\\textrm{Sender}} - P_{\\textrm{Verluste}}) \\cdot G_{\\textrm{Antenne}}$, rapporté à un radiateur isotrope",
+  "answer_b": "$P_{\\textrm{EIRP}} = (P_{\\textrm{Sender}} \\cdot P_{\\textrm{Verluste}}) \\cdot G_{\\textrm{Antenne}}$, rapporté à un dipôle demi-onde",
+  "answer_c": "$P_{\\textrm{EIRP}} = (P_{\\textrm{Sender}} - P_{\\textrm{Verluste}}) + G_{\\textrm{Antenne}}$, rapporté à un radiateur isotrope",
+  "answer_d": "$P_{\\textrm{EIRP}} = (P_{\\textrm{Sender}} - P_{\\textrm{Verluste}}) + G_{\\textrm{Antenne}}$, rapporté à un dipôle demi-onde"
+ },
+ "EK104": {
+  "question": "Un radioamateur, en tant qu'exploitant d'une station radioamateur fixe, doit-il apporter la preuve du respect des valeurs limites de protection des personnes, en téléphonie FM avec une puissance d'émission de 6 W sur une antenne Yagi-Uda 15 éléments de 13 dBd de gain dans la bande des 2 m ?",
+  "answer_a": "Oui, il est dans ce cas tenu d'apporter la preuve du respect des valeurs limites de protection des personnes.",
+  "answer_b": "Non, la protection des personnes dans les champs électromagnétiques ne doit être assurée par le radioamateur qu'à partir d'une puissance rayonnée de plus de 10 W EIRP.",
+  "answer_c": "Oui, pour les stations radioamateur fixes, la preuve du respect des valeurs limites de protection des personnes doit être apportée dans tous les cas.",
+  "answer_d": "Non, en téléphonie FM et pour des durées d'émission inférieures à 6 minutes par heure, la protection des personnes dans les champs électromagnétiques peut être négligée par le radioamateur."
+ },
+ "EK107": {
+  "question": "Vous calculez une distance de sécurité pour votre antenne. À partir de quel point cette distance de sécurité doit-elle être respectée si vous avez utilisé l'approximation du champ lointain pour le calcul ? Elle doit être respectée ...",
+  "answer_a": "à partir de chaque point de l'antenne.",
+  "answer_b": "à partir du point d'alimentation de l'antenne.",
+  "answer_c": "à partir du centre de l'antenne, c'est-à-dire là où elle est fixée au mât.",
+  "answer_d": "à partir du point le plus bas de l'antenne."
+ },
+ "EK101": {
+  "question": "Les valeurs limites d'intensité de champ pour la protection des personnes dans les champs électromagnétiques dépendent de la fréquence, parce que ...",
+  "answer_a": "la capacité du corps à absorber le rayonnement haute fréquence dépend de la fréquence.",
+  "answer_b": "les champs électromagnétiques basse fréquence sont plus riches en énergie que les champs haute fréquence.",
+  "answer_c": "des puissances d'émission différentes sont autorisées sur les bandes radioamateur.",
+  "answer_d": "le débit d'absorption spécifique n'est pas mesurable à certaines fréquences."
+ },
+ "EK102": {
+  "question": "Avec quelle référence temporelle l'intensité de champ doit-elle être considérée pour le respect des valeurs limites du 26e règlement d'application de la loi fédérale sur la protection contre les immissions (règlement sur les champs électromagnétiques - 26. BImSchV) ?",
+  "answer_a": "Moyenne quadratique sur 6 minutes pour les valeurs limites selon l'annexe 1b, valeur efficace à court terme pour les valeurs limites selon l'annexe 1a et valeur de crête instantanée pour les valeurs limites selon l'annexe 3",
+  "answer_b": "Moyenne quadratique sur 3 minutes pour les valeurs limites selon l'annexe 1b, valeur efficace à court terme pour les valeurs limites selon l'annexe 1a et valeur de crête instantanée pour les valeurs limites selon l'annexe 3",
+  "answer_c": "Valeurs instantanées maximales le jour et, pendant les heures de nuit entre la tombée de la nuit et le lever du soleil, moyenne quadratique sur 6 minutes",
+  "answer_d": "Valeurs instantanées maximales le jour et, pendant les heures de nuit entre la tombée de la nuit et le lever du soleil, moyenne quadratique sur 3 minutes"
+ },
+ "EK103": {
+  "question": "Pour la protection des personnes dans les champs électromagnétiques, des valeurs limites pour les aides médicales actives doivent aussi être respectées dans certains cas. Avec quelle référence temporelle l'intensité de champ doit-elle alors être considérée ?",
+  "answer_a": "Comme valeur instantanée maximale",
+  "answer_b": "Comme valeur instantanée minimale",
+  "answer_c": "En moyenne quadratique sur 6 minutes",
+  "answer_d": "En moyenne quadratique sur 3 minutes"
+ },
+ "EK105": {
+  "question": "Vous voulez déterminer la distance de sécurité pour la protection des personnes de votre nouveau dipôle demi-onde fixe pour la bande des 80 m (3,5 - 3,8 MHz). Avec 100 W de puissance d'émission, vous calculez, à l'aide de la formule approchée pour le calcul en champ lointain, une distance nécessaire de 3,65 m. Cette distance de sécurité est-elle valide ?",
+  "answer_a": "La distance calculée est invalide, car elle se situe dans le champ proche réactif de l'antenne, et doit donc être déterminée par d'autres méthodes, par exemple des mesures des composantes de champ E et H, des simulations ou des calculs de champ proche.",
+  "answer_b": "La distance de sécurité pour la protection des personnes calculée est valide, car les calculs avec la formule approchée pour le champ lointain sont suffisamment précis en radioamateurisme.",
+  "answer_c": "La distance de sécurité pour la protection des personnes calculée doit encore être multipliée par un supplément de sécurité ($\\sqrt{2}$).",
+  "answer_d": "La distance de sécurité pour la protection des personnes calculée est acceptée, pour autant que la « déclaration des installations radioamateur fixes » à remettre avant la mise en service conformément au § 9 BEMFV ne soit pas contestée par la Bundesnetzagentur."
+ },
+ "EK106": {
+  "question": "Quand le calcul de la distance de sécurité pour la protection des personnes avec la formule approchée pour le champ lointain est-il invalide sur les bandes des 160 m et des 80 m ? Le calcul est invalide si le résultat est inférieur à ...",
+  "answer_a": "bande des 160 m : 25,5 m, bande des 80 m : 12,7 m",
+  "answer_b": "bande des 160 m : 51,0 m, bande des 80 m : 25,4 m",
+  "answer_c": "bande des 160 m : 12,8 m, bande des 80 m : 6,4 m",
+  "answer_d": "bande des 160 m : 640 m, bande des 80 m : 320 m"
+ },
+ "EK203": {
+  "question": "À quels dangers faut-il s'attendre lors de l'ouverture d'un appareil radio, ou d'un autre appareil électrique, débranché du secteur ?",
+  "answer_a": "Choc électrique dû aux condensateurs chargés de l'alimentation.",
+  "answer_b": "Choc électrique dû aux charges dans le transformateur secteur.",
+  "answer_c": "Aucun danger, puisque l'appareil a été préalablement débranché de l'alimentation électrique.",
+  "answer_d": "Dans la self de charge d'une alimentation à découpage peuvent être stockées des tensions nettement plus élevées que la tension d'alimentation appliquée."
+ },
+ "EK209": {
+  "question": "À quelles conditions une installation de mise à la terre de bâtiment peut-elle être utilisée pour la mise à la terre de l'antenne ?",
+  "answer_a": "Toute installation de mise à la terre de bâtiment peut être utilisée.",
+  "answer_b": "Pour chaque antenne, une installation de mise à la terre séparée, indépendante de celle du bâtiment, doit être construite.",
+  "answer_c": "Si la mise à la terre du bâtiment a été réceptionnée par le service de contrôle et de mesure de la Bundesnetzagentur.",
+  "answer_d": "L'installation d'antenne ne doit pas dépasser de la surface délimitée par l'installation de mise à la terre du bâtiment."
+ },
+ "EK210": {
+  "question": "Quel matériau et quelle section minimale peut-on par exemple utiliser pour un conducteur de mise à la terre entre un mât d'antenne et une installation de mise à la terre selon la norme VDE 0855-300 ?",
+  "answer_a": "Fil massif simple en cuivre (16 mm²), en aluminium (25 mm²) ou en acier (50 mm²).",
+  "answer_b": "Fil massif simple en cuivre (16 mm²), en aluminium (25 mm²) ou en acier (25 mm²).",
+  "answer_c": "Conducteur à un ou plusieurs brins - mais pas à brins fins - en cuivre (10 mm²) ou en aluminium (16 mm²).",
+  "answer_d": "Conducteur à un ou plusieurs brins - mais pas à brins fins - en cuivre (4 mm²) ou en aluminium (10 mm²)."
+ },
+ "EK211": {
+  "question": "À quelles conditions le mât d'une antenne radioamateur sur un bâtiment peut-il être relié au système de protection contre la foudre propre au bâtiment ?",
+  "answer_a": "Lorsqu'un spécialiste de la protection contre la foudre prévoit, dans le concept de protection contre la foudre, la liaison du mât de l'antenne radioamateur avec le système de protection contre la foudre.",
+  "answer_b": "Selon les prescriptions en vigueur, le mât de l'antenne radioamateur doit être relié à un système de protection du bâtiment contre la foudre.",
+  "answer_c": "Selon les prescriptions en vigueur, un système de protection contre la foudre séparé doit toujours être construit pour l'antenne radioamateur.",
+  "answer_d": "Lorsqu'un conducteur en cuivre de section suffisante est utilisé pour la liaison."
+ },
+ "EK208": {
+  "question": "Quelles mesures doivent être prises pour la protection des personnes, sur les câbles coaxiaux, afin d'empêcher les différences de tension ?",
+  "answer_a": "Les blindages de tous les câbles coaxiaux d'antennes doivent être reliés entre eux et à la borne principale de mise à la terre.",
+  "answer_b": "Des parafoudres doivent être prévus pour tous les câbles coaxiaux d'antennes.",
+  "answer_c": "Hormis la mise à la terre du mât d'antenne, aucune autre mesure n'est nécessaire.",
+  "answer_d": "Les câbles coaxiaux doivent présenter une efficacité de blindage d'au moins 40 dB."
+ },
+ "EK206": {
+  "question": "À quel aspect de sécurité particulier faut-il veiller spécialement avec les antennes filaires non mises à la terre ?",
+  "answer_a": "La pluie ou la grêle peuvent déjà provoquer des charges électriques sur l'antenne.",
+  "answer_b": "La puissance d'émission produit des tensions élevées par rapport à la terre, qui exigent une isolation plus épaisse du fil d'antenne.",
+  "answer_c": "Lors des tempêtes solaires apparaissent des charges électriques qui peuvent produire des tensions élevées.",
+  "answer_d": "En raison de l'absence de mise à la terre et du ventre de courant au point d'alimentation, l'isolateur central peut trop s'échauffer et fondre."
+ },
+ "EK207": {
+  "question": "Comment peut-on efficacement éviter les charges électrostatiques, qui peuvent apparaître en particulier sur les antennes filaires non mises à la terre, sans nuire au fonctionnement de l'installation radio ?",
+  "answer_a": "Par des résistances d'écoulement à haute impédance entre les connexions de l'antenne et la prise de terre de la station radioamateur.",
+  "answer_b": "Par des résistances d'écoulement à basse impédance entre les connexions de l'antenne et la prise de terre de la station radioamateur.",
+  "answer_c": "L'insertion d'une boîte d'accord entre le transceiver et l'antenne neutralise les charges.",
+  "answer_d": "À l'aide des condensateurs de découplage d'un appareil de mesure d'ondes stationnaires intercalé."
+ },
+ "EK202": {
+  "question": "Quels dangers possibles existent lorsqu'on touche des antennes en cours d'émission ?",
+  "answer_a": "Blessures et brûlures par les tensions haute fréquence.",
+  "answer_b": "Aucun, car l'« effet de peau » empêche la circulation d'un courant à travers le corps humain.",
+  "answer_c": "Aucun, pour autant que l'antenne soit correctement reliée à la terre par un système de protection contre la foudre.",
+  "answer_d": "Choc électrique dû à l'alimentation en tension continue de l'étage final de l'émetteur, qui est directement présente à la sortie antenne."
+ },
+ "EK201": {
+  "question": "Que faut-il particulièrement observer, pour des raisons de sécurité, lors du maniement des micro-ondes ?",
+  "answer_a": "Il faut éviter de se tenir dans le faisceau direct des antennes d'émission.",
+  "answer_b": "Le rapport cyclique de l'émetteur ne devrait pas dépasser 50 %.",
+  "answer_c": "Il faut porter un couvre-chef en feuille de blindage (par exemple en aluminium).",
+  "answer_d": "Pour le respect de la protection des personnes, il faut porter des vêtements de protection CEM."
+ },
+ "EG214": {
+  "question": "Laquelle des images montre le diagramme de rayonnement d'un dipôle demi-onde ?"
+ },
+ "EG109": {
+  "question": "Calculez la longueur électrique d'un radiateur vertical de 5/8 $\\lambda$ de long pour la bande des 10 m (28,5 MHz)."
+ },
+ "EG202": {
+  "question": "Quel pourcentage correspond au coefficient de vélocité (facteur de correction) habituellement utilisé pour le calcul de la longueur d'une antenne filaire ?"
+ },
+ "EG207": {
+  "question": "L'impédance au point d'alimentation d'un dipôle demi-onde alimenté au centre, à une hauteur d'au moins une longueur d'onde au-dessus du sol, vaut environ ..."
+ },
+ "EG221": {
+  "question": "Un fabricant d'antennes indique le gain d'une antenne à 5 dBd. Quel est le gain de l'antenne en dBi ?"
+ },
+ "EG309": {
+  "question": "À l'extrémité d'une ligne d'antenne, il ne reste plus qu'un quart de la puissance. Quelle est la valeur d'atténuation du câble ?"
+ },
+ "EG310": {
+  "question": "À l'extrémité d'une ligne d'antenne, il ne reste plus qu'un dixième de la puissance. Quelle est la valeur d'atténuation du câble ?"
+ },
+ "EG308": {
+  "question": "Une puissance de sortie HF de 100 W est injectée dans une ligne de transmission adaptée. À l'extrémité de la ligne côté antenne, la puissance est de 50 W avec un SWR de 1. Quelle est l'atténuation de la ligne ?"
+ },
+ "EG307": {
+  "question": "Le croquis montre la structure d'une station radioamateur. La somme de toutes les pertes de câble en décibels vaut ..."
+ },
+ "EG312": {
+  "question": "Quelle atténuation obtient-on, sur la base du diagramme d'atténuation de câble, pour un câble coaxial de 100 m de long à diélectrique PE plein, de 4,95 mm de diamètre (type RG58), à 145 MHz ?"
+ },
+ "EG311": {
+  "question": "Un câble coaxial de 100 m de long a une atténuation de 20 dB à 145 MHz. Quelle est l'atténuation pour une longueur de 20 m ?"
+ },
+ "EG313": {
+  "question": "Quelle atténuation obtient-on, sur la base du diagramme d'atténuation de câble, pour un câble coaxial de 15 m de long à diélectrique PE plein, de 4,95 mm de diamètre (type RG58), à 145 MHz ?"
+ },
+ "EG314": {
+  "question": "Quelle atténuation obtient-on, sur la base du diagramme d'atténuation de câble, pour un câble coaxial de 50 m de long à diélectrique PE plein, de 2,8 mm de diamètre (type RG174), à 145 MHz ?"
+ },
+ "EG315": {
+  "question": "Quelle atténuation obtient-on, sur la base du diagramme d'atténuation de câble, pour un câble coaxial de 40 m de long, à diélectrique PE mousse de 12,7 mm de diamètre, à 435 MHz ?"
+ },
+ "EG316": {
+  "question": "Quelle atténuation obtient-on, sur la base du diagramme d'atténuation de câble, pour un câble coaxial de 40 m de long à diélectrique PE mousse et de 10,3 mm de diamètre, dans la bande des 23 cm (1296 MHz) ?"
+ },
+ "EG401": {
+  "question": "À l'entrée d'une ligne d'antenne, on mesure un SWR de 3. Quelle est approximativement la puissance réfléchie à cet endroit si la puissance directe est de 100 W ?"
+ },
+ "EG402": {
+  "question": "Vous mesurez un rapport d'ondes stationnaires (SWR) de 3. Quel pourcentage de la puissance directe est réfléchi ?"
+ },
+ "EG403": {
+  "question": "Vous mesurez un rapport d'ondes stationnaires (SWR) de 3. Quel pourcentage de la puissance directe est délivré ?"
+ },
+ "EG503": {
+  "question": "Un amplificateur HF pour 5,7 GHz injecte une puissance de sortie de 250 mW, sans pertes de ligne, directement dans un réflecteur parabolique de 26 dBi de gain. Quelle est la puissance rayonnée équivalente (EIRP) ?"
+ },
+ "EG504": {
+  "question": "Un amplificateur HF pour 10,4 GHz injecte une puissance de sortie de 5 W directement dans un réflecteur parabolique de 36 dBi de gain. Quelle est la puissance rayonnée équivalente (EIRP) ?"
+ },
+ "EG511": {
+  "question": "Vous ne souhaitez pas remettre, pour votre installation d'émission, de déclaration d'installation radioamateur fixe selon le § 9 BEMFV. Quelle peut être au maximum la puissance d'émission pour votre antenne verticale de 5,15 dBi de gain, sans prise en compte des pertes de câble, afin de ne pas dépasser la puissance rayonnée de 10 W EIRP ?"
+ },
+ "EG505": {
+  "question": "Une antenne de 11 dBi de gain est raccordée à un émetteur de 100 W de puissance de sortie. L'atténuation du câble est de 1 dB. Quelle est la puissance rayonnée équivalente (EIRP) ?"
+ },
+ "EG506": {
+  "question": "Un émetteur de 75 W de puissance de sortie est raccordé à une antenne dipôle par une ligne d'antenne présentant 2,15 dB (facteur $1,64$) de pertes de câble. Quelle EIRP est rayonnée au maximum par l'antenne ?"
+ },
+ "EG507": {
+  "question": "Une antenne dipôle est raccordée à un émetteur de 100 W de puissance de sortie. L'atténuation du câble est de 10 dB. Quelle est la puissance isotrope rayonnée équivalente (EIRP) ?"
+ },
+ "EG508": {
+  "question": "Un émetteur de 5 W de puissance de sortie est raccordé, par une ligne d'antenne présentant 2 dB de pertes de câble, à une antenne directive de 5 dB de gain (rapporté au dipôle). Quelle EIRP est rayonnée par l'antenne ?"
+ },
+ "EG509": {
+  "question": "Un émetteur de 0,6 W de puissance de sortie est raccordé, par une ligne d'antenne présentant 1 dB de pertes de câble, à une antenne directive de 11 dB de gain (rapporté au dipôle). Quelle EIRP est rayonnée au maximum par l'antenne ?"
+ },
+ "EG510": {
+  "question": "Un émetteur de 8,5 W de puissance de sortie est raccordé, par une ligne d'antenne présentant 1,5 dB de pertes de câble, à une antenne de 0 dB de gain (rapporté au dipôle). Quelle EIRP est rayonnée par l'antenne ?"
+ },
+ "EK108": {
+  "question": "Vous voulez calculer la distance de sécurité pour la protection des personnes pour l'antenne de votre station radioamateur, pour la bande des 10 m et le procédé de modulation FM. La valeur limite dans le cas de la protection des personnes est de 28 V/m. Vous exploitez une antenne Yagi-Uda d'un gain de $7,5 $dBd. L'antenne est alimentée par un émetteur d'une puissance de 100 W via un long câble coaxial. L'atténuation du câble est de 1,5 dB. Quelle doit être la distance de sécurité ?"
+ }
+}

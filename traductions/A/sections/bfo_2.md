@@ -1,0 +1,10 @@
+Dans le démodulateur, lors de la réception de signaux à porteuse supprimée ou de signaux CW, le signal reçu est mélangé avec le BFO, également appelé oscillateur de porteuse auxiliaire. En réception SSB, le BFO doit se trouver exactement sur la fréquence de la porteuse supprimée. Lors de la réception de signaux CW, le BFO doit se situer à une certaine distance du signal CW. Cette distance détermine la fréquence de la note à laquelle le signal CW devient audible dans le récepteur. Pour les signaux CW, on ressent habituellement $\qtyrange{600}{900}{\hertz}$ comme une fréquence d'écoute agréable. C'est pourquoi la différence entre la fréquence du BFO et la dernière FI devrait valoir environ $\qty{800}{\hertz}$ pour une écoute confortable des signaux CW.
+
+<margin>
+[picture:838:e_bfo:Le BFO dans le récepteur superhétérodyne]
+</margin>
+
+Un oscillateur BFO devrait présenter une stabilité en fréquence aussi élevée que possible, afin que les signaux reçus soient restitués de façon stable et non altérée et que le récepteur n'ait pas à être réajusté en permanence en fréquence. Les oscillateurs pilotés par quartz sont donc les mieux adaptés.
+
+[question:AF211]
+[question:AF216]
