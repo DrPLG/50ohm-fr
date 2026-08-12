@@ -1,4 +1,4 @@
-Le récepteur superhétérodyne, qui travaille avec une fréquence intermédiaire (FI), est représenté sur la figure [ref:a_single_super].
+Dans la classe E, nous avons déjà fait connaissance avec le récepteur superhétérodyne, qui travaille avec une fréquence intermédiaire (FI), comme le montre la figure [ref:a_single_super].
 
 On appelle *sélectivité rapprochée, ou encore sélectivité,* d'un récepteur sa capacité à séparer le mieux possible le signal utile des signaux indésirables voisins en fréquence.
 

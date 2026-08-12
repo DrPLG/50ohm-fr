@@ -1,4 +1,4 @@
-Le *S-mètre*, dans sa variante analogique (fig. [ref:a_s_meter_analog]) comme dans sa variante numérique (fig. [ref:a_s_meter_digital]), sert à afficher la force du signal HF présent à l'entrée du récepteur.
+Dans la classe N, nous avons déjà fait connaissance avec le *S-mètre*, aussi bien dans sa variante analogique (fig. [ref:a_s_meter_analog]) que dans sa variante numérique (fig. [ref:a_s_meter_digital]). Il sert à afficher la force du signal HF présent à l'entrée du récepteur.
 
 L'échelle d'un S-mètre va habituellement de S1 à S9. Une variation d'un échelon S correspond ici à $\qty{6}{\dB}$. Les signaux plus forts, au-delà de S9, ne sont plus indiqués en échelons S supplémentaires, mais en décibels au-dessus de S9, par exemple sous la forme « S9 + $\qty{20}{\dB}$ ».
 
@@ -14,6 +14,8 @@ Comme l'échelle en décibels est logarithmique, une augmentation de $\qty{6}{\d
 [question:AF103]
 [question:AA113]
 [question:AF102]
+
+---
 
 Dans le domaine décamétrique jusqu'à $\qty{30}{\mega\hertz}$, une valeur S de S9 correspond exactement à $\qty{50}{\micro\volt}$ sur $\qty{50}{\ohm}$.
 À partir du domaine VHF ($\qty{144}{\mega\hertz}$), une valeur S de S9 correspond exactement à $\qty{5}{\micro\volt}$ sur $\qty{50}{\ohm}$.

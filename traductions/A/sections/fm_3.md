@@ -1,4 +1,4 @@
-En modulation de fréquence, l'information du signal modulant ne se trouve pas dans l'amplitude, mais uniquement dans la variation de fréquence du signal porteur. C'est pourquoi seuls les passages par zéro du signal porteur doivent être exploités dans le récepteur.
+Comme nous l'avons déjà appris dans les classes N et E, en modulation de fréquence, l'information du signal modulant ne se trouve pas dans l'amplitude, mais uniquement dans la variation de fréquence du signal porteur. C'est pourquoi seuls les passages par zéro du signal porteur doivent être exploités dans le récepteur.
 
 Les fluctuations d'amplitude sont ici masquées par un amplificateur limiteur. La modulation de fréquence est donc, de par sa nature, insensible aux perturbations impulsionnelles de l'amplitude, provoquées par ex. par des étincelles d'allumage, des moteurs électriques ou similaires. La FM convient donc bien au fonctionnement en véhicule automobile.
 

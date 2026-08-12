@@ -1,4 +1,4 @@
-Contrairement au superhétérodyne simple, le double superhétérodyne utilise 2 fréquences intermédiaires, comme le montre la figure [ref:doppelsuper_blockschaltbild].
+Dans la classe E, nous avons déjà fait connaissance avec le récepteur superhétérodyne. Dans cette classe, nous allons maintenant nous intéresser au récepteur à double changement de fréquence (double superhétérodyne). Contrairement au superhétérodyne simple, le double superhétérodyne utilise 2 fréquences intermédiaires, comme le montre la figure [ref:doppelsuper_blockschaltbild].
 
 <margin>
 [picture:810:doppelsuper_blockschaltbild:Schéma fonctionnel d'un double superhétérodyne]

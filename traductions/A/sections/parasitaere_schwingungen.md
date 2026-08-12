@@ -3,6 +3,8 @@ Les oscillations parasites naissent principalement dans les étages amplificateu
 [question:AJ212]
 [question:AJ213]
 
+%TODO DL9MJ Bild von Ferritperlen von DD3LL einfügen
+
 Pour supprimer les oscillations parasites, on peut par exemple employer, dans les émetteurs VHF, des perles de ferrite placées sur l'émetteur du transistor de puissance (aussi près que possible du transistor).
 Dans les étages finaux décamétriques à large bande, une résistance en parallèle sur le transformateur peut être utilisée pour amortir celui-ci et réduire ainsi la tendance de l'amplificateur à osciller.
 

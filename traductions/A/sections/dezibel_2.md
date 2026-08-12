@@ -96,6 +96,10 @@ La figure [ref:e_signalkette_2] montre un autre exemple de chaîne de signal, da
 Pourquoi est-il licite de soustraire une atténuation de $\qty{3}{\dB}$ d'un niveau de $\qty{9}{\dBm}$ ? Ces deux valeurs ont pourtant des unités de mesure différentes ! L'unité bel ($\unit{\bel}$) ou décibel ($\unit{\dB}$) est une unité auxiliaire (aussi pseudo-unité).
 En principe, la valeur numérique pourrait aussi s'écrire sans l'unité $\unit{\dB}$. Mais avec la mention $\unit{\dB}$, il devient clair qu'il s'agit d'un rapport logarithmique de deux grandeurs. Sans cette unité, il faudrait décrire verbalement quelle signification a la valeur numérique.
 </indepth>
+
+Pour déterminer le gain total d'un amplificateur de puissance à plusieurs étages, il faut effectuer la différence entre la puissance de sortie et la puissance d'entrée par soustraction, en respectant les signes, des valeurs en dBm. Exemple : une puissance d'entrée de $\qty{-5}{\dBm}$ et une puissance de sortie de $\qty{20}{\dBm}$ donnent un gain total de $\qty{25}{\dB}$ ($\qty{20}{\dBm} - (\qty{-5}{\dBm}) = \qty{25}{\dB}$)
+
+[question:AF428]
   
 Nous avons de plus déjà rencontré dans la classe E les suffixes $\unit{\dBd}$ et $\unit{\dBi}$, utilisés pour indiquer les gains d'antenne. Dans ce cas, la valeur en décibels ne se rapporte pas à une puissance ou à une tension, mais à un radiateur de référence donné. Sont usuels le $\unit{\dBi}$, rapporté au radiateur isotrope sphérique, ainsi que le $\unit{\dBd}$, rapporté au dipôle demi-onde.
 

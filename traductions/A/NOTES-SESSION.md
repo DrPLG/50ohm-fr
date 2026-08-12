@@ -1,4 +1,50 @@
-# Notes de session — classe A, lots 1–5 / chapitres 1–12 (lots 1–4 COMPILÉS v0.5, 248 p. ; lot 5 = ch. 10–12 TRADUIT, NON COMPILÉ ; build_book.py v0.4)
+# Notes de session — classe A
+
+## 2026-08-12 — Résynchronisation après dérive amont
+
+Traduction du 07/08 comparée à l'état amont du 12/08 (`main`, commit de
+comparaison `47a7364` → `HEAD`). `toc/A.json` et les 389 dessins forkés :
+aucune dérive. Sections : **28 des 153 sections référencées par la classe A**
+avaient dérivé (comparaison SHA-256 + diff GitHub `compare` sur
+`contents/sections/*.md`), suite à 38 commits amont du 08/08 au 10/08
+(refactors de sections receveur/émetteur : agc, mischer2, modulatoren,
+frequenzmessung, etc.).
+
+Les 28 sections ont été remises à niveau à la main (pas de substitution
+automatique — le texte allemand a trop changé structurellement pour ça,
+cf. `modulatoren` : +132/-37 lignes, nouvelle démonstration mathématique
+complète du signal AM et du modulateur équilibré). Sur les 28, une bonne
+moitié se sont révélées **déjà à jour** (`am_2`, `spiegelfrequenzen`,
+`demodulator`, `mischer_2`, `daempfungsglieder`, `dummy` non — voir liste
+complète dans l'historique de session) : quelqu'un (session antérieure ?)
+les avait déjà retraduites sans que ce soit documenté ici. Les autres ont
+reçu les paragraphes, images, formules et questions manquants.
+
+Deux questions ont été déplacées entre sections par l'amont, suivi ici :
+`AF401` (rendement) de `leistungsvertaerker` vers `verstaerker_wirkungsgrad` ;
+`AF428` (gain total en dBm) de `leistungsvertaerker` vers `dezibel_2` ;
+`AD503` de `modulatoren` vers `agc_2`.
+
+Contrôles passés sur les 28 fichiers : marqueurs `[question:...]`, séparateurs
+`---`, blocs `<margin>/<indepth>/<tip>/<warning>/<attention>/<webonly>/
+<latexonly>` — tous comptent exactement comme l'amont. Aucun deux-points en
+légende, aucun accent dans `\mathrm{}`, sonde anti-germanisme négative (seule
+occurrence : le commentaire `%TODO` allemand ajouté verbatim dans
+`parasitaere_schwingungen`, conforme à la règle de préservation).
+
+Convention de notation retenue pour les nouvelles formules (cohérente avec
+l'existant `am_2`/`fm_3`) : indice `T` (Träger) → `p` (porteuse), `A`
+(Ausgang) → `S` (sortie), `SS` (Spitze-Spitze) → `CC` (crête-à-crête),
+`ges` (gesamt) → `tot`, `OSZ` → `OSC`. `Oberwelle` (harmonique supérieure)
+→ `HS`, à trancher/valider par Pierre si un meilleur choix existe.
+
+**Non fait dans cette session** : compilation de contrôle de la classe A
+(30 min, protocole CLAUDE.md — à lancer seule, sans N ni E en parallèle).
+Recompiler et passer les contrôles de non-régression avant tout envoi.
+
+---
+
+# (historique antérieur) Notes de session — classe A, lots 1–5 / chapitres 1–12 (lots 1–4 COMPILÉS v0.5, 248 p. ; lot 5 = ch. 10–12 TRADUIT, NON COMPILÉ ; build_book.py v0.4)
 
 Fichier inerte pour build_book.py ; il voyage dans le zip pour porter l'état
 du projet d'une session à l'autre. AMORÇAGE créé en fin de projet classe E :

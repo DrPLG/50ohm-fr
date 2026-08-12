@@ -1,5 +1,22 @@
-La précision des fréquences et des plages de mesure des émetteurs, récepteurs, oscillateurs, fréquencemètres, etc. est indiquée soit en $\unit{\percent}$ ($1 \cdot \num{10^{-2}}$), soit en parties par million ($\unit{\ppm} = 1 \cdot \num{10^{-6}}$). L'indication se fait parfois aussi directement en notation exponentielle, comme par exemple une précision de $1 \cdot \num{10^{-7}}$.
-Il faut multiplier la fréquence par cette précision pour calculer l'écart possible des valeurs mesurées ou des affichages.
+La *précision de fréquence* indique de combien une fréquence générée, réglée ou mesurée peut s'écarter de sa valeur réelle. Elle est fréquemment exprimée en pourcentage ($\unit{\percent}$), en *parties par million* ($\unit{\ppm}$) ou directement comme écart relatif.
+
+On a alors :
+
+$\qty{1}{\percent} = 1 \cdot 10^{-2}$
+
+et
+
+$\qty{1}{\ppm} = 1 \cdot 10^{-6}$
+
+Pour un fréquencemètre, la précision atteignable dépend essentiellement de sa *base de temps*. Le fréquencemètre détermine la fréquence du signal d'entrée à l'aide d'une fréquence de référence interne. Si cette référence s'écarte de sa valeur nominale, cet écart se répercute directement sur le résultat de la mesure.
+
+On utilise donc comme base de temps des oscillateurs aussi stables que possible. Les fréquencemètres de qualité emploient par exemple un TCXO ou un OCXO. Pour des mesures particulièrement précises, on peut aussi souvent raccorder une référence de fréquence externe, par exemple un oscillateur synchronisé par GPS (GPSDO).
+
+Si la précision de fréquence relative est connue, on peut en calculer l'écart de fréquence maximal attendu :
+
+$\Delta f = f \cdot a$
+
+$f$ est ici la fréquence considérée et $a$ la précision de fréquence relative.
 
 <indepth>
   Remarque concernant la conversion et l'écriture des puissances de dix :
@@ -19,8 +36,6 @@ Il faut multiplier la fréquence par cette précision pour calculer l'écart pos
 [question:AI509]
 
 [question:AI510]
-
-%TODO - Evtl. sollte hier eine Grafik zur Veranschaulichung mit eingebunden werden für die Aufgabe 1823
 
 [question:AI506]
 

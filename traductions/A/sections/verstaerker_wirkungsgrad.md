@@ -16,6 +16,10 @@ Le rendement est un rapport sans unité et peut atteindre au maximum la valeur $
 
 $\eta_\mathrm{\%} = \eta \cdot \qty{100}{\percent}$
 
+Le rendement d'un amplificateur de puissance HF est ainsi défini par le rapport de la puissance HF de sortie délivrée par l'amplificateur de puissance à la puissance d'alimentation en courant continu fournie à l'amplificateur.
+
+[question:AF401]
+
 Un rendement élevé signifie qu'une faible part seulement de la puissance absorbée est perdue en chaleur. Avec un rendement faible, il faut en revanche évacuer une puissance dissipée d'autant plus grande, au moyen de dissipateurs ou d'autres dispositions.
 
 <tip>
