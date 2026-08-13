@@ -10,8 +10,9 @@
 # --- Sortie du générateur --------------------------------------------------
 # build_book.py y recopie les fichiers LaTeX amont, y génère les sections .tex,
 # y crée les liens vers contents/photos et y compile. Rien n'y est source.
-build-book/
-build-book-*/
+# Motif générique : couvre build-book/, build-N/, build-E/, build-A/ et les
+# éditions combinées (build-NE/, build-EA/, build-NEA/...).
+build-*/
 out/
 
 
