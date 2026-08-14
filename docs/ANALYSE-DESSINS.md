@@ -223,7 +223,16 @@ non trivial. 9 dessins portent au moins une phrase complète (gras).
    prêt, pas encore utilisé.
 3. **Suivi de la dérive amont** — ✅ fait (2026-08-11) : `verifier_dessins.py`,
    script autonome (pas une évolution de `build_book.py`, donc hors du
-   protocole de version de ce dernier). Deux commandes :
+   protocole de version de ce dernier).
+
+   > **Mise à jour du 14/08/2026** — `verifier_dessins.py` a été **supprimé**,
+   > remplacé par `verifier_amont.py` (v0.2), qui suit de la même façon les
+   > dessins forkés **et** les sections traduites. Les commandes décrites
+   > ci-dessous existent toujours, avec un argument `--type dessins|sections`
+   > en plus, et une commande `initialiser` pour constituer une ligne de base
+   > en masse. Le format de `dessins-manifest.json` est inchangé.
+
+   Deux commandes :
    - `enregistrer --edition <N|E|A> --input <amont> --id <id>` : après avoir
      créé `traductions/<CLASSE>/dessins/<id>.tex`, journalise l'empreinte
      SHA-256 de l'original amont correspondant et la date du jour dans

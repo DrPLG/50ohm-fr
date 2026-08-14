@@ -1,0 +1,517 @@
+{
+  "9600_port": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "02c5c164969f17c7d5ecbf969ec28f931c7461bca909130961b85eefc8dc68b7"
+  },
+  "N_Ende": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "3c08809a823e6716c82be0d361613bc102f0d1ca2e229fe4ecee407209b082bd"
+  },
+  "aequivalente_isotrope_strahlungsleistung_eirp_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "75621c588c959795eeb0e9229d31840cc813589fde8732dad7ac11bbed6ebf7e"
+  },
+  "afsk": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "b5bc51eb4352b492e5270df7807f1cdd35bc95ed8a879eae45d62c220435e585"
+  },
+  "agc_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "a232b9d915b8b7f8bfb37a6de7d4df7fcea283e2f0dcf1584a6cbd0980892826"
+  },
+  "alc": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "b4b2e206d851aa30ca1d1da7aca469031a7057296f921ae8001c529c544f8d3e"
+  },
+  "antenne_laenge_resonanz": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "9af262a0b03e54ae8e3b65c754323f2be56bbb3251cdfa6731c3c77b47fadcbe"
+  },
+  "antennen_beruehrung_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "fba17e8e76bd5dc69900aa7f71dd6eade2a3d48da4257a8968a17f09ae334273"
+  },
+  "antennenformen_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "585f95581e0a849a31ac83cb4479cbd20f8cd00e09123dac4fd1bfcc4ab78273"
+  },
+  "antennengewinn": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "e55f402b2e535814f3a54583091beaa03c28ec851fe8bf51e0426b687cc5b65f"
+  },
+  "ask_fsk_afsk": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d9a54993fe306d6dccdbc19d7b51262e642825ef694ede4a54b4bf2be6ab745e"
+  },
+  "aurora_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "582bc7474fa158ee2000fde676fdd876c1f0c21fa319139ee95b5a9598017767"
+  },
+  "automatische_empfangsberichte": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "dff76ee049d8fd5e7522f84eb7675a17cdc7def259260a3050e5200b301d490a"
+  },
+  "bandbreite_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "5b0bbb9a8df115abc3eb5fc1bd02a06ec2f999797f28ab6c6669fa6bd022db5a"
+  },
+  "bfo_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "85c7ba48470aba4945ff0c3544fda5a4896c025ead7c1096f580cdee77e7b019"
+  },
+  "binaer": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "f00762ef271a0b91d6b5887bb1946f3eeda1cdf372fa61f813bd578ed596db12"
+  },
+  "blitzerdung": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "9468dd0c50df5650cb71c3fdf569340c8d3c1b0bfea0adf98cdfeea3915cdc04"
+  },
+  "bodenwelle": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "e482420007572616bbb795927e99b92d17c14272afaba8791c6d1affa7de66dd"
+  },
+  "datenuebertragungsdrate": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "5ddb888eca88567911298898dd5cad1f2007ce4f95e18a313a5cb8fa5846b7ee"
+  },
+  "detektorempfänger": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "cebbe7780888af7d3fd207f261d26c5cc5f564930dcc453b949fab35a08550ef"
+  },
+  "dezibel_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "ed183086c25b5028f113d4a5ddf8a66515b4f5eb2e5566b88d6d0879f5fb6ca4"
+  },
+  "digimod_uebersteuerung": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "1e7139c5c57e73b0eee03a90bf7257a0a2540570c4f55f96a598e8175153dbcf"
+  },
+  "digimode_ssb": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "a0b92e5b853f01e2c2bf9e92823e7f28ea5f234a2b7486393beb5cd04d017e4e"
+  },
+  "digitale_signalverarbeitung_einleitung": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d645d92ebec9af7e8640694fd26cc471821cc45222d0c378b52027fe8612aa8e"
+  },
+  "diode_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "711698b98b8bf5b0063b1cf319a8688f56f6c8f02fd8f0916166a878abbbfbca"
+  },
+  "dynamik_kompressor_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "de9db2ab679211a838f75eb56bccd1f57885b869938419438490935e1d64811c"
+  },
+  "e_feld": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "81e0964209badb385fb4122c8749d48c80d46e6dc5b20eb775207dbeafd55c9f"
+  },
+  "elektrische_geaete_oeffnen_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "966f8b26e6735efb812f4ebf525e53553d28d4a78fbc1ef0eb685fc48de0713f"
+  },
+  "em_feld": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "5d609561da78fdf8c682035e8e585ca34478d717b5a60eda9f155d9d597eee87"
+  },
+  "fading": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "9a5ae78cfbeda8f3a9c2221282671b4bae8e584b2d36ce3a85bdd3d84e761765"
+  },
+  "fm_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d26ddfc184d51800dae605fcad63071ffd5bde867c5a3dd6a3509365fb5f6b3a"
+  },
+  "formeln_umstellen": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "300294aa9147269494e43726348ec0b0fae894dc930d5333a465285c4b39b486"
+  },
+  "frequenzmessung_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "1d87057bd3189097083b870c7db1a5c959bffdaf7a1fece51697081cb6e3a11a"
+  },
+  "frequenzvervielfacher_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "ebb3047f83dbffec4e364a7b4823d7829fc8ffb0b33abbb86cb952e6c989e839"
+  },
+  "fusspunktimpedanz_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "87792209b0af817c5059ac613dd4bdbd4b84e4669a23bd56c45a275b9f71e339"
+  },
+  "gleichrichter_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "22a3c7523ded905ead656b86d11b64624d40205772b8f2607d8e7d106475eb0f"
+  },
+  "greyline": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "20eb36d1105b4cece291f569a30339edce90a33fdb5a3fe537393f8e02fbdf91"
+  },
+  "h_feld": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "c1b91ed99a29f00db332841d80646285ea1f4e244ca498208ddf964a1fbbe4e2"
+  },
+  "ionosphaere_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "67f3a2bc69e4666b74e6328fed8b2657c3cc34ad348ce1a3e57282e6bffa5940"
+  },
+  "kabeldaempfung_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "db8f58b8842d55b7411675d6b02c09af7636143413cb28ab4475e09bec406ae5"
+  },
+  "kondensator_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "9df76cb56ea908fe716b6777dcba6276530d5787a9ab63e733c2c03cc52a08d0"
+  },
+  "langer_kurzer_weg_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "edeb93a1d7fab83500318a998192450c65587f2fa8d652921cb311597c1c3b0d"
+  },
+  "leistung_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "8d3d15688db4e4b9aefd73c697ecfc557e1bd5db3fd43bc77dcc4b32a37b4533"
+  },
+  "mantelwellen_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "695fe89d48d0906541976eb1632e575ef0fc5869b2463b19325040321b34a96e"
+  },
+  "mischer": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4436e454d13c2ced034eb8837533c87b44c8c760b824bd7aecab56661e14b35d"
+  },
+  "moegel_dellinger_effekt": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "030d6a0a73af673b54e5a54268035715c4bc06d59a7a07a1e8bf5f8ad9f2d1c5"
+  },
+  "muf_luf_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "7b9632119e8b2b8b1f9dd6759747f3f6bf538a3c3c46e032a0a67383da5e4a4f"
+  },
+  "naeherungsformel_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d79b69e672fff1d0911bdc75101edea0165c9bc707a590e46c1689f6804c04a3"
+  },
+  "noise_reduction": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "eb3bd8abdcabaa1dfede6a36957cf0b829d0e7c079fb50f035196e8fca18eb8f"
+  },
+  "notchfilter": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "3b71de81a878ec2c70514479613519b452471276e9e308516850331fc557aad8"
+  },
+  "oszillatoren": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "baccc2b06dd5d74599bd0339633d65cbcad4ea42ed98bcb65bb9046e4e6b3864"
+  },
+  "oszilloskop_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "6efd12182a792ca7ef81f0589287f0e85125022d7c8e571671253e29857d2eae"
+  },
+  "paketvermittelte_netzwerke": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d41b6eacbe75830de47e800ad0f13022e9da43a9342fde79ad4234d1192a3cf3"
+  },
+  "parabolspiegel_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4787185a69378b4e6508bbe50af6bfb05032d8f0d812c3827efd86bbe9dd654c"
+  },
+  "personenschutzabstand_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4f8f0087f231fd00686f8026377377ffb21a0897de4d88d315a96e61fdb73d6a"
+  },
+  "personenschutzabstand_grenzwerte": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "3c5a16020922ca18937c9bbbac18b566bd76c4d56284934c3f95257e1ba4aa4b"
+  },
+  "polarisation_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "db45fc3b8c710243da4835ab48edeef371bb3b8cc40ac9ee4771906688a51e47"
+  },
+  "reihe_parallel_kondensator": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "54c772b2cf14d28272ad259aa13a60ca6d5ab45f02fa7ffb7d960ac8e0a72642"
+  },
+  "reihe_parallel_widerstand": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4b8dc108674cb6fb3a69bc7f6a36d8e450f618e943a76c13a856ed0ddb0193dd"
+  },
+  "reihe_parallel_widerstandsnetz_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "dddca70385979d680fc8124c31ad205e33cd616f67b04086c37350bd77c40f8b"
+  },
+  "schaltnetzteil_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "38b8978a4825956b459767e36b64e817356e15f41c911dd2098ddf6e412e9de0"
+  },
+  "schutzerdung_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "76fb7ef3ad4f0271cb4646e4c95bd0bb9014f23033dde3869ffabaf071997775"
+  },
+  "schwingkreis_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "e7d38534b7cb235f3e2cc7b251d6d3a52ad87f48eb31309aefd9fa1ef4c9e3d9"
+  },
+  "senderausgangsleistung": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "56348e1eeec7506d08f7de1d8be3b4679c58286e625ebcc8e8d80a7bc5829164"
+  },
+  "sicherungen": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "b335650079ebf3f7c6cea044c0476fd314c6b43b02757c12960876b54f6040d7"
+  },
+  "spannungsquelle": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "a0b9ebc487dfbe046eba95bed3fb69d734b5d5950b99ae15c54afaa538749d1b"
+  },
+  "spannungsteiler_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4b9b4feff125aa434d4bc300c5245cef54e166a8b2ba82d0aea50cdd72f3df4d"
+  },
+  "spitze_effektiv_wert": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "b00b2d98e4022504318ade82dbe26b1d0ed9e3b99537b23779ea10e497c2bffd"
+  },
+  "sporadic_e_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4281260442d71bfb3a737d56ee9319e4990e35df1c99d11406a6294a421e6760"
+  },
+  "sprungdistanz_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "17d5e0f52a061efa57470174d700b1e2f87e00a52729d2237756f7ce1fa4a7ea"
+  },
+  "spule_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "ed7067fd94288bcc1abf92dcfd73669692332e5eb547100e6cfd569515183eef"
+  },
+  "ssb_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "c5c80b2813528d9b8dc7b12c8d48df44a107e92fb2edeebb8d812f5f80e3d8a9"
+  },
+  "standortwahl": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "8d6e07aa8aa85e094bd14c62b703f8d6510349c6046600096c422a3e5da03532"
+  },
+  "statische_aufladung": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "3e48a8c165fbba304e1db46f9d0e8a85ed82bf3821bd9ddef89d287002540fb3"
+  },
+  "stoerungen_elektronischer_geraete_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "f9086b45770e868b9e6c8845d43d34712c4a4de33f9aa40aebe380bdfbdfdc60"
+  },
+  "strahlengang_aufenthalt": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "3487a135c7bb819589ac0c8da03f436fee3a36c6e22275715617f0c0c914a21a"
+  },
+  "strom_spannung_messung_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "554b935fdb99133d3d7332bd85f46420a5ad1ec0dec8d2486b3d82eadd415027"
+  },
+  "strom_spannung_speisung_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "f2c16db54b8607a191a612dbf6bab78d0e6aa837361ffbd06f20a5b8f444a500"
+  },
+  "swr_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "299d05a1714a35bd2c9b8405507580278a2f613fcebdf252166066117e4c705f"
+  },
+  "swr_meter_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "c7dcb29a27c30d93b811246e5f78ef8ae29fe4d04c0ef305a5e3de3a67dd31da"
+  },
+  "tote_zone_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "9f7217a1a2e86c888e405089fa7f9016b22629e1226a862f7e1fc214ea4314d0"
+  },
+  "transistor_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "51f4931732391826c88a4ba8be75e2530fd432cd91689f1cc78c4a9cc5e5bb71"
+  },
+  "transverter_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "a89695e3a1fb2f7edfffb65cc84f64ea8c41bea1737b80516c22c324b0005fa0"
+  },
+  "trennschaerfe_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "793f6420828ed6c4d2667fea3a2600fe2bf549f5190a1464fa24c932c53968b3"
+  },
+  "troposphaere_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "d16a2312cb28bcdfb7baff9aa6b32ea8c48406eb12933c2f14bee1ef6e652a7a"
+  },
+  "ueberlagerungsempfaenger_einfachsuper_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "5469843f6e6074d0bb2fffc09b9c9cb4778295332d13276335d2bc38dccf8f8d"
+  },
+  "uebertrager_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "ea36c1f4db3cabc48c9ac88c732a6248c6dbb26682aaed7830822140b86fa895"
+  },
+  "uebertragungsleitungen_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "980b3e48d58926396a6fe287e0d40c9943ae740e4f6fa380663471930e75a822"
+  },
+  "unerwuenschte_aussendungen_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "e927e4f999220db9893dec57a22d6c295ec70188a487af9754a48051fbcfe952"
+  },
+  "unmodulierter_traeger": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "2db80e17149f5df08449da70cc143a48f6be58f5f9947547c738c5dfd82378f0"
+  },
+  "verkuerzungsfaktor_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "95484b1e970464467190c19d9b6ae3c6d1ad8f78bc18cc97c607e61b473cf9e3"
+  },
+  "verstaerker": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "f15c97b6521521a6e9c68482028bb4a6e4f79e0aa290211bfbb13d88180f3978"
+  },
+  "vielfachzugriff": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "72928c709b4af712be0ff7c42b4af4f53220d3bae2f118943b14d2f6411cfe2b"
+  },
+  "vna_1": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "ed3acc24ac1951770145ad1f7d1b3e5d1ea94c171207343dc7244102caa24576"
+  },
+  "vorverstaerker_daempfungsglied": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "f62ca5e5f548948292f1368680bfd6844883469422419ee145ea996244e063a9"
+  },
+  "wellenlaenge_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "43bf5153a1514486e20c56cb5fdf5bc29ce2ebcf57d5cb336a9c4b31d9d34cd5"
+  },
+  "widerstand_materialien": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "8e5d7a3c7803f0cfef5febb31530c132503ba06590314e24f24e55f9df748569"
+  },
+  "widerstand_ntc_ptc": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "79837f789f88a1d2d9d53db0cb735db9c99e916a801774cc37350c36c2b29c69"
+  },
+  "widerstand_smd": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "da7125d6347b74c9264289ae6b9e5b9978b2f1c1c4ad431414a0c604ef1629b0"
+  },
+  "widerstand_toleranz": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "78b1e72f4f35c626fdea9619561d1013c52eec436a7df53817bbabf8f59a6add"
+  },
+  "yagi_uda_2": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "4966b5ded2bcfebf3fe7b9f3708e50d9c3675b0b51f58e4450a405a13a8651d8"
+  },
+  "zehnerpotenzen": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "298f738d97bde4dbbe6718273bfad20c6a9bc2cf2fa4eb60daea65411cd428cc"
+  },
+  "zeigerinstrumente_ablesen": {
+    "date_traduction": "2026-08-14",
+    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
+    "sha256_amont": "8870352a9d4d02e9543943536aeacb04d55f7f1a4fce012ac53e10d67f0328fe"
+  }
+}
