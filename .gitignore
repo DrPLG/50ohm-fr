@@ -101,3 +101,12 @@ desktop.ini
 
 # --- Instructions de session (locales uniquement, jamais publiées) --------
 CLAUDE.md
+NOUVELLE-MACHINE.md
+# Réglages locaux de Claude Code (permissions accordées, état de session).
+# NOUVELLE-MACHINE.md §1 les disait déjà exclus ; ils ne l'étaient pas.
+.claude/
+
+
+# --- Documents de travail personnels (locaux, jamais publiés) --------------
+# Fichiers de référence de Pierre, hors périmètre de l'œuvre dérivée.
+Fichierstravail/

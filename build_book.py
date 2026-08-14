@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""
+# Docstring en chaîne brute (r"""...) : elle cite abondamment des macros LaTeX
+# (\qty, \lambda, \drawings...) que Python interpréterait sinon comme des
+# séquences d'échappement — SyntaxWarning à chaque exécution.
+r"""
 build_book.py — Génère un livre PDF (via LaTeX/LuaLaTeX) à partir des contenus 50ohm.de.
 
 Ce script est le « chef d'orchestre » manquant du dépôt public : il assemble les
@@ -12,7 +15,17 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.15
+Version du script : v0.16
+    v0.16 — fix_latex() : \qty{0.05}{\lambda} -> \num{0.05}\,\lambda.
+            Symétrique du correctif v0.14, mais la macro est ici dans l'UNITÉ
+            et non dans le nombre. \lambda n'étant pas une unité siunitx, elle
+            est composée dans la police de texte droite, où le glyphe U+1D706
+            manque à Libertinus Serif : le lambda disparaît du PDF SANS erreur
+            de compilation (simple « Missing character » dans le journal), et
+            le lecteur lit « au moins 0,05 » sans unité. Idiome amont, présent
+            dans antennenformen_3 depuis une évolution amont de l'été 2026 ;
+            la source n'est pas touchée. \num{} est conservé pour garder la
+            virgule décimale française.
     v0.15 — Fork optionnel des dessins côté français. Un dessin amont
             (contents/drawings/<id>.tex) est du TikZ/pgfplots : le texte
             allemand qu'il affiche (légendes d'axes, libellés de nœuds) est
@@ -960,6 +973,15 @@ def fix_latex(text: str) -> str:
     # macro (« Invalid number '120\mitpi' »), puis part en runaway argument et fait
     # échouer toute la compilation. Idiome amont (nahfeld, naeherungsformel_2).
     text = re.sub(r"\\qty\{(\d*)\\pi\}\{(\\?\w+)\}", r"\1\\pi\\,\\unit{\2}", text)
+    # v0.16 — \qty{0.05}{\lambda} : symétrique du cas ci-dessus, la macro est
+    # cette fois dans l'UNITÉ. \lambda n'est pas une unité siunitx : passée
+    # comme telle, elle est composée dans la police de texte droite, où le
+    # glyphe U+1D706 est absent de Libertinus Serif. Le lambda DISPARAÎT du PDF
+    # sans la moindre erreur — seulement un « Missing character » dans le
+    # journal — et le lecteur lit « au moins 0,05 », sans unité.
+    # Idiome amont (antennenformen_3). \num{} est conservé plutôt que le nombre
+    # brut : c'est lui qui rend la virgule décimale française.
+    text = re.sub(r"\\qty\{([0-9.,]+)\}\{\\lambda\}", r"\\num{\1}\\,\\lambda", text)
     # Coquilles du contenu source (à remonter upstream) :
     text = text.replace("1000 {\\mega\\hertz}", "1000\\,\\unit{\\mega\\hertz}")
     text = re.sub(r"\\qty\{([A-Za-z])\}\{", r"\1\\,\\unit{", text)

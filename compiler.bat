@@ -11,9 +11,43 @@ REM  compilation, chemins amont, controles de non-regression apres coup.
 REM  A adapter si l'emplacement de l'amont ou les versions changent.
 REM ============================================================================
 
-set "OHM_RENDERER=D:\50ohm-amont\50ohm-main"
-set "AMONT=D:\50ohm-amont\50ohm-contents-dl-main"
 set "PYTHONIOENCODING=UTF-8"
+
+REM --- Localisation des depots amont -----------------------------------------
+REM Les deux depots amont (generateur + contenus) vivent cote a cote sous une
+REM meme racine, mais celle-ci differe d'une machine a l'autre. On essaie les
+REM racines connues dans l'ordre et on retient la premiere ou le paquet
+REM renderer est reellement present. La variable d'environnement OHM_AMONT,
+REM si elle est definie, l'emporte : c'est le point d'entree pour une machine
+REM dont la disposition n'est pas listee ici.
+set "OHM_RENDERER="
+set "AMONT="
+for %%R in ("%OHM_AMONT%" "D:\50ohm-amont" "C:\50ohm") do (
+    if not defined OHM_RENDERER (
+        if exist "%%~R\50ohm-main\renderer\document.py" (
+            set "OHM_RENDERER=%%~R\50ohm-main"
+            set "AMONT=%%~R\50ohm-contents-dl-main"
+        )
+    )
+)
+
+if not defined OHM_RENDERER (
+    echo ERREUR : aucun depot amont trouve.
+    echo Racines essayees : %%OHM_AMONT%%, D:\50ohm-amont, C:\50ohm
+    echo Chaque racine doit contenir 50ohm-main\ et 50ohm-contents-dl-main\
+    echo ^(tarballs codeload.github.com/DARC-e-V/50ohm et .../50ohm-contents-dl^).
+    echo Definissez OHM_AMONT pour designer une autre racine.
+    pause
+    exit /b 1
+)
+
+REM --- Interpreteur Python ---------------------------------------------------
+REM Le paquet renderer exige Python 3.12 (.python-version amont) et ses
+REM dependances sont installees dans le venv uv du generateur. On le prefere
+REM au python du PATH, qui peut etre une version plus ancienne sans les
+REM dependances.
+set "PY=%OHM_RENDERER%\.venv\Scripts\python.exe"
+if not exist "%PY%" set "PY=python"
 
 REM latexmk est un script Perl ; MiKTeX ne fournit pas son propre Perl et
 REM s'appuie sur un interpreteur externe. Celui de Git for Windows convient,
@@ -32,10 +66,12 @@ if "%CLASSE%"=="" (
     if errorlevel 3 (set "CLASSE=A") else if errorlevel 2 (set "CLASSE=E") else if errorlevel 1 (set "CLASSE=N")
 )
 
+REM Les trois classes sont preparees en a.1 pour la release : c'est la version
+REM qui porte les pieces liminaires (avant-propos, remerciements).
 set "VERSION="
-if /i "%CLASSE%"=="N" set "VERSION=v0.9"
-if /i "%CLASSE%"=="E" set "VERSION=v0.9"
-if /i "%CLASSE%"=="A" set "VERSION=v1.2"
+if /i "%CLASSE%"=="N" set "VERSION=a.1"
+if /i "%CLASSE%"=="E" set "VERSION=a.1"
+if /i "%CLASSE%"=="A" set "VERSION=a.1"
 
 if not defined VERSION (
     echo.
@@ -46,6 +82,26 @@ if not defined VERSION (
 
 set "OUT=build-%CLASSE%"
 
+REM --- Pieces liminaires -----------------------------------------------------
+REM --front-matter est repetable et l'ORDRE compte : avant-propos d'abord,
+REM remerciements ensuite.
+REM Le suffixe "-N" des deux fichiers est HISTORIQUE (ils ont ete rediges pour
+REM la classe N) : ils servent aux TROIS classes. Ne pas les deriver de
+REM %CLASSE%, sinon E et A sortent sans pieces liminaires.
+REM set sans guillemets englobants : la valeur contient elle-meme des
+REM guillemets, que "set "VAR=..."" avalerait.
+set "FRONTMATTER="
+if exist "avant-propos-N.md" (
+    set FRONTMATTER=--front-matter "Avant-propos=avant-propos-N.md"
+) else (
+    echo ATTENTION : avant-propos-N.md introuvable, le livre sortira sans.
+)
+if exist "remerciements-N.md" (
+    set FRONTMATTER=!FRONTMATTER! --front-matter "Remerciements=remerciements-N.md"
+) else (
+    echo ATTENTION : remerciements-N.md introuvable, le livre sortira sans.
+)
+
 echo.
 echo ============================================================
 echo  Compilation classe %CLASSE% ^(%VERSION%^)
@@ -53,27 +109,27 @@ echo ============================================================
 echo.
 
 REM --- Verifications prealables ----------------------------------------------
-if not exist "%OHM_RENDERER%\renderer\document.py" (
-    echo ERREUR : generateur ^(paquet renderer^) introuvable a
-    echo   %OHM_RENDERER%
-    echo Voir la memoire de session / CLAUDE.md pour le retelecharger
-    echo ^(tarball codeload.github.com/DARC-e-V/50ohm^).
-    pause
-    exit /b 1
-)
+REM Le generateur a deja ete localise plus haut ; reste a verifier que les
+REM contenus l'accompagnent bien sous la meme racine.
+echo Amont : %AMONT%
+echo Python : %PY%
+echo.
 if not exist "%AMONT%\contents\sections" (
     echo ERREUR : contenu amont introuvable a
-    echo   %AMONT%
+    echo   !AMONT!
     echo ^(tarball codeload.github.com/DARC-e-V/50ohm-contents-dl^)
     pause
     exit /b 1
 )
 
-where python >nul 2>nul
-if errorlevel 1 (
-    echo ERREUR : python introuvable dans le PATH.
-    pause
-    exit /b 1
+if "%PY%"=="python" (
+    where python >nul 2>nul
+    if errorlevel 1 (
+        echo ERREUR : aucun venv dans !OHM_RENDERER! et python absent du PATH.
+        echo Creez le venv du generateur : uv sync ^(dans !OHM_RENDERER!^).
+        pause
+        exit /b 1
+    )
 )
 
 REM --- Purge : un arbre non purge fait sortir latexmk en rc=12 ---------------
@@ -83,17 +139,28 @@ if exist "%OUT%" (
 )
 
 REM --- Dependance Python -------------------------------------------------
-python -c "import mistletoe" 2>nul
+REM Le venv uv du generateur est cree sans pip : on n'y installe rien a la
+REM volee, on renvoie vers "uv sync". Sur un python du PATH, l'installation
+REM automatique d'origine reste valable.
+"%PY%" -c "import mistletoe" 2>nul
 if errorlevel 1 (
-    echo Installation de mistletoe...
-    python -m pip install --quiet mistletoe
+    if "%PY%"=="python" (
+        echo Installation de mistletoe...
+        python -m pip install --quiet mistletoe
+    ) else (
+        echo ERREUR : le module mistletoe manque au venv du generateur.
+        echo Lancez "uv sync" dans !OHM_RENDERER!
+        pause
+        exit /b 1
+    )
 )
 
 REM --- Compilation ----------------------------------------------------------
-python build_book.py --edition %CLASSE% --lang fr ^
+"%PY%" build_book.py --edition %CLASSE% --lang fr ^
     --translations traductions\%CLASSE% ^
     --input "%AMONT%" ^
     --output "%OUT%" ^
+    !FRONTMATTER! ^
     --version-label %VERSION%
 
 if errorlevel 1 (
@@ -120,21 +187,45 @@ if errorlevel 1 (echo [OK]      lost some margin notes : 0 occurrence) else (ech
 findstr /c:"Float too large" "%LOG%" >nul
 if errorlevel 1 (echo [OK]      Float too large : 0 occurrence) else (echo [ALERTE]  "Float too large" detecte dans le journal)
 
+REM Quatrieme controle du tableau CLAUDE.md section 4. Celui-ci se compte au
+REM lieu de se detecter : le garde-fou \DARCmarginpar (v0.13) retrograde
+REM legitimement 2 notes dans le corps du texte sur la classe A. Zero attendu
+REM ailleurs, donc toute derive se voit.
+set "NMARGE=0"
+for /f %%N in ('findstr /c:"Note de marge trop haute" "%LOG%" ^| find /c /v ""') do set "NMARGE=%%N"
+set "NMARGE_ATTENDU=0"
+if /i "%CLASSE%"=="A" set "NMARGE_ATTENDU=2"
+if "%NMARGE%"=="%NMARGE_ATTENDU%" (echo [OK]      Note de marge trop haute : %NMARGE% ^(attendu %NMARGE_ATTENDU%^)) else (echo [ALERTE]  Note de marge trop haute : %NMARGE% au lieu de %NMARGE_ATTENDU% attendu)
+
 echo.
 echo PDF genere   : %OUT%\book-%CLASSE%.pdf
 echo Journal complet : %LOG%
 echo.
 
 REM --- Compression Ghostscript (facultative) ----------------------------
-set "GSDIR="
-for /d %%G in ("C:\Program Files\gs\gs*") do set "GSDIR=%%G"
+REM Ghostscript s'installe sous "Program Files" en 64 bits, mais sous
+REM "Program Files (x86)" en 32 bits -- et son executable console s'appelle
+REM alors gswin32c.exe, pas gswin64c.exe. Les deux dispositions coexistent
+REM sur les machines du projet : on essaie les quatre combinaisons, en
+REM preferant le 64 bits quand les deux sont installes.
+set "GSEXE="
+for %%P in ("C:\Program Files\gs" "C:\Program Files (x86)\gs") do (
+    for /d %%G in ("%%~P\gs*") do (
+        if exist "%%~G\bin\gswin64c.exe" set "GSEXE=%%~G\bin\gswin64c.exe"
+        if not defined GSEXE if exist "%%~G\bin\gswin32c.exe" set "GSEXE=%%~G\bin\gswin32c.exe"
+    )
+)
 
-if defined GSDIR (
+REM !GSEXE! et non %GSEXE% : le chemin 32 bits contient "(x86)", et une
+REM parenthese fermante issue d'une expansion immediate refermerait ce bloc
+REM if( ) en plein milieu. L'expansion differee a lieu apres l'analyse.
+if defined GSEXE (
+    echo Ghostscript : !GSEXE!
     choice /m "Compresser le PDF avec Ghostscript maintenant "
     if not errorlevel 2 (
         echo.
         echo Compression en cours...
-        "%GSDIR%\bin\gswin64c.exe" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
+        "%GSEXE%" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
             -dDetectDuplicateImages=true -dNOPAUSE -dBATCH ^
             -sOutputFile=livre-%CLASSE%-%VERSION%.pdf "%OUT%\book-%CLASSE%.pdf"
         if exist "livre-%CLASSE%-%VERSION%.pdf" (
@@ -143,7 +234,7 @@ if defined GSDIR (
         )
     )
 ) else (
-    echo Ghostscript introuvable dans "C:\Program Files\gs\" -- compression ignoree.
+    echo Ghostscript introuvable sous "C:\Program Files\gs\" ni "C:\Program Files (x86)\gs\" -- compression ignoree.
 )
 
 echo.
