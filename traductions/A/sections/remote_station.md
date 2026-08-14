@@ -1,3 +1,5 @@
+Dans la classe N, nous avons déjà appris que l'exploitation à distance n'est autorisée qu'aux radioamateurs de la classe A. C'est pourquoi nous allons examiner ici quelques aspects techniques de l'exploitation à distance, pertinents pour la mise en œuvre et l'utilisation d'une station distante. 
+
 Une station pour l'exploitation à distance (remote) se compose de plusieurs blocs fonctionnels logiquement séparables les uns des autres. Sur les appareils modernes, certains de ces blocs fonctionnels peuvent aussi être intégrés dans un seul appareil (par exemple un émetteur-récepteur avec raccordement réseau et interface remote).
 
 Une installation pour l'exploitation à distance peut être représentée logiquement par les blocs fonctionnels suivants.
@@ -19,7 +21,17 @@ Une installation pour l'exploitation à distance peut être représentée logiqu
 [question:AF703]
 [question:AF705]
 
+---
+
 En exploitation à distance, les temps de propagation dans le réseau et les temps de traitement lors du codage et du décodage des signaux audio entraînent des retards. Il faut en tenir compte lors du trafic radio par stations distantes.
+
+<tip>
+[photo:342:a_remote_station:Station distante du DARC e. V.]
+
+Le DARC e. V. exploite pour ses membres plusieurs stations-club distantes, réparties dans toute l'Allemagne. Sur [mein.darc.de](https://mein.darc.de/), les membres peuvent se connecter aux stations distantes et faire du trafic radio par Internet, s'ils sont titulaires d'une licence de classe A. Pour les classes N et E, seule l'écoute (SWL) est possible.
+
+[Devenez membre du DARC dès maintenant !](https://50ohm.de/mw)
+</tip>
 
 [question:AF709]
 [question:AF710]

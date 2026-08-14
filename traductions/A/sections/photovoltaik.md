@@ -9,6 +9,7 @@ Le symbole d'un photoélément (cellule solaire) est représenté sur la figure 
 [picture:958:a_solarzelle:Structure d'une cellule solaire monocristalline au silicium]
 [picture:938:a_photoelement:Symbole du photoélément (cellule solaire)]
 [picture:949:a_solarmodul:Assemblage de cellules solaires dans un module solaire]
+[photo:343:a_solarmodul_photo:Module solaire avec ses cellules]
 </margin>
   
 [question:AB212]
