@@ -300,6 +300,20 @@ non trivial. 9 dessins portent au moins une phrase complète (gras).
    >    enregistrer les empreintes ;
    > 5. penser à **enrichir `sonde_dessins.py`** des termes retenus : en l'état
    >    elle ne voit pas les cognats partiels et retournera 0 à tort.
+   >
+   > **Le fork est maintenu comme mécanisme** — décision de Pierre du
+   > 14/08/2026, prise en connaissance de son coût. Une alternative avait été
+   > proposée : faire appliquer par `build_book.py` un dictionnaire de
+   > substitution au moment de la génération, sans dupliquer le dessin. Elle est
+   > écartée.
+   >
+   > Le coût du fork, mesuré au commit : les 38 dessins de ce jour représentent
+   > **69 466 lignes**, dont cinq pgfplots de données massives forkés pour un
+   > seul mot — 994 (18 714 lignes), 997 (16 946), 998 (11 771), 996 (8 781),
+   > 995 (6 403), tous pour traduire « Höhe ». La conséquence à garder en tête
+   > est la **dette de synchronisation** : si le DARC fait évoluer l'un de ces
+   > dessins, `verifier_amont.py` signalera la dérive, mais le report se fera à
+   > la main dans un fichier de plusieurs milliers de lignes.
 2. **Mécanisme technique** — ✅ fait (2026-08-11, `build_book.py` v0.15) :
    un dessin placé dans `traductions/<CLASSE>/dessins/<id>.tex` prime
    désormais sur l'amont, avec la même priorité que les sections (premier
