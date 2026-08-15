@@ -14,7 +14,7 @@ Pour transmettre différents caractères — lettres, chiffres et signes de ponc
 | G | [morse:g] | Q | [morse:q] | Ä | [morse:ä] |
 | H | [morse:h] | R | [morse:r] | Ö | [morse:ö] |
 | I | [morse:i] | S | [morse:s] | Ü | [morse:ü] |
-| J | [morse:j] | T | [morse:t] |  |  |
+| J | [morse:j] | T | [morse:t] | ß | [morse:ß] |
 [table:n_morsetelegrafie_morsecode_buchstaben:Code Morse (lettres)]
 </webmargin>
 
@@ -27,17 +27,18 @@ Pour transmettre différents caractères — lettres, chiffres et signes de ponc
 | 3 | [morse:3] | 8 | [morse:8] | ? | [morse:?] |
 | 4 | [morse:4] | 9 | [morse:9] | - | [morse:-] |
 |  |  |  |  | @ | [morse:@] |
+|  |  |  |  | = | [morse:=] |
 [table:n_morsetelegrafie_morsecode_ziffern_satzzeichen:Code Morse (chiffres et ponctuation)]
 </webmargin>
 
 <webmargin>
 | l: | l: |
 |  |  |
-| Interruption (BK) | [morse:bk] |
+| Interruption (BK) | \MorseDah\MorseDit\MorseDit\MorseDit\MorseDah\MorseDit\MorseDah |
 | Séparation dans un passage (BT, =) | [morse:=] |
-| Fin du passage (AR) | [morse:ar] |
-| Fin de l'émission (SK) | [morse:sk] |
-| Correction | [morse:correction] |
+| Fin du passage (AR) | \MorseDit\MorseDah\MorseDit\MorseDah\MorseDit |
+| Fin de l'émission (SK) | \MorseDit\MorseDit\MorseDit\MorseDah\MorseDit\MorseDah |
+| Correction | \MorseDit\MorseDit\MorseDit\MorseDit\MorseDit\MorseDit\MorseDit\MorseDit |
 [table:n_morsetelegrafie_morsecode_spezial:Code Morse (caractères spéciaux, sélection)]
 </webmargin>
 

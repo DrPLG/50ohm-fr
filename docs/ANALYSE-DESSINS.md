@@ -210,9 +210,96 @@ non trivial. 9 dessins portent au moins une phrase complète (gras).
 
 ## 4. Proposition pour la suite (à valider par Pierre)
 
-1. **Fork ciblé, pas systématique** — ne dupliquer que les dessins où
-   Pierre juge le texte allemand gênant à la lecture ; laisser les cognats
-   transparents (*Antenne, Signal, Transistor*...) au jugement au cas par cas.
+> **Mise à jour du 14/08/2026 — lire ceci avant le reste de la section.**
+>
+> Ce document affirmait encore, plus bas, qu'« aucun dessin réel n'est forké à
+> ce jour » et qu'« aucune de ces quatre propositions n'est mise en œuvre ».
+> Les deux sont **fausses depuis longtemps** : il y a **126 dessins forkés et
+> traduits** (N 30 · E 42 · A 54), et les propositions 2 et 3 sont faites. Les
+> manifestes existent pour les trois classes.
+>
+> CLAUDE.md se trompait de son côté en parlant d'une « fiche d'arbitrage à
+> 12 points » : cette section en compte **quatre**. Les deux mentions ont été
+> corrigées.
+>
+> **Ce qui reste réellement à trancher : les points 1 et 4** — le critère de
+> sélection des dessins à forker, et l'ordre de traitement.
+>
+> **Nouvelle mesure du 14/08/2026** : `sonde_dessins.py` (racine du dépôt)
+> distingue deux populations parmi les dessins *effectivement composés* dans
+> les livres. État après le chantier du jour :
+>
+> | | dessins utilisés | forkés | forkés avec allemand | affichant de l'allemand |
+> | --- | ---: | ---: | ---: | ---: |
+> | N | 142 | 33 | 0 | **1** (était 4) |
+> | E | 305 | 53 | 0 | **10** (était 21) |
+> | A | 414 | 78 | 0 | **13** (était 37) |
+>
+> Les **10 dessins forkés portant encore de l'allemand** étaient un défaut de
+> traduction : corrigés (« onde de sol », « onde d'espace », « atténuation »,
+> « gain » — vocabulaire déjà en usage, vérifié plutôt que supposé).
+>
+> **38 dessins ont été forkés et traduits** dans la foulée, portant le total de
+> 126 à 164. La substitution ne touche **que les textes composés** — contenu de
+> `\node{}`, `label=`, `\addlegendentry{}` — et jamais le reste du fichier, où
+> « der », « und » et « oder » apparaissent dans des noms de macros et des clés
+> de style. Les 164 dessins forkés ont été compilés isolément avant toute
+> recompilation : zéro erreur LaTeX.
+>
+> **Les 24 dessins restants** sont ceux dont l'allemand n'est pas dans une zone
+> repérable automatiquement — nœuds à syntaxe inhabituelle, texte porté par un
+> chemin. Ils demandent un examen un par un, et constituent désormais l'essentiel
+> du point 1 ci-dessous.
+>
+> La sonde donne un **plancher**, pas un compte exhaustif : un mot allemand
+> sans umlaut et absent de sa liste passe au travers.
+
+1. ~~**Fork ciblé, pas systématique**~~ — **TRANCHÉ par Pierre le 14/08/2026 :**
+   *tout texte allemand composé est traduit, sans exception de cognat.*
+
+   La proposition initiale — ne forker que les dessins « où le texte allemand
+   gêne la lecture », et laisser les cognats transparents au jugement au cas
+   par cas — est abandonnée. La règle est désormais uniforme et ne demande
+   plus d'appréciation dessin par dessin.
+
+   **Portée réelle de cette règle, mesurée le 14/08/2026.** Elle va bien au-delà
+   des dessins que `sonde_dessins.py` sait voir. La sonde repose sur les
+   umlauts et sur une liste de mots ; elle manque les **cognats partiels**,
+   sans umlaut et absents de sa liste — `Kondensator`, `Kathode`, `Kollektor`,
+   `Eingangssignal`, `Ausgangssignal`, `Drehwinkel`, `Begrenzung`… L'inventaire
+   du §3 ci-dessus, constitué par une autre méthode, en recense **133 dessins**
+   et **109 termes simples** distincts, contre 24 dessins encore signalés par la
+   sonde.
+
+   Un tri reste nécessaire : parmi ces 109 termes, certains n'ont rien à
+   traduire (*Amplitude*, *Diffusion*, *Germanium*, *Drain*, *Duct*), d'autres
+   demandent un vrai choix de vocabulaire (*Gewinn* → gain, *Bogenmaß* →
+   radian, *Arbeitspunkt* → point de fonctionnement). **C'est un chantier de
+   traduction technique à part entière**, non une substitution mécanique.
+
+   > **REPORTÉ à la session suivante**, sur décision de Pierre du 14/08/2026.
+   > La a.2 est livrée avec les 38 dessins traduits ce jour ; le reste constitue
+   > un lot autonome.
+   >
+   > **Point de reprise, pour ne pas repartir de zéro :**
+   >
+   > 1. la liste des 109 termes s'obtient en parcourant les lignes du §3
+   >    ci-dessus (`^| <id> |`), quatrième colonne, séparateur « · », en
+   >    écartant les mots identiques ou anglais ;
+   > 2. **faire valider le dictionnaire complet par Pierre en une fois**, avant
+   >    toute application : c'est du vocabulaire d'examen, il doit coller à
+   >    celui des sections. La méthode éprouvée est le comptage — « intensité de
+   >    champ » (44 emplois), « longueur d'onde » (71), « porteuse » (177) — et
+   >    non l'intuition ;
+   > 3. réemployer la mécanique de fork du 14/08 : substitution **uniquement**
+   >    dans les zones de texte composé (`\node{}`, `label=`,
+   >    `\addlegendentry{}`), jamais dans tout le fichier — « der », « und » et
+   >    « oder » vivent aussi dans des noms de macros et des clés de style ;
+   > 4. compiler tous les dessins forkés isolément **avant** de relancer les
+   >    livres, puis `verifier_amont.py initialiser --type dessins` pour
+   >    enregistrer les empreintes ;
+   > 5. penser à **enrichir `sonde_dessins.py`** des termes retenus : en l'état
+   >    elle ne voit pas les cognats partiels et retournera 0 à tort.
 2. **Mécanisme technique** — ✅ fait (2026-08-11, `build_book.py` v0.15) :
    un dessin placé dans `traductions/<CLASSE>/dessins/<id>.tex` prime
    désormais sur l'amont, avec la même priorité que les sections (premier
@@ -253,5 +340,8 @@ non trivial. 9 dessins portent au moins une phrase complète (gras).
    sur la sécurité (« Kurzschluss- und Verpolungsgefahr », « Messung von
    unerwünschten Aussendungen »).
 
-Aucune de ces quatre propositions n'est mise en œuvre à ce stade — ce
-document attend l'arbitrage de Pierre.
+**État au 14/08/2026** — les propositions 2 et 3 sont **faites** (mécanisme de
+fork en v0.15, suivi de dérive dans `verifier_amont.py`), et 126 dessins sont
+forkés et traduits. Les propositions **1 et 4 restent à trancher** : le critère
+de sélection et l'ordre de traitement. Cf. l'encadré en tête de section, qui
+donne le compte des dessins encore en allemand, classe par classe.

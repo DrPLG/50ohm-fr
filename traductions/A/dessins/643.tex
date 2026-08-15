@@ -1,0 +1,35 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw(2,0) 
+        to [short] ++ (1,0)
+        to [twoportsplit, >,     l ={\footnotesize Kanalcodierer}] ++(1,0)
+        to [twoportsplit, >,     l_={\footnotesize Quellencodierer}] ++(3,0)
+        to [twoportsplit, l ={\footnotesize Mapper}] ++(1,0) coordinate(c1);
+
+    \draw(c1) ++(0, 0.25) -| ++(0.5, 0.5)
+        to [short] ++(0.5,0)
+        node[inputarrow] {}; 
+    \draw(c1) ++(0,-0.25) -| ++(0.5,-0.5)
+        to [short] ++(0.5,0)
+        node[inputarrow] {};
+
+    %% Decoration:
+    \draw (5.35,+0.25) node(){\tiny\texttt{0101}};
+    \draw (5.65,-0.25) node(){\texttt{01}};
+    %
+    \draw (3.35,+0.25) node(){\texttt{01}};
+    \draw (3.65,-0.25) node(){\tiny\texttt{01+01}};
+    %
+    \draw[thick] (7+0.3+0.4,0.4-0.4) -- ++(0,-0.4);
+    \draw[thick] (7+0.1+0.4,0.2-0.4) -- ++(0.4,0);
+    \filldraw    (7+0.2+0.4,0.3-0.4) circle (1pt);
+    \filldraw    (7+0.4+0.4,0.3-0.4) circle (1pt);
+    \filldraw    (7+0.2+0.4,0.1-0.4) circle (1pt);
+    \filldraw    (7+0.4+0.4,0.1-0.4) circle (1pt);
+    \draw        (7.35,+0.25) node(){\texttt{01}};
+
+    % Dashed Block:
+    \draw[thick, gray, dashed] (2.25,-1.25) rectangle ++(6.0,2.5);
+    \draw[gray] (5.25,1.5) node(){FPGA ou Software};
+\end{circuitikz}

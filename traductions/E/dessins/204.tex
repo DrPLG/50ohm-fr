@@ -1,0 +1,33 @@
+% Author: Malte, DE7LMS
+% Year: 2021
+
+\def\domain{6}
+\def\saxis#1{#1/\domain*2, 0, 0}
+\def\hfield#1{#1/\domain*2, {1.5 * sin(#1 r)}, {1.5 * cos(#1 r)}}
+\def\efield#1{#1/\domain*2, {1.5 * sin((#1 + pi/2) r)}, {1.5 * cos((#1 + pi/2) r)}}
+\def\saxisPi#1{(\saxis{#1 * pi})}
+\def\hfieldPi#1{(\hfield{#1 * pi})}
+\def\efieldPi#1{(\efield{#1 * pi})}
+
+\begin{tikzpicture}[
+    thick,
+    >={Triangle[angle=45:1pt 6]},
+    samples=500,
+    x={(1 * \getDarcImageFactor cm, 0.2 * \getDarcImageFactor cm)},
+    y={(0, 1 * \getDarcImageFactor cm)},
+    z={(0.6 * \getDarcImageFactor cm, -0.2 * \getDarcImageFactor cm)},
+    domain=0:\domain*pi
+  ]
+
+  \fill[lightgray] (0, -2.1, -2) -- (2.2 * pi, -2.1, -2) -- (2.2 * pi, -2.1, 2) -- (0, -2.1, 2) -- cycle;
+  \node[left] at (2, -2.1, 0) {Terre};
+  \draw[draw=gray, ->] (0, 0, 0) -- (2.35 * pi, 0, 0) node[right] {S};
+  \draw[dash pattern=on 4pt off 2pt] plot (\hfield\x);
+  \draw plot (\efield\x);
+  \path \hfieldPi{0.5} node[above] {H};
+  \path \efieldPi{0.5} node[left] {E};
+  \foreach \x in {0,0.5,1,...,\domain} {
+    \draw[->, dash pattern=on 4pt off 2pt] \saxisPi\x -- \hfieldPi\x;
+    \draw[->] \saxisPi\x -- \efieldPi\x;
+  }
+\end{tikzpicture}

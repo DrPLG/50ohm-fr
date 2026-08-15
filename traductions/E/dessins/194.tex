@@ -1,0 +1,23 @@
+% Author: Malte, DE7LMS
+% Year: 2021
+\begin{tikzpicture}[
+    thick,
+    >={Triangle[angle=45:1pt 6]},
+    samples=100,
+    x={(1 * \getDarcImageFactor cm, 0.2 * \getDarcImageFactor cm)},
+    y={(0, 1 * \getDarcImageFactor cm)},
+    z={(0.6 * \getDarcImageFactor cm, -0.2 * \getDarcImageFactor cm)}
+  ]
+
+  \fill[lightgray] (0,-2.1,-2) -- (2.2*pi,-2.1,-2) -- (2.2*pi,-2.1,2) -- (0,-2.1,2) -- cycle;
+  \node[left] at (2,-2.1,0) {Terre};
+  \draw[draw=gray, ->] (0,0,0) -- (2.2*pi,0,0) node[right] {S};
+  \draw[domain=0:2*pi, dash pattern=on 4pt off 2pt] plot (\x,{2*sin(\x r)}, 0);
+  \draw[domain=0:2*pi] plot (\x, 0, {-2*sin(\x r)});
+  \path (pi/2, {2*sin(pi/2 r)}, 0) node[above] {H};
+  \path (pi/3, 0, {-2*sin(pi/3 r)}) node[above left] {E};
+  \foreach \i in {1,2,3,4,5,7,8,9,10,11} {
+    \draw[->, dash pattern=on 4pt off 2pt] (\i*pi/6,0,0) -- (\i*pi/6,{2*sin(\i*pi/6 r)},0);
+    \draw[->] (\i*pi/6,0,0) -- (\i*pi/6,0,{-2*sin(\i*pi/6 r)});
+  }
+\end{tikzpicture}

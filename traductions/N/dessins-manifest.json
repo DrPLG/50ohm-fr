@@ -1,4 +1,14 @@
 {
+  "408": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "af285430e5aa1275e8d3c4b7228c646e1fbc1f9ca41d793ec0f26200640e7642"
+  },
+  "411": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "6d116ff543b5109a3488152035277b850586b27c8c01d923f108eeb5f002e5be"
+  },
   "475": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
@@ -123,6 +133,11 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "1b104a7fd85d28d59e7b841f8859f974f4a9e77d8a0f21a8bdcfc199ed875aa3"
+  },
+  "742": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "835a64dadd6b233465fa64206c459d3345c79558e863e879b62a5281ae8f3617"
   },
   "743": {
     "date_fork": "2026-08-11",

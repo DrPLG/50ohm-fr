@@ -184,21 +184,21 @@
   "answer_d": "434,450 à 434,575 MHz"
  },
  "BC213": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} utiliser RTTY, PSK31 ou FT8 sur 144,075 MHz ? Le plan de bande IARU recommande…",
+  "question": "Pourquoi ne devriez-vous *pas* utiliser RTTY, PSK31 ou FT8 sur 144,075 MHz ? Le plan de bande IARU recommande…",
   "answer_a": "d'utiliser cette zone de préférence pour la télégraphie Morse.",
   "answer_b": "de n'occuper que 500 Hz de bande au maximum dans cette zone, pour mieux l'exploiter.",
   "answer_c": "d'éviter l'emploi d'ordinateurs pour la génération du signal.",
   "answer_d": "d'effectuer les procédés numériques au-dessus de 430 MHz, où plus de bande est disponible."
  },
  "BC214": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 144,125 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 144,125 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "Morse et procédés numériques à bande étroite",
   "answer_b": "les relais",
   "answer_c": "la communication spatiale",
   "answer_d": "les balises"
  },
  "BC215": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 144,450 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU réserve cette zone exclusivement à…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 144,450 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU réserve cette zone exclusivement à…",
   "answer_a": "les balises",
   "answer_b": "les relais",
   "answer_c": "la communication spatiale",
@@ -212,42 +212,42 @@
   "answer_d": "de respecter une trame de canaux de 5 kHz."
  },
  "BC217": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 145,600 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 145,600 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "les relais",
   "answer_b": "la communication spatiale",
   "answer_c": "Morse et procédés numériques à bande étroite",
   "answer_d": "les balises"
  },
  "BC218": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 145,800 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 145,800 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "la communication spatiale",
   "answer_b": "les relais",
   "answer_c": "Morse et procédés numériques à bande étroite",
   "answer_d": "les balises"
  },
  "BC219": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 432,040 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 432,040 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "Morse et procédés numériques à bande étroite",
   "answer_b": "le trafic satellite",
   "answer_c": "la communication spatiale",
   "answer_d": "les balises"
  },
  "BC220": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 432,450 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU réserve cette zone exclusivement à…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 432,450 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU réserve cette zone exclusivement à…",
   "answer_a": "les balises",
   "answer_b": "le trafic satellite",
   "answer_c": "les relais",
   "answer_d": "Morse et procédés numériques à bande étroite"
  },
  "BC221": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 435,500 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 435,500 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "le trafic satellite",
   "answer_b": "les relais",
   "answer_c": "Morse et procédés numériques à bande étroite",
   "answer_d": "les balises"
  },
  "BC222": {
-  "question": "Pourquoi ne devriez-vous \\emph{pas} établir de liaison directe en téléphonie FM sur 439,200 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
+  "question": "Pourquoi ne devriez-vous *pas* établir de liaison directe en téléphonie FM sur 439,200 MHz avec un radioamateur de la commune voisine ? Le plan de bande IARU recommande cette zone pour…",
   "answer_a": "les relais",
   "answer_b": "le trafic satellite",
   "answer_c": "Morse et procédés numériques à bande étroite",
@@ -1379,7 +1379,7 @@
   "answer_d": "peut être exploitée à des fins commerciales après autorisation de la BNetzA."
  },
  "VC115": {
-  "question": "À quelle fin une station radioamateur ne peut-elle \\emph{pas} être exploitée selon la loi sur le radioamateurisme (AFuG) ?",
+  "question": "À quelle fin une station radioamateur ne peut-elle *pas* être exploitée selon la loi sur le radioamateurisme (AFuG) ?",
   "answer_a": "pour la fourniture professionnelle de services de télécommunications",
   "answer_b": "pour l'étude de la propagation atmosphérique des ondes",
   "answer_c": "pour la communication avec des stations spatiales",
@@ -1414,7 +1414,7 @@
   "answer_d": "La reconnaissance comme « SWL » est nécessaire, en lien avec l'adhésion à une association radioamateur."
  },
  "VD103": {
-  "question": "En trafic radioamateur, seul le langage clair est autorisé. Qu'est-ce qui ne compte \\emph{pas} comme langage clair et est donc interdit ?",
+  "question": "En trafic radioamateur, seul le langage clair est autorisé. Qu'est-ce qui ne compte *pas* comme langage clair et est donc interdit ?",
   "answer_a": "Le chiffrement de la voix pour dissimuler le contenu",
   "answer_b": "Les codes Q et les abréviations radioamateur",
   "answer_c": "Les procédés de transmission numériques nécessitant un décodeur",
@@ -2191,7 +2191,7 @@
   "answer_d": "Antenne à alimentation en bout"
  },
  "NG109": {
-  "question": "Quelle forme d'antenne les radioamateurs utilisent-ils en règle générale seulement dans le domaine des ondes courtes et \\emph{pas} en VHF/UHF ?",
+  "question": "Quelle forme d'antenne les radioamateurs utilisent-ils en règle générale seulement dans le domaine des ondes courtes et *pas* en VHF/UHF ?",
   "answer_a": "Antenne long fil",
   "answer_b": "Antenne Yagi-Uda",
   "answer_c": "Antenne Quad",

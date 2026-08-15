@@ -9,7 +9,7 @@ Nous avons déjà découvert la résistance électrique en lien avec la loi d'Oh
 - ...
 
 <margin>
-| l: Résistance | X: Propriété |
+| X: Résistance | X: Propriété |
 | Résistances bobinées | Résistances de forte charge pour basses fréquences |
 | Résistances à couche métallique | Faibles tolérances de fabrication et faible dépendance en température, résistances de précision |
 | Résistances à couche d'oxyde métallique | Pour les fréquences supérieures à $\qty{30}{\mega\hertz}$ |

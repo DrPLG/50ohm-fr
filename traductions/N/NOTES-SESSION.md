@@ -1,4 +1,57 @@
 
+## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
+
+Génération : 131/131 sections, 571 questions, 55 encarts, 30 dessins francisés.
+**258 pages** (254 en a.1), 3,04 Mo après Ghostscript.
+
+Contrôles du §4 : tous à 0. Clamps : 132 figures, 1 tableau, 0 formule.
+
+| mesure | a.1 | a.2 |
+| --- | ---: | ---: |
+| plus grand débordement horizontal | 124,97 pt | **19,7 pt** |
+| débordements > 20 pt | 1 | **0** |
+| total `Overfull \hbox` | 41 | 46 |
+| pages « Underfull \vbox » | 93 | **0** |
+| questions séparées de leurs réponses | 19 relevées | **0 sur 571** |
+| accolades imprimées dans le PDF | 12 | **0** |
+| dessins affichant de l'allemand | 4 | **1** |
+
+Les `Overfull \hbox` montent légèrement (41 → 46) : ce sont des lignes
+justifiées un peu pleines, conséquence attendue du changement de césure. Aucune
+ne dépasse 20 pt, contre une à 125 pt en a.1.
+
+### Le code Morse — un défaut de contenu déguisé en défaut de mise en page
+
+Le plus gros débordement de la classe, **124,97 pt (44 mm)**, venait du tableau
+des caractères spéciaux : `[morse:correction]` était rendu par le mot
+CORRECTION **épelé en trente symboles**, enfermé dans un `\mbox` insécable.
+Cause : `renderer/morse.py` parcourt le texte caractère par caractère, ce qui
+rend inatteignable toute clé de plus d'un caractère — alors que la table
+contient bien `"correction": [8 points]`. Quatre des cinq lignes du tableau
+étaient fausses (BK, AR, SK, Correction) ; seule `=` était juste, sa clé tenant
+en un caractère. Corriger le contenu a fait disparaître le débordement.
+
+Deux éléments relevés par Pierre **sur l'édition papier allemande** et absents
+du dépôt numérique ont été rétablis : le **ß** sous le `ü` (figure 6.3) et le
+**`=`** (figure 6.4). Cette dernière passe à sept lignes et réunit les deux
+sources — le papier donne `=` à la place de `-` et ignore `@`, que le dépôt
+possède. Seul endroit du projet, hors encarts `<france>`, où le contenu
+français est volontairement plus complet que l'amont. Détail dans
+`docs/defauts-amont.md` §4.
+
+### Douze accolades imprimées depuis la a.1
+
+`\emph{pas}` avait été écrit dans `questions.json`, qui traverse le renderer :
+celui-ci échappe les accolades, et onze énoncés affichaient « ne devriez-vous
+**{pas}** établir… », sans italique. Présent dans le PDF a.1 livré, jamais
+relevé en relecture. Rétabli en markdown `*pas*`.
+
+**Leçon de méthode, payée trois fois dans la journée** : les backslashes ne
+survivent pas au passage par le shell. Un `python -c` a mangé un backslash sur
+deux et cassé `questions.json` (`\*pas*` n'est pas un échappement JSON valide),
+faisant échouer une compilation complète. Toute manipulation de LaTeX ou de
+JSON passe désormais par un fichier de script.
+
 ## SESSION 10/08/2026 — compilation v0.9 définitive
 
 - génération : 131/131 sections, 571 questions, 55 encarts « En France »,

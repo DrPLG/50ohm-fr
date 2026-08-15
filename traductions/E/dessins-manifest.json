@@ -1,4 +1,9 @@
 {
+  "1010": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "a1b5e8ca2c0ea36d38a5c7c23379215b110c5e676db445346c195a9cbfc9d102"
+  },
   "1018": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
@@ -43,6 +48,36 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "4a86f01d72278f14da5a0366f8bf4ff7d0f695b2f919966874906e21fdb2ea08"
+  },
+  "192": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "2ee3b7f5f05ec861d3ece2fedc1b8147d397789a6943e66ee62cf1bdf1e55ab6"
+  },
+  "193": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "6a685d4372cdccea576dfd5c0265a88a85d2851b5881191505f005d365a71e8b"
+  },
+  "194": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "3842a18974a3726d38c3ae904c664b45489c559f7b71802288f13c9fc32bce91"
+  },
+  "203": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "51b11096af2915ce1b19d70839d3045477b674e37ce9eede08603f7da2c940c0"
+  },
+  "204": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "92b0cf798c39c5c676074afe23250c9a0508f0d94f0bffaa01d0c45e858e0862"
+  },
+  "411": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "6d116ff543b5109a3488152035277b850586b27c8c01d923f108eeb5f002e5be"
   },
   "439": {
     "date_fork": "2026-08-11",
@@ -204,9 +239,29 @@
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "5ebefce9f389dc1622aa8cc9e125b672b4144008901580368fe6062e0790b682"
   },
+  "979": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "ac54c29f2ad5d416b0cf62c5b4eb0ced4404bf74705219738d5e8f484f5576a1"
+  },
+  "980": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "66d63b10db0662b8bde251411aa474d17ee2f3be0a478779e50398f27677e8e9"
+  },
+  "981": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "9594d56187eb5dcded3fdda4826e86325be6a3deedb055dd988e2f67ce69200e"
+  },
   "991": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "dcefae4cb0ee8b6bb978f0f4322e69b1612c4e9f0b696b04b2c63b6620391d23"
+  },
+  "997": {
+    "date_fork": "2026-08-15",
+    "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
+    "sha256_amont": "b4275cb787358a6099ade254e72ce33a0dc02cb439138acc374217a69c482f06"
   }
 }

@@ -1,5 +1,49 @@
 # Notes de session — classe A
 
+## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
+
+Génération : 153 sections, 717 questions, 5 encarts « En France », 54 dessins
+francisés. **376 pages** (372 en a.1), 5,10 Mo après Ghostscript.
+
+| mesure | a.1 | a.2 |
+| --- | ---: | ---: |
+| plus grand débordement horizontal | 200,0 pt | **11,3 pt** |
+| débordements > 20 pt | 17 | **0** |
+| total `Overfull \hbox` | 47 | **25** |
+| pages « Underfull \vbox » | 172 | **0** |
+| questions séparées de leurs réponses | non mesuré | **0 sur 717** |
+| dessins affichant de l'allemand | 37 | **13** |
+
+Clamps déclenchés : 528 figures, 4 tableaux, 6 formules.
+24 dessins forkés et traduits (total : 78) — le plus gros contingent des trois
+classes.
+
+**C'est la classe qui profite le plus des corrections** : plus aucun
+débordement au-delà de 20 pt, alors qu'il y en avait dix-sept, dont un à
+200 pt. Les 172 pages étirées disparaissent entièrement.
+
+### Une régression assumée : 4 notes de marge rétrogradées au lieu de 3
+
+`Float too large` et `lost some margin notes` restent à 0 — le garde-fou v0.13
+fonctionne — mais une quatrième note bascule dans le corps du texte :
+`schwingkreis_2`, dont la note de marge contient **22 formules hors texte**.
+Elle culmine à 734,6 pt pour un seuil de 711,3 : 23 pt de trop, soit environ
+1 pt par formule.
+
+**Cause établie par mesure**, et non supposée : en restaurant `displaymath`
+dans son état d'origine sur un document réduit, l'avertissement disparaît et la
+note tient en marge. Ce n'est pas l'espacement ajouté qui est en cause — le
+remplacer par les ressorts natifs donne exactement la même hauteur, au
+centième. C'est la recomposition de chaque formule en boîte qui coûte ce point.
+
+**Piste pour revenir à 3** : ne recomposer la formule que lorsqu'elle déborde
+réellement, et la laisser passer par le chemin natif sinon.
+
+**Deux dessins forkés** portaient encore de l'allemand (1078 : `Leistung`,
+`Dämpfung` ; 1095 : `Bereich`, `und`). Corrigés ; la sonde retourne 0.
+**Reste 37 dessins non forkés en allemand** — le plus gros contingent des trois
+classes, à traiter dans le chantier de francisation.
+
 ## 2026-08-12 — Résynchronisation après dérive amont
 
 Traduction du 07/08 comparée à l'état amont du 12/08 (`main`, commit de

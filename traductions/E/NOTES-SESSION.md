@@ -1,5 +1,45 @@
 # Notes de session — classe E, chapitres 1–16 (v0.6)
 
+## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
+
+Génération : 103/103 sections, 463 questions traduites, 42 dessins francisés,
+6 encarts « En France ». **214 pages** (206 en a.1), 3,00 Mo après Ghostscript.
+
+Contrôles du §4 : tous conformes (0 · 0 · 0 · 0). Aucune référence indéfinie
+au-delà du défaut amont connu.
+
+| mesure | a.1 | a.2 |
+| --- | ---: | ---: |
+| plus grand débordement horizontal | 103,6 pt | **11,3 pt** |
+| débordements > 20 pt | 8 | **0** |
+| pages « Underfull \vbox » | 41 | **0** |
+| questions séparées de leurs réponses | non mesuré | **0 sur 462** |
+| dessins affichant de l'allemand | 21 | **10** |
+
+Clamps déclenchés : 288 figures, 5 tableaux, 3 formules.
+11 dessins forkés et traduits (total : 53).
+
+**Le plus gros débordement, 103,6 pt, n'était pas une figure** mais le tableau
+`{ll}` des désignations d'émission de `unmodulierter_traeger` (page 121) : deux
+colonnes de largeur naturelle dont la seconde porte de la prose. Il débordait
+déjà à l'identique en a.1 — au centième près, ce qui a mis sur la piste.
+
+**Cinq dessins forkés portaient encore de l'allemand** (439, 741, 991, 1022,
+1024) : `Verstärkung`, `Frequenz`, `Bodenwelle`, `Raumwelle`. Traduits avec le
+vocabulaire déjà en usage. La sonde retourne désormais 0.
+
+**Reste 21 dessins non forkés affichant de l'allemand** — chantier de
+francisation, pas un défaut.
+
+**`widerstand_materialien` — corrigé (B2).** Ce `{lX}` débordait de 28 pt et
+échappait au clamp : `tabularx` fixe la largeur du tableau à `\linewidth`, donc
+la mesure le voit toujours conforme. La cause était la **traduction** — sa
+colonne rigide portait « Résistances à couche d'oxyde métallique »
+(39 caractères) là où l'allemand tenait en 28 avec
+« Metalloxidschichtwiderstände ». Première colonne passée en `X` : plus aucun
+débordement, sans toucher au texte. La limite du clamp reste vraie en général,
+mais ces cas se corrigent à la source.
+
 Fichier inerte pour build_book.py ; il voyage dans le zip pour porter l'état
 du projet d'une session à l'autre.
 

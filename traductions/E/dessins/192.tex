@@ -1,0 +1,42 @@
+% Author: Malte, DE7LMS
+% Year: 2021
+\begin{circuitikz}[
+    thick,
+    longL/.style = {american inductor, inductors/coils=5, inductors/scale=.7, inductors/width=1.25},
+    every pin edge/.style={semithick, black}
+  ]
+  % original for comparison
+  % \node[anchor=south] at (0,-1.35) {\includegraphics[width=7cm]{tb_407_q_1.png}};
+
+  \draw (-3.5,0) -- (3.5,0);
+  \fill[top color=gray, bottom color=white] (-3.5,0) rectangle (3.5,-.25);
+
+  \draw (0,0) node[circ] (gnd) {} to[longL] (0,5) node[circ] {};
+  \foreach \x in {1.3,1.9,2.5} {
+    % right
+    \draw
+      (0,5) arc[start angle=180, end angle=0, x radius=\x/2, y radius=.3*\x] -- (\x,0);
+    \draw[dash pattern=on 10pt off 5pt]
+      (\x,0) arc[start angle=180, end angle=0, x radius=-\x/2, y radius=-.3*\x];
+    % left
+    \draw
+      (0,5) arc[start angle=0, end angle=180, x radius=\x/2, y radius=.3*\x] -- (-\x,0);
+    \draw[dash pattern=on 10pt off 5pt]
+      (-\x,0) arc[start angle=0, end angle=180, x radius=-\x/2, y radius=-.3*\x];
+  }
+
+  % Using Bézier curves looks more pleasing but is less correct
+  % \foreach \x/\y in {-2.5/1,-1.9/.7,-1.3/.5,1.3/.5,1.9/.7,2.5/1}
+  %   \draw (0,5) .. controls +(0,\y) and +(0,\y) .. (\x,5)
+  %     -- (\x,0)
+  %     .. controls +(0,-\y) and +(0,-\y) .. (0,0);
+
+  % X marks the spot
+  \path (-1.9,2.5) arc[start angle=180, end angle=75, x radius=1.9, y radius=1.9/2.5]
+    node[coordinate, pin=70:X] {};
+
+  \foreach \x in {1.3,1.9,2.5}
+    \draw[dash pattern=on 10pt off 5pt] (0,2.5) circle[x radius=\x, y radius=\x/2.5];
+
+  \node[below=.2 of gnd, fill=white, inner sep=1pt] {Terre};
+\end{circuitikz}

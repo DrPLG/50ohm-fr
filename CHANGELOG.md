@@ -8,6 +8,122 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
+## a.2 — 14 août 2026 (en cours)
+
+| Classe | Sections | Questions | Encarts | Pages (a.1 → a.2) |
+| ------ | -------: | --------: | ------: | ----: |
+| N | 131 | 571 | 55 | 254 → 258 |
+| E | 103 | 462 | 6 | 206 → 214 |
+| A | 153 | 717 | 5 | 372 → 376 |
+
+Effet mesuré des corrections, sur les trois classes :
+
+| mesure | a.1 | a.2 |
+| --- | ---: | ---: |
+| plus grand débordement horizontal (N · E · A) | 125 · 104 · 200 pt | **20 · 11 · 11 pt** |
+| débordements > 20 pt (N · E · A) | 1 · 8 · 17 | **0 · 0 · 0** |
+| pages « Underfull \vbox » (total) | 306 | **0** |
+| questions séparées de leurs réponses | 19 relevées en N | **0 sur 1 750** |
+| figures ramenées dans leur gabarit | 0 | **948** |
+| tableaux et formules réduits | 0 | 10 et 9 |
+| dessins affichant de l'allemand | 62 | **24** |
+
+**Plus aucun débordement au-delà de 20 pt dans les trois livres**, alors qu'il y
+en avait vingt-six, dont un à 200 pt.
+
+**Chantier de mise en page**, ouvert après la relecture page à page de Pierre
+(une quarantaine de défauts relevés sur les trois livres). Le parti pris a été
+de chercher les causes racines plutôt que de retoucher page par page : quatre
+corrections de classe, puis deux de plus, ont remplacé l'essentiel des
+retouches ponctuelles.
+
+### Ajouté
+- **Typographie française** (A1). Les trois livres étaient composés avec la
+  césure et les espacements **allemands** : le `.sty` amont fait
+  `\PassOptionsToPackage{ngerman}{babel}`, et rien ne l'avait jamais corrigé.
+  Mesuré par `\showhyphens` : « ali-men-ta-ti-on », « ray-onne-ment » — des
+  coupures allemandes, fautives en français. Corrigé par le mode **moderne** de
+  babel (`\babelprovide[import, main, transforms = punctuation.space]{french}`),
+  qui insère les espaces fines avant « : ; ! ? » par transformation de nœuds
+  LuaTeX, sans rendre aucun caractère actif — contrairement à `french.ldf`,
+  dont les catcodes actifs se seraient heurtés à la syntaxe à deux-points de
+  siunitx, tcolorbox, circuitikz et pgfplots. Chaque règle pose une pénalité de
+  10000 : la ponctuation haute ne peut plus tomber en début de ligne.
+  Conventions françaises complètes ajoutées explicitement : puces en tiret
+  cadratin, listes resserrées, légendes « Fig. 1 – ».
+- **Contrôle exact des questions coupées** (B6) : deux `\label` par question,
+  comparés dans le `.aux` par `verifier_questions.py`. Remplace une lecture du
+  PDF qui produisait douze faux positifs sur la seule classe N.
+- **Sonde anti-germanisme sur les dessins** : `sonde_dessins.py`. Elle sépare
+  les dessins **forkés** portant encore de l'allemand — un défaut — des dessins
+  **non forkés**, qui sortent tels quels de l'amont et relèvent du chantier de
+  francisation.
+
+### Corrigé
+- **Clamp de `\DARCimage` : il ne clampait rien** (A2). Il mesurait `\wd` d'une
+  boîte contenant déjà le `\makebox[\linewidth]` final de la macro amont ; sa
+  mesure valait donc toujours `\linewidth`. Vérifié sur quatre dessins d'essai,
+  du minuscule au démesuré : 147,95 pt en marge et 335,74 pt dans le corps,
+  sans une seule variation. Pire, dès que la cible était inférieure à
+  `\linewidth`, la comparaison était vraie par construction et réduisait une
+  figure conforme **au carré du facteur demandé** — une figure appelée à
+  `0.5\linewidth` sortait à `0.25\linewidth`. 242 appels étaient concernés.
+  La hauteur, elle, n'était comparée à rien. Réécrit : il mesure la boîte de
+  l'autoscale amont avant tout `\makebox`, et borne largeur **et** hauteur.
+- **Zones de vide** (A3). Le livre composait en `\flushbottom` alors que la
+  classe amont fait `\raggedbottom` : le blanc laissé par un objet insécable
+  était distribué entre les paragraphes au lieu d'être rassemblé en bas de
+  page. 306 pages étaient concernées sur les trois classes.
+- **Questions séparées de leurs réponses** (A4). L'énoncé est un paragraphe,
+  les réponses un `tabular` insécable, et la boîte est `breakable` : la
+  jointure était le seul point de rupture possible. Corrigé par `\samepage`.
+- **Tableaux et formules débordant de la colonne de marge** (B1). Une fois les
+  figures traitées, 151 des 180 débordements restants étaient du contenu
+  insécable dans une colonne de 52 mm — jusqu'à 168,9 pt pour un tableau,
+  97,2 pt pour une formule. Clamp analogue à celui des images.
+- **Code Morse (classe N)** : quatre des cinq lignes du tableau des caractères
+  spéciaux étaient fausses. Détail dans `docs/defauts-amont.md` §4.
+- **Douze accolades imprimées** dans les énoncés de questions de la classe N
+  (« ne devriez-vous **{pas}** établir… »), présentes depuis la a.1 : du LaTeX
+  écrit dans un champ qui traverse le renderer, lequel échappe les accolades.
+  Rétabli en markdown.
+- **Dix dessins forkés** portaient encore de l'allemand (N 3 · E 5 · A 2),
+  traduits avec le vocabulaire déjà en usage dans le corpus.
+
+- **Francisation des dessins : 38 dessins forkés et traduits**, portant le total
+  de 126 à 164. Les dessins affichant encore de l'allemand passent de 62 à 24
+  (N 4 → 1 · E 21 → 10 · A 37 → 13). Le vocabulaire suit l'usage déjà établi
+  dans les sections, relevé par comptage : « intensité de champ » (44 emplois),
+  « longueur d'onde » (71), « porteuse » (177), « atténuateur » (36).
+  La substitution ne touche **que les textes composés** — contenu de `\node{}`,
+  `label=`, `\addlegendentry{}` — jamais le reste du fichier, où « der », « und »
+  et « oder » se retrouvent dans des noms de macros et des clés de style. Les
+  164 dessins forkés ont été compilés isolément avant toute recompilation :
+  zéro erreur.
+- **Pièces liminaires renommées** : `avant-propos-N.md` → `avant-propos.md` et
+  `remerciements-N.md` → `remerciements.md`. Leur texte ne mentionne aucune
+  classe et `compiler.bat` les imposait déjà aux trois : le suffixe `-N` était
+  trompeur.
+- **Tableau `{lX}` de `widerstand_materialien`** (classe E) : ne déborde plus.
+  Sa colonne rigide portait « Résistances à couche d'oxyde métallique »
+  (39 caractères) là où l'allemand tenait en 28 ; première colonne passée en
+  `X`, sans toucher au texte.
+
+### Connu
+- Les tableaux à colonne `X` échappent au clamp : `tabularx` fixe leur largeur
+  à `\linewidth`, si bien que la mesure est toujours conforme même quand le
+  contenu déborde. Ces cas se corrigent à la source, pas dans la classe.
+- **24 dessins affichent encore de l'allemand** (N 1 · E 10 · A 13) : ceux dont
+  le texte allemand n'est pas dans une zone repérable automatiquement. Examen
+  manuel nécessaire, dessin par dessin.
+- **La classe A passe de 3 à 4 notes de marge rétrogradées.** `schwingkreis_2`
+  contient 22 formules hors texte ; la redéfinition de `displaymath` coûte
+  environ 1 pt à chacune, et la note franchit le seuil de 23 pt. Pas d'erreur de
+  compilation — le garde-fou la compose dans le corps, en boîte sécable — mais
+  une section change de mise en page.
+
+---
+
 ## a.1 — 14 août 2026
 
 **Première release publiée.** Les trois classes portent désormais un numéro de
