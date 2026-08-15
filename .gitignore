@@ -67,6 +67,14 @@ out/
 *.pdf
 
 
+# --- Sorties de console de compilation -------------------------------------
+# build_book.py et Ghostscript y sont redirigés pour garder la trace d'un
+# échec. Elles se régénèrent à chaque compilation et n'ont rien de source.
+# Ne JAMAIS rediriger vers *.out : ce suffixe appartient à hyperref, et
+# l'écraser fait relire le journal du terminal comme du code TeX (cf. §4).
+*-console.txt
+
+
 # --- Archives de transfert -------------------------------------------------
 *.zip
 *.tar.gz

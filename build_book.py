@@ -15,7 +15,103 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.16
+Version du script : v0.18
+    v0.18 — Version a.2, feuille d'arbitrage nº 2 (B1, B6). Suite directe de la
+            v0.17 : une fois les 950 figures des trois livres ramenées dans leur
+            gabarit par le clamp d'images, il restait 180 débordements
+            horizontaux. Leur inventaire, cause par cause, donne :
+
+              tableau en marge            123    figure en marge          11
+              formule hors texte en marge  25    texte courant (marge)     4
+              texte courant (corps)        14    tableau (corps)           3
+
+            B1 — CLAMP DES BLOCS INSÉCABLES. 151 des 180 cas sont du contenu
+            qui ne se coupe jamais — un « tabular » est une hbox, une formule
+            hors texte aussi — placé dans la colonne de marge, large de 52 mm.
+            Pires cas : 168,9 pt (59 mm) pour un tableau de sender_messungen,
+            97,2 pt pour une formule de modulatoren. Le clamp mesure le bloc
+            composé et ne réduit que ce qui dépasse vraiment. Étendu aux
+            formules sur décision de Pierre : sur la classe A, elles sont la
+            famille dominante (18 cas sur 33).
+
+            B6 — CONTRÔLE EXACT DES QUESTIONS COUPÉES. La vérification par
+            extraction du texte du PDF est bruitée : le contenu des figures de
+            marge s'intercale en début de ligne et masque les lettres de
+            réponse, ce qui produisait douze faux positifs sur la classe N.
+            Chaque question porte désormais deux \label — un à l'énoncé, un
+            après le tableau des réponses. Comparer leurs pages est exact, et
+            se lit directement dans le .aux, sans code LaTeX de comparaison :
+            verifier_questions.py s'en charge.
+    v0.17 — Version a.2, feuille d'arbitrage nº 1 (A1 à A4). Quatre corrections
+            de CLASSE, décidées après mesure, qui remplacent une quarantaine de
+            retouches page à page.
+
+            A1 — TYPOGRAPHIE FRANÇAISE. Le .sty amont fait
+            \PassOptionsToPackage{ngerman}{babel} : les trois livres français
+            étaient composés avec la césure et les espacements ALLEMANDS.
+            Mesuré par \showhyphens : « ali-men-ta-ti-on », « ray-onne-ment »
+            (coupures allemandes, fautives en français) contre
+            « ali-men-ta-tion », « rayon-ne-ment » sous french.
+            Corrigé par \babelprovide[import, main, transforms=punctuation.space],
+            c'est-à-dire le mode MODERNE de babel, propre à LuaTeX : les espaces
+            fines avant « : ; ! ? » sont insérées par transformation de NŒUDS,
+            sans rendre aucun caractère actif — contrairement à french.ldf
+            (frenchb), dont les catcodes actifs entrent en conflit avec la
+            syntaxe à deux-points de siunitx, tcolorbox, circuitikz et pgfplots,
+            tous massivement présents dans le corpus.
+            Chaque règle du transform insère « penalty = 10000 » AVANT l'espace :
+            la ponctuation haute ne peut plus se retrouver en début de ligne.
+            Effet mesuré sur « alpha : beta ; gamma ! delta ? » :
+            128,39 pt en allemand contre 124,89 pt en français.
+            Le transform est attaché à la locale : le contenu allemand résiduel
+            conserve sa typographie correcte.
+            Conventions françaises complètes ajoutées explicitement (décision de
+            Pierre) : puces en tiret cadratin, listes resserrées, séparateur de
+            légende « Fig. 1 -- ». Elles sont écrites ici plutôt qu'héritées de
+            frenchb, ce qui évite d'embarquer ses redéfinitions intrusives.
+
+            A2 — CLAMP DE \DARCimage. Le clamp v0.12 ne « bornait pas seulement
+            la largeur » comme le disait le CHANGELOG : il ne bornait RIEN, et
+            par-dessus il rapetissait.
+              (a) Aveugle. Il mesurait \wd d'une boîte contenant déjà le
+                  \makebox[\linewidth] final de la macro amont : sa mesure valait
+                  donc TOUJOURS \linewidth. Mesuré sur quatre dessins d'essai, du
+                  minuscule au démesuré : 147,95 pt en marge et 335,74 pt dans le
+                  corps, sans une seule variation. C'est aussi pourquoi la
+                  tentative « adjustbox/max size » notée en v0.12 était
+                  inopérante : elle s'appliquait par-dessus le makebox.
+              (b) Actif à tort. Dès que la cible est inférieure à \linewidth, la
+                  condition est vraie par construction et \resizebox réduit une
+                  figure qui ne débordait pas — au CARRÉ du facteur : 0.5 donnait
+                  25 % au lieu de 50 %. 242 appels concernés (N 27, E 111, A 104).
+                  Cause des « colonnes écrasées » et des « figures trop petites »
+                  de la relecture.
+              (c) Sans plafond de hauteur. Un dessin de 1567 pt (553 mm) passait
+                  intact dans une page utile de 711 pt.
+            Ampleur réelle, mesurée dessin par dessin sur la classe N et croisée
+            avec le placement effectif : 50 des 67 images de NOTE DE MARGE
+            débordent, jusqu'à +27,9 mm sur une colonne de 52 mm ; 7 des 89
+            images de corps, au plus +4,5 mm.
+            Corrigé en mesurant la boîte que produit l'autoscale amont
+            (\l_ptxcd_image_box) AVANT tout \makebox, puis en bornant largeur ET
+            hauteur.
+
+            A3 — REMPLISSAGE VERTICAL. Le livre composait en \flushbottom
+            (mesuré : \@textbottom = \relax), alors que la classe amont
+            FiftyOhm.cls fait \raggedbottom — BOOK_CLASS ne l'avait pas repris.
+            En \flushbottom, le blanc laissé par un objet insécable renvoyé à la
+            page suivante est DISTRIBUÉ entre les paragraphes au lieu d'être
+            rassemblé en bas de page : 93 pages « Underfull \vbox » en N (dont 78
+            au badness maximal de 10000), 41 en E, 172 en A. Ce sont les « grandes
+            zones de vide » de la relecture.
+
+            A4 — QUESTIONS COUPÉES DE LEURS RÉPONSES. Dans le .sty amont,
+            l'énoncé est composé en paragraphe et les quatre réponses dans un
+            « tabular » — un bloc insécable. La DARCQuestionBox étant
+            « breakable », la jointure énoncé/tableau est le SEUL point de
+            coupure de toute la boîte : d'où la régularité du défaut (au moins 19
+            occurrences relevées en classe N, non recensées au-delà de la p. 100).
+            Corrigé par une pénalité infranchissable à cette jointure.
     v0.16 — fix_latex() : \qty{0.05}{\lambda} -> \num{0.05}\,\lambda.
             Symétrique du correctif v0.14, mais la macro est ici dans l'UNITÉ
             et non dans le nombre. \lambda n'étant pas une unité siunitx, elle
@@ -584,7 +680,90 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \RequirePackage{DARC-ausbildungsmaterialien}
 \RequirePackage{csquotes}
 \providecolor{DARClightgray}{cmyk}{0,0,0,.1}
+
+% ---------------------------------------------------------------------------
+% v0.17 (A1) — Typographie française.
+%
+% Le .sty ci-dessus fait \PassOptionsToPackage{ngerman}{babel} : sans ce qui
+% suit, tout le livre français est coupé selon les règles ALLEMANDES.
+% Mesuré : « ali-men-ta-ti-on » et « ray-onne-ment » au lieu de
+% « ali-men-ta-tion » et « rayon-ne-ment ».
+%
+% On emploie le mode MODERNE de babel plutôt que french.ldf (frenchb) : sous
+% LuaTeX, les espaces fines avant « : ; ! ? » sont insérées par transformation
+% de NŒUDS, et non en rendant ces caractères actifs. Le corpus est saturé de
+% siunitx, tcolorbox, circuitikz et pgfplots, dont la syntaxe de clés repose
+% sur le deux-points : un « : » actif y serait une source de conflits.
+%
+% Chaque règle du transform insère « penalty = 10000 » avant l'espace : la
+% ponctuation haute ne peut plus basculer en début de ligne.
+% Le transform est attaché à la LOCALE : le contenu allemand résiduel garde
+% ses espacements corrects.
+% ---------------------------------------------------------------------------
+\babelprovide[import, main, transforms = punctuation.space]{french}
+
+% ---------------------------------------------------------------------------
+% v0.17 (A1) — Le transform et les dessins TikZ ne s'entendent pas.
+%
+% Sur un nœud pgf sans police résolue, le moteur de transforms casse :
+%   babel-transforms.lua:462: attempt to index a nil value (local 'base_font')
+% La compilation de la classe N s'arrêtait au dessin 587 (circuitikz), sans
+% produire de PDF. Reproduit isolément sur ce seul dessin ; 579 dessins du
+% corpus emploient circuitikz, l'exposition est donc générale.
+%
+% \disablelocaletransform agit par ATTRIBUT, donc localement au groupe de
+% l'environnement : le texte courant garde ses espaces fines. Vérifié par
+% mesure — hors dessin, « alpha : beta ; gamma ! delta ? » fait toujours
+% 124,89 pt (contre 128,39 pt sans transform).
+%
+% La garde \@ifundefined est indispensable : babel lève une erreur
+% « transform-not-available » si le transform n'est pas défini pour la langue
+% courante, et un dessin peut être composé sous ngerman.
+% ---------------------------------------------------------------------------
+\makeatletter
+\newcommand{\DARCnotransform}{%
+	\@ifundefined{bbl@ATR@punctuation.space@\languagename @}%
+		{}{\disablelocaletransform{punctuation.space}}%
+}
+\makeatother
+\AddToHook{env/tikzpicture/begin}{\DARCnotransform}
+\AddToHook{env/circuitikz/begin}{\DARCnotransform}
+
+% Conventions françaises complètes (décision de Pierre, arbitrage nº 1).
+% Écrites ici plutôt qu'héritées de frenchb : on obtient l'aspect voulu sans
+% embarquer ses redéfinitions de notes, de \@ et de captions.
+\AddToHook{begindocument}{%
+	% Puces en tiret cadratin, à tous les niveaux.
+	\renewcommand{\labelitemi}{\textemdash}%
+	\renewcommand{\labelitemii}{\textemdash}%
+	\renewcommand{\labelitemiii}{\textemdash}%
+	\renewcommand{\labelitemiv}{\textemdash}%
+	% Séparateur de légende : « Fig. 1 -- légende » au lieu de « Fig. 1: ».
+	\renewcommand*{\captionformat}{~\textendash~}%
+}
+% Listes resserrées, à la française. Réglé par crochet d'environnement plutôt
+% qu'avec enumitem : le corpus place beaucoup de listes DANS des tcolorbox,
+% où un paquet de listes supplémentaire ajouterait un facteur de risque.
+\AddToHook{env/itemize/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/enumerate/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/description/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+
+% v0.17 (A2) — requis par le clamp de \DARCimage, ajouté en queue de
+% settings.tex ; chargé ici pour être disponible avant l'\input.
+\RequirePackage{adjustbox}
+
 \input{settings.tex}
+
+% ---------------------------------------------------------------------------
+% v0.17 (A3) — Remplissage vertical.
+%
+% La classe amont FiftyOhm.cls fait \raggedbottom ; cette classe-ci ne l'avait
+% pas repris et composait donc en \flushbottom (mesuré : \@textbottom = \relax).
+% Conséquence : le blanc laissé par un objet insécable renvoyé à la page
+% suivante était DISTRIBUÉ entre les paragraphes au lieu d'être rassemblé en
+% bas de page — 93 pages « Underfull \vbox » en N, 41 en E, 172 en A.
+% ---------------------------------------------------------------------------
+\raggedbottom
 
 % Maquette A4 : 2/3 texte, 1/3 marge (notes, photos, encadrés).
 % 18 + 118 (texte) + 7 (sép.) + 52 (marge) + 15 = 210 mm
@@ -742,17 +921,101 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 	}%
 }
 
+% ---------------------------------------------------------------------------
+% v0.18 (B1) — Clamp des BLOCS INSÉCABLES : tableaux et formules hors texte.
+%
+% CONSTAT, mesuré sur les trois livres a.2 après réparation du clamp d'images :
+% 180 débordements horizontaux subsistent, dont 151 sont du contenu insécable
+% placé dans la COLONNE DE MARGE, large de 52 mm seulement :
+%
+%   tableau en marge            123     tableau dans le corps         3
+%   formule hors texte en marge  25     figure en marge              11
+%
+% Un « tabular » est une hbox : il prend sa largeur naturelle et ne se coupe
+% jamais. Une formule hors texte non plus. Dans 52 mm, les plus larges sortent
+% du gabarit — jusqu'à 168,9 pt (59 mm) pour un tableau de sender_messungen,
+% 97,2 pt pour une formule de modulatoren.
+%
+% Le clamp mesure le bloc composé et ne le réduit QUE s'il dépasse réellement
+% la largeur disponible. Un tableau conforme n'est pas touché. Comme pour les
+% images (A2), la réduction est proportionnelle : elle diminue la taille
+% apparente de la police, ce qui est le compromis accepté — un tableau lisible
+% en petit vaut mieux qu'un tableau qui sort de la page.
+%
+% LIMITE CONNUE, mesurée : les tableaux à colonne « X » échappent au clamp.
+% tabularx fixe la largeur du tableau à \linewidth par construction ; \wd vaut
+% donc exactement \linewidth même quand le contenu déborde, et la comparaison
+% est toujours fausse. C'est le même aveuglement que celui de l'ancien clamp
+% d'images, dont la mesure était constante — ici il ne concerne qu'une forme de
+% tableau.
+% Un tel tableau se corrige à la SOURCE, pas ici : c'est sa colonne rigide qui
+% est trop large. Cas rencontré et résolu (B2, 14/08/2026) —
+% widerstand_materialien (classe E) débordait de 28 pt avec un {lX}, parce que
+% « Résistances à couche d'oxyde métallique » (39 caractères) ne tient pas dans
+% une colonne « l » de la marge, là où l'allemand « Metalloxidschicht-
+% widerstände » (28) passait. Passer la première colonne en « X » a suffi, sans
+% toucher au texte.
+% ---------------------------------------------------------------------------
+\newsavebox{\DARCblocbox}
+\newcounter{DARCtabreduit}
+\newcounter{DARCmathreduit}
+
 % Environnement tabulaire émis par le renderer LaTeX (grab du corps avec +b
 % pour rester compatible avec le scan de tabularx) :
 \ExplSyntaxOn
 \NewDocumentEnvironment{DARCtabular}{m +b}{
 	\par\medskip\noindent
-	\str_if_in:nnTF {#1} {X}
-		{\begin{tabularx}{\linewidth}{#1}#2\end{tabularx}}
-		{\begin{tabular}{#1}#2\end{tabular}}
+	\sbox\DARCblocbox{
+		\str_if_in:nnTF {#1} {X}
+			{\begin{tabularx}{\linewidth}{#1}#2\end{tabularx}}
+			{\begin{tabular}{#1}#2\end{tabular}}
+	}
+	\ifdim\wd\DARCblocbox>\linewidth
+		\stepcounter{DARCtabreduit}
+		\resizebox{\linewidth}{!}{\usebox\DARCblocbox}
+	\else
+		\usebox\DARCblocbox
+	\fi
 	\par\medskip
 }{}
 \ExplSyntaxOff
+
+% Formules hors texte. Le contenu est composé en \displaystyle dans une hbox,
+% mesuré, puis réduit s'il déborde. displaymath n'étant pas numéroté, rien
+% n'est perdu au passage. Les formules conformes sont simplement centrées,
+% comme avant.
+% La redéfinition est posée dans « begindocument » et NON ici : amsmath est
+% chargé plus loin dans la chaîne et redéfinit displaymath, écrasant
+% silencieusement toute redéfinition antérieure. Vérifié par mesure — placée
+% dans le corps de la classe, elle ne se déclenchait jamais (compteur à zéro
+% alors qu'une formule mesurée à 188,6 pt pour 142,3 pt disponibles aurait dû
+% être réduite) ; posée dans le hook, elle agit.
+\AddToHook{begindocument}{%
+	\renewenvironment{displaymath}
+		{\par\addvspace{\abovedisplayskip}%
+		 \setbox\DARCblocbox\hbox\bgroup$\displaystyle}
+		{$\egroup
+		 \noindent
+		 \ifdim\wd\DARCblocbox>\linewidth
+			 \stepcounter{DARCmathreduit}%
+			 \makebox[\linewidth][c]{\resizebox{\linewidth}{!}{\usebox\DARCblocbox}}%
+		 \else
+			 \makebox[\linewidth][c]{\usebox\DARCblocbox}%
+		 \fi
+		 \par\addvspace{\belowdisplayskip}}%
+}
+
+\makeatletter
+\AddToHook{enddocument/afterlastpage}{%
+	\ifnum\value{DARCtabreduit}>\z@
+		\@latex@warning@no@line{\arabic{DARCtabreduit} tableau(x) reduit(s)
+			pour tenir dans la largeur disponible}%
+	\fi
+	\ifnum\value{DARCmathreduit}>\z@
+		\@latex@warning@no@line{\arabic{DARCmathreduit} formule(s) reduite(s)
+			pour tenir dans la largeur disponible}%
+	\fi}
+\makeatother
 
 \AddToHook{begindocument/end}{%
 	% Macros du build interne absentes des fichiers publics :
@@ -844,11 +1107,16 @@ MASTER_HEADER_DE = r"""\documentclass{FiftyOhmBook}
 MASTER_HEADER_FR = r"""\documentclass{FiftyOhmBook}
 % Habillage du document en français (le contenu pédagogique et les questions
 % officielles BNetzA restent en allemand) :
-\renewcaptionname{ngerman}{\contentsname}{Table des matières}
-\renewcaptionname{ngerman}{\chaptername}{Chapitre}
-\renewcaptionname{ngerman}{\figurename}{Fig.}
-\renewcaptionname{ngerman}{\tablename}{Tab.}
-\renewcaptionname{ngerman}{\indexname}{Index alphabétique}
+% v0.17 (A1) — la langue principale est désormais « french » (cf. BOOK_CLASS) :
+% ces redéfinitions doivent viser french, faute de quoi elles n'ont plus AUCUN
+% effet. babel fournit déjà « Table des matières » et « Chapitre » ; on les
+% laisse par sécurité, mais « Fig. » et « Tab. » sont de vrais choix éditoriaux
+% (babel donnerait « Figure » et « Table »), tout comme l'index.
+\renewcaptionname{french}{\contentsname}{Table des matières}
+\renewcaptionname{french}{\chaptername}{Chapitre}
+\renewcaptionname{french}{\figurename}{Fig.}
+\renewcaptionname{french}{\tablename}{Tab.}
+\renewcaptionname{french}{\indexname}{Index alphabétique}
 \AddToHook{begindocument}{\patchcmd{\setupDARCmargin}{Abb.}{Fig.}{}{}}
 % Titres des encadrés : traduits par substitution directe dans le .sty copié.
 \usepackage{tikz}
@@ -924,44 +1192,77 @@ $makeindex = 'makeindex %O -o %D %S';
 CLAMP_DARCIMAGE = r"""
 
 % ---------------------------------------------------------------------------
-% Clamp de \DARCimage — largeur ET hauteur (v0.12).
+% Clamp de \DARCimage — v0.17 (A2). Réécriture complète.
 %
-% v0.4 ne bornait que la LARGEUR : une figure trop HAUTE passait au travers.
-% Trois cas l'ont montré — le 202 de la classe E (axe pgfplots de 21 x 29 cm),
-% puis les 1096 et 687 de la classe A. Une figure trop haute produit
-% « Float too large for page », marginfix perd la note ET toutes les suivantes,
-% puis la compilation s'arrête sur « lost some margin notes » sans produire de
-% PDF.
+% CE QUI N'ALLAIT PAS. Le clamp v0.12 mesurait \wd d'une boîte obtenue en
+% appelant la macro amont, laquelle se termine par \makebox[\linewidth][r/c].
+% Cette mesure valait donc TOUJOURS \linewidth, jamais la taille de la figure.
+% Vérifié par compilation sur quatre dessins d'essai, du minuscule au
+% démesuré : 147,95 pt en colonne de marge et 335,74 pt dans le corps, sans
+% une seule variation. Trois conséquences :
 %
-% adjustbox/max size réduit la boîte à proportions constantes UNIQUEMENT si elle
-% déborde de l'une des deux limites : les figures conformes ne bougent pas, et
-% aucune n'est agrandie. La limite de hauteur est prudente — beaucoup de figures
-% partagent leur page avec du texte, et une figure occupant 80 % de la hauteur
-% utile est déjà généreuse.
+%   (a) aucun débordement n'était jamais détecté — le clamp n'a jamais rien
+%       clampé, et la tentative « adjustbox/max size » de la v0.12 échouait
+%       pour la même raison : elle s'appliquait PAR-DESSUS le makebox ;
+%   (b) dès que la cible était inférieure à \linewidth, la comparaison était
+%       vraie par construction et \resizebox réduisait une figure qui ne
+%       débordait pas — au CARRÉ du facteur demandé. Une figure appelée à
+%       0.5\linewidth sortait à 0.25\linewidth. 242 appels concernés
+%       (N 27, E 111, A 104) : ce sont les « colonnes écrasées », les « notes
+%       de marge illisibles » et les « figures trop petites » de la relecture ;
+%   (c) la hauteur n'était comparée à rien. Un dessin de 1567 pt (553 mm)
+%       traversait intact une page utile de 711 pt.
+%
+% CE QUE FAIT CELUI-CI. Il mesure \l_ptxcd_image_box — la boîte que l'autoscale
+% amont vient de produire, AVANT tout \makebox — et ne réduit que si elle
+% dépasse réellement la largeur demandée ou le plafond de hauteur. adjustbox
+% conserve les proportions et n'agrandit jamais. Une figure conforme n'est
+% plus touchée du tout.
+%
+% AMPLEUR MESURÉE (classe N, croisée avec le placement réel de chaque image) :
+% 50 des 67 images de note de marge débordaient, jusqu'à +27,9 mm sur une
+% colonne de 52 mm ; 7 des 89 images de corps, au plus +4,5 mm.
 % ---------------------------------------------------------------------------
-% LIMITE CONNUE (v0.12) : ce clamp ne borne que la LARGEUR. Une figure trop
-% HAUTE passe au travers, provoque « Float too large for page », puis fait
-% perdre à marginfix cette note de marge ET toutes les suivantes, jusqu'à
-% l'erreur fatale « lost some margin notes » sans production de PDF.
-% Cas connus : dessin 202 (classe E), traité par précompilation ; dessins 1096
-% et 687 (classe A), non résolus à ce jour. Une tentative de bornage par
-% adjustbox/max size s'est révélée inopérante sur ces deux derniers et n'a pas
-% été retenue.
-% ---------------------------------------------------------------------------
-\newsavebox{\DARCfitbox}
-\NewCommandCopy{\DARCimageUnclamped}{\DARCimage}
-\RenewDocumentCommand{\DARCimage}{sO{Bild~zur~Prüfungsfrage~\l_ptxcd_question_tl}mm}{%
-  \sbox{\DARCfitbox}{%
-    \IfBooleanTF{#1}%
-      {\DARCimageUnclamped*[#2]{#3}{#4}}%
-      {\DARCimageUnclamped[#2]{#3}{#4}}%
-  }%
-  \ifdim\wd\DARCfitbox>\dimexpr#3\relax
-    \resizebox{#3}{!}{\usebox{\DARCfitbox}}%
-  \else
-    \usebox{\DARCfitbox}%
-  \fi
+\newlength{\DARCimagemaxheight}
+\AddToHook{begindocument}{\setlength{\DARCimagemaxheight}{0.8\textheight}}
+\newcounter{DARCimagereduite}
+\ExplSyntaxOn
+\dim_new:N \l__DARCfr_target_dim
+\RenewDocumentCommand{\DARCimage}{sO{Bild~zur~Prüfungsfrage~\l_ptxcd_question_tl}mm}{
+	\par\smallskip
+	\group_begin:
+		\ptxcd_image_autoscale_setup:nnn {#1} {#3} {#4}
+		\dim_set:Nn \l__DARCfr_target_dim {#3}
+		\bool_lazy_or:nnTF
+			{ \dim_compare_p:nNn {\box_wd:N \l_ptxcd_image_box} > {\l__DARCfr_target_dim} }
+			{ \dim_compare_p:nNn {\box_ht_plus_dp:N \l_ptxcd_image_box} > {\DARCimagemaxheight} }
+			{
+				\stepcounter{DARCimagereduite}
+				\makebox[\linewidth][c]{
+					\adjustbox{max~width=\l__DARCfr_target_dim,
+						max~totalheight=\DARCimagemaxheight}
+						{\box_use:N \l_ptxcd_image_box}
+				}
+			}
+			{
+				\dim_compare:nNnTF {\box_wd:N \l_ptxcd_image_box} > {\linewidth}
+					{ \makebox[\linewidth][r]{\box_use:N \l_ptxcd_image_box} }
+					{ \makebox[\linewidth][c]{\box_use:N \l_ptxcd_image_box} }
+			}
+	\group_end:
 }
+\ExplSyntaxOff
+\makeatletter
+\AddToHook{enddocument/afterlastpage}{%
+	\ifnum\value{DARCimagereduite}>\z@
+		\@latex@warning@no@line{\arabic{DARCimagereduite} figure(s) ramenee(s)
+			dans leur gabarit par le clamp \string\DARCimage}%
+	\fi}
+\makeatother
+
+% Note : le clamp v0.12 (\DARCfitbox + \DARCimageUnclamped) est SUPPRIMÉ, et non
+% commenté. Laissé en place il redéfinissait \DARCimage après celui-ci et
+% l'aurait écrasé. Son analyse complète figure ci-dessus et dans la docstring.
 """
 
 def fix_latex(text: str) -> str:
@@ -1264,6 +1565,67 @@ def main():
     # 1. Fichiers LaTeX du dépôt de contenus
     for f in (contents / "latex").glob("*"):
         shutil.copy(f, out / f.name)
+
+    # v0.17 (A4) — Question séparée de ses réponses.
+    #
+    # CONSTAT, relevé dans le PDF a.1 de la classe N : page 12, la page s'achève
+    # sur l'énoncé de NA103 ; les réponses A/B/C/D sont page 13. Au moins 19 cas
+    # en classe N, non recensés au-delà de la p. 100.
+    #
+    # MÉCANISME. \__ptxcd_question_table_head:nnn compose l'énoncé en paragraphe,
+    # puis les quatre réponses arrivent dans un « tabular » — une hbox insécable,
+    # donc une « ligne » de plus dans le MÊME paragraphe. La DARCQuestionBox étant
+    # « breakable », la jointure entre ces deux lignes est le seul endroit où la
+    # boîte puisse se rompre. Le « \\* » que pose l'amont à cette jointure ne
+    # suffit pas en pratique.
+    #
+    # PARADE. \samepage porte \interlinepenalty (et ses variantes) à 10000 pour
+    # toute la question : la coupure devient impossible entre l'énoncé et le
+    # tableau. Une question qui ne tient pas dans le bas de page est reportée
+    # ENTIÈRE à la page suivante — c'est A3 (\raggedbottom) qui rend le blanc
+    # ainsi laissé acceptable, en le rassemblant en bas de page au lieu de le
+    # distribuer entre les paragraphes. Les deux corrections se soutiennent.
+    sty_q = out / "DARC-ausbildungsmaterialien.sty"
+    txt_q = sty_q.read_text(encoding="utf-8")
+    #
+    # v0.18 (B6) — Contrôle exact des questions coupées.
+    # Deux \label par question : l'un dans l'énoncé, l'autre après le tableau
+    # des réponses. Si leurs pages diffèrent, la question est coupée. Cette
+    # mesure est EXACTE, là où la lecture du PDF est bruitée : le texte des
+    # figures de marge s'y intercale en début de ligne et masque les lettres de
+    # réponse (douze faux positifs constatés sur la classe N). Les pages
+    # atterrissent dans le .aux, que verifier_questions.py relit ensuite ;
+    # aucun code LaTeX de comparaison n'est nécessaire.
+    # Les labels ne sont jamais référencés : pas d'avertissement, et rien de
+    # visible dans le PDF.
+    AVANT = "\t\t\\par\n\t\t\\__ptxcd_question_table_head:nnn"
+    APRES = ("\t\t\\par\\samepage\n"
+             "\t\t\\label{DARCq@debut@#1}%\n"
+             "\t\t\\__ptxcd_question_table_head:nnn")
+    n_q = txt_q.count(AVANT)
+    # Principe fondamental du projet : échec fatal sur substitution à zéro
+    # correspondance. Zéro signifie que l'amont a changé sous la règle.
+    if n_q != 3:
+        print(f"!! A4 : {n_q} occurrence(s) de la jointure énoncé/réponses au lieu "
+              f"de 3 (\\Question, \\QuestionMD, \\QuestionTwoCol).\n"
+              f"   L'amont a changé sous la règle — vérifier "
+              f"DARC-ausbildungsmaterialien.sty avant de compiler.", file=sys.stderr)
+        sys.exit(3)
+    txt_q = txt_q.replace(AVANT, APRES)
+
+    # v0.18 (B6) — second \label, après le tableau des réponses. Une occurrence
+    # par macro de question (\Question, \QuestionMD, \QuestionTwoCol).
+    FIN_AVANT = "\\end{questiontabular}"
+    FIN_APRES = "\\end{questiontabular}\\label{DARCq@fin@#1}"
+    n_fin = txt_q.count(FIN_AVANT)
+    if n_fin != 3:
+        print(f"!! B6 : {n_fin} occurrence(s) de \\end{{questiontabular}} au lieu de 3.\n"
+              f"   L'amont a changé sous la règle — vérifier "
+              f"DARC-ausbildungsmaterialien.sty avant de compiler.", file=sys.stderr)
+        sys.exit(3)
+    txt_q = txt_q.replace(FIN_AVANT, FIN_APRES)
+
+    sty_q.write_text(txt_q, encoding="utf-8")
 
     # v0.4 — (a) Clamp de largeur des figures.
     # L'autoscale DARC ne pilote que les unités tikz (\tikzset{x=..cm,y=..cm}) et
