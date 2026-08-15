@@ -1,3 +1,45 @@
+## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
+
+Génération : 131/131 sections, 571 questions, 39 dessins francisés,
+55 encarts « En France ». **258 pages**, 3,19 Mo après Ghostscript.
+
+Contrôles du §4 : tous conformes (0 · 0 · 0 · 0), 0 erreur LaTeX,
+**0 référence « ?? »**, 0 question séparée de ses réponses.
+Clamps : 132 figures, 1 tableau.
+
+### Dessins traités — 13 fichiers
+
+**7 forks portaient encore de l'allemand**, donc visibles dans le PDF a.2
+livré : 408 et 411 (`ylabel=Wert`), 659 et 669 (`Koaxialkabel`), 665
+(`1. Ziffer`), 680 (`Gleichstrom`), 731 (`D-Region`, `bis 10`, `Regionen`).
+
+**6 dessins forkés pour la première fois** : 628 (`Ort`, `Feldstärke`), 658
+(`Region 1/2/3`), 734 (`Kalte`/`Warme`/`Sehr kalte Luft`), 745
+(`DVB-T2 Kanal 35`), 908 et 909 (`70 cm Band` → « bande 70 cm »).
+
+**Et « CCathode ».** Le dessin 666 imprimait ce mot, qui n'existe dans aucune
+langue, **depuis la a.1**. Un fork antérieur substituait `Kathode` → `Cathode`
+puis `athode` → `Cathode`, la seconde règle s'appliquant au résultat de la
+première. Le libellé amont tronqué qui l'a rendu possible est consigné en
+défaut amont (`docs/defauts-amont.md` §5). Jamais relevé en relecture.
+
+### Ce que la sonde ne voyait pas
+
+`sonde_dessins.py` rendait `rc=0` sur cette classe. Sa liste ne contenait ni
+`Wert`, ni `Koaxialkabel`, ni `Ziffer` — et sa docstring l'annonçait. Passée en
+v0.2 avec les termes de la feuille.
+
+### Un piège de compilation, payé comptant
+
+Les trois livres ont d'abord été recompilés **sans `--front-matter`** : ils sont
+sortis sans avant-propos ni remerciements, et N est tombée de 258 à 254 pages.
+Ce sont les **compteurs de clamp, rigoureusement identiques au 14/08**, qui ont
+écarté la piste des figures et mené à la vraie cause. `build_book.py` ne se
+plaint pas de l'absence de pièces liminaires ; seul `compiler.bat` passe les
+deux options. **Lancer `build_book.py` à la main impose de les passer aussi.**
+
+---
+
 
 ## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
 

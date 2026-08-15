@@ -1,0 +1,124 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    % Kalte Luft
+    \shade[
+        bottom color=white,
+        top color=DARCblue!50
+    ] (0,0) rectangle (8,3);
+    % Warme Luft
+    \shade[
+        bottom color=DARCorange!50,
+        top color=DARCblue!50
+    ] (0,3) rectangle (8,4.5);
+    % Sehr kalte Luft
+    \shade[
+        bottom color=DARCblue!50,
+        top color=DARCblue
+    ] (0,4.5) rectangle (8,4.75);
+    \fill[
+        DARCblue
+    ] (0,4.75) rectangle (8,5.75);
+    % Beschriftungen:
+    \draw[DARCblue](4,2.5) node[](kl){Air froid};
+    \draw[DARCblue, thick] (kl.east)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1)
+        sin ++(0.1,0.1)
+        cos ++(0.1,-0.1)
+        sin ++(0.1,-0.1)
+        cos ++(0.1,+0.1);
+    \draw[DARCblue, thick] (kl.west)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1)
+        sin ++(-0.1,0.1)
+        cos ++(-0.1,-0.1)
+        sin ++(-0.1,-0.1)
+        cos ++(-0.1,+0.1);
+    \draw[DARCred](4,3.5) node[](wl){Air chaud};
+    \draw[white](4,5.25) node[](skl){Air très froid};
+    % Baseline:
+    \draw[very thick](0,0) -- (8,0);
+    % Skyscrapers:
+    \fill[black](0.00,0) rectangle ++(0.20,0.25);
+    \fill[black](0.00,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1);  
+    \fill[black](0.25,0) rectangle ++(0.25,1.25);
+    \fill[black](0.6,0) rectangle ++(1,0.6);
+    \fill[black](1.5,0.6) arc [
+        start angle=0,
+        end angle=180,
+        x radius=0.4,
+        y radius=0.4
+    ];
+    \fill[black](1.65,0) rectangle ++(0.20,0.25);
+    \fill[black](1.65,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1);  
+    \fill[black](1.9,0) rectangle ++(0.25,2);
+    \draw[black](1.9+0.25/2,2) -- ++(0,0.35);
+    \fill[black](2.2,0) rectangle ++(0.25,1);
+    \fill[black](2.5,0) rectangle ++(0.5,0.6);
+    \fill[black](3.05,0) rectangle ++(0.20,0.25);
+    \fill[black](3.05,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1); 
+    \fill[black](3.3,0) -- ++(0.2,2) -- ++(0.2,-2);
+    \fill[black](3.5,1.45) ellipse (0.4 and 0.15);
+    \fill[black](3.75,0) rectangle ++(0.5,0.6);
+    \fill[black](3.75,0.6) -- ++(0.5,0.25) -- ++(0,-0.25);
+    \fill[black](4.3,0) rectangle ++(0.25,1.75);
+    \fill[black](4.6,0) rectangle ++(0.55,0.6);
+    \fill[black](4.75,0) rectangle ++(0.25,0.75);
+    \fill[black](5.2,0) rectangle ++(0.20,0.25);
+    \fill[black](5.2,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1); 
+    \fill[black](5.4,0) rectangle ++(0.20,0.25);
+    \fill[black](5.4,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1); 
+    \fill[black](5.6,0) rectangle ++(0.20,0.25);
+    \fill[black](5.6,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1); 
+    \fill[black](5.8,0) rectangle ++(0.20,0.25);
+    \fill[black](5.8,0.25) -- ++(0.1,0.1) -- ++(0.1,-0.1); 
+    \fill[black](6.0,0) rectangle ++(0.25,1);
+    \fill[black](6.3,0) rectangle ++(0.25,1.5);
+    \fill[black](6.3,1.5) -- ++(0.125,0.125) -- ++(0.125,-0.125); 
+    \fill[black](6.7,0) rectangle ++(0.25,1.75);
+    \fill[black](6.7,1.75) -- ++(0.125,0.125) -- ++(0.125,-0.125); 
+    \fill[black](7,0) rectangle ++(1,0.6);
+    \fill[black](7,0.6) -- ++(0.5,0.25) -- ++(0.5,-0.25);
+    %
+    \draw [thick,white, -Triangle] (skl.east) ++(+0.25,0) to[out=-90,in=120] (6.25,3.25);
+    \draw [thick,white, -Triangle] (skl.west) ++(-0.25,0) to[out=-90,in=60]  (1.75,3.25);
+    \draw [thick,white, -Triangle] (skl.east) ++(+1,0)    to[out=-90,in=130] (7.25,3.25);
+    \draw [thick,white, -Triangle] (skl.west) ++(-1,0)    to[out=-90,in=50]  (0.75,3.25);
+\end{circuitikz}

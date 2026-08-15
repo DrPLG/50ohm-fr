@@ -1,0 +1,25 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2021
+\begin{circuitikz}
+
+    \draw[-Triangle](0.0,0.0) -- (5.0,0.0);
+
+    \draw[-Triangle](0,0) -- (5.0,0.0) 
+        node[anchor=north east] () {$f$};
+    \draw[-Triangle](0.0,0.0) -- (0.0,3.0)
+        node[rotate=90, anchor=south east] () {Puissance};
+    \draw(2.5,-0.35) node[] () {29\,MHz};
+
+    \draw[thick, black] (0,0) 
+          -- ++(0.1,0)
+          [rounded corners=2mm]
+          cos ++(2.2, 2.5)
+          sin ++(0.2, 0.25);
+
+    \draw[thick, black] (4.9,0) 
+          [rounded corners=2mm]
+          cos ++(-2.2,2.5)
+          sin ++(-0.2, 0.25);
+
+    \draw [dashed] (2.5,0) -- (2.5,3);
+\end{circuitikz}

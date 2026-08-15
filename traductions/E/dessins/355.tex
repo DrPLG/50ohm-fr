@@ -1,0 +1,48 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw(0,0)
+        node[antenna](ant){};
+    \draw(ant)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [ampshape,boxed,anchor=west](amp1){};
+    \draw(amp1.east)
+        to [short, name={a1}] ++(0.5,0) node[inputarrow] {}
+        node [mixer, boxed, anchor=west](mix){};
+    \draw(mix.east)
+        to [short, name={a2}] ++(0.5,0) node[inputarrow] {}
+        node [bandpassshape,boxed,anchor=west](fil1){};
+    \draw(fil1.east)
+        to [short, name={a3}] ++(0.5,0) node[inputarrow] {}
+        node [ngeneratorshape,anchor=west,t={\scriptsize FM}](demod){};
+    \draw(demod.east)
+        to [short, name={a4}] ++(0.5,0) node[inputarrow] {}
+        node [bandpassshape,boxed,anchor=west](fil2){};
+    \draw(fil2.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [ampshape,boxed,anchor=west](amp2){};
+    \draw(amp2.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [loudspeakershape,rotate=-90,anchor=south](spk){};
+    \draw(mix.south)
+        node[inputarrow, rotate=90](){}
+        to [short] ++(0,-0.5)
+        node[qgeneratorshape, anchor=north, t={G}](gen){};
+
+    \draw(amp1.south)   node[anchor=north](){HF};
+    \draw(fil1.south)   node[anchor=north](){ZF};
+    \draw(demod.north)  node[anchor=south](){Démodulateur};
+    \draw(fil2.south)   node[anchor=north](){NF};
+    \draw(amp2.south)   node[anchor=north](){NF};
+    \draw(gen.south)    node[anchor=north ](){VFO};
+
+    \draw[dashed](a1.center) -- ++(0.0,-3) node[anchor=north](){1};
+    \draw[dashed](a2.center) -- ++(0.0,-3) node[anchor=north](){2};
+    \draw[dashed](a3.center) -- ++(0.0,-3) node[anchor=north](){3};
+    \draw[dashed](a4.center) -- ++(0.0,-3) node[anchor=north](){4};
+\end{circuitikz}

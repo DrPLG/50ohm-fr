@@ -1,0 +1,26 @@
+% Author: Prof. Dr. Matthias Jung
+% Year: 2023
+\begin{tikzpicture}
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor
+    }
+    \draw(0,0)
+        node[antenna](){}
+        to [twoport, t={1}, >] ++(3,0)
+        node [inputarrow](){}
+        node[twoportshape, t={3}, anchor=west](drei){};
+    \draw(drei.east)
+        to [short] ++(1,0)
+        node [inputarrow](ende){};
+    \draw(ende.east)
+        node [anchor=west, align=left] {Autres\\parties\\du\\récepteur};
+    \draw(drei.north)
+        node [inputarrow, rotate=-90](){}
+        to [short] ++(0,2)
+        node[twoportshape, t={2}, anchor=south](zwei){};
+    \draw(zwei.west)
+        node [inputarrow](){}
+        to [short] ++(-1,0)
+        node [anchor=east, align=right] {Information\\de contrôle};
+\end{tikzpicture}

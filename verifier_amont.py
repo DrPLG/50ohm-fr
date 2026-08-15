@@ -38,7 +38,19 @@ la réserve dans le manifeste plutôt que de laisser croire à une vérification
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.2 — généralisation aux sections (v0.1 : dessins seuls).
+TROIS ÉTATS SONT RAPPORTÉS, et le troisième est le plus insidieux :
+
+  - dérive détectée      : l'amont a changé depuis le fork ;
+  - introuvable          : l'amont a disparu ou été renommé ;
+  - FORKÉ MAIS NON SUIVI : le fichier existe côté français mais n'a aucune
+    entrée au manifeste. Il ne sera donc JAMAIS signalé en dérive — le script
+    ne comparait que ce que le manifeste connaissait déjà, si bien qu'un fork
+    oublié lui était entièrement invisible. Constaté le 15/08/2026 sur trois
+    dessins de la classe A (260, 303, 315), forkés après un « initialiser » :
+    « verifier » répondait « 261 éléments suivis, 0 dérive » sans rien dire.
+
+Version du script : v0.3 — détection des forks absents du manifeste
+(v0.2 : généralisation aux sections ; v0.1 : dessins seuls).
 """
 import argparse
 import hashlib
@@ -173,15 +185,47 @@ def cmd_initialiser(args):
           f"à jour\nvis-à-vis de l'amont du {date.today().isoformat()}.")
 
 
+def forks_non_suivis(edition: str, type_: str, data: dict) -> list:
+    """Idents forkés côté français qui n'ont AUCUNE entrée au manifeste.
+
+    Trou constaté le 15/08/2026 : le script comparait l'amont aux entrées du
+    manifeste, et rien d'autre. Un fork créé sans « enregistrer » lui était donc
+    entièrement invisible — il ne serait JAMAIS signalé en dérive, même si le
+    DARC modifiait son original. Trois dessins de la classe A (260, 303, 315)
+    étaient dans ce cas ; « verifier » répondait « 261 éléments suivis, 0
+    dérive » sans rien dire. C'est une question de Pierre qui les a rattrapés,
+    pas l'outillage.
+
+    On compte les fichiers réellement présents, et non l'inverse : c'est le
+    dossier qui fait foi, le manifeste n'étant que sa mémoire.
+    """
+    cfg = TYPES[type_]
+    dossier = RACINE / "traductions" / edition / cfg["fork"]
+    if not dossier.is_dir():
+        return []
+    presents = {f.name[: -len(cfg["suffixe"])]
+                for f in dossier.glob("*" + cfg["suffixe"])}
+    return sorted(presents - set(data), key=cfg["tri"])
+
+
 def cmd_verifier(args):
     contents = Path(args.input).resolve()
     editions = [args.edition] if args.edition else list(CLASSES)
     types = [args.type] if args.type else list(TYPES)
-    total, derives, absents = 0, 0, 0
+    total, derives, absents, non_suivis = 0, 0, 0, 0
     for type_ in types:
         cfg = TYPES[type_]
         for edition in editions:
             data = charger_manifeste(edition, type_)
+            # Contrôle mené AVANT la comparaison des empreintes, et même quand
+            # le manifeste est vide : un dossier de forks sans manifeste du tout
+            # est le pire des cas, pas un cas neutre.
+            for ident in forks_non_suivis(edition, type_, data):
+                non_suivis += 1
+                print(f"!! {type_} {edition}/{ident} : FORKÉ MAIS NON SUIVI — "
+                      f"aucune entrée au manifeste, donc aucune dérive amont ne "
+                      f"sera jamais signalée. Lancer « enregistrer » ou "
+                      f"« initialiser ».")
             if not data:
                 continue
             for ident, info in sorted(data.items(), key=lambda kv: cfg["tri"](kv[0])):
@@ -200,13 +244,14 @@ def cmd_verifier(args):
                           f"face au nouvel original allemand.")
                 elif args.verbeux:
                     print(f"   {type_} {edition}/{ident} : inchangé")
-    if total == 0:
+    if total == 0 and non_suivis == 0:
         print("Aucun manifeste renseigné — rien à vérifier "
               "(cf. « initialiser »).")
         return
     print(f"\n{total} élément(s) suivi(s), {derives} dérive(s) détectée(s), "
-          f"{absents} introuvable(s) côté amont.")
-    if derives or absents:
+          f"{absents} introuvable(s) côté amont, "
+          f"{non_suivis} forké(s) non suivi(s).")
+    if derives or absents or non_suivis:
         sys.exit(1)
 
 

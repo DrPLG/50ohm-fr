@@ -1,0 +1,20 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+\begin{circuitikz}
+    \draw(0,4) coordinate(o0)
+        to [short, o-*] ++(1,0) coordinate(n1)
+        to [rmeter, t=2, -*] ++(3,0) coordinate(n2)
+        to [rmeter, t=4, -o] ++(3,0) coordinate(o1);
+    \draw(0,0) coordinate(u0)
+        to [short, o-*] ++(1,0) coordinate(n3)
+        to [short, -*] ++(3,0) coordinate(n4)
+        to [short, -o] ++(3,0) coordinate(u1);
+    \draw(n1) to [rmeter, t=1, name={h1}] (n3); 
+    \draw(n2)
+        to [rmeter, t=3] ++(0,-2)
+        node [ampshape, box, anchor=north](amp){};
+    \draw(amp.south) to [short] (n4); 
+    \draw(amp.east) node [anchor=west] {PA};
+    \draw(o0|-h1.center) node [rotate=90] {vers l'alimentation secteur};
+    \draw(o1|-h1.center) node [rotate=90] {vers le TX};
+\end{circuitikz}

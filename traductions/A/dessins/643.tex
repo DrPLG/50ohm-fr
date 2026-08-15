@@ -3,8 +3,8 @@
 \begin{circuitikz}
     \draw(2,0) 
         to [short] ++ (1,0)
-        to [twoportsplit, >,     l ={\footnotesize Kanalcodierer}] ++(1,0)
-        to [twoportsplit, >,     l_={\footnotesize Quellencodierer}] ++(3,0)
+        to [twoportsplit, >,     l ={\footnotesize Codeur de canal}] ++(1,0)
+        to [twoportsplit, >,     l_={\footnotesize Codeur de source}] ++(3,0)
         to [twoportsplit, l ={\footnotesize Mapper}] ++(1,0) coordinate(c1);
 
     \draw(c1) ++(0, 0.25) -| ++(0.5, 0.5)

@@ -1,0 +1,37 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+    \draw(0,0) coordinate(u0)
+        to [mic] ++(0,3) 
+        to [amp, box, -*, l={\qty{0,3}-\qty{3,4}{\kilo\hertz}}] ++(2,0) coordinate(o1)
+        to [short, -*] ++(1,0) coordinate(o2)
+        to [short] ++(1,0) coordinate(o3)
+        to [vR, invert, mirror, name={knecht}] ++(0,-3) coordinate(u3)
+        to [short, -o] ++(3,0) coordinate(u4);
+
+    \draw(u3)
+        to [short, *-*] ++(-1,0) coordinate(u2)
+        to [short, *-*] ++(-1,0) coordinate(u1)
+        to [short, *- ] (u0);
+
+    \draw(o1)
+        to [stroke diode] (u1);
+
+    \draw(o2)
+        to [stroke diode, invert] (u2);
+
+    \draw(o3)
+        to [open] ++(1,0) coordinate(o4)
+        to [lowpass, l={\qty{3}{\kilo\hertz}}, -o] (o4-|u4) coordinate(o5);
+
+    \draw(o4)
+        |- (knecht.wiper);
+
+    \draw(o5)
+        to [open, name={h1}] (u4);
+
+    \draw(h1.center)
+        node[rotate=+90](kerl){Oscillateur};
+    \draw(kerl.north)
+        node[anchor=south, rotate=90]{vers};
+\end{circuitikz}

@@ -1,0 +1,17 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{circuitikz}
+    \draw[thick](0,0) to [short] ++(0,3) coordinate(a1);
+    \draw(a1) node[dinantenna, anchor=south](ant1) {};
+    \draw[ultra thick] (0,0) to [short] ++(-1,0);
+    \draw[ultra thick] (0,0) to [short] ++(6,0);
+    \draw[thick](5,0) to [short] ++(0,1) coordinate(a2);
+    \draw(a2) node[dinantenna, anchor=south](ant2) {};
+    %
+    \draw[very thick, DARCred, -Triangle] (ant1.right) to [short] (ant2.north west);
+    \draw[very thick, DARCgreen, -Triangle] (ant1.right)
+        to [short] (3,0) coordinate(c1)
+        to [short] (ant2.left);
+
+    \draw(c1) node[below](){La phase est tournée de \qty{180}{\degree}};
+\end{circuitikz}

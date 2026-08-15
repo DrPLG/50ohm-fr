@@ -1,0 +1,19 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+    \draw(0,0)
+        node[anchor=south west](){HF}
+        to [short, o-] ++(2,0)
+        node[inputarrow] {}
+        node[mixer, box, label=Mélangeur, anchor=west] (mix) {};
+    \draw (mix.south)
+        node[inputarrow, rotate=90] {}
+        to [short, label=${f}_{\mathrm{OSZ}}$] ++(0,-1.5)
+        node [vallpassshape, anchor=north](vco){};
+    \draw(vco.east)
+        node[anchor=west](){VCO};
+    \draw (mix.east)
+        to [bandpass, >] ++(3,0)
+        node[inputarrow](){}
+        node[anchor=south east](){ZF};
+\end{circuitikz}

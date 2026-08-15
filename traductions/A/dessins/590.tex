@@ -1,0 +1,48 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}
+    \ctikzset{
+        blocks/scale=\getDarcImageFactor,
+        RF/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw(0,0)
+        node[antenna](ant){};
+    \draw(ant)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [ampshape,boxed,anchor=west](amp1){};
+    \draw(amp1.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [mixer, boxed, anchor=west](mix){};
+    \draw(mix.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [ampshape,boxed,anchor=west](amp2){};
+    \draw(amp2.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [detectorshape,anchor=west](demod){};
+    \draw(demod.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [ampshape,boxed,anchor=west](amp3){};
+    \draw(amp3.east)
+        to [short] ++(0.5,0) node[inputarrow] {}
+        node [loudspeakershape,rotate=-90,anchor=south](spk){};
+    \draw(mix.south)
+        node[inputarrow, rotate=90](){}
+        to [short] ++(0,-0.5)
+        node[allpassshape, anchor=north](allp1){};
+    \draw(demod.south)
+        node[inputarrow, rotate=90](){}
+        to [short] ++(0,-0.5)
+        node[allpassshape, anchor=north](allp2){};
+
+    \draw[-Triangle](allp1.center) to [short] ++(0.2,0.3);
+    \draw(allp1.center) to [short] ++(-0.2,-0.3);
+
+    \draw(amp1.south)  node[anchor=north](){HF};
+    \draw(mix.north)   node[anchor=south](){Mélangeur};
+    \draw(amp2.south)  node[anchor=north](){ZF};
+    \draw(demod.north) node[anchor=south](){Démodulateur};
+    \draw(amp3.south)  node[anchor=north](){NF};
+    \draw(allp1.east)  node[anchor=west ](){VFO};
+    \draw(allp2.east)  node[anchor=west ](){BFO};
+\end{circuitikz}

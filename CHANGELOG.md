@@ -8,13 +8,17 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
-## a.2 — 14 août 2026 (en cours)
+## a.2 — 14 et 15 août 2026 (en cours)
 
-| Classe | Sections | Questions | Encarts | Pages (a.1 → a.2) |
-| ------ | -------: | --------: | ------: | ----: |
-| N | 131 | 571 | 55 | 254 → 258 |
-| E | 103 | 462 | 6 | 206 → 214 |
-| A | 153 | 717 | 5 | 372 → 376 |
+| Classe | Sections | Questions | Encarts | Dessins forkés | Pages (a.1 → a.2) |
+| ------ | -------: | --------: | ------: | ---: | ----: |
+| N | 131 | 571 | 55 | 39 | 254 → 258 |
+| E | 103 | 462 | 6 | 72 | 206 → 214 |
+| A | 153 | 717 | 5 | 111 | 372 → 376 |
+
+Pagination inchangée après la francisation des dessins du 15/08, et compteurs de
+clamp identiques à ceux du 14/08 (E : 288 · 5 · 3) — les libellés traduits n'ont
+pas dérangé la mise en page.
 
 Effet mesuré des corrections, sur les trois classes :
 
@@ -26,7 +30,8 @@ Effet mesuré des corrections, sur les trois classes :
 | questions séparées de leurs réponses | 19 relevées en N | **0 sur 1 750** |
 | figures ramenées dans leur gabarit | 0 | **948** |
 | tableaux et formules réduits | 0 | 10 et 9 |
-| dessins affichant de l'allemand | 62 | **24** |
+| dessins affichant de l'allemand | 62 | **0** (24 au 14/08, puis 93 mesurés et traités le 15/08) |
+| dessins forkés | 126 | **222** |
 
 **Plus aucun débordement au-delà de 20 pt dans les trois livres**, alors qu'il y
 en avait vingt-six, dont un à 200 pt.
@@ -108,14 +113,77 @@ retouches ponctuelles.
   Sa colonne rigide portait « Résistances à couche d'oxyde métallique »
   (39 caractères) là où l'allemand tenait en 28 ; première colonne passée en
   `X`, sans toucher au texte.
+- **Francisation des dessins, achevée** (15/08/2026, feuille d'arbitrage nº 3).
+  L'inventaire a été refait par mesure sur la version **réellement composée** de
+  chaque dessin — 861 couples (classe, dessin), 418 mots distincts extraits des
+  seules zones de texte composé. Il a montré que le périmètre n'était pas de 24
+  dessins mais de **93**, et surtout que **39 d'entre eux étaient des dessins
+  forkés affichant encore de l'allemand dans les PDF a.2 livrés** :
+  `Wert`, `Distanz`, `Mischer`, `Koaxialkabel` ne figuraient dans aucune des
+  deux détections de la sonde, qui rendait `rc=0`.
+  - Le plus visible : le dessin **1092** composait « 2. AM de 1 : Einton
+    moduliert Amplitude de la porteuse ». Le dessin **996**, forké sur
+    8 782 lignes, n'avait vu traduire que « Höhe » : sa légende portait encore
+    *Winter Nacht, Sommer Tag* et son axe *Distanz [km]* voisinait avec un axe
+    *Hauteur [km]*. Les dessins **434** et **435** affichaient « Auf le Signal
+    perturbateur abgestimmt », moins lisible que l'allemand d'origine.
+  - Traitement par **remplacements littéraux comptés** (chaîne exacte vers
+    chaîne exacte, échec fatal sur écart de comptage), et non par substitution
+    mot à mot — celle-ci étant justement la cause des libellés mixtes.
+  - Dictionnaire établi par **comptage dans les 387 sections traduites**
+    (1,94 M caractères) : *mélangeur* 117 contre *mixeur* 0, *atténuateur* 52
+    contre *affaiblisseur* 0. `Treiber` → « Étage pilote » et `Stromrichtung` →
+    « sens physique du courant » ont été réglés par un précédent déjà composé
+    dans les livres, ce qui vaut mieux qu'un comptage.
+  - Six arbitrages tranchés par Pierre : `Verbraucher` → charge ·
+    `Einton`/`Zweiton` → un ton / deux tons · `Netzteil` → alimentation
+    secteur · `Ort` → position · `Langwelle`/`Mittelwelle` → ondes longues /
+    ondes moyennes · `Frequenzgemisch` → mélange de fréquences.
+  - Deux angles morts trouvés en chemin : le texte en **mode mathématique**
+    (dessin **488**, `$\mathrm{Audioverstärker}$`, `NF` passé à `BF`) et le
+    **symbole `ü`** du rapport de transformation (dessins 260, 303, 315),
+    remplacé par `m`.
+  - **222 dessins forkés** au total, tous compilés isolément sans erreur avant
+    toute recompilation de livre, tous enregistrés au manifeste (606 éléments
+    suivis par `verifier_amont.py`, 0 dérive).
+- **« CCathode » corrigé** (dessins 666, classes N et E). Un fork antérieur
+  substituait `Kathode` → `Cathode` **puis** `athode` → `Cathode`, la seconde
+  règle s'appliquant au résultat de la première : le livre imprimait un mot
+  d'aucune langue, **depuis la a.1**, sans que la relecture l'ait relevé. Le
+  libellé amont tronqué qui l'a rendu possible est consigné en défaut amont
+  (`docs/defauts-amont.md` §5).
+- **`$\text{Ordnung}=m+n$` → `$\text{Ordre}=m+n$`** validé, et la légende
+  « 3. Ordnung » du dessin 1096 traduite en « ordre 3 ». La décision, en
+  suspens au §9 depuis plusieurs sessions, est close ; la dérogation à la règle
+  « math verbatim » est assumée.
+
+### Modifié
+- **`sonde_dessins.py` v0.2** : la liste de mots reçoit les termes de la feuille
+  d'arbitrage nº 3. « Signal », « Filter » et « Band » ont été essayés puis
+  **retirés** — ils sont aussi français et produisaient du bruit ; « Tag » et
+  « Ort » sont écartés pour la même raison.
+- **`verifier_amont.py` v0.3 : détection des forks absents du manifeste.** Le
+  script ne comparait l'amont qu'aux entrées **déjà** enregistrées ; un fork
+  créé sans `enregistrer` lui était donc entièrement invisible, et n'aurait
+  **jamais** été signalé en dérive. Trois dessins de la classe A (260, 303, 315)
+  étaient dans ce cas, forkés après un `initialiser` : `verifier` répondait
+  « 261 éléments suivis, 0 dérive » sans rien dire. Le script compte désormais
+  les fichiers réellement présents dans `dessins/` et `sections/` — c'est le
+  dossier qui fait foi, le manifeste n'étant que sa mémoire — et sort en `rc=1`
+  sur tout fork non suivi. Testé sur les trois cas : arbre propre (`rc=0`), fork
+  jetable non enregistré (`rc=1`, signalé), retour à l'état propre (`rc=0`).
 
 ### Connu
 - Les tableaux à colonne `X` échappent au clamp : `tabularx` fixe leur largeur
   à `\linewidth`, si bien que la mesure est toujours conforme même quand le
   contenu déborde. Ces cas se corrigent à la source, pas dans la classe.
-- **24 dessins affichent encore de l'allemand** (N 1 · E 10 · A 13) : ceux dont
-  le texte allemand n'est pas dans une zone repérable automatiquement. Examen
-  manuel nécessaire, dessin par dessin.
+- ~~**24 dessins affichent encore de l'allemand**~~ — **traité le 15/08/2026,
+  et le compte était très en deçà de la réalité** : voir *Corrigé* ci-dessus.
+- `sonde_dessins.py`, même enrichie, **lit le source TikZ et non le PDF**, et sa
+  détection reste une liste de mots. Elle donnera toujours un plancher. Le
+  contrôle qui a réellement trouvé les 39 défauts — extraction des zones de
+  texte composé, puis relecture — est reproductible (méthode décrite au §4 de
+  `docs/ANALYSE-DESSINS.md`) mais n'est pas outillée au dépôt.
 - **La classe A passe de 3 à 4 notes de marge rétrogradées.** `schwingkreis_2`
   contient 22 formules hors texte ; la redéfinition de `displaymath` coûte
   environ 1 pt à chacune, et la note franchit le seuil de 23 pt. Pas d'erreur de

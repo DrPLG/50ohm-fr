@@ -1,0 +1,15 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2021
+\begin{circuitikz}
+    \draw[-Triangle](0,0) -- (5.0,0.0) 
+        node[anchor=north east] () {$f$};
+    \draw[-Triangle](0.0,0.0) -- (0.0,3.0)
+        node[rotate=90, anchor=south east] () {Puissance};
+    \draw[rounded corners=3mm, thick, black] 
+    (0,0) --
+    ++(0.6,0) --
+    ++(0.6,2.5) --
+    ++(3.7,0);
+
+    \draw [dashed] (1.4,0) -- ++(0,3);  
+\end{circuitikz}

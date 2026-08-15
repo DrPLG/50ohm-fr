@@ -1,0 +1,17 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    \draw(0,0) node [dinantenna](ant1){};
+    \draw[thick](ant1.south) -- ++(0,-1) node [anchor=south west](){$f=\qty{145,9}{\mega\hertz}$};
+    %
+    \draw(3.5,0) node [dinantenna](ant2){};
+    \draw(3.75,-0.5) node[tvshape, anchor=west, fill=DARCgray](tv){};
+    \draw[thick] (ant2) |- (tv);
+    \draw(tv.north) node[above](){TV};
+    %
+    \draw[DARCgray](ant1.right) node[harmonics, xscale=2*\getDarcImageFactor, yscale=1*\getDarcImageFactor, anchor=left](){};
+    \draw[thick](ant1.right) node[waves, xscale=2*\getDarcImageFactor, yscale=1*\getDarcImageFactor, anchor=left](){};
+    %
+    \draw(tv.south) ++(0,-0.25) node[below](foo){$f=$\,\qtyrange{582}{590}{\mega\hertz}};
+    \draw(foo.south) node[below](){DVB-T2 canal 35};
+\end{circuitikz}

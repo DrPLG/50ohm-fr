@@ -1,4 +1,9 @@
 {
+  "1008": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "79f27142672082a2235597dea0a5d41a5a2713313b10c2b9f4712d70c9ca3907"
+  },
   "1010": {
     "date_fork": "2026-08-15",
     "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
@@ -44,6 +49,11 @@
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "619ae4bcceba02fe76b360cf8b108a8c64d194325f5501cd7cf5c93b34911d8b"
   },
+  "1055": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "ac88b92c960b5c206c56c56b0ce409c4b219722c2d29eae55732dea4a8504df7"
+  },
   "1056": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
@@ -74,6 +84,51 @@
     "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
     "sha256_amont": "92b0cf798c39c5c676074afe23250c9a0508f0d94f0bffaa01d0c45e858e0862"
   },
+  "250": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "7fd3431e8e39b8a595916e3a71bffd04239185c09e94b329c009578d9e29721e"
+  },
+  "251": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "04cf9a96a62df73a318a74519bb029eeeb4145277d4e8325fe63bd7e5bda7d1d"
+  },
+  "252": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "9be18916bc5ba7967791d0245365d277ac97450e9392a6b8c9f47602f2a35057"
+  },
+  "253": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "39877df1a0169ec3b091ea45f3eaf4f56af1dc14e9fb6453d651878ea73fc838"
+  },
+  "258": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "35e5b275a98201d1eaeb6dd56e8775c6a918e0e15f7d90df10bb6f249b7f4fd8"
+  },
+  "259": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "cec2b167d0a40e33cdb818f3ad16f5e0c10b84a6ed2e001c289e4e8f82fa1e9d"
+  },
+  "311": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "ef8389a9e5b91ef7c0dbf42d091834aeaa5e8632e5fd62972f3da18b4667dba5"
+  },
+  "354": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "c04a88e6cccb4448b8233eaea00c4396fa065d2cbf69625ebd74ce1da55ca756"
+  },
+  "355": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "93352149c11b78c29bb8a915171f66254aaf43234ca5c1184b0469865f960ae3"
+  },
   "411": {
     "date_fork": "2026-08-15",
     "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
@@ -89,15 +144,35 @@
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "9a7f9e4bebb450a1210a8bc115d9aa6891a48f9ce338fdc64a6a6e3bbe7a2f8a"
   },
+  "590": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "2f22916ec5addd0604ad3c96e57f2cf09e9892d706be2c2f1ee9074d89491ae2"
+  },
   "591": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "a8b96bad4165f1c651493242b00c762854e67a62db4a445da3e84fa987dcc3bb"
   },
+  "592": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "06014886fc3fb469a959d601315366f210320d42d1f9a416826f1527dc3c714d"
+  },
   "593": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "e8cd8c705c0938c27f634ec6a825fe673ae460e11561c6f2a84ed25ba7b0884a"
+  },
+  "594": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "91a01e234d868df2da8c0cd91c34e619ed797c28bc7746420e5834a0c5893782"
+  },
+  "650": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "249eedc0a0dc33280b98d72739d33b26e1b91b528655d7e06f155e836f2a0666"
   },
   "666": {
     "date_fork": "2026-08-11",
@@ -128,6 +203,11 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "ce715af91c6a9eff1d26889fa672ec54637d11bf5617a31c5b46980e52968a42"
+  },
+  "745": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "42d51d90be3a19efc74fb52b502323b02f87c4f90775da3fd05bab05e9697b93"
   },
   "751": {
     "date_fork": "2026-08-11",
@@ -164,6 +244,11 @@
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "e704b3cd7469fdc1404d525804455660b4136bea8d6a1f561dcc79c2b2d2e7d4"
   },
+  "866": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "41659d2260b30c0a42d9a7efa5b6f6fda637252f4fea35968abd5127c4a89209"
+  },
   "873": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
@@ -193,6 +278,11 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "042d1958d3f4f26099775662678408c80be0ec9a4eb0afb7daf061d252b519af"
+  },
+  "903": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "c5bb287e05187ecbd1adc57c25143fcf09e5b228e2dff7d79284f1b5ecefcf53"
   },
   "911": {
     "date_fork": "2026-08-11",
@@ -238,6 +328,11 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "5ebefce9f389dc1622aa8cc9e125b672b4144008901580368fe6062e0790b682"
+  },
+  "96": {
+    "date_fork": "2026-08-15",
+    "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
+    "sha256_amont": "7a27210db1924ca26de57e5ccec230481689e5f09c362e32eacb3d334fb3359c"
   },
   "979": {
     "date_fork": "2026-08-15",

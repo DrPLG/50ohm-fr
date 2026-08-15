@@ -1,0 +1,37 @@
+% Author: Malte, DE7LMS
+% Year: 2022
+\begin{circuitikz}
+    \pgfdeclarelayer{bg} % declare background layer
+    \pgfsetlayers{bg,main}
+    \draw (.2,1.4) -- ++(0,-2);
+    \draw (-.2,1.4) -- ++(0,-2);
+  
+    \draw[dashed] (0,1.2) -- ++(0,-1.8);
+  
+    \draw (.2,1.4) arc[start angle=0, end angle=360, x radius=.2, y radius=.1];
+    \draw (.2,1.4-2) arc[start angle=0, end angle=-90, x radius=.2, y radius=.1] coordinate (bottom) arc[start angle=-90, end angle=-180, x radius=.2, y radius=.1];
+    \draw (bottom) -- ++(0,-.2);
+  
+    \path (.2,1.4)
+      arc[start angle=0, end angle=45, x radius=.2, y radius=.1] coordinate (up right)
+      arc[start angle=45, end angle=135, x radius=.2, y radius=.1] coordinate (up left)
+      arc[start angle=135, end angle=225, x radius=.2, y radius=.1] coordinate (down left)
+      arc[start angle=225, end angle=315, x radius=.2, y radius=.1] coordinate (down right);
+  
+    \path (down right) ++(2,-1) coordinate (down right end);
+    \path[very thick, shorten <=-1pt, {Circle[length=2pt]}-, line cap=round]
+      (up right) edge +(2,1)
+      (up left) edge +(-2,1)
+      (down right) edge (down right end)
+      (down left) edge +(-2,-1);
+  
+    \draw[very thick]
+      (0,4) -- ++(0,-1.5) to [C, name=c1] (0,1.4);
+
+    \begin{pgfonlayer}{bg}
+        \DARCmeasure{down right}{down right end}{-0.15,-0.3}{-28}{$\frac{\lambda}{4}$}
+        \draw(0,1.4) coordinate(end);
+        \draw(0,4) coordinate(start);
+        \DARCmeasure{start}{end}{-1.55,0}{-90}{\rotatebox{90}{$\text{méc.} > \frac{\lambda}{4}$}}
+    \end{pgfonlayer} 
+\end{circuitikz}

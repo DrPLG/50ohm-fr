@@ -49,7 +49,7 @@ n'influencent jamais le code de retour : ce n'est pas un défaut.
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version : v0.1 (14/08/2026)
+Version : v0.2 (15/08/2026) — liste enrichie de la feuille d'arbitrage nº 3.
 """
 import argparse
 import pathlib
@@ -67,7 +67,24 @@ Ebene Achse Fläche Knoten Zweig Kennlinie Verlauf Anstieg Abfall Feldstärke
 Zeit Strahlung Erdung Abschirmung Speisung Anpassung Rückkopplung
 und mit für von zum zur der die das dem den ein eine einer einem oder aber
 auch nicht bei aus nach über unter durch gegen ohne
+""".split() + """
+Mischer Wert Werte Distanz Koaxialkabel Kabel Oszillator Pufferstufe Torzeit
+Ziffer abgestimmt moduliert Basisband Frequenzgemisch Gleichstrom Netzteil
+Nutzsignal Ordnung Richtantenne Schwebung Stromrichtung Taktgenerator Treiber
+Umsetzer Verbraucher Wellenwiderstand Oberwellen Eingangssignal Ausgangssignal
+Einton Zweiton Kontrollinformation Weitere gedreht konstante Regionen Region
+Sommer Winter Nacht Ausgang Ausgangs Eingang Eingangs Modulator Demodulator
+Kanalcodierer Kanaldecodierer Quellencodierer Quellendecodierer Dipol Luft
+Kalte Warme Filtert Adresszähler Dämpfungsglied Empfängers Stunden Teile
 """.split()
+# Le second bloc est celui de la feuille d'arbitrage nº 3 (15/08/2026), établi
+# par mesure sur les 861 dessins composés : la sonde rendait rc=0 pendant que
+# 39 dessins FORKÉS affichaient encore de l'allemand dans les PDF a.2 livrés
+# — « Wert », « Distanz », « Mischer », « Koaxialkabel » ne figuraient dans
+# aucune des deux détections. Trois mots ont été essayés puis RETIRÉS parce
+# qu'ils sont aussi français et produisaient du bruit : « Signal », « Filter »
+# et « Band ». « Tag » et « Ort » sont écartés pour la même raison, étant en
+# outre trop courts pour être sûrs.
 
 MOTIF_MOTS = re.compile(r"\b(" + "|".join(MOTS_ALLEMANDS) + r")\b")
 MOTIF_LETTRES = re.compile(r"\b\w*[äöüÄÖÜß]\w*\b")

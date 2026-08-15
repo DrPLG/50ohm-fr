@@ -210,7 +210,82 @@ non trivial. 9 dessins portent au moins une phrase complète (gras).
 
 ## 4. Proposition pour la suite (à valider par Pierre)
 
-> **Mise à jour du 14/08/2026 — lire ceci avant le reste de la section.**
+> **Mise à jour du 15/08/2026 — le chantier est clos. Lire ceci en premier ;
+> tout ce qui suit est conservé pour l'historique.**
+>
+> **Le §3 ci-dessus est périmé.** Il a été constitué avant les forks, par
+> extraction de toute paire d'accolades « feuille » sur les versions **amont**.
+> L'inventaire qui fait foi désormais a été mesuré sur
+> `build-<CLASSE>/img/<id>include.tex`, c'est-à-dire la version **réellement
+> composée** de chaque dessin — fork français s'il existe, amont sinon.
+> 861 couples (classe, dessin) examinés, 418 mots distincts extraits des seules
+> zones de texte composé.
+>
+> **Ce que cette mesure a trouvé, et que rien ne signalait :**
+>
+> | | forkés portant encore de l'allemand | non forkés portant de l'allemand |
+> | --- | ---: | ---: |
+> | N | 7 | 6 |
+> | E | 4 | 19 |
+> | A | 28 | 29 |
+> | **total** | **39 — des défauts** | **54 — le chantier** |
+>
+> Les 39 premiers étaient **des défauts présents dans les trois PDF a.2
+> livrés**. `sonde_dessins.py` rendait `rc=0` en toute bonne foi : sa liste ne
+> contenait ni `Wert`, ni `Distanz`, ni `Mischer`, ni `Koaxialkabel`. Quatre
+> exemples, vérifiés dans le PDF :
+>
+> - **1092 (A)** : « 2. AM de 1 : Einton moduliert Amplitude de la porteuse » —
+>   la substitution du 14/08 avait traduit les mots de sa liste et laissé le
+>   reste ;
+> - **996 (A)** : fork de 8 782 lignes où seul « Höhe » avait été traduit ; la
+>   légende affichait encore *Winter Nacht, Sommer Tag* et l'axe *Distanz [km]*
+>   à côté d'un axe *Hauteur [km]* ;
+> - **434 et 435 (A)** : « Auf le Signal perturbateur abgestimmt », moins
+>   lisible que l'allemand d'origine ;
+> - **666 (N et E)** : **« CCathode »**, un mot d'aucune langue, né de deux
+>   substitutions enchaînées sur un libellé amont tronqué. Présent dès la a.1.
+>   Détail dans `docs/defauts-amont.md` §5.
+>
+> **Traitement, feuille d'arbitrage nº 3 du 15/08/2026.** 98 fichiers produits
+> par **remplacements littéraux comptés** — chaîne exacte vers chaîne exacte,
+> échec fatal sur écart de comptage — et non par substitution mot à mot, qui
+> est précisément ce qui avait produit « Auf le … abgestimmt ». Le dictionnaire
+> a été établi par **comptage dans les 387 sections traduites** (corpus de
+> 1,94 M caractères) : *puissance* 989, *valeur* 657, *mélangeur* 117 contre
+> *mixeur* 0, *atténuateur* 52 contre *affaiblisseur* 0. Deux termes ont été
+> réglés par un **précédent déjà composé**, ce qui vaut mieux qu'un comptage :
+> `Treiber` → « Étage pilote » (dessins 842, 843, 914) et `Stromrichtung` →
+> « sens physique du courant » (dessin 1002).
+>
+> Six arbitrages échappaient au comptage et ont été tranchés par Pierre :
+> `Verbraucher` → **charge** · `Einton`/`Zweiton` → **un ton / deux tons** ·
+> `Netzteil` → **alimentation secteur** · `Ort` → **position** ·
+> `Langwelle`/`Mittelwelle` → **ondes longues / ondes moyennes** ·
+> `Frequenzgemisch` → **mélange de fréquences**. La décision du §9 sur
+> `Ordnung` → « ordre » a été close en même temps, dessin **et** formule.
+>
+> **Deux angles morts découverts en cours de route**, tous deux réels :
+>
+> - le texte en **mode mathématique** échappait à l'extraction. Un balayage de
+>   `\mathrm{}` a révélé le dessin **488** (A), qui composait
+>   `$\mathrm{Audioverstärker}$` — forké et traduit, `NF` passant à `BF` au
+>   passage, comme dans les 61 emplois des sections ;
+> - le symbole **`ü`** du rapport de transformation (dessins 260, 303, 315),
+>   remplacé par **`m`** sur décision de Pierre.
+>
+> **État final : 222 dessins forkés** (N 39 · E 72 · A 111), tous compilés
+> isolément sans erreur avant toute recompilation de livre, tous enregistrés au
+> manifeste. `sonde_dessins.py` v0.2 porte les termes de cette feuille — sans
+> quoi elle aurait continué de rendre `rc=0` sur des dessins fautifs.
+>
+> **Ce qui reste** : la sonde lit le source et non le PDF, et sa liste reste
+> une liste. Elle donnera toujours un plancher. Le contrôle qui a réellement
+> trouvé les défauts est l'extraction des **zones de texte composé** décrite
+> ci-dessus ; elle est reproductible, mais n'est pas outillée au dépôt —
+> décision de Pierre du 15/08/2026, pour ne maintenir qu'un seul outil.
+
+> **Mise à jour du 14/08/2026 — conservée pour l'historique.**
 >
 > Ce document affirmait encore, plus bas, qu'« aucun dessin réel n'est forké à
 > ce jour » et qu'« aucune de ces quatre propositions n'est mise en œuvre ».

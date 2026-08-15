@@ -1,0 +1,24 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2021
+\begin{circuitikz}
+    \ctikzset{
+        RF/scale=\getDarcImageFactor,
+    }
+    \draw (5,0.5) coordinate(start)
+        to [TL, name=tl1, bipoles/tline/width=1.75] ++(0,3.0)
+        to [TL, name=tl2, bipoles/tline/width=0.75] ++(0,2.0)
+        to [short] ++( 0.0, 0.7) coordinate(foo);
+    \draw[very thick](foo)
+        to [short] ++(-5.0, 0)
+        to [short] ++( 5.0, 5)
+        to [short] ++( 5.0,-5) coordinate(knecht)
+        to [short] (knecht-|tl2.bottom right) coordinate(kerl);
+    \draw(kerl)
+        to [short,-*] (tl2.bottom right);
+    \draw[dashed] (start) to [short] ++(0,-0.5);
+    \draw (tl1.bottom right) to [short, *-*] (tl2.bottom left);
+    \draw (foo) ++(0,1) node[](){$l$~=~43{,}18 m pour 7,1 MHz};
+    \draw (tl2.north) node[anchor=east](){$\dfrac{\lambda}{4}$};
+    \draw (tl2.south) node[anchor=west](){\qty{75}{\ohm}};
+    \draw (tl1.south) node[anchor=west](){\qty{50}{\ohm}};
+\end{circuitikz}

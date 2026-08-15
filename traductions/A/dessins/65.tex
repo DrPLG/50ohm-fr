@@ -1,0 +1,30 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2020
+\begin{circuitikz}[american]
+    \draw (0,0) node[transformer core](T){};
+    \draw (T.A1) node [ocirc](I1){};
+    \draw (T.A2) node [ocirc](I2){};
+    
+    % Oben
+    \draw (T.B1)
+        to [stroke diode, invert, -*] ++(2,0) coordinate(C1)
+        to [short, -o] ++(1,0)
+        node[anchor=west](){Sortie};
+    % Unten
+    \draw(T.B2)
+        to [stroke diode, invert] ++(2,0) coordinate(C2)
+        to [short] (C1);
+    % Mitte
+    \draw(C1)
+        to [open, name={h1}] (C2);
+    \draw (T-L2.south)
+        to [short, *-] (h1.center)
+        to [short, -o] ++(1,0)
+        node[anchor=west](){\qty{0}{\volt}};
+    % Sinus
+    \def\x{0.15}
+    \draw[] (-1.3,0) sin ++(\x, \x)
+                     cos ++(\x,-\x)
+                     sin ++(\x,-\x)
+                     cos ++(\x, \x);
+\end{circuitikz}

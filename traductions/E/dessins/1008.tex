@@ -1,0 +1,39 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2025
+\begin{circuitikz}[european]
+    \def\base{2.0}
+
+    \draw[ultra thick](1*\base,0.0)   -- ++ (0,3.0) coordinate(h1);
+    \draw[ultra thick, DARCorange](2*\base,0.0) -- ++ (0,2.0) coordinate(h2);
+    \draw[ultra thick, DARCorange](3*\base,0.0) -- ++ (0,1.5) coordinate(h3);
+    \draw[ultra thick, DARCorange](4*\base,0.0) -- ++ (0,1.0) coordinate(h4);
+    \draw[ultra thick, DARCorange](5*\base,0.0) -- ++ (0,0.5) coordinate(h5);
+    \draw[dotted, gray] (h1) -- (1*\base,3.5) coordinate(hh1);
+    \draw[dotted, gray] (h2) -- (2*\base,3.5) coordinate(hh2);
+    \draw[dotted, gray] (h3) -- (3*\base,3.5) coordinate(hh3) node[midway](caption){};
+    \draw[dotted, gray] (h4) -- (4*\base,3.5) coordinate(hh4);
+    \draw[dotted, gray] (h5) -- (5*\base,3.5) coordinate(hh5);
+
+    \draw[DARCorange](caption) node[](){Harmoniques (OW)};
+
+    \draw[ultra thick, DARCred](\base-0.666,0.0) -- ++ (0,0.75) node[anchor=south east](){NA};
+    \draw[ultra thick, DARCred](\base+0.666,0.0) -- ++ (0,0.75) node[anchor=south west](){NA};
+
+    \draw[gray, Triangle-Triangle] (hh1) -- (hh2) node[midway, above](){$f_{0}$};
+    \draw[gray, Triangle-Triangle] (hh2) -- (hh3) node[midway, above](){$f_{0}$};
+    \draw[gray, Triangle-Triangle] (hh3) -- (hh4) node[midway, above](){$f_{0}$};
+    \draw[gray, Triangle-Triangle] (hh4) -- (hh5) node[midway, above](){$f_{0}$};
+
+    \draw[thick, fill=gray](\base+0.15,0.0) -- ++ (0,1.25) -- ++ ( 0.25,-0.25) -- ++(0,-1.00);
+    \draw[thick, fill=gray](\base-0.15,0.0) -- ++ (0,1.25) -- ++ (-0.25,-0.25) -- ++(0,-1.00);
+
+    \draw(1*\base,0) node[align=center, anchor=north] () {$f_\text{0}$};
+    \draw(2*\base,0) node[align=center, anchor=north] () {1. OW};
+    \draw(3*\base,0) node[align=center, anchor=north] () {2. OW};
+    \draw(4*\base,0) node[align=center, anchor=north] () {3. OW};
+    \draw(5*\base,0) node[align=center, anchor=north] () {4. OW};
+
+	\draw[-Triangle](0.0,0.0) -- (11.0,0.0) node[anchor=west] () {$f$};
+	\draw[-Triangle](0.0,0.0) -- (0.0,4.0) node[anchor=south] () {$A$};
+
+\end{circuitikz}

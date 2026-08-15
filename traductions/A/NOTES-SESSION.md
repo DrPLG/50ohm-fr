@@ -1,5 +1,61 @@
 # Notes de session — classe A
 
+## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
+
+Génération : 153/153 sections, 717 questions, 111 dessins francisés,
+5 encarts « En France ». **376 pages**, 5,34 Mo après Ghostscript.
+
+Contrôles du §4 : conformes (0 · 0 · 0 · **4** notes de marge rétrogradées,
+valeur attendue depuis la v0.18), 0 erreur LaTeX, **3 références « ?? »**
+(défauts amont connus), 0 question séparée de ses réponses.
+Clamps : 528 figures, 4 tableaux, 6 formules.
+
+### C'est la classe la plus touchée — 61 fichiers
+
+**28 forks portaient encore de l'allemand**, donc visibles dans le PDF a.2
+livré. Les trois plus parlants :
+
+- **1092** composait des titres franco-allemands : « 2. AM de 1 : Einton
+  moduliert Amplitude de la porteuse », « 6. SSB de 4 : zwei HF-Linien avec
+  Schwebung ». Six titres refaits ;
+- **996**, forké sur 8 782 lignes, n'avait vu traduire que « Höhe » : sa légende
+  portait encore *Winter Nacht, Sommer Nacht, Winter Tag, Sommer Tag* et son axe
+  *Distanz [km]* voisinait avec un axe *Hauteur [km]*. Même situation sur 994,
+  995, 998 ;
+- **434** et **435** affichaient **« Auf le Signal perturbateur abgestimmt »** —
+  la substitution mot à mot du 14/08 avait traduit `das` et `Störsignal` et
+  laissé le reste, rendant le libellé *moins* lisible que l'allemand d'origine.
+
+Puis 85, 408–411, 436, 437, les huit dessins de codage 636–645, 810, 958, 999,
+1072, 1078, 1096.
+
+**29 dessins forkés pour la première fois** : 44, 65, 80, 86, 98, 158, 264, 311,
+423, 424, 430, 438, 443, 563, 590, 650, 759, 762, 772, 782–784, 807, 808, 868,
+869, 1055, 1064, 1126.
+
+### Deux angles morts trouvés en chemin
+
+1. **Le mode mathématique échappait à l'extraction.** Un balayage de `\mathrm{}`
+   sur tous les dessins composés a révélé le dessin **488**, qui affichait
+   `$\mathrm{Audioverstärker}$`. Forké et traduit ; `NF` y passe à `BF`, comme
+   dans les 61 emplois des sections (`NF` : 0 emploi).
+2. **Le symbole `ü`** du rapport de transformation (Übersetzungsverhältnis),
+   dessins **260, 303, 315**, remplacé par **`m`** sur décision de Pierre. Ce
+   n'est pas un mot composé mais un symbole : le §6 le traite à part, d'où
+   l'arbitrage.
+
+Ces trois derniers forks ont été créés **après** le premier
+`verifier_amont.py initialiser`, et manquaient donc au manifeste : rattrapé
+(111 forks pour 111 entrées, 609 éléments suivis au total, 0 dérive).
+
+### La décision du §9 sur `Ordnung` est close
+
+`$\text{Ordnung}=m+n$` → `$\text{Ordre}=m+n$` est validé, et la légende
+« 3. Ordnung » du dessin 1096 devient « ordre 3 ». Dérogation à la règle
+« math verbatim » assumée et documentée.
+
+---
+
 ## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
 
 Génération : 153 sections, 717 questions, 5 encarts « En France », 54 dessins

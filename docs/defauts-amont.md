@@ -219,3 +219,42 @@ reste affecté — édition numérique comme papier pour les prosignes.
 **À signaler au DARC** : c'est le seul des quatre défauts de ce registre qui
 porte sur le générateur et non sur les contenus, et il se corrige en une ligne
 (itérer sur les clés avant d'itérer sur les caractères).
+
+---
+
+## 5. Libellés tronqués dans le dessin 666 — `gleichrichter_1`, `halbleiter`
+
+**Constaté le 15/08/2026**, en corrigeant un défaut de francisation qui l'a
+révélé.
+
+Le dessin 666 (classes N et E) légende les deux électrodes d'une diode. Deux
+de ses quatre libellés sont **tronqués de leur première lettre** dans la source
+amont :
+
+```latex
+\draw[red, thick] (1.280,0) to [short] ++(-1.0,-0.626) coordinate(node);
+\draw[red] (node) node[rotate=-90, anchor=west]{node};      % « Anode » attendu
+\draw[blue, thick] (1.280,0) to [short] ++(0.35,-0.35) coordinate(athode);
+\draw[blue] (athode) node[anchor=west]{athode};             % « Kathode » attendu
+```
+
+La coordonnée et le texte portent la même chaîne tronquée : le dessin imprime
+donc « node » et « athode » sous les deux électrodes, alors que la partie haute
+du même dessin porte correctement « Anode » et « Kathode ». Le livre allemand
+est affecté à l'identique.
+
+L'hypothèse la plus simple est une saisie où la première lettre a servi de
+raccourci et s'est perdue ; la coordonnée ayant été nommée d'après le texte, la
+troncature s'est propagée sans provoquer d'erreur LaTeX.
+
+### Ce que ce défaut nous a coûté côté français
+
+Il a produit, chez nous, **un mot qui n'existe dans aucune langue**. Le fork
+français substituait `Kathode` → `Cathode` **puis** `athode` → `Cathode` ; la
+seconde règle s'appliquant au résultat de la première, le libellé haut est
+devenu **« CCathode »**. Présent dans `livre-N-a.1.pdf` **et** dans les PDF
+a.2, jamais relevé en relecture.
+
+Corrigé côté français le 15/08/2026 (« Cathode »). Les deux libellés tronqués
+du bas, eux, sont **laissés en l'état** : les corriger reviendrait à réécrire
+le dessin amont, ce que le §6 de `CLAUDE.md` interdit. À signaler au DARC.

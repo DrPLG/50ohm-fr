@@ -1,0 +1,43 @@
+% Author:   Dr. Matthias Jung, DL9MJ
+%           Stephan Kregel, DG1HXJ
+% Year: 2022
+\begin{circuitikz}[american]
+    \draw(0,0) coordinate(u0)
+        to [short, o-*] ++(4,0) coordinate(u2)
+        to [short,  -*] ++(2,0) coordinate(u3)
+        to [short,  -*] ++(1,0) coordinate(u4)
+        to [short, *-o] ++(1,0) coordinate(u5);
+
+    \draw(u0)
+        to [open, name={h1}] ++(0,3)
+        to [L, o-, name={l1}] ++(2.5,0) coordinate(o1)
+        to [C, -*,] ++(1.5,0) coordinate(o2)
+        to [C,  -*] ++(2,0) coordinate(o3)
+        to [short,  -*] ++(1,0) coordinate(o4)
+        to [short, *-o] ++(1,0) coordinate(o5);
+
+    \draw(o2)
+        to [short] ++(0,1) coordinate(h2)
+        to [european resistor, -o] (h2-|u5)
+        node [anchor=south](){+};
+
+    \draw(o2)
+        to [stroke diode, invert, name={d1}] (u2);
+
+    \draw (d1.north west) ++(0.25,0) to [C, /tikz/circuitikz/bipoles/length=0.4cm] ($(d1.north east)+(0.25,0)$);
+
+
+    \draw(o3)
+        to [vC, tunable end arrow={Bar}, invert] (u3);
+
+    \draw(o4)
+        to [L] (u4);
+
+    \draw(o5)
+        to [open, name={h3}] (u5);
+    
+    \draw (h1.center) node[rotate=90]{\footnotesize BF/bande de base};
+    \draw (h3.center) node[rotate=90]{\footnotesize vers l'oscillateur};
+
+    \draw[dashed](l1.core west) -- (l1.core east);
+\end{circuitikz}

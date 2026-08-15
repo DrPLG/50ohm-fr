@@ -1,0 +1,20 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{circuitikz}
+    \draw[DARCblue](0,0)
+        node[anchor=south west](){$f_\text{e1}$/$f_\text{e2}$}
+        to [bandpass, name={bp}, o-] ++(2,0)
+        node[inputarrow, DARCblue] {} coordinate(foo1)
+        node[anchor=south east](){$f_\text{e1}$};
+    \draw[DARCblue]
+        (bp.south) node[below](){Filtre $f_\text{e2}$};
+    \draw (foo1)
+        node[mixer, box, label=Mélangeur, anchor=west] (mix) {};
+    \draw[DARCgreen] (mix.south)
+        node[inputarrow, rotate=90, DARCgreen] {}
+        to [short,-o, label=${f}_\text{o}$] ++(0,-1.5);
+    \draw[DARCorange] (mix.east)
+        to [short, >] ++(2,0)
+        node[inputarrow, DARCorange](){}
+        node[anchor=south east](){$f_\text{ZF}$};
+\end{circuitikz}

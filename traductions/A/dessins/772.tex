@@ -1,0 +1,41 @@
+% Author: Stephan Kregel, DG1HXJ
+% Year: 2022
+\begin{circuitikz}
+    \coordinate (init) at (0,0);
+    \draw (init)
+        node[bnc, anchor=hot, rotate=0](bnc1){}
+        to [R, a=$\qty{1}{\kilo\ohm}$] ++(2,0)
+        to [short, -*] ++(0,-1.5) coordinate(r1) 
+        to [stroke diode, -*] ++(2,0) coordinate(l1)
+        to [C, -*] ++(2,0) coordinate(l2c2) 
+        to [short] ++(1,0)
+        to node[bnc, anchor=hot, xscale=-1](bnc2){} ++(0,0);
+    \draw (bnc1.north) node[anchor=south](s1){$\qty{1}{\volt}$ $\sim$};
+    \draw (s1.north) node[anchor=south]{$\qty{3,7}{\mega\hertz}$};
+
+    \draw (r1)
+        -- ++(0,-1.5)
+        to [R, a^=$\qty{1}{\kilo\ohm}$] ++(-2,0)
+        node[bnc, anchor=hot, rotate=0](bnc3){};
+    \draw (bnc3.north) node[anchor=south](s2){$\qty{1}{\volt}$ $\sim$};
+    \draw (s2.north) node[anchor=south]{$\qty{1}{\kilo\hertz}$};
+
+    \draw (l1) 
+        to [short] ++(0,-1)
+        to [L, american, name=L1] ++(0,-2) node[rground]{};
+    \draw (bnc1.shield) to node[rground]{} ++(0,0);
+    \draw (bnc2.shield) to node[rground]{} ++(0,0);
+    \draw (bnc3.shield) to node[rground]{} ++(0,0);
+    \draw [densely dashed] (L1.core west) -- (L1.core east);
+    \draw (l2c2) -- ++(0,-1) coordinate(cc2)
+        node[circ]{} -- ++(-0.75,0)
+        to [L, american, name=L2] ++(0,-2)
+        node[rground](x1){};
+    \draw [densely dashed] (L2.core west) -- (L2.core east);
+    \draw (cc2) -- ++(0.75,0) 
+    to [C] ++(0,-2)
+    to node[rground](x2){} ++(0,0);
+    \draw (bnc2.north) node[anchor=south]{Sortie};		
+    \draw (x1.south) to [open, name={x3}] (x2.south);
+    \draw (x3.south) node[anchor=north](){$f_\mathrm{o}=\qty{3.7}{\mega\hertz}$};
+\end{circuitikz}

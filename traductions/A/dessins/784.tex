@@ -1,0 +1,117 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2022
+% Relative Applied
+\begin{circuitikz}[
+    arrowset/.pic={
+        \draw[>=Triangle,->] (0.15,0) -- ++(0,0.35);
+        \draw[>=Triangle,<-] (0.30,0) -- ++(0,0.35);
+    }
+]
+\ctikzset{
+    resistors/scale=\getDarcImageFactor,
+    capacitors/scale=\getDarcImageFactor,
+    inductors/scale=\getDarcImageFactor,
+    transistors/scale=\getDarcImageFactor,
+    RF/scale=\getDarcImageFactor,
+    chips/scale=\getDarcImageFactor,
+    misc/scale=\getDarcImageFactor,
+    multipoles/dipchip/width=1.0,
+}
+\draw (0,0) node[dipchip, num pins=14, hide numbers, no topmark, external pins width=0](ea){};
+\draw(ea.bpin 14) 
+    to [C, -*] ++(3.5,0) coordinate(c1)
+    to [TL] ++(1.5,0) node[nigfete, anchor=gate, solderdot](T1){};
+\draw(T1.east)
+    node[rotate=0, anchor=west](){1};
+
+\draw(ea.bpin 8) 
+    to [C, -*] ++(3.5,0) coordinate(c2)
+    to [TL] ++(1.5,0) node[nigfete, anchor=gate,solderdot, yscale=-1](T2){};
+\draw(T2.east)
+    node[rotate=0, anchor=west](){2};
+
+\draw(T1.G)
+    to [open] ++(2.5,0) % hack :-)
+    node[dipchip, num pins=14, hide numbers, no topmark, external pins width=0, anchor=bpin 1](aa){};
+
+% Kondensatoren:
+\draw(T1.D)
+    to [short] ++(0,1) coordinate(g1)
+    to [C, *-] ++(1,0)
+    |- (aa.bpin 1);
+\draw(T2.D) 
+    to [short] ++(0,-1) coordinate(g2)
+    to [C, *-] ++(1,0)
+    |- (aa.bpin 7);
+
+\draw(aa.bpin 11) 
+    to [short] ++(0.5,0) node[bnc, xscale=-1](hfout){};
+
+\draw(hfout.north)
+    node[rotate=90, anchor=west] {$\mathrm{HF}_\mathrm{OUT}$};
+
+
+% Verbindung zwischen T1 und T2:
+\draw(T1.S)
+    to [short, name=s1] (T2.S); % hack :-)
+\draw(s1.center)
+    to [short, *-] ++ (-0.5,0) node[rground]{};
+
+% Drehko:
+\draw(c1)
+    to [vC, tunable end arrow={Bar}, invert] (c2);
+
+% Spulen:
+\draw(c1)
+    to [american inductor, name=l1] ++(0, 5.0)
+    node[genericpotentiometershape, anchor=wiper, rotate=180, wiper end arrow={Triangle[]}](pr1){};
+\draw[dashed] (l1.core west) -- (l1.core east);
+\draw(pr1.left)
+    to [short] ++(0.5,0) node[rground]{};
+
+\draw(c2)
+    to [american inductor, name=l4, mirror] ++(0,-4.0)
+    node[genericpotentiometershape, anchor=wiper, wiper end arrow={Triangle[]}](pr2){};
+\draw[dashed] (l4.core west) -- (l4.core east);
+\draw(pr2.right)
+    to [short] ++(0.5,0) node[rground]{};
+
+\draw(g1)
+    to [american inductor, name=l3, -o] ++(0, 3.5)
+    node[above]{+\qty{50}{\volt}};
+\draw[dashed] (l3.core west) -- (l3.core east);
+
+\draw(g2)
+    to [american inductor, name=l6, mirror, -o] ++(0,-2.5) node[below]{+\qty{50}{\volt}};
+\draw[dashed] (l6.core west) -- (l6.core east);
+
+% Potentionmeter mit UBias:
+\draw(pr1.right) 
+    to [short, -*] ++(-0.50,0) coordinate(c3)
+    to [short, -*] ++(-1.25,0) coordinate(c4)
+    to [short, -*] ++(-1.25,0) coordinate(c5)
+    to [R, -o] ++(-2,0) coordinate(g4)
+    ++(0,0.25)
+    node[anchor=south west]{$+\qty{5}{\volt}$};
+
+\draw(ea.bpin 4)
+    to [short] ++(-0.5,0) node[bnc](bnc1){};
+\draw(bnc1.north) 
+    node [rotate=90, anchor=west]{$\mathrm{HF}_\mathrm{IN}$}; 
+
+\draw(c3) |- (pr2.left);
+\draw(c4)
+    to [C] ++(0,-3.5) node [rground]{};
+\draw(c5)
+    to [R] ++(0,-1.75)
+    to [thR, name=R] ++(0,-1.75) node[rground]{};
+\draw (R.south west) node[anchor=north east](){$\vartheta$};
+\draw (R.south east) ++(-0.5,0) pic {arrowset};
+
+% Beschriftungen:
+\draw(ea)  node[rotate=90, align=center](hh1){\scriptsize Adaptation\\\scriptsize d'entrée};
+\draw(aa)  node[rotate=90, align=center](hh3){\scriptsize Adaptation\\\scriptsize de sortie};
+\draw(c3)  node[anchor=south east]{$U_\mathrm{BIAS}$};
+\draw(pr1.270) node[above]{$R_4$};
+\draw(pr2.270) node[below]{};
+\end{circuitikz}

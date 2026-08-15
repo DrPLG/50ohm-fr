@@ -1,0 +1,80 @@
+% Author: Dr. Matthias Jung, DL9MJ
+% Year: 2021
+\begin{circuitikz}[american]
+    \ctikzset{
+        resistors/scale=\getDarcImageFactor,
+        capacitors/scale=\getDarcImageFactor,
+        inductors/scale=\getDarcImageFactor,
+        diodes/scale=\getDarcImageFactor,
+        misc/scale=\getDarcImageFactor
+    }
+    \draw(0,0) coordinate(m0)
+        to [C, o-*] ++(2,0) coordinate(west)
+        to [stroke diode, invert, -*] ++(1.5,1.5) coordinate(north)
+        to [stroke diode, invert, -*] ++(+1.5,-1.5) coordinate(east)
+        to [stroke diode, invert, -*] ++(-1.5,-1.5) coordinate(south)
+        to [stroke diode, invert] (west);
+
+    \draw(west)
+        to [C] ++(0,-4)
+        node[rground](u1){};
+
+    \draw(east)
+        to [short] (east|-u1)
+        node[rground](u2){};
+
+    \draw(north)
+        to [short] ++(0,1)
+        to [short] ++(3,0) coordinate(o3)
+        to [short] ++(3,0) coordinate(o4);
+
+    \draw(south)
+        to [short] ++(0,-1)
+        to [short] ++(3,0) coordinate(u3)
+        to [short] ++(3,0) coordinate(u4);
+
+    \draw(o3)
+        to [european resistor, *-] ++(0,-1.6666)
+        to [variable european resistor, tunable end arrow={Bar}, invert, l_={$R_1$}, name={R2}] ++(0,-1.6666)
+        to [european resistor, -*] (u3);
+
+    \draw(R2.wiper)
+        to [short, -o] (R2.wiper|-u2)
+        node[anchor=west](){$f_\mathrm{OSZ}$};
+    \ctikzset{
+        quadpoles/transformer core/inner=1,
+        quadpoles/transformer core/width=0.6,
+        quadpoles/transformer core/height=2,
+        transformer L1/.style={inductors/coils=6},
+        transformer L2/.style={inductors/coils=3, inductors/width=0.5}    
+    }
+    \draw(u4|-east)
+        node[transformer core, anchor=west](T){};
+
+    \ctikztunablearrow[-{Bar}]{2}{1.8}{155}{T-L1}
+
+    \draw(o4)
+        to [short, -*] (T.A1)
+        to [short] ++(-1.5,0) coordinate(h1)
+        to [C] (h1|-T.A2)
+        to [short, -*] (T.A2);
+
+    \draw(T.A2)
+        to [short, -*] (u4)
+        to [vC, l_={$C_1$}, tunable end arrow={Bar}, invert] (u4|-u2)
+        node[rground](){};
+
+    \draw(T.B2)
+        to [short] (T.B2|-u2)
+        node[rground](){};
+
+    \draw(T.B1)
+        to [short, -o] ++(1,0) coordinate(m17);
+
+    \draw(m17)
+        node[rotate=90, anchor=east](){Étage tampon};
+
+    \draw(o4)
+        to [C] ++(0,1.5)
+        node[rground, rotate=180](){};
+\end{circuitikz}

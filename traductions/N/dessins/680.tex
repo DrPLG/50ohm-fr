@@ -12,7 +12,7 @@
     %
     \draw[red](netzteil.plus)
         to [fuse, l={Fusible}, color=red] ++(2.5,0)
-        to [short, i={Gleichstrom (I)}, color=red] (trx.plus);
+        to [short, i={Courant continu (I)}, color=red] (trx.plus);
     \draw(trx.minus) to [short, i={}, l={\textcolor{gray}{\small{\textit{Risque de court-circuit et d'inversion de polarité}}}}] (netzteil.minus);
     \draw(netzteil.u1) to [short, -o] ++(-1,0) coordinate(c1);
     \draw(netzteil.u2) to [short, -o] ++(-1,0) coordinate(c2);

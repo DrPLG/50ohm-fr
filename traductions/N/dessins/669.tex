@@ -1,7 +1,7 @@
 % Author: Dr. Matthias Jung, DL9MJ
 % Year: 2020
 \begin{circuitikz}
-    \draw (0,0) to [TL, l={Koaxialkabel~~~}, bipoles/tline/width=1.75, name={foo}] ++(3.1,0) coordinate(tlend);
+    \draw (0,0) to [TL, l={Câble coaxial~~~}, bipoles/tline/width=1.75, name={foo}] ++(3.1,0) coordinate(tlend);
     \draw [ultra thick] (tlend) to [short, *-, l={Radiateur}] ++(0,3);
     \draw (foo.bottom right) to [short, *-] ++(0,0) node[ground]{};
 \end{circuitikz}

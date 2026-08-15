@@ -1,0 +1,135 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2026
+\begin{tikzpicture}
+    \begin{scope}
+        \begin{axis}[
+            axis lines=center,
+            axis line style={-Triangle},
+            scale only axis,
+            axis on top,
+            height=2.2cm,
+            width=\linewidth*\getDarcImageFactor,
+            xmin=0,
+            xmax=24*pi,
+            ymin=-1.15,
+            ymax=1.45,
+            ticks=none,
+            xlabel={$t$},
+            xlabel style={anchor=north},
+            ylabel={$U$},
+            ylabel style={anchor=east},
+            clip=false,
+        ]
+
+        % Input signal: f = 1.1 kHz
+        % 2*pi on the x-axis corresponds to 1 ms
+        \addplot[
+            smooth,
+            mark=none,
+            DARCblue,
+            thick,
+            domain=0:24*pi,
+            samples=1800
+        ]
+        {0.8*sin(deg(1.1*x))};
+
+        % Gate boundaries: T_G = 1 ms
+        \draw[dashed, thick]
+            (axis cs:8.5*pi,-1.0)
+            -- (axis cs:8.5*pi,1.15);
+
+        \draw[dashed, thick]
+            (axis cs:10.5*pi,-1.0)
+            -- (axis cs:10.5*pi,1.15);
+
+        % Gate-time arrow
+        \draw[Triangle-Triangle, thick]
+            (axis cs:8.5*pi,1.18)
+            -- node[above] {Temps de porte court $T_\mathrm{G}=\qty{1}{\milli\second}$}
+            (axis cs:10.5*pi,1.18);
+
+        % Counted positive zero crossing
+        \foreach \k in {5}{
+            \addplot[
+                only marks,
+                mark=*,
+                mark size=1.8pt,
+                DARCblue
+            ]
+            coordinates {({20/11*\k*pi},0)};
+        }
+
+        \node[anchor=north]
+            at (axis cs:9.5*pi,-1.0)
+            {$N=1 \quad\Rightarrow\quad f_\mathrm{M}=\dfrac{N}{T_\mathrm{G}}=\qty{1}{\kilo\hertz}$};
+
+        \end{axis}
+    \end{scope}
+
+    \begin{scope}[
+        shift={(0,-3.4/\getDarcImageFactor)}
+    ]
+        \begin{axis}[
+            axis lines=center,
+            axis line style={-Triangle},
+            scale only axis,
+            axis on top,
+            height=2.2cm,
+            width=\linewidth*\getDarcImageFactor,
+            xmin=0,
+            xmax=24*pi,
+            ymin=-1.15,
+            ymax=1.45,
+            ticks=none,
+            xlabel={$t$},
+            xlabel style={anchor=north},
+            ylabel={$U$},
+            ylabel style={anchor=east},
+            clip=false,
+        ]
+
+        % Input signal: f = 1.1 kHz
+        % 2*pi on the x-axis corresponds to 1 ms
+        \addplot[
+            smooth,
+            mark=none,
+            DARCblue,
+            thick,
+            domain=0:24*pi,
+            samples=1800
+        ]
+        {0.8*sin(deg(1.1*x))};
+
+        % Gate boundaries: T_G = 10 ms
+        \draw[dashed, thick]
+            (axis cs:1*pi,-1.0)
+            -- (axis cs:1*pi,1.15);
+
+        \draw[dashed, thick]
+            (axis cs:21*pi,-1.0)
+            -- (axis cs:21*pi,1.15);
+
+        % Gate-time arrow
+        \draw[Triangle-Triangle, thick]
+            (axis cs:1*pi,1.18)
+            -- node[above] {Temps de porte long $T_\mathrm{G}=\qty{10}{\milli\second}$}
+            (axis cs:21*pi,1.18);
+
+        % Counted positive zero crossings
+        \foreach \k in {1,...,11}{
+            \addplot[
+                only marks,
+                mark=*,
+                mark size=1.8pt,
+                DARCblue
+            ]
+            coordinates {({20/11*\k*pi},0)};
+        }
+
+        \node[anchor=north]
+            at (axis cs:11*pi,-1.0)
+            {$N=11 \quad\Rightarrow\quad f_\mathrm{M}=\dfrac{N}{T_\mathrm{G}}=\qty{1,1}{\kilo\hertz}$};
+
+        \end{axis}
+    \end{scope}
+\end{tikzpicture}

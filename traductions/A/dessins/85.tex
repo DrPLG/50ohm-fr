@@ -36,12 +36,12 @@
         to [short] ++(+0.25,-0.25)
         to [piezoelectric,/tikz/circuitikz/bipoles/length=0.7cm, >] ++(0,-0.5)
         node [rground](){};
-    \draw(bp1.north) node[anchor=south](){1.\,Filter};
+    \draw(bp1.north) node[anchor=south](){1\textsuperscript{er}\,filtre};
     \draw(bp1.south) node[anchor=north](){\qty{436}-\qty{440}{\mega\hertz}};
     \draw(amp.north) node[anchor=south](){HF};
     \draw(ap1.west)  node[anchor=east](){CO};
     \draw(mix.north) node[anchor=south](){Mélangeur};
-    \draw(bp2.north) node[anchor=south](){2.\,Filter};
+    \draw(bp2.north) node[anchor=south](){2\textsuperscript{e}\,filtre};
     \draw(bp2.south) node[anchor=north](){\qty{28}-\qty{30}{\mega\hertz}};
     \draw(h1.center) node[anchor=east](){$f_\mathrm{OSZ}$};
 \end{circuitikz}

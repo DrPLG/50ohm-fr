@@ -1,5 +1,42 @@
 # Notes de session — classe E, chapitres 1–16 (v0.6)
 
+## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
+
+Génération : 103/103 sections, 463 questions, 72 dessins francisés,
+6 encarts « En France ». **214 pages**, 3,14 Mo après Ghostscript.
+
+Contrôles du §4 : tous conformes (0 · 0 · 0 · 0), 0 erreur LaTeX,
+**1 référence « ?? »** (défaut amont connu, `e_ssb_am_modulation`),
+0 question séparée de ses réponses.
+Clamps : 288 figures, 5 tableaux, 3 formules — **identiques au 14/08**.
+
+### Dessins traités — 23 fichiers
+
+**4 forks portaient encore de l'allemand**, donc visibles dans le PDF a.2
+livré : 411 (`ylabel=Wert`), 439 (`Kabel 1`/`Kabel 2`), 997 (`Distanz [km]`,
+dans un pgfplots de 16 947 lignes), 1010 (`Temps [Stunden]`).
+
+**19 dessins forkés pour la première fois.** Les plus parlants : 866
+(`Langwelle`/`Mittelwelle` → ondes longues / ondes moyennes, et quatre `ca.` →
+`env.`), 903 (`Eingangssignal`, `Frequenzgemisch` → mélange de fréquences), 96
+(`Digitale Signalverarbeitung` → traitement numérique du signal, sur deux nœuds
+séparés), 1008 (`Oberwellen`), 1055 (`1./2. Mischer`), 590 (`Mischer`,
+`Demodulator`), 354 et 355, 650 (`mech.` → `méc.`), 745, 311, et les huit
+dessins de puissance 250–259 · 592 · 594 (`Leistung`).
+
+**666 : « CCathode »** — même défaut qu'en classe N, corrigé de même. Voir
+`docs/defauts-amont.md` §5.
+
+### Le fork de 16 947 lignes pour un mot
+
+Le dessin 997 avait été forké le 14/08 pour traduire « Höhe » seul ; son axe
+des abscisses portait encore `Distanz [km]` à côté d'un axe `Hauteur [km]`.
+C'est l'illustration la plus nette du coût du fork consigné au §4 de
+`docs/ANALYSE-DESSINS.md` : le fichier est énorme, la correction tient en un
+mot, et rien n'avait signalé l'incohérence.
+
+---
+
 ## SESSION 14/08/2026 — version a.2 (build_book.py v0.18)
 
 Génération : 103/103 sections, 463 questions traduites, 42 dessins francisés,

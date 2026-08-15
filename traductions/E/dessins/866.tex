@@ -1,0 +1,13 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+\begin{tikzpicture}
+    % Earth:
+    \draw[ultra thick] (115:3) arc (115:65:3);
+    %
+    \draw(110:3) node[antenna, scale=0.625*\getDarcImageFactor, rotate=+20](){};
+    \def\fuddel{0.085}
+    \draw[DARCblue,   thick, -Triangle] (110:3+1*\fuddel*\getDarcImageFactor) arc (110:70.00:3+1*\fuddel*\getDarcImageFactor) node[anchor=west](){Ondes longues (env.~\qty{1000}{\kilo\metre})};
+    \draw[DARCgreen,  thick, -Triangle] (110:3+2*\fuddel*\getDarcImageFactor) arc (110:100.0:3+3*\fuddel*\getDarcImageFactor) node[anchor=west](){Ondes moyennes, \qty{160}{\metre} (env. \qty{200}{\kilo\metre})};
+    \draw[DARCorange, thick, -Triangle] (110:3+3*\fuddel*\getDarcImageFactor) arc (110:102.0:3+4*\fuddel*\getDarcImageFactor) node[anchor=west](){\qty{80}{\metre} (env. \qty{100}{\kilo\metre})};
+    \draw[DARCred,    thick, -Triangle] (110:3+4*\fuddel*\getDarcImageFactor) arc (110:107.0:3+5*\fuddel*\getDarcImageFactor) node[anchor=south west](){\qty{10}{\metre} (env. \qty{20}{\kilo\metre})};
+\end{tikzpicture}
