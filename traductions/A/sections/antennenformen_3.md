@@ -16,7 +16,7 @@ Une possibilité d'adaptation est le circuit de Fuchs déjà évoqué (cf. figur
 
 ---
 
-Une autre possibilité est un transformateur (cf. figure [ref:a_unun_1_49]) ayant un rapport de transformation de $ü = 1:7$. Comme la tension aussi bien que le courant sont multipliés ou divisés par le facteur $\num{7}$, il en résulte pour la résistance une transformation de $1:7^2 = 1:49$, soit $(1 \cdot \qty{50}{\ohm}) : (49 \cdot \qty{50}{\ohm}) = \qty{50}{\ohm} : \qty{2450}{\ohm}$.
+Une autre possibilité est un transformateur (cf. figure [ref:a_unun_1_49]) ayant un rapport de transformation de $m = 1:7$. Comme la tension aussi bien que le courant sont multipliés ou divisés par le facteur $\num{7}$, il en résulte pour la résistance une transformation de $1:7^2 = 1:49$, soit $(1 \cdot \qty{50}{\ohm}) : (49 \cdot \qty{50}{\ohm}) = \qty{50}{\ohm} : \qty{2450}{\ohm}$.
 
 <margin>
 [photo:332:a_unun_1_49:Unun de rapport 1 à 49 pour l'adaptation d'une antenne demi-onde alimentée en extrémité]
@@ -25,7 +25,7 @@ Une autre possibilité est un transformateur (cf. figure [ref:a_unun_1_49]) ayan
 </margin>
 
 <attention>
-Pour ce qui est de la *transformation d'impédance* (transformation de la résistance), le rapport de spires d'un transformateur intervient au carré, c'est-à-dire qu'un transformateur ayant un rapport de spires de 1:7 assure une transformation d'impédance de 1:49. Pour les baluns et les ununs, il n'est souvent pas précisé s'il s'agit du rapport de spires ou du rapport d'impédances. Il y a donc un risque de confusion. L'usage est d'indiquer le rapport d'impédances. Pour un transformateur ayant un rapport de spires ($ü$) de 1:7, on parle alors p. ex. d'un unun 1:49.
+Pour ce qui est de la *transformation d'impédance* (transformation de la résistance), le rapport de spires d'un transformateur intervient au carré, c'est-à-dire qu'un transformateur ayant un rapport de spires de 1:7 assure une transformation d'impédance de 1:49. Pour les baluns et les ununs, il n'est souvent pas précisé s'il s'agit du rapport de spires ou du rapport d'impédances. Il y a donc un risque de confusion. L'usage est d'indiquer le rapport d'impédances. Pour un transformateur ayant un rapport de spires ($m$) de 1:7, on parle alors p. ex. d'un unun 1:49.
 </attention>
 
 Comme contrepoids, on utilise souvent un court brin de fil (au moins un vingtième de la longueur d'onde), cf. figure [ref:a_endspeisung_1], ou une partie de la ligne coaxiale d'alimentation (au moins $\qty{0.05}{\lambda}$), cf. figure [ref:a_endspeisung_2]. Un bloqueur d'ondes de gaine (en abrégé MWS) empêche que la suite du câble d'alimentation ne devienne une partie de l'antenne.

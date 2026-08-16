@@ -38,6 +38,122 @@ Ce sont les **compteurs de clamp, rigoureusement identiques au 14/08**, qui ont
 plaint pas de l'absence de pièces liminaires ; seul `compiler.bat` passe les
 deux options. **Lancer `build_book.py` à la main impose de les passer aussi.**
 
+### Feuille d'arbitrage nº 4 — relecture de la classe E (15/08/2026, soir)
+
+Dix points relevés par Pierre sur le livre E dans `Préparation_Version_a.2.txt`.
+Tous reproduits, leur cause mesurée, et leurs équivalents cherchés en N et A.
+**Deux points sur dix seulement étaient des réglages de classe** ; ce sont eux
+qui ont imposé la recompilation des trois livres.
+
+| décision | objet |
+| --- | --- |
+| **A4** | espace avant `!` et `?` — **rien changé**. Mesuré : babel donne 0,5 unité avant `; ! ?` et 1,0 avant `:`, ce qui EST la règle de l'Imprimerie nationale. Ce n'était pas un bogue |
+| **B1** | nombres gras dans les énoncés — `build_book.py` v0.19 |
+| **C1b** | dessin 942, libellés sur deux lignes |
+| **C2b** | dessins 911 et 96, texte sur trois lignes, boîte élargie |
+| **C3a** | dessin 666, « Anode » et « Cathode » en entier |
+| **C4** | dessins 434-437, français fautif corrigé puis libellés ancrés à l'est |
+| **D1** | `spannungsteiler_1`, point parasite retiré ; les 42 absences de point devant une formule restent, usage allemand |
+| **E** | abréviation « OW » conservée, les légendes françaises l'emploient déjà |
+
+### Le vrai diagnostic de B1 n'était pas celui de la feuille
+
+La feuille proposait de « passer les énoncés en version mathématique grasse ».
+En ouvrant le `.sty` amont, il s'est avéré que **le DARC le demande déjà** :
+`\newkomafont{questiontext}{\bfseries\boldmath}`. Le fautif n'était pas la
+définition de la question mais la **configuration des polices** —
+`settings.tex` charge `unicode-math` sans jamais déclarer de version
+mathématique grasse, si bien que `\boldmath` restait sans effet **et sans le
+moindre avertissement**.
+
+Le défaut touchait **418 énoncés** : N 102, E 122, A 194, soit un sur quatre.
+Correctif en une ligne, vérifié sur document réduit puis dans le livre.
+
+### Deux défauts trouvés en cherchant les équivalents en N et A
+
+1. **Dessins 436 et 437 (classe A)** : le livre affichait « 1/2 **le Longueur**
+   d'onde » et « **le Fréquence** perturbatrice ». Substitution mot à mot du
+   14/08, `der` rendu par « le » sans accord ni minuscule. Pierre ne l'avait pas
+   signalé.
+2. **Le chevauchement du texte sur le circuit**, dans les quatre réponses
+   illustrées de la question AF223. Il préexistait, un peu moins marqué ; la
+   correction grammaticale, plus longue, l'a rendu criant. Corrigé en ancrant
+   les libellés à l'est : le texte croît vers la gauche et ne peut plus
+   atteindre le schéma, quelle que soit sa longueur.
+
+### Ce que cette relecture a appris sur mes propres contrôles
+
+**Mon audit du matin cherchait de l'ALLEMAND résiduel.** Les libellés « le
+Longueur d'onde » n'en contiennent aucun : ils sont en français fautif, et
+passaient donc au travers. Une seconde sonde, écrite après coup, cherche un
+article français suivi d'un nom commun à majuscule ; elle sort 4 cas, tous en
+classe A.
+
+**Trois fois dans la journée, une conclusion tirée du SOURCE s'est révélée
+fausse à l'écran** : le `rc=0` de `sonde_dessins.py` le matin, l'aide-mémoire du
+dessin 666 qualifié à tort de défaut amont, et le chevauchement de AF223 que
+l'extraction de texte ne montrait pas — `pdftotext` n'extrait rien de ces
+quatre figures. La seule vérification qui tranche est **la page ouverte**.
+
+### Résultats
+
+N 258 p. · E 214 p. · A 376 p., pagination inchangée. Contrôles du §4 conformes
+sur les trois, `??` à 0 · 1 · 3, aucune question coupée. Les pièces liminaires
+portent désormais « du traducteur ».
+
+### Édition combinée NEA — première compilation (15-16/08/2026)
+
+**806 pages**, 384 sections, 1 751 questions, 805 dessins distincts. Contrôles du
+§4 conformes du premier coup ; 4 références « ?? », soit les quatre orphelines
+amont cumulées. Les compteurs de clamp s'additionnent proprement (948 figures,
+10 tableaux, 7 formules) : aucun dessin n'est traité différemment en combiné.
+
+Durée : environ 1 h 15 pour cinq passes, contre 50 min pour la classe A seule.
+
+### Ordre des `--translations` : `A` d'abord
+
+Décision de Pierre : la version de la classe la plus avancée l'emporte. **La
+portée du choix a été mesurée avant de trancher, et elle est étroite :**
+
+- **une seule section** est traduite dans plusieurs classes — `N_Ende`
+  (« Conclusion du cours »), présente dans les trois. C'est du contenu
+  **français**, pas une traduction de l'amont : les trois versions renvoient
+  chacune à l'examen de leur classe. La version N dit « il n'existe pas de
+  premier échelon équivalent », la E « il n'existe pas d'échelons » et ajoute
+  trois points du programme français sans équivalent allemand ;
+- **20 dessins forkés** sont partagés entre classes, mais **tous identiques au
+  contenu**. Deux d'entre eux, 354 et 935, sont sortis « différents » d'une
+  comparaison par empreinte : ils ne diffèrent en réalité que par leurs fins de
+  ligne, CRLF contre LF. L'ordre n'a donc aucun effet sur les dessins.
+
+Un document de comparaison des trois versions de `N_Ende` a été produit pour
+la décision, chaque version sur sa page avec sa classe en titre courant.
+
+### `vorwort` n'est pas dans le NEA
+
+La section est traduite (`traductions/N/sections/vorwort.md`) et figure dans le
+livre N, mais le sommaire amont du NEA ne l'appelle pas : **l'édition combinée
+perd l'avant-propos allemand**. C'est ce qui explique l'écart de comptage — 385
+idents distincts traduits pour 384 sections composées — et c'est aussi
+l'origine de l'avertissement « clé *vorwort* n'est pas un ident connu » émis
+par `titles.json` à chaque compilation NEA.
+
+### Filigrane de la page de titre — `build_book.py` v0.20
+
+Relevé par Pierre : dans le bandeau de droite, « NEA » à plat est illisible. La
+mesure sur épreuve a montré pire que « trop étroit » — **le N mordait sur la
+zone blanche à gauche et le A était coupé au bord droit de la page**, alors même
+que la v0.9 avait déjà réduit le corps à 105 pt.
+
+L'ancien gabarit ne pouvait faire varier que le corps et le texte, jamais
+l'ancrage ni la position : il était structurellement incapable de loger trois
+lettres. Le nœud entier est désormais construit côté Python.
+
+Trois dispositions ont été composées et comparées sur épreuve — à plat, pivotée
+à 90°, empilée. **Pierre a retenu l'empilement** : une lettre par ligne, 150 pt,
+centrées sur l'axe du bandeau et calées en haut. Chaque lettre reste lisible à
+l'endroit. Une lettre seule ne change pas.
+
 ---
 
 

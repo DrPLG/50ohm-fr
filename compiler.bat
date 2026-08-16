@@ -92,17 +92,22 @@ REM aucune classe en particulier. Elles s'appelaient avant-propos-N.md et
 REM remerciements-N.md, ce qui laissait croire a des pieces propres a la classe
 REM N alors que compiler.bat les imposait deja aux trois. Renommees sans
 REM suffixe le 14/08/2026 (B5). Ne pas les deriver de %CLASSE%, sinon E et A
-REM sortent sans pieces liminaires.
+REM sortent sans pieces liminaires. Constate le 15/08/2026 : build_book.py NE SE
+REM PLAINT PAS de leur absence, et les livres perdent quatre pages sans un mot.
+REM Lancer build_book.py a la main impose donc de passer --front-matter soi-meme.
+REM
+REM Titres arretes le 15/08/2026 : « du traducteur » distingue ces deux pieces,
+REM qui sont de Pierre, des textes du DARC qui composent le reste du livre.
 REM set sans guillemets englobants : la valeur contient elle-meme des
 REM guillemets, que "set "VAR=..."" avalerait.
 set "FRONTMATTER="
 if exist "avant-propos.md" (
-    set FRONTMATTER=--front-matter "Avant-propos=avant-propos.md"
+    set FRONTMATTER=--front-matter "Avant-propos du traducteur=avant-propos.md"
 ) else (
     echo ATTENTION : avant-propos.md introuvable, le livre sortira sans.
 )
 if exist "remerciements.md" (
-    set FRONTMATTER=!FRONTMATTER! --front-matter "Remerciements=remerciements.md"
+    set FRONTMATTER=!FRONTMATTER! --front-matter "Remerciements du traducteur=remerciements.md"
 ) else (
     echo ATTENTION : remerciements.md introuvable, le livre sortira sans.
 )

@@ -34,7 +34,7 @@ Pour les antennes parfaitement symétriques, on peut employer ce que l'on appell
 
 % TODO: Bild Spannungsbalun / Spartransformator
 
-Avec cette forme de construction, on obtient, outre la symétrisation recherchée, un doublement de la tension ($ü = 2$) ainsi qu'une division par deux du courant, ce qui correspond à une transformation d'impédance 1:4 ; autrement dit, il convient de raccorder à un câble coaxial de $\qty{50}{\ohm}$ une antenne présentant, autant que possible, une résistance d'alimentation de $\qty{200}{\ohm}$.
+Avec cette forme de construction, on obtient, outre la symétrisation recherchée, un doublement de la tension ($m = 2$) ainsi qu'une division par deux du courant, ce qui correspond à une transformation d'impédance 1:4 ; autrement dit, il convient de raccorder à un câble coaxial de $\qty{50}{\ohm}$ une antenne présentant, autant que possible, une résistance d'alimentation de $\qty{200}{\ohm}$.
 
 [question:AG421]
 [question:AG422]

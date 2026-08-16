@@ -9,7 +9,7 @@ On trouve un diviseur de tension important, par exemple, à la base d'un transis
 On parle alors du diviseur de tension de base. Nous examinerons cela de plus près dans le chapitre sur les amplificateurs.
 </indepth>
 
-Cette relation peut être représentée par différentes formules, que nous trouvons dans le formulaire. :
+Cette relation peut être représentée par différentes formules, que nous trouvons dans le formulaire :
 
 $\frac{U_{1}}{U_{2}} = \frac{R_{1}}{R_{2}}$
 

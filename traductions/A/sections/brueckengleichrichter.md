@@ -35,7 +35,7 @@ Avec le redresseur en pont également, le condensateur se charge à la tension d
 
 $\hat{U}=U_{\mathrm{eff}}\cdot\sqrt{2}$
 
-Nous devons en outre vérifier si le transformateur présente un rapport de transformation $ü$. Fort de ces connaissances, nous pouvons résoudre l'exercice suivant.
+Nous devons en outre vérifier si le transformateur présente un rapport de transformation $m$. Fort de ces connaissances, nous pouvons résoudre l'exercice suivant.
 
 [question:AD306]
 

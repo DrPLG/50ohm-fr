@@ -15,7 +15,48 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.18
+Version du script : v0.20
+    v0.20 — Page de titre des éditions combinées : filigrane EMPILÉ.
+
+            Le bandeau de droite fait 0,34 de la largeur du papier, soit 71 mm
+            en A4. La v0.9 réduisait le corps du filigrane à mesure que le
+            nombre de lettres augmentait — 220 pt pour une, 150 pour deux,
+            105 pour trois. Mesuré sur épreuve par Pierre : « NEA » à 105 pt
+            débordait ENCORE, le N mordant sur la zone blanche à gauche et le A
+            se faisant couper au bord droit de la page.
+
+            Dès deux lettres, elles sont désormais empilées une par ligne,
+            centrées sur l'axe du bandeau et calées en haut. Chaque lettre
+            garde un corps de 150 pt et reste lisible à l'endroit. Une lettre
+            seule ne change pas : 220 pt, à sa place d'origine.
+
+            Trois dispositions ont été composées et comparées sur épreuve —
+            à plat, pivotée à 90°, empilée — avant la décision.
+
+    v0.19 — Version a.2, feuille d'arbitrage nº 4 (B1). Une seule ligne, mais
+            elle répare un défaut qui touchait UN ÉNONCÉ SUR QUATRE.
+
+            L'amont demande déjà le gras mathématique pour les énoncés de
+            question (\\newkomafont{questiontext}{\\bfseries\\boldmath}). Mais
+            settings.tex charge unicode-math sans déclarer de version
+            mathématique grasse : sous unicode-math, \\boldmath est alors sans
+            effet, et SANS AUCUN AVERTISSEMENT. Tout nombre composé en mode
+            mathématique restait donc maigre au milieu d'un énoncé gras.
+
+            Le parseur amont rendant « 230 V » par « $230$\\,V », le défaut
+            touchait 418 énoncés — N 102, E 122, A 194. Relevé par Pierre sur
+            trois questions du livre E, puis compté sur les trois classes.
+
+            Correctif : \\setmathfont[version=bold, FakeBold=2]{Libertinus Math}
+            après \\input{settings.tex}. Libertinus Math n'ayant pas de fonte
+            grasse compagne, le gras est synthétique.
+
+            *Piège rencontré :* le premier diagnostic visait la définition de
+            \\Question. Elle était hors de cause — l'amont fait déjà ce qu'il
+            faut, et c'est la CONFIGURATION DES POLICES qui rendait sa demande
+            inopérante. Vérifié sur document réduit : sans la ligne le nombre
+            reste maigre, avec elle il suit l'énoncé.
+
     v0.18 — Version a.2, feuille d'arbitrage nº 2 (B1, B6). Suite directe de la
             v0.17 : une fois les 950 figures des trois livres ramenées dans leur
             gabarit par le clamp d'images, il restait 180 débordements
@@ -755,6 +796,31 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \input{settings.tex}
 
 % ---------------------------------------------------------------------------
+% v0.19 (B1) — Nombres gras dans les énoncés de question.
+%
+% L'amont demande DÉJÀ le gras mathématique pour la police des énoncés :
+%     \newkomafont{questiontext}{\bfseries\boldmath}
+% (DARC-ausbildungsmaterialien.sty, l. 42). Mais settings.tex charge
+% unicode-math avec \setmathfont{Libertinus Math} et ne déclare AUCUNE version
+% mathématique grasse. Sous unicode-math, \boldmath est alors sans effet, et
+% sans le moindre avertissement.
+%
+% Conséquence mesurée : tout nombre composé en mode mathématique restait maigre
+% au milieu d'un énoncé gras. Le parseur amont produit « $230$\,V » pour
+% « 230 V », si bien que 418 énoncés étaient concernés — N 102, E 122, A 194,
+% soit un sur quatre. Relevé par Pierre sur les questions EJ109, EJ116 et
+% EJ119 du livre E, puis compté sur les trois classes.
+%
+% Libertinus Math n'a pas de fonte grasse compagne : le gras est donc
+% SYNTHÉTIQUE (FakeBold). Vérifié sur document réduit avant application — sans
+% cette ligne le nombre reste maigre, avec elle il suit le gras de l'énoncé.
+%
+% Placé après \input{settings.tex} : unicode-math doit être chargé et la police
+% mathématique normale déjà fixée.
+% ---------------------------------------------------------------------------
+\setmathfont[version=bold, FakeBold=2]{Libertinus Math}
+
+% ---------------------------------------------------------------------------
 % v0.17 (A3) — Remplissage vertical.
 %
 % La classe amont FiftyOhm.cls fait \raggedbottom ; cette classe-ci ne l'avait
@@ -1136,9 +1202,10 @@ MASTER_HEADER_FR = r"""\documentclass{FiftyOhmBook}
 	% Filet d'accent à la jonction des deux zones
 	\fill[TitleAccent] ($(current page.north east)+(-0.34\paperwidth,0)$)
 		rectangle ($(current page.south east)+(-0.345\paperwidth,0)$);
-	% Lettre de classe, énorme, en réserve claire dans le bandeau
-	\node[anchor=east, text=white!22, font=\fontsize{@CLASSSIZE@}{@CLASSSIZE@}\selectfont\bfseries]
-		at ($(current page.east)+(-0.02\paperwidth,3.5cm)$) {@CLASS@};
+	% Lettre(s) de classe, énorme(s), en réserve claire dans le bandeau.
+	% Le nœud entier est construit côté Python : une lettre seule se pose à
+	% l'horizontale, plusieurs s'empilent (cf. v0.20).
+	@WATERMARK@
 	% Bloc-titre dans la zone claire (2/3 gauche)
 	\node[anchor=west, align=left, text width=0.55\paperwidth]
 		at ($(current page.west)+(0.09\paperwidth,4.2cm)$)
@@ -1733,10 +1800,35 @@ def main():
         title = FR_TITLES[args.edition]
         header = MASTER_HEADER_FR.replace("@TITLE@", title)
         lettres = FR_CLASS_LETTER[args.edition]
-        # Le filigrane est calibré pour UNE lettre. « NE » ou « NEA » à 220 pt
-        # déborderait de la page : on réduit le corps à mesure.
-        header = header.replace("@CLASS@", lettres)
-        header = header.replace("@CLASSSIZE@", {1: "220", 2: "150"}.get(len(lettres), "105"))
+        # v0.20 — Filigrane de la page de titre : EMPILÉ dès deux lettres.
+        #
+        # Le bandeau de droite fait 0,34 de la largeur du papier, soit 71 mm en
+        # A4. Une lettre seule y tient à 220 pt. Réduire le corps à mesure —
+        # ce que faisait la v0.9 — ne suffisait pas : mesuré sur épreuve,
+        # « NEA » à 105 pt débordait ENCORE, le N mordant sur la zone blanche
+        # à gauche et le A se faisant couper au bord droit de la page.
+        #
+        # Les lettres sont donc empilées, une par ligne, centrées sur l'axe du
+        # bandeau (-0,17 de la largeur depuis le bord droit) et calées en haut.
+        # Chaque lettre reste lisible à l'endroit et garde un corps de 150 pt,
+        # au lieu des 105 pt illisibles de l'ancienne mise à plat.
+        #
+        # Décision de Pierre du 15/08/2026, sur épreuve : trois dispositions
+        # ont été composées et comparées (à plat, pivotée à 90°, empilée).
+        if len(lettres) == 1:
+            watermark = (
+                r"\node[anchor=east, text=white!22, "
+                r"font=\fontsize{220}{220}\selectfont\bfseries]" "\n"
+                r"		at ($(current page.east)+(-0.02\paperwidth,3.5cm)$) "
+                f"{{{lettres}}};")
+        else:
+            empilees = r"\\".join(lettres)
+            watermark = (
+                r"\node[anchor=north, align=center, text=white!22, "
+                r"font=\fontsize{150}{140}\selectfont\bfseries]" "\n"
+                r"		at ($(current page.north east)+(-0.17\paperwidth,-1.5cm)$) "
+                f"{{{empilees}}};")
+        header = header.replace("@WATERMARK@", watermark)
         header = header.replace("@VERSION@", args.version_label)
         master = [header]
     else:

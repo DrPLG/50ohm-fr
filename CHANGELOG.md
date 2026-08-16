@@ -152,12 +152,107 @@ retouches ponctuelles.
   d'aucune langue, **depuis la a.1**, sans que la relecture l'ait relevé. Le
   libellé amont tronqué qui l'a rendu possible est consigné en défaut amont
   (`docs/defauts-amont.md` §5).
+- **Le symbole `ü` du rapport de transformation remplacé par `m`** — 18
+  occurrences dans 5 sections (A : `uebertrager_2` 10, `antennenformen_3` 2,
+  `brueckengleichrichter` 1, `mantelwellen_2` 1 · E : `uebertrager_1` 4).
+  Un `ü` **nu** en mode mathématique est composé dans l'italique mathématique,
+  qui n'a pas le glyphe : il **disparaissait du PDF** sans erreur de
+  compilation. Mesuré au journal — `Missing character U+00FC` sortait 17 fois
+  en classe A et 5 fois en E. Le cas le plus grave n'était pas celui qui avait
+  été relevé en a.1 : dans `uebertrager_2`, **la formule centrale du chapitre
+  sur les transformateurs s'imprimait sans son membre de gauche**, et
+  `antennenformen_3` donnait « un rapport de spires **()** de 1:7 ».
+  Dérogation à la règle « formules `$…$` verbatim » assumée par Pierre, et
+  cohérente avec la décision du même jour sur les dessins 260, 303 et 315 : sans
+  elle, les figures auraient dit « m » et le texte rien. Le remplacement n'a eu
+  lieu que dans les spans `$…$` — le commentaire allemand `prüfen` et l'ident
+  de photo `Brückengleichrichter` sont intacts. Détail dans
+  `docs/defauts-amont.md` §2.
 - **`$\text{Ordnung}=m+n$` → `$\text{Ordre}=m+n$`** validé, et la légende
   « 3. Ordnung » du dessin 1096 traduite en « ordre 3 ». La décision, en
   suspens au §9 depuis plusieurs sessions, est close ; la dérogation à la règle
   « math verbatim » est assumée.
 
+- **Relecture de la classe E, feuille d'arbitrage nº 4** (15/08/2026). Dix points
+  relevés par Pierre sur le livre E, tous reproduits et leur cause mesurée, puis
+  cherchés systématiquement en N et A.
+  - **Nombres gras dans les énoncés** (v0.19, ci-dessous). Deux réglages
+    seulement sur les dix touchaient les trois livres ; c'est le principal.
+  - **Dessin 942** : « Bobine à noyau de ferrite » (25 caractères contre 20 à
+    « Spule mit Ferritkern ») faisait se toucher les libellés voisins. Passés
+    sur deux lignes.
+  - **Dessins 911 et 96** : « Traitement numérique du signal » sortait de son
+    encadrement, dont la largeur est fixée. Texte sur trois lignes en un seul
+    nœud centré, boîte élargie. *Première tentative écartée* : deux nœuds
+    ancrés au nord et au sud se chevauchaient, la boîte n'ayant pas la hauteur
+    de trois lignes — vu à l'image, la compilation sortant en `rc=0`.
+  - **Dessin 666** : « Anode » et « Cathode » écrits en entier. Le dessin porte
+    un aide-mémoire où les tracés rouge et bleu forment un **A** et un **K** que
+    le texte complète (*A*+*node*, *K*+*athode*). Le procédé ne survit pas au
+    français, *Cathode* ne commençant pas par K.
+  - **Dessins 434 à 437** (classe A, défaut non signalé, trouvé en cherchant les
+    équivalents) : le livre affichait « 1/2 **le Longueur** d'onde » et « **le
+    Fréquence** perturbatrice », l'amont « 1/2 der Wellenlänge / der
+    Störfrequenz » ayant subi la substitution mot à mot du 14/08. Corrigé, puis
+    **les libellés ancrés à l'est** : le français, plus long que l'allemand,
+    chevauchait le circuit. Le texte croît désormais vers la gauche et ne peut
+    plus l'atteindre.
+  - **`spannungsteiler_1`** : point parasite avant un deux-points, reproduit de
+    l'amont (`Formelsammlung finden.:`). Corrigé côté français.
+  - **Préservés sur décision de Pierre** : l'espace fine avant `!` et `?`
+    (babel applique la règle de l'Imprimerie nationale — 0,5 unité contre 1,0
+    avant `:` ; ce n'est pas un bogue), l'absence de point devant les formules
+    hors texte (usage allemand constant, 16 cas en E et 26 en A), et
+    l'abréviation « OW » d'*Oberwellen*, que les légendes françaises emploient
+    déjà.
+  - **Une entrée de `docs/defauts-amont.md` rétractée** : le §5, écrit le matin
+    même, qualifiait à tort l'aide-mémoire du dessin 666 de « libellés
+    tronqués » et proposait de le signaler au DARC. Conclusion tirée du source
+    sans regarder la figure. L'entrée est conservée sous forme rétractée.
+
+- **Édition combinée NEA compilée pour la première fois** (15/08/2026) :
+  **806 pages**, 384 sections, 1 751 questions, 805 dessins. Contrôles du §4
+  conformes du premier coup, 4 références « ?? » — les quatre orphelines amont
+  cumulées, rien de nouveau. Les compteurs de clamp cumulent proprement (948
+  figures, 10 tableaux, 7 formules), ce qui confirme qu'aucun dessin n'est
+  traité différemment en édition combinée.
+  - **Ordre des `--translations` arrêté : `A` en premier**, puis `E`, puis `N`.
+    La portée du choix est étroite et a été mesurée : **une seule section** est
+    traduite dans plusieurs classes, `N_Ende` (« Conclusion du cours »), du
+    contenu français dont les trois versions renvoient chacune à l'examen de
+    leur classe. Les **20 dessins forkés partagés sont identiques au contenu** —
+    deux d'entre eux ne diffèrent que par leurs fins de ligne, CRLF contre LF.
+  - **`vorwort` n'est pas dans le NEA.** La section est traduite et figure dans
+    le livre N, mais le sommaire amont du NEA ne l'appelle pas : l'édition
+    combinée perd l'avant-propos allemand. C'est aussi l'origine de
+    l'avertissement « clé *vorwort* n'est pas un ident connu » de `titles.json`.
+
 ### Modifié
+- **`build_book.py` v0.20 : filigrane de la page de titre empilé.** Le bandeau
+  de droite fait 0,34 de la largeur du papier, soit 71 mm en A4. La v0.9
+  réduisait le corps du filigrane à mesure — 220 pt pour une lettre, 150 pour
+  deux, 105 pour trois. **Mesuré sur épreuve : « NEA » à 105 pt débordait
+  encore**, le N mordant sur la zone blanche à gauche et le A se faisant couper
+  au bord droit. Dès deux lettres, elles sont désormais empilées une par ligne,
+  centrées sur l'axe du bandeau et calées en haut, à 150 pt — lisibles à
+  l'endroit, et sans débordement. Une lettre seule est inchangée.
+  L'ancien gabarit ne pouvait faire varier que le corps et le texte, jamais
+  l'ancrage ni la position : le nœud entier est maintenant construit côté
+  Python. Trois dispositions ont été composées et comparées sur épreuve — à
+  plat, pivotée à 90°, empilée — avant la décision de Pierre.
+- **`build_book.py` v0.19 : nombres gras dans les énoncés de question.** Une
+  ligne, pour un défaut qui touchait **418 énoncés** — N 102, E 122, A 194, soit
+  un sur quatre. Le parseur amont rend « 230 V » par « `$230$\,V` », et le mode
+  mathématique n'hérite pas du gras du texte.
+  Le diagnostic a d'abord visé la définition de `\Question` ; elle était hors de
+  cause. **L'amont demande déjà le gras mathématique**
+  (`\newkomafont{questiontext}{\bfseries\boldmath}`), mais `settings.tex` charge
+  `unicode-math` sans déclarer de version mathématique grasse : `\boldmath` est
+  alors sans effet, **et sans le moindre avertissement**. Correctif :
+  `\setmathfont[version=bold, FakeBold=2]{Libertinus Math}` après
+  `\input{settings.tex}` — Libertinus Math n'ayant pas de fonte grasse compagne,
+  le gras est synthétique. Vérifié sur document réduit avant application, puis
+  dans le livre (question NA212, classe N).
 - **`sonde_dessins.py` v0.2** : la liste de mots reçoit les termes de la feuille
   d'arbitrage nº 3. « Signal », « Filter » et « Band » ont été essayés puis
   **retirés** — ils sont aussi français et produisaient du bruit ; « Tag » et

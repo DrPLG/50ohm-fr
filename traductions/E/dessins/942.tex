@@ -5,14 +5,14 @@
         to [american inductor, name=l1] ++(2,0)
         to [open] ++(1,0)
         to [american inductor, name=l2] ++(2,0); 
-    \draw(l1.south) node[anchor=north](){Bobine sans noyau};
-    \draw(l2.south) node[anchor=north](){Bobine à noyau de fer};
+    \draw(l1.south) node[anchor=north, align=center](){Bobine\\sans noyau};
+    \draw(l2.south) node[anchor=north, align=center](){Bobine\\à noyau de fer};
     \draw[thick] (l2.core west) -- (l2.core east);
     \draw(0,-1.0)
         to [american inductor, name=l3] ++(2,0)
         to [open] ++(1,0)
         to [variable american inductor, name=l4] ++(2,0); 
     \draw[thick,dashed] (l3.core west) -- (l3.core east);
-    \draw(l3.south) node[anchor=north](){Bobine à noyau de ferrite};
-    \draw(l4.south) node[anchor=north](){Bobine variable};
+    \draw(l3.south) node[anchor=north, align=center](){Bobine\\à noyau de ferrite};
+    \draw(l4.south) node[anchor=north, align=center](){Bobine\\variable};
 \end{circuitikz}

@@ -4,13 +4,13 @@ Le principe du transformateur repose sur un effet physique fondamental : l'induc
 
 [question:AC301]
 
-Dans la classe E, nous avons déjà rencontré la formule du rapport de transformation $ü$ :
+Dans la classe E, nous avons déjà rencontré la formule du rapport de transformation $m$ :
 
-$ü = \frac{N_P}{N_S} = \frac{U_P}{U_S}$
+$m = \frac{N_P}{N_S} = \frac{U_P}{U_S}$
 
 Pour les courants, la relation inverse s'applique :
 
-$ü = \frac{N_P}{N_S} = \frac{I_S}{I_P} = \frac{U_P}{U_S}$
+$m = \frac{N_P}{N_S} = \frac{I_S}{I_P} = \frac{U_P}{U_S}$
 
 Avec cette formule, qui se trouve aussi dans le recueil de formules, la prochaine question peut être résolue :
 
@@ -50,14 +50,14 @@ Un transformateur d'adaptation a donc pour tâche de convertir une impédance do
 
 ---
 
-Nous trouvons dans le recueil de formules la formule du rapport de transformation $ü$ :
+Nous trouvons dans le recueil de formules la formule du rapport de transformation $m$ :
 
-$ü = \sqrt{\frac{Z_p}{Z_s}} = \frac{N_p}{N_s} = \frac{U_p}{U_s}$
+$m = \sqrt{\frac{Z_p}{Z_s}} = \frac{N_p}{N_s} = \frac{U_p}{U_s}$
 
 En élevant au carré les membres de l'équation, on obtient : 
 
 
-$ü^2 = \frac {Z_p}{Z_s} = \left(\frac{N_p}{N_s}\right)^2 = \left(\frac{U_p}{U_s}\right)^2$
+$m^2 = \frac {Z_p}{Z_s} = \left(\frac{N_p}{N_s}\right)^2 = \left(\frac{U_p}{U_s}\right)^2$
 
 On y reconnaît que le rapport d'impédances est le carré du rapport de tensions et donc aussi le carré du rapport des nombres de spires. Ou, dit autrement, un rapport de spires donné conduit à un rapport d'impédances quadratiquement plus élevé.
 
@@ -69,13 +69,13 @@ Pour $U$, insérer la loi d'Ohm : $U = I \cdot R$ ;
 $R$ est remplacé par $Z$
 $(I_p \cdot Z_p) \cdot I_p = (I_s \cdot Z_s) \cdot I_s$
 Former le rapport d'impédances d'un côté :
-$ \frac{Z_p}{Z_s} = \frac{{I_s}^2}{{I_p}^2} = ü^2$
+$ \frac{Z_p}{Z_s} = \frac{{I_s}^2}{{I_p}^2} = m^2$
 Alternativement, pour $I$, insérer la loi d'Ohm :
 $I = \frac{U}{R}$
 $R$ est remplacé par $Z$
 $\frac{U_p}{Z_p} \cdot U_p  = \frac{U_s}{Z_s} \cdot U_s$
 Former le rapport d'impédances d'un côté :
-$ \frac{Z_p}{Z_s} = \frac{{U_p}^2}{{U_s}^2} = ü^2$
+$ \frac{Z_p}{Z_s} = \frac{{U_p}^2}{{U_s}^2} = m^2$
 </indepth>
 
 ---
@@ -86,7 +86,7 @@ Comme exemple, considérons une antenne alimentée en extrémité, que nous étu
 [picture:260:a_endgespeiste_antenne:Antenne alimentée en extrémité avec adaptation d'impédance par un transformateur]
 </margin>
 
-Pour la transformation d'impédance de $\qty{50}{\ohm}$ à $\qty{2450}{\ohm}$, le rapport est $Z_p:Z_s = \qty{50}{\ohm}:\qty{2450}{\ohm} = 1:49$. Cela signifie $ü^2 = 1:49$ et donc $ü=\sqrt{1}:\sqrt{49}=1:7$. Cela signifie que le côté primaire ne doit avoir qu'un septième des spires du côté secondaire pour que l'adaptation d'impédance réussisse, p. ex. $N_p=1$ et $N_s=7$. En pratique, on utilise habituellement un rapport de spires de $2:14$ (cf. figure [ref:a_unun]).
+Pour la transformation d'impédance de $\qty{50}{\ohm}$ à $\qty{2450}{\ohm}$, le rapport est $Z_p:Z_s = \qty{50}{\ohm}:\qty{2450}{\ohm} = 1:49$. Cela signifie $m^2 = 1:49$ et donc $m=\sqrt{1}:\sqrt{49}=1:7$. Cela signifie que le côté primaire ne doit avoir qu'un septième des spires du côté secondaire pour que l'adaptation d'impédance réussisse, p. ex. $N_p=1$ et $N_s=7$. En pratique, on utilise habituellement un rapport de spires de $2:14$ (cf. figure [ref:a_unun]).
 
 <margin>
 [photo:332:a_unun:Exemple de transformateur unun avec un rapport de spires de 2 à 14, les côtés primaire et secondaire étant bobinés ensemble en bifilaire (torsadés)]

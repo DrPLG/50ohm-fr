@@ -6,13 +6,11 @@
         to [twoportsplit, >, t1=A, t2=D] ++(2,0) coordinate(c1);
     \draw(c1)
         node [inputarrow](){}
-        node [twoportshape, circuitikz/bipoles/twoport/width=1.75, anchor=west](c2){};
+        node [twoportshape, circuitikz/bipoles/twoport/width=2.0, circuitikz/bipoles/twoport/height=1.5, anchor=west](c2){};
     \draw(c2.east)
         to [twoportsplit, >, t1=D, t2=A] ++(2,0) coordinate(c1)
         node [inputarrow](){}
         node [loudspeakershape, anchor=south, rotate=-90](){};
-    \draw(c2.north)
-        node[anchor=north](c4){\footnotesize Traitement numérique};
-    \draw(c2.south)
-       node[anchor=south](c5){\footnotesize du signal};
+    \draw(c2.center)
+        node[align=center](c4){\footnotesize Traitement\\numérique\\du signal};
 \end{circuitikz}

@@ -17,7 +17,7 @@ tension alternative plus basse, par exemple $\qty{13,8}{\volt}$. Un transformate
 
 Le rapport de transformation d'un transformateur s'exprime comme suit :
 
-$ü = \frac{N_P}{N_S} = \frac{U_P}{U_S}$
+$m = \frac{N_P}{N_S} = \frac{U_P}{U_S}$
 
 Le rapport des nombres de spires correspond donc au rapport des tensions. En transformant cette équation de base, on peut calculer aussi bien les tensions $U$ que les nombres de spires $N$ du côté primaire ou secondaire.
 
@@ -29,17 +29,17 @@ Ces relations valent pour le cas idéal d'un transformateur non chargé, c'est-�
 
 Nous calculons : 
 
-$\begin{align*}ü = \frac{15}{1} = 15 &= \frac{\qty{230}{\volt}}{U_S} &\quad\quad\quad &|~\cdot~U_S\\[1.5ex]15 \cdot U_S &= \qty{230}{\volt} &\quad\quad\quad &|~:~15\\[1.5ex]U_S &= \frac{\qty{230}{\volt}}{15} = \qty{15,33}{\volt}\end{align*}$
+$\begin{align*}m = \frac{15}{1} = 15 &= \frac{\qty{230}{\volt}}{U_S} &\quad\quad\quad &|~\cdot~U_S\\[1.5ex]15 \cdot U_S &= \qty{230}{\volt} &\quad\quad\quad &|~:~15\\[1.5ex]U_S &= \frac{\qty{230}{\volt}}{15} = \qty{15,33}{\volt}\end{align*}$
 
 [question:EC402]
 
 Nous constatons d'abord que $N_P = 5\cdot N_S$ et que $U_P = \qty{230}{\volt}$ sont donnés. On cherche de nouveau la tension $U_S$.
 
-$ü = \frac{5\cdot N_S}{N_S} = \frac{\qty{230}{\volt}}{U_S}$ 
+$m = \frac{5\cdot N_S}{N_S} = \frac{\qty{230}{\volt}}{U_S}$ 
 
 Les $N_S$ se simplifient, il ne reste donc que :
 
-$ü = 5 = \frac{\qty{230}{\volt}}{U_S}$ 
+$m = 5 = \frac{\qty{230}{\volt}}{U_S}$ 
 
 Nous multiplions les deux membres par $U_S$ et divisons les deux membres par 5.
 

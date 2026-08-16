@@ -68,8 +68,54 @@ font cmmi8!` et **le caractère disparaît du PDF** : le lecteur lit
 « rapport de transformation de = 1:7 ». Vérifié par extraction du texte du PDF
 compilé. Le livre allemand est touché à l'identique.
 
-**Côté français.** Formule préservée verbatim (§5 : « formules `$…$`
-verbatim »). Le défaut est donc reproduit tel quel.
+**Côté français.** ~~Formule préservée verbatim.~~ **Corrigé le 15/08/2026, sur
+décision de Pierre**, qui assume la dérogation à la règle « formules `$…$`
+verbatim » du §5.
+
+### L'ampleur réelle, mesurée le 15/08/2026
+
+Ce défaut ne touchait pas une section mais **cinq**, pour **18 occurrences** —
+comptées au journal de compilation, qui est ici la mesure la plus sûre :
+`Missing character: There is no ü (U+00FC)` sort **17 fois en classe A et 5 fois
+en classe E**.
+
+| section | classe | occurrences |
+| --- | --- | ---: |
+| `uebertrager_2` | A | 10 |
+| `uebertrager_1` | E | 4 |
+| `antennenformen_3` | A | 2 |
+| `brueckengleichrichter` | A | 1 |
+| `mantelwellen_2` | A | 1 |
+
+Le cas le plus grave n'était pas celui qui avait été relevé. Dans
+`uebertrager_2`, c'est **la formule centrale du chapitre sur les
+transformateurs** qui s'imprimait sans son membre de gauche :
+
+```
+Dans la classe E, nous avons déjà rencontré la formule du rapport de transformation :
+    𝑁𝑃   𝑈𝑃  ==
+    𝑁𝑆   𝑈𝑆
+```
+
+Et dans `antennenformen_3`, le texte donnait « un transformateur ayant un
+rapport de spires **()** de 1:7 » — deux parenthèses vides.
+
+### Ce qui a été fait
+
+Le symbole `ü` (pour *Übersetzungsverhältnis*) est remplacé par **`m`**,
+notation française du rapport de transformation. Le remplacement n'a eu lieu
+**que dans les spans `$…$`** : hors de là, les `ü` restent verbatim comme
+l'impose le §6 — un commentaire allemand (`% TODO: … prüfen`) et l'ident de
+photo `Brückengleichrichter` sont intacts, ce que le script vérifie avant
+d'écrire.
+
+La décision est cohérente avec celle prise le même jour sur les dessins 260,
+303 et 315, où le même symbole était composé en mode texte : il y survivait,
+mais aurait laissé un livre dont les figures disent « m » et le texte rien.
+
+**Le livre allemand reste affecté** — le `ü` y disparaît toujours, dans les
+cinq sections. À signaler au DARC : c'est le défaut de ce registre qui touche
+le plus de pages.
 
 **À noter** : c'est la démonstration du mécanisme derrière la règle du §6
 (« jamais d'accent dans `\mathrm{}` »), avec une frontière plus précise que
@@ -222,39 +268,31 @@ porte sur le générateur et non sur les contenus, et il se corrige en une ligne
 
 ---
 
-## 5. Libellés tronqués dans le dessin 666 — `gleichrichter_1`, `halbleiter`
+## 5. ~~Libellés tronqués dans le dessin 666~~ — ENTRÉE RETIRÉE
 
-**Constaté le 15/08/2026**, en corrigeant un défaut de francisation qui l'a
-révélé.
+**Écrite le 15/08/2026, retirée le même jour. Elle était fausse.**
 
-Le dessin 666 (classes N et E) légende les deux électrodes d'une diode. Deux
-de ses quatre libellés sont **tronqués de leur première lettre** dans la source
-amont :
+J'avais consigné ici que le dessin 666 portait deux libellés « tronqués de leur
+première lettre » — « node » pour *Anode*, « athode » pour *Kathode* — et
+proposé de le signaler au DARC.
 
-```latex
-\draw[red, thick] (1.280,0) to [short] ++(-1.0,-0.626) coordinate(node);
-\draw[red] (node) node[rotate=-90, anchor=west]{node};      % « Anode » attendu
-\draw[blue, thick] (1.280,0) to [short] ++(0.35,-0.35) coordinate(athode);
-\draw[blue] (athode) node[anchor=west]{athode};             % « Kathode » attendu
-```
+Ce n'est pas un défaut. C'est un **aide-mémoire délibéré** : les traits rouges
+du dessin tracent un **A**, que le texte « node » complète en *Anode* ; les
+traits bleus tracent un **K**, que « athode » complète en *Kathode*. Le lecteur
+lit le mot en suivant le tracé. Le procédé est intentionnel.
 
-La coordonnée et le texte portent la même chaîne tronquée : le dessin imprime
-donc « node » et « athode » sous les deux électrodes, alors que la partie haute
-du même dessin porte correctement « Anode » et « Kathode ». Le livre allemand
-est affecté à l'identique.
+L'erreur vient de la même source que celle du matin : une conclusion tirée du
+**source** sans jamais regarder la figure composée. C'est Pierre qui a signalé
+« absence de "a" au mot anode » en relisant le PDF, ce qui a conduit à ouvrir
+la page et à comprendre le mécanisme.
 
-L'hypothèse la plus simple est une saisie où la première lettre a servi de
-raccourci et s'est perdue ; la coordonnée ayant été nommée d'après le texte, la
-troncature s'est propagée sans provoquer d'erreur LaTeX.
+L'entrée est conservée sous cette forme plutôt que supprimée, pour que la
+prochaine lecture du dessin 666 ne refasse pas le même chemin.
 
-### Ce que ce défaut nous a coûté côté français
-
-Il a produit, chez nous, **un mot qui n'existe dans aucune langue**. Le fork
-français substituait `Kathode` → `Cathode` **puis** `athode` → `Cathode` ; la
-seconde règle s'appliquant au résultat de la première, le libellé haut est
-devenu **« CCathode »**. Présent dans `livre-N-a.1.pdf` **et** dans les PDF
-a.2, jamais relevé en relecture.
-
-Corrigé côté français le 15/08/2026 (« Cathode »). Les deux libellés tronqués
-du bas, eux, sont **laissés en l'état** : les corriger reviendrait à réécrire
-le dessin amont, ce que le §6 de `CLAUDE.md` interdit. À signaler au DARC.
+**Ce qui reste vrai** : notre fork français avait bien produit « CCathode », un
+mot d'aucune langue, par application successive de `Kathode` → `Cathode` puis
+`athode` → `Cathode`. C'est notre défaut, pas celui de l'amont ; il est corrigé.
+Le mécanisme de l'aide-mémoire, lui, ne survit pas au passage au français : le
+**A** fonctionne encore (*Anode* s'écrit pareil), le **K** ne donne pas
+*Cathode*. Décision de Pierre du 15/08/2026 (feuille nº 4, C3a) : écrire les
+deux mots en entier et renoncer à l'aide-mémoire.
