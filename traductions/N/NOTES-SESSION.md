@@ -103,12 +103,20 @@ portent désormais « du traducteur ».
 
 ### Édition combinée NEA — première compilation (15-16/08/2026)
 
-**806 pages**, 384 sections, 1 751 questions, 805 dessins distincts. Contrôles du
+**808 pages**, 384 sections, 1 751 questions, 805 dessins distincts. Contrôles du
 §4 conformes du premier coup ; 4 références « ?? », soit les quatre orphelines
 amont cumulées. Les compteurs de clamp s'additionnent proprement (948 figures,
 10 tableaux, 7 formules) : aucun dessin n'est traité différemment en combiné.
 
 Durée : environ 1 h 15 pour cinq passes, contre 50 min pour la classe A seule.
+
+**Deux tirages.** Le premier, à l'ordre `N, E, A` et filigrane à plat, faisait
+806 pages. Le définitif — ordre `A, E, N`, filigrane empilé — en fait **808** :
+les deux pages d'écart viennent de `N_Ende`, dont la version A est plus longue
+que celle de N (5 497 octets contre 5 224). C'est la seule différence de
+contenu entre les deux, et elle est conforme à ce qu'on attendait. Vérifié
+après coup par comparaison directe : le `N_Ende` composé dans le NEA est
+identique à celui de la classe A, et différent de ceux de N et E.
 
 ### Ordre des `--translations` : `A` d'abord
 

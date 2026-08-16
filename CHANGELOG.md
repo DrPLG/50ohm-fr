@@ -210,12 +210,17 @@ retouches ponctuelles.
     tronqués » et proposait de le signaler au DARC. Conclusion tirée du source
     sans regarder la figure. L'entrée est conservée sous forme rétractée.
 
-- **Édition combinée NEA compilée pour la première fois** (15/08/2026) :
-  **806 pages**, 384 sections, 1 751 questions, 805 dessins. Contrôles du §4
+- **Édition combinée NEA compilée pour la première fois** (15-16/08/2026) :
+  **808 pages**, 384 sections, 1 751 questions, 805 dessins. Contrôles du §4
   conformes du premier coup, 4 références « ?? » — les quatre orphelines amont
   cumulées, rien de nouveau. Les compteurs de clamp cumulent proprement (948
   figures, 10 tableaux, 7 formules), ce qui confirme qu'aucun dessin n'est
-  traité différemment en édition combinée.
+  traité différemment en édition combinée. Durée : environ 1 h 15 pour cinq
+  passes, contre 50 min pour la classe A seule.
+  Un premier tirage avait donné 806 pages avec l'ordre `N, E, A` ; les deux
+  pages d'écart viennent de `N_Ende`, dont la version A est plus longue que
+  celle de N (5 497 octets contre 5 224). C'est la seule différence de contenu
+  entre les deux tirages.
   - **Ordre des `--translations` arrêté : `A` en premier**, puis `E`, puis `N`.
     La portée du choix est étroite et a été mesurée : **une seule section** est
     traduite dans plusieurs classes, `N_Ende` (« Conclusion du cours »), du
