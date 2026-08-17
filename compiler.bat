@@ -42,12 +42,47 @@ if not defined OHM_RENDERER (
 )
 
 REM --- Interpreteur Python ---------------------------------------------------
-REM Le paquet renderer exige Python 3.12 (.python-version amont) et ses
-REM dependances sont installees dans le venv uv du generateur. On le prefere
-REM au python du PATH, qui peut etre une version plus ancienne sans les
-REM dependances.
-set "PY=%OHM_RENDERER%\.venv\Scripts\python.exe"
-if not exist "%PY%" set "PY=python"
+REM Le paquet renderer exige Python 3.12 ou plus (.python-version amont) et le
+REM module mistletoe. On ne se contente PLUS de prendre le premier chemin
+REM plausible : chaque candidat est ESSAYE, et n'est retenu que s'il sait
+REM reellement importer mistletoe a une version suffisante.
+REM
+REM Pourquoi (16/08/2026) : l'ancienne regle prenait
+REM %OHM_RENDERER%\.venv\Scripts\python.exe s'il existait, sinon "python" du
+REM PATH, sans jamais verifier. Sur cette machine le venv uv du generateur est
+REM bien la et convient (3.12.13, mistletoe 1.4.0) : la regle marchait. Mais le
+REM repli, lui, est un piege -- le "python" du PATH est celui d'INKSCAPE
+REM (C:\Program Files\Inkscape\bin\, 3.9.10, sans mistletoe). Sur une machine
+REM sans venv, l'ancienne regle l'aurait retenu, puis aurait tente d'installer
+REM mistletoe dedans. On essaie donc, au lieu de supposer.
+REM
+REM Ne pas confondre deux venv voisins : C:\50ohm\.venv est un reliquat PyCharm
+REM (3.9.10, disposition Unix), sans rapport ; celui du generateur est
+REM C:\50ohm\50ohm-main\.venv.
+REM
+REM OHM_PYTHON permet de designer un interpreteur explicitement.
+set "PY="
+if defined OHM_PYTHON call :essai "%OHM_PYTHON%"
+call :essai "%OHM_RENDERER%\.venv\Scripts\python.exe"
+call :essai "%OHM_RENDERER%\.venv\bin\python.exe"
+call :essai py -3.14
+call :essai py -3.13
+call :essai py -3.12
+call :essai python
+
+if not defined PY (
+    echo ERREUR : aucun interpreteur Python utilisable.
+    echo Il faut Python 3.12 ou plus, avec le module mistletoe.
+    echo Essayes : OHM_PYTHON, le venv de !OHM_RENDERER!, py -3.14/-3.13/-3.12, python.
+    echo.
+    echo Recreez le venv du generateur :  uv sync  ^(dans !OHM_RENDERER!^)
+    echo ou designez un interpreteur :    set OHM_PYTHON=C:\chemin\python.exe
+    echo.
+    echo Attention : le "python" du PATH ne convient pas forcement. Sur cette
+    echo machine c'est celui d'Inkscape, en 3.9, sans mistletoe.
+    pause
+    exit /b 1
+)
 
 REM latexmk est un script Perl ; MiKTeX ne fournit pas son propre Perl et
 REM s'appuie sur un interpreteur externe. Celui de Git for Windows convient,
@@ -132,41 +167,16 @@ if not exist "%AMONT%\contents\sections" (
     exit /b 1
 )
 
-if "%PY%"=="python" (
-    where python >nul 2>nul
-    if errorlevel 1 (
-        echo ERREUR : aucun venv dans !OHM_RENDERER! et python absent du PATH.
-        echo Creez le venv du generateur : uv sync ^(dans !OHM_RENDERER!^).
-        pause
-        exit /b 1
-    )
-)
-
 REM --- Purge : un arbre non purge fait sortir latexmk en rc=12 ---------------
 if exist "%OUT%" (
     echo Purge des auxiliaires LaTeX residuels dans %OUT%...
     del /q "%OUT%\*.aux" "%OUT%\*.fdb_latexmk" "%OUT%\*.fls" "%OUT%\*.toc" "%OUT%\*.idx" "%OUT%\*.log" "%OUT%\*.out" 2>nul
 )
 
-REM --- Dependance Python -------------------------------------------------
-REM Le venv uv du generateur est cree sans pip : on n'y installe rien a la
-REM volee, on renvoie vers "uv sync". Sur un python du PATH, l'installation
-REM automatique d'origine reste valable.
-"%PY%" -c "import mistletoe" 2>nul
-if errorlevel 1 (
-    if "%PY%"=="python" (
-        echo Installation de mistletoe...
-        python -m pip install --quiet mistletoe
-    ) else (
-        echo ERREUR : le module mistletoe manque au venv du generateur.
-        echo Lancez "uv sync" dans !OHM_RENDERER!
-        pause
-        exit /b 1
-    )
-)
-
 REM --- Compilation ----------------------------------------------------------
-"%PY%" build_book.py --edition %CLASSE% --lang fr ^
+REM PY porte deja ses guillemets quand c'est un chemin : ne pas en rajouter,
+REM sinon la forme "py -3.14" serait prise pour un nom d'executable.
+%PY% build_book.py --edition %CLASSE% --lang fr ^
     --translations traductions\%CLASSE% ^
     --input "%AMONT%" ^
     --output "%OUT%" ^
@@ -258,3 +268,24 @@ if defined GSEXE (
 
 echo.
 pause
+exit /b 0
+
+REM ============================================================================
+REM  :essai — retient le premier interpreteur Python REELLEMENT utilisable.
+REM
+REM  %* est la ligne de commande complete du candidat, ce qui couvre aussi bien
+REM  un chemin entre guillemets ("C:\...\python.exe") que le lanceur avec sa
+REM  version ("py -3.14"). PY conserve cette forme telle quelle : les appels se
+REM  font donc en %PY%, SANS guillemets ajoutes.
+REM
+REM  Le test est le seul qui vaille : importer mistletoe et verifier la version.
+REM  Un "if exist" ne prouve rien -- le python d'Inkscape existe et ne sert a
+REM  rien. Pas de parentheses dans l'expression Python : a l'interieur d'un
+REM  bloc batch, une parenthese fermante refermerait le bloc.
+REM ============================================================================
+:essai
+if defined PY exit /b 0
+%* -c "import sys, mistletoe; assert sys.version_info.major*100+sys.version_info.minor >= 312" >nul 2>nul
+if errorlevel 1 exit /b 0
+set "PY=%*"
+exit /b 0

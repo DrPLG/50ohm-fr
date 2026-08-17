@@ -1,8 +1,17 @@
-Si l'impédance caractéristique d'un câble d'alimentation n'est pas identique à la résistance de la charge, une transformation d'impédance peut également se produire, en plus de l'onde stationnaire qui apparaît. Cela signifie qu'une source de signal « voit », à une extrémité du câble, une résistance différente de celle qui est raccordée à l'autre extrémité.
+Toutes les antennes ne présentent pas à leur point d'alimentation exactement l'impédance requise pour le raccordement à une ligne d'alimentation ou à un émetteur donné. Si l'impédance s'écarte par exemple des $\qty{50}{\ohm}$ usuels, elle doit être adaptée en conséquence, afin que la puissance HF puisse être transmise avec le moins de pertes possible. L'impédance existante est pour cela *transformée* en une autre impédance, celle que l'on souhaite. C'est ce que l'on appelle la *transformation d'impédance*, ou encore l'*adaptation d'impédance*.
 
-Deux cas en particulier sont importants : la ligne $\lambda/4$, destinée à une transformation d'impédance délibérée, ainsi que les lignes $\lambda/2$ et leurs multiples, qui n'opèrent aucune transformation d'impédance, indépendamment de leur impédance caractéristique.
+Il existe différentes possibilités pour l'adaptation ou la transformation d'impédance. On emploie fréquemment, par exemple :
+
+* des transformateurs,
+* des lignes $\frac{\lambda}{4}$ ou
+* des réseaux d'adaptation à bobines et condensateurs.
+
+Nous avons déjà rencontré les transformateurs avec l'antenne alimentée par l'extrémité et son Unun 1:49. Nous examinons donc de plus près, dans ce qui suit, deux autres possibilités : la transformation d'impédance par lignes $\frac{\lambda}{4}$ vue à la section précédente, et l'adaptation par réseaux LC. Revenons d'abord sur les lignes de transformation — peu importe d'ailleurs que nous employions une ligne d'alimentation symétrique ou une ligne coaxiale dissymétrique, la transformation fonctionne dans les deux cas :
 
 Pour une ligne dont la longueur électrique vaut $\lambda/4$, les résistances actives inférieures à l'impédance caractéristique de la ligne deviennent des résistances supérieures à l'impédance caractéristique de la ligne. Inversement, les résistances actives supérieures à l'impédance caractéristique de la ligne deviennent des résistances inférieures à l'impédance caractéristique. On met p. ex. cette propriété à profit pour adapter des antennes à haute impédance à un système à basse impédance ($\qty{50}{\ohm}$).
+
+[question:AG410]
+[question:AG409]
 
 Pour une longueur de ligne de $\lambda/2$, l'effet s'annule cependant de nouveau, si bien qu'aucune transformation d'impédance n'apparaît.
 

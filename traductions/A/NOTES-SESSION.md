@@ -1,5 +1,63 @@
 # Notes de session — classe A
 
+## SESSION 16-17/08/2026 — resynchronisation amont (feuille d'arbitrage nº 5)
+
+Génération : **152/152 sections** (une de moins), 717 questions, **113 dessins
+francisés**, 5 encarts « En France ». **382 pages** (+6), 5,23 Mo après
+Ghostscript.
+
+Contrôles du §4 : conformes (0 · 0 · 0 · **4** notes de marge rétrogradées),
+**3 références « ?? »**, 0 question séparée de ses réponses.
+Clamps : 545 figures, 4 tableaux, 4 formules.
+`sonde_dessins.py` rc=0 — 430 dessins utilisés, 113 forkés, tous propres.
+
+### 21 sections resynchronisées
+
+Par ampleur de prose allemande ajoutée : `swr_meter_2` (423 mots), `traps`
+(414), `lecherleitung` (413), `elektrische_verlaengerung_verkuerzung` (319),
+`uebertragungsleitungen_3` (260), `swr_3` (222), `strom_spannung_speisung_2`
+(180), `yagi_uda_3` (171), `nvis` (165), `wellenwiderstand` (147), `vna_2`
+(118), `fusspunktimpedanz_2` (114), `impedanztransformation` (104),
+`leitung_phasenverschiebung` (76), `vor_rueck_verhaeltnis` (63),
+`kabeldaempfung_2` (43), `parbolspiegel_2` (22), puis quatre sections où seule
+une figure est ajoutée : `halbwertsbreite`, `mantelwellen_2`, `offsetspiegel`,
+`umwegleitung`.
+
+### Ce qui a changé au-delà de la traduction
+
+- **`frequenzabhaengige_stromverteilung` supprimée** — effacée en amont, avec
+  son entrée de sommaire. Ses quatre questions `AG203`–`AG206` sont reprises
+  par `strom_spannung_speisung_2`. Retirée aussi du manifeste et de
+  `titles.json` (elle y provoquait un avertissement « ident inconnu »).
+- **Renommage `e_stromverteilungen` → `a_stromverteilungen`**, adopté sur la
+  figure **et** sur le renvoi. L'amont n'avait renommé que la figure ; comme
+  `strom_spannung_speisung_1` est une section de classe E absente du sommaire
+  de A, le renvoi y pendait. **Sans cette correction, la classe A passait à 4
+  `??`.** Vérifié : elle est restée à 3.
+- **Dessins 1106 et 633 forkés et francisés.** Le 633 portait
+  « Dipolschenkel » et **était déjà composé dans les livres E et A** — le mot
+  figurait dans les PDF a.2 relus.
+- **Légende du dessin 650** écrite en `$\frac{5}{8}\lambda$` : l'amont y écrit
+  `$\qty{5}{8}\lambda$`, qui compose « 58λ » sans erreur. Doublé d'une règle
+  `fix_latex()` en v0.21.
+
+### Un défaut de traduction corrigé, sans rapport avec l'amont
+
+**`digital_analog_umsetzer`** annonçait un pas de quantification de
+$\qty{6,25}{\milli\volt}$ au lieu de $\approx\qty{67}{\milli\volt}$, avait
+perdu la phrase « avec 16 échelons, il n'y a que 15 pas intermédiaires » et
+traduisait *Zwischenschritte* par « échelons ». Trouvé en mécanisant les
+contrôles du §5, pas à la relecture.
+
+### Trois écarts assumés aux contrôles du §5
+
+`elektrische_verlaengerung_verkuerzung` (la fraction 5/8),
+`strom_spannung_speisung_2` (le renvoi renommé) et `mantelwellen_2` (le `$ü$`
+rendu `$m$`, correctif antérieur). Tous documentés dans
+`docs/defauts-amont.md`.
+
+---
+
 ## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
 
 Génération : 153/153 sections, 717 questions, 111 dessins francisés,

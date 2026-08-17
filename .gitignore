@@ -90,8 +90,14 @@ venv/
 
 
 # --- Claude Code -----------------------------------------------------------
-# CLAUDE.md est versionné (c'est le contexte partagé du projet) ;
-# les réglages locaux ne le sont pas.
+# ATTENTION : ce bloc affirmait que « CLAUDE.md est versionné (c'est le contexte
+# partagé du projet) ». C'ÉTAIT FAUX depuis l'ajout du bloc « Instructions de
+# session » plus bas, qui l'exclut — et c'est ce dernier qui gagne. Corrigé le
+# 17/08/2026. CLAUDE.md est LOCAL : il ne suit pas d'une machine à l'autre, ce
+# dont il faut tenir compte en ouvrant une session ailleurs.
+# Les deux lignes ci-dessous sont par ailleurs subsumées par le `.claude/` du
+# bloc « Instructions de session » ; conservées par prudence si celui-ci
+# venait à être assoupli.
 .claude/settings.local.json
 .claude/*.local.*
 

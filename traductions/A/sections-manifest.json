@@ -135,9 +135,9 @@
     "sha256_amont": "a19182dd935b11f3ac4a8982302165a4ee26d14f4133d24d9da56e9eaad484ed"
   },
   "elektrische_verlaengerung_verkuerzung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "ae99c14dfa27c36d309e2e6b336661b318a71734b810d02b11669e6ff49f2884"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "bcda8e5fef7d42a59682792d06f71488ca1d89f0394e7b7751d054ad4e6e8d57"
   },
   "emitterschaltung": {
     "date_traduction": "2026-08-14",
@@ -169,11 +169,6 @@
     "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
     "sha256_amont": "bebb8cb3915cc04b3d07521f766185146537074589050cf488b27755a3dcb662"
   },
-  "frequenzabhaengige_stromverteilung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "aacf1440b7a77a767cff9dbe1d7c8c2e3872f97c0b6fe56431257c09b9ee378f"
-  },
   "frequenzgenauigkeit": {
     "date_traduction": "2026-08-14",
     "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
@@ -190,9 +185,9 @@
     "sha256_amont": "34ed2eb3e5fbcdfd435c86456987b43a3bbac3dd4b92c48ab38a55c43b666016"
   },
   "fusspunktimpedanz_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "59782dfec8a3dfa1cfe363bfb3d15c88760be4b758344d3638963617eb092282"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "df4150b17c72c0629781a67a3fb82643e108d2b0c7092c1f8427c7c2b0a65135"
   },
   "gleichrichter_2": {
     "date_traduction": "2026-08-14",
@@ -205,14 +200,14 @@
     "sha256_amont": "a841767570c56dc26f0259530995852f88e84e90de3add5ba498627b3e205c30"
   },
   "halbwertsbreite": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "d4ec82118709c9b330bbdf7fec8f5918af6d291b12b39c7124afd7e91d5a1e67"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "9b690b5e0f46210483ed6771213bf7e8bccfadd898882e82cda5b4af3170207f"
   },
   "impedanztransformation": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "233827f37516e89b4e4027df5c3ad8132763241870db513abe9467d11190b308"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "f38db620bbb9273925f5bc808187740093baa7ce63ce6a461000b3c900a68ad2"
   },
   "innenwiderstand": {
     "date_traduction": "2026-08-14",
@@ -240,9 +235,9 @@
     "sha256_amont": "f564ad824153a94edb17619b912753329aaf90ca90d4acfe3dee3543d51f990e"
   },
   "kabeldaempfung_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "24dcd09cd10349490659e766014320a8217f81ce366f7d690cfd465bd04e70b7"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "94519e20b202bc2f3d1a3ea926313f97ddd995e2a653fe829aa114d6babf5dcb"
   },
   "kanalcodierung": {
     "date_traduction": "2026-08-14",
@@ -275,9 +270,9 @@
     "sha256_amont": "1363846c75b451048e368ea7ef702d20775746ab66a1cefe2875ef0d1b36b3bb"
   },
   "lecherleitung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "00db33778a6aeb21b767a06bf1daad3c58bf4a002f3f2462be0fc3ae716abc42"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "fbf9ff8edf873fc65c2025aad84f9cbcecef7bed255679add051b7c7e30039ac"
   },
   "leistungsvertaerker": {
     "date_traduction": "2026-08-14",
@@ -290,9 +285,9 @@
     "sha256_amont": "de51b982b96a4ff3bfd56c657972e7097bb3be113c2ccae3fe2d2e78a851840d"
   },
   "leitung_phasenverschiebung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "15cb448badd9f83f05e46a6d191a50a6bff0c5097f27edaf0960dce04324c8cd"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "4d47976276b4e635dd7ad46cafe0856e02b9b86671213f7136f844db2d5a4809"
   },
   "low_noise_block": {
     "date_traduction": "2026-08-14",
@@ -300,9 +295,9 @@
     "sha256_amont": "c07459c9afff562ab486ed5d977a4bd07f90fbb4b4b10495d0c61e787c6fca2b"
   },
   "mantelwellen_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "6c4127abd9ebfed2e2879c5c3548df938a7a1e7c57388ffaec004eda65f27b46"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "c92aa345681aec4d2be3dea87002bbad31f0b101a57982f9f0c17205f9bc5004"
   },
   "mapping": {
     "date_traduction": "2026-08-14",
@@ -350,9 +345,9 @@
     "sha256_amont": "899313f565f9f95e5832feec9385d715799316b1b6c2e0d4164f546457b5f851"
   },
   "nvis": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "bdc3e2d83a281ea6d48c33e5bd891687898152ce45f9c946f07179de2682b59a"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "5487bb43460f4a133bd4893a0486334f197cbdcc8f147c9026a5a1815885a0e7"
   },
   "ofdm": {
     "date_traduction": "2026-08-14",
@@ -360,9 +355,9 @@
     "sha256_amont": "31c658af39944338602513c2396a973f46b0e1ea1a65cee070be3f4a1d138e17"
   },
   "offsetspiegel": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "590ec4b3859eb73d1f32710efe83e3a8586e44a47818854662dee9aa9af5d09b"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "352d46569a30cd7025d4e14e67185809b7d3baa61aaa2821e36e1da151397739"
   },
   "oszillator_dds": {
     "date_traduction": "2026-08-14",
@@ -410,9 +405,9 @@
     "sha256_amont": "6f128e8fbc39b738e76b328932dc5e814f5edb25f5f6244802ce729b340630b0"
   },
   "parbolspiegel_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "aa614e0675151be75f8f214dfe0d34fca564da806da829a84e7bb7e875356640"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "2cf309fb7259e3ef53fdd3d3e7acbf9b32408ae2c62b2c0d7814d56b919478a3"
   },
   "personenschutzabstand_3": {
     "date_traduction": "2026-08-14",
@@ -625,19 +620,19 @@
     "sha256_amont": "68209a9efa1a16a65673a0d7a71024b0cb68ded4a3d9420cdc384a0b64cb5dc9"
   },
   "strom_spannung_speisung_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "97bbf2d2572a4d4bca5029dfbd233b6efdf4983968ce6f90d1b06baac25b9336"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "ea6e7990c800c5f86a633315d5076ff095ad7fbface75159f576a6aea4c7dd10"
   },
   "swr_3": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "45fc9cd25166b328da0d1632465544d194084fefd4d366422136382ae3a7993f"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "f36f015a40a38a28a55698090feeb5033e89fe1a7e122a0e246058d8ccc9f845"
   },
   "swr_meter_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "392a9577717dbd65e49eccdc82d3c4c3dd80c9f526753c5fd8ba459e77b4abaa"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "49bc25d12f5657d4294abcf2f802008244383061916a060244968aa30228e514"
   },
   "symbolumschaltung_bandbreite": {
     "date_traduction": "2026-08-14",
@@ -665,9 +660,9 @@
     "sha256_amont": "4886fea6554c2b05d6190bd676b9c2d8f422e3312be90c6f23cf335942ab59ce"
   },
   "traps": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "bda05c2c5a7fc2064670909ea6149c1e07f75a86e83f3a4348edde2885ee5c69"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "f075188fb495da1ab573602d75322b571c8e0b9f1ea7aeb074055feb31a5e427"
   },
   "trennschaerfe_2": {
     "date_traduction": "2026-08-14",
@@ -690,14 +685,14 @@
     "sha256_amont": "da6b970d0ebd1de675ee3f8f2dd3b3d3bd7442c07f88199949f55bae1309a116"
   },
   "uebertragungsleitungen_3": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "d36e34036d5215b0066528d65cd04f8c31655ef63afcdd80aaae9d2c3941428e"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "e8dfb20db4e995d1d472dd64d7c0da1d91a97422faa8d24bff69aaa8fc695260"
   },
   "umwegleitung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "07c9bd2e791609831e073a7fdad781761ec6b8978be3a11d2a6c0338813629a8"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "024b7b592cbe93fda06dfb478d7ee8b0f5ca4d65c18e2069824aa29853de6e7a"
   },
   "unerwuenschte_aussendungen_3": {
     "date_traduction": "2026-08-14",
@@ -735,9 +730,9 @@
     "sha256_amont": "bb51aad105e87808ec3731d7dc602bd59c4f1a58120c2d96bbb75f43a2ca4895"
   },
   "vna_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "7ac4e88914e0c7ad3c243c3a818fb4ab4f740fb0e89d1a077c494156b7920c59"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "ae6e4e6e0e8051707900ef4afba7a71a65189779077ad2219a6315ee7e558fd8"
   },
   "vollweggleichrichter": {
     "date_traduction": "2026-08-14",
@@ -745,9 +740,9 @@
     "sha256_amont": "45ba5735b11fbe7fda38a5e9b6c5c3a13cb1be8edbe8d18564e91000ff4d57ed"
   },
   "vor_rueck_verhaeltnis": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "3d4ddba1e3f400e132658d2c017614f20d85ab77c87e96b8eaf3603e271c0888"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "75900ab212b5cacc3d1d52e1ec723978cfabb3aa4d32238068ec6358f5e80743"
   },
   "wechselstrom_leistung": {
     "date_traduction": "2026-08-14",
@@ -755,13 +750,13 @@
     "sha256_amont": "df44cb9fd2d96824edecfd50c5a948573577dfcb650036f12732bfc2ec81e2f6"
   },
   "wellenwiderstand": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "84c5c65ea86d1886c7ad69cc62f84a25682ef1f3b16d689dff5a141f193a0d7a"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "f885b6cd8094aa9b0d4fe3f01ab2d90f043c0bdc7f853c5e4dea9d0958e06245"
   },
   "yagi_uda_3": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "e6f73b020dca7b4560ae242c3f1a26e92bab25535ccd06d417a2703f5d0c48fc"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "712608dde1d299f625ad5b395a9d63a69231271700f9b7ba4678712f86aee667"
   }
 }

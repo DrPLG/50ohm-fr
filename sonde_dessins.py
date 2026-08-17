@@ -49,7 +49,10 @@ n'influencent jamais le code de retour : ce n'est pas un défaut.
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version : v0.2 (15/08/2026) — liste enrichie de la feuille d'arbitrage nº 3.
+Version : v0.3 (16/08/2026) — « Dipolschenkel » ajouté (feuille d'arbitrage
+nº 5). Rappel utile tiré de ce cas : ajouter un mot simple ne couvre pas ses
+COMPOSÉS, les frontières de mot de MOTIF_MOTS s'y opposant.
+(v0.2 : liste enrichie de la feuille d'arbitrage nº 3.)
 """
 import argparse
 import pathlib
@@ -76,7 +79,18 @@ Einton Zweiton Kontrollinformation Weitere gedreht konstante Regionen Region
 Sommer Winter Nacht Ausgang Ausgangs Eingang Eingangs Modulator Demodulator
 Kanalcodierer Kanaldecodierer Quellencodierer Quellendecodierer Dipol Luft
 Kalte Warme Filtert Adresszähler Dämpfungsglied Empfängers Stunden Teile
+""".split() + """
+Dipolschenkel
 """.split()
+# Le troisième bloc vient de la feuille d'arbitrage nº 5 (16/08/2026), pendant
+# la resynchronisation amont. « Dipolschenkel » est un COMPOSÉ : la liste
+# contenait déjà « Dipol », mais MOTIF_MOTS pose des frontières de mot
+# (\bDipol\b), qui ne mordent pas à l'intérieur de « Dipolschenkel ». Le dessin
+# 633 en porte deux occurrences et il est composé dans les livres E ET A depuis
+# la a.2 — le mot était donc dans les PDF relus, sans que la sonde bronche.
+# C'est la troisième fois que le motif se répète : la liste est un plancher, et
+# tout composé allemand sans umlaut y échappe tant qu'on ne l'y met pas.
+#
 # Le second bloc est celui de la feuille d'arbitrage nº 3 (15/08/2026), établi
 # par mesure sur les 861 dessins composés : la sonde rendait rc=0 pendant que
 # 39 dessins FORKÉS affichaient encore de l'allemand dans les PDF a.2 livrés

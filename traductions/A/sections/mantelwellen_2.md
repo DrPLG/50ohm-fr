@@ -10,6 +10,10 @@ Une self de choc est une bobine destinée à bloquer les courants haute fréquen
 
 [question:AG426]
 
+<margin>
+[picture:633:e_mantelwellen:Ondes de gaine]
+</margin>
+
 ---
 
 Un transformateur d'isolement HF constitue une alternative à la self à compensation de courant. Comme l'enroulement primaire et l'enroulement secondaire ne sont pas reliés entre eux, un courant qui entre dans le transformateur d'isolement par l'un des pôles doit (au moins approximativement) en ressortir avec la même intensité par l'autre pôle. Une composante de mode commun est ainsi exclue.

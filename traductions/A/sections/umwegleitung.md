@@ -2,6 +2,10 @@ Une autre possibilité de supprimer les ondes de gaine consiste à utiliser une 
 
 [question:AG420]
 
+<margin>
+[picture:562:e_umwegleitung:Ligne de déphasage]
+</margin>
+
 Le fonctionnement d'une telle ligne de déphasage est expliqué ci-après.
 
 Une antenne symétrique a besoin, en ses deux points de raccordement, d'une tension HF par rapport à la terre. Les tensions doivent alors être d'égale valeur absolue, mais de signe opposé, donc déphasées de $\qty{180}{\degree}$.

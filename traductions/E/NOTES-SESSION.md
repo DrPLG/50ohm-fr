@@ -1,5 +1,36 @@
 # Notes de session — classe E, chapitres 1–16 (v0.6)
 
+## SESSION 16/08/2026 — resynchronisation amont (feuille d'arbitrage nº 5)
+
+Génération : 103/103 sections, 463 questions, **73 dessins francisés**,
+6 encarts « En France ». **214 pages, inchangées**, 3,03 Mo après Ghostscript.
+
+Contrôles du §4 : conformes (0 · 0 · 0 · 0 note de marge rétrogradée),
+**1 référence « ?? »** (`e_ssb_am_modulation`, défaut amont connu), 0 question
+séparée de ses réponses.
+Clamps : **289** figures, 5 tableaux, 3 formules — contre 288 · 5 · 3 le 14/08.
+La figure de plus, et rien d'autre.
+`sonde_dessins.py` rc=0 — 306 dessins utilisés, 73 forkés, tous propres.
+
+### Une seule section touchée par la dérive amont
+
+**`antennenformen_2`** (+2/−1 lignes, mais 85 mots de prose) : le paragraphe
+sur l'antenne $\frac{5}{8}\lambda$ passe d'une phrase à une explication
+complète — pourquoi cette longueur, le diagramme de rayonnement vertical, la
+concentration vers l'horizon. Le bloc `<margin>` gagne le dessin **1134**,
+neuf en amont, partagé avec la classe A.
+
+### Un dessin forké de plus
+
+**633** (« Dipolschenkel »), appelé par `mantelwellen_1` en classe E et
+désormais aussi par `mantelwellen_2` en classe A. Il était **déjà composé dans
+le livre E** : le mot allemand figurait dans le PDF a.2 relu.
+`sonde_dessins.py` ne l'avait jamais signalé — sa liste contenait « Dipol »,
+mais les frontières de mot ne mordent pas dans un composé. Sonde passée en
+v0.3.
+
+---
+
 ## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
 
 Génération : 103/103 sections, 463 questions, 72 dessins francisés,

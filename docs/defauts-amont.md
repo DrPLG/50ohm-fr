@@ -296,3 +296,173 @@ Le mécanisme de l'aide-mémoire, lui, ne survit pas au passage au français : l
 **A** fonctionne encore (*Anode* s'écrit pareil), le **K** ne donne pas
 *Cathode*. Décision de Pierre du 15/08/2026 (feuille nº 4, C3a) : écrire les
 deux mots en entier et renoncer à l'aide-mémoire.
+
+## 6. `\qty{5}{8}\lambda` — une fraction tapée en `\qty`, la barre disparaît
+
+**Constaté le** 16/08/2026, pendant la resynchronisation amont, dans la légende
+du dessin 650 appelé par `elektrische_verlaengerung_verkuerzung` (classe A) :
+
+```
+[picture:650:a_5_8_lambda:$\qty{5}{8}\lambda$-Vertikalantenne]
+```
+
+`\qty{5}{8}` passe **« 8 » comme unité** du nombre 5. L'auteur voulait
+manifestement `\frac{5}{8}` : le dessin s'appelle `a_5_8_lambda`, et **le corps
+de la même section écrit partout `$\frac{5}{8}\lambda$`** (trois occurrences).
+Seule la légende porte la coquille.
+
+**Effet, mesuré sur document réduit et extraction du PDF le 16/08/2026** : la
+compilation **réussit sans erreur**, et la légende compose **« 58λ »** — les
+deux chiffres accolés, barre de fraction perdue. Le lecteur lit « antenne
+verticale 58 λ ». Le rendu correct, obtenu avec `\frac{5}{8}\lambda`, donne
+bien le 5 sur le 8.
+
+Même famille que les §3 et §8 (une macro mathématique là où siunitx attend
+autre chose), avec la même signature : **aucune erreur, un rendu faux**. Le
+livre allemand est affecté à l'identique.
+
+**Côté français : les deux voies à la fois, décision de Pierre du 16/08/2026.**
+
+1. **Règle `fix_latex()` en v0.21 de `build_book.py`**, sur le modèle des v0.14
+   et v0.16 : `\qty{<nombre>}{<nombre>}` → `\ensuremath{\frac{...}{...}}`. La
+   source amont n'est pas touchée ; la correction vit dans le générateur et
+   couvre donc aussi tout cas futur, y compris hors de nos traductions.
+   `\ensuremath` et non `\frac` nu : `\qty` s'emploie aussi hors mode
+   mathématique, où un `\frac` nu ferait échouer la compilation. Vérifié dans
+   les deux modes sur document réduit.
+2. **Légende française écrite directement en `$\frac{5}{8}\lambda$`**, sur le
+   modèle de la dérogation « ordre / *Ordnung* » du 15/08/2026. La règle ne
+   mord donc pas sur notre source — elle est la ceinture, la légende corrigée
+   est les bretelles. `verifier_traduction.py` signale l'écart de formule avec
+   l'amont, et c'est normal.
+
+### L'élargissement demandé, et pourquoi il s'arrête là
+
+Pierre a demandé d'étendre la correction « aux autres cas ». Le corpus entier
+(amont et traductions, sections et dessins) a donc été balayé à la recherche
+des `\qty{}{}` dont l'unité n'en est pas une. Quatre familles, **dont deux
+seulement composent faux** — mesuré sur document réduit et extraction du PDF :
+
+| famille | exemple | occurrences | rendu | verdict |
+| --- | --- | ---: | --- | --- |
+| unité **numérique** | `\qty{5}{8}` | 1 | « 58 » | **cassé**, traité en v0.21 |
+| unité **macro** | `\qty{0.625}{\lambda}` | 7 | « 0,625 » | **cassé**, déjà v0.16 |
+| unité **vide** | `\qty{30}{}` | 5 | « 30 » | sain, identique à `\num{30}` |
+| unité en **texte nu** | `\qty{10}{dB}` | 71 | « 10 dB » | sain, identique à `\decibel` |
+
+Les 71 occurrences de la dernière famille sont réparties dans 25 dessins
+(`\qty{0,3}{V}`, `\qty{-5}{dBm}`, `\qty{25}{A}`…). **Les convertir en macros
+siunitx n'aurait rien corrigé** — le rendu est déjà bon — **et aurait touché
+des dessins déjà livrés**. Elles restent en l'état, et c'est un choix mesuré,
+non une omission.
+
+Le balayage a aussi confirmé que la règle v0.16 couvre bien les quatre
+`\qty{...}{\lambda}` apparus le 14/08 dans `elektrische_verlaengerung_verkuerzung`,
+plus les deux de `antennenformen_2` en classe E : rien à ajouter de ce côté.
+
+## 7. Label dupliqué `a_richtkoppler_rechts_links` — dessins 1109 et 1110
+
+**Constaté le** 16/08/2026 dans `swr_meter_2` (classe A), section entièrement
+réécrite en amont le même jour.
+
+```
+[picture:1109:a_richtkoppler_rechts_links:Richtkoppler, die Welle läuft von links nach rechts]
+[picture:1110:a_richtkoppler_rechts_links:Richtkoppler, die Welle läuft von rechts nach links]
+```
+
+**Deux figures différentes déclarent le même label.** Le texte y renvoie
+pourtant deux fois, une fois pour le sens gauche-droite et une fois pour le
+sens droite-gauche : les deux `[ref:]` résolvent nécessairement vers le même
+numéro de figure, et l'une des deux renvoie le lecteur vers la mauvaise
+illustration.
+
+Même famille que les 20 labels dupliqués du §8 de `CLAUDE.md`, mais ici les
+deux déclarations sont **dans la même section**, ce qui rend la collision
+certaine — elle ne dépend pas de l'édition compilée.
+
+Préservé verbatim côté français, légendes traduites.
+
+## 8. Dessins 1135 et 1136 — ajoutés puis jamais appelés
+
+**Constaté le** 16/08/2026. Les deux dessins ont été ajoutés à
+`contents/drawings/` dans la même salve que les 1103 à 1112 et 1134, 1137,
+1138, mais **aucune section, aucune diapositive ne les référence**. Ils ne sont
+donc composés dans aucun livre.
+
+Sans effet sur nous ; signalé pour que le DARC sache que deux figures produites
+ne servent à rien — ou qu'un appel a été oublié.
+
+## 9. Coquilles relevées pendant la resynchronisation du 16/08/2026
+
+Toutes dans des sections réécrites en amont les 14, 15 et 16/08.
+
+| section | écrit | attendu |
+| --- | --- | --- |
+| `swr_meter_2` | `Zu nächst` | `Zunächst` |
+| `swr_meter_2` | `misst hierzu die  die Ausgangsspannungen` | « die » en double |
+| `swr_meter_2` | `gemessern` | `gemessen` |
+| `elektrische_verlaengerung_verkuerzung` | `Eine von mehreren Möglichkeit` | `Möglichkeiten` |
+| `fusspunktimpedanz_2` | `Fußpolimpedanz` (légende) | `Fußpunktimpedanz` |
+| `strom_spannung_speisung_2` | `Freqeuenzen` | `Frequenzen` |
+| `strom_spannung_speisung_2` | `eine möglichkeit` | `Möglichkeit` |
+| `nvis` | `Weitere Informationen indest du` | `findest` |
+| `wellenwiderstand` | `Ausbreitungsgeschwingkeit` (tableau) | `Ausbreitungsgeschwindigkeit` |
+| `impedanztransformation` | `aus dem Vorherigen Abschnitt` | `vorherigen` |
+| `strom_spannung_speisung_1` | `verschiedneen` (légende) | `verschiedenen` |
+
+La dernière est ancienne et **corrigée en amont** dans la nouvelle version de
+`strom_spannung_speisung_2`, mais subsiste dans `strom_spannung_speisung_1`.
+
+## 11. Coefficient de vélocité donné en pourcent — `wellenwiderstand`
+
+**Constaté le** 16/08/2026 dans le tableau `a_rg58`, ajouté en amont le 15/08 :
+
+```
+| Ausbreitungsgeschwingkeit    | $\qty{0,66}{\percent}$                |
+```
+
+Ce n'est pas une coquille de frappe mais une **erreur d'unité d'un facteur
+cent**. Le coefficient de vélocité d'un RG-58 vaut $0{,}66$, soit $66\,\%$ de
+la vitesse de la lumière. Écrit `\qty{0,66}{\percent}`, il compose
+« $0{,}66\,\%$ » — cent fois trop peu, et le lecteur qui s'y fie calculerait
+une longueur électrique absurde.
+
+La ligne voisine du même tableau donne d'ailleurs la valeur correcte sous une
+autre forme dans le corps du texte, et le reste de la section est juste.
+
+**Préservé verbatim côté français**, conformément au §8 de `CLAUDE.md` : c'est
+une erreur de contenu, pas un défaut de rendu, et la corriger reviendrait à
+réécrire l'amont. À signaler au DARC — c'est, de tous les défauts relevés ce
+jour, celui qui peut réellement induire un candidat en erreur.
+
+## 10. Renommage de label incomplet — `[ref:e_stromverteilungen]` orpheline en A
+
+**Constaté le** 16/08/2026 dans `strom_spannung_speisung_2` (classe A), lors du
+refactor amont du 15/08.
+
+L'amont a **renommé le label du dessin 1050** dans cette section, de
+`e_stromverteilungen` à `a_stromverteilungen` — un bon correctif, qui supprime
+une collision avec `strom_spannung_speisung_1` (classe E), laquelle déclare le
+même dessin sous le label `e_`. C'est l'un des 20 labels dupliqués du §8 de
+`CLAUDE.md`, et nos propres notes de la classe A le recensaient déjà.
+
+**Mais le `[ref:]` de la première phrase n'a pas suivi** : il pointe toujours
+vers `e_stromverteilungen`.
+
+Conséquence, vérifiée sur les sommaires amont : `strom_spannung_speisung_1`
+**n'est pas dans le sommaire de la classe A**. Dans le livre A seul, le label
+`e_stromverteilungen` n'est donc déclaré nulle part, et la référence pend —
+**un `??` de plus, qui ferait passer la classe A de 3 à 4**. Les éditions EA et
+NEA, qui contiennent les deux sections, s'en tirent : la référence y résout
+vers la figure de la classe E, qui est le même dessin 1050.
+
+Le refactor a donc **déplacé** le défaut plutôt que de le supprimer : la
+collision de label disparaît, une référence orpheline apparaît. Le livre
+allemand de la classe A est affecté.
+
+**Côté français : renommage adopté sur les DEUX lignes** — le `[picture:]` et
+le `[ref:]` — en application de la décision D2 de la feuille d'arbitrage nº 5
+(Pierre, 16/08/2026), qui portait précisément sur « deux lignes à changer dans
+notre fichier A ». C'est une **dérogation assumée à la règle « marqueurs
+identiques à l'amont »** du §5 : `verifier_traduction.py` la signale, et c'est
+normal. Sans elle, nous importerions un `??` que l'amont vient de créer.

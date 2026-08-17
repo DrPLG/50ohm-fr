@@ -1,4 +1,4 @@
-Comme l'atténuation est souvent indésirable, les questions suivantes consistent à rechercher un câble qui ne dépasse pas une atténuation donnée, mais présente une atténuation plus faible.
+Dans la classe E, l'atténuation de câble a déjà été abordée. Comme l'atténuation est souvent indésirable, les questions suivantes consistent à rechercher, dans le diagramme d'atténuation de câble du recueil de formules, un câble qui ne dépasse pas une atténuation donnée, mais présente une atténuation plus faible.
 
 [question:AG309]
 [question:AG310]

@@ -13,8 +13,43 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 | Classe | Sections | Questions | Encarts | Dessins forkés | Pages (a.1 → a.2) |
 | ------ | -------: | --------: | ------: | ---: | ----: |
 | N | 131 | 571 | 55 | 39 | 254 → 258 |
-| E | 103 | 462 | 6 | 72 | 206 → 214 |
-| A | 153 | 717 | 5 | 111 | 372 → 376 |
+| E | 103 | 462 | 6 | **73** | 206 → 214 |
+| A | **152** | 717 | 5 | **113** | 372 → **382** |
+
+**E et A recompilées les 16 et 17/08/2026** après la resynchronisation amont.
+
+- **E : 214 pages, inchangées** malgré la figure ajoutée à `antennenformen_2`.
+  Compteurs de clamp **289 · 5 · 3**, contre 288 · 5 · 3 le 14/08 — la figure
+  de plus, et rien d'autre. PDF compressé : 3,03 Mo.
+- **A : 376 → 382 pages**, les six pages des ~3 340 mots et 15 figures ajoutés.
+  Compteurs de clamp **545 · 4 · 4**. PDF compressé : 5,23 Mo.
+
+**Les quatre contrôles du §4 sont verts sur les deux classes**, notes de marge
+rétrogradées comprises (E 0, A 4). `verifier_questions.py` rc=0 sur les 1 750
+questions, `sonde_dessins.py` rc=0 sur les deux classes.
+
+**Références `??` : E 1, A 3 — inchangées.** C'est le résultat de la décision
+D2 : sans le renommage du renvoi, la classe A serait passée à 4. Vérifié sur le
+PDF, pas sur le journal.
+
+- **NEA : 808 → 814 pages**, exactement les six pages gagnées par A. 383
+  sections, 1 751 usages de questions, 202 dessins francisés, 64 encarts.
+  Compteurs de clamp **966 · 10 · 7**. Quatre contrôles du §4 verts, notes de
+  marge rétrogradées à 4. **`??` : 4** — les trois de A plus celle de E, toutes
+  documentées au §8.
+
+**La classe N n'est pas recompilée** — aucune de ses sections n'était touchée
+par la dérive amont.
+
+Deux mots allemands subsistent dans le NEA (`Sperrkreis`, `Mantelwellensperre`,
+4 occurrences) : ce sont des **gloses délibérées**, le terme allemand donné
+entre parenthèses après sa traduction française. Pratique établie du corpus, et
+utile puisque le lecteur passera un examen allemand.
+
+`sonde_dessins.py` n'est pas lançable sur une édition combinée — elle indexe
+les forks par `traductions/<CLASSE>/dessins`, qui n'existe pas pour NEA. Les
+trois classes ont été sondées séparément, ce qui couvre le même corpus de
+dessins.
 
 Pagination inchangée après la francisation des dessins du 15/08, et compteurs de
 clamp identiques à ceux du 14/08 (E : 288 · 5 · 3) — les libellés traduits n'ont
@@ -232,7 +267,95 @@ retouches ponctuelles.
     combinée perd l'avant-propos allemand. C'est aussi l'origine de
     l'avertissement « clé *vorwort* n'est pas un ident connu » de `titles.json`.
 
+### Ajouté
+- **Resynchronisation amont du 16/08/2026** — feuille d'arbitrage nº 5. C'est
+  l'objectif nº 1 de la a.2, « suivre les évolutions des documents allemands »,
+  concrétisé pour la première fois.
+  Notre instantané a d'abord été identifié **par empreinte git** et non par la
+  date des fichiers : ses 385 sections sont byte pour byte l'amont au commit
+  `a74ed171`. Cela a corrigé le périmètre annoncé la veille — **23 commits et
+  23 sections, non 28 et 28**. Cinq sections données pour en retard étaient
+  déjà à jour, dont `antennenformen_3`, présentée comme le plus gros morceau du
+  chantier.
+  **22 sections traduites** (21 en A, 1 en E), environ 3 340 mots de prose
+  allemande, dont ~1 900 inédits. **15 figures** nouvellement appelées, avec
+  leurs légendes. **2 tableaux** amont neufs (`a_rg58`,
+  `a_kabel_phasenverschiebung_table`). Aucune question perdue ni gagnée : les
+  neuf mouvements sont des déplacements entre sections, la classe A reste à
+  717 questions.
+- **2 dessins forkés et francisés** : 1106 (« Richtantenne », « Dipol ») et
+  **633 (« Dipolschenkel »)**. Le second était **déjà composé dans les livres E
+  et A** : le mot figurait dans les PDF a.2 relus. `sonde_dessins.py` ne l'avait
+  jamais vu — la liste contenait « Dipol », mais ses frontières de mot ne
+  mordent pas dans un composé. Sonde passée en **v0.3**.
+
+### Corrigé
+- **`digital_analog_umsetzer` : un pas de quantification faux dans un livre
+  livré.** La traduction avait perdu la phrase d'avertissement de l'amont
+  (« avec 16 échelons, il n'y a que 15 pas intermédiaires »), rendu
+  *Zwischenschritte* par « échelons », et affichait un pas de
+  **$\qty{6,25}{\milli\volt}$ au lieu de $\approx\qty{67}{\milli\volt}$**.
+  Trouvé en outillant les contrôles du §5, pas à la relecture.
+
+### Supprimé
+- **`frequenzabhaengige_stromverteilung`** (classe A), effacée en amont —
+  fichier, entrée de sommaire, ligne de manifeste et titre. Ses quatre
+  questions `AG203`–`AG206` sont reprises par `strom_spannung_speisung_2`, dans
+  un texte neuf qui explique le phénomène au lieu de l'annoncer.
+
+### Préservé
+- **Label dupliqué `a_richtkoppler_rechts_links`** — les dessins 1109 et 1110
+  déclarent le même label dans `swr_meter_2`, et le texte y renvoie deux fois.
+  Préservé verbatim, légendes traduites.
+- **`\qty{0,66}{\percent}`** pour le coefficient de vélocité d'un RG-58
+  (tableau `a_rg58`) : erreur d'unité d'un facteur cent. Préservée, signalée.
+
 ### Modifié
+- **Renommage de label `e_stromverteilungen` → `a_stromverteilungen`**, adopté
+  sur **les deux lignes** — la figure et le renvoi. L'amont n'avait renommé que
+  la figure ; comme `strom_spannung_speisung_1` n'est pas au sommaire de la
+  classe A, le renvoi y pendait et **aurait fait passer la classe A de 3 à 4
+  `??`**. Vérifié après coup : la référence a disparu de la liste des
+  orphelines. Dérogation assumée à « marqueurs identiques à l'amont ».
+- **`compiler.bat` : l'interpréteur Python est désormais essayé, pas supposé.**
+  Chaque candidat (`OHM_PYTHON`, venv du générateur, `py -3.14/-3.13/-3.12`,
+  `python`) doit prouver qu'il importe `mistletoe` à une version ≥ 3.12.
+  L'ancienne règle fonctionnait ici — le venv `uv` du générateur est bien en
+  place — mais son repli était un piège : sur une machine sans venv, elle
+  retenait le `python` du PATH sans le vérifier, qui est ici celui d'Inkscape,
+  en 3.9 et sans `mistletoe`.
+- **`build_book.py` v0.21 : `\qty{5}{8}` → `\ensuremath{\frac{5}{8}}`.**
+  Troisième défaut de la famille des v0.14 et v0.16 — une construction siunitx
+  que l'amont n'écrit pas comme il la pense — mais le premier où l'erreur porte
+  sur le **nombre et l'unité à la fois** : « 8 » y est passé comme unité de
+  « 5 ». Cas amont : la légende du dessin 650, appelée par
+  `elektrische_verlaengerung_verkuerzung` depuis le refactor du 14/08. Le corps
+  de la **même section** écrit pourtant `\frac{5}{8}\lambda` trois fois — la
+  coquille est certaine.
+  **Mesuré sur document réduit puis extraction du PDF : la compilation réussit
+  sans erreur et la légende compose « 58λ »**, barre de fraction perdue. Même
+  signature que la v0.16 : aucune alerte, un rendu faux.
+  `\ensuremath` plutôt qu'un `\frac` nu, parce que `\qty` s'emploie aussi hors
+  mode mathématique dans le corpus, où un `\frac` nu ferait échouer la
+  compilation ; vérifié dans les deux modes.
+  **La portée a été mesurée avant d'écrire la règle**, et c'est ce qui l'a
+  gardée étroite. Les `\qty{}{}` douteux du corpus se rangent en quatre
+  familles, dont **deux seulement composent faux** :
+
+  | famille | exemple | rendu | verdict |
+  | --- | --- | --- | --- |
+  | unité numérique | `\qty{5}{8}` | « 58 » | **cassé** — traité ici |
+  | unité macro | `\qty{0.625}{\lambda}` | « 0,625 » | **cassé** — v0.16 |
+  | unité vide | `\qty{30}{}` | « 30 » | sain |
+  | unité en texte nu | `\qty{10}{dB}` | « 10 dB » | sain |
+
+  Les **71 occurrences** de la dernière famille (`\qty{0,3}{V}`, `\qty{-5}{dBm}`
+  dans 25 dessins) rendent exactement comme leur équivalent en macro siunitx :
+  les convertir n'aurait rien corrigé et aurait touché des dessins déjà livrés.
+  Elles restent en l'état. Neuf cas de test couvrent la règle, dont **quatre
+  `\qty` légitimes qu'elle ne doit pas toucher**.
+  Décision de Pierre du 16/08/2026 : appliquer la règle **et** corriger la
+  légende côté français, les deux. La source amont n'est pas touchée.
 - **`build_book.py` v0.20 : filigrane de la page de titre empilé.** Le bandeau
   de droite fait 0,34 de la largeur du papier, soit 71 mm en A4. La v0.9
   réduisait le corps du filigrane à mesure — 220 pt pour une lettre, 150 pour

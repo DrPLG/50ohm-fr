@@ -85,11 +85,12 @@ En raison de la caractéristique de rayonnement perpendiculaire au dipôle, un d
 
 ---
 
-Un cas particulier d'antenne verticale est l'antenne $5/8 \lambda$ excitée contre la terre (ou contre la carrosserie d'un véhicule) (cf. figure [ref:e_fuenf_achtel]). Ici, la longueur est choisie précisément de manière à obtenir un gain optimal.
+Un cas particulier d'antenne verticale est l'antenne $\frac{5}{8}\lambda$ excitée contre la terre (ou contre la carrosserie d'un véhicule) (cf. figure [ref:e_fuenf_achtel]). Ici, la longueur de $\qty{0.625}{\lambda}$ en équivalent est choisie pour une raison bien précise. Le brin rayonnant est ainsi mécaniquement environ 2,5 fois plus long que celui d'une Groundplane $\frac{\lambda}{4}$ ordinaire ($\qty{0.25}{\lambda}$). Cette plus grande longueur de brin modifie avantageusement le diagramme de rayonnement vertical, comme le montre la figure [ref:a_5_8_lambda_strahlung] : une plus grande part de la puissance rayonnée est concentrée en direction de l'horizon, et une moindre part est rayonnée vers le haut ou vers le bas. Pour des liaisons terrestres, cela donne en règle générale une portée supérieure à puissance égale. Une longueur de brin d'environ $\frac{5}{8} \lambda$ est optimale pour cet effet : si l'on allonge davantage le brin, davantage de puissance se perd de nouveau vers le haut et vers le bas.
 
 [question:EG108]
 
 <margin>
+[picture:1134:a_5_8_lambda_strahlung:Diagrammes de rayonnement et répartitions du courant d'antennes verticales sur terre idéale]
 [picture:650:e_fuenf_achtel:Antenne $5/8 \lambda$]
 </margin>
 

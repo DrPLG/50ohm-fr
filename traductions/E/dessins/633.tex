@@ -1,0 +1,120 @@
+% Author: Malte, DE7LMS
+% Year: 2022
+\begin{circuitikz}
+
+    \def\thickness{0.2}
+    \def\radius{1.5}
+    \def\height{6}
+    \def\armlength{2.5}
+    \def\armlengthdashed{0.6}
+    \def\arrowdis{0.17}
+    \def\arrowlen{1}
+    
+    \ctikzset{
+      blocks/scale=\getDarcImageFactor,
+      RF/scale=\getDarcImageFactor,
+      misc/scale=\getDarcImageFactor
+    }
+    
+    \tikzset{
+      arrow/.style={
+        inner sep=2pt,
+        -Triangle,
+        thick
+      },
+      dot/.style={
+        circle,
+        fill,
+        inner sep=0,
+        minimum width=1.2*\thickness*\getDarcImageFactor cm
+      }
+    }
+      \draw 
+        (\thickness/2,-\height) -- (\thickness/2,-\height-2*\radius/3)
+        arc[start angle=0,end angle=-180,x radius=\thickness/2, y radius=\thickness/4]
+        -- (-\thickness/2,-\height);
+    
+      \filldraw[fill=white] (0,-\height) circle[x radius=\radius, y radius=\radius/2];
+      \draw[dashed] (0,-\height) circle[x radius=\radius-\thickness, y radius=\radius/2-\thickness];
+    
+      \draw[dashed] (-\radius+\thickness,0) -- ++ (0,-\height);
+      \draw[dashed] (\radius-\thickness,0) -- ++ (0,-\height);
+    
+      \filldraw[fill=white,dashed] (\thickness/2,0) -- (\thickness/2,-\height)
+        -- (-\thickness/2,-\height) -- (-\thickness/2,0);
+    
+      \filldraw[fill=white, even odd rule] (0,0) circle[x radius=\radius, y radius=\radius/2]
+        circle[x radius=\radius-\thickness, y radius=\radius/2-\thickness];
+    
+      \draw (-\radius,0) -- ++ (0,-\height);
+      \draw (\radius,0) -- ++ (0,-\height);
+    
+      % left arm
+      \fill[white] (-\thickness/2,\radius/2-2*\thickness) rectangle ++(\thickness,3*\thickness);
+      \draw (-\thickness/2,0) -- (-\thickness/2,\radius/2) arc[start angle=0, end angle=90, radius=\radius/2] -- ++ (-\armlength,0) node[coordinate] (left arm end) {};
+      \draw[dashed] (left arm end) -- ++(-\armlengthdashed,0);
+      \draw[dashed] (left arm end) ++(0,\thickness) -- ++(-\armlengthdashed,0);
+      \draw (left arm end) ++(0,\thickness) -- ++(\armlength,0)
+        arc[start angle=90, end angle=0, radius=\radius/2+\thickness]
+        -- (\thickness/2,0);
+    
+      \begin{scope}[radius=\radius/2+\thickness+\arrowdis]
+        \path (\thickness/2+\arrowdis,\radius/2) arc[start angle=0, end angle=20] node[coordinate] (start) {};
+        \path (start) arc[start angle=20, end angle=50] node[above right, inner sep=1pt] {$I_1$};
+        \draw[arrow, Triangle-] (start) arc[start angle=20, end angle=85];
+      \end{scope}
+    
+      % right arm
+      \fill[white] (\radius,0) rectangle ++(-\thickness,\radius/2);
+      \draw (\radius,0) -- ++(0,\radius/2) arc[start angle=180, end angle=90,radius=\radius/2]
+        --++ (\armlength,0) node[coordinate] (right arm end) {};
+      \draw[dashed] (right arm end) -- ++(\armlengthdashed,0);
+      \draw[dashed] (right arm end) ++(0,\thickness) -- ++(\armlengthdashed,0);
+      \draw (right arm end) ++(0,\thickness) -- ++(-\armlength,0)
+        arc[start angle=90, end angle=180, radius=\radius/2+\thickness]
+        --++(0,-\radius/2) -- ++(\thickness,0);
+    
+      \begin{scope}[radius=\radius/2+\thickness+\arrowdis]
+        \path (\radius-\thickness-\arrowdis,\radius/2) arc[start angle=180, end angle=160] node[coordinate] (start) {};
+        \path (start) arc[start angle=160, end angle=130] node[above left, inner sep=1pt] {$I_2$};
+        \draw[arrow] (start) arc[start angle=160, end angle=95];
+      \end{scope}
+    
+      % circuit
+    
+      \draw (\radius-\thickness/2, -\height) node[dot] {} -- ++(\radius,0)
+        -- ++(0,-2*\radius/3) node[dot] {} node[coordinate] (join) {}
+        -- ++(0,-\arrowlen) node[ground]{};
+    
+      \draw (\thickness/2,-\height-2*\radius/3) node[dot] {} -- (join);
+      \path (\thickness/2+1.3*\radius,-\height-2*\radius/3) to[sV, fill=white] ++(0,.01pt);
+    
+      % arrows and labels
+    
+      \node[below] at (-2-\thickness/2,\radius) {\footnotesize Brin de dipôle 1};
+      \draw[arrow] (-2-\thickness/2,\radius+\thickness+\arrowdis) -- node[above] {$I_1$} ++ (\arrowlen,0);
+    
+      \node[below] at (\radius+2,\radius) {\footnotesize Brin de dipôle 2};
+      \draw[arrow] (\radius+2-\arrowlen,\radius+\thickness+\arrowdis) -- node[above] {$I_2$} ++ (\arrowlen,0);
+    
+      \foreach \y in {-\radius,-\height/2,-\height+\radius}
+        \draw[arrow] (\thickness/2+\arrowdis,\y+\arrowlen/2) -- node[right, inner sep=1pt] {$I_1$} ++(0,-\arrowlen);
+    
+      \foreach \y in {-\radius,-\height/2,-\height+\radius}
+        \draw[arrow] (\radius-\thickness-\arrowdis,\y-\arrowlen/2) -- node[left, inner sep=1pt] {$I_1$} ++(0,\arrowlen);
+    
+      \draw[arrow] (\radius-\thickness-\arrowdis,-.4) -- node[left, pos=.36] {$I_2$} ++(0,1.3);
+      \draw[arrow] (\radius-\thickness-\arrowdis,-.4) arc[x radius=\thickness/2+\arrowdis, y radius=0.7, start angle=180, end angle=0] node[right, pos=.8] {$I_3$};
+    
+      \foreach \y in {-\radius,-\height/2,-\height+\radius}
+        \draw[arrow] (\radius+\arrowdis,\y+\arrowlen/2) -- node[right] {$I_3$} ++(0,-\arrowlen);
+    
+      \draw[arrow] (join) ++(\arrowdis,-\arrowlen/4) -- node[right] {$I_3$} ++(0,-\arrowlen);
+    
+      \begin{scope}[pin edge={thin, gray}]
+        %\path[pin distance=\getDarcImageFactor * 1.5cm] node[coordinate,pin=150:Koaxialkabel] at (-\radius/2,-.6*\height) {};
+        %\node[coordinate,pin=180:Abschirmung] at (-\radius+\thickness,-2/3*\height) {};
+        %\path[pin distance=\getDarcImageFactor * 2.2cm] node[coordinate,pin=210:Innenleiter] at (-\thickness/2,-2/3*\height) {};
+        \path[pin distance=\getDarcImageFactor * 1.5cm] node[coordinate,pin=-10:{$I_2=I_1-I_3$}] at (\radius-\thickness/2,3*\thickness) {};
+      \end{scope}
+\end{circuitikz}

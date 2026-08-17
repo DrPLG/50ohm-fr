@@ -1,4 +1,15 @@
-Le principe de fonctionnement d'un analyseur de réseau vectoriel est le suivant : un signal *à fréquence variable* est produit puis délivré (p. ex. sur une antenne ou sur un autre objet à mesurer, comme un circuit oscillant). On mesure alors comment ce signal est modifié (p. ex. réfléchi). L'amplitude aussi bien que la phase sont ici mesurées. On peut ainsi déterminer, entre autres, la partie active et la partie réactive d'une résistance, ainsi que le rapport d'ondes stationnaires.
+Dans la classe E, nous avons déjà fait connaissance avec l'*analyseur de réseau vectoriel* (VNA) (cf. figure [ref:a_vna_swr]). Dans la classe A, nous voulons examiner son principe de fonctionnement d'un peu plus près.
+
+Pour une mesure, le VNA produit d'abord un signal HF à une fréquence de départ fixée et le délivre à l'objet à mesurer, par exemple une antenne ou un circuit oscillant. Il mesure ensuite le signal qui revient de l'objet à mesurer, autrement dit le signal réfléchi. L'amplitude aussi bien que la phase de ce signal sont ici relevées. Afin de réduire l'influence des perturbations, plusieurs mesures peuvent aussi être effectuées puis moyennées pour un même point de fréquence.
+
+Après la mesure, la fréquence est augmentée d'un pas fixé et l'opération est répétée. Le VNA parcourt ainsi pas à pas tout le domaine allant de la fréquence de départ à la fréquence d'arrêt. On désigne aussi cette opération sous le nom de *balayage en fréquence*, ou autrefois parfois de *wobbulation*.
+
+À partir des valeurs mesurées aux différents points de fréquence, le VNA peut déterminer diverses grandeurs et les représenter en fonction de la fréquence. Il s'agit par exemple de l'impédance de l'objet à mesurer et du rapport d'ondes stationnaires (SWR). On peut ainsi reconnaître immédiatement à quelles fréquences une antenne est bien adaptée, ou présente une résonance.
+
+<margin>
+[photo:323:a_vna_swr:Mesure du SWR d'une antenne filaire alimentée par l'extrémité. Le SWR est proche de $1$ à $\qty{14}{\mega\hertz}$]
+[picture:526:a_vna_swr_2:Évolution possible du SWR d'une antenne.]
+</margin>
 
 [question:AI201]
 [question:AI202]

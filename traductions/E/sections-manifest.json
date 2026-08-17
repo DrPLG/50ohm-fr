@@ -40,9 +40,9 @@
     "sha256_amont": "fba17e8e76bd5dc69900aa7f71dd6eade2a3d48da4257a8968a17f09ae334273"
   },
   "antennenformen_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "585f95581e0a849a31ac83cb4479cbd20f8cd00e09123dac4fd1bfcc4ab78273"
+    "date_traduction": "2026-08-16",
+    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
+    "sha256_amont": "e0258647385b3122c4bb7b58ed78935f985f61e40cbc473e8c209b417e362dd7"
   },
   "antennengewinn": {
     "date_traduction": "2026-08-14",

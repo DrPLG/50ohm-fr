@@ -15,7 +15,49 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.20
+Version du script : v0.21
+    v0.21 — fix_latex() : \qty{5}{8} -> \ensuremath{\frac{5}{8}}.
+
+            Troisième défaut de la même famille que les v0.14 et v0.16 — une
+            construction siunitx que l'amont n'écrit pas comme il le pense —
+            mais le premier où l'erreur porte sur le NOMBRE ET l'UNITÉ à la
+            fois : « 8 » y est passé comme unité de « 5 ». L'auteur voulait
+            \frac{5}{8}.
+
+            Cas amont : la légende du dessin 650, appelée par
+            elektrische_verlaengerung_verkuerzung depuis le refactor du
+            14/08/2026 : [picture:650:a_5_8_lambda:$\qty{5}{8}\lambda$-...].
+            Le corps de la MÊME section écrit pourtant \frac{5}{8}\lambda trois
+            fois : la coquille est certaine.
+
+            Effet, mesuré sur document réduit puis extraction du PDF le
+            16/08/2026 : la compilation RÉUSSIT SANS ERREUR et la légende
+            compose « 58λ » — les deux chiffres accolés, barre de fraction
+            perdue. Même signature que la v0.16 : aucune alerte, un rendu faux.
+
+            \ensuremath et non \frac nu : \qty s'emploie aussi hors mode
+            mathématique dans le corpus DARCdown, où un \frac nu ferait échouer
+            la compilation. \ensuremath est sans effet en mode mathématique et
+            l'ouvre partout ailleurs.
+
+            PORTÉE MESURÉE AVANT D'ÉCRIRE LA RÈGLE. Les \qty{}{} douteux du
+            corpus (amont + traductions) se rangent en quatre familles ; deux
+            seulement composent faux, et il ne fallait pas toucher aux autres :
+
+              - unité NUMÉRIQUE  \qty{5}{8}          -> « 58 »      CASSÉ (ici)
+              - unité MACRO      \qty{0.625}{\lambda} -> « 0,625 »  CASSÉ (v0.16)
+              - unité VIDE       \qty{30}{}          -> « 30 »      sain
+              - unité TEXTE NU   \qty{10}{dB}        -> « 10 dB »   sain
+
+            Les 71 occurrences de la quatrième famille (\qty{0,3}{V},
+            \qty{-5}{dBm}… dans 25 dessins) rendent exactement comme leur
+            équivalent en macro siunitx : les convertir n'aurait rien corrigé
+            et aurait touché des dessins déjà livrés. Elles restent en l'état.
+
+            Décision de Pierre du 16/08/2026 : appliquer la règle fix_latex()
+            ET corriger la légende côté français, les deux. La source amont
+            n'est pas touchée, comme pour les v0.14 et v0.16.
+
     v0.20 — Page de titre des éditions combinées : filigrane EMPILÉ.
 
             Le bandeau de droite fait 0,34 de la largeur du papier, soit 71 mm
@@ -1350,6 +1392,17 @@ def fix_latex(text: str) -> str:
     # Idiome amont (antennenformen_3). \num{} est conservé plutôt que le nombre
     # brut : c'est lui qui rend la virgule décimale française.
     text = re.sub(r"\\qty\{([0-9.,]+)\}\{\\lambda\}", r"\\num{\1}\\,\\lambda", text)
+    # v0.21 — \qty{5}{8} : cette fois l'erreur porte sur les DEUX arguments.
+    # « 8 » est passé comme unité de « 5 » là où l'auteur voulait \frac{5}{8}.
+    # siunitx ne s'en plaint pas et compose « 58 » : barre de fraction perdue,
+    # aucune erreur. Idiome amont (légende du dessin 650, appelée par
+    # elektrische_verlaengerung_verkuerzung) ; le corps de la même section
+    # écrit \frac{5}{8}\lambda trois fois, la coquille est certaine.
+    # \ensuremath : \qty s'emploie aussi hors mode mathématique, où un \frac nu
+    # ferait échouer la compilation. Une unité n'est jamais un nombre nu, donc
+    # la règle ne peut pas mordre sur un \qty légitime.
+    text = re.sub(r"\\qty\{([0-9.,]+)\}\{([0-9.,]+)\}",
+                  r"\\ensuremath{\\frac{\1}{\2}}", text)
     # Coquilles du contenu source (à remonter upstream) :
     text = text.replace("1000 {\\mega\\hertz}", "1000\\,\\unit{\\mega\\hertz}")
     text = re.sub(r"\\qty\{([A-Za-z])\}\{", r"\1\\,\\unit{", text)
