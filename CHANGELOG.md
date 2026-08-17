@@ -289,6 +289,21 @@ retouches ponctuelles.
   jamais vu — la liste contenait « Dipol », mais ses frontières de mot ne
   mordent pas dans un composé. Sonde passée en **v0.3**.
 
+- **`verifier_traduction.py` (v0.1)** — mécanise les huit contrôles du §5 :
+  marqueurs DARCdown (nombre, nature **et ordre**), formules verbatim,
+  séparateurs, puces, commentaires, légendes sans « : », accents nus en mode
+  mathématique, sonde anti-germanisme. C'est lui qui a fait remonter l'erreur
+  des 6,25 mV ci-dessous.
+  Il documente honnêtement **trois limites**, chacune payée par un faux
+  positif : il ne voit pas une prose périmée (sur 21 sections en retard il en
+  a signalé 19) ; il compte un ajout français hors encart `<france>` comme un
+  écart ; et il prend une **glose allemande volontaire** pour un germanisme —
+  dans `q_schluessel`, le mot allemand porte le moyen mnémotechnique du code Q,
+  « grande puissance (gr*o*ße Leistung) » expliquant le O de QRO.
+  État mesuré au 17/08 sur 386 sections : **345 conformes, 2 dérogations,
+  39 écarts préexistants** non analysés, dont un commentaire amont réellement
+  perdu dans `antennen`.
+
 ### Corrigé
 - **`digital_analog_umsetzer` : un pas de quantification faux dans un livre
   livré.** La traduction avait perdu la phrase d'avertissement de l'amont
