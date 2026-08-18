@@ -4,15 +4,20 @@ Traduction française des contenus pédagogiques de [50ohm.de](https://50ohm.de)
 le support d'apprentissage du DARC e. V. pour les examens radioamateur
 allemands des classes **N**, **E** et **A**.
 
-Ce dépôt produit trois ouvrages PDF complets, augmentés d'encarts de droit
-français signalant les différences réglementaires entre l'Allemagne et la
-France.
+Ce dépôt produit trois ouvrages PDF complets, plus une édition combinée qui
+les réunit, augmentés d'encarts de droit français signalant les différences
+réglementaires entre l'Allemagne et la France.
 
 | Classe | Sections | Questions | Encarts « En France » | Version | Pages |
 | ------ | -------: | --------: | --------------------: | ------- | ----: |
-| N      |      131 |       571 |                    55 | v0.9    |   252 |
-| E      |      103 |       462 |                     6 | v0.9    |   202 |
-| A      |      153 |       717 |                     5 | v1.2    |   368 |
+| N      |      131 |       571 |                    55 | a.2     |   258 |
+| E      |      103 |       462 |                     6 | a.2     |   214 |
+| A      |      152 |       717 |                     5 | a.2     |   382 |
+| NEA    |      383 |     1 751 |                    64 | a.2     |   814 |
+
+Chiffres du 17/08/2026. La colonne « Questions » compte les usages : une même
+question peut servir dans deux classes. Aucune version n'est encore publiée —
+le dépôt ne porte ni tag ni release.
 
 ## Nature de l'ouvrage
 
@@ -42,13 +47,17 @@ d'origine fait foi. Les signalements sont bienvenus (voir *Contribuer*).
 ## Contenu du dépôt
 
 ```
-sections/          sections traduites, au format DARCdown, par classe
-titles.json        titres de chapitres, de sections et résumés traduits
-questions.json     questions d'examen traduites
-build_book.py      générateur : assemble les sections en LaTeX et compile
-docs/              notes de projet, dont le relevé des défauts amont
-CHANGELOG.md       historique des versions publiées
-NOTICE             mentions d'attribution exigées par la licence
+traductions/<C>/  par classe : sections traduites (DARCdown), dessins forkés,
+                  titres, questions, et les manifestes de suivi de l'amont
+build_book.py     générateur : assemble les sections en LaTeX et compile
+compiler.bat      point d'entrée pratique : purge, compile, passe les contrôles
+verifier_amont.py     détecte la dérive de l'amont sur nos forks et traductions
+verifier_traduction.py  contrôle une traduction face à son original allemand
+verifier_questions.py   vérifie qu'aucune question n'est séparée de ses réponses
+sonde_dessins.py      cherche l'allemand résiduel dans les dessins forkés
+docs/             notes de projet, dont le relevé des défauts amont
+CHANGELOG.md      historique des versions
+NOTICE            mentions d'attribution exigées par la licence
 ```
 
 Les PDF compilés sont publiés dans les
