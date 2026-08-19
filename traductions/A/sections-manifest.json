@@ -140,9 +140,9 @@
     "sha256_amont": "bcda8e5fef7d42a59682792d06f71488ca1d89f0394e7b7751d054ad4e6e8d57"
   },
   "emitterschaltung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "10bb8da8c1a8f409ef3fc89c88d0a35f4a188acffaacf94f6ac3a579115ff685"
+    "date_traduction": "2026-08-19",
+    "note": "Resynchronisation 19/08/2026 : amont a290eb28 -> 07f3c861",
+    "sha256_amont": "b19f07e49dd1bff30d84f15ef8a700f98a1e818344c2fb75ed5f5aab65e54cf5"
   },
   "fehlererkennung": {
     "date_traduction": "2026-08-14",
@@ -245,9 +245,9 @@
     "sha256_amont": "fd39dad969de33e3677785d66ac92d26c86f8a42222a576ebbd334949e6a4880"
   },
   "kollektorschaltung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "b527f57dc201738610e1b497427582f577a15705f47e8c1d020d6400bb9443d4"
+    "date_traduction": "2026-08-19",
+    "note": "Resynchronisation 19/08/2026 : amont a290eb28 -> 07f3c861",
+    "sha256_amont": "ba0490d40dd43e11369d317d348f9656a7ed8be89d1ef044ca8af478126e257f"
   },
   "kondensator_2": {
     "date_traduction": "2026-08-14",
@@ -445,9 +445,9 @@
     "sha256_amont": "cd992c61828258c1700f77e2401d190cf0a2ad3be5a35b6f5257332dc3dac395"
   },
   "polarmodulation": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "6789162d62d0d2cc489d064430bfe9b40c796c2c1d8c0166ca9aca5b2e74162c"
+    "date_traduction": "2026-08-19",
+    "note": "Resynchronisation 19/08/2026 : amont a290eb28 -> 07f3c861",
+    "sha256_amont": "2177ebfc03b4732c0a1095074248f90802f12eaa442b2e0632bc90bfa040fa07"
   },
   "psk": {
     "date_traduction": "2026-08-14",
@@ -560,9 +560,9 @@
     "sha256_amont": "6beae29603eae90e47a8059de6ddad15baddfac7ca3aedbc2e9119cf3dda6d7a"
   },
   "snr_rauschzahl": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "2ee70b8ec0f6a4ca0b964dbc4b678e2577228e58ea2856728100d45c189f1a68"
+    "date_traduction": "2026-08-19",
+    "note": "Resynchronisation 19/08/2026 : amont a290eb28 -> 07f3c861",
+    "sha256_amont": "225b49ac09161341a51a5692c5b319aabe2e7ac1ed6f95283206e0d9718b1818"
   },
   "spannungsstabilisierung": {
     "date_traduction": "2026-08-14",
@@ -715,9 +715,9 @@
     "sha256_amont": "c7dd88ff5de08aad8af59b0009e3467faec4d0f0441120092e15bf71edcd3470"
   },
   "verstaerker_klasse": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "1c241fb285d2849264d9b402793b9c0307c2a1ae4fc2bc888d9c5fc16f4f7f77"
+    "date_traduction": "2026-08-19",
+    "note": "Resynchronisation 19/08/2026 : amont a290eb28 -> 07f3c861",
+    "sha256_amont": "4fbe06b1dbefe603f88b601f132d6955ec89de5f04a8f2b8e057d51eeb27dd58"
   },
   "verstaerker_linearverstaerker": {
     "date_traduction": "2026-08-14",

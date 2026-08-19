@@ -6,7 +6,11 @@ Le rapport signal sur bruit (SNR, Signal-to-Noise Ratio) est défini comme le ra
 
 [question:AF227]
 
-Le facteur de bruit est fréquemment indiqué pour les préamplificateurs HF. Il décrit la dégradation du SNR lors du passage d'un signal à travers ce module. Le facteur de bruit est ici déterminé comme le rapport de la valeur du SNR entrant à la valeur du SNR sortant. Le facteur de bruit peut, par passage au logarithme ($\unit{\dB}$), être converti en ce qu'on appelle le *facteur de bruit exprimé en décibels*, ou figure de bruit. Un facteur de bruit de $\num{2}$ correspond par exemple à une figure de bruit de $\qty{3}{\dB}$.
+Le facteur de bruit est fréquemment indiqué pour les préamplificateurs HF. Il décrit la dégradation du SNR lors du passage d'un signal à travers ce module. Le facteur de bruit est ici déterminé comme le rapport de la valeur du SNR entrant à la valeur du SNR sortant. Le facteur de bruit est habituellement représenté, par passage au logarithme, en décibels ($\unit{\dB}$). Un facteur de bruit de $\num{2}$ en notation linéaire correspond, en représentation logarithmique, à $\qty{3}{\dB}$.
 
 [question:AF228]
 [question:AF229]
+
+<indepth>
+Selon la norme DIN, le facteur de bruit exprimé en $\unit{\decibel}$ porte le nom de figure de bruit. Il existe malheureusement une autre définition de cette grandeur, si bien que cette désignation n'est pas très répandue.
+</indepth>

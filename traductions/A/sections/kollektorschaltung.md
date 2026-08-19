@@ -16,7 +16,7 @@ Les montages amplificateurs à transistors bipolaires sont désignés d'après l
 
 Comme le collecteur est habituellement relié à la tension d'alimentation et se trouve, pour les tensions alternatives, à un potentiel approximativement fixe, la tension à l'émetteur suit la tension à la base. Le montage collecteur commun est donc aussi souvent appelé *émetteur suiveur*.
 
-Si la tension d'entrée augmente par exemple pendant une alternance positive, le courant d'émetteur croît. La chute de tension aux bornes de la résistance d'émetteur augmente alors, et la tension de sortie croît elle aussi. Le signal d'entrée et le signal de sortie sont donc en phase ; le déphasage vaut $\qty{0}{\degree}$. C'est pour cette raison que le montage collecteur commun est également appelé *émetteur suiveur*.
+Si la tension d'entrée à la base augmente par exemple pendant une alternance positive, le courant d'émetteur croît. La chute de tension aux bornes de la résistance d'émetteur augmente alors, et la tension de sortie croît elle aussi. Le signal d'entrée et le signal de sortie sont donc en phase ; le déphasage vaut $\qty{0}{\degree}$.
 
 [question:AD405]
 
@@ -30,7 +30,7 @@ La figure [ref:a_collector_circuit] montre un montage collecteur commun simple, 
 
 ---
 
-Pour le fonctionnement en amplificateur de courant linéaire, le transistor en montage collecteur commun a besoin d'un point de fonctionnement défini (BIAS), qui est normalement fixé par un diviseur de tension à la base.
+Pour le fonctionnement en amplificateur de courant linéaire, le transistor en montage collecteur commun a besoin d'un point de fonctionnement défini (de l'anglais *bias*, tension de polarisation), qui est normalement fixé par un diviseur de tension à la base.
 
 La figure [ref:a_kennlinie] montre la caractéristique d'un transistor NPN, avec le point de fonctionnement établi par le diviseur de tension. La tension de polarisation de base est choisie de telle sorte que l'on travaille sur la partie linéaire de la caractéristique d'entrée. Cela implique aussi qu'un certain courant de repos circule toujours, même en l'absence de signal d'entrée. Nous examinerons cela de plus près dans le chapitre consacré aux classes d'amplificateurs. 
 

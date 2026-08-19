@@ -1,4 +1,4 @@
-Comme nous l'avons vu dans les sections précédentes, les transistors possèdent une caractéristique qui représente la relation entre le signal d'entrée (tension base-émetteur ou grille-source) et le signal de sortie (courant de collecteur ou de drain). On distingue, sur cette caractéristique, différentes portions dans lesquelles le transistor présente un comportement linéaire ou non linéaire. Les portions droites de la caractéristique, dans lesquelles une variation de la grandeur de commande provoque une variation proportionnelle de la grandeur de sortie, sont dites linéaires. Les autres portions de la caractéristique, dans lesquelles une variation de la grandeur de commande ne provoque **aucune** variation proportionnelle de la grandeur de sortie, sont dites non linéaires.
+Comme nous l'avons vu dans les sections précédentes, les transistors possèdent une caractéristique qui représente la relation entre le signal d'entrée (tension base-émetteur ou grille-source) et le signal de sortie (courant de collecteur ou de drain). On distingue, sur cette caractéristique, différentes portions dans lesquelles le transistor présente un comportement linéaire ou non linéaire. Les portions de la caractéristique dans lesquelles une variation de la grandeur de commande provoque une variation proportionnelle de la grandeur de sortie sont dites linéaires. En représentation linéaire, ces portions se reconnaissent à leur tracé droit, sans courbure. Les autres portions de la caractéristique, dans lesquelles une variation de la grandeur de commande ne provoque **aucune** variation proportionnelle de la grandeur de sortie, sont dites non linéaires.
 
 <margin>
 [picture:1085:a_kennlinien_transistor_arbeitspunkt:Caractéristique d'entrée simplifiée d'un transistor, avec différents points de fonctionnement]  
@@ -29,10 +29,6 @@ Résumé du fonctionnement en classe A :
 </margin>
 
 [question:AD419]
-
-La puissance de sortie d'un amplificateur peut être calculée approximativement par la connaissance du point de fonctionnement et donc de son rendement approximatif. On calcule d'abord la puissance en courant continu fournie à l'amplificateur, à partir du produit de la tension et du courant. On multiplie ensuite cette puissance par le facteur numérique du rendement, $\qty{100}{\percent}$ correspondant à un rendement de $1$. Par exemple, un rendement de $\qty{40}{\percent}$ correspond alors à un facteur de $0,4$. Essaie maintenant de résoudre les exercices suivants :
-
-[question:AD424]
 
 % B-Betrieb des Verstärkers:
 
@@ -115,5 +111,9 @@ Résumons une dernière fois, dans un tableau d'ensemble, les classes d'amplific
 | Rendement | $\qty{40}{\percent}$ | jusqu'à $\qty{80}{\percent}$ | $\qtyrange{50}{80}{\percent}$ | $\qtyrange{80}{87}{\percent}$ |
 | Angle de conduction | $\Theta = \qty{360}{\degree}$ | $\Theta = \qty{180}{\degree}$ | $\qty{180}{\degree} < \Theta < \qty{360}{\degree}$ | $\Theta < \qty{180}{\degree}$ |
 | Mesures contre les harmoniques | Filtre | Étage push-pull ou filtre | Étage push-pull ou filtre | Filtre |
+
+La puissance de sortie d'un amplificateur peut être calculée approximativement par la connaissance du point de fonctionnement et donc de son rendement approximatif. On calcule d'abord la puissance en courant continu fournie à l'amplificateur, à partir du produit de la tension et du courant. On multiplie ensuite cette puissance par le facteur numérique du rendement, $\qty{100}{\percent}$ correspondant à un rendement de $1$. Par exemple, un rendement de $\qty{40}{\percent}$ correspond alors à un facteur de $0,4$. Essaie maintenant de résoudre les exercices suivants :
+
+[question:AD424]
 
 Outre les classes d'amplificateurs classiques A, B, AB et C, il existe d'autres classes à haut rendement, comme les classes D, E et F. Dans les amplificateurs de classe D et de classe E, le transistor est délibérément exploité en commutateur, de sorte que le moins de puissance possible soit perdue dans le transistor lui-même. Les amplificateurs de classe F utilisent en outre des réseaux accordés sur la fréquence fondamentale et sur des harmoniques choisies, afin de mettre en forme favorablement les allures du courant et de la tension au niveau du transistor. On peut atteindre de cette manière des rendements très élevés. De tels amplificateurs exigent toutefois une conception soignée du montage et ne conviennent souvent, dans le domaine HF, qu'à une plage de fréquences limitée. D'autres modes de fonctionnement, comme la classe J ou la classe S, poursuivent des objectifs analogues, mais ne sont pas pertinents pour l'examen radioamateur.

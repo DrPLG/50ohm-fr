@@ -466,3 +466,34 @@ le `[ref:]` — en application de la décision D2 de la feuille d'arbitrage nº 
 notre fichier A ». C'est une **dérogation assumée à la règle « marqueurs
 identiques à l'amont »** du §5 : `verifier_traduction.py` la signale, et c'est
 normal. Sans elle, nous importerions un `??` que l'amont vient de créer.
+
+## 12. Trois coquilles du relevé, corrigées en amont sans signalement
+
+**Constaté le 19/08/2026**, en resynchronisant sur `07f3c861`. Ces trois
+entrées **sortent du relevé** : elles n'existent plus en amont.
+
+| section | écrit | corrigé en |
+| --- | --- | --- |
+| `polarmodulation` | `Blochschaltbild` | `Blockschaltbild` |
+| `emitterschaltung` | `richtet sich Die Bezeichnung` | `die Bezeichnung` |
+| `emitterschaltung` | `im vergleich zur Kollektorschaltung` | `im Vergleich` |
+
+**Aucune des trois ne nous avait été signalée par le DARC, et nous ne les
+avions pas signalées non plus.** L'amont les a trouvées seul.
+
+Deux conséquences, et la seconde est la plus importante :
+
+1. **Notre traduction n'en portait aucune.** `Blochschaltbild` était rendu par
+   « schéma fonctionnel », et les deux autres sont des fautes de casse
+   allemande qui n'ont pas d'équivalent en français. Le passage à la version
+   corrigée n'a donc rien changé au texte français.
+2. **L'amont relit son propre corpus.** C'est l'argument le plus concret en
+   faveur du signalement resté en attente : les onze entrées de ce relevé
+   trouveraient un interlocuteur qui les traiterait. La plus urgente reste le
+   §11 — le coefficient de vélocité du RG-58 donné en `\qty{0,66}{\percent}`,
+   erreur d'unité d'un facteur cent, la seule du relevé qui puisse réellement
+   égarer un candidat.
+
+Le §8 de `CLAUDE.md` datait la correction de `Blochschaltbild` du 16/08/2026.
+La mesure la place plus tard : notre instantané `a290eb28`, pris le 17/08,
+portait encore la coquille. Elle fait partie des 18 commits repris le 19/08.

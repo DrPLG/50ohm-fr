@@ -26,7 +26,7 @@ Les montages amplificateurs à transistors bipolaires sont désignés d'après l
 
 La figure [ref:a_emitterschaltung] montre un montage émetteur commun simple, avec son alimentation, sa résistance de collecteur et ses condensateurs de liaison.
 
-Pour le fonctionnement en amplificateur de tension linéaire, le transistor en montage émetteur commun a besoin d'un point de fonctionnement défini (BIAS), qui est normalement fixé par un diviseur de tension à la base.
+Pour le fonctionnement en amplificateur de tension linéaire, le transistor en montage émetteur commun a besoin d'un point de fonctionnement défini (de l'anglais *bias*, tension de polarisation), qui est normalement fixé par un diviseur de tension à la base.
 
 <margin>
 [picture:136:a_emitterschaltung:Montage émetteur commun]
@@ -42,7 +42,7 @@ L'injection et le prélèvement des signaux à la base et au collecteur s'effect
 
 Le condensateur de découplage placé sur la tension de service (+) sert à évacuer les signaux HF et BF indésirables, afin d'éviter les effets de réaction sur l'étage et sur la tension d'alimentation.
 
-Le déphasage entre le signal d'entrée et le signal de sortie est, pour le montage émetteur commun, de $\qty{180}{\degree}$, car lors d'une alternance positive de la tension d'entrée, le courant de collecteur augmente et donc la chute de tension aux bornes de la résistance de collecteur croît. La tension aux bornes du condensateur de sortie diminue ainsi. Il en résulte une alternance négative à la sortie de l'étage amplificateur.
+Le déphasage entre le signal d'entrée et le signal de sortie est, pour le montage émetteur commun, de $\qty{180}{\degree}$, car lors d'une alternance positive de la tension d'entrée à la base, le courant de collecteur augmente et donc la chute de tension aux bornes de la résistance de collecteur croît. La tension aux bornes du condensateur de sortie diminue ainsi. Il en résulte une alternance négative à la sortie de l'étage amplificateur.
 
 [question:AD407]
 [question:AD408]
