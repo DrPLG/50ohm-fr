@@ -30,9 +30,13 @@ La tension du réseau de bord d'un véhicule paraît d'abord inoffensive : touch
 [photo:76:n_Kabelsicherung:Câble d'alimentation avec porte-fusible]
 </margin>
 
+%[class:N]
+
 <indepth>
 Un *arc électrique* est une décharge électrique — donc un passage de courant — à travers l'air normalement isolant, accompagnée de températures élevées et d'une lumière très vive. Il peut en résulter des incendies et des lésions oculaires.
 </indepth>
+
+%[/class]
 
 Un fusible de la bonne valeur doit toujours être monté dans le câble d'alimentation du poste mobile ! La figure [ref:n_Kabelsicherung] montre un porte-fusible usuel avec son fusible. Sur les appareils de qualité, des fusibles sont montés dans les deux câbles : un pour le pôle plus et un pour le pôle moins. La protection est ainsi meilleure qu'avec un seul fusible dans l'alimentation du pôle plus.
 

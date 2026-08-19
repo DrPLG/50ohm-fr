@@ -8,4 +8,6 @@ L'antenne opère la véritable « magie » de la radio : à l'émission, elle ra
 [picture:657:n_trx_kabel_und_antenne:Représentation schématique d'une station radioamateur avec poste, ligne d'alimentation et antenne]
 </margin>
 
+% [picture:543:n_schaltzeichen_antenne:Schaltzeichen für die Antenne]
+
 [question:NG101]

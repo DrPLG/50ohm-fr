@@ -4,7 +4,7 @@ Nous avons déjà fait connaissance avec les trois grandeurs les plus importante
 * Et au début de ce chapitre, nous avons enfin appris que les consommateurs dans un circuit exercent une résistance et freinent ainsi le passage du courant. Nous désignons la résistance par la lettre $R$ et la mesurons en ohms ($\unit{\ohm}$).
 
 %<margin>
-%[p-h-o-t-o:147:ohmsches_gesetz_comic:Représentation imagée des relations de la loi d'Ohm]
+%[p-h-o-t-o:147:ohmsches_gesetz_comic:Bildhafte Darstellung der Zusammenhänge des Ohmschen Gesetzes]
 %</margin>
 
 [question:NA203]
@@ -26,6 +26,7 @@ $\dfrac{U}{I} = \dfrac{\qty{10}{\volt}}{\qty{0,001}{\ampere}} = \dfrac{\qty{20}{
 ---
 
 Dans le langage technique, on appelle cela la proportionnalité : $I$ est proportionnel à $U$. Si l'on met de côté les unités, le *facteur de proportionnalité* vaut 10000 dans notre exemple : en multipliant une valeur par 10000, on obtient l'autre valeur.
+
 %Dieses Verhalten kann man sich auch wieder am Wasserkreislauf vorstellen: Wenn die Pumpe mit mehr Druck pumpt, wird auch mehr Wasser durch den Kreislauf fließen.
 
 <indepth>
@@ -36,9 +37,10 @@ Il reste toutefois une question. D'où vient ce facteur de 10000 ? La réponse e
 
 $\qty{10000}{\volt\per\ampere} = \qty{10000}{\ohm}$
 
-%Es stellt sich aber immer noch folgende Frage: Warum fließen in unserem Beispiel genau 1 mA, wenn die Spannung 10 V beträgt?
 
 Nous avons appris : la valeur de la résistance peut être calculée à partir de la tension et du courant. Elle est le *rapport de la tension au courant*, ou autrement dit : en divisant la tension par le courant, on obtient la valeur de la résistance.
+
+%Es stellt sich aber immer noch folgende Frage: Warum fließen in unserem Beispiel genau $\qty{1}{\milli\ampere}$, wenn die Spannung $\qty{10}{\volt}$ beträgt? Die Höhe des Stroms hängt vom Wert des Widerstands ab. Ist der Widerstand groß, so wird der Strom klein sein, ist der Widerstand hingegen klein, dann wird der Strom groß sein.
 
 ---
 

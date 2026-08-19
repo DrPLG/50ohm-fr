@@ -128,6 +128,10 @@ DEROGATIONS = {
         "PDF (CLAUDE.md §6)",
     ("A", "antennenformen_3"): "idem $ü$ -> $m$",
     ("A", "brueckengleichrichter"): "idem $ü$ -> $m$",
+    ("N", "morsetelegrafie"):
+        "[morse:ß] ajouté à la table du code Morse (correction livrée en a.2) ; "
+        "décale d'un rang tous les marqueurs suivants, d'où l'écart de "
+        "marqueurs signalé sur toute la fin de la section",
 }
 
 

@@ -1,8 +1,12 @@
 Une antenne peut être polarisée verticalement (figure [ref:n_vpol_antenne]) ou horizontalement (figure [ref:n_hpol_antenne]). Pour la plupart des formes d'antennes, on le reconnaît à ce que les éléments de l'antenne sont orientés verticalement ou horizontalement.
 
+% TODO Big Picture: In Bild n_vpol_antenne horizontalen und vertikalen Pfeil mit Beschriftung einfügen
+
 <margin>
 [picture:51:n_vpol_antenne:Antenne à polarisation verticale]
 </margin>
+
+% TODO Big Picture: In Bild n_hpol_antenne horizontalen und vertikalen Pfeil mit Beschriftung einfügen
 
 <margin>
 [picture:326:n_hpol_antenne:Antenne à polarisation horizontale]

@@ -43,6 +43,17 @@ Sur les portatifs VHF/UHF et via les stations relais, on utilise souvent, à cô
 
 [question:NE307]
 
+% TODO: Auf die Tabelle wird nicht eingegangen und sie ist nicht komplett ... 
+%<webmargin>
+%| l: Verfahren | l: Eigene Kennung | l: Gruppenruf | l: Direktruf | X: Sonstige |
+%| M17 | Rufzeichen | - | Rufzeichen | Channel Access Number (CAN), Übertragungsrate (1600 oder 3200 Bit/s) |
+%| FreeDV | - | - | - | Mode (1600, 700C, 700D, 700E, 2020) |
+%| DMR | DMR-ID | Talkgroup | DMR-ID | Color-Code (1 bis 4, im Amateurfunk meist 1), Zeitschlitz (TS 1 oder TS 2) |
+%| C4FM | Rufzeichen | Reflektor | - | |
+%| D-Star | Rufzeichen | ? | ? | |
+%[table:n_digital_voice_verfahren:Verfahren für Digital Voice und mögliche Einstellungen]
+%</webmargin>
+
 <latexonly>
 \newpage
 </latexonly>

@@ -5,6 +5,8 @@ Avant d'aborder la puissance rayonnée, nous avons vu que la preuve du respect d
 
 ---
 
+% Da für Klasse N die Strahlungsleistung ohnehin auf $\qty{10}{\watt}$ EIRP beschränkt ist, spielt das Nachweisverfahren eigentlich erst für Inhaber der Klassen E und A eine praktische Rolle. Da aber der Bereich Vorschriften auch in Klasse N bereits komplett geprüft wird, können wir es in keinem Fall vermeiden, uns mit den folgenden Fragen zum Nachweisverfahren zu beschäftigen.
+
 <indepth>
 À y regarder *de près*, il faut relever que les radioamateurs de classe N peuvent exploiter des installations jusqu'à $\qty{10}{\watt}$ EIRP, et que la preuve du respect des valeurs limites de protection des personnes est exigée dès $\qty{10}{\watt}$ EIRP. Si l'on exploitait donc une installation à exactement $\qty{10}{\watt}$ EIRP, on serait tenu d'apporter la preuve à l'autorité. En pratique, il ne faut de toute façon pas pousser la valeur maximale à sa limite, mais rester au moins légèrement en dessous. On évite ainsi de dépasser par inadvertance la puissance rayonnée admissible du fait d'erreurs de mesure ou d'autres imprécisions. Et il n'y a alors pas non plus d'obligation de mener la procédure de justification.
 </indepth>

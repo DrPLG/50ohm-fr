@@ -1,0 +1,104 @@
+name: Relecture — signaler un défaut
+description: Traduction, coquille, mise en page, encart « En France » ou défaut du texte allemand.
+title: "[<classe> p.<page>] "
+labels: ["relecture"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de votre relecture. **Un signalement par sujet** : une *issue* qui
+        liste vingt points ne peut ni se discuter ni se clore point par point.
+        Si votre relecture produit une longue liste, ouvrez une *issue* par
+        chapitre.
+
+        Le doute est un signalement valable : « cette phrase, je ne la comprends
+        pas » est une information utile.
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Édition
+      description: La pagination diffère d'une édition à l'autre.
+      options:
+        - N (258 p.)
+        - E (214 p.)
+        - A (382 p.)
+        - NEA (814 p.)
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Indiquée sur la page de titre du PDF.
+      value: a.2
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Le numéro imprimé sur la page, pas celui du lecteur PDF.
+      placeholder: "137"
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: Titre de la section
+      description: Il survit à une recompilation, contrairement au numéro de page.
+      placeholder: "Montage émetteur commun"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: nature
+    attributes:
+      label: Nature du défaut
+      options:
+        - Traduction — contresens, faux ami, terme impropre, tournure calquée
+        - Coquille — orthographe, grammaire, typographie
+        - Mise en page — figure, tableau, question coupée, zone de vide
+        - Réglementaire français — erreur ou omission dans un encart « En France »
+        - Défaut du texte allemand d'origine
+        - Autre / je ne sais pas
+    validations:
+      required: true
+
+  - type: textarea
+    id: citation
+    attributes:
+      label: Citation exacte
+      description: Quelques mots copiés du PDF, qui permettent de retrouver le passage.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Ce qui ne va pas
+      description: Et, si vous l'avez, ce que vous proposeriez à la place.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source (obligatoire pour un signalement réglementaire)
+      description: |
+        Lien Légifrance vers le texte **consolidé en vigueur**, ARCEP ou ANFR.
+        Les publications sous licence CC BY-NC-SA (F6KGL/F5KFF, Exam'1) portent
+        une licence incompatible avec la nôtre et ne peuvent pas servir de
+        source de rédaction.
+
+  - type: checkboxes
+    id: rappels
+    attributes:
+      label: Avant d'envoyer
+      options:
+        - label: J'ai lu que les défauts du texte allemand sont préservés à l'identique et signalés au DARC, jamais corrigés en silence dans la version française.
+        - label: Je sais que cet ouvrage prépare à l'examen **allemand** — une question de l'examen français qui manque n'est pas un défaut.

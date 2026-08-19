@@ -9,6 +9,8 @@ Les valeurs limites imposées par la procédure de justification pour la protect
 La force avec laquelle une antenne rayonne dans sa direction principale s'exprime par le *facteur de gain* rapporté au dipôle demi-onde. Il indique combien une antenne rayonne mieux, dans sa direction principale, qu'un dipôle demi-onde. Un facteur de gain de $\num{2}$ par rapport au dipôle demi-onde signifie par exemple qu'une antenne rayonne dans sa direction principale deux fois plus fort qu'un dipôle demi-onde dans la sienne.
 
 <indepth>
+% TODO: Editionsspezifisch machen
+
 Au lieu du facteur de gain des antennes, on indique souvent le « gain en décibels ($\unit{\dB}$) ». L'unité décibel est traitée dans le cours pour la classe E.
 </indepth>
 

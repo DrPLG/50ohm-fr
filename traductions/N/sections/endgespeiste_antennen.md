@@ -7,6 +7,8 @@ Au lieu du milieu, on peut aussi raccorder le câble d'antenne à une extrémit�
 Une forme de construction fréquente est le dipôle demi-onde à alimentation en bout. La longueur du fil est alors de $\lambda / 2$, correspondant à la longueur totale du dipôle demi-onde normal. Pour que l'antenne fonctionne, un dispositif d'adaptation spécial doit être utilisé.
 
 <indepth>
+% TODO: Editionsspezifisch machen
+
 Le *dispositif d'adaptation* est nécessaire car l'antenne, contrairement à celles présentées jusqu'ici, ne possède pas la bonne résistance d'alimentation. Nous verrons de quoi il s'agit dans la suite de ce chapitre. Le fonctionnement d'un dispositif d'adaptation est expliqué dans le cours pour la classe E.
 </indepth>
 

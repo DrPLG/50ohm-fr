@@ -1,5 +1,13 @@
 Pour la communication par radiotélétype entre stations radioamateur, il existe des procédés très variés. Pour qu'une liaison s'établisse, les deux correspondants doivent utiliser le même procédé de transmission et les mêmes paramètres. C'est d'autant plus vrai que tous les procédés ne se voient pas attribuer des plages de fréquences déterminées.
 
+%[photo:0:n_funkfernschreiben_telegraphie_20m:Morsetelegrafie, FT8 und FT4 im $\qty{20}{\meter}$-Band]
+%[photo:0:n_funkfernschreiben_digimodes:Häufig verwendete Digimodes von K1JT vergrößert im Wasserfalldiagramm]
+%[photo:0:n_funkfernschreiben_olivia:Ausschnitt aus einer Olivia-Aussendung im Wasserfalldiagramm]
+%[photo:0:n_funkfernschreiben_fm:Musterbild FM]
+%[photo:0:n_funkfernschreiben_am:Musterbild AM]
+%[photo:0:n_funkfernschreiben_ft8:Ein FT8-Signal bei $\qty{1500}{\hertz}$ oberhalb der eingestellten Frequenz]
+%[photo:0:n_funkfernschreiben_ft8_20m:Mehrere FT8-Signale in einem SSB-Kanal im $\qty{20}{\meter}$-Band]
+
 [question:NE401]
 
 Le déroulement d'une liaison en télégraphie s'effectue, aussi bien en Morse qu'avec l'ordinateur, de façon semblable à la phonie, mais avec certaines abréviations. Ces abréviations simplifient le déroulement et raccourcissent la durée de transmission. Il existe aussi les codes Q. Ce sont des abréviations de trois lettres, uniformes dans le monde entier, commençant toujours par la lettre Q. Nous y reviendrons plus en détail dans le chapitre Codes Q et locator.

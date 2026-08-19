@@ -9,6 +9,11 @@ Le plus répandu est le *câble coaxial* (figure [ref:n_Koax_Detail]). Dans le l
 * à conducteur intérieur souple ou rigide
 * à conducteur extérieur en tresse de fils et/ou feuille, voire en tube de cuivre massif
 
+% Nach Ticket #20292449 erstmal entfernt
+%<margin>
+%Die *Dämpfung* kann mit dem Wasserstrahl aus einem Gartenschlauch veranschaulicht werden: Ist der Schlauch %kurz, so tritt am Ende ein kräftiger Wasserstrahl aus. Ist der Schlauch hingegen sehr lang, so ist der austretende %Wasserstrahl schwach.
+%</margin>
+
 <margin>
 [photo:66:n_Koaxialkabel:Exemples de câbles coaxiaux courants]
 </margin>

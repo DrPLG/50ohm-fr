@@ -12,12 +12,14 @@ réglementaires entre l'Allemagne et la France.
 | ------ | -------: | --------: | --------------------: | ------- | ----: |
 | N      |      131 |       571 |                    55 | a.2     |   258 |
 | E      |      103 |       462 |                     6 | a.2     |   214 |
-| A      |      152 |       717 |                     5 | a.2     |   382 |
-| NEA    |      383 |     1 751 |                    64 | a.2     |   814 |
+| A      |      152 |       717 |                     5 | a.2     |   384 |
+| NEA    |      383 |     1 751 |                    64 | a.2     |   816 |
 
-Chiffres du 17/08/2026. La colonne « Questions » compte les usages : une même
-question peut servir dans deux classes. Aucune version n'est encore publiée —
-le dépôt ne porte ni tag ni release.
+Chiffres du 19/08/2026. La colonne « Questions » compte les usages : une même
+question peut servir dans deux classes.
+
+**La version a.2 est publiée** : les quatre PDF sont dans la
+[dernière *release*](https://github.com/DrPLG/50ohm-fr/releases/latest).
 
 ## Nature de l'ouvrage
 

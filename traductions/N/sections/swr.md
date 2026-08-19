@@ -10,6 +10,8 @@ Si, en revanche, la résistance d'alimentation de l'antenne et l'impédance cara
 
 La qualité de l'adaptation de l'antenne se mesure. En simplifiant, on détermine pour cela quelle part de la puissance d'émission est réfléchie par l'antenne. La valeur affichée par l'appareil de mesure s'appelle le *rapport d'ondes stationnaires*. On utilise le plus souvent l'abréviation SWR, dérivée de l'anglais « standing wave ratio » (en français, on parle aussi de ROS). Pour déterminer le SWR, on utilise un *mesureur d'ondes stationnaires*, appelé en abrégé *SWR-mètre* ou *ROS-mètre*.
 
+% TODO: Editionsspezifisch machen
+
 <indepth>
 Un ROS-mètre mesure simultanément la puissance directe, que l'émetteur envoie vers l'antenne, et la puissance réfléchie. Cela se voit bien sur le ROS-mètre de la figure [ref:swr_meter_kreuzzeiger], qui affiche séparément puissances directe et réfléchie. Le SWR n'indique toutefois pas directement le rapport de ces deux mesures : il se calcule de façon un peu plus compliquée, $\text{SWR} = \frac {\sqrt{P_\text{V}}+\sqrt{P_\text{R}}} { \sqrt{P_\text{V}}-\sqrt{P_\text{R}}}$, où $P_\text{V}$ est la puissance directe et $P_\text{R}$ la puissance réfléchie. Cette formule n'est pas exigée à l'examen de la classe N.
 </indepth>
@@ -31,6 +33,8 @@ Les émetteurs-récepteurs modernes ont déjà un ROS-mètre intégré. L'affich
 <attention>
 SWR-mètre et S-mètre se ressemblent phonétiquement, mais sont différents : le SWR-mètre mesure le rapport d'ondes stationnaires à l'émission, tandis que le S-mètre mesure la force du signal à la réception.
 </attention>
+
+% TODO Big Picture: Im Bild Trx_Display "SWR" kennzeichnen
 
 [question:NF101]
 

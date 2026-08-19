@@ -8,13 +8,102 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
-## a.2 — 14 et 15 août 2026 (en cours)
+## a.2 — 14 au 19 août 2026 — **première version publiée**
+
+Publiée le 19/08/2026, tag `a.2`. C'est la **première release du dépôt** : la
+`a.1` du 14/08 était un test de la chaîne de publication, supprimée le jour
+même avec son tag.
 
 | Classe | Sections | Questions | Encarts | Dessins forkés | Pages (a.1 → a.2) |
 | ------ | -------: | --------: | ------: | ---: | ----: |
 | N | 131 | 571 | 55 | 39 | 254 → 258 |
 | E | 103 | 462 | 6 | **73** | 206 → 214 |
-| A | **152** | 717 | 5 | **113** | 372 → **382** |
+| A | **152** | 717 | 5 | **113** | 372 → **384** |
+| NEA | 383 | 1 751 | 64 | 225 | — → **816** |
+
+### 19 août 2026 — seconde resynchronisation amont, et publication
+
+**Deuxième passage du cycle complet** de l'objectif nº 1 de la a.2, deux jours
+après le premier. L'amont était passé de `a290eb28` à `07f3c861` : **18 commits,
+6 fichiers, 5 sections traduites**, toutes en classe A. Aucun dessin forké
+touché — confirmé par `diff -rq` entre les deux instantanés, qui rend exactement
+les 6 mêmes fichiers que l'API.
+
+Le piège du §10 s'est présenté une fois de plus, en vraie grandeur :
+`verifier_amont.py` rendait **`rc=0` sur 611 éléments** pendant que l'amont
+avait 18 commits d'avance. Les deux disaient vrai. **Seul le contrôle réseau
+le montrait.**
+
+- **`polarmodulation`** (+22/−6) — réécriture pédagogique : avertissement
+  explicite qu'aucune question d'examen ne porte sur le sujet, trois paragraphes
+  neufs qui **construisent** l'idée au lieu de la poser, un paragraphe sur
+  l'amplificateur d'enveloppe, un bloc `<indepth>` historique (HELAPS, satellite
+  AO-7), et une entrée d'index. Section entièrement réécrite côté français.
+- **`snr_rauschzahl`** (+6/−2) — le passage `Rauschzahl` → `Rauschmaß` n'est
+  plus présenté comme une conversion mais comme deux **représentations** de la
+  même grandeur ; bloc `<indepth>` neuf sur la définition DIN.
+- **`verstaerker_klasse`** (+6/−6) — la linéarité n'est plus définie par la
+  rectitude du tracé, c'est l'inverse : la rectitude en devient une conséquence
+  observable. Et **le paragraphe sur la puissance de sortie, avec la question
+  `AD424`, passe après le tableau récapitulatif** — un déplacement, pas une
+  suppression.
+- **`emitterschaltung`** et **`kollektorschaltung`** (+4/−4 et +2/−2) — glose de
+  `bias`, précision « à la base » sur la tension d'entrée, et une phrase en
+  double supprimée.
+
+**A : 382 → 384 pages. NEA : 814 → 816 pages** — exactement les deux mêmes.
+Compteurs de clamp **545 · 4 · 4** et **966 · 10 · 7**, identiques au 17/08 :
+aucun clamp ne s'est mis à ne plus se déclencher. `??` à **3** et **4**, valeurs
+documentées. Contrôles du §4 verts, notes de marge rétrogradées à 4 sur les deux,
+`verifier_questions.py` rc=0 sur 717 et 1 750 questions.
+
+### Corrigé — les commentaires amont de la classe N
+
+**Les 39 écarts de `verifier_traduction.py` ont été analysés** — c'est
+`docs/ecarts-traduction.md` — puis les deux premiers chantiers exécutés :
+**39 → 22**.
+
+Dix-sept sections de la classe N ne préservaient pas les blocs commentés `%…`
+de l'amont, ce que le §6 range parmi ce qui est **préservé verbatim** : 42
+lignes perdues sur 13 sections, 4 sections aux commentaires traduits. Ce sont
+des `[photo:…]` et `[table:…]` désactivés par l'amont, des blocs `%<indepth>`
+commentés, trois `% TODO: Editionsspezifisch machen`. **Rien qui s'imprime** —
+ce qu'on perdait, c'est la trace de ce que l'amont a délibérément désactivé, et
+donc la possibilité de voir le jour où il le réactive.
+
+Restauration verbatim, ancrée sur le nombre de marqueurs précédant chaque bloc.
+**Aucun livre recompilé, et la neutralité est prouvée** : les `.tex` de la
+classe N régénérés avant et après, normalisés par retrait des commentaires
+LaTeX avec recollement de ligne, sont **identiques sur les 131 sections**. Un
+`%` neutralise la fin de ligne *et* le saut de ligne — les 22 lignes du diff
+qui n'étaient pas des commentaires relèvent toutes de cette équivalence.
+
+`verifier_traduction.py` gagne une dérogation : **`N/morsetelegrafie`**, dont le
+`[morse:ß]` ajouté à la table du code Morse — correction livrée en a.2 — décale
+d'un rang tous les marqueurs suivants. Décision prise, jamais déclarée.
+
+### Préservé
+
+**Trois coquilles du relevé sont sorties de `docs/defauts-amont.md`** : l'amont
+a corrigé de lui-même `Blochschaltbild`, `richtet sich Die Bezeichnung` et
+`im vergleich`, sans que nous les ayons jamais signalées. Les quatre autres
+subsistent, vérifiées une par une. **L'amont relit son propre corpus** — c'est
+l'argument le plus concret en faveur du signalement au DARC, toujours en
+attente.
+
+### Ajouté — accueil des relecteurs
+
+- **`CONTRIBUTING.md`**, que le README appelait depuis le 14/08 sans qu'il
+  existe.
+- **Gabarit d'*issue* « Relecture »** en formulaire GitHub : édition, version,
+  page, titre de section, nature du défaut, citation exacte. Un signalement
+  réglementaire sans source officielle ne peut pas être retenu, et le formulaire
+  le dit.
+- **Dix labels français** : `relecture`, `traduction`, `coquille`,
+  `mise en page`, `reglementaire`, `defaut amont`, et un par édition.
+- **`docs/ecarts-traduction.md`** — l'analyse des 39 écarts, famille par
+  famille, avec l'ordre de travail et ce que chaque chantier coûte en
+  recompilation.
 
 **E et A recompilées les 16 et 17/08/2026** après la resynchronisation amont.
 

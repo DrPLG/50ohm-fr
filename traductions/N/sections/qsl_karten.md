@@ -27,7 +27,7 @@ Une distinction connue est le *DX Century Club* de l'association radioamateur de
 [photo:60:n_dx_urkunde_dxcc_dm4eax:Certificat du DX Century Club]
 </indepth>
 
-%[photo:12:n_qsl_karten_vorderseite:Carte QSL commune de DL4EAX et DM4EAX (recto)]
+%[photo:12:n_qsl_karten_vorderseite:Gemeinsame QSL-Karte von DL4EAX und DM4EAX (Vorderseite)]
 
 [question:BG104]
 [question:BG105]

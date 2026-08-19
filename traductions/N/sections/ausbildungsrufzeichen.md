@@ -1,5 +1,5 @@
 %<margin>
-%[photo:57:n_ausbildungsrufzeichen_ausbildungsfunkbetrieb:Le trafic de formation relie souvent les générations]
+%[photo:57:n_ausbildungsrufzeichen_ausbildungsfunkbetrieb:Ausbildungsfunkbetrieb verbindet oft die Generationen]
 %</margin>
 % Wir haben leider kein gesichertes Einverständnis der Personen... TODO neues bild.
 

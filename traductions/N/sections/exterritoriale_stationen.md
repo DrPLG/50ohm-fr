@@ -10,7 +10,9 @@ Des exemples de stations exterritoriales sont la Station spatiale internationale
 [photo:125:n_exterritoriale_stationen_polarstern:La station radioamateur à bord du navire de recherche Polarstern utilise l'indicatif DP0POL.]
 </margin>
 
+%Die folgenden Fragen sind wieder leicht mit dem [Rufzeichenplan](https://50ohm.de/rzp) beantwortbar.
 %Satz wurde umgedreht um einen LaTeX Satzfehler zu vermeiden.
+
 À l'aide du [plan des indicatifs](https://50ohm.de/rzp), les questions suivantes sont de nouveau faciles à traiter.
 
 [question:BD107]

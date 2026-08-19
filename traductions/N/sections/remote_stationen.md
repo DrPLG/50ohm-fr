@@ -19,13 +19,14 @@ Pendant toute la durée d'exploitation, un contrôle ininterrompu, indirect et c
 
 En pratique, il faut veiller à ce que la station télécommandée puisse être mise dans un état sûr en cas de dysfonctionnement, p. ex. une perte de connexion — par exemple grâce à une coupure de l'alimentation.
 
-%Der bedienende Funkamateur muss jederzeit den Zeitpunkt und die Dauer seiner Aussendung bestimmen können.
+%Der bedienende Funkamateur muss jederzeit den Zeitpunkt und die Dauer seiner Aussendung bestimmen können. Dies bedeutet, dass das Funkgerät an der Station nur solange Senden darf, wie du die Sendetaste aktiv betätigst. Unbeabsichtigte Aussendungen sind somit ausgeschlossen.
 
 [question:VD605]
 
 Pour utiliser la station télécommandée d'un autre radioamateur, il faut la permission de l'exploitant. L'exploitant doit garantir que seuls les radioamateurs qu'il a autorisés peuvent utiliser sa station télécommandée.
 
-%Unbefugte Benutzung ist zu unterbinden.
+
+%Unbefugte Benutzung ist zu unterbinden. Eine Remotestation darf nicht öffentlich zugänglich sein. Im Schadensfall ist hierdurch die notwendige Nachvollziehbarkeit gewährleistet.
 
 [question:VD606]
 
