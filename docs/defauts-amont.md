@@ -703,3 +703,45 @@ Sur le document réduit de la resynchronisation, 27 avertissements :
 **PDF déjà publiés** — le journal du livre E de la a.2 en porte 299, dont 260
 sur le caractère `` ` ``. Ces 260-là n'ont **pas** été analysés ici et sortent
 du périmètre de cette session.
+
+## 20. Deux marqueurs accolés sur une même ligne — la figure disparaît
+
+**Constaté le** 20/08/2026, en générant pour la première fois le livre **N en
+allemand** (`--lang de`, sans `--translations`). Ce défaut ne pouvait pas se
+voir autrement : notre traduction le corrige sans le savoir.
+
+`contents/sections/rst.md`, ligne 6 :
+
+```
+[photo:123:n_rst_s-meter:Display eines IC9700-Transceivers, …anzeigt][index:S-Meter]
+```
+
+Les deux marqueurs sont **accolés sur la même ligne**. Le parseur ne rend
+alors **ni l'un ni l'autre** :
+
+```
+!! marqueur non rendu : rst.tex:7 -> [photo:123:n\_rst\_s-meter:Display eines…
+!! référence orpheline (\ref sans \label) : n_rst_s-meter (rst.tex)
+```
+
+Trois conséquences dans le livre allemand : la photo du S-mètre n'est pas
+composée, l'entrée d'index « S-Meter » est perdue, et le renvoi
+`[ref:n_rst_s-meter]` devient orphelin — une référence `??` de plus.
+
+**Notre version française est correcte** : elle place le `[photo:…]` et le
+`[index:S-mètre]` sur deux lignes, et les deux sont rendus. Ce n'est pas une
+décision consciente — c'est un effet heureux de la mise en forme de la
+traduction.
+
+**Portée mesurée avant d'écrire cette entrée.** Sur les 380 sections amont,
+`[picture|photo]` suivi d'un autre marqueur **sur la même ligne** n'apparaît
+qu'**une seule fois** : celle-ci. Et aucune de nos 382 traductions ne
+reproduit le motif.
+
+> *Méthode, et l'erreur vaut d'être notée.* Un premier comptage avait rendu
+> **66 occurrences dans 49 sections**, dont « toutes » reproduites côté
+> français. C'était faux : le `\s*` du motif englobait le saut de ligne, si
+> bien que le contrôle comptait aussi les marqueurs correctement séparés — y
+> compris ceux dont le rendu est bon. Corrigé en `[^\S\n]*`, le compte tombe
+> de 66 à 1. **Sixième récidive du même piège** : un contrôle vert, ou rouge,
+> ne vaut que ce que vaut sa définition.
