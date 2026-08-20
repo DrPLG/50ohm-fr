@@ -8,12 +8,7 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
-## 0.3 (en cours) — 20 août 2026
-
-> **Changement de numérotation, décidé par Pierre le 20/08/2026 :** les
-> versions passent de la série `a.N` (alpha) à `0.N`. Cette version est
-> donc `0.3`, et non `a.3` ; elle succède à la `a.2` publiée le 19/08.
-> Le `--version-label` des compilations vaut désormais `0.3`.
+## a.3 (en cours) — 20 août 2026
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.** Les
 traductions et tous les contrôles hors compilation sont faits ; les livres ne
