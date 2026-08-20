@@ -101,13 +101,17 @@ if "%CLASSE%"=="" (
     if errorlevel 3 (set "CLASSE=A") else if errorlevel 2 (set "CLASSE=E") else if errorlevel 1 (set "CLASSE=N")
 )
 
-REM Chantier a.2 (cf. CLAUDE.md section 12) : les trois classes portent
-REM desormais l'etiquette a.2. Elles gardent les pieces liminaires
+REM Chantier 0.3 (cf. CLAUDE.md section 12) : les trois classes portent
+REM desormais l'etiquette 0.3. Elles gardent les pieces liminaires
 REM (avant-propos, remerciements) introduites en a.1.
+REM
+REM Renumerotation decidee par Pierre le 20/08/2026 : on quitte la serie
+REM alpha a.N pour 0.N. La version publiee du 19/08 reste la a.2 ; la
+REM suivante est la 0.3.
 set "VERSION="
-if /i "%CLASSE%"=="N" set "VERSION=a.2"
-if /i "%CLASSE%"=="E" set "VERSION=a.2"
-if /i "%CLASSE%"=="A" set "VERSION=a.2"
+if /i "%CLASSE%"=="N" set "VERSION=0.3"
+if /i "%CLASSE%"=="E" set "VERSION=0.3"
+if /i "%CLASSE%"=="A" set "VERSION=0.3"
 
 if not defined VERSION (
     echo.
@@ -220,6 +224,15 @@ REM displaymath (v0.18) coute environ 1 pt par formule, et la note de marge de
 REM schwingkreis_2, qui en contient 22, bascule au-dessus du seuil (734,6 pt
 REM pour 711,3). Le garde-fou v0.13 la compose alors dans le corps, en boite
 REM secable : pas d'erreur fatale, mais une section change de mise en page.
+REM ATTENTION, chantier 0.3 : deux seuils vont bouger et ne sont PAS encore
+REM ajustes ici, deliberement. Une valeur devinee masquerait un vrai ecart ;
+REM on prefere que le script signale, puis on mesure.
+REM   - notes de marge classe A : 4 attendu ci-dessous, 5 attendu apres la
+REM     resynchronisation (fehlerkorrektur, encart Hamming rallonge par
+REM     l'amont : 1035,5 pt pour un seuil de 711,3) ;
+REM   - references "??" classe A : 3 documentees, 2 attendues (l'amont a
+REM     corrige a_sender en a_sdr_sender).
+REM Ajuster les deux APRES la premiere compilation 0.3, sur mesure reelle.
 set "NMARGE=0"
 for /f %%N in ('findstr /c:"Note de marge trop haute" "%LOG%" ^| find /c /v ""') do set "NMARGE=%%N"
 set "NMARGE_ATTENDU=0"

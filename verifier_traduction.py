@@ -128,6 +128,21 @@ DEROGATIONS = {
         "PDF (CLAUDE.md §6)",
     ("A", "antennenformen_3"): "idem $ü$ -> $m$",
     ("A", "brueckengleichrichter"): "idem $ü$ -> $m$",
+    ("A", "digital_iq"):
+        "\\qty{10}{\\mega\\sample\\per\\second} rendu \\qty{10}{\\mega\\sps} : "
+        "\\sample n'est déclarée nulle part en amont, l'unité est une erreur "
+        "fatale de compilation (defauts-amont.md §18)",
+    ("A", "transverter_2"):
+        "<indepth> ajouté côté français sur l'inversion de bande latérale SSB : "
+        "contenu technique, non national — le §7 réserve <france> aux "
+        "compléments nationaux (décision de Pierre, 20/08/2026)",
+    ("A", "elektrische_geaete_oeffnen_2"):
+        "<tipp> amont rendu <tip> : 'tipp' n'est pas un marqueur DARCdown, il "
+        "s'imprime littéralement dans le PDF allemand (defauts-amont.md §17)",
+    ("A", "symbole_symbolrate"):
+        "\\bit\\per{Symbol} rendu \\bit\\per{symbole} : mot allemand DANS une "
+        "formule, traduit par analogie avec « Ordnung -> ordre » (CLAUDE.md §9, "
+        "tranché le 15/08/2026)",
     ("N", "morsetelegrafie"):
         "[morse:ß] ajouté à la table du code Morse (correction livrée en a.2) ; "
         "décale d'un rang tous les marqueurs suivants, d'où l'écart de "

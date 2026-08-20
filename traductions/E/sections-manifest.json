@@ -89,10 +89,10 @@
     "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
     "sha256_amont": "e482420007572616bbb795927e99b92d17c14272afaba8791c6d1affa7de66dd"
   },
-  "datenuebertragungsdrate": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "5ddb888eca88567911298898dd5cad1f2007ce4f95e18a313a5cb8fa5846b7ee"
+  "datenuebertragungsrate": {
+    "date_traduction": "2026-08-20",
+    "note": "",
+    "sha256_amont": "374d9b53f111134abbb89c2e884bc67618df6ea88ce964f0e26cf9db7273bf50"
   },
   "detektorempfänger": {
     "date_traduction": "2026-08-14",

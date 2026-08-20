@@ -1,41 +1,42 @@
-Si le récepteur détecte une erreur, par exemple au moyen de bits de contrôle, il peut demander à l'émetteur une nouvelle transmission des données afin de corriger l'erreur. Avec la correction d'erreurs directe, en revanche, une retransmission n'est souvent pas nécessaire. Pour cela, de la redondance supplémentaire est ajoutée aux données, p. ex. plusieurs bits de contrôle. On ne détecte ainsi pas seulement qu'une erreur est présente, mais aussi où elle se trouve. Le procédé peut donc corriger l'erreur en rectifiant le bit reconnu comme erroné. Le fonctionnement détaillé est expliqué dans l'encadré bonus. Il n'est cependant pas au programme de l'examen. En anglais, on parle de Forward Error Correction (FEC).
+Si le récepteur détecte une erreur de transmission, par exemple à l'aide de bits de contrôle, il peut demander à l'émetteur une nouvelle transmission des données. Avec la *correction d'erreurs directe*, en revanche, une retransmission n'est fréquemment pas nécessaire. Pour cela, des informations supplémentaires sont ajoutées aux données utiles, par exemple plusieurs bits de contrôle. Le récepteur peut ainsi, sous certaines conditions, non seulement détecter qu'une erreur est survenue, mais aussi déterminer quel bit est erroné et le corriger. En anglais, ce procédé est appelé *Forward Error Correction* (FEC).
+
+Le détail du fonctionnement possible est montré dans l'encadré d'approfondissement ci-contre, à l'exemple d'un code de Hamming. Le procédé exact n'est pas au programme de l'examen.
 
 [question:AE413]
 [question:AE414]
 
 <indepth>
-
-Le code de Hamming est un procédé de correction d'erreurs qui utilise plusieurs bits de parité. Supposons que nous voulions transmettre les 11 bits suivants :
+Le code de Hamming est un procédé de correction d'erreurs qui utilise plusieurs bits de parité. Supposons que nous voulions transmettre les $\num{11}$ bits de données suivants :
 
 [picture:683:hamming1: ]
 
-L'objectif est qu'une erreur sur un bit ne soit pas seulement détectée, mais aussi corrigée. Pour cela, il est utile d'examiner de plus près les positions des différents bits. Nous désignons donc les positions par des lettres :
+Pour qu'une erreur portant sur un seul bit ne soit pas seulement détectée, mais aussi corrigée, nous devons pouvoir établir à quel endroit l'erreur est survenue. Nous examinons pour cela d'abord les positions des différents bits et les désignons par des lettres :
 
 [picture:682:hamming2: ]
 
-Nous disposons maintenant les bits un peu autrement et ajoutons quelques bits supplémentaires :
+Nous disposons maintenant les bits de données un peu autrement et ajoutons quatre bits de parité supplémentaires, $p_1$ à $p_4$ :
 
 [picture:684:hamming3: ]
 
-Au lieu d'un unique bit de contrôle, nous en utilisons désormais quatre ($p_1$-$p_4$), qui couvrent différentes zones de nos bits de données, à la manière d'une grille de mots croisés :
+Les quatre bits de parité contrôlent des groupes de bits différents, qui se recouvrent partiellement :
 
 [picture:685:hamming4: ]
 
-Chaque bit de contrôle protège une certaine zone :
+Chaque bit de parité protège ainsi un groupe déterminé :
 
 [picture:686:hamming5: ]
 
-Reprenons l'ensemble avec nos données. Pour chaque zone, nous calculons le bit de contrôle en parité paire :
+Pour chacun de ces groupes, nous calculons maintenant le bit de parité correspondant en *parité paire* :
 
 [picture:687:hamming6: ]
 
-Si une erreur survient lors de la transmission, elle peut être localisée et corrigée grâce à la combinaison des différentes zones. 
+Si une erreur portant sur un seul bit survient lors de la transmission, certains contrôles de parité échouent. La combinaison des contrôles ayant échoué permet de déterminer à quelle position l'erreur est survenue. Le bit erroné peut ensuite être inversé, et donc corrigé.
 
-Si, par exemple, le bit $k$ devient un $\num{0}$ du fait de la transmission, tous les contrôles de parité ($p_1$-$p_4$) échouent. L'erreur se situe donc forcément sur le bit $k$.
+Si, par exemple, le bit $k$ devient un $\num{0}$ lors de la transmission, les quatre contrôles de parité $p_1$ à $p_4$ échouent. Seul le bit $k$ appartient aux quatre groupes contrôlés. L'erreur se situe donc forcément sur le bit $k$.
 
-Si l'erreur survient p.\,ex. sur le bit $a$, les contrôles de parité de $p_1$ et $p_2$ échouent, tandis que ceux de $p_3$ et $p_4$ réussissent. L'erreur se situe donc forcément sur le bit $a$.
+Si en revanche une erreur survient sur le bit $a$, seuls les contrôles de parité de $p_1$ et $p_2$ échouent, tandis que ceux de $p_3$ et $p_4$ réussissent. Ce motif permet au récepteur de reconnaître que le bit $a$ est erroné.
 
-Même des erreurs portant sur les bits de parité peuvent être détectées et corrigées. Si l'erreur survient p.\,ex. sur le bit $p_1$, le contrôle de parité de $p_1$ échoue, tandis que ceux de $p_2$, $p_3$ et $p_4$ réussissent. L'erreur se situe donc forcément sur le bit $p_1$.
+Une erreur portant sur un bit de parité lui-même peut elle aussi être détectée et corrigée. Si par exemple $p_1$ est erroné, seul le contrôle de parité correspondant à $p_1$ échoue, tandis que les contrôles de $p_2$, $p_3$ et $p_4$ réussissent. L'erreur se situe donc forcément sur $p_1$.
 
-Si plus de 1 erreur survient, le code de Hamming ne peut plus les détecter ni les corriger correctement. Il existe cependant des extensions du code de Hamming, capables de détecter également les erreurs portant sur plusieurs bits.
+Le code de Hamming présenté ici est conçu pour la correction d'une erreur portant sur un seul bit. Si plusieurs erreurs binaires surviennent simultanément, les contrôles de parité ne permettent plus de conclure de façon fiable à la position réelle de l'erreur. Les codes de Hamming étendus peuvent en outre détecter de façon sûre, par exemple, deux erreurs binaires survenant simultanément.
 </indepth>

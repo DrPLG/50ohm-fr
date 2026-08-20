@@ -164,6 +164,21 @@
     "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
     "sha256_amont": "7ec879ceaa4ce4151d7c1987bb25d08adc24d690d937afb6632e609f85e991a5"
   },
+  "1130": {
+    "date_fork": "2026-08-20",
+    "note": "",
+    "sha256_amont": "1c0b0a60beca5c57540c14bbf2f39f13ad873bffea74074f227151637487c5c1"
+  },
+  "1131": {
+    "date_fork": "2026-08-20",
+    "note": "",
+    "sha256_amont": "d0cdce03663af19e5bc4f87f036df1b950edf0f0f3f5fedb6dcf438cd56b5f1a"
+  },
+  "1132": {
+    "date_fork": "2026-08-20",
+    "note": "",
+    "sha256_amont": "f02a9c9af5709eb194737af4f763b8384dc350e8588e592d8231077c0727c42a"
+  },
   "153": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",

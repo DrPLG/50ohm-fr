@@ -8,6 +8,123 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
+## 0.3 (en cours) — 20 août 2026
+
+> **Changement de numérotation, décidé par Pierre le 20/08/2026 :** les
+> versions passent de la série `a.N` (alpha) à `0.N`. Cette version est
+> donc `0.3`, et non `a.3` ; elle succède à la `a.2` publiée le 19/08.
+> Le `--version-label` des compilations vaut désormais `0.3`.
+
+**Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.** Les
+traductions et tous les contrôles hors compilation sont faits ; les livres ne
+sont pas encore recompilés.
+
+### 20 août 2026 — troisième resynchronisation amont (feuille d'arbitrage nº 7)
+
+**Ce n'est plus une dérive de contenu, c'est une restructuration de périmètre**
+— une première pour ce dépôt. L'amont est passé de `07f3c861` à `7c1d87a3` :
+**56 commits, 75 fichiers, 20 sections traduites** (19 en A, 1 en E), et
+**5 sommaires** touchés.
+
+| | avant | après |
+| --- | ---: | ---: |
+| sections classe A | 152 | **148** |
+| sections classe E | 103 | 103 |
+| sections classe NEA | 383 | **379** |
+| dessins forkés (N · E · A) | 39 · 73 · 113 | 39 · 73 · **116** |
+| éléments suivis au manifeste | 611 | **610** |
+
+Le chapitre `a_digitale_signalverarbeitung` passe de 14 à 8 sections,
+`a_digitale_uebertragungsverfahren` de 13 à 15, et **deux sections changent de
+chapitre** (`iq_verfahren`, `polarmodulation`).
+
+#### Ajouté
+
+- **5 sections traduites** : `dac_adc`, `anti_alias_rekonstruktionsfilter`,
+  `symbole_symbolrate`, `digital_iq` (classe A) et `datenuebertragungsrate`
+  (classe E).
+- **3 dessins forkés et francisés** : 1130 (convertisseurs A/N et N/A), 1131
+  (filtres anti-repliement et de reconstruction, avec `A` → `S` pour la
+  sortie), 1132 (« Autres parties du récepteur », « Information de commande »).
+  **13 dessins nouvellement appelés ont été examinés un à un** ; les 10 autres
+  ne composent aucun texte allemand.
+- 4 titres de section neufs, 1 abstract de chapitre.
+
+#### Modifié
+
+- **11 sections resynchronisées** : `psk`, `qam`, `sampling_quantisierung`,
+  `iq_verfahren`, `mapping` et `fourier_transformation` sont des réécritures
+  quasi complètes ; `digitale_filter`, `fehlerkorrektur`, `ofdm`,
+  `parasitaere_schwingungen` et `sende_empfangsketten` sont des ajouts ciblés.
+- **2 titres changés en amont** : `psk` devient « Modulation par déplacement de
+  phase : PSK et QPSK », `iq_verfahren` « Représentation I/Q et diagramme de
+  constellation ».
+
+#### Retiré
+
+- **9 traductions**, dont les 8 sections de la classe A fondues dans les
+  nouvelles (`analog_digital_umsetzer`, `digital_analog_umsetzer`,
+  `anwendung_dac_adc`, `anti_alias_filter`, `rekonstruktionsfilter`,
+  `sampling`, `quantisierung`, `mehrwertige_verfahren`) et
+  `datenuebertragungsdrate` en classe E. Décision de Pierre : suppression
+  simple, git fait mémoire.
+- L'ident amont `datenuebertragungs**d**rate` est corrigé en
+  `datenuebertragungsrate`. **Ce n'est pas un simple renommage** : la section
+  est aussi réécrite et amputée de la notion de rapidité de modulation.
+
+#### Corrigé
+
+- **`\sample`** (`digital_iq`) : l'unité n'est déclarée nulle part en amont et
+  l'erreur est **fatale** — `latexmk` sort en `rc=12`. Rendue `\mega\sps`.
+  Voir `docs/defauts-amont.md` §18.
+- **`<tipp>`** (`elektrische_geaete_oeffnen_2`) : marqueur DARCdown inexistant,
+  qui **s'imprime littéralement dans le PDF allemand**. Rendu `<tip>`. §17.
+- **Référence orpheline `a_sender`** : corrigée en amont (`a_sdr_sender`),
+  correction adoptée. La classe A devrait passer de **3 à 2 `??`** — confirmé
+  par le validateur du générateur, à vérifier sur le PDF.
+
+#### Préservé
+
+- **Labels dupliqués `a_adc_4bit` et `a_adc_12bit`** : les dessins 300 et 299
+  sont déclarés dans `dac_adc` **et** `anti_alias_rekonstruktionsfilter`, avec
+  des légendes différentes et un renvoi de part et d'autre. Défaut **introduit
+  par la refonte**, confirmé à la compilation (`multiply defined`). §13.
+- Trois coquilles allemandes (`ofdm`, `datenuebertragungsrate`,
+  `parasitaere_schwingungen`). §14.
+- **La classe E emploie le baud sans plus le définir** : la rapidité de
+  modulation part en classe A, alors que `9600_port` écrit
+  `\qty{9600}{\baud}` douze fois. Suivi tel quel (décision de Pierre, D6a) —
+  l'examen E n'interroge pas dessus. §16.
+
+#### Connu
+
+- **Une cinquième note de marge rétrogradée en classe A**, dans
+  `fehlerkorrektur` : l'amont a rallongé l'encart `<indepth>` du code de
+  Hamming, qui culmine à **1035,5 pt** pour un seuil de 711,3 pt. Le garde-fou
+  v0.13 fait son travail, mais le compte du §4 passe de 4 à 5.
+- Les avertissements « Missing character … in font nullfont » ont été
+  **mesurés** : ils viennent des formes circuitikz du dessin 196 et des
+  `\tikzstyle` dépréciés, **aucun texte lisible ne disparaît**. Les dessins ASK
+  et FSK, rendus en image, portent bien leurs six bits. §19.
+
+#### Mesuré
+
+- **L'hypothèse du remontage était fausse.** La note de clôture du 19/08
+  pariait qu'il y aurait « beaucoup à réemployer plutôt qu'à retraduire » :
+  comparaison phrase à phrase des 5 sections neuves (142 phrases), **95 % de
+  prose neuve**, et 4 des 7 phrases reprises sont de simples lignes
+  `[question:…]`. C'est une réécriture, pas un remontage.
+- **Aucune question perdue ni gagnée** : 717 · 462 · 1 750, usages identiques.
+  Les 28 mouvements sont des déplacements, et nos `questions.json` étant
+  indexés par identifiant, ils ne coûtent rien.
+- Instantané rebasculé et vérifié : **4 162 blobs sur 4 162 identiques** à
+  l'arbre amont par empreinte git, **0 nom corrompu**.
+- `verifier_traduction.py` : **20 écarts**, contre 22 avant la session — tous
+  préexistants et documentés dans `docs/ecarts-traduction.md`. Aucun écart neuf
+  n'a été introduit.
+
+---
+
 ## a.2 — 14 au 19 août 2026 — **première version publiée**
 
 Publiée le 19/08/2026, tag `a.2`. C'est la **première release du dépôt** : la

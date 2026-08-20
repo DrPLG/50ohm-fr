@@ -497,3 +497,209 @@ Deux conséquences, et la seconde est la plus importante :
 Le §8 de `CLAUDE.md` datait la correction de `Blochschaltbild` du 16/08/2026.
 La mesure la place plus tard : notre instantané `a290eb28`, pris le 17/08,
 portait encore la coquille. Elle fait partie des 18 commits repris le 19/08.
+
+## 13. Labels dupliqués `a_adc_4bit` et `a_adc_12bit` — dessins 300 et 299
+
+**Constaté le** 20/08/2026, pendant la resynchronisation de la refonte du
+chapitre DSP (amont `7c1d87a3`).
+
+Les dessins 300 et 299 sont déclarés **deux fois chacun, dans deux sections
+différentes de la même classe**, avec le même label et des légendes
+différentes :
+
+- `dac_adc` : `[picture:300:a_adc_4bit:Sinussignal digitalisiert durch einen 4-Bit-A/D-Umsetzer und anschließende D/A-Umsetzung]`
+- `anti_alias_rekonstruktionsfilter` : `[picture:300:a_adc_4bit:Signal vor dem Rekonstruktionsfilter]`
+
+et de même pour 299 / `a_adc_12bit`.
+
+Les deux sections appartiennent toutes deux au chapitre
+`a_digitale_signalverarbeitung` de la classe A, et **les deux y renvoient** :
+`anti_alias_rekonstruktionsfilter` écrit « vgl. Abbildung [ref:a_adc_12bit] ».
+La collision est donc certaine, comme au §7 — elle ne dépend pas de l'édition
+compilée. Le renvoi désignera l'une des deux occurrences, et le lecteur pourra
+être envoyé vers la figure portant l'autre légende.
+
+C'est la même famille que les 20 labels dupliqués du §8 de `CLAUDE.md`, mais ce
+cas-ci est **nouveau** : il a été introduit par la refonte du 19/08, alors que
+les deux figures étaient auparavant déclarées une seule fois, dans
+`analog_digital_umsetzer`.
+
+Préservé verbatim côté français, légendes traduites de part et d'autre.
+
+## 14. Coquilles relevées pendant la resynchronisation du 20/08/2026
+
+Toutes dans des sections réécrites en amont entre le 19 et le 20/08.
+
+| section | écrit | attendu |
+| --- | --- | --- |
+| `ofdm` | `Frequenzmultiplexverfahren, (Orthogonal…` | virgule parasite avant la parenthèse |
+| `datenuebertragungsrate` | `Sie gibt an wie viele Bit…` | `gibt an, wie viele` — virgule manquante |
+| `parasitaere_schwingungen` | `parisitäre Schwingungen` | `parasitäre` — coquille **conservée** lors de la réécriture du paragraphe |
+
+Aucune n'a d'effet sur la version française : les trois portent sur la
+ponctuation ou l'orthographe allemandes.
+
+À noter tout de même, en sens inverse : la réécriture d'`ofdm` **corrige** une
+erreur de terminologie. L'amont écrivait « orthogonale Frequenzmodulation »
+là où OFDM est un **multiplexage**, non une modulation ; il écrit désormais
+« orthogonales Frequenzmultiplexverfahren ». Notre traduction portait déjà
+« multiplexage par répartition orthogonale de la fréquence » et n'avait donc
+pas à changer.
+
+## 15. Référence orpheline `a_sender` — CORRIGÉE EN AMONT
+
+**Retirée du relevé le** 20/08/2026.
+
+Le §8 de `CLAUDE.md` listait `a_sender` (classe A, ch. 10) parmi les cinq
+références orphelines. La réécriture de `sende_empfangsketten` la corrige :
+l'amont écrit désormais `[ref:a_sdr_sender]`, qui est bien le label déclaré
+dans la même section.
+
+Nous avons adopté la correction. **La classe A devrait donc passer de 3 à 2
+`??`** — à confirmer par extraction du PDF après compilation, le journal
+sous-comptant (CLAUDE.md §4).
+
+C'est le **quatrième** défaut que l'amont corrige seul sans que nous l'ayons
+signalé, après les trois coquilles du §12. L'argument du §12 s'en trouve
+renforcé d'autant.
+
+## 16. La classe E emploie le baud sans plus le définir
+
+**Constaté le** 20/08/2026. C'est le défaut le plus consistant de cette salve,
+et le seul qui touche un candidat.
+
+La refonte scinde `datenuebertragungsdrate` : la notion de *Symbolrate* en sort
+pour rejoindre la nouvelle section `symbole_symbolrate`, **qui n'est au
+sommaire que de la classe A**. La section E qui lui succède,
+`datenuebertragungsrate`, passe de 210 à 83 mots et ne définit plus que le
+débit de données et la largeur de bande.
+
+Or l'unité baud reste employée en classe E : `9600_port` écrit
+`\qty{9600}{\baud}` **douze fois** (port 9 600 bauds, Packet Radio).
+
+**Un candidat de la classe E rencontre donc l'unité sans que la rapidité de
+modulation lui ait été présentée nulle part.**
+
+Nuance qui limite la portée, et qu'il faut donner au DARC en même temps que le
+constat : **l'examen E n'interroge pas là-dessus.** Les deux questions de la
+section (EA106, EE401) portent sur le débit de données et la largeur de bande ;
+c'est AA104, « unité de la Symbolrate », qui part en classe A avec la section.
+Le défaut est pédagogique, non réglementaire.
+
+Suivi tel quel côté français (décision de Pierre du 20/08/2026, feuille
+d'arbitrage nº 7, D6a) : nous ne comblons pas le trou par un encart `<france>`,
+que le §7 de `CLAUDE.md` réserve aux compléments **nationaux**.
+
+## 17. `<tipp>` au lieu de `<tip>` — les balises s'impriment dans le PDF
+
+**Constaté le** 20/08/2026 dans `elektrische_geaete_oeffnen_2` (classe A), en
+examinant un écart que `docs/ecarts-traduction.md` avait classé « ajout français
+hors encart `<france>` ». Ce n'en était pas un.
+
+L'amont écrit :
+
+```
+<tipp>
+Um wirklich auf der sicheren Seite zu sein, …
+</tipp>
+```
+
+Or **`tipp` n'est pas un marqueur DARCdown.** La liste `captures` de
+`renderer/tag.py` déclare `tip`, pas `tipp`. Sur les 63 emplois du marqueur
+dans le corpus amont, **62 s'écrivent `<tip>` et un seul `<tipp>`** — celui-ci.
+
+**Mesuré** en passant les deux variantes dans le renderer amont :
+
+| source | LaTeX produit |
+| --- | --- |
+| `<tip>…</tip>` | `\MarginTip{…}` |
+| `<tipp>…</tipp>` | `<tipp>` et `</tipp>` **rendus littéralement**, encadrant le texte |
+
+Conséquence côté allemand : l'encart n'est pas composé, et le lecteur voit les
+deux balises imprimées telles quelles dans le PDF, autour d'un paragraphe resté
+dans le corps du texte.
+
+Notre traduction écrit `<tip>` et compose donc l'encart correctement. **Ce
+n'est pas une dérogation de confort : c'est la correction d'un défaut amont**,
+et c'est à ce titre qu'elle est inscrite dans la table `DEROGATIONS` de
+`verifier_traduction.py`.
+
+C'est le seul défaut du relevé dont l'effet soit **visible à l'œil nu dans le
+PDF allemand publié**.
+
+## 18. `\sample` — une unité jamais déclarée, erreur fatale de compilation
+
+**Constaté le** 20/08/2026 en compilant le document réduit de la
+resynchronisation. C'est le défaut le plus grave de la salve : **il empêche la
+compilation.**
+
+La section `digital_iq`, créée en amont le 19/08, écrit :
+
+```
+$\qty{10}{\mega\sample\per\second}$
+```
+
+Or `\sample` **n'est déclarée nulle part**. Vérifié sur l'ensemble des
+déclarations d'unités du dépôt générateur :
+
+- `latex/DARC-ausbildungsmaterialien.sty` : `\baud`, `\dBi`, `\dBm`, `\dBu`,
+  `\dBV`, `\dBW`, `\ppm`, `\pps`, `\CPM`, `\WPM`, `\noop` ;
+- `latex/settings.tex` : `\baud`.
+
+Aucune n'est `\sample`, et l'unité n'apparaît qu'**une seule fois dans tout le
+corpus amont** — à cet endroit.
+
+Résultat mesuré :
+
+```
+! Undefined control sequence.
+<argument> \mega \sample
+                        \per \second
+```
+
+`latexmk` sort en `rc=12`. **La classe A allemande bute donc sur le même
+écueil** — comme pour `\qty{120\pi}{\ohm}` (§ CLAUDE.md v0.14) et
+`\qty{0.05}{\lambda}` (v0.16), mais cette fois l'erreur est *fatale* et non
+silencieuse : elle ne compose pas faux, elle ne compile pas.
+
+**Correctif côté français** (décision de Pierre du 20/08/2026) : la formule est
+rendue `$\qty{10}{\mega\sps}$`, `\sps` étant l'unité que notre classe déclare
+déjà (`\DeclareSIUnit{\sps}{Sps}`) et qu'emploie `sampling_quantisierung` sous
+la forme `\qty{44,1}{\kilo\sps}`. Le rendu est « MSps », cohérent avec le
+« kSps » de la section voisine. Dérogation inscrite dans
+`verifier_traduction.py`.
+
+Aucune montée de version de `build_book.py` n'a été nécessaire : le correctif
+vit dans la traduction, pas dans le générateur.
+
+## 19. « Missing character … in font nullfont » — mesuré, et sans effet visible
+
+**Vérifié le** 20/08/2026, à la demande de Pierre. Ce n'est pas un défaut neuf :
+le §8 de `CLAUDE.md` le signale depuis longtemps, en l'attribuant à la syntaxe
+dépréciée `\tikzstyle{…}=[…];`. Ce qui manquait, c'est la **preuve** que rien
+ne disparaît du PDF.
+
+Sur le document réduit de la resynchronisation, 27 avertissements :
+
+| glyphe | nombre | origine mesurée |
+| --- | ---: | --- |
+| `0` (U+0030) | 24 | dessin **196**, formes circuitikz `box` / `mixer` / `adder` |
+| `;` (U+003B) | 3 | `\tikzstyle` déprécié (dessin 704), cause déjà connue au §8 |
+
+**Les deux ont été isolés et rendus en image.**
+
+- Dessin 196 compilé seul : 3 avertissements, un par forme `box`. Le dessin
+  sort **complet** — I, Q, X, G, φ, les deux mélangeurs et l'additionneur sont
+  tous présents. Le « 0 » perdu est un artefact interne du tracé des formes, pas
+  du texte destiné au lecteur.
+- Dessins **700 (ASK) et 703 (FSK)** compilés ensemble — ceux qui portent les
+  bits sous les courbes, et donc le vrai risque : **zéro avertissement**, et les
+  six bits `0 0 1 0 1 1` sont composés correctement dans chaque figure.
+
+**Conclusion : aucun contenu lisible ne disparaît.** Contrairement au lambda du
+§3 et à la barre de fraction du §6, ces avertissements-ci sont bénins.
+
+À noter tout de même pour le signalement : le phénomène est présent dans les
+**PDF déjà publiés** — le journal du livre E de la a.2 en porte 299, dont 260
+sur le caractère `` ` ``. Ces 260-là n'ont **pas** été analysés ici et sortent
+du périmètre de cette session.
