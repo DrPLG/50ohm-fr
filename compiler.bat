@@ -234,14 +234,19 @@ REM     a_mehrwegeausbreitung_ionosphaere et a_zeppelinantenn. Ce script ne
 REM     teste pas les "??" : le compte se fait sur le PDF, cf. CLAUDE.md
 REM     section 4.
 set "NMARGE=0"
-REM Comptage SANS find.exe : celui-ci lit son entree standard et, quand
-REM le batch tourne dans un processus DETACHE (sans console interactive),
-REM il ne recoit jamais la fermeture de stdin et attend indefiniment. Le
-REM batch reste alors suspendu ICI, juste avant la compression --
-REM constate le 20/08/2026 sur N, E et A, trois fois de suite : les trois
-REM compilations avaient abouti, aucune n'avait ete compressee.
-REM Une boucle for /f ne lit pas stdin ; set /a evalue a l'execution,
-REM donc l'expansion differee n'est pas necessaire ici.
+REM Comptage sans "find" : une boucle for /f suffit et fait un maillon
+REM de moins dans le pipeline. Equivalent verifie : 4 = 4 sur la classe A.
+REM
+REM MISE AU POINT, 20/08/2026 -- a lire avant de suspecter ce comptage.
+REM Ce correctif avait ete pose en croyant que find.exe, bloque sur son
+REM entree standard, suspendait le batch en processus detache. C ETAIT
+REM FAUX : apres correction, le batch s est bloque au meme endroit, sans
+REM le moindre find.exe vivant.
+REM La vraie cause etait affichee a l ecran depuis le debut -- le choice
+REM de la ligne 274, "Compresser le PDF avec Ghostscript maintenant ?".
+REM Il est DELIBERE (CLAUDE.md section 2 : la compression se demande),
+REM mais en detache la question ne peut pas recevoir de reponse.
+REM Pour un lancement automatique : "echo O | compiler.bat N".
 for /f "delims=" %%L in ('findstr /c:"Note de marge trop haute" "%LOG%"') do set /a NMARGE+=1
 set "NMARGE_ATTENDU=0"
 if /i "%CLASSE%"=="A" set "NMARGE_ATTENDU=4"

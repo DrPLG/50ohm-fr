@@ -143,6 +143,23 @@ et l'instantané concordent — aucune dérive à rattraper.
 
 #### Connu
 
+- **`compiler.bat` ne peut pas aller au bout en processus détaché**, et ce
+  n'est pas un défaut : sa ligne 274 demande `Compresser le PDF avec
+  Ghostscript maintenant ?`, conformément au §2 qui veut que la compression
+  soit décidée par Pierre. Sans console interactive, la question reste sans
+  réponse et le batch attend — après avoir tout fait, contrôles compris.
+  Pour un lancement automatique : `echo O | compiler.bat N`.
+
+  *Trois diagnostics faux avant celui-là, et c'est la leçon de la journée.*
+  L'arrêt des batches a été successivement attribué à un `find` parcourant le
+  disque, puis à `find.exe` bloqué sur son entrée standard — au point qu'un
+  correctif a été écrit pour ce second motif. Il n'a rien changé : à la
+  compilation suivante, le batch s'est arrêté au même endroit, **sans le
+  moindre `find.exe` vivant**. La vraie cause était affichée en clair dans la
+  console depuis le début. Le correctif du comptage est conservé — il est
+  équivalent, vérifié 4 = 4 — mais son commentaire a été rectifié.
+  **Lire ce que la machine affiche avant de théoriser sur ce qu'elle fait.**
+
 - **Le comptage des `??` dans le PDF sur-compte en allemand.** Le §4 érige ce
   comptage en référence contre le journal, qui sous-compte — vrai en français,
   trompeur en allemand : le PDF N allemand porte **4 occurrences pour 1 seul
