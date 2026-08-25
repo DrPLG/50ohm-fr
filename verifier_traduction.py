@@ -86,6 +86,24 @@ import re
 import sys
 import unicodedata
 
+# Sous Windows, la console hérite d'une page de code héritée (cp1252 ici) et
+# Python y plante sur tout caractère qu'elle ne connaît pas. Le script en émet
+# forcément : il cite le corpus, qui est saturé de λ, de µ, de tirets
+# cadratins et de guillemets français.
+#
+# Constaté le 20/08/2026 : la passe --tout s'interrompait sur un λ par
+# UnicodeEncodeError, APRÈS avoir affiché la moitié de ses résultats. Le code
+# de retour devenait alors celui d'un plantage, indiscernable d'un rc=1
+# légitime — un contrôle qui ne peut pas rendre son verdict ne contrôle rien.
+#
+# errors="replace" plutôt que "strict" : mieux vaut un « ? » à l'écran qu'un
+# verdict perdu.
+for _flux in (sys.stdout, sys.stderr):
+    try:
+        _flux.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
+        pass
+
 CLASSES = ("N", "E", "A")
 
 # Balises DARCdown reconnues par le parseur amont (renderer/tag.py), plus
@@ -116,6 +134,24 @@ ALLEMAND = re.compile(
 # Écarts VOULUS, décidés et documentés. Affichés, mais sans effet sur le rc.
 # Les retirer d'ici si la raison disparaît — ce n'est pas une liste d'excuses.
 DEROGATIONS = {
+    # Doubles crochets d'unité ramenés au crochet simple (20 formules, 3
+    # sections). L'amont écrit $f[[\unit{\mega\hertz}]]$ ; rien n'absorbe le
+    # doublement — ni le parseur, qui ne traite pas « [[ », ni LaTeX, où les
+    # crochets sont des délimiteurs ordinaires en mode mathématique — et le PDF
+    # compose littéralement « f [[MHz]] ». Le PRINCIPE du crochet est conservé :
+    # c'est la « zugeschnittene Größengleichung » du formulaire officiel que le
+    # candidat aura sous les yeux à l'examen. Décision de Pierre, 20/08/2026.
+    # Voir defauts-amont.md §21.
+    ("N", "wellenlaenge"):
+        "doubles crochets d'unité ramenés au crochet simple : "
+        "$f[[\\unit{\\mega\\hertz}]]$ compose « f [[MHz]] » "
+        "(defauts-amont.md §21)",
+    ("E", "formeln_umstellen"):
+        "doubles crochets d'unité ramenés au crochet simple "
+        "(defauts-amont.md §21)",
+    ("E", "wellenlaenge_2"):
+        "doubles crochets d'unité ramenés au crochet simple "
+        "(defauts-amont.md §21)",
     ("A", "elektrische_verlaengerung_verkuerzung"):
         "légende du dessin 650 écrite \\frac{5}{8} là où l'amont écrit "
         "\\qty{5}{8}, qui compose « 58λ » (defauts-amont.md §6)",

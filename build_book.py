@@ -15,7 +15,42 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.21
+Version du script : v0.23
+    v0.23 — option --format a4|20x24 (feuille nº 8, D2 = variante C, D3a).
+            La maquette n'était pas paramétrable : papier, cinq cotes, folio et
+            largeur du dessin 202 étaient écrits en dur. Ils passent dans un
+            tableau FORMATS, et --format les choisit. Défaut « a4 » : sans
+            l'option, la classe produite est identique à celle de la v0.22
+            pour tout ce qui compose — vérifié par comparaison des .cls. Seul
+            un COMMENTAIRE se déplace : les cotes en toutes lettres, jusque-là
+            écrites deux fois, ne le sont plus qu'une, au point où le format
+            les décide. Les y laisser les aurait rendues fausses en 20 x 24.
+            Seuls quatre points de code étaient concernés, le reste de la mise
+            en page étant exprimé en unités relatives — y compris les clamps
+            v0.17 et v0.18, la page de titre et 907 des 908 dessins amont.
+            À savoir avant de compiler en 20 x 24 : le seuil de rétrogradation
+            des notes de marge SUIT \textheight et tombe de 711,3 pt à
+            574,7 pt. Toute note comprise entre ces deux hauteurs bascule du
+            bord dans le corps du texte, en boîte sécable. Ce n'est pas une
+            erreur — c'est le garde-fou v0.13 — mais c'est un changement de
+            mise en page, et le journal ne dit jamais la hauteur des notes qui
+            passent : seule une compilation le mesure.
+
+    v0.22 — francisation typographique conditionnée à --lang fr. Trois réglages
+            introduits en v0.17 (arbitrage nº 1) étaient inconditionnels dans
+            BOOK_CLASS : \babelprovide{french} en langue PRINCIPALE, les puces
+            en tiret cadratin avec le séparateur de légende « -- », et les
+            listes resserrées. Conséquence, mesurée en préparant la première
+            compilation du livre ALLEMAND de ce dépôt : il aurait été coupé
+            selon les règles françaises et aurait porté des espaces fines
+            devant « : ; ! ? » — deux fautes en allemand. Sans eux, babel garde
+            ngerman, hérité de DARC-ausbildungsmaterialien.sty (l. 7-8), et le
+            PDF est fidèle à ce que compose le DARC : c'est la condition pour
+            que des captures puissent être jointes au signalement.
+            Tout le reste de la classe reste inconditionnel — clamps, garde-fou
+            de note de marge, \raggedbottom, gras mathématique : ce sont des
+            correctifs techniques, valables dans les deux langues.
+
     v0.21 — fix_latex() : \qty{5}{8} -> \ensuremath{\frac{5}{8}}.
 
             Troisième défaut de la même famille que les v0.14 et v0.16 — une
@@ -753,6 +788,118 @@ class QuestionBuilder:
 # LaTeX auxiliaire : classe livre + compatibilité
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# v0.22 — Francisation typographique, injectée dans BOOK_CLASS en --lang fr
+# SEULEMENT.
+#
+# Ces trois réglages sont des choix éditoriaux français (v0.17, arbitrage nº 1),
+# pas des correctifs techniques. Laissés inconditionnels, ils composaient le
+# livre ALLEMAND en césure française, avec des espaces fines devant « : ; ! ? »
+# et un séparateur de légende « Abb. 1 -- » là où l'allemand veut « Abb. 1: ».
+#
+# En --lang de, les deux marqueurs sont remplacés par du vide : babel reste
+# chargé avec ngerman par DARC-ausbildungsmaterialien.sty (l. 7-8), soit
+# exactement ce que compose le DARC. \DARCnotransform survit sans dommage —
+# sa garde \@ifundefined ne trouve pas le transform et ne fait rien.
+# ---------------------------------------------------------------------------
+BABEL_FRANCAIS = r"""\babelprovide[import, main, transforms = punctuation.space]{french}"""
+
+CONVENTIONS_FRANCAISES = r"""% Conventions françaises complètes (décision de Pierre, arbitrage nº 1).
+% Écrites ici plutôt qu'héritées de frenchb : on obtient l'aspect voulu sans
+% embarquer ses redéfinitions de notes, de \@ et de captions.
+\AddToHook{begindocument}{%
+	% Puces en tiret cadratin, à tous les niveaux.
+	\renewcommand{\labelitemi}{\textemdash}%
+	\renewcommand{\labelitemii}{\textemdash}%
+	\renewcommand{\labelitemiii}{\textemdash}%
+	\renewcommand{\labelitemiv}{\textemdash}%
+	% Séparateur de légende : « Fig. 1 -- légende » au lieu de « Fig. 1: ».
+	\renewcommand*{\captionformat}{~\textendash~}%
+}
+% Listes resserrées, à la française. Réglé par crochet d'environnement plutôt
+% qu'avec enumitem : le corpus place beaucoup de listes DANS des tcolorbox,
+% où un paquet de listes supplémentaire ajouterait un facteur de risque.
+\AddToHook{env/itemize/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/enumerate/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/description/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}"""
+
+# ---------------------------------------------------------------------------
+# v0.23 — Formats de page (feuille d'arbitrage nº 8, D2 = variante C, D3a).
+#
+# Un PARAMÈTRE plutôt qu'une classe jumelle : une seule classe à maintenir, et
+# tout correctif de mise en page profite aux deux formats. C'est aussi ce qui
+# rend possible D1(a) — le NEA restant en A4 pendant que N, E et A passent en
+# 20 x 24.
+#
+# « marge » est la largeur de la colonne de marge ; elle sert AUSSI à la
+# précompilation du dessin 202, seul dessin du corpus coté en absolu.
+#
+# « folio » n'est pas une valeur devinée mais le résultat de
+#     2 x ( paperwidth/2 - (inner + textwidth/2) )
+# le bloc texte n'étant pas centré sur le papier. Un espace ajouté à gauche ne
+# déplaçant le centre que de sa moitié, le facteur 2 est nécessaire.
+# ---------------------------------------------------------------------------
+FORMATS = {
+    "a4": {
+        "papier": "a4paper",
+        "inner": "18mm", "textwidth": "118mm",
+        "top": "25mm", "bottom": "22mm",
+        "sep": "7mm", "marge": "52mm",
+        "folio": "56mm",
+        "commentaire": "Maquette A4 : 18 + 118 (texte) + 7 (sép.) + 52 (marge) + 15 = 210 mm",
+    },
+    "20x24": {
+        "papier": "paperwidth=200mm,paperheight=240mm",
+        "inner": "15mm", "textwidth": "125mm",
+        "top": "20mm", "bottom": "18mm",
+        "sep": "6mm", "marge": "42mm",
+        "folio": "45mm",
+        "commentaire": "Maquette 20 x 24 (variante C) : 15 + 125 + 6 + 42 + 12 = 200 mm",
+    },
+    # v0.23 — maquette demandée par Pierre le 20/08/2026, après lecture du N
+    # composé en variante C : le 20 x 24, mais SANS toucher à la colonne de
+    # marge, qui reste à ses 52 mm d'A4.
+    #
+    # Le motif est mesurable. En variante C, la marge tombe à 33,6 % de la
+    # colonne de texte, contre 44,1 % en A4 : la maquette 2/3-1/3 se défait, et
+    # toute figure de marge est composée 19 % plus petite — or ces schémas
+    # portent du texte. Ici le rapport remonte à 45,6 %, soit au-dessus de
+    # l'A4, et les figures de marge retrouvent EXACTEMENT leur taille A4, le
+    # dessin 202 compris, qui se précompile à nouveau à 52 mm.
+    #
+    # Le prix est en pages : la colonne de texte tombe de 125 à 114 mm. Estimé
+    # à 331 pages contre 302 en variante C, par un modèle en 1/surface calibré
+    # sur l'A4 et vérifié à 0,2 % sur la variante C réellement compilée.
+    #
+    # Le folio retombe sur 56 mm, la valeur de l'A4 : 2 x (100 - (15 + 57)).
+    # C'est une coïncidence arithmétique, pas un choix.
+    "20x24-marge": {
+        "papier": "paperwidth=200mm,paperheight=240mm",
+        "inner": "15mm", "textwidth": "114mm",
+        "top": "20mm", "bottom": "18mm",
+        "sep": "7mm", "marge": "52mm",
+        "folio": "56mm",
+        "commentaire": "Maquette 20 x 24, colonne de marge d'A4 conservee : "
+                       "15 + 114 + 7 + 52 + 12 = 200 mm",
+    },
+}
+
+
+def geometrie_de(fmt):
+    """Rend le \\geometry et le \\cfoot correspondant au format demandé."""
+    f = FORMATS[fmt]
+    geom = (
+        "% " + f["commentaire"] + "\n"
+        "\\geometry{" + f["papier"] + ",twoside,"
+        "inner=" + f["inner"] + ",textwidth=" + f["textwidth"] + ","
+        "top=" + f["top"] + ",bottom=" + f["bottom"] + ",%\n"
+        "\tmarginparsep=" + f["sep"] + ",marginparwidth=" + f["marge"] + "}"
+    )
+    folio = ("\\cfoot*{\\Ifthispageodd{\\hspace*{" + f["folio"] + "}}"
+             "{\\hspace*{-" + f["folio"] + "}}\\pagemark}")
+    return geom, folio
+
+
 BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % Classe « livre » dérivée de FiftyOhm.cls (une colonne, marges identiques).
 \disable@package@load{physics}{}
@@ -783,7 +930,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % Le transform est attaché à la LOCALE : le contenu allemand résiduel garde
 % ses espacements corrects.
 % ---------------------------------------------------------------------------
-\babelprovide[import, main, transforms = punctuation.space]{french}
+@BABEL_FRANCAIS@
 
 % ---------------------------------------------------------------------------
 % v0.17 (A1) — Le transform et les dessins TikZ ne s'entendent pas.
@@ -812,24 +959,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \AddToHook{env/tikzpicture/begin}{\DARCnotransform}
 \AddToHook{env/circuitikz/begin}{\DARCnotransform}
 
-% Conventions françaises complètes (décision de Pierre, arbitrage nº 1).
-% Écrites ici plutôt qu'héritées de frenchb : on obtient l'aspect voulu sans
-% embarquer ses redéfinitions de notes, de \@ et de captions.
-\AddToHook{begindocument}{%
-	% Puces en tiret cadratin, à tous les niveaux.
-	\renewcommand{\labelitemi}{\textemdash}%
-	\renewcommand{\labelitemii}{\textemdash}%
-	\renewcommand{\labelitemiii}{\textemdash}%
-	\renewcommand{\labelitemiv}{\textemdash}%
-	% Séparateur de légende : « Fig. 1 -- légende » au lieu de « Fig. 1: ».
-	\renewcommand*{\captionformat}{~\textendash~}%
-}
-% Listes resserrées, à la française. Réglé par crochet d'environnement plutôt
-% qu'avec enumitem : le corpus place beaucoup de listes DANS des tcolorbox,
-% où un paquet de listes supplémentaire ajouterait un facteur de risque.
-\AddToHook{env/itemize/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
-\AddToHook{env/enumerate/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
-\AddToHook{env/description/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+@CONVENTIONS_FRANCAISES@
 
 % v0.17 (A2) — requis par le clamp de \DARCimage, ajouté en queue de
 % settings.tex ; chargé ici pour être disponible avant l'\input.
@@ -873,13 +1003,13 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % ---------------------------------------------------------------------------
 \raggedbottom
 
-% Maquette A4 : 2/3 texte, 1/3 marge (notes, photos, encadrés).
-% 18 + 118 (texte) + 7 (sép.) + 52 (marge) + 15 = 210 mm
+% Maquette 2/3 texte, 1/3 marge (notes, photos, encadrés). Les cotes exactes
+% sont posées juste en dessous, d'après le format demandé (v0.23) : les écrire
+% ici aussi les rendrait fausses dès qu'on quitte l'A4.
 \usepackage{geometry}
 % twoside : « inner » = côté reliure ; la colonne de marge (marginpar) bascule
 % automatiquement côté extérieur (droite sur page impaire, gauche sur page paire).
-\geometry{a4paper,twoside,inner=18mm,textwidth=118mm,top=25mm,bottom=22mm,%
-	marginparsep=7mm,marginparwidth=52mm}
+@GEOMETRIE@
 \setlength{\marginparpush}{6pt}
 % Comme dans kaobook : marginfix réordonne les \marginpar de chaque page
 % pour qu'aucune note/figure de marge ne déborde sous le bas de page ;
@@ -890,7 +1020,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % optique de +28 mm (page impaire) ou -28 mm (page paire) vers le milieu du papier.
 \RequirePackage[automark]{scrlayer-scrpage}
 \clearpairofpagestyles
-\cfoot*{\Ifthispageodd{\hspace*{56mm}}{\hspace*{-56mm}}\pagemark}
+@FOLIO@
 \pagestyle{scrheadings}
 % Les grands schémas/tableaux peuvent déborder dans la colonne de marge,
 % toujours côté EXTÉRIEUR (droite sur page impaire, gauche sur page paire) :
@@ -1446,7 +1576,10 @@ def escape_latex(text: str) -> str:
 # ident du dessin -> largeur cible. La largeur de la colonne de marge est de
 # 52 mm (cf. \geometry dans FiftyOhmBook.cls).
 PRECOMPILE_DRAWINGS = {
-    "202": "52mm",   # classe E : diagramme d'affaiblissement, axe de 21 x 29 cm
+    # v0.23 — la largeur suit désormais la colonne de marge du format retenu
+    # (52 mm en A4, 42 mm en 20 x 24). C'est le SEUL dessin du corpus coté en
+    # absolu : les 907 autres sont exprimés en \linewidth et suivent d'eux-mêmes.
+    "202": None,     # classe E : diagramme d'affaiblissement, axe de 21 x 29 cm
 }
 
 PRECOMPILE_WRAPPER = r"""\documentclass[border=2pt,varwidth=false]{standalone}
@@ -1610,6 +1743,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N", choices=["N", "E", "A", "NE", "EA", "NEA"])
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
+    ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
+                    help="Format de page (défaut : a4)")
     ap.add_argument("--translations", action="append", default=[],
                     help="Répertoire de traductions : sections/{ident}.md + titles.json. "
                          "Répétable — indispensable pour les éditions combinées NE, EA et "
@@ -1785,7 +1920,39 @@ def main():
             "\t\\noindent #1\\par\n",
         )
         sty.write_text(txt, encoding="utf-8")
-    (out / "FiftyOhmBook.cls").write_text(BOOK_CLASS, encoding="utf-8")
+    # v0.22 — la francisation typographique n'est injectée qu'en --lang fr.
+    # v0.23 — les quatre marqueurs doivent apparaître EXACTEMENT une fois.
+    #
+    # Contrôler l'absence après coup ne suffit pas : un marqueur écrit deux
+    # fois est substitué deux fois, et le contrôle passe au vert. C'est
+    # exactement ce qui est arrivé en écrivant cette version — le mot
+    # « @GEOMETRIE@ » cité dans un COMMENTAIRE voisin a fait injecter un second
+    # \geometry au milieu de ce commentaire, dont la deuxième ligne, elle,
+    # n'était pas commentée. Attrapé par la comparaison des .cls, pas par le
+    # garde-fou d'alors.
+    for marqueur in ("@GEOMETRIE@", "@FOLIO@",
+                     "@BABEL_FRANCAIS@", "@CONVENTIONS_FRANCAISES@"):
+        n = BOOK_CLASS.count(marqueur)
+        if n != 1:
+            raise SystemExit(
+                "ECHEC FATAL : le marqueur %s apparait %d fois dans BOOK_CLASS, "
+                "une seule attendue. Ne jamais citer un marqueur dans un "
+                "commentaire de la classe." % (marqueur, n))
+    geom, folio = geometrie_de(args.format)
+    classe = BOOK_CLASS.replace("@GEOMETRIE@", geom).replace("@FOLIO@", folio)
+    if "@GEOMETRIE@" in classe or "@FOLIO@" in classe:
+        raise SystemExit("ECHEC FATAL : marqueur de format non substitue "
+                         "dans FiftyOhmBook.cls")
+    if args.lang == "fr":
+        classe = classe.replace("@BABEL_FRANCAIS@", BABEL_FRANCAIS)
+        classe = classe.replace("@CONVENTIONS_FRANCAISES@", CONVENTIONS_FRANCAISES)
+    else:
+        classe = classe.replace("@BABEL_FRANCAIS@\n", "")
+        classe = classe.replace("@CONVENTIONS_FRANCAISES@\n", "")
+    if "@BABEL_FRANCAIS@" in classe or "@CONVENTIONS_FRANCAISES@" in classe:
+        raise SystemExit("ECHEC FATAL : marqueur de francisation non substitue "
+                         "dans FiftyOhmBook.cls")
+    (out / "FiftyOhmBook.cls").write_text(classe, encoding="utf-8")
     (out / "latexmkrc").write_text(LATEXMKRC, encoding="utf-8")
 
     # 2. Dessins TikZ -> img/{id}include.tex (convention \DARCimage)
@@ -1820,6 +1987,8 @@ def main():
     # conservées, la hauteur devient compatible, et le reste de la chaîne
     # n'y voit que du feu.
     for ident, largeur in PRECOMPILE_DRAWINGS.items():
+        if largeur is None:          # v0.23 — largeur pilotée par le format
+            largeur = FORMATS[args.format]["marge"]
         src = out / "img" / f"{ident}include.tex"
         if not src.exists():
             continue

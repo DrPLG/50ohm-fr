@@ -10,9 +10,152 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ## a.3 (en cours) — 20 août 2026
 
-**Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.** Les
-traductions et tous les contrôles hors compilation sont faits ; les livres ne
-sont pas encore recompilés.
+**Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
+
+### 20 août 2026, après-midi — le livre allemand, et le format en paramètre
+
+Séance en trois temps : compiler pour la première fois le livre **allemand**,
+recompiler les livres de la a.3, et rendre le **format de page** paramétrable.
+
+Contrôle de dérive amont en ouverture : `7c1d87a3` en local **et** sur le
+dépôt du DARC. Pour la première fois depuis que ce contrôle existe, le réseau
+et l'instantané concordent — aucune dérive à rattraper.
+
+#### Ajouté
+
+- **v0.23 — option `--format a4|20x24`** (feuille nº 8, D2 = variante C, D3a).
+  La maquette n'était pas paramétrable : papier, cinq cotes, folio et largeur
+  du dessin 202 étaient écrits en dur. Ils passent dans un tableau `FORMATS`.
+  **Défaut `a4`** : sans l'option, le `.cls` produit ne diffère de celui de la
+  v0.22 par **aucune ligne de code** — seul un commentaire se déplace, les
+  cotes en toutes lettres n'étant plus écrites qu'une fois, là où le format les
+  décide. Quatre points de code suffisaient : tout le reste de la mise en page
+  est en unités relatives, y compris les clamps v0.17 et v0.18, la page de
+  titre et **907 des 908 dessins amont**.
+  Maquette 20 × 24 retenue : `15 + 125 + 6 + 42 + 12 = 200 mm`, hauteur de
+  texte 202 mm, folio à 45 mm — cette dernière valeur n'étant pas devinée mais
+  calculée par `2 × (paperwidth/2 − (inner + textwidth/2))`, formule que
+  l'A4 vérifie (elle y redonne les 56 mm déjà codés).
+- **Le livre N en allemand**, compilé pour la première fois dans ce dépôt :
+  **230 pages**, quatre contrôles du §4 verts, 2,86 Mo après compression.
+  La traduction française coûte donc **28 pages, soit +12,2 %** (258 contre
+  230) — premier chiffre dont nous disposions sur ce point.
+
+#### Compilé
+
+- **Classe A, a.3 : 386 pages** (384 en a.2), 5,40 Mo. Convergée, aucune erreur
+  fatale, et **les deux seuils annoncés tranchés par la mesure — un seul des
+  deux bougeait** :
+  - **notes de marge : 4, inchangé.** On en attendait 5, en croyant que
+    `fehlerkorrektur` viendrait s'ajouter aux quatre existantes après que
+    l'amont eut rallongé son encart Hamming. Elle y était **déjà** : comparée à
+    la console de la a.2, les trois premières hauteurs sont identiques au
+    centième (731,83 · 976,66 · 828,91 pt) et la quatrième passe de 919,69 à
+    **1035,49 pt**. Elle a grossi, elle ne s'est pas ajoutée. `compiler.bat`
+    avait raison, rien n'a été touché ;
+  - **références `??` : 3 → 2, confirmé sur le PDF.** L'amont a corrigé
+    `a_sender` en `a_sdr_sender`. Restent `a_mehrwegeausbreitung_ionosphäre` et
+    `a_zeppelinantenn`. **Deuxième défaut que l'amont corrige seul** sans que
+    nous l'ayons signalé, après les trois coquilles du 19/08.
+- **Classe N, a.3 : 258 pages**, pagination inchangée. N n'était pas au
+  programme de la a.3 : elle y est entrée par la correction des doubles
+  crochets, qui touche `wellenlaenge`. Quatre contrôles verts, convergée.
+- **Classe E, a.3 : 214 pages**, 3,02 Mo. Les quatre contrôles du §4 sont
+  verts, une seule référence `??` (le défaut amont `e_ssb_am_modulation`), et
+  aucun « Rerun » demandé — le document est convergé.
+  **La pagination ne bouge pas** : 214 pages en a.2 comme en a.3, malgré
+  l'ident renommé et la section réécrite.
+  *À savoir pour les diagnostics futurs :* l'index de la classe E est **vide**,
+  et c'est normal. E ne porte **aucune** entrée `\index{}` (N en compte 77) —
+  un `book-E.idx` à zéro octet n'est donc pas le symptôme d'une compilation
+  incomplète, contrairement à ce qu'il donnerait à croire en classe N.
+
+#### Corrigé
+
+- **v0.22 — la francisation typographique n'est plus inconditionnelle.** Trois
+  réglages de la v0.17 (arbitrage nº 1) s'appliquaient quelle que soit la
+  langue : `\babelprovide{french}` en langue **principale**, les puces en tiret
+  cadratin avec le séparateur de légende « -- », et les listes resserrées. Le
+  livre allemand aurait donc été coupé selon les règles **françaises** et aurait
+  porté des espaces fines devant « : ; ! ? » — deux fautes en allemand. Vérifié
+  après correction, sur document réduit : `Fern-mel-de-an-la-ge`,
+  `Be-triebs-span-nung`, et le séparateur redevenu `Abb. 1:`.
+- **`compiler.bat` ne pouvait plus être lancé.** Le `.gitattributes` portait
+  `* text=auto eol=lf`, qui normalise en LF **le répertoire de travail** —
+  y compris les `.bat`. Sur des fins de ligne LF nues, cmd.exe se désynchronise
+  en lisant le script et perd des caractères en tête de ligne : « setlocal »
+  devient « tlocal », « chcp » devient « cp », et le batch part en cascade de
+  « n'est pas reconnu en tant que commande interne ou externe ». Règle
+  `*.bat text eol=crlf` ajoutée, fichier reconverti en binaire.
+- **Les quatre scripts de contrôle plantaient sur la console Windows.**
+  `verifier_traduction.py --tout` s'interrompait sur un `λ` par
+  `UnicodeEncodeError`, APRÈS avoir affiché la moitié de ses résultats : son
+  code de retour devenait celui d'un plantage, **indiscernable d'un `rc=1`
+  légitime**. Un contrôle qui ne peut pas rendre son verdict ne contrôle rien.
+  Les quatre reconfigurent désormais leur sortie en UTF-8. Verdict complet
+  retrouvé : **382 sections, 355 conformes, 7 dérogations, 20 écarts** — tous
+  préexistants et documentés.
+
+- **Doubles crochets d'unité ramenés au crochet simple** — 20 formules, 3
+  sections (`N/wellenlaenge`, `E/wellenlaenge_2`, `E/formeln_umstellen`).
+  L'amont écrit `$f[[\unit{\mega\hertz}]]$` ; rien n'absorbe le doublement — ni
+  le parseur, qui ne traite pas `[[`, ni LaTeX, où les crochets sont des
+  délimiteurs ordinaires en mode mathématique — et le PDF composait
+  littéralement **« f [[MHz]] »**, sans le moindre avertissement.
+  Le **principe** du crochet est conservé : c'est la *zugeschnittene
+  Größengleichung* du formulaire officiel que le candidat aura sous les yeux à
+  l'examen, et le texte amont dit lui-même en venir. Seul le doublement tombe.
+  Relevé par Pierre à la lecture du N en 20 × 24 ; décision du 20/08/2026.
+  Dérogation assumée à « formules verbatim » (§6), déclarée dans
+  `verifier_traduction.py`, détaillée en `defauts-amont.md` §21.
+  **Conséquence : N et E sont à recompiler.** La classe A n'a aucune
+  occurrence et n'est pas concernée.
+
+- **66 connecteurs allemands « und » traduits en « et »**, dans **15 questions
+  de la classe N**. Le §6 classe pourtant une question en « forme complète »
+  précisément quand ses réponses contiennent de la prose allemande,
+  « connecteurs compris (und, bis, ca., Punkt, beides) » : la règle était
+  écrite, elle n'avait pas été appliquée sur ces quinze-là.
+  Questions touchées : `BD303` à `BD318` (13 sur les indicatifs de pays),
+  `NA101` et `VD738`. **E et A sont indemnes** — zéro occurrence, mesuré.
+  **Deux exceptions conservées, vérifiées une par une** : `VC104`
+  (« Bundesanstalt für Post und Telekommunikation » est un nom propre
+  d'institution, comme « Bundesnetzagentur » dans la même question) et `VE501`
+  (« Elektromagnetische Verträglichkeit in der Umwelt » est la glose du sigle
+  EMVU, sujet même de la question).
+  **Conséquence : N et NEA sont à recompiler.**
+
+  *Comment il a été trouvé, et c'est le plus instructif.* Pas par un contrôle,
+  mais en **lisant** le rendu Beamer de `bandbreite` : « 135,7 à 137,8 kHz,
+  472 à 479 kHz **und** 10100 à 10150 kHz ». Aucun de nos quatre scripts ne
+  regarde `questions.json` — `verifier_traduction.py` compare les sections à
+  l'amont, `sonde_dessins.py` lit les dessins. Ce défaut était dans les PDF
+  publiés de la **a.2** depuis le 19/08, sous les yeux de tous. **Un prototype
+  écrit pour répondre à une question de faisabilité a trouvé un défaut que
+  l'outillage ne pouvait pas voir.**
+
+#### Préservé
+
+- Le défaut amont **§20** (marqueurs `[photo:…][index:…]` accolés) est
+  désormais constaté **dans le PDF allemand** : la photo du S-mètre manque et
+  son renvoi pend en « Wie im Bild ?? zu sehen ist ». C'est la capture qui
+  manquait au courrier `COURRIER-DARC-DE.md`.
+
+#### Connu
+
+- **Le comptage des `??` dans le PDF sur-compte en allemand.** Le §4 érige ce
+  comptage en référence contre le journal, qui sous-compte — vrai en français,
+  trompeur en allemand : le PDF N allemand porte **4 occurrences pour 1 seul
+  vrai défaut**, les trois autres étant la question BB203 sur les codes Q, où
+  deux `?` légitimes se collent (`bestätigen??`). En français, l'espace fine
+  de la v0.17 les sépare. Le contrôle se relit, il ne se prend pas au mot.
+- **Les 260 « Missing character » sur le caractère `` ` ``** ne concernent
+  **que la classe E** : le N allemand comme le N français en comptent **zéro**,
+  et leurs profils sont par ailleurs identiques (51 caractères manquants, dont
+  42 `;` du défaut `\tikzstyle` et 9 `0` venant des formes circuitikz). En E,
+  ils apparaissent page 23, après le dessin 992 — dont les 7 826 lignes de
+  `filecontents` émettent des messages du type `` `world.dat' ``. Piste, pas
+  conclusion.
 
 ### 20 août 2026 — troisième resynchronisation amont (feuille d'arbitrage nº 7)
 

@@ -4,7 +4,7 @@ $f = \frac{c_0}{\lambda}$
 
 ou, sous forme d'équation aux grandeurs adaptée,
 
-$f[[\unit{\mega\hertz}]] = \frac{300}{\lambda[[\unit{\meter}]]}$
+$f[\unit{\mega\hertz}] = \frac{300}{\lambda[\unit{\meter}]}$
 
 peut être réarrangée au choix pour isoler la fréquence ou la longueur d'onde.
 
@@ -14,7 +14,7 @@ Dans cette section, nous examinons des applications pratiques. Essaie toujours d
 
 Les premières questions consistent à déterminer la fréquence pour une longueur d'onde donnée. Dans la première question, la longueur d'onde indiquée est $\qty{80}{\meter}$. La bande radioamateur des $\qty{80}{\meter}$ s'étend de $\qtyrange{3,5}{3,8}{\mega\hertz}$. Les réponses proposées se situent toutes dans cette plage, si bien que nous devons recourir à la calculatrice :
 
-$f[[\unit{\mega\hertz}]] = \frac{300}{80} = 3,75$
+$f[\unit{\mega\hertz}] = \frac{300}{80} = 3,75$
 
 ---
 
@@ -26,7 +26,7 @@ Dans cette question, la longueur d'onde vaut $\qty{30}{\milli\meter} = \qty{3}{\
 Lorsque tu insères des valeurs dans une formule, veille toujours à utiliser les unités de base. Cela signifie que les valeurs doivent au besoin être converties — par exemple de millimètres en mètres.
 </attention>
 
-$f[[\unit{\mega\hertz}]] = \frac{300}{0,03} = \frac{300 \cdot 100}{3} = \num{10000}$
+$f[\unit{\mega\hertz}] = \frac{300}{0,03} = \frac{300 \cdot 100}{3} = \num{10000}$
 
 La bonne réponse est donc $f=\qty{10}{\giga\hertz}$, puisque $\qty{1}{\giga\hertz} = 1000 {\mega\hertz}$.
 
@@ -34,13 +34,13 @@ La bonne réponse est donc $f=\qty{10}{\giga\hertz}$, puisque $\qty{1}{\giga\her
 
 Il est encore plus simple de trouver la fréquence qui correspond à une longueur d'onde de $\qty{10}{\centi\meter}$. $\qty{10}{\centi\meter} = \qty{0,1}{\meter}$. Donc :
 
-$f[[\unit{\mega\hertz}]]=\frac{300}{0,1}=3000$
+$f[\unit{\mega\hertz}]=\frac{300}{0,1}=3000$
 
 Comme $\qty{1}{\giga\hertz} = \qty{1000}{\mega\hertz}$, la réponse est : $\qty{3}{\giga\hertz}$.
 
 Pour les questions suivantes, nous réarrangeons l'équation pour isoler $\lambda$ :
 
-$\lambda[[\unit{\meter}]] = \frac{300}{f[[\unit{\mega\hertz}]]}$
+$\lambda[\unit{\meter}] = \frac{300}{f[\unit{\mega\hertz}]}$
 
 [question:EB311]
 
@@ -52,7 +52,7 @@ On cherche maintenant la longueur d'onde correspondant à une fréquence de $\qt
 
 Par sécurité, nous pouvons tout de même faire le calcul (avec l'équation aux grandeurs adaptée) :
 
-$\lambda[[\unit{\meter}]] = \frac{300}{21}=14,29$
+$\lambda[\unit{\meter}] = \frac{300}{21}=14,29$
 
 [question:EB313]
 

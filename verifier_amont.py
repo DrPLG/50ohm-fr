@@ -59,6 +59,18 @@ import sys
 from datetime import date
 from pathlib import Path
 
+# Sous Windows, la console hérite d'une page de code héritée (cp1252 ici) et
+# Python y plante sur tout caractère qu'elle ne connaît pas — alors même que ce
+# script CITE le corpus, saturé de λ, de µ, de Ω et de tirets cadratins.
+# Constaté le 20/08/2026 sur verifier_traduction.py, qui s'interrompait en
+# plein verdict. errors="replace" : mieux vaut un « ? » à l'écran qu'un
+# verdict perdu.
+for _flux in (sys.stdout, sys.stderr):
+    try:
+        _flux.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
+        pass
+
 RACINE = Path(__file__).resolve().parent
 CLASSES = ("N", "E", "A")
 

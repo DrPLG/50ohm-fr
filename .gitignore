@@ -73,6 +73,14 @@ out/
 # Ne JAMAIS rediriger vers *.out : ce suffixe appartient à hyperref, et
 # l'écraser fait relire le journal du terminal comme du code TeX (cf. §4).
 *-console.txt
+console-*.txt
+
+
+# --- Sortie du prototype de slides Beamer ----------------------------------
+# slides_beamer.py emprunte l'arbre d'un build-<CLASSE> et écrit son .tex, ses
+# auxiliaires et son PDF dans slides-<ident>/. Rien n'y est source : la source
+# est traductions/<CLASSE>/slides/<ident>.md, qui est versionnée.
+slides-*/
 
 
 # --- Archives de transfert -------------------------------------------------

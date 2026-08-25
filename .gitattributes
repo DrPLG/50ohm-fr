@@ -1,1 +1,11 @@
 * text=auto eol=lf
+
+# Les fichiers de commandes Windows doivent rester en CRLF dans le répertoire
+# de travail. Sur des fins de ligne LF nues, cmd.exe se désynchronise en lisant
+# le script et perd des caractères en tête de ligne : « setlocal » devient
+# « tlocal », « chcp » devient « cp », et le batch échoue avec une cascade de
+# « n'est pas reconnu en tant que commande interne ou externe ».
+# Constaté le 20/08/2026 sur compiler.bat, que la règle « * eol=lf » ci-dessus
+# normalisait en LF. La règle la plus spécifique l'emporte.
+*.bat text eol=crlf
+*.cmd text eol=crlf

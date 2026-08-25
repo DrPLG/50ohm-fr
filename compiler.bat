@@ -220,17 +220,29 @@ REM displaymath (v0.18) coute environ 1 pt par formule, et la note de marge de
 REM schwingkreis_2, qui en contient 22, bascule au-dessus du seuil (734,6 pt
 REM pour 711,3). Le garde-fou v0.13 la compose alors dans le corps, en boite
 REM secable : pas d'erreur fatale, mais une section change de mise en page.
-REM ATTENTION, chantier a.3 : deux seuils vont bouger et ne sont PAS encore
-REM ajustes ici, deliberement. Une valeur devinee masquerait un vrai ecart ;
-REM on prefere que le script signale, puis on mesure.
-REM   - notes de marge classe A : 4 attendu ci-dessous, 5 attendu apres la
-REM     resynchronisation (fehlerkorrektur, encart Hamming rallonge par
-REM     l'amont : 1035,5 pt pour un seuil de 711,3) ;
-REM   - references "??" classe A : 3 documentees, 2 attendues (l'amont a
-REM     corrige a_sender en a_sdr_sender).
-REM Ajuster les deux APRES la premiere compilation a.3, sur mesure reelle.
+REM Chantier a.3 : les deux seuils annonces ont ete MESURES le 20/08/2026,
+REM et un seul des deux bougeait. C'est exactement pourquoi on ne devinait pas.
+REM   - notes de marge classe A : 4, INCHANGE. On attendait 5, en croyant que
+REM     fehlerkorrektur allait s'ajouter aux 4 existantes apres que l'amont eut
+REM     rallonge son encart Hamming. Elle y etait DEJA : la comparaison avec la
+REM     console de la a.2 donne les trois premieres hauteurs identiques au
+REM     centieme (731,83 / 976,66 / 828,91 pt) et la quatrieme passant de
+REM     919,69 a 1035,49 pt. Elle a grossi, elle ne s'est pas ajoutee.
+REM   - references "??" classe A : 3 -> 2, CONFIRME sur le PDF. L'amont a
+REM     corrige a_sender en a_sdr_sender. Restent les deux defauts connus,
+REM     a_mehrwegeausbreitung_ionosphaere et a_zeppelinantenn. Ce script ne
+REM     teste pas les "??" : le compte se fait sur le PDF, cf. CLAUDE.md
+REM     section 4.
 set "NMARGE=0"
-for /f %%N in ('findstr /c:"Note de marge trop haute" "%LOG%" ^| find /c /v ""') do set "NMARGE=%%N"
+REM Comptage SANS find.exe : celui-ci lit son entree standard et, quand
+REM le batch tourne dans un processus DETACHE (sans console interactive),
+REM il ne recoit jamais la fermeture de stdin et attend indefiniment. Le
+REM batch reste alors suspendu ICI, juste avant la compression --
+REM constate le 20/08/2026 sur N, E et A, trois fois de suite : les trois
+REM compilations avaient abouti, aucune n'avait ete compressee.
+REM Une boucle for /f ne lit pas stdin ; set /a evalue a l'execution,
+REM donc l'expansion differee n'est pas necessaire ici.
+for /f "delims=" %%L in ('findstr /c:"Note de marge trop haute" "%LOG%"') do set /a NMARGE+=1
 set "NMARGE_ATTENDU=0"
 if /i "%CLASSE%"=="A" set "NMARGE_ATTENDU=4"
 if "%NMARGE%"=="%NMARGE_ATTENDU%" (echo [OK]      Note de marge trop haute : %NMARGE% ^(attendu %NMARGE_ATTENDU%^)) else (echo [ALERTE]  Note de marge trop haute : %NMARGE% au lieu de %NMARGE_ATTENDU% attendu)

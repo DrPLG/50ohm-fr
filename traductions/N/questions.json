@@ -422,39 +422,39 @@
   "answer_d": "Allemagne (DA-DO), Taïwan (DP-DT) et Philippines (DU-DZ)"
  },
  "BD303": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, ON und OK correspondent aux pays…",
-  "answer_a": "Autriche, Belgique und Tchéquie.",
-  "answer_b": "Danemark, Belgique und Slovaquie.",
-  "answer_c": "Autriche, Danemark und Belgique.",
-  "answer_d": "Finlande, Tchéquie und Danemark."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, ON et OK correspondent aux pays…",
+  "answer_a": "Autriche, Belgique et Tchéquie.",
+  "answer_b": "Danemark, Belgique et Slovaquie.",
+  "answer_c": "Autriche, Danemark et Belgique.",
+  "answer_d": "Finlande, Tchéquie et Danemark."
  },
  "BD304": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, PA, und SM correspondent aux pays…",
-  "answer_a": "Autriche, Pays-Bas und Suède.",
-  "answer_b": "Autriche, Brésil und Suisse.",
-  "answer_c": "Autriche, Pologne und Afrique du Sud.",
-  "answer_d": "Autriche, Pays-Bas und Écosse."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, PA, et SM correspondent aux pays…",
+  "answer_a": "Autriche, Pays-Bas et Suède.",
+  "answer_b": "Autriche, Brésil et Suisse.",
+  "answer_c": "Autriche, Pologne et Afrique du Sud.",
+  "answer_d": "Autriche, Pays-Bas et Écosse."
  },
  "BD305": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs F, PA und SP correspondent aux pays…",
-  "answer_a": "France, Pays-Bas und Pologne.",
-  "answer_b": "Suède, Pays-Bas und Pologne.",
-  "answer_c": "Pays-Bas, Pologne und Belgique.",
-  "answer_d": "Afrique du Sud, Danemark und Luxembourg."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs F, PA et SP correspondent aux pays…",
+  "answer_a": "France, Pays-Bas et Pologne.",
+  "answer_b": "Suède, Pays-Bas et Pologne.",
+  "answer_c": "Pays-Bas, Pologne et Belgique.",
+  "answer_d": "Afrique du Sud, Danemark et Luxembourg."
  },
  "BD306": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs SM, SP und ZS correspondent aux pays…",
-  "answer_a": "Suède, Pologne und Afrique du Sud.",
-  "answer_b": "Suède, Slovaquie und Pologne.",
-  "answer_c": "Slovénie, Pologne und Suède.",
-  "answer_d": "Suède, Slovénie und Pologne."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs SM, SP et ZS correspondent aux pays…",
+  "answer_a": "Suède, Pologne et Afrique du Sud.",
+  "answer_b": "Suède, Slovaquie et Pologne.",
+  "answer_c": "Slovénie, Pologne et Suède.",
+  "answer_d": "Suède, Slovénie et Pologne."
  },
  "BD307": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs 4X, F und OZ correspondent aux pays…",
-  "answer_a": "Israël, France und Danemark.",
-  "answer_b": "Italie, Belgique und Slovaquie.",
-  "answer_c": "Suède, Belgique und Écosse.",
-  "answer_d": "Suisse, Luxembourg und Pologne."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs 4X, F et OZ correspondent aux pays…",
+  "answer_a": "Israël, France et Danemark.",
+  "answer_b": "Italie, Belgique et Slovaquie.",
+  "answer_c": "Suède, Belgique et Écosse.",
+  "answer_d": "Suisse, Luxembourg et Pologne."
  },
  "BD308": {
   "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs EA, EI, EK, EM, ES correspondent aux pays…",
@@ -464,18 +464,18 @@
   "answer_d": "Espagne, Ukraine, Arménie, Estonie, Irlande"
  },
  "BD309": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs VE, VK und PY correspondent aux pays…",
-  "answer_a": "Canada, Australie und Brésil.",
-  "answer_b": "Canada, Brésil und États-Unis.",
-  "answer_c": "États-Unis, Australie und Brésil.",
-  "answer_d": "Canada, Australie und Japon."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs VE, VK et PY correspondent aux pays…",
+  "answer_a": "Canada, Australie et Brésil.",
+  "answer_b": "Canada, Brésil et États-Unis.",
+  "answer_c": "États-Unis, Australie et Brésil.",
+  "answer_d": "Canada, Australie et Japon."
  },
  "BD310": {
   "question": "Quel groupe indique correctement les indicateurs de la Suisse, de l'Espagne et de la Belgique ?",
-  "answer_a": "HB9, EA und ON",
-  "answer_b": "SZ, SP und BE",
-  "answer_c": "SP, ON und EA",
-  "answer_d": "EA, SP und BE"
+  "answer_a": "HB9, EA et ON",
+  "answer_b": "SZ, SP et BE",
+  "answer_c": "SP, ON et EA",
+  "answer_d": "EA, SP et BE"
  },
  "BD311": {
   "question": "Quel groupe indique correctement les indicateurs de l'Espagne, du Luxembourg et de la Pologne ?",
@@ -486,17 +486,17 @@
  },
  "BD312": {
   "question": "Quel groupe indique correctement les indicateurs des États-Unis, de la Nouvelle-Zélande et de l'Argentine ?",
-  "answer_a": "W, ZL und LU",
-  "answer_b": "K, ZS und A",
-  "answer_c": "N, LU und PY",
-  "answer_d": "AL, CE und VE"
+  "answer_a": "W, ZL et LU",
+  "answer_b": "K, ZS et A",
+  "answer_c": "N, LU et PY",
+  "answer_d": "AL, CE et VE"
  },
  "BD313": {
   "question": "Quel groupe indique correctement les indicateurs de la Chine, du Canada et de l'Australie ?",
-  "answer_a": "BY, VE und VK",
-  "answer_b": "BY, JA und VK",
-  "answer_c": "JA, VE und VK",
-  "answer_d": "N, VE und VK"
+  "answer_a": "BY, VE et VK",
+  "answer_b": "BY, JA et VK",
+  "answer_c": "JA, VE et VK",
+  "answer_d": "N, VE et VK"
  },
  "BD314": {
   "question": "Quelle réponse ne contient que des indicateurs de pays limitrophes de la République fédérale d'Allemagne ?",
@@ -507,31 +507,31 @@
  },
  "BD315": {
   "question": "Quelle réponse ne contient que des indicatifs des États-Unis (USA) ?",
-  "answer_a": "K3LR, W3DZZ und K4EAX",
-  "answer_b": "W0FKK, N6CAL und VE5VK",
-  "answer_c": "US2ABC, AB0GC und W4EAX",
-  "answer_d": "K1TTT, KA7KLE und UA3RUS"
+  "answer_a": "K3LR, W3DZZ et K4EAX",
+  "answer_b": "W0FKK, N6CAL et VE5VK",
+  "answer_c": "US2ABC, AB0GC et W4EAX",
+  "answer_d": "K1TTT, KA7KLE et UA3RUS"
  },
  "BD316": {
   "question": "Quels trois indicateurs de pays appartiennent à un seul et même continent ?",
-  "answer_a": "W, VE und XE",
-  "answer_b": "K, VE und BY",
-  "answer_c": "N, XE und DS",
-  "answer_d": "XE, VE und JA"
+  "answer_a": "W, VE et XE",
+  "answer_b": "K, VE et BY",
+  "answer_c": "N, XE et DS",
+  "answer_d": "XE, VE et JA"
  },
  "BD317": {
   "question": "Quels indicateurs sont attribués à des pays d'Amérique du Sud ?",
-  "answer_a": "PY, CE und LU",
-  "answer_b": "LU, CE und BY",
-  "answer_c": "CE, LU und JA",
-  "answer_d": "PY, CE und VE"
+  "answer_a": "PY, CE et LU",
+  "answer_b": "LU, CE et BY",
+  "answer_c": "CE, LU et JA",
+  "answer_d": "PY, CE et VE"
  },
  "BD318": {
   "question": "Quels indicateurs sont attribués à des pays d'Asie ?",
-  "answer_a": "BY, JA und VU",
-  "answer_b": "VU, JA und K",
-  "answer_c": "JA, VU und PY",
-  "answer_d": "LU, DS und JA"
+  "answer_a": "BY, JA et VU",
+  "answer_b": "VU, JA et K",
+  "answer_c": "JA, VU et PY",
+  "answer_d": "LU, DS et JA"
  },
  "BE101": {
   "question": "Comment pouvez-vous commencer une liaison radioamateur, par exemple ?",
@@ -794,10 +794,10 @@
  },
  "NA101": {
   "question": "Un fil de 20 m de long est coupé aux 2/3 de sa longueur. Quelles sont approximativement les longueurs des morceaux obtenus ?",
-  "answer_a": "13,33 m und 6,67 m",
-  "answer_b": "12,22 m und 7,78 m",
-  "answer_c": "11,11 m und 8,89 m",
-  "answer_d": "14,44 m und 5,56 m"
+  "answer_a": "13,33 m et 6,67 m",
+  "answer_b": "12,22 m et 7,78 m",
+  "answer_c": "11,11 m et 8,89 m",
+  "answer_d": "14,44 m et 5,56 m"
  },
  "NA102": {
   "question": "On veut fabriquer des antennes à partir de 250 m de fil. Chaque antenne nécessite 18,5 m. Combien d'antennes peut-on fabriquer au maximum avec le fil disponible ?",
@@ -1870,10 +1870,10 @@
  },
  "VD738": {
   "question": "Dans quelles bandes radioamateur la largeur de bande occupée maximale admissible d'une émission est-elle de 800 Hz ?",
-  "answer_a": "135,7 à 137,8 kHz, 472 à 479 kHz und 10100 à 10150 kHz",
-  "answer_b": "1810 à 2000 kHz, 3500 à 3800 kHz und 7000 à 7200 kHz",
-  "answer_c": "7000 à 7100 kHz und 14000 à 14350 kHz",
-  "answer_d": "18068 à 18168 kHz und 24890 à 24990 kHz"
+  "answer_a": "135,7 à 137,8 kHz, 472 à 479 kHz et 10100 à 10150 kHz",
+  "answer_b": "1810 à 2000 kHz, 3500 à 3800 kHz et 7000 à 7200 kHz",
+  "answer_c": "7000 à 7100 kHz et 14000 à 14350 kHz",
+  "answer_d": "18068 à 18168 kHz et 24890 à 24990 kHz"
  },
  "VD739": {
   "question": "Dans laquelle des bandes radioamateur suivantes la largeur de bande occupée maximale admissible d'une émission est-elle de 2,7 kHz ?",

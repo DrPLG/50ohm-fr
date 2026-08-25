@@ -728,6 +728,25 @@ Trois conséquences dans le livre allemand : la photo du S-mètre n'est pas
 composée, l'entrée d'index « S-Meter » est perdue, et le renvoi
 `[ref:n_rst_s-meter]` devient orphelin — une référence `??` de plus.
 
+**Confirmé dans le PDF le 20/08/2026**, le livre allemand ayant été compilé le
+jour même (230 pages). Ce n'était jusque-là qu'un avertissement de génération ;
+c'est maintenant une phrase imprimée, page 15 :
+
+> Wie im Bild **??** zu sehen ist, wird das S-Meter meist mit Werten von 1 bis
+> 9 gefolgt von dB-Werten beschriftet.
+
+Le lecteur allemand est donc renvoyé à une figure qui n'existe pas, dans une
+section dont le sujet **est** la lecture du S-mètre. C'est la capture à joindre
+au signalement.
+
+*Au passage, une leçon de mesure.* Le texte extrait du PDF porte **quatre**
+occurrences de `??`, pour ce seul vrai défaut. Les trois autres viennent de la
+question BB203 sur les codes Q, où deux points d'interrogation parfaitement
+légitimes se retrouvent collés — « Können Sie den Empfang bestätigen?? ». En
+français, l'espace fine insécable les sépare et le cas ne se présente jamais.
+Le comptage brut des `??` n'est donc pas un oracle en allemand : il faut lire
+le contexte de chaque occurrence.
+
 **Notre version française est correcte** : elle place le `[photo:…]` et le
 `[index:S-mètre]` sur deux lignes, et les deux sont rendus. Ce n'est pas une
 décision consciente — c'est un effet heureux de la mise en forme de la
@@ -745,3 +764,81 @@ reproduit le motif.
 > compris ceux dont le rendu est bon. Corrigé en `[^\S\n]*`, le compte tombe
 > de 66 à 1. **Sixième récidive du même piège** : un contrôle vert, ou rouge,
 > ne vaut que ce que vaut sa définition.
+
+---
+
+## 21. Doubles crochets d'unité — « f [[MHz]] » imprimé tel quel
+
+**Constaté le** 20/08/2026, par Pierre, à la lecture du N composé en 20 × 24.
+
+L'amont écrit systématiquement l'unité d'une *zugeschnittene Größengleichung*
+entre **doubles** crochets :
+
+```
+$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]}$
+```
+
+**Le principe est une habitude allemande authentique**, et il n'est pas en
+cause : `f[MHz]` signifie « la valeur numérique de f exprimée en mégahertz ».
+Le texte amont précise lui-même que ces formules viennent du **formulaire
+officiel remis aux candidats** (« Die beiden Formeln finden sich auch in der
+Formelsammlung, die bei der Prüfung als Hilfsmittel vorliegt »).
+
+**C'est le doublement qui est fautif, et rien ne l'absorbe :**
+
+- le parseur DARCdown ne traite **pas** `[[` — aucune occurrence dans les 25
+  fichiers de `renderer/` ;
+- en mode mathématique, `[` et `]` sont des délimiteurs **ordinaires** : LaTeX
+  les compose l'un après l'autre sans broncher ;
+- le PDF porte donc littéralement **`f [[MHz]]`** et **`λ[[m]]`**, vérifié sur
+  le texte extrait du livre N.
+
+Aucune erreur n'est émise, ni à la génération ni à la compilation : c'est la
+signature déjà rencontrée aux §2, §6 et §16 — un rendu faux, sans alerte.
+
+**Portée mesurée.** Dans `contents/sections/`, les 20 occurrences de la
+notation `grandeur[unité]` sont **toutes** doublées. *(Une 21ᵉ, dans
+`leiterwiderstand`, s'écrit `\left[\unit{…}\right]` : c'est un en-tête de
+tableau donnant l'unité de ρ, un usage distinct et correct.)*
+
+**Mais l'amont écrit AUSSI la forme simple, et c'est ce qui tranche.** Le
+dossier `contents/slides/` — 381 fichiers, un par section — porte 15
+occurrences de la notation, dont **8 à crochet simple**. Mieux : la **même
+formule** y est écrite des deux façons, dans deux fichiers voisins :
+
+| fichier amont | écriture |
+| --- | --- |
+| `slides/wellenlaenge.md` | `$f[\unit{\mega\hertz}] = \dfrac{300}{\lambda[\unit{\meter}]}$` |
+| `sections/wellenlaenge.md` | `$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]}$` |
+| `slides/wellenlaenge_2.md` | `$f[[\unit{\mega\hertz}]] \approx …$` |
+
+Le doublement n'est donc **pas** une convention de l'auteur appliquée
+sciemment : c'est une **inconsistance** de son propre corpus. La forme simple
+est attestée sous sa plume, pour la formule même qui nous occupe.
+
+*Note d'honnêteté : une première rédaction de cette entrée affirmait que la
+forme simple « n'apparaît nulle part ». C'était faux, et dû à un motif de
+recherche mal échappé. La mesure corrigée est celle ci-dessus — et elle
+renforce la décision au lieu de l'affaiblir.*
+
+| section | classe | occurrences |
+| --- | --- | ---: |
+| `wellenlaenge` | N | 8 |
+| `wellenlaenge_2` | E | 8 |
+| `formeln_umstellen` | E | 4 |
+| **total** | | **20** |
+
+La classe A n'est pas concernée.
+
+**Hypothèse sur l'origine**, donnée pour ce qu'elle vaut : l'auteur a voulu
+*échapper* le crochet pour le parseur, en le doublant comme le font d'autres
+systèmes de balisage. Le parseur n'attend pas cet échappement.
+
+**Décision de Pierre du 20/08/2026 : corrigé côté français**, au crochet
+simple. C'est une dérogation assumée à la règle « formules verbatim » du §6,
+dans le même esprit que « Ordnung → ordre » du 15/08. Le **principe** du
+crochet est conservé : le candidat passe l'examen allemand et manipulera le
+formulaire officiel, où la notation à crochet simple est l'usage. Les trois
+sections sont déclarées en dérogation dans `verifier_traduction.py`.
+
+**L'allemand reste cassé** — et c'est une entrée de plus pour le signalement.

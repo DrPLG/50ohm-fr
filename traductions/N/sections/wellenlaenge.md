@@ -7,7 +7,7 @@ La relation entre la fréquence et la longueur d'onde découle de la vitesse de 
 
 Il en résulte les formules suivantes, qui permettent de convertir facilement entre la fréquence $f$ (en $\unit{\mega\hertz}$) et la longueur d'onde $\lambda$ (en mètres) :
 
-$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]} \quad\quad\quad \lambda[[\unit{\meter}]] = \dfrac{300}{f[[\unit{\mega\hertz}]]}$
+$f[\unit{\mega\hertz}] = \dfrac{300}{\lambda[\unit{\meter}]} \quad\quad\quad \lambda[\unit{\meter}] = \dfrac{300}{f[\unit{\mega\hertz}]}$
 
 Ces deux formules figurent aussi dans le formulaire mis à disposition comme aide lors de l'examen.
 
@@ -15,11 +15,11 @@ Si l'on divise donc 300 par la longueur d'onde en mètres, on obtient la fréque
 
 Si nous voulons par exemple calculer la longueur d'onde de la fréquence $\qty{145,3}{\mega\hertz}$, nous l'insérons dans la deuxième formule et résolvons :
 
-$\lambda[[\unit{\meter}]] = \dfrac{300}{f[[\unit{\mega\hertz}]]} = \dfrac{300}{\qty{145,3}{\mega\hertz}} \approx \qty{2,06}{\meter}$
+$\lambda[\unit{\meter}] = \dfrac{300}{f[\unit{\mega\hertz}]} = \dfrac{300}{\qty{145,3}{\mega\hertz}} \approx \qty{2,06}{\meter}$
 
 Cela fonctionne de la même façon dans l'autre sens. Si nous insérons la longueur d'onde de 2,06 m dans la première formule, nous retrouvons la fréquence de départ :
 
-$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]} = \dfrac{300}{\qty{2,06}{\meter}} \approx \qty{145,3}{\mega\hertz}$
+$f[\unit{\mega\hertz}] = \dfrac{300}{\lambda[\unit{\meter}]} = \dfrac{300}{\qty{2,06}{\meter}} \approx \qty{145,3}{\mega\hertz}$
 
 [include:applet_lambda_und_f]
 

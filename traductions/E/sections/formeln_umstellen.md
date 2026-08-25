@@ -1,8 +1,8 @@
 Dès la formation à la classe N, nous avons fait connaissance avec la relation entre la fréquence ($f$) et la longueur d'onde ($\lambda$). Deux équations aux grandeurs adaptées, taillées sur mesure pour l'examen, étaient alors fournies dans le formulaire.
 
-$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]}$
+$f[\unit{\mega\hertz}] = \dfrac{300}{\lambda[\unit{\meter}]}$
 
-$\lambda[[\unit{\meter}]] = \dfrac{300}{f[[\unit{\mega\hertz}]]}$
+$\lambda[\unit{\meter}] = \dfrac{300}{f[\unit{\mega\hertz}]}$
 
 <indepth>
 Les équations qui précisent d'emblée dans quelle unité les valeurs doivent être exprimées s'appellent des *équations aux grandeurs adaptées*.
