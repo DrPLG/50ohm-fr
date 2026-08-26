@@ -1,0 +1,36 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2023
+\begin{circuitikz}[european]
+    \draw [fill=DARCblue,domain=45:135] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c1);
+    \path [domain=135:45] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c0);
+    \path [domain=45:90] plot ({3*0.9*cos(\x)}, {3*0.9*sin(\x)}) coordinate(c2);
+    \draw [DARCorange!50, line width=10, domain=45:135] plot ({3*1.3*cos(\x)}, {3*1.3*sin(\x)});
+    %
+    \draw [DARCred!50, line width=20, domain=45:135] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)});
+    \path [domain=45:67.5] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)}) coordinate(c3);
+    \path [domain=45:112.5] plot ({3*1.58*cos(\x)}, {3*1.58*sin(\x)}) coordinate(c4);
+    %
+    \draw (c1) node [dinantenna, scale={\getDarcImageFactor*0.5}, rotate=+45](tx){};
+    \draw (c0) node [dinantenna, scale={\getDarcImageFactor*0.5}, rotate=-45](rx){};
+    %
+    \path[DARCred, ultra thick] (tx.right) 
+    -- (0,3.9) coordinate(reflectionpoint) 
+    -- (rx.left);
+    \draw(reflectionpoint) node[ellipse, fill={DARCorange!50!DARCgray}, minimum height=0.25cm, minimum width=0.5cm, inner sep=0pt](){};
+    \draw[DARCred, ultra thick] (tx.right) [rounded corners]
+    -- (reflectionpoint) [rounded corners]
+    -- (rx.left);
+    \draw[DARCred, ultra thick, dashed] (tx.right)
+    -- (0.25,5.5);
+    \draw[DARCred, ultra thick, dashed] (tx.right)
+    -- (3.75,5.5);
+    %
+    \draw(tx.left) node[below left]() {Émetteur};
+    \draw(rx.right) node[below right]() {Récepteur};
+    %
+    \draw(1.75,5.5) node[](){Signaux VHF};
+    %
+    \draw [white] (0,2.25) node[](){Terre};
+    %
+    \draw(0.5,4) node [above] () {\small Sporadic-E};
+\end{circuitikz}

@@ -72,7 +72,11 @@ for _flux in (sys.stdout, sys.stderr):
         pass
 
 RACINE = Path(__file__).resolve().parent
-CLASSES = ("N", "E", "A")
+# SWL, cinquième tome entré dans le périmètre le 25/08/2026 : ses dessins
+# forkés et ses sections traduites se suivent comme ceux des trois classes
+# d'examen. Les trois dessins du cursus (729, 733, 741) sont repris des
+# forks de N, à l'octet près.
+CLASSES = ("N", "E", "A", "SWL")
 
 # Tout ce qui distingue un type de suivi de l'autre. Ajouter un type revient a
 # ajouter une entree ici : le reste du script n'en sait rien.

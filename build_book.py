@@ -15,7 +15,21 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.23
+Version du script : v0.24
+    v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
+            25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
+            l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
+            71 questions dont 60 déjà traduites chez nous.
+            Quatre points de code, et quatre seulement : --edition accepte
+            SWL ; le sommaire est résolu sans tenir compte de la casse, parce
+            que l'amont l'a nommé « swl.json » quand les six autres sont
+            « A.json », « NEA.json »... ; le chargement des questions prend
+            TOUS les fragenkatalog*.json, les 11 questions propres au cursus
+            vivant dans un fichier séparé ; titre français et filigrane.
+            *Neutralité :* les six éditions existantes ne voient aucune
+            différence — même sommaire résolu, et le catalogue principal reste
+            chargé en premier. Vérifié par comparaison des arbres générés.
+
     v0.23 — option --format a4|20x24 (feuille nº 8, D2 = variante C, D3a).
             La maquette n'était pas paramétrable : papier, cinq cotes, folio et
             largeur du dessin 202 étaient écrits en dur. Ils passent dans un
@@ -711,9 +725,24 @@ class QuestionBuilder:
     }
 
     def __init__(self, contents: Path, renderer_factory, translations: dict | None = None):
-        katalog = json.loads(
-            (contents / "contents/questions/fragenkatalog3b.json").read_text(encoding="utf-8")
-        )
+        # v0.24 — TOUS les catalogues du dossier, pas seulement le 3b.
+        #
+        # Les 11 questions propres au cursus SWL vivent dans un fichier
+        # separe, fragenkatalog_swl.json : citer fragenkatalog3b.json en dur
+        # les rendait inatteignables. Les 60 autres questions appelees par SWL
+        # viennent, elles, du catalogue principal — d'ou la fusion plutot que
+        # le choix de l'un ou de l'autre.
+        #
+        # Le glob est trie pour que l'ordre de chargement soit deterministe.
+        dossier_q = contents / "contents/questions"
+        catalogues = sorted(dossier_q.glob("fragenkatalog*.json"))
+        if not catalogues:
+            raise SystemExit(
+                f"!! aucun fragenkatalog*.json dans {dossier_q}")
+        katalog = {"sections": []}
+        for fichier in catalogues:
+            katalog["sections"].extend(
+                json.loads(fichier.read_text(encoding="utf-8"))["sections"])
         self.metadata = json.loads(
             (contents / "contents/questions/metadata3b.json").read_text(encoding="utf-8")
         )
@@ -722,6 +751,10 @@ class QuestionBuilder:
         self.renderer_factory = renderer_factory
         self.translations = translations or {}  # {numéro: {question, answer_a..d}}
         self.missing = set()
+        # Questions chargées mais dépourvues de métadonnées : distinctes
+        # des introuvables, et sans conséquence quand elles n'ont pas
+        # d'image (cf. build()).
+        self.sans_metadata = set()
         self.n_translated_q = 0
 
         self.questions = {}
@@ -751,10 +784,24 @@ class QuestionBuilder:
 
     def build(self, number: str) -> str:
         question = self.questions.get(number)
-        metadata = self.metadata.get(number)
-        if question is None or metadata is None:
+        if question is None:
             self.missing.add(number)
             return f"% Frage {number} nicht gefunden\n"
+        # v0.24 — les métadonnées peuvent manquer sans que la question soit
+        # perdue. Elles ne portent QUE les images associées à un énoncé ou à
+        # une réponse (picture_question, picture_a..d) et un layout : pour une
+        # question sans image, l'entrée de metadata3b.json est un dictionnaire
+        # de chaînes vides.
+        #
+        # L'amont livre fragenkatalog_swl.json SANS metadata_swl.json. Les
+        # onze questions du cursus SWL étaient donc déclarées « introuvables »
+        # alors qu'elles étaient bien chargées — le test les exigeait toutes
+        # deux. Aucune n'a d'image, vérifié : elles ne portent que number,
+        # class, question et answer_a..d.
+        metadata = self.metadata.get(number)
+        if metadata is None:
+            metadata = {}
+            self.sans_metadata.add(number)
 
         # Traduction française : remplace le texte allemand quand disponible.
         tr = self.translations.get(number)
@@ -1408,9 +1455,15 @@ FR_TITLES = {
 	"NE": "Cours complet\\\\Classes N et E",
 	"EA": "Cours complet\\\\Classes E et A",
 	"NEA": "Cours complet\\\\Classes N, E et A",
+	# Le cursus SWL prepare l'examen DE du DARC — un insigne d'ecouteur,
+	# pas une licence d'emission. Le titre le dit, pour qu'on ne le prenne
+	# pas pour une quatrieme classe d'examen.
+	"SWL": "Cours complet\\\\\u00c9coute des bandes",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
+	# Trois lettres : le filigrane les empile, comme pour NEA (v0.20).
+	"SWL": "SWL",
 }
 
 MASTER_FOOTER = r"""
@@ -1503,6 +1556,27 @@ CLAMP_DARCIMAGE = r"""
 % commenté. Laissé en place il redéfinissait \DARCimage après celui-ci et
 % l'aurait écrasé. Son analyse complète figure ci-dessus et dans la docstring.
 """
+
+def chemin_toc(contents, edition):
+    """Rend le chemin du sommaire, quelle que soit la casse de son nom.
+
+    Les six sommaires historiques s'appellent A.json, E.json, N.json, NE.json,
+    EA.json et NEA.json. Celui du cursus SWL, ajoute par l'amont en aout 2026,
+    s'appelle « swl.json » — en minuscules. Plutot que d'ecrire cette
+    exception en dur, on cherche d'abord le nom exact, puis on se rabat sur
+    une comparaison insensible a la casse : une future edition nommee
+    autrement passera sans nouvelle retouche.
+    """
+    exact = contents / "toc" / f"{edition}.json"
+    if exact.is_file():
+        return exact
+    dossier = contents / "toc"
+    if dossier.is_dir():
+        for p in dossier.glob("*.json"):
+            if p.stem.lower() == edition.lower():
+                return p
+    return exact          # inexistant : l'appelant produira l'erreur utile
+
 
 def fix_latex(text: str) -> str:
     """Corrige des idiomes du contenu que siunitx v3 rejette."""
@@ -1741,7 +1815,8 @@ def link_dir(link: Path, target: Path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--edition", default="N", choices=["N", "E", "A", "NE", "EA", "NEA"])
+    ap.add_argument("--edition", default="N",
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL"])
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
     ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
                     help="Format de page (défaut : a4)")
@@ -1779,7 +1854,7 @@ def main():
     # (50ohm-contents-dl-main\50ohm-contents-dl-main\).
     attendus = [
         (contents / "latex" / "settings.tex", "fichiers LaTeX du dépôt de contenus"),
-        (contents / "toc" / f"{args.edition}.json", f"sommaire de l'édition {args.edition}"),
+        (chemin_toc(contents, args.edition), f"sommaire de l'édition {args.edition}"),
         (contents / "contents" / "sections", "sections DARCdown"),
         (contents / "contents" / "questions" / "fragenkatalog3b.json", "catalogue de questions"),
     ]
@@ -2008,7 +2083,7 @@ def main():
     qb = QuestionBuilder(contents, lambda: BookLaTeXRenderer(), translations=q_translations)
     question_renderer = qb.build
 
-    toc = json.loads((contents / "toc" / f"{args.edition}.json").read_text(encoding="utf-8"))
+    toc = json.loads(chemin_toc(contents, args.edition).read_text(encoding="utf-8"))
 
     # Traductions : fichiers parallèles optionnels
     tr_titles = {"chapters": {}, "sections": {}, "abstracts": {}}
@@ -2139,6 +2214,13 @@ def main():
               f"dérivé (sections renommées ou ajoutées).", file=sys.stderr)
     if qb.missing:
         print(f"Questions introuvables ({len(qb.missing)}) : {sorted(qb.missing)[:10]}...")
+    if qb.sans_metadata:
+        # Informatif, pas une alerte : sans image, une question se compose
+        # parfaitement sans métadonnées (v0.24).
+        print(f"   {len(qb.sans_metadata)} question(s) sans metadonnees amont "
+              f"(sans image, donc sans effet) : "
+              f"{', '.join(sorted(qb.sans_metadata)[:6])}"
+              f"{'...' if len(qb.sans_metadata) > 6 else ''}")
 
     if args.no_compile:
         return

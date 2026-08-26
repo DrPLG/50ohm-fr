@@ -104,7 +104,11 @@ for _flux in (sys.stdout, sys.stderr):
     except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
         pass
 
-CLASSES = ("N", "E", "A")
+# Le cursus SWL est entré dans le périmètre le 25/08/2026 : c'est un
+# cinquième tome, préparant l'examen DE du DARC. Ses sections vivent dans
+# traductions/SWL/sections/ comme celles des trois classes d'examen, et
+# les huit contrôles du §5 s'y appliquent à l'identique.
+CLASSES = ("N", "E", "A", "SWL")
 
 # Balises DARCdown reconnues par le parseur amont (renderer/tag.py), plus
 # <france>, qui est notre ajout.
@@ -134,6 +138,16 @@ ALLEMAND = re.compile(
 # Écarts VOULUS, décidés et documentés. Affichés, mais sans effet sur le rc.
 # Les retirer d'ici si la raison disparaît — ce n'est pas une liste d'excuses.
 DEROGATIONS = {
+    # Le moyen mnémotechnique des codes Q REPOSE sur les mots allemands :
+    # « QRM est une perturbation d'origine humaine (*m*enschengemacht) »,
+    # « QSB fait monter et descendre la force du signal (*S*ignalstärke
+    # *b*ergauf und *b*ergab) ». Traduire ces mots détruirait l'astuce, qui
+    # est tout l'objet de l'encart. Même traitement que « grande puissance
+    # (gr*o*ße Leistung) » dans N/q_schluessel.
+    ("SWL", "swl_q_gruppen"):
+        "glose allemande volontaire : les moyens mnémotechniques des codes "
+        "Q reposent sur les mots allemands eux-mêmes (menschengemacht, "
+        "Signalstärke bergauf und bergab)",
     # Doubles crochets d'unité ramenés au crochet simple (20 formules, 3
     # sections). L'amont écrit $f[[\unit{\mega\hertz}]]$ ; rien n'absorbe le
     # doublement — ni le parseur, qui ne traite pas « [[ », ni LaTeX, où les
