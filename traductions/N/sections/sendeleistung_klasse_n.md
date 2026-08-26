@@ -13,7 +13,7 @@ Rappelons-nous : la puissance rayonnée se calcule en multipliant la puissance d
 [question:VD725]
 
 <france>
-# En France, la puissance ne se compte pas en ERP
+# La puissance ne se compte pas en ERP
 
 Cette section n'a pas d'équivalent français, et l'écart mérite qu'on s'y arrête, parce qu'il change la façon même de raisonner.
 

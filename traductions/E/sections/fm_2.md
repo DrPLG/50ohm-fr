@@ -36,7 +36,7 @@ Du fait que l'information modulée n'est pas contenue dans l'amplitude mais uniq
 [question:EE302]
 [question:EE303]
 <france>
-# Ce que « prescriptions légales » veut dire en France
+# Ce que « prescriptions légales » veut dire
 
 Les prescriptions auxquelles renvoie ce paragraphe sont, côté français, des valeurs chiffrées. Le paragraphe 3 de l'annexe de la décision ARCEP n° 2012-1241 plafonne la largeur de bande occupée en fonction de la seule fréquence d'émission, quel que soit le mode :
 

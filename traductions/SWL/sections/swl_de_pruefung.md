@@ -21,7 +21,7 @@ L'examen DE n'est pas une autorisation d'émettre. Qui souhaite exercer lui-mêm
 </attention>
 
 <france>
-# En France, pas d'examen d'écouteur
+# Pas d'examen d'écouteur
 
 C'est la différence la plus nette entre les deux pays, et elle mérite d'être posée clairement : **il n'existe pas, en France, d'examen d'écouteur comparable à l'examen DE**.
 

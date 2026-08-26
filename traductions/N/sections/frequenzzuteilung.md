@@ -8,7 +8,7 @@ Les radioamateurs ne peuvent donc trafiquer que sur les fréquences qui leur son
 
 ---
 
-Les plages de fréquences du service radioamateur en Allemagne sont réglées dans l'*annexe 1 du règlement sur le radioamateurisme (AFuV)*. Un radioamateur ne peut émettre que sur les fréquences attribuées à sa classe de certificat.
+Les plages de fréquences du service radioamateur en Allemagne sont définies dans l'*annexe 1 du règlement sur le radioamateurisme (AFuV)*. Un radioamateur ne peut émettre que sur les fréquences attribuées à sa classe de certificat.
 
 % TODO hier neue AFUV eintragen
 <webmargin>
@@ -21,7 +21,7 @@ Outre les plages de fréquences, l'annexe contient aussi des conditions d'utilis
 [question:VD702]
 
 <france>
-# Qui attribue les fréquences en France
+# Qui attribue les fréquences
 
 La mécanique française a deux étages, là où l'Allemagne n'en a qu'un.
 

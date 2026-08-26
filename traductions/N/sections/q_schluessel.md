@@ -19,7 +19,7 @@ Nous abordons ci-après tous les codes Q figurant à l'examen, avec des aide-mé
 [question:BB204]
 
 * QRT : Cessez la transmission (*t*erminate = terminer) ! Au quotidien, beaucoup de radioamateurs terminent leur émission par « je passe QRT ».
-* QRZ? : On demande ainsi qui nous a appelé (invitation au correspondant : annonce ton indicatif une *z*euxième fois)
+* QRZ? : On demande ainsi qui nous a appelé (invitation au correspondant : annonce ton indicatif une deuxième fois)
 * QSL : signifie accusé de réception, ou en question : Merci d'accuser réception (tout est *l*oggé ?)
 
 [question:BB203]
@@ -59,7 +59,7 @@ Certains radioamateurs cherchent à couvrir de très grandes distances avec une 
 | QRT | Cessez la transmission ! | *T*erminate (terminer) |
 | QRV | Je suis prêt | *v*orbereitet (préparé) |
 | QRX? | Quand me rappellerez-vous ? | Instant *X* |
-| QRZ? | Qui m'a appelé ? | Annonce l'indicatif une *z*euxième fois ! |
+| QRZ? | Qui m'a appelé ? | Annonce l'indicatif une deuxième fois ! |
 | QSB | Fading, fluctuations | En haut, en *b*as (*B*ergauf, *B*ergab) |
 | QSL | J'accuse réception | J'ai *l*oggé |
 | QSO? | Joignez-vous la station… ? |  |

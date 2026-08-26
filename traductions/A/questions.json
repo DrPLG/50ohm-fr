@@ -1733,10 +1733,10 @@
   "answer_d": "un signal CW typique."
  },
  "AI305": {
-  "question": "L'image suivante montre le signal de sortie SSB à deux tons d'un émetteur OC, mesuré avec un oscilloscope de bande passante suffisante via une sonde de mesure 1:1 directement sur l'antenne artificielle de 50 Ohm raccordée. Quelle puissance de sortie (PEP) l'émetteur délivre-t-il ?"
+  "question": "L'image suivante montre le signal de sortie SSB à deux tons d'un émetteur OC, mesuré avec un oscilloscope de bande passante suffisante via une sonde de mesure 1:1 directement sur la charge fictive de 50 Ohm raccordée. Quelle puissance de sortie (PEP) l'émetteur délivre-t-il ?"
  },
  "AI306": {
-  "question": "L'image suivante montre le signal de sortie SSB à deux tons d'un émetteur OC, mesuré avec un oscilloscope de bande passante suffisante via une sonde de mesure 10:1 directement sur l'antenne artificielle de 50 Ohm raccordée. Quelle puissance de sortie (PEP) l'émetteur délivre-t-il ?"
+  "question": "L'image suivante montre le signal de sortie SSB à deux tons d'un émetteur OC, mesuré avec un oscilloscope de bande passante suffisante via une sonde de mesure 10:1 directement sur la charge fictive de 50 Ohm raccordée. Quelle puissance de sortie (PEP) l'émetteur délivre-t-il ?"
  },
  "AE303": {
   "question": "Un montage d'oscillateur à quartz avec diode à capacité variable permet ...",
@@ -2666,7 +2666,7 @@
   "answer_d": "Environ 2,4 W"
  },
  "AI606": {
-  "question": "La puissance d'un émetteur 2 m doit être déterminée à l'aide d'une antenne artificielle de 50 Ohm, munie d'une prise à 5 Ohm du côté proche de la masse. Le montage suivant est utilisé pour la mesure en ce point. Les diodes sont des diodes Schottky de $U_{\\textrm{F}} =$ 0,23 V. On mesure alors à la sortie du montage, avec un voltmètre numérique, une tension continue de 15,3 V. Quelle est approximativement la puissance HF de l'émetteur ?",
+  "question": "La puissance d'un émetteur 2 m doit être déterminée à l'aide d'une charge fictive de 50 Ohm, munie d'une prise à 5 Ohm du côté proche de la masse. Le montage suivant est utilisé pour la mesure en ce point. Les diodes sont des diodes Schottky de $U_{\\textrm{F}} =$ 0,23 V. On mesure alors à la sortie du montage, avec un voltmètre numérique, une tension continue de 15,3 V. Quelle est approximativement la puissance HF de l'émetteur ?",
   "answer_a": "Environ 60 W",
   "answer_b": "Environ 480 W",
   "answer_c": "Environ 340 W",
@@ -2680,25 +2680,25 @@
   "answer_d": "Un appareil de mesure de résonance"
  },
  "AI601": {
-  "question": "La figure représente une antenne artificielle (charge fictive) constituée de résistances de 150 Ohm / 1 W. Cette combinaison de montages en série et en parallèle permet d'atteindre environ 50 Ohm. Combien de résistances sont nécessaires à cette réalisation et quelle puissance permanente cette antenne artificielle supporte-t-elle ?",
+  "question": "La figure représente une charge fictive constituée de résistances de 150 Ohm / 1 W. Cette combinaison de montages en série et en parallèle permet d'atteindre environ 50 Ohm. Combien de résistances sont nécessaires à cette réalisation et quelle puissance permanente cette charge fictive supporte-t-elle ?",
   "answer_a": "48 résistances, 48 W",
   "answer_b": "48 résistances, 12 W",
   "answer_c": "12 résistances, 48 W",
   "answer_d": "16 résistances, 16 W"
  },
  "AI602": {
-  "question": "Une antenne artificielle (charge fictive) dispose d'une sortie de mesure raccordée en interne à un redresseur de valeur de crête. À quoi sert cette sortie de mesure ? Elle sert ...",
+  "question": "Une charge fictive dispose d'une sortie de mesure raccordée en interne à un redresseur de valeur de crête. À quoi sert cette sortie de mesure ? Elle sert ...",
   "answer_a": "à la mesure indirecte de la puissance haute fréquence.",
   "answer_b": "de raccordement pour un préamplificateur d'antenne.",
   "answer_c": "de prise d'une tension de régulation ALC pour l'étage final d'émission.",
-  "answer_d": "à réajuster les résistances de l'antenne artificielle."
+  "answer_d": "à réajuster les résistances de la charge fictive."
  },
  "AI603": {
-  "question": "Une antenne artificielle (charge fictive) de 50 Ohm dispose d'une prise à 5 Ohm du côté proche de la masse. Que pourrait-on utiliser pour déterminer approximativement la puissance de sortie de l'émetteur par ce point de mesure ?",
+  "question": "Une charge fictive de 50 Ohm dispose d'une prise à 5 Ohm du côté proche de la masse. Que pourrait-on utiliser pour déterminer approximativement la puissance de sortie de l'émetteur par ce point de mesure ?",
   "answer_a": "Un multimètre numérique avec une sonde HF.",
   "answer_b": "Un mesureur d'ondes stationnaires avec une résistance de terminaison.",
   "answer_c": "Un mesureur d'ondes stationnaires sans résistance de terminaison.",
-  "answer_d": "Une antenne artificielle de 50 Ohm avec un atténuateur HF supplémentaire."
+  "answer_d": "Une charge fictive de 50 Ohm avec un atténuateur HF supplémentaire."
  },
  "AJ207": {
   "question": "Qu'indique la forme d'onde suivante de la tension de sortie d'un amplificateur de puissance ?",
@@ -2725,14 +2725,14 @@
   "answer_d": "Un filtre passe-haut à l'entrée de l'étage final de l'émetteur"
  },
  "AJ225": {
-  "question": "Que s'applique-t-il, en émission, aux émissions non désirées dans la plage de fréquences comprise entre 50 et 1000 MHz ? Dans la mesure où la puissance d'une émission non désirée ...",
+  "question": "Quelle règle s'applique, en émission, aux émissions non désirées dans la plage de fréquences comprise entre 50 et 1000 MHz ? Dans la mesure où la puissance d'une émission non désirée ...",
   "answer_a": "dépasse 0,25 μW, elle devrait être atténuée d'au moins 60 dB par rapport à la PEP maximale de l'émetteur.",
   "answer_b": "dépasse 0,25 μW, elle devrait être atténuée d'au moins 40 dB par rapport à la PEP maximale de l'émetteur.",
   "answer_c": "dépasse 1 μW, elle devrait être atténuée d'au moins 60 dB par rapport à la PEP maximale de l'émetteur.",
   "answer_d": "dépasse 1 μW, elle devrait être atténuée d'au moins 50 dB par rapport à la PEP maximale de l'émetteur."
  },
  "AJ224": {
-  "question": "Que s'applique-t-il, en émission, aux émissions non désirées dans la plage de fréquences comprise entre 1,7 et 35 MHz ? Dans la mesure où la puissance d'une émission non désirée ...",
+  "question": "Quelle règle s'applique, en émission, aux émissions non désirées dans la plage de fréquences comprise entre 1,7 et 35 MHz ? Dans la mesure où la puissance d'une émission non désirée ...",
   "answer_a": "dépasse 0,25 μW, elle devrait être atténuée d'au moins 40 dB par rapport à la PEP maximale de l'émetteur.",
   "answer_b": "dépasse 0,25 μW, elle devrait être atténuée d'au moins 60 dB par rapport à la PEP maximale de l'émetteur.",
   "answer_c": "dépasse 1 μW, elle devrait être atténuée d'au moins 60 dB par rapport à la PEP maximale de l'émetteur.",
@@ -3819,7 +3819,7 @@
   "answer_d": "0 W en circuit ouvert et 50 W en court-circuit"
  },
  "AG403": {
-  "question": "On injecte 10 W de puissance HF à l'entrée d'une ligne d'antenne d'une atténuation de 3 dB. Avec l'antenne raccordée en bout de ligne, on mesure à l'entrée de la ligne un SWR de 3. Avec une antenne artificielle de 50 Ohm en bout de ligne, le SWR à l'entrée de la ligne vaut environ 1. Que peut-on conclure de ces résultats de mesure ?",
+  "question": "On injecte 10 W de puissance HF à l'entrée d'une ligne d'antenne d'une atténuation de 3 dB. Avec l'antenne raccordée en bout de ligne, on mesure à l'entrée de la ligne un SWR de 3. Avec une charge fictive de 50 Ohm en bout de ligne, le SWR à l'entrée de la ligne vaut environ 1. Que peut-on conclure de ces résultats de mesure ?",
   "answer_a": "L'antenne est défectueuse. Elle ne rayonne pratiquement aucune puissance HF.",
   "answer_b": "La ligne d'antenne est défectueuse ; pratiquement aucune puissance HF ne parvient à l'antenne.",
   "answer_c": "L'installation d'antenne est en ordre. Environ 5 W de puissance HF sont rayonnés.",

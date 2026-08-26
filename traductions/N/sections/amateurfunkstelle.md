@@ -21,7 +21,7 @@ Il doit aussi toujours être clair que le contenu d'une liaison radio peut être
 [question:VA302]
 
 <france>
-# Exploiter une station en France
+# Exploiter une station
 
 **Pas d'autorisation individuelle.** L'utilisation des fréquences par une station du service d'amateur n'est pas soumise à autorisation individuelle (article 2 de la décision n° 2012-1241) : c'est le régime d'autorisation générale de l'article L33-3 du CPCE. Le certificat d'opérateur et l'indicatif restent bien entendu obligatoires.
 

@@ -15,7 +15,7 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.24
+Version du script : v0.25
     v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
             25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
             l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
@@ -396,6 +396,7 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 import mistletoe
@@ -651,6 +652,49 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
 
     def render_reference(self, token):
         return f"\\ref{{{token.marker}}}"
+
+    def render_index(self, token):
+        """v0.25 — donne à chaque entrée d'index une clé de tri désaccentuée.
+
+        `makeindex` trie sur le **code** des caractères, pas selon l'ordre
+        alphabétique français. « É » (U+00C9) passe donc après « Z », et
+        « é » (U+00E9) après « z » — deux anomalies mesurées dans l'index de
+        la classe N :
+
+        - « Émetteur-récepteur » rejeté **en toute fin d'index**, après
+          « Zone de silence », au lieu de figurer dans les E ;
+        - « Diagramme en chute d'eau » classé **avant** « Déroulement du
+          trafic », l'accent étant cette fois au milieu du mot.
+
+        La syntaxe `clé@libellé` de makeindex sépare ce qui trie de ce qui
+        s'affiche. On ne l'ajoute que lorsque la clé diffère du libellé : une
+        entrée sans accent est laissée telle quelle, ce qui garde le `.idx`
+        lisible et limite la surface du correctif.
+
+        Le `@` et le `!` sont significatifs pour makeindex — le premier
+        introduit la clé, le second un niveau. Aucun terme du corpus n'en
+        contient aujourd'hui, mais on les échappe pour que ce ne soit pas au
+        prochain terme de le découvrir.
+        """
+        return "\\index{" + "!".join(
+            self._index_cle(part)
+            for part in ([token.first, token.second] if token.second else [token.first])
+        ) + "}"
+
+    @staticmethod
+    def _index_cle(terme):
+        """Rend `clé@terme`, ou `terme` seul si la désaccentuation ne change rien."""
+
+        def echappe(s):
+            # Ordre imposé : le guillemet est le caractère d'échappement de
+            # makeindex, il doit être doublé AVANT qu'on s'en serve.
+            return s.replace('"', '""').replace("@", '"@').replace("!", '"!')
+
+        decompose = unicodedata.normalize("NFD", terme)
+        sans_accent = "".join(c for c in decompose if unicodedata.category(c) != "Mn")
+        if sans_accent == terme:
+            return echappe(terme)
+        return f"{echappe(sans_accent)}@{echappe(terme)}"
 
     def render_qso(self, token):
         qso = ""

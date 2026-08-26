@@ -21,7 +21,7 @@ Si la BNetzA l'exige, le formateur doit renseigner l'autorité sur la « nature 
 [question:VD305]
 
 <france>
-# Pas d'indicatif de formation en France
+# Pas d'indicatif de formation
 
 C'est une absence, et elle mérite d'être signalée : les textes français ne prévoient **ni indicatif de formation, ni ajout /T**. La manœuvre d'une station d'amateur reste subordonnée à la possession d'un certificat d'opérateur et d'un indicatif personnel. Il n'existe donc pas d'équivalent du trafic de formation allemand, où un candidat non titulaire peut émettre sous la responsabilité d'un formateur.
 

@@ -10,7 +10,7 @@ Chaque radioamateur se voit lui aussi attribuer un indicatif personnel [index:In
 [question:VD205]
 
 <france>
-# Votre indicatif, en France
+# Votre indicatif
 
 Le principe est identique : l'indicatif est personnel, unique au monde, et il est attribué par l'administration une fois l'examen réussi. C'est l'**ANFR** qui le délivre, et non le régulateur.
 

@@ -42,7 +42,7 @@ Des plages de fréquences propres sont réservées à toute une série d'applica
 [question:BC213]
 
 <france>
-# Le 2 m en France
+# Le 2 m
 
 Les bornes sont les mêmes qu'en Allemagne, 144 à 146 MHz, avec le même statut primaire — c'est l'une des bandes les mieux protégées dont dispose le service d'amateur. La puissance maximale française y est de 120 W en crête, et la largeur de bande occupée ne doit pas dépasser 20 kHz.
 

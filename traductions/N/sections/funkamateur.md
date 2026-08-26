@@ -11,7 +11,7 @@ Mais ce n'est pas tout. Un radioamateur ne peut s'occuper du service radioamateu
 [question:VC113]
 
 <france>
-# Une seule classe en France
+# Une seule classe
 
 Manœuvrer une station d'amateur suppose, comme en Allemagne, deux choses distinctes : un **certificat d'opérateur**, qui atteste la compétence, et un **indicatif d'appel personnel**, qui autorise l'exploitation. C'est l'article 1er de l'arrêté du 21 septembre 2000 modifié.
 

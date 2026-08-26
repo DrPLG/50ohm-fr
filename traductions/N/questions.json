@@ -1239,7 +1239,7 @@
   "answer_d": "Région 4"
  },
  "VA406": {
-  "question": "Où les préfixes des indicatifs radioamateur sont-ils réglés au niveau international ?",
+  "question": "Où les préfixes des indicatifs radioamateur sont-ils fixés au niveau international ?",
   "answer_a": "Dans le Règlement des radiocommunications (RR)",
   "answer_b": "Dans la loi sur le radioamateurisme (AFuG)",
   "answer_c": "Dans la liste des indicatifs de la BNetzA",
@@ -1351,7 +1351,7 @@
   "answer_d": "transférable s'il s'agit de radioamateurs étrangers séjournant temporairement en Allemagne."
  },
  "VC110": {
-  "question": "Que vaut pour les radioamateurs en matière d'utilisation des fréquences ? Un radioamateur peut, avec sa station…",
+  "question": "Quelle règle s'applique aux radioamateurs en matière d'utilisation des fréquences ? Un radioamateur peut, avec sa station…",
   "answer_a": "émettre sur les fréquences assignées au service radioamateur.",
   "answer_b": "émettre sur toutes les fréquences autorisées pour sa région UIT.",
   "answer_c": "utiliser des fréquences quelconques, tant qu'aucun autre service radio n'est perturbé.",
@@ -1407,7 +1407,7 @@
   "answer_d": "Dans l'annexe du règlement sur les fréquences (FreqV) et les communications associées de la BNetzA"
  },
  "VD102": {
-  "question": "Que vaut en matière de réception des émissions radioamateur ?",
+  "question": "Quelle règle s'applique en matière de réception des émissions radioamateur ?",
   "answer_a": "Aucune autorisation de participation au service radioamateur n'est nécessaire.",
   "answer_b": "Seuls des récepteurs homologués selon le TKG peuvent être utilisés.",
   "answer_c": "L'attribution d'un indicatif d'écouteur de la « série DE » est nécessaire.",
@@ -2674,14 +2674,14 @@
   "answer_d": "Diagramme en chute d'eau"
  },
  "VD727": {
-  "question": "Que s'applique-t-il aux titulaires d'indicatif de la classe E dans la plage de fréquences 1810 à 1850 kHz ?",
+  "question": "Quelle est la limite qui s'applique aux titulaires d'indicatif de la classe E dans la plage de fréquences 1810 à 1850 kHz ?",
   "answer_a": "Maximum 100 W PEP",
   "answer_b": "Maximum 75 W PEP ",
   "answer_c": "Maximum 750 W PEP",
   "answer_d": "Maximum 10 W PEP"
  },
  "VD729": {
-  "question": "Que s'applique-t-il aux titulaires d'indicatif des classes A et E dans la plage de fréquences 3,5 à 3,8 MHz ?",
+  "question": "Quelle est la limite qui s'applique aux titulaires d'indicatif des classes A et E dans la plage de fréquences 3,5 à 3,8 MHz ?",
   "answer_a": "Maximum 750 W PEP pour la classe A et maximum 100 W PEP pour la classe E",
   "answer_b": "Maximum 10 W PEP pour les deux classes",
   "answer_c": "Maximum 750 W PEP pour les deux classes",
@@ -2765,7 +2765,7 @@
   "answer_d": "J'essaie d'éviter toute modulation inutile."
  },
  "NF107": {
-  "question": "Pourquoi un émetteur ne devrait-il jamais être utilisé sans antenne adaptée ou sans dummy load ?",
+  "question": "Pourquoi un émetteur ne devrait-il jamais être utilisé sans antenne adaptée ou sans charge fictive ?",
   "answer_a": "L'onde réfléchie pourrait endommager l'étage final de l'émetteur.",
   "answer_b": "En l'absence de charge, la tension d'alimentation est régulée à la hausse, ce qui peut entraîner des surtensions. ",
   "answer_c": "La puissance absorbée peut surcharger l'alimentation de l'émetteur.  ",

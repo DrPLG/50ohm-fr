@@ -21,7 +21,7 @@ Parmi les mesures les plus importantes pour assurer la compatibilité électroma
 [question:NK102]
 
 <france>
-# Brouillages : à qui s'adresser en France
+# Brouillages : à qui s'adresser
 
 Deux textes encadrent la compatibilité électromagnétique côté français. Le **décret n° 2015-1084 modifié** transpose les exigences européennes, mais il **exclut de son champ** les équipements radioélectriques utilisés par les radioamateurs, à moins qu'ils ne soient mis à disposition sur le marché — et il précise que les kits de composants destinés à être assemblés par les radioamateurs, comme les équipements mis à disposition sur le marché puis modifiés par et pour les radioamateurs, ne sont pas réputés mis à disposition sur le marché. L'auto-construction reste donc pleinement admise.
 

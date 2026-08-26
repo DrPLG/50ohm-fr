@@ -12,7 +12,7 @@ Mais la Bundesnetzagentur peut aussi, à certaines conditions, exiger une attest
 [question:VE518]
 
 <france>
-# Pas de Standortbescheinigung en France
+# Pas de Standortbescheinigung
 
 L'attestation de site n'a pas d'équivalent français, et ce n'est pas un oubli : c'est écrit noir sur blanc.
 

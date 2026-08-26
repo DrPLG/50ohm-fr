@@ -6,7 +6,7 @@ Lorsqu'on a maintenant terminé ce cours et réussi l'examen de radioamateur, on
 
 [question:VC106]
 
-Si l'on a eu l'occasion de lire des magazines radioamateur, on a peut-être déjà remarqué des annonces comme « Simon (14 ans) et Sophie (11 ans) ont réussi leur examen le 8 février auprès de la Bundesnetzagentur de Dortmund ». Notre loi sur le radioamateurisme ne connaît en effet aucun âge minimal pour les radioamateurs. Le § 4 de l'AFuG dispose à ce sujet : « Toute personne physique domiciliée en Allemagne doit, sur demande, être admise à l'examen technique pour radioamateurs. »
+Si l'on a eu l'occasion de lire des magazines radioamateur, on a peut-être déjà remarqué des annonces comme « Simon (14 ans) et Sophie (11 ans) ont réussi leur examen le 8 février auprès de la Bundesnetzagentur de Dortmund ». Notre loi sur le radioamateurisme ne connaît en effet aucun âge minimal pour les radioamateurs. Le § 4 de l'AFuG indique à ce sujet : « Toute personne physique domiciliée en Allemagne doit, sur demande, être admise à l'examen technique pour radioamateurs. »
 
 [question:VC108]
 
