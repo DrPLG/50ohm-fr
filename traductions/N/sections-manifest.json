@@ -245,9 +245,9 @@
     "sha256_amont": "f3aac54d805130f81e4e9112d37062d6cf461c270ca566ee1f435cae107d73b3"
   },
   "funken_im_ausland": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "1be11eb5c12e2a71257ae93795b0a2ce989194eeb440c72c745e9ebef743b76e"
+    "date_traduction": "2026-08-25",
+    "note": "Resynchronisation 25/08/2026 : tableau CEPT a 3 colonnes, intitules officiels des documents, et retrait de la mention CEPT-Novice/classe E au profit du seul HAREC/classe A",
+    "sha256_amont": "a710cb7c7a6c8528aaca1cf4207eb343a6bdb5b0d1948e046a0c7849c0abb0db"
   },
   "funkfernschreiben": {
     "date_traduction": "2026-08-14",

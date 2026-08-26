@@ -14,5 +14,5 @@ Chaque radioamateur se voit lui aussi attribuer un indicatif personnel [index:In
 
 Le principe est identique : l'indicatif est personnel, unique au monde, et il est attribué par l'administration une fois l'examen réussi. C'est l'**ANFR** qui le délivre, et non le régulateur.
 
-Deux différences pour la suite du cours. Il n'existe **qu'une seule classe** en France, si bien que tous les nouveaux indicatifs commencent par **F4** suivi de trois lettres. Et l'indicatif **n'est pas choisi** : il est attribué informatiquement, sur le fondement de l'adresse du domicile fiscal. Le chapitre sur les stations d'amateur détaille cette construction.
+Deux différences pour la suite du cours. Il n'existe **qu'une seule classe** en France, si bien que tous les nouveaux indicatifs commencent par **F4** suivi de trois lettres. Et l'indicatif **n'est pas choisi** : il est attribué informatiquement, à partir de l'adresse et de la position géographique de la station déclarée. Le chapitre sur les stations d'amateur détaille cette construction.
 </france>

@@ -13,7 +13,7 @@ Comme petit exercice, on peut rechercher un indicatif connu dans les deux source
 <france>
 # Adresse, indicatif et annuaire
 
-L'adresse compte davantage encore en France qu'en Allemagne, parce que l'indicatif en dépend : les indicatifs sont attribués informatiquement sur le fondement de l'adresse du domicile fiscal principal du demandeur (article 7 de l'arrêté du 21 septembre 2000 modifié), et le préfixe est représentatif du lieu de résidence.
+L'adresse compte davantage encore en France qu'en Allemagne, parce que l'indicatif en dépend : les indicatifs sont « attribués informatiquement à partir de l'adresse et de la position géographique de la station déclarée » (article 7 de l'arrêté du 21 septembre 2000 modifié), et le préfixe est représentatif de ce lieu.
 
 Un indicatif métropolitain récent se lit ainsi : **F**, préfixe du territoire de résidence, puis **4**, chiffre unique attribué depuis avril 2012 quelle que soit la classe, puis **trois lettres**. Auparavant, ce chiffre indiquait la classe du certificat : 5, 6 ou 8 pour la classe 1, 1 ou 4 pour la classe 2, et 0 pour la classe 3.
 

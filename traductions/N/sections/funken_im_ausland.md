@@ -1,15 +1,15 @@
 Avec une autorisation radioamateur, il est possible, sous certaines conditions, de trafiquer aussi à l'étranger. De nombreux États ont conclu à cet effet un accord qui règle le trafic radio lors d'un séjour temporaire à l'étranger et la reconnaissance mutuelle des certificats radioamateur.
 L'accord a été élaboré par les États membres de la *Conférence européenne des administrations des postes et des télécommunications* (CEPT).
 
-L'accord de la CEPT se compose des recommandations citées dans le tableau [ref:n_funken_im_ausland_cept_empfehlungen]. Pas d'inquiétude : il n'est pas nécessaire d'apprendre par cœur chaque recommandation. À l'examen, il suffit de connaître les règles principales.
+L'accord de la CEPT se compose des Reports (rapports) et des Recommendations (recommandations) cités dans le tableau [ref:n_funken_im_ausland_cept_empfehlungen]. Pas d'inquiétude : il n'est pas nécessaire d'apprendre par cœur chaque recommandation. À l'examen, il suffit de connaître les règles principales. Dans les questions d'examen, c'est la traduction allemande *ECC-Empfehlung* qui est employée, quand la mention n'est pas simplement omise.
 
 <margin>
-| l: Recommandation CEPT | X: Explication |
-| ECC Report 89 | Classe N |
-| ERC-Report 32 | Base de l'ECC Report (05) 06 |
-| Recommandation ECC (05) 06 | Classe E |
-| T/R 61-01 | Classe A |
-| T/R 61-02 | HAREC |
+| l: Document CEPT | X: Intitulé | X: Explication |
+| ECC Report 89 | Radio Amateur Entry Level Examination and Licence | Programme de la licence d'entrée (en Allemagne, la classe N) |
+| ECC Recommendation (05) 06 | CEPT Novice Radio Amateur Licence | Recommandation sur l'usage temporaire de la licence Novice à l'étranger |
+| ERC Report 32 | | Programme de la licence Novice (en Allemagne, la classe E) |
+| ECC Recommendation T/R 61-01 | CEPT Radio Amateur Licence | Recommandation sur l'usage temporaire de l'attestation HAREC à l'étranger |
+| ECC Recommendation T/R 61-02 | Harmonized Amateur Radio Examination Certificate (HAREC) | Reconnaissance mutuelle des certificats radioamateur de la CEPT Radio Amateur Licence en cas d'installation à l'étranger, et programme (en Allemagne, la classe A) |
 [table:n_funken_im_ausland_cept_empfehlungen:Recommandations de la CEPT]
 </margin>
 
@@ -69,7 +69,7 @@ Comme en Allemagne, chaque pays de la CEPT a ses propres règles nationales pour
 Si un voyage traverse un pays où l'autorisation radioamateur n'est pas reconnue, il faut s'informer au préalable si le transport d'appareils radio y est permis et, le cas échéant, obtenir une autorisation. Le [référat étranger du DARC](https://50ohm.de/ra) peut aider ses membres à clarifier ces questions.
 </tip>
 
-Si l'on transfère son domicile à l'étranger pour plus de 3 mois ou durablement, on peut y demander de façon simplifiée une autorisation radioamateur sur la base de l'attestation d'examen CEPT-Novice ou du Harmonized Amateur Radio Examination Certificate (HAREC), sans devoir repasser d'examen. Le certificat radioamateur allemand de classe E vaut en même temps attestation d'examen CEPT-Novice, et le certificat de classe A vaut attestation HAREC.
+Si l'on transfère son domicile à l'étranger pour plus de 3 mois ou durablement, on peut y demander de façon simplifiée une autorisation radioamateur sur la base de l'attestation Harmonized Amateur Radio Examination Certificate (HAREC), sans devoir repasser d'examen. Le certificat radioamateur allemand de classe A vaut en même temps attestation HAREC.
 
 [question:VB102]
 [question:VB103]
