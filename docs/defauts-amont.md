@@ -842,3 +842,110 @@ formulaire officiel, où la notation à crochet simple est l'usage. Les trois
 sections sont déclarées en dérogation dans `verifier_traduction.py`.
 
 **L'allemand reste cassé** — et c'est une entrée de plus pour le signalement.
+
+---
+
+## 22. Un catalogue de questions livré sans son fichier de métadonnées
+
+**Constaté le** 25/08/2026, en ajoutant le cursus SWL au générateur.
+
+L'amont a publié `contents/questions/fragenkatalog_swl.json` — les 11 questions
+propres à l'examen DE — **sans le `metadata_swl.json` correspondant**. Le
+dossier ne contient que :
+
+```
+fragenkatalog3b.json     1341 Ko
+fragenkatalog_swl.json      9 Ko
+metadata3b.json           352 Ko      <- ne couvre QUE le catalogue 3b
+```
+
+**Effet côté générateur.** `metadata3b.json` porte, pour chacune des 1 750
+questions, les images associées à l'énoncé et aux quatre réponses
+(`picture_question`, `picture_a` … `picture_d`) plus un `layout`. Notre
+`QuestionBuilder.build()` exigeait **les deux** :
+
+```python
+if question is None or metadata is None:
+    self.missing.add(number)
+```
+
+Les 11 questions SWL étaient donc déclarées « introuvables » alors qu'elles
+étaient parfaitement chargées. Le message était trompeur : il désignait la
+question, quand c'est la métadonnée qui manquait.
+
+**Portée réelle, mesurée avant de corriger.** Aucune des 11 questions SWL ne
+porte d'image : elles ne contiennent que `number`, `class`, `question` et
+`answer_a` … `answer_d`. Pour une question sans image, l'entrée de
+`metadata3b.json` est de toute façon un dictionnaire de chaînes vides —
+vérifié sur `BD303`. L'absence du fichier est donc **sans conséquence sur le
+rendu**, et c'est ce qui a permis de la traiter comme telle.
+
+**Côté français.** Corrigé en v0.24 de `build_book.py`, non pas en fabriquant
+des métadonnées mais en distinguant les deux cas : une **question** absente
+reste un défaut signalé, une **métadonnée** absente devient un défaut vide et
+un simple compte informatif en fin de génération.
+
+Ce n'est pas un défaut de contenu mais de **livraison** : si le DARC ajoute
+plus tard une question SWL avec image, elle sera composée sans son image et
+rien ne le signalera — l'entrée manquante ne peut pas dire ce qu'elle aurait
+dû contenir. À signaler.
+
+---
+
+## 23. Tableau à trois colonnes placé dans une colonne de marge de 52 mm
+
+**Section :** `funken_im_ausland` (classe N) · **repéré le 26/08/2026**, sur la
+première compilation suivant la resynchronisation `bc8dfcd8`.
+
+L'amont a remanié le tableau des documents CEPT. Il comptait deux colonnes
+courtes ; il en compte désormais **trois**, dont deux portent des intitulés
+officiels en anglais, non sécables et très longs :
+
+```
+| l: CEPT-Dokument | Bezeichnung | X: Erläuterung |
+| ECC Recommendation T/R 61-02 | Harmonized Amateur Radio Examination
+  Certificate (HAREC) | Gegenseitige Anerkennung … |
+```
+
+Ce tableau reste dans un bloc `<margin>`, donc dans une colonne de **52 mm**.
+Or la seule première colonne — « ECC Recommendation T/R 61-02 » — y est déjà
+plus large que la colonne entière. La colonne élastique `X` reçoit alors une
+largeur résiduelle voisine de zéro.
+
+**Ce que cela produit, mesuré sur le PDF français :**
+
+- note de marge de **1133,75 pt** pour un seuil de 711,32 pt, soit 422 pt de
+  trop : le garde-fou v0.13 la rétrograde dans le corps du texte ;
+- `Overfull \hbox` de **230,78 pt** dans l'alignement, et l'avertissement
+  `tabularx : X Columns too narrow (table too wide)` ;
+- à l'écran, la troisième colonne est composée **à un mot par ligne**, en
+  césure verticale — « Ex-pli-ca-tion », « Pro-gramme de la li-cence d'en-trée » ;
+- le tableau occupe **une page entière** (p. 103 de la a.3) et sa légende se
+  retrouve **seule en haut de la page suivante** ;
+- le livre gagne **4 pages**, passant de 258 à 262.
+
+Aucune de ces conséquences n'est une erreur fatale : la compilation **réussit**,
+et les quatre contrôles du §4 restent verts sauf le compte de notes
+rétrogradées, qui passe de 0 à 1 en classe N. C'est encore un défaut qui ne se
+voit **qu'en ouvrant le livre**.
+
+**Côté français.** La deuxième colonne est passée en largeur élastique :
+
+```
+| l: Document CEPT | X: Intitulé | X: Explication |
+```
+
+Le tableau redevient lisible, la pagination retombe à **258 pages** et le
+compte de notes rétrogradées revient à 0. Décision de Pierre du 26/08/2026 :
+dérogation assumée au balisage amont, le défaut étant amont.
+
+**Ce qui ne marche pas, et mérite d'être noté :** ajuster le seul spécificateur
+sans sortir de la marge ne suffit pas. Testé, `lXX` laisse la mesure de la note
+**inchangée au centième** — 1133,74988 pt dans les deux cas — parce que la
+mesure se fait à la largeur de la colonne de marge, avant toute rétrogradation.
+C'est la recomposition dans le corps qui bénéficie du changement, pas la mesure.
+L'avertissement `X Columns too narrow` subsiste donc au journal alors que le
+rendu est correct : **ici, l'avertissement n'est pas l'oracle**.
+
+**Côté allemand, le défaut demeure**, et il y est probablement pire : les
+cellules allemandes sont plus longues que les nôtres. À signaler.

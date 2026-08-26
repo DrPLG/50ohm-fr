@@ -12,6 +12,153 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 26 août 2026 — le tableau que personne n'avait vu
+
+**Aucune dérive amont, pour la première fois.** L'instantané en service
+(`bc8dfcd8`) est **exactement** le `main` du DARC : zéro commit d'écart, zéro
+section à traduire. Le manifeste suit 643 éléments, 0 dérive.
+
+Seul le **générateur** a bougé — 2 commits, un fichier : `renderer/morse.py`,
+qui corrige les prosignes CW (`ar`, `bk`, `sk`, `correction`), jusqu'ici épelés
+lettre par lettre. **Sans effet sur nos livres** : `morsetelegrafie` contourne
+ce défaut depuis longtemps en écrivant les suites à la main, et les quatre ont
+été vérifiées symbole par symbole contre le parseur corrigé — **identiques**.
+Notre contournement devient redondant ; il n'est pas faux.
+
+#### Corrigé
+
+- **Le tableau CEPT de `funken_im_ausland` ne tenait pas dans sa colonne de
+  marge**, et cela ne s'est vu qu'en ouvrant le livre. La resynchronisation de
+  la veille l'avait fait passer de deux colonnes courtes à **trois**, dont deux
+  portant des intitulés officiels anglais non sécables — le tout dans un
+  `<margin>` de 52 mm.
+  *Ce que cela donnait, mesuré :* note de marge de **1133,75 pt** pour un seuil
+  de 711,32, débordement de 230,78 pt, troisième colonne composée **à un mot
+  par ligne** (« Ex-pli-ca-tion »), tableau occupant **une page entière** et
+  légende restée **seule** en haut de la suivante. Le livre gagnait 4 pages.
+  *Correctif :* deuxième colonne passée en largeur élastique
+  (`| l: Document CEPT | X: Intitulé | X: Explication |`). Dérogation assumée au
+  balisage amont, décidée par Pierre — le défaut est amont, et le livre
+  **allemand** en souffre probablement davantage, ses cellules étant plus
+  longues. Consigné au §23 de `docs/defauts-amont.md`.
+  *Ce qui ne suffisait pas, et c'est instructif :* changer le spécificateur
+  laisse la mesure de la note **inchangée au centième** — 1133,74988 pt dans les
+  deux cas — parce qu'elle est prise à la largeur de la marge, **avant** toute
+  rétrogradation. Seule la recomposition dans le corps en profite.
+  **L'avertissement subsiste donc au journal alors que le rendu est correct :
+  ici, l'avertissement n'est pas l'oracle.** Vérifié sur épreuve, p. 102.
+
+#### Modifié
+
+- **`compiler.bat` : la classe N attend désormais 1 note de marge rétrogradée,
+  et non 0.** Même mouvement que la classe A passée de 3 à 4 en v0.18 : le
+  garde-fou v0.13 fait son travail, les deux erreurs fatales restent à 0, et la
+  note se compose correctement dans le corps.
+
+#### Recompilé
+
+| livre | avant | après | pourquoi |
+| --- | ---: | ---: | --- |
+| N | 258 | **260** | 66 « und », « domicile fiscal », `funken_im_ausland`, tableau CEPT |
+| NEA | 812 | **814** | contient N |
+
+**E, A et SWL n'ont pas été recompilés**, et c'est une décision mesurée, pas
+une économie : `funken_im_ausland` n'apparaît que dans les sommaires de N et
+NEA, aucun de leurs fichiers n'a bougé depuis leur dernière compilation
+(vérifié par dates **et** par git), et le SWL a été compilé après la correction
+des questions dont il dépend.
+
+*Une compilation NEA a été lancée puis **interrompue** en cours de première
+passe, le défaut du tableau ayant été découvert entre-temps : elle aurait
+produit un livre à jeter en une heure de machine. Auxiliaires purgés avant
+relance, conformément au §4.*
+
+#### Contrôlé
+
+Tous verts. `??` : **3 en NEA — et le contexte de chacun a été lu**, non
+déduit : ce sont bien les trois références orphelines connues
+(`a_mehrwegeausbreitung_ionosphäre`, la figure SSB de la classe E,
+`a_zeppelinantenn`). La valeur de 3, portée « à confirmer » au §4 depuis le
+20/08, est désormais **confirmée**.
+
+#### Relectures reçues
+
+Les premiers retours de **Jérôme F4JTL** (26 remarques, chapitres 1 et 2) et
+**Sylvain F6DBI** (31 remarques, les 258 pages) sont dépouillés, ancrés sur les
+sections et versés en feuille d'arbitrage nº 9. **Rien n'est appliqué** :
+Pierre les valide une par une.
+
+Trois enseignements se dégagent du dépouillement :
+
+- **une remarque de relecteur est un échantillon, pas un inventaire.** Sylvain
+  signale deux répétitions « En France / En France » ; il y en a **19** sur 77
+  encarts (N 13, E 2, SWL 4). Les corriger page à page en aurait laissé 17 ;
+- **cinq remarques n'en font qu'une** : le germanisme *regeln* rendu par
+  « régler » là où le français dit « fixer » ou « définir » ;
+- **le recouvrement avec l'outillage est faible.** Sur 57 remarques, deux
+  seulement recoupent ce que nos contrôles avaient déjà corrigé. Les deux
+  dispositifs attrapent des choses différentes — c'est une bonne nouvelle.
+
+### 25 août 2026 — quatrième resynchronisation, et un cinquième tome
+
+**L'amont est passé de `7c1d87a3` à `bc8dfcd8` : 46 commits, 78 fichiers.**
+Mais le périmètre réel est bien plus étroit que ces chiffres, et c'est encore
+une fois la mesure qui l'a établi : **une seule** de nos sections est touchée,
+et **aucun** de nos 228 dessins forkés.
+
+L'essentiel de ces 78 fichiers est un **cursus entièrement nouveau**.
+
+#### Resynchronisé
+
+- **`funken_im_ausland`** (classe N), seule section de notre périmètre touchée.
+  Le tableau CEPT passe de deux à trois colonnes, avec les intitulés officiels
+  des documents (*Radio Amateur Entry Level Examination and Licence*, *CEPT
+  Novice Radio Amateur Licence*…), conservés en anglais puisque ce sont des
+  titres officiels ; l'ordre des lignes change. Une précision d'examen est
+  ajoutée sur la traduction allemande *ECC-Empfehlung*.
+  **Un changement réglementaire réel** au passage : l'amont retire la mention
+  CEPT-Novice / classe E du dispositif de reconnaissance en cas d'installation
+  durable à l'étranger, et ne garde que le HAREC / classe A.
+  Huit contrôles du §5 au vert, manifeste réenregistré, dérive revenue à 0.
+
+#### Ajouté
+
+- **Le cursus SWL entre dans le périmètre — ce sera un cinquième tome.**
+  Décision de Pierre du 25/08/2026. L'amont a publié un « SWL-Kurs » préparant
+  l'examen **DE** du DARC — un insigne d'écouteur, **pas** une licence
+  d'émission.
+
+  | | |
+  | --- | ---: |
+  | chapitres · sections | 10 · 30 |
+  | prose à traduire | **5 613 mots** (3,9 % du corpus) |
+  | questions appelées | 71 |
+  | — déjà traduites chez nous | **60** |
+  | — restant à traduire | **11** (`SWL001`–`SWL011`) |
+  | dessins · photos · tableaux | 3 · 13 · 9 |
+  | balises employées | toutes déjà gérées |
+
+- **v0.24 — le générateur sait produire le tome SWL.** Quatre points de code
+  étaient prévus ; un cinquième est apparu à la mesure.
+  1. `--edition` accepte `SWL` ;
+  2. le sommaire est résolu **sans tenir compte de la casse** : l'amont a nommé
+     le sien `swl.json` quand les six autres sont `A.json`, `NEA.json`… Une
+     résolution générale a été préférée à une exception écrite en dur ;
+  3. le chargement des questions prend **tous** les `fragenkatalog*.json` :
+     les 11 questions du cursus vivent dans un fichier séparé, et le code
+     citait `fragenkatalog3b.json` en dur ;
+  4. titre français et filigrane à trois lettres, que la v0.20 empile déjà ;
+  5. **l'imprévu** : `build()` exigeait *à la fois* la question et ses
+     métadonnées. L'amont livre son catalogue **sans** `metadata_swl.json`
+     (`defauts-amont.md` §22), si bien que les 11 questions étaient déclarées
+     « introuvables » alors qu'elles étaient correctement chargées. Le code
+     distingue désormais une **question** absente — vrai défaut — d'une
+     **métadonnée** absente, qui n'a aucun effet quand la question n'a pas
+     d'image, ce qui est le cas des onze.
+
+  *Neutralité vérifiée par comparaison des arbres générés* : la classe N sort
+  identique à la v0.23, à l'horodatage près du journal de précompilation.
+
 ### 20 août 2026, après-midi — le livre allemand, et le format en paramètre
 
 Séance en trois temps : compiler pour la première fois le livre **allemand**,
