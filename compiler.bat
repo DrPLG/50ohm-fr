@@ -244,12 +244,18 @@ REM FAUX : apres correction, le batch s est bloque au meme endroit, sans
 REM le moindre find.exe vivant.
 REM La vraie cause etait affichee a l ecran depuis le debut -- le choice
 REM de la ligne 274, "Compresser le PDF avec Ghostscript maintenant ?".
-REM Il est DELIBERE (CLAUDE.md section 2 : la compression se demande),
-REM mais en detache la question ne peut pas recevoir de reponse.
-REM Pour un lancement automatique : "echo O | compiler.bat N".
+REM Ce choice a ete SUPPRIME le 20/08/2026, la compression se decidant
+REM desormais seule. Le pause final, lui, est conditionne a OHM_AUTO.
 for /f "delims=" %%L in ('findstr /c:"Note de marge trop haute" "%LOG%"') do set /a NMARGE+=1
 set "NMARGE_ATTENDU=0"
 if /i "%CLASSE%"=="A" set "NMARGE_ATTENDU=4"
+REM N passe de 0 a 1 le 26/08/2026 : le tableau CEPT resynchronise depuis
+REM l amont ne tient plus dans la colonne de marge (defauts-amont.md 23).
+REM La note est retrogradee dans le corps par le garde-fou v0.13 et s y
+REM compose correctement -- verifie sur epreuve, p. 102. L avertissement
+REM subsiste parce que la MESURE se fait a la largeur de la marge, avant
+REM toute retrogradation : la corriger ne le ferait pas disparaitre.
+if /i "%CLASSE%"=="N" set "NMARGE_ATTENDU=1"
 if "%NMARGE%"=="%NMARGE_ATTENDU%" (echo [OK]      Note de marge trop haute : %NMARGE% ^(attendu %NMARGE_ATTENDU%^)) else (echo [ALERTE]  Note de marge trop haute : %NMARGE% au lieu de %NMARGE_ATTENDU% attendu)
 
 echo.
@@ -276,24 +282,31 @@ REM parenthese fermante issue d'une expansion immediate refermerait ce bloc
 REM if( ) en plein milieu. L'expansion differee a lieu apres l'analyse.
 if defined GSEXE (
     echo Ghostscript : !GSEXE!
-    choice /m "Compresser le PDF avec Ghostscript maintenant "
-    if not errorlevel 2 (
+    REM Plus de confirmation : la compression se decide seule depuis le
+    REM 20/08/2026, cf. CLAUDE.md section 2. Elle coute quelques dizaines de
+    REM secondes, la ou une compilation coute des dizaines de minutes --
+    REM c est ce qui separe les deux regles. Le choice qui se trouvait ici
+    REM rendait par ailleurs le batch inutilisable en processus detache :
+    REM il attendait une touche APRES avoir tout fait, controles compris.
+    echo.
+    echo Compression en cours...
+    "%GSEXE%" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
+        -dDetectDuplicateImages=true -dNOPAUSE -dBATCH ^
+        -sOutputFile=livre-%CLASSE%-%VERSION%.pdf "%OUT%\book-%CLASSE%.pdf"
+    if exist "livre-%CLASSE%-%VERSION%.pdf" (
         echo.
-        echo Compression en cours...
-        "%GSEXE%" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
-            -dDetectDuplicateImages=true -dNOPAUSE -dBATCH ^
-            -sOutputFile=livre-%CLASSE%-%VERSION%.pdf "%OUT%\book-%CLASSE%.pdf"
-        if exist "livre-%CLASSE%-%VERSION%.pdf" (
-            echo.
-            echo PDF compresse : livre-%CLASSE%-%VERSION%.pdf
-        )
+        echo PDF compresse : livre-%CLASSE%-%VERSION%.pdf
     )
 ) else (
     echo Ghostscript introuvable sous "C:\Program Files\gs\" ni "C:\Program Files (x86)\gs\" -- compression ignoree.
 )
 
 echo.
-pause
+REM Le pause sert quand le batch est lance a la main ou par double-clic :
+REM sans lui, la fenetre se referme avant qu on ait lu les controles.
+REM Il bloque en revanche tout lancement automatique. Poser OHM_AUTO=1
+REM pour un enchainement sans intervention.
+if not defined OHM_AUTO pause
 exit /b 0
 
 REM ============================================================================

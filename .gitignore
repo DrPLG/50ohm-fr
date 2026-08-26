@@ -74,6 +74,11 @@ out/
 # l'écraser fait relire le journal du terminal comme du code TeX (cf. §4).
 *-console.txt
 console-*.txt
+# Élargi le 26/08/2026 : un journal daté ou suffixé (build-N-a3-console-
+# 26082026-corrige.txt) échappait aux deux motifs ci-dessus, qui exigent que
+# « console » soit en tête ou en queue de nom. Il ressortait alors en fichier
+# non suivi, au risque d'être commité avec le reste d'une session.
+*console*.txt
 
 
 # --- Sortie du prototype de slides Beamer ----------------------------------
