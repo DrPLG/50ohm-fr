@@ -12,6 +12,58 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 26 août 2026 (soir) — les adresses imprimées, et un disque plein
+
+**v0.27 compilée et contrôlée.** N reste à **262 pages** : imprimer les
+39 adresses de la classe N n'a coûté **aucune page**, et 5 Ko sur le PDF
+compressé. Le pari des URL courtes — médiane 20 caractères — est tenu.
+
+Contrôles tous verts : les quatre du §4, `verifier_figures` **148 figures,
+0 coupée**, `verifier_questions` 0, `??` 0. Les corrections de la journée sont
+vérifiées **dans le PDF** : « bande haute des ondes courtes », « Le plafond est
+de », « charge fictive », « la SSB », et le lien « … du DARC (50ohm.de/tr) ».
+
+#### L'incident qu'il faut consigner : `fwrite() failed`
+
+La première tentative a échoué en `rc=1`, avec au journal :
+
+```
+! error:  (file io): fwrite() failed
+!  ==> Fatal error occurred, no output PDF file produced!
+```
+
+**Ce n'est pas une erreur LaTeX, c'est une erreur d'écriture : le disque C:
+était plein**, 0 Go libre. Le PDF brut de N pèse 313 Mo, celui du NEA 648.
+
+Il aurait été facile d'incriminer la v0.27, écrite dans l'heure. Le journal
+disait la vérité dès la première ligne — c'est la même leçon que le 25/08, où
+trois diagnostics faux se sont succédé alors que la cause était affichée en
+clair.
+
+> **Et un piège autrement plus grave a été évité.** Chacun des répertoires
+> `build-*` contient **trois jonctions** pointant vers
+> `50ohm-contents-dl-main\contents\photos` — l'instantané **en service**. Un
+> `rm -rf` ordinaire les aurait traversées et aurait détruit les 343 photos de
+> l'amont, qu'il aurait fallu retélécharger.
+>
+> **Marche à suivre pour supprimer un répertoire de build :** retirer d'abord
+> les jonctions une à une (`cmd /c rmdir`, qui ne les suit pas), puis le reste,
+> puis **vérifier l'amont** — compte des photos et `verifier_amont.py`.
+> Fait ici : 343 photos intactes, 643 éléments, 0 dérive.
+
+Libéré 1,54 Go sur décision de Pierre : les trois builds d'essai
+(`build-N-2024`, `build-N-2024m`, `build-N-de`) et `build-NEA`. Les PDF
+correspondants sont conservés — ce sont eux qui servent de référence, pas les
+arbres de compilation.
+
+*Conséquence à connaître :* `build-NEA` n'ayant plus de `.aux`,
+`verifier_figures.py` ne peut plus rien dire du NEA. Il le **signale** en
+rendant `rc=2` et « AUCUN VERDICT RENDU », au lieu d'un `rc=0` trompeur.
+
+*Reste à surveiller :* 3,8 Go libres. NEA demande à lui seul ~700 Mo de PDF
+brut. Les deux gros postes écartés — `slides-bandbreite` (1,55 Go) et les deux
+instantanés périmés (1,16 Go) — redeviendront la question à sa recompilation.
+
 ### 26 août 2026 (suite) — une figure ne se sépare plus de sa légende
 
 Deux défauts de mise en page relevés par Sylvain F6DBI, traités selon deux
