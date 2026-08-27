@@ -59,10 +59,16 @@ c'est précisément ce que le patch du `.sty` corrigeait. Séparer le traitement
 des images et celui des tableaux évite de rouvrir le défaut qu'on vient de
 fermer.
 
-*Coût mesuré :* sur un document réduit de cinq sections, **une page de plus**
-(11 → 12), zéro avertissement. Rendre une figure insécable la fait basculer
-entière, ce qui peut laisser du blanc en bas de page. Le coût sur les livres
-complets ne sera connu qu'après compilation.
+*Coût mesuré, sur le livre entier :* **N passe de 260 à 262 pages**, soit
+**deux pages** pour 148 figures protégées. Rendre une figure insécable la fait
+basculer entière, ce qui peut laisser du blanc en bas de page ; l'extrapolation
+faite depuis un document réduit de cinq sections (+1 page) aurait donné un
+chiffre bien plus élevé — une raison de plus de mesurer sur le livre.
+
+*Résultat, contrôlé :* `verifier_figures.py` rend **148 figures repérées,
+0 coupée**. La figure 2.29 des taches solaires, celle que Sylvain avait
+signalée, a ses deux repères **page 58** ; elle était à cheval sur 57 et 58.
+Vérifié aussi sur épreuve, à l'écran.
 
 #### Ajouté — `verifier_figures.py` v0.1
 
@@ -82,8 +88,16 @@ du §4.
 > `verifier_questions.py` — « elle était bruitée… douze faux positifs » —
 > commise à nouveau sur les figures. **Le PDF n'est pas un oracle ; LaTeX l'est.**
 >
-> Conséquence pratique : le décompte réel des figures coupées n'est pas encore
-> connu. Il le sera à la première compilation en v0.26.
+> **Et le texte extrait ment aussi dans l'autre sens.** Le même jour, trois
+> corrections pourtant bien présentes dans le PDF ont été introuvables au
+> `grep` : `efficace` y est composé avec une **ligature ﬃ** et ressort en
+> « efÏcace » ; `(self)` ressort en « (self )», une espace ayant été insérée ;
+> et `pdftotext` sort par défaut en **ISO-8859**, pas en UTF-8, ce qui casse
+> tout motif accentué. Un faux positif et trois faux négatifs le même jour.
+>
+> Les consignes qui en découlent sont au §4 du `CLAUDE.md` : `-enc UTF-8`
+> systématique, chercher un fragment sans ligature ni ponctuation, et mesurer
+> toute question de **pagination** par des `\label` relus dans le `.aux`.
 
 Le script rend **rc=2** quand il n'a rien pu contrôler, et non rc=0 : un
 contrôle sans verdict ne contrôle rien — c'est le piège de `sonde_dessins.py`
