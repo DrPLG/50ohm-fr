@@ -9,7 +9,7 @@ Les 70 questions possibles proviennent de trois domaines :
 L'examen se déroule par écrit, sur un questionnaire fourni. Chaque bonne réponse vaut un point. Dix-sept points peuvent être obtenus au total ; l'examen est réussi à partir de neuf points.
 
 <tip>
-Les examens blancs de 50ohm.de aident à s'entraîner. Seuls font foi, pour l'examen réel, les documents et règles en vigueur du DARC, que l'on trouve [ici](https://50ohm.de/swl/).
+Les examens blancs de 50ohm.de aident à s'entraîner. Seuls font foi, pour l'examen réel, les documents et règles en vigueur du DARC, que l'on trouve [sur le site du cursus SWL](https://50ohm.de/swl/).
 </tip>
 
 ---

@@ -15,7 +15,7 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.26
+Version du script : v0.27
     v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
             25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
             l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
@@ -790,8 +790,38 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
         return f"\n\\{level}{{{inner}}}\n"
 
     def render_link(self, token):
+        """v0.27 — l'adresse est imprimée à côté du libellé.
+
+        Un lien hypertexte est muet sur papier : le lecteur voit « ici » sans
+        savoir où cela mène. Mesuré sur le corpus, **aucune** des 111 adresses
+        n'apparaissait dans le PDF. Décision de Pierre du 26/08/2026, prise en
+        vue de l'impression (format 20 × 24).
+
+        Le coût est modeste : les URL sont courtes — médiane **20 caractères**,
+        81 sur 111 de la forme « 50ohm.de/xx » — et l'on retire encore le
+        protocole et le « www. », qui n'apprennent rien au lecteur.
+
+        L'adresse n'est PAS répétée quand le libellé la contient déjà : sans
+        cette garde, « darc.de » deviendrait « darc.de (darc.de) ».
+        """
         inner = self.render_inner(token)
-        return f"\\href{{{self.escape_url(token.target)}}}{{{inner}}}"
+        cible = self.escape_url(token.target)
+        lisible = self._url_lisible(token.target, inner)
+        if lisible is None:
+            return f"\\href{{{cible}}}{{{inner}}}"
+        return f"\\href{{{cible}}}{{{inner}}}\\DARClienurl{{{self.escape_url(lisible)}}}"
+
+    @staticmethod
+    def _url_lisible(cible, libelle):
+        """Rend l'adresse à imprimer, ou None s'il ne faut rien imprimer."""
+        court = re.sub(r"^https?://(www\.)?", "", cible).rstrip("/")
+        if not court:
+            return None
+        # Le libellé dit déjà l'adresse : ne pas la doubler.
+        nu = re.sub(r"\\[A-Za-z]+|[{}$]", "", libelle)
+        if court.lower() in nu.lower() or nu.strip().lower() in court.lower():
+            return None
+        return court
 
     def render_document(self, token):
         # Pas de préambule ni de \begin{document} : fragment inclus via \input
@@ -1432,6 +1462,18 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \newcommand{\DARCfigbloc}[1]{%
 	\par\noindent\begin{minipage}{\linewidth}#1\end{minipage}\par
 }
+
+% ---------------------------------------------------------------------------
+% v0.27 (build_book.py) — L'adresse d'un lien, imprimée à côté du libellé.
+%
+% Un lien hypertexte ne vaut qu'à l'écran. Sur papier, « ici » ne mène nulle
+% part : mesuré sur le PDF de la classe N, AUCUNE des 111 adresses du corpus
+% n'y était visible. Décision de Pierre du 26/08/2026, en vue de l'impression.
+%
+% \nolinkurl plutôt que \url : le libellé porte déjà le lien cliquable, en
+% faire un second sur l'adresse serait redondant. La police à chasse fixe et
+% le corps réduit distinguent l'adresse du texte courant sans l'imposer.
+\newcommand{\DARClienurl}[1]{\,\textup{({\small\nolinkurl{#1}})}}
 
 % ---------------------------------------------------------------------------
 % v0.13 (build_book.py) — Notes de marge plus hautes que la page.

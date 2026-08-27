@@ -27,7 +27,7 @@ $$43 + 10\,\log(P)$$
 
 où **P** est la puissance en crête de l'émetteur exprimée en watts, si bien que $10\,\log(P)$ n'est autre que cette puissance exprimée en dBW.
 
-L'appendice assortit cette formule d'un plafond, et retient la valeur la moins contraignante des deux : 50 dBc en dessous de 30 MHz, 70 dBc au-dessus.
+L'appendice assortit cette formule d'un plafond, et retient la valeur la moins contraignante des deux. Le plafond est de 50 dBc en dessous de 30 MHz, 70 dBc au-dessus.
 
 Un exemple pour fixer les idées. Sur 144 MHz, à la puissance maximale autorisée de 120 W, soit environ 21 dBW, la formule donne 43 + 21 = 64 dBc. C'est cette valeur qui s'applique, puisqu'elle est moins contraignante que le plafond de 70 dBc.
 </france>

@@ -38,7 +38,7 @@ Par exemple, la fréquence d'un relais des $\qty{70}{\centi\meter}$ s'indique ai
 [question:BE403]
 
 <indepth>
-Certaines stations relais travaillent aussi en *trafic crossband*. Cela signifie qu'une station émet et reçoit sur une bande (p. ex. $\qty{70}{\centi\meter}$), une autre station sur le même relais mais sur une autre bande (p. ex. $\qty{2}{\meter}$). La commande du relais achemine les conversations entre les deux bandes. Une conversion du mode d'émission peut aussi avoir lieu, par exemple de SSB vers FM.
+Certaines stations relais travaillent aussi en *trafic crossband*. Cela signifie qu'une station émet et reçoit sur une bande (p. ex. $\qty{70}{\centi\meter}$), tandis qu'une autre station est sur le même relais mais sur une autre bande (p. ex. $\qty{2}{\meter}$). La commande du relais achemine les conversations entre les deux bandes. Une conversion du mode d'émission peut aussi avoir lieu, par exemple de SSB vers FM.
 </indepth>
 
 Une station relais qui transmet des données plutôt que de la voix s'appelle un digipeater. Un digipeater est capable de recevoir des paquets de données et de les réémettre. Sa particularité est que la réémission peut ne porter que sur des parties des données ou s'effectuer en différé. Des paquets peuvent aussi être répétés, ou certains champs de données modifiés.

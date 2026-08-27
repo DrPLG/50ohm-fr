@@ -29,5 +29,5 @@ Toutes les questions d'examen ne seront pas aussi simples. Mais ce cours transme
 [question:NA102]
 
 <margin>
-*Des difficultés avec les mathématiques ?* On trouve sur Internet du matériel d'apprentissage à ce sujet, p. ex. [ici](https://50ohm.de/tr). Des personnes serviables de votre entourage — amis, famille, école ou lieu de formation — peuvent peut-être aussi vous aider.
+*Des difficultés avec les mathématiques ?* On trouve sur Internet du matériel d'apprentissage à ce sujet, p. ex. [sur le site du DARC](https://50ohm.de/tr). Des personnes serviables de votre entourage — amis, famille, école ou lieu de formation — peuvent peut-être aussi vous aider.
 </margin>

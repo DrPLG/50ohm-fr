@@ -569,7 +569,7 @@
   "answer_d": "J'accorde mon émetteur sur la fréquence, puis je lance mon appel CQ."
  },
  "BE106": {
-  "question": "Une fréquence sur une bande d'ondes courtes plus haute paraît d'abord libre, mais s'avère ensuite occupée. Quelle en est la cause la plus fréquente ?",
+  "question": "Une fréquence sur une bande haute des ondes courtes paraît d'abord libre, mais s'avère ensuite occupée. Quelle en est la cause la plus fréquente ?",
   "answer_a": "Une station émettant sur cette fréquence se trouve dans la zone de silence et n'a donc pas pu être entendue.",
   "answer_b": "Une station sur cette fréquence utilise l'autre bande latérale.",
   "answer_c": "Les conditions de propagation sont trop mauvaises pour les stations émettant sur cette fréquence.",
