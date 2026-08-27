@@ -873,14 +873,14 @@
   "question": "Quelle image représente une tension alternative sinusoïdale ?"
  },
  "NB402": {
-  "question": "Que désigne le repère 1 dans l'instantané d'une onde représenté ?",
+  "question": "Que désigne le repère 1 dans la représentation instantanée d'une onde ?",
   "answer_a": "Amplitude",
   "answer_b": "Fréquence",
   "answer_c": "Période",
   "answer_d": "Longueur d'onde"
  },
  "NB403": {
-  "question": "Que désigne le repère 2 dans l'instantané d'une onde représenté ?",
+  "question": "Que désigne le repère 2 dans la représentation instantanée d'une onde ?",
   "answer_a": "Longueur d'onde",
   "answer_b": "Amplitude",
   "answer_c": "Tension",
@@ -1309,7 +1309,7 @@
   "answer_d": "Jusqu'à un an"
  },
  "VB110": {
-  "question": "Comment un radioamateur d'un pays appliquant la recommandation CEPT T/R 61-01 ou ECC (05)06 doit-il compléter son indicatif d'origine lors de l'exploitation d'une station en Allemagne ? Selon la classe du radioamateur, on…",
+  "question": "Comment un radioamateur d'un pays appliquant la recommandation CEPT T/R 61-01 ou ECC (05)06 doit-il compléter son indicatif d'origine lors de l'exploitation d'une station en Allemagne ? Selon la classe du radioamateur, il ajoute le…",
   "answer_a": "préfixe DL/ ou DO/.",
   "answer_b": "suffixe /DL ou /DO.",
   "answer_c": "préfixe DE/ ou DP/.",

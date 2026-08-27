@@ -6,7 +6,7 @@ Si, par exemple, une montagne se dresse entre deux stations, il est impossible d
 
 Les stations relais sont aussi appelées relais ou repeaters. On les reconnaît à ce qu'elles émettent régulièrement leur indicatif. Selon le [plan des indicatifs](https://50ohm.de/rzp), l'indicatif d'une station relais commence en général par DB0, DM0 ou DO0.
 
-La définition officielle des repeaters est un peu plus aride : *« Station relais » : une station radioamateur télécommandée (y compris dans des satellites) qui réémet, sur déclenchement à distance, des émissions radioamateur reçues, des parties de celles-ci ou d'autres signaux injectés ou mémorisés, et qui sert ainsi à améliorer la joignabilité des stations radioamateur.*
+La définition officielle des stations relais est un peu plus aride : *« Station relais » : une station radioamateur télécommandée (y compris dans des satellites) qui réémet, sur déclenchement à distance, des émissions radioamateur reçues, des parties de celles-ci ou d'autres signaux injectés ou mémorisés, et qui sert ainsi à améliorer la joignabilité des stations radioamateur.*
 
 La question suivante sur cette définition se résout d'ailleurs bien par élimination, si l'on sait ceci :
 * Les stations relais ne sont pas exploitées avec des indicatifs personnels.
@@ -56,7 +56,7 @@ Les informations sur les stations relais, leurs paramètres techniques et leurs 
 [question:NE309]
 [question:NE308]
 
-Un réglage important en trafic FM est la largeur de canal. Rappelons-le : la largeur de bande indique combien de « place » l'émission occupe dans le spectre. Il y a d'une part le Wide-FM, d'une largeur de $\qty{25}{\kilo\hertz}$, affiché p. ex. *FM-W* à l'écran. Il y a d'autre part la FM à bande étroite (Narrow-FM), qui n'occupe que $\qty{12,5}{\kilo\hertz}$ et s'affiche p. ex. *FM-N* sur le poste. Beaucoup de repeaters n'apprécient pas du tout les signaux trop larges : il peut en résulter des signaux distordus et des perturbations des fréquences relais voisines.
+Un réglage important en trafic FM est la largeur de canal. Rappelons-le : la largeur de bande indique combien de « place » l'émission occupe dans le spectre. Il y a d'une part le Wide-FM, d'une largeur de $\qty{25}{\kilo\hertz}$, affiché p. ex. *FM-W* à l'écran. Il y a d'autre part la FM à bande étroite (Narrow-FM), qui n'occupe que $\qty{12,5}{\kilo\hertz}$ et s'affiche p. ex. *FM-N* sur le poste. Beaucoup de relais n'apprécient pas du tout les signaux trop larges : il peut en résulter des signaux distordus et des perturbations des fréquences relais voisines.
 
 [question:BE407]
 

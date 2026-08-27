@@ -1,7 +1,7 @@
 Nous l'avons appris : les oscillations électriques sont des tensions alternatives qui prennent tour à tour une polarité positive et négative. Mais la tension ne bascule généralement pas brutalement du positif au négatif et inversement. Comme on le voit sur la figure [ref:n_frequenz_sinusschwingung], la tension du réseau électrique, par exemple, oscille en douceur, tel un pendule, de plus vers moins en passant par 0, puis de nouveau vers plus en repassant par 0.
 
 <webmargin>
-[picture:725:n_frequenz_sinusschwingung:La tension du réseau électrique au cours du temps. Comme la tension n'atteint pas en permanence sa valeur maximale de $\qty{325}{\volt}$, elle n'agit d'ailleurs effectivement qu'avec $\qty{230}{\volt}$.]
+[picture:725:n_frequenz_sinusschwingung:La tension du réseau électrique au cours du temps. Comme la tension n'atteint pas en permanence sa valeur maximale de $\qty{325}{\volt}$, sa valeur efficace n'est que de $\qty{230}{\volt}$.]
 </webmargin>
   
 ---

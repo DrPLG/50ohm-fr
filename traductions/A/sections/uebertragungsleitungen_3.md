@@ -18,7 +18,7 @@ Dans le champ proche d'autres lignes ou d'appareils électriques en particulier,
 
 [question:AG301]
 
-Comme câble blindé, le câble coaxial s'impose, que nous avons également déjà découvert dans la classe E. Les câbles coaxiaux existent dans les exécutions les plus diverses. La question suivante porte sur les *propriétés haute fréquence* des câbles coaxiaux, c'est-à-dire sur leurs propriétés électriques du point de vue des fréquences élevées. Ce sont pour l'essentiel :
+Comme câble blindé, le câble coaxial s'impose, que nous avons également déjà découvert dans la classe E. Les câbles coaxiaux existent en de nombreux modèles. La question suivante porte sur les *propriétés haute fréquence* des câbles coaxiaux, c'est-à-dire sur leurs propriétés électriques du point de vue des fréquences élevées. Ce sont pour l'essentiel :
 
 * l'impédance caractéristique,
 * l'atténuation de câble et le

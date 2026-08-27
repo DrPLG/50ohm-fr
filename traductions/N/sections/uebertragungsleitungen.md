@@ -4,7 +4,7 @@ On souhaite que la puissance d'émission produite dans l'émetteur soit rayonné
 [photo:65:n_Koax_Detail:Câble coaxial en détail]
 </margin>
 
-Le plus répandu est le *câble coaxial* (figure [ref:n_Koax_Detail]). Dans le langage courant, on parle souvent simplement de câble coax. Les câbles coaxiaux se composent d'un conducteur intérieur et d'un conducteur extérieur isolés l'un de l'autre. Ils sont de forme tubulaire et entourés d'une gaine de protection. Il en existe dans les exécutions les plus variées :
+Le plus répandu est le *câble coaxial* (figure [ref:n_Koax_Detail]). Dans le langage courant, on parle souvent simplement de câble coax. Les câbles coaxiaux se composent d'un conducteur intérieur et d'un conducteur extérieur isolés l'un de l'autre. Ils sont de forme tubulaire et entourés d'une gaine de protection. Il en existe de différents types :
 * épais ou fins
 * à conducteur intérieur souple ou rigide
 * à conducteur extérieur en tresse de fils et/ou feuille, voire en tube de cuivre massif
