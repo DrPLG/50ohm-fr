@@ -12,6 +12,83 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 26 août 2026 (suite) — une figure ne se sépare plus de sa légende
+
+Deux défauts de mise en page relevés par Sylvain F6DBI, traités selon deux
+approches différentes à la demande de Pierre : le premier au cas par cas, le
+second **en règle**, le format 20 × 24 devant de toute façon redistribuer tous
+les points de coupure.
+
+#### Corrigé — S07, un chevauchement qui rendait une valeur illisible
+
+Dessin **680** (figure 12.8, `netzgeraet_1`) : l'étiquette « ⎓13,8 V » et le
+label « Risque de court-circuit et d'inversion de polarité » se recouvraient,
+et le PDF donnait à lire « 13,8 **Ⅴ**isque de court-circuit… ».
+
+*Cause :* le label français fait **50 caractères** là où l'allemand
+(*Kurzschluss- und Verpolungsgefahr*) en fait **33** — une fois et demie plus
+long. Centré sur le fil du bas, il atteignait la sortie de l'alimentation.
+C'est le motif déjà rencontré en a.2 avec le `{lX}` de
+`widerstand_materialien`.
+
+*Correctif :* le texte passe sur deux lignes dans un `\parbox` centré. Rien
+n'est retiré, la largeur est divisée par deux. Dessin compilé isolément et
+**relu à l'écran**, pas seulement recompilé.
+
+#### Corrigé — S10, et la cause racine était de notre fait
+
+Une figure et sa légende pouvaient être séparées par un saut de page : le
+lecteur voyait un graphique sans titre, puis un titre sans graphique.
+
+*Cause, et elle nous appartient.* L'amont protégeait déjà le couple —
+`\WebMargin` valait `\noindent\parbox{\linewidth}{#1}`, et un `\parbox` ne se
+coupe pas. Notre patch du `.sty` l'a rendu **sécable** pour qu'un grand tableau
+cesse de déborder sous le bas de page, retirant du même coup la protection des
+**figures**. Un correctif en avait donc créé un autre, dans une famille
+voisine.
+
+*Correctif, v0.25 → **v0.26**.* `\DARCfigbloc` rend insécable le couple
+{image + légende}. Il agit dans `render_image`, et non dans `\WebMargin` :
+les cas relevés se répartissent sur **trois** contextes — `\WebMargin` (corps),
+`\Margin` (note de marge) et le corps sans enveloppe — dont `render_image` est
+le seul point commun.
+
+*Limite assumée, décidée par Pierre :* les **tableaux restent sécables**. Un
+tableau plus haut qu'une page doit pouvoir se couper, sous peine de déborder —
+c'est précisément ce que le patch du `.sty` corrigeait. Séparer le traitement
+des images et celui des tableaux évite de rouvrir le défaut qu'on vient de
+fermer.
+
+*Coût mesuré :* sur un document réduit de cinq sections, **une page de plus**
+(11 → 12), zéro avertissement. Rendre une figure insécable la fait basculer
+entière, ce qui peut laisser du blanc en bas de page. Le coût sur les livres
+complets ne sera connu qu'après compilation.
+
+#### Ajouté — `verifier_figures.py` v0.1
+
+Deux `\label` par figure, relus dans le `.aux`, exactement comme
+`verifier_questions.py` le fait depuis la v0.18. Entre au tableau des contrôles
+du §4.
+
+> **La leçon a été payée deux fois, et c'est la même.** Un premier contrôle
+> comptait les légendes ouvrant une page dans le texte extrait du PDF. Il
+> annonçait **8 cas**. Plusieurs étaient **faux** : une photographie ne contient
+> aucun texte extractible, si bien que sa légende apparaît comme première ligne
+> de la page alors que l'image est juste au-dessus. Vérifié par les repères :
+> la photo du tableau AFuV, déclarée orpheline, a ses deux repères **sur la même
+> page**.
+>
+> C'est mot pour mot l'erreur décrite dans la docstring de
+> `verifier_questions.py` — « elle était bruitée… douze faux positifs » —
+> commise à nouveau sur les figures. **Le PDF n'est pas un oracle ; LaTeX l'est.**
+>
+> Conséquence pratique : le décompte réel des figures coupées n'est pas encore
+> connu. Il le sera à la première compilation en v0.26.
+
+Le script rend **rc=2** quand il n'a rien pu contrôler, et non rc=0 : un
+contrôle sans verdict ne contrôle rien — c'est le piège de `sonde_dessins.py`
+au §12, qui rendait rc=0 pendant que 39 dessins étaient fautifs.
+
 ### 26 août 2026 — le tableau que personne n'avait vu
 
 **Aucune dérive amont, pour la première fois.** L'instantané en service

@@ -15,7 +15,7 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.25
+Version du script : v0.26
     v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
             25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
             l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
@@ -591,13 +591,60 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
     RESIZEBOX_IMAGES = {"713"}
 
     def render_image(self, token):
+        """v0.26 — le couple {image + légende} est rendu insécable.
+
+        Une figure et sa légende étaient composées comme deux paragraphes
+        successifs : rien n'empêchait LaTeX de couper entre les deux. Mesuré
+        sur les PDF de la a.3, **8 légendes** ouvraient une page sans leur
+        figure — le relecteur n'en avait vu qu'une.
+
+        `\\DARCfigbloc` (défini dans la classe) enveloppe le tout dans une
+        minipage. C'est ici qu'il faut agir, et non dans `\\WebMargin` : les
+        huit cas se répartissent sur trois contextes différents, et seul
+        `render_image` les produit tous.
+
+        Les **tableaux** ne sont pas concernés — décision de Pierre du
+        26/08/2026 : un grand tableau doit rester sécable, sous peine de
+        déborder sous le bas de page.
+        """
         if getattr(token, "kind", None) == "picture" and token.id in self.RESIZEBOX_IMAGES:
-            return (
+            corps = (
                 f"\\resizebox{{\\linewidth}}{{!}}{{\\input{{img/{token.id}include}}}}\n"
                 f"\\captionof{{figure}}{{{token.text}}}\n"
                 f"\\label{{{token.marker}}}"
             )
-        return super().render_image(token)
+        else:
+            corps = super().render_image(token)
+        # Un token sans rendu (kind inconnu) ne doit pas produire de bloc vide.
+        if not corps.strip():
+            return corps
+        # Deux \label de mesure, sur le patron de la v0.18 pour les questions :
+        # LaTeX résout leur page au shipout, ce qu'aucune lecture du PDF ne sait
+        # faire de façon fiable. Une PHOTO ne contient aucun texte extractible :
+        # sa légende ouvre alors la page pour un extracteur, et un contrôle fondé
+        # sur le texte la déclare orpheline à tort. C'est la même erreur que
+        # celle décrite dans la docstring de verifier_questions.py.
+        reperes = self._figure_reperes(token.marker)
+        return f"\\DARCfigbloc{{%\n{reperes[0]}{corps}\n{reperes[1]}}}\n"
+
+    @staticmethod
+    def _figure_reperes(marker):
+        """Rend le couple de \\label encadrant une figure, relu par verifier_figures.
+
+        Le séparateur est « : » et non « @ » comme pour les questions : celles-ci
+        sont écrites côté LaTeX, dans la classe, alors que ceux-ci passent par
+        `fix_latex()`, dont la sanitisation des `\\label` remplace tout caractère
+        hors `[A-Za-z0-9_:.-]` par un tiret. Un « @ » y deviendrait « - ».
+
+        Le marqueur lui-même subit cette sanitisation — un ident à umlaut voit son
+        « ä » remplacé. C'est sans conséquence ici : les deux repères d'une même
+        figure la subissent à l'identique, et le vérificateur les apparie sur la
+        forme trouvée dans le `.aux`, sans jamais la reconstruire.
+        """
+        return (
+            f"\\label{{DARCfig:debut:{marker}}}%\n",
+            f"\\label{{DARCfig:fin:{marker}}}",
+        )
 
     def render_question(self, token):
         # Chaque question d'examen est placée dans une boîte à fond clair.
@@ -1353,6 +1400,37 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 	\providecommand{\QuestionPictureTwo}{\QuestionTwoCol}%
 	\providecommand{\QuestionFourCol}{\QuestionTwoCol}%
 	\providecommand{\QuestionPictureSmall}{\QuestionMD}%
+}
+
+% ---------------------------------------------------------------------------
+% v0.26 (build_book.py) — Une figure ne se sépare plus de sa légende.
+%
+% CAUSE, et elle est de notre fait. L'amont protégeait déjà le couple :
+% \WebMargin valait \noindent\parbox{\linewidth}{#1}, et un \parbox ne se
+% coupe pas. Le patch du .sty (§ « \WebMargin compose dans le corps ») l'a
+% rendu sécable pour qu'un grand tableau cesse de déborder sous le bas de
+% page — et a du même coup retiré la protection des FIGURES.
+%
+% MESURÉ sur les PDF de la a.3, avant correction : 8 légendes ouvrent une
+% page sans leur figure — N 5, A 1, SWL 2, E 0. Le relecteur n'en avait
+% signalé qu'une (figure 2.29, p. 57-58 de la a.2).
+%
+% POURQUOI ICI plutôt que dans \WebMargin. Les huit cas se répartissent sur
+% TROIS contextes : \WebMargin (corps), \Margin (note de marge) et le corps
+% sans enveloppe. Restaurer le \parbox de \WebMargin n'en couvrirait qu'une
+% partie. \DARCfigbloc s'applique là où l'image et sa légende sont émises
+% ensemble, donc partout.
+%
+% LIMITE ASSUMÉE, décidée par Pierre le 26/08/2026 : les TABLEAUX restent
+% sécables. Un tableau plus haut qu'une page doit pouvoir se couper, sous
+% peine de déborder — c'est précisément le défaut que le patch du .sty
+% corrigeait. Si le contrôle signale un jour une légende de tableau
+% orpheline, elle se traitera à part.
+%
+% Le \par de tête et de queue est nécessaire : sans lui, la minipage
+% s'accolerait au paragraphe voisin au lieu de former un bloc.
+\newcommand{\DARCfigbloc}[1]{%
+	\par\noindent\begin{minipage}{\linewidth}#1\end{minipage}\par
 }
 
 % ---------------------------------------------------------------------------
