@@ -86,14 +86,29 @@ def pages_des_reperes(aux: pathlib.Path):
     return reperes
 
 
+
+def chemin_aux(racine: pathlib.Path, livre: str) -> pathlib.Path | None:
+    """Localise le .aux d'un livre, suffixe de langue compris.
+
+    Le SWL se compile dans « build-SWL-fr » — il existe aussi en allemand,
+    dans « build-SWL-de ». Un chemin en dur « build-<livre> » ne le trouvait
+    pas, et le controle passait sans rien lire (05/09/2026).
+    """
+    for dossier in (f"build-{livre}", f"build-{livre}-fr"):
+        candidat = racine / dossier / f"book-{livre}.aux"
+        if candidat.is_file():
+            return candidat
+    return None
+
+
 def controler(racine: pathlib.Path, livres):
     total_figures = 0
     coupees = []
     examines = []
 
     for livre in livres:
-        aux = racine / f"build-{livre}" / f"book-{livre}.aux"
-        if not aux.exists():
+        aux = chemin_aux(racine, livre)
+        if aux is None:
             print(f"=== livre {livre} : pas de .aux, non contrôlé ===")
             continue
         reperes = pages_des_reperes(aux)

@@ -12,6 +12,174 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 4 septembre 2026 — troisième resynchronisation amont
+
+**`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard** —
+8 en classe E, 3 en A, 1 en N. Le catalogue de questions n'a pas bougé :
+aucune question gagnée, perdue ni déplacée. Le cursus SWL n'est pas touché.
+
+Le piège du § 10 s'est présenté pour la troisième fois : `verifier_amont.py`
+rendait `rc=0` sur 643 éléments pendant que l'amont avait 16 commits d'avance.
+**Seul le contrôle réseau voit cette dérive** — le contrôle local ne compare
+qu'à l'instantané téléchargé.
+
+**Les trois classes recompilées en v0.28, toutes à pagination inchangée :**
+
+| | pages | notes de marge | « ?? » | figures contrôlées | compressé |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| N | **262** | 1 (attendu 1) | 0 | 148 | 3,05 Mo |
+| E | **214** | 0 (attendu 0) | 1 (amont, §8) | 197 | 3,03 Mo |
+| A | **386** | 4 (attendu 4) | 2 (amont, §8) | 290 | 5,41 Mo |
+| NEA | **816** (814 → 816) | 5 (attendu 5) | 3 (amont, §8) | 624 | 11,05 Mo |
+| SWL | **52** | 1 (doc. corrigée) | 3, dont **0 réelle** | 16 | 1,15 Mo |
+
+`14.63995pt`, `lost some margin notes` et `Float too large` à **0** partout ;
+`verifier_questions.py` et `verifier_figures.py` en `rc=0` sur les trois.
+Le contexte de chaque « ?? » a été lu, pas seulement compté — ce sont bien les
+trois orphelines amont connues.
+
+Que cinq paragraphes neufs et deux figures n'aient coûté **aucune page** en
+classe A est le résultat le plus inattendu de la journée. **Le NEA, lui,
+gagne bien ses deux pages** (814 → 816) : la même matière, composée dans un
+flux de 816 pages, ne retombe pas sur les mêmes coupures.
+
+### Le tome SWL — recompilé, et deux valeurs de référence corrigées
+
+**Aucune de ses 30 sections n'était touchée** par la resynchronisation —
+vérifié en dépliant `toc/swl.json`, pas supposé. Il ne lui manquait que la
+recompilation : son PDF datait du **25/08**, veille de la v0.26.
+`verifier_traduction.py` : 29 conformes, 1 dérogation assumée (les codes Q,
+dont les moyens mnémotechniques reposent sur les mots allemands), 0 écart.
+**52 pages, inchangées.**
+
+**Le § 4 se trompait sur deux de ses valeurs attendues, et les deux erreurs
+allaient dans le sens rassurant :**
+
+- **note de marge : 1, non 0.** `swl_steckverbinder` culmine à 808,94 pt pour
+  un seuil de 711,32. Ce n'est **pas** une régression de la v0.28 : le journal
+  du 25/08 portait déjà l'avertissement, à la hauteur identique au centième.
+- **« ?? » : 3 dans le PDF, 0 réelles.** C'est le faux positif BB203 déjà
+  décrit au § 4 — deux `?` légitimes qui se collent dans une réponse restée en
+  allemand, que l'espace fine française ne sépare donc pas.
+
+### Deux correctifs aux vérificateurs
+
+Trouvés en contrôlant le SWL, et le second est le plus important :
+
+- **le chemin du `.aux` était en dur** en `build-<livre>`. Le SWL se compile
+  dans `build-SWL-fr` (il existe aussi en allemand, dans `build-SWL-de`) : les
+  deux scripts ne trouvaient rien. Ils acceptent désormais le suffixe de langue.
+- **`verifier_questions.py` rendait `rc=0` après avoir dit « .aux absent ».**
+  Un contrôle qui n'a rien lu et rend vert est indiscernable d'un vrai succès —
+  il a trompé **deux fois le 05/09/2026**, d'abord sur un argument erroné, puis
+  sur le SWL. Il rend maintenant **`rc=2` « aucun verdict rendu »**, comme
+  `verifier_figures.py` le faisait déjà, et nomme les classes réellement
+  examinées dans son message de succès.
+
+Non-régression vérifiée sur les quatre autres tomes : `rc=0`, 1 259 figures
+contrôlées.
+
+### Compilation du NEA — ce que l'interruption a appris
+
+Le premier lancement s'est arrêté à la 3ᵉ passe, page 682, machine éteinte.
+**Tout n'a pas eu à être purgé**, et la distinction vaut d'être retenue :
+
+- **l'arbre généré par Python** (379 sections, 911 dessins, le 202
+  précompilé) était écrit **1 h 37 avant l'arrêt** — intact, conservé ;
+- **le `.aux` était tronqué**, mesuré et non supposé. C'est lui qui porte le
+  `\DARCimageCache` : lui seul, avec les autres auxiliaires, devait partir.
+
+*Faux signal écarté en chemin :* le test de troncature du § 4
+(`[ -n "$(tail -c 1 "$f")" ]`) a désigné **50 `.tex` générés** comme
+suspects. Ils ne le sont pas — ce test vise les **auxiliaires LaTeX**, et
+les fichiers du générateur se terminent normalement sans saut de ligne
+final. Ce sont les horodatages qui ont tranché, pas le test.
+
+*Piège Ghostscript, et il a failli passer :* la compression a d'abord
+échoué en `rc=127` — Ghostscript est ici en **32 bits**
+(`gswin32c.exe` sous `Program Files (x86)`, § 11) — **et le fichier
+`livre-NEA-a.3.pdf` existait quand même**, à 11,03 Mo. C'était celui du
+26/08. Un `ls` sur le PDF de sortie n'atteste donc rien : **vérifier son
+horodatage**, pas sa seule présence.
+
+*Durée mesurée :* **1 h 39** pour trois passes, arbre déjà généré — le § 2
+annonçait « ~1 h ». Corrigé.
+
+*Piste ouverte :* le **gardien d'auxiliaires** du § 4, qui copie
+périodiquement le `.aux` sain, est décrit comme réservé à la classe A. Le
+NEA étant deux fois plus long, il y aurait davantage sa place — les deux
+premières passes, déjà convergées à 816 pages, ont été entièrement
+reperdues faute de lui.
+
+**E et A ont été compilées en parallèle**, sur remarque de Pierre : la règle du
+§ 4 disait « une seule compilation à la fois » alors que ce qui s'écrase, ce
+sont les auxiliaires d'un *même* répertoire. Règle réécrite — le parallélisme
+entre classes est permis, la limite réelle étant la mémoire disponible, à
+mesurer avant de lancer.
+
+### Ajouté
+
+- **v0.28 — `\DeclareSIUnit{\dBc}{dBc}`.** L'amont emploie `\dBc` six fois
+  dans `unerwuenschte_aussendungen_3` sans l'avoir jamais déclarée : erreur
+  **fatale**, latexmk en rc=12. C'est la répétition exacte de `\sample`
+  (§ 18 des défauts amont), quinze jours plus tard. Décision de Pierre :
+  déclarer plutôt qu'écrire l'unité en littéral, pour garder les six formules
+  verbatim. Détail au § 24 de `docs/defauts-amont.md`.
+- **Cinq paragraphes neufs en classe A** (`unerwuenschte_aussendungen_3`) :
+  les valeurs limites d'émissions non désirées en $\unit{\dBc}$, et la
+  comparaison entre la norme ETSI EN 301783 (appareils commercialisés dans
+  l'Union) et la Verfügung 33/2007 (appareils construits soi-même).
+- **Dessin 1139 forké et francisé** (`a_etsi_vfg`) — deux libellés d'axes,
+  `Frequenz` et `Grenzwert`. Les noms propres « ETSI » et « Vfg. 33/2007 »
+  sont conservés, comme « Verfügung 33 » l'est dans la prose. **229 dessins
+  forkés** au total, 644 éléments suivis au manifeste.
+- **Dessins 1140 et 1141 appelés sans fork.** Le 1141 (réseau de résistances)
+  ne porte aucun texte ; le 1140 ne porte que les libellés `1. OW / 2 Harm.`,
+  **déjà laissés tels quels dans le 868** et glosés par la légende française.
+  Cohérence avec le précédent, pas oubli.
+
+### Modifié
+
+- **Radio-clubs allemands : l'indicatif n'est plus limité à cinq ans**
+  (`klubstationen`, classe N). Il est désormais attribué en règle générale
+  sans limitation de durée ; seules les stations particulières, comme les
+  stations de radiocommunication d'urgence, gardent une durée de cinq ans.
+  C'est le seul changement de **fond réglementaire** de la salve.
+- `schwingkreis_1` (E) : l'amont corrige sa propre coquille d'ident,
+  `e_wiederstaende_*` → `e_widerstaende_*`. Suivi sur les quatre occurrences,
+  déclarations et renvois. **C'est le troisième défaut que l'amont corrige
+  seul**, après `a_sender` et les trois coquilles du 19/08.
+- `reihe_parallel_widerstandsnetz_1` (E) : le dessin 306 est remplacé par le
+  1141 en amont.
+- Gloses et reformulations : `bfo_1` et `bfo_2` (BFO développé en anglais),
+  `ueberlagerungsempfaenger_einfachsuper_1` (VFO développé, `$f_z$` passé en
+  `$f_\mathrm{z}$`), `widerstand_materialien` et `widerstand_ntc_ptc`
+  (phrases ajoutées sur les applications HF et les usages des thermistances).
+
+### Préservé
+
+- **Trois sections n'ont demandé aucune retouche française** —
+  `detektorempfänger` (E), `leistungsvertaerker` (A) et
+  `unerwuenschte_aussendungen_2` (E). L'amont y a corrigé sa seule
+  orthographe allemande (`Detektor-Empfänger` → `Detektorempfänger`,
+  `Parallel-Schwingkreis` → `Parallelschwingkreis`), invisible en français.
+  Seule leur empreinte a été réenregistrée. Une seule glose allemande citée
+  dans notre prose était touchée, `(Geradeaus-Empfänger)`, mise à jour.
+- **Douze corrigés amont neufs** (`contents/solutions/`, AD508 à AJ211) restent
+  hors périmètre : ni `build_book.py` ni nos livres ne lisent ce répertoire,
+  qui alimente le site 50ohm.de. À rouvrir si l'on veut un jour ces
+  démonstrations dans les PDF.
+
+### Connu
+
+- **Deux unités non déclarées en trois semaines.** `\sample` le 20/08,
+  `\dBc` le 04/09 : ce n'est plus un accident isolé mais un mode de
+  défaillance récurrent du corpus amont, entièrement invisible aux huit
+  contrôles du § 5 — `verifier_traduction.py` compare nos formules aux siennes
+  et les trouve identiques, ce qu'elles sont. **Seule une compilation le
+  voit.** Argument net en faveur du document réduit systématique après chaque
+  resynchronisation.
+
 ### 26 août 2026 (soir) — les adresses imprimées, et un disque plein
 
 **v0.27 compilée et contrôlée.** N reste à **262 pages** : imprimer les

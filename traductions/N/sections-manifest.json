@@ -325,9 +325,9 @@
     "sha256_amont": "c1882caafa82bea404ccf6dda3f9266de406055ae0564169b106b012981c3442"
   },
   "klubstationen": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "10a4fc4952c95c25e4a845b153d8339dbdeaeee170be0f9c2df76527babce9f9"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "82432021426d383b8efcd42a20c274a61b7a1359b6cd719d6f83e9acd3024271"
   },
   "koaxsteckverbinder": {
     "date_traduction": "2026-08-14",

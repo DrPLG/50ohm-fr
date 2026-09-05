@@ -23,7 +23,7 @@ Les *résistances bobinées* comptent parmi les formes les plus anciennes de ré
 %EC101 Hochlast niedrige Frequenz -> Drahtwiderstand
 [question:EC101]
 
-Dans les résistances à couche de carbone, une fine couche de carbone est déposée par évaporation sur un support en guise de matériau résistif. Les résistances à couche de carbone sont bon marché, mais présentent une tolérance de fabrication relativement grande.
+Dans les résistances à couche de carbone, une fine couche de carbone est déposée par évaporation sur un support en guise de matériau résistif. Les résistances à couche de carbone sont bon marché, mais présentent une tolérance de fabrication relativement grande. Elles sont relativement peu inductives et ne conviennent donc qu'avec des restrictions aux applications HF.
 
 Dans les *résistances à couche d'oxyde métallique*, le matériau résistif est appliqué en une fine couche sur un matériau support. Ce type de résistance est largement exempt d'inductance et présente une bonne stabilité en température, ce qui le rend particulièrement adapté à un emploi aux fréquences plus élevées, au-dessus de $\qty{30}{\mega\hertz}$.
 

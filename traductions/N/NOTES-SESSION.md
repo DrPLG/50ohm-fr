@@ -1,3 +1,56 @@
+## SESSION 04/09/2026 — troisième resynchronisation amont
+
+**`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard**
+(8 en E, 3 en A, 1 en N). Le catalogue de questions n'a pas bougé d'une ligne :
+aucune question gagnée, perdue ni déplacée. Le cursus SWL n'est pas touché.
+
+**Le piège du §10, pour la troisième fois en trois semaines.**
+`verifier_amont.py` rendait `rc=0` sur 643 éléments pendant que l'amont avait
+seize commits d'avance. Le contrôle local ne compare qu'à l'instantané
+téléchargé : **seul le contrôle réseau voit cette dérive**. Bascule
+d'instantané confirmée par `diff -rq` entre les deux arbres — **exactement les
+50 fichiers annoncés par l'API**, ni plus ni moins.
+
+### Une seule section, mais c'est la seule de **fond réglementaire**
+
+**`klubstationen`** — l'indicatif de station de radio-club allemand n'est plus
+attribué pour cinq ans. Il l'est désormais **en règle générale sans limitation
+de durée** ; seules les stations particulières, comme les stations de
+radiocommunication d'urgence, gardent une durée de cinq ans. L'amont renvoie
+au *Rufzeichenplan* pour les dispositions précises — rendu « plan des
+indicatifs », comme deux paragraphes plus haut dans la même section.
+
+« cinq ans » est écrit en toutes lettres, comme le faisait déjà la version
+précédente : « 5 ans » exposerait au faux positif du parseur d'unités (§6).
+
+### Compilation — v0.28, **262 pages, inchangées**
+
+Génération : 131/131 sections, 571 questions, 39 dessins francisés,
+55 encarts « En France ». **3,05 Mo** après Ghostscript.
+
+Contrôles du §4 : **0 · 0 · 0 · 1** note de marge rétrogradée (attendu 1 — le
+tableau CEPT de `funken_im_ausland`), **0 référence « ?? »**, `rc=0` sur
+`verifier_questions.py` comme sur `verifier_figures.py` (**148 figures**
+contrôlées, aucune séparée de sa légende).
+
+Le nouveau paragraphe n'a coûté **aucune page** : 262 comme en v0.27.
+
+### Un faux vert, et il est instructif
+
+Lancé sous la forme `verifier_questions.py build-N` — le **répertoire** au lieu
+de la **classe** — le script affiche « book-build-N.aux absent — compiler
+d'abord », puis « Aucune question n'est séparée de ses réponses », **et rend
+`rc=0`**. Il n'avait rien lu.
+
+`verifier_figures.py` se comporte mieux dans le même cas : il rend `rc=2`, que
+le §4 signale déjà comme « rien contrôlé, pas *tout va bien* ». Mais un `rc=0`
+sur un contrôle qui n'a rien mesuré est plus dangereux qu'un `rc=2`, parce
+qu'il est indiscernable d'un vrai succès.
+
+C'est le défaut de fond du 15/08 sous une autre forme : **quand un contrôle
+rend zéro, vérifier d'abord qu'il sait mesurer ce qu'on lui demande.** Les deux
+scripts attendent `N`, `E`, `A`, `NEA` ou `SWL`, jamais un chemin.
+
 ## SESSION 15/08/2026 — version a.2, francisation des dessins (feuille d'arbitrage nº 3)
 
 Génération : 131/131 sections, 571 questions, 39 dessins francisés,

@@ -17,12 +17,12 @@ Cela signifie par exemple : si la résistance $R_2$ est deux fois plus grande qu
 
 ---
 
-Retenons : un passe-bas n'est d'abord rien d'autre qu'un diviseur de tension. C'est pourquoi nous pouvons, dans la suite, le considérer exactement comme tel. La figure [ref:e_wiederstaende_tiefpass] présente à nouveau les courbes de résistance en fonction de la fréquence. Considérons d'abord les basses fréquences : dans ce cas, la résistance du condensateur est grande, de sorte qu'une tension élevée est présente en sortie. Si la fréquence augmente, la résistance du condensateur devient de plus en plus petite et, conformément au principe du diviseur de tension, la tension de sortie diminue elle aussi.
+Retenons : un passe-bas n'est d'abord rien d'autre qu'un diviseur de tension. C'est pourquoi nous pouvons, dans la suite, le considérer exactement comme tel. La figure [ref:e_widerstaende_tiefpass] présente à nouveau les courbes de résistance en fonction de la fréquence. Considérons d'abord les basses fréquences : dans ce cas, la résistance du condensateur est grande, de sorte qu'une tension élevée est présente en sortie. Si la fréquence augmente, la résistance du condensateur devient de plus en plus petite et, conformément au principe du diviseur de tension, la tension de sortie diminue elle aussi.
 
 On obtient ainsi la courbe de tension telle qu'elle est montrée sur la figure [ref:e_tiefpass_frequenzgang]. L'idée centrale du passe-bas est ainsi expliquée : les hautes fréquences sont fortement atténuées, tandis que les basses fréquences traversent le filtre pratiquement sans entrave. Un exemple d'application d'un passe-bas est son utilisation derrière les amplificateurs d'émission, afin de filtrer les harmoniques apparaissant à cause des distorsions. 
 
 <margin>
-[picture:1021:e_wiederstaende_tiefpass:Comportement qualitatif des résistances dans le diviseur de tension passe-bas]
+[picture:1021:e_widerstaende_tiefpass:Comportement qualitatif des résistances dans le diviseur de tension passe-bas]
 [picture:1024:e_tiefpass_frequenzgang:Évolution qualitative de la tension $U_\text{A}$ sur le passe-bas]
 </margin>
 
@@ -35,10 +35,10 @@ La *fréquence de coupure* ($f_\text{g}$) d'un passe-bas est la fréquence à la
 
 ---
 
-Dans un passe-haut, au contraire, les basses fréquences sont fortement atténuées, tandis que les hautes fréquences traversent ce filtre presque sans atténuation. On y parvient en échangeant le condensateur et la résistance, comme représenté sur la figure [ref:e_wiederstaende_hochpass]. La réponse en fréquence d'un passe-haut est montrée qualitativement en [ref:e_hochpass_frequenzgang]. Un exemple d'application d'un passe-haut est son utilisation dans un séparateur d'antenne, par exemple pour éliminer la gamme des ondes courtes en amont d'un récepteur VHF, afin d'éviter les perturbations dues au trafic en ondes courtes.
+Dans un passe-haut, au contraire, les basses fréquences sont fortement atténuées, tandis que les hautes fréquences traversent ce filtre presque sans atténuation. On y parvient en échangeant le condensateur et la résistance, comme représenté sur la figure [ref:e_widerstaende_hochpass]. La réponse en fréquence d'un passe-haut est montrée qualitativement en [ref:e_hochpass_frequenzgang]. Un exemple d'application d'un passe-haut est son utilisation dans un séparateur d'antenne, par exemple pour éliminer la gamme des ondes courtes en amont d'un récepteur VHF, afin d'éviter les perturbations dues au trafic en ondes courtes.
 
 <margin>
-[picture:1025:e_wiederstaende_hochpass:Comportement qualitatif des résistances dans le diviseur de tension passe-haut]
+[picture:1025:e_widerstaende_hochpass:Comportement qualitatif des résistances dans le diviseur de tension passe-haut]
 [picture:1022:e_hochpass_frequenzgang:Évolution qualitative de la tension $U_\text{A}$ sur le passe-haut]
 </margin>
 

@@ -70,9 +70,9 @@
     "sha256_amont": "5b0bbb9a8df115abc3eb5fc1bd02a06ec2f999797f28ab6c6669fa6bd022db5a"
   },
   "bfo_1": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "85c7ba48470aba4945ff0c3544fda5a4896c025ead7c1096f580cdee77e7b019"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "5e8421ffa9ca78f879c4132453742dfcc5aaa8fc9e31c1f263285058d1d60f26"
   },
   "binaer": {
     "date_traduction": "2026-08-14",
@@ -95,9 +95,9 @@
     "sha256_amont": "374d9b53f111134abbb89c2e884bc67618df6ea88ce964f0e26cf9db7273bf50"
   },
   "detektorempfänger": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "cebbe7780888af7d3fd207f261d26c5cc5f564930dcc453b949fab35a08550ef"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "ff1b4e0e1936afa8da002131bd505d678d2835f60a2c2f851614e0acc1a559d1"
   },
   "dezibel_1": {
     "date_traduction": "2026-08-14",
@@ -295,9 +295,9 @@
     "sha256_amont": "4b8dc108674cb6fb3a69bc7f6a36d8e450f618e943a76c13a856ed0ddb0193dd"
   },
   "reihe_parallel_widerstandsnetz_1": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "dddca70385979d680fc8124c31ad205e33cd616f67b04086c37350bd77c40f8b"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "299ba9cb00d9786f92f8265138eeb66416157fa85b0cb7c5e2b9ebeb4aa78a7f"
   },
   "schaltnetzteil_1": {
     "date_traduction": "2026-08-14",
@@ -310,9 +310,9 @@
     "sha256_amont": "76fb7ef3ad4f0271cb4646e4c95bd0bb9014f23033dde3869ffabaf071997775"
   },
   "schwingkreis_1": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "e7d38534b7cb235f3e2cc7b251d6d3a52ad87f48eb31309aefd9fa1ef4c9e3d9"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "7ea2447ef3dd474e39dcd51d0e79fcc63d1030bea377366a67aa10d9eb318b19"
   },
   "senderausgangsleistung": {
     "date_traduction": "2026-08-14",
@@ -425,9 +425,9 @@
     "sha256_amont": "d16a2312cb28bcdfb7baff9aa6b32ea8c48406eb12933c2f14bee1ef6e652a7a"
   },
   "ueberlagerungsempfaenger_einfachsuper_1": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "5469843f6e6074d0bb2fffc09b9c9cb4778295332d13276335d2bc38dccf8f8d"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "3365804fea2bfd9ade25c4091f3a8109850980066fcf93f95e44fbee2f757655"
   },
   "uebertrager_1": {
     "date_traduction": "2026-08-14",
@@ -440,9 +440,9 @@
     "sha256_amont": "980b3e48d58926396a6fe287e0d40c9943ae740e4f6fa380663471930e75a822"
   },
   "unerwuenschte_aussendungen_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "e927e4f999220db9893dec57a22d6c295ec70188a487af9754a48051fbcfe952"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "3be74b36f1c9826b8fd2bebcea6d3712490a89ebecbdd98ab19f79ff2fcc6b42"
   },
   "unmodulierter_traeger": {
     "date_traduction": "2026-08-14",
@@ -480,14 +480,14 @@
     "sha256_amont": "43bf5153a1514486e20c56cb5fdf5bc29ce2ebcf57d5cb336a9c4b31d9d34cd5"
   },
   "widerstand_materialien": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "8e5d7a3c7803f0cfef5febb31530c132503ba06590314e24f24e55f9df748569"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "64253002ae381394bf924aaa27c3bce7a0fe12e0145968bb7829a94e5fd7374d"
   },
   "widerstand_ntc_ptc": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "79837f789f88a1d2d9d53db0cb735db9c99e916a801774cc37350c36c2b29c69"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "d30d79fc2d28cf3ef863615c2f4acb967c32a52855bf13d5acf237c6227fdeca"
   },
   "widerstand_smd": {
     "date_traduction": "2026-08-14",

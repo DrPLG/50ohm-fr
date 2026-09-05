@@ -1,5 +1,73 @@
 # Notes de session — classe E, chapitres 1–16 (v0.6)
 
+## SESSION 04/09/2026 — troisième resynchronisation amont
+
+**`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard**
+(8 en E, 3 en A, 1 en N). Le catalogue de questions n'a pas bougé d'une ligne :
+aucune question gagnée, perdue ni déplacée. Le cursus SWL n'est pas touché.
+
+**Le piège du §10, pour la troisième fois en trois semaines.**
+`verifier_amont.py` rendait `rc=0` sur 643 éléments pendant que l'amont avait
+seize commits d'avance. Le contrôle local ne compare qu'à l'instantané
+téléchargé : **seul le contrôle réseau voit cette dérive**. Bascule
+d'instantané confirmée par `diff -rq` entre les deux arbres — **exactement les
+50 fichiers annoncés par l'API**, ni plus ni moins.
+
+### Huit sections, dont aucune de fond
+
+Le gros du travail amont est **orthographique et terminologique** :
+
+| section | ce qui a changé |
+| --- | --- |
+| `bfo_1` | première phrase réécrite ; *Beat Frequency Oscillator* sans traits d'union, le BFO « engendre une porteuse auxiliaire » |
+| `ueberlagerungsempfaenger_einfachsuper_1` | VFO développé en anglais, `$f_z$` passé en `$f_\mathrm{z}$`, glose `(Geradeaus-Empfänger)` recomposée |
+| `widerstand_materialien` | une phrase sur l'aptitude limitée des couches de carbone à la HF |
+| `widerstand_ntc_ptc` | deux puces reformulées, une phrase sur les usages (mesure de température, limitation du courant d'appel) |
+| `schwingkreis_1` | **l'amont corrige sa propre coquille d'ident** |
+| `reihe_parallel_widerstandsnetz_1` | le dessin 306 devient le **1141** |
+| `detektorempfänger` | orthographe allemande seule — **aucune retouche française** |
+| `unerwuenschte_aussendungen_2` | coquille de légende allemande — **aucune retouche française** |
+
+### `e_wiederstaende_*` → `e_widerstaende_*` : l'exemple du §6 est périmé
+
+Le CLAUDE.md §6 citait `e_wiederstaende_tiefpass` comme exemple d'ident à
+préserver verbatim **malgré sa faute d'orthographe allemande**. L'amont l'a
+corrigé le 03/09, sur les dessins 1021 et 1025. Suivi sur les quatre
+occurrences — deux déclarations `[picture:…]`, deux renvois `[ref:…]`.
+
+**L'exemple est périmé ; la règle ne l'est pas.** C'est le troisième défaut que
+l'amont corrige seul, après `a_sender` et les trois coquilles du 19/08 — et
+aucun des trois ne nous a été signalé. **L'amont relit son propre corpus.**
+
+Aucune référence orpheline n'a été créée : la génération n'en signale toujours
+qu'une seule, `e_ssb_am_modulation`, celle du §8.
+
+### Deux sections traduites sans y toucher
+
+`detektorempfänger` et `unerwuenschte_aussendungen_2` n'ont demandé **aucune
+modification française**. L'amont y a resserré son orthographe
+(`Detektor-Empfänger` → `Detektorempfänger`, `Parallel-Schwingkreis` →
+`Parallelschwingkreis`, `Selbgebautes Tiefpassfilters` → `…filter`), ce qui est
+invisible en français. Seule leur empreinte a été réenregistrée.
+
+**Le contrôle qui a rendu cette conclusion sûre** : une recherche des gloses
+allemandes citées entre parenthèses dans notre prose. Une seule était touchée,
+`(Geradeaus-Empfänger)`, et elle est dans une troisième section. Sans ce
+contrôle, on retraduisait à l'aveugle ou on laissait passer une glose périmée.
+
+### Compilation — v0.28, **214 pages, inchangées**
+
+Génération : 103/103 sections, 463 questions, **73 dessins francisés**,
+6 encarts « En France ». **3,03 Mo** après Ghostscript.
+
+Contrôles du §4 : **0 · 0 · 0 · 0**, **1 référence « ?? »** — contexte lu,
+c'est bien `e_ssb_am_modulation` dans `ssb_2`, le défaut amont connu. `rc=0`
+sur `verifier_questions.py` et `verifier_figures.py` (**197 figures**
+contrôlées, aucune séparée de sa légende).
+
+Le dessin **1141** (réseau de résistances) n'a pas été forké : il ne porte
+aucun texte composé, rien que des `$R_n=\qty{}{\ohm}$`.
+
 ## SESSION 16/08/2026 — resynchronisation amont (feuille d'arbitrage nº 5)
 
 Génération : 103/103 sections, 463 questions, **73 dessins francisés**,

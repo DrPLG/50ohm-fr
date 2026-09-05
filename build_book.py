@@ -15,7 +15,25 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.27
+Version du script : v0.28
+    v0.28 — `\DeclareSIUnit{\dBc}{dBc}` (décision de Pierre, 04/09/2026).
+            L'amont emploie `\dBc` six fois dans `unerwuenschte_aussendungen_3`,
+            réécrite le 03/09, sans l'avoir jamais déclarée : `\dBm` figure au
+            .sty amont, `\dBc` non. L'erreur est FATALE et non silencieuse —
+            « Undefined control sequence », latexmk en rc=12 — donc la classe A
+            allemande bute sur le même écueil. C'est la répétition exacte de
+            `\sample` (v0.24 / défauts-amont §18), quinze jours plus tard :
+            deux unités non déclarées en trois semaines, ce n'est plus un
+            accident isolé.
+            *Une ligne, dans un bloc qui en portait déjà sept* — celui des
+            « unités du build interne absentes des fichiers publics ».
+            *L'autre voie a été mesurée, pas supposée :* écrire l'unité en
+            littéral (`$\qty{-50}{dBc}$`) compile aussi et rend le même texte
+            au caractère près. Écartée pour ne pas faire diverger six formules
+            du texte amont, là où la déclaration est neutre.
+            *Neutralité :* une unité déclarée de plus n'a aucun effet là où
+            elle n'est pas employée — `\dBc` n'apparaît nulle part ailleurs
+            dans le corpus, ni allemand ni français.
     v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
             25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
             l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
@@ -1305,6 +1323,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 	\DeclareSIUnit{\kiloOhm}{\kilo\ohm}%
 	\DeclareSIUnit{\dBuV}{dBµV}%
 	\DeclareSIUnit{\sps}{Sps}%
+	\DeclareSIUnit{\dBc}{dBc}%
 }
 % Le contenu utilise parfois siunitx de façon non stricte (préfixe seul,
 % nombres comme 10^3...) : on dégrade ces erreurs en avertissements.

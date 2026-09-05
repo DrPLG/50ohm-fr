@@ -55,9 +55,9 @@
     "sha256_amont": "f444f2764c85804369830bc1228597c8ce8fa299f3e0ecb6850f1a965813908b"
   },
   "bfo_2": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "8df7f8f47d999e97cbaebbbb6d4aa4389d650b118a5bab3fe143ad284cffb06e"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "53a2fa720246c3453afafa9a2ad44956cde345f0f79fbd99078a7a1cb08d0001"
   },
   "brueckengleichrichter": {
     "date_traduction": "2026-08-14",
@@ -270,9 +270,9 @@
     "sha256_amont": "fbf9ff8edf873fc65c2025aad84f9cbcecef7bed255679add051b7c7e30039ac"
   },
   "leistungsvertaerker": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "628dbc836feb80d574830a92cb2a2b330ffa6b20fc84c2b5010acb28695188f9"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "9e7901463b7ab8c8e1dfdfffe76fee979a791151940249c7a89ce03d05fc825c"
   },
   "leiterwiderstand": {
     "date_traduction": "2026-08-14",
@@ -675,9 +675,9 @@
     "sha256_amont": "024b7b592cbe93fda06dfb478d7ee8b0f5ca4d65c18e2069824aa29853de6e7a"
   },
   "unerwuenschte_aussendungen_3": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "00a6b339281580bc498ac1372a0b0a04b2f28dd137ef5ff71d447aae036faeef"
+    "date_traduction": "2026-09-04",
+    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "e74b92728a0820c0552287d0517edab2d017e3303d6d55c21dda79ac348cf854"
   },
   "verkuerzungsfaktor_2": {
     "date_traduction": "2026-08-14",

@@ -949,3 +949,58 @@ rendu est correct : **ici, l'avertissement n'est pas l'oracle**.
 
 **Côté allemand, le défaut demeure**, et il y est probablement pire : les
 cellules allemandes sont plus longues que les nôtres. À signaler.
+
+## 24. `\dBc` — la deuxième unité jamais déclarée, erreur fatale de compilation
+
+**Constaté le** 04/09/2026, en traduisant la resynchronisation
+`bc8dfcd8` → `04cc9316`. C'est la **répétition exacte du § 18** (`\sample`),
+quinze jours plus tard, et c'est le seul défaut de la salve qui empêche de
+compiler.
+
+La section `unerwuenschte_aussendungen_3`, réécrite en amont le 03/09, emploie
+`\dBc` **six fois** dans cinq paragraphes neufs :
+
+```
+Die Grenzwerte sind üblicherweise in $\unit{\dBc}$ angegeben …
+… ein Grenzwert von $\qty{-50}{\dBc}$ …
+```
+
+Or `\dBc` **n'est déclarée nulle part**. Vérifié sur l'ensemble des
+déclarations d'unités du dépôt générateur :
+
+- `latex/DARC-ausbildungsmaterialien.sty` : `\baud`, `\dBi`, `\dBm`,
+  `\dBu`, `\dBV`, `\dBW`, `\ppm`, `\pps`, `\CPM`, `\WPM`, `\noop` ;
+- `latex/settings.tex` : `\baud`.
+
+**`\dBm` y est, `\dBc` n'y est pas** — et c'est l'auteur du même dessin, dans
+la même salve, qui écrit « Angaben in dBc » en commentaire du 1139. L'unité
+n'apparaît nulle part ailleurs dans le corpus amont : uniquement dans cette
+section neuve.
+
+Comme au § 18, l'erreur est *fatale* et non silencieuse — `\dBc` n'étant pas
+défini, TeX lève « Undefined control sequence » et `latexmk` sort en `rc=12`.
+Elle ne compose pas faux, elle ne compile pas. **La classe A allemande bute
+donc sur le même écueil.**
+
+**Correctif côté français :** `\DeclareSIUnit{\dBc}{dBc}` ajouté au bloc
+« Unités du build interne absentes des fichiers publics » de `build_book.py`,
+qui en portait déjà sept (`\dBd`, `\oszidiv`, `\milliOhm`, `\mOhm`,
+`\kiloOhm`, `\dBuV`, `\sps`). Les formules restent verbatim, conformément
+au § 5.
+
+**L'autre voie a été mesurée, pas supposée.** Écrire l'unité en littéral —
+`$\qty{-50}{dBc}$`, sans macro — compile aussi, en `rc=0`, et donne un rendu
+**identique au caractère près** : « −50 dBc ». C'est la solution retenue au
+§ 18 pour `\sample`, et elle évite toute montée de version. Elle a été écartée
+ici parce qu'elle ferait diverger six formules du texte amont, là où la
+déclaration est neutre : une unité de plus, invisible partout ailleurs, et
+que l'amont déclarera vraisemblablement lui-même le jour où il s'en apercevra —
+comme il l'a fait pour `\dBm`.
+
+**Ce que ce défaut apprend, et c'est sa vraie valeur :** en trois semaines,
+l'amont a introduit **deux** unités non déclarées dans deux sections neuves.
+Ce n'est pas un accident isolé mais un mode de défaillance récurrent du corpus,
+et il est entièrement invisible aux contrôles du § 5 — `verifier_traduction.py`
+compare nos formules aux siennes et les trouve identiques, ce qu'elles sont.
+**Seule une compilation le voit**, et c'est l'argument le plus net en faveur du
+document réduit systématique après chaque resynchronisation.

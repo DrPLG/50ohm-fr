@@ -1,5 +1,110 @@
 # Notes de session — classe A
 
+## SESSION 04/09/2026 — troisième resynchronisation amont
+
+**`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard**
+(8 en E, 3 en A, 1 en N). Le catalogue de questions n'a pas bougé d'une ligne :
+aucune question gagnée, perdue ni déplacée. Le cursus SWL n'est pas touché.
+
+**Le piège du §10, pour la troisième fois en trois semaines.**
+`verifier_amont.py` rendait `rc=0` sur 643 éléments pendant que l'amont avait
+seize commits d'avance. Le contrôle local ne compare qu'à l'instantané
+téléchargé : **seul le contrôle réseau voit cette dérive**. Bascule
+d'instantané confirmée par `diff -rq` entre les deux arbres — **exactement les
+50 fichiers annoncés par l'API**, ni plus ni moins.
+
+### Trois sections, dont le seul vrai chantier de la salve
+
+**`unerwuenschte_aussendungen_3`** est réécrite en profondeur : cinq
+paragraphes neufs, deux dessins nouvellement appelés, la question `AJ225`
+déplacée **après** sa note de marge, et deux séparateurs `---` ajoutés.
+
+Le fond : la distinction entre les valeurs limites d'émissions non désirées
+qui s'appliquent aux appareils **construits soi-même ou modifiés** (Verfügung
+33/2007 de la Bundesnetzagentur) et celles qui s'appliquent aux appareils
+**commercialisés dans l'Union** (norme ETSI EN 301783), ces dernières
+dépendant en partie de la puissance d'émission. Exemple chiffré à l'appui :
+$\qty{-50}{\dBc}$ contre $\qty{-60}{\dBc}$ pour un $\qty{5}{\watt}$ en 2 m
+ou 70 cm.
+
+« Verfügung 33/2007 » et « Bundesnetzagentur » restent en allemand, comme le
+faisait déjà la version précédente : ce sont les noms propres d'un texte et
+d'une autorité allemands.
+
+`bfo_2` gagne la glose « (angl. Beat Frequency Oscillator) » et perd son
+pléonasme « oscillateur BFO » → « BFO ». `leistungsvertaerker` n'a demandé
+**aucune retouche française** : l'amont n'y a resserré que son orthographe
+composée (`Parallelschwingkreise`, `Serienkreis`, `Kondensatortypen`…).
+
+### `\dBc` — la deuxième unité jamais déclarée en trois semaines
+
+**C'est le seul défaut de la salve qui empêche de compiler.** L'amont emploie
+`\dBc` six fois dans les paragraphes neufs sans l'avoir jamais déclarée :
+`\dBm` figure au `.sty` amont, `\dBc` non, et l'unité n'apparaît nulle part
+ailleurs dans le corpus. TeX lève « Undefined control sequence » et `latexmk`
+sort en `rc=12` — **la classe A allemande bute donc sur le même écueil.**
+
+C'est la **répétition exacte de `\sample`** (défauts amont §18), quinze jours
+plus tard. Deux unités non déclarées en trois semaines : ce n'est plus un
+accident isolé, c'est un mode de défaillance du corpus amont.
+
+**Décision de Pierre du 04/09/2026 : déclarer**, en v0.28, une ligne dans le
+bloc « unités du build interne absentes des fichiers publics » qui en portait
+déjà sept. L'autre voie a été **mesurée, pas supposée** : écrire l'unité en
+littéral (`$\qty{-50}{dBc}$`) compile aussi, en `rc=0`, et rend le même texte
+au caractère près. Écartée pour ne pas faire diverger six formules du texte
+amont. Détail au §24 de `docs/defauts-amont.md`.
+
+**Ce que ce défaut apprend :** il est **entièrement invisible aux huit
+contrôles du §5**. `verifier_traduction.py` compare nos formules aux siennes et
+les trouve identiques — ce qu'elles sont. Seule une compilation le voit, et
+c'est l'argument le plus net en faveur du **document réduit systématique**
+après chaque resynchronisation. Celui de cette session a coûté une minute et
+a tout attrapé.
+
+### Un dessin forké, deux appelés tels quels
+
+**1139** (`a_etsi_vfg`) forké et francisé : deux libellés d'axes seulement,
+`Frequenz` et `Grenzwert`. « ETSI » et « Vfg. 33/2007 » sont conservés, comme
+« Verfügung 33 » l'est dans la prose. C'est le **117ᵉ** fork de la classe A,
+**229** au total, 644 éléments suivis au manifeste.
+
+**1140** (`a_uagw2`, atténuation en décamétrique) appelé **sans fork**, et
+c'est un choix, pas un oubli : il ne porte que les libellés `1. OW\\2 Harm.`,
+**déjà laissés tels quels dans le 868** et glosés par la légende française
+(« harmoniques supérieures (OW), harmoniques (Harm.) »). Forker le 1140 pour
+traduire ces sigles aurait désaccordé les deux figures du même chapitre.
+
+### Compilation — v0.28, **386 pages, inchangées**
+
+Génération : 148/148 sections, 717 questions, **117 dessins francisés**,
+5 encarts « En France ». **5,41 Mo** après Ghostscript.
+
+Contrôles du §4 : **0 · 0 · 0 · 4** notes de marge rétrogradées (attendu 4),
+**2 références « ?? »** — contexte de chacune lu dans le texte extrait, ce sont
+bien les deux orphelines amont du §8, `a_mehrwegeausbreitung_ionosphäre`
+(ch. 1) et `a_zeppelinantenn` (`antennenformen_3`). `rc=0` sur
+`verifier_questions.py` comme sur `verifier_figures.py` (**290 figures**
+contrôlées, aucune séparée de sa légende).
+
+**Les trois classes sortent à pagination inchangée** — N 262, E 214, A 386 —
+et c'est le résultat le plus surprenant de la journée : les cinq paragraphes
+neufs et les deux figures de `unerwuenschte_aussendungen_3` n'ont coûté
+**aucune page**.
+
+> **Piège de lecture, et je m'y suis laissé prendre une minute.** Le journal
+> affiche successivement « 384 pages », « 386 pages », « 386 pages » : ce sont
+> les **passes de latexmk** qui convergent, pas une progression d'une version
+> à l'autre. La compilation précédente de la classe A affichait exactement la
+> même séquence. **Ne comparer que la dernière ligne de chaque compilation**,
+> jamais une ligne intermédiaire à un total antérieur.
+
+Contenu neuf vérifié dans le PDF, pas seulement au journal : les valeurs
+limites composent « −50 dBc » et « −60 dBc », l'unité v0.28 fonctionne donc
+bout en bout ; la figure ETSI sort en **Fig. 9.29** avec sa légende complète ;
+et les deux axes du 1139 sont bien en français (« Fréquence en MHz »,
+« Valeur limite en dBc »).
+
 ## SESSION 16-17/08/2026 — resynchronisation amont (feuille d'arbitrage nº 5)
 
 Génération : **152/152 sections** (une de moins), 717 questions, **113 dessins

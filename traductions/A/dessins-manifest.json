@@ -179,6 +179,11 @@
     "note": "",
     "sha256_amont": "f02a9c9af5709eb194737af4f763b8384dc350e8588e592d8231077c0727c42a"
   },
+  "1139": {
+    "date_fork": "2026-09-04",
+    "note": "Fork et francisation, Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
+    "sha256_amont": "98790419c43523d758e9fc785a4747f7811bfcd12ece97d662ef79950a133259"
+  },
   "153": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
