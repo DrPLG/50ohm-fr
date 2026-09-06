@@ -197,6 +197,95 @@ DEROGATIONS = {
         "[morse:ß] ajouté à la table du code Morse (correction livrée en a.2) ; "
         "décale d'un rang tous les marqueurs suivants, d'où l'écart de "
         "marqueurs signalé sur toute la fin de la section",
+
+    # ------------------------------------------------------------------
+    # Vérifiées une par une le 06/09/2026, décision de Pierre. Elles ne
+    # sont PAS des relâchements de contrôle : chacune a été ouverte, lue
+    # et comparée à l'amont avant d'être inscrite ici.
+    #
+    # ATTENTION, et c'est le prix à payer : une dérogation couvre la
+    # section ENTIÈRE. Si l'amont réécrit demain l'une de celles-ci,
+    # verifier_traduction.py se taira. C'est verifier_amont.py qui reste
+    # l'oracle de ce cas-là, par empreinte — les deux outils sont
+    # complémentaires et aucun ne remplace l'autre (CLAUDE.md §5).
+    # ------------------------------------------------------------------
+
+    # L'amont écrit I_{Gemessen} SANS \text{} alors que P_\text{Gemessen} et
+    # U_\text{Gemessen} en ont un, sur la même ligne. Sans \text, les trois
+    # lettres de l'indice sont composées en italique mathématique, chacune
+    # traitée comme une variable : mesuré dans le PDF de la classe A, où la
+    # ligne sortait « P(mes) = U(mes) · I m e s ». Nous écrivons I_\text{mes},
+    # cohérent avec ses deux voisins. La traduction Gemessen -> mes et
+    # Wahr -> vrai est, elle, prescrite par le §6.
+    ("A", "strom_spannung_messung_3"):
+        "I_{Gemessen} amont sans \\text{} rendu I_\\text{mes} : sans \\text, "
+        "l'indice compose en italique mathématique, à côté de P_\\text{mes} et "
+        "U_\\text{mes} qui sont en romain (defauts-amont.md §25)",
+
+    # Table de conversion dB -> rapport de puissance et de tension, ajoutée
+    # côté français dans un <tip>. Complément PÉDAGOGIQUE, non national : le
+    # §7 réserve <france> aux compléments nationaux. Même traitement que
+    # A/transverter_2, tranché le 20/08/2026.
+    ("A", "effektive_strahlungsleistung_erp_2"):
+        "table de conversion dB -> rapport ajoutée dans un <tip> : complément "
+        "pédagogique, non national — le §7 réserve <france> aux compléments "
+        "nationaux (même traitement que transverter_2)",
+
+    # --- Germanismes : onze citations VOLONTAIRES, vérifiées en contexte ---
+    # La sonde du §5 ne peut pas distinguer un germanisme résiduel d'un terme
+    # allemand cité à dessein. Les onze ci-dessous sont du second type.
+    ("N", "ausgangsleistung"):
+        "« Maximale Leistung » cité entre guillemets : libellé de la colonne "
+        "d'un tableau réglementaire allemand, glosé « (puissance maximale) »",
+    ("N", "q_schluessel"):
+        "« große Leistung » cité : le moyen mnémotechnique des codes Q repose "
+        "sur le mot allemand (même cas que SWL/swl_q_gruppen)",
+    ("N", "besondere_anlaesse"):
+        "« der » dans un nom propre allemand cité",
+    ("N", "gefahren"):
+        "« Verband der Elektrotechnik Elektronik und Informationstechnik » : "
+        "nom officiel de l'association allemande VDE, cité en entier",
+    ("N", "gesetze_vorschriften"):
+        "« den », « über » dans des intitulés officiels allemands cités",
+    ("N", "zulassung"):
+        "« Zulassung zur Teilnahme am Amateurfunkdienst » : nom officiel de "
+        "l'autorisation allemande, cité en entier",
+    ("E", "spannungsquelle"):
+        "« Verband der Elektrotechnik Elektronik und Informationstechnik » : "
+        "nom officiel du VDE, cité en entier",
+    ("E", "moegel_dellinger_effekt"):
+        "« der » dans un nom propre allemand cité",
+    # N_Ende est du contenu FRANÇAIS d'origine, pas une traduction : « der » et
+    # « werden » y sont dans des URL du DARC (darc.de/der-club/distrikte/,
+    # darc.de/mitgliedschaft/mitglied-werden/).
+    ("N", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+    ("E", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+    ("A", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+
+    # --- Ajouts pédagogiques français, vérifiés le 06/09/2026 ---
+    # Aucun ne retire ni ne réécrit l'amont : ils l'explicitent.
+    ("N", "analog_vs_digital"):
+        "« $0\\%$ et $100\\%$ de l'amplitude maximale » explicité côté "
+        "français : l'amont dit « deux paliers » sans les chiffrer",
+    ("E", "naeherungsformel_1"):
+        "condition du champ proche réactif ($d \\le \\lambda/2\\pi$) "
+        "explicitée côté français, en regard du $d > \\lambda/2\\pi$ amont",
+    ("A", "personenschutzabstand_3"):
+        "corrigés développés de source française (§6) : 162 lignes contre 30 "
+        "en amont, qui ne porte AUCUN indice dans cette section — les "
+        "P_\\mathrm{S}, P_\\mathrm{EIRP}, G_\\mathrm{i} et g_\\mathrm{d} "
+        "sont notre notation, non un verbatim amont à préserver",
+    ("A", "am_2"):
+        "deux traductions légitimes : $\\hat{U}_\\mathrm{T}$ (Träger) rendu "
+        "$\\hat{U}_\\mathrm{p}$ (porteuse), indice manifestement allemand "
+        "(§6) ; et la légende du dessin 28 rend « $> 100\\%$ » par « supérieur "
+        "à $100\\%$ », plus lisible en français",
 }
 
 

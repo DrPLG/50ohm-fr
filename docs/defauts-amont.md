@@ -1004,3 +1004,50 @@ et il est entièrement invisible aux contrôles du § 5 — `verifier_traduction
 compare nos formules aux siennes et les trouve identiques, ce qu'elles sont.
 **Seule une compilation le voit**, et c'est l'argument le plus net en faveur du
 document réduit systématique après chaque resynchronisation.
+
+## 25. Indices sans `\mathrm` ni `\text` — l'italique mathématique, lettre à lettre
+
+**Constaté le** 06/09/2026, en examinant les écarts résiduels de
+`verifier_traduction.py`. Défaut **visible dans le PDF**, mais discret : il ne
+lève aucune erreur, aucun avertissement.
+
+Un indice de plusieurs lettres écrit `X_{abc}` — sans `\mathrm` ni `\text` —
+est composé en **italique mathématique**, chaque lettre traitée comme une
+variable distincte, avec l'espacement mathématique qui va avec. Écrit
+`X_\mathrm{abc}`, il sort en romain, serré, comme un indice doit l'être.
+
+L'amont mélange les deux **sur la même ligne**, ce qui rend le défaut évident
+une fois qu'on le cherche :
+
+| section | ligne amont |
+| --- | --- |
+| `strom_spannung_messung_3` | `$P_\text{Gemessen}=U_\text{Gemessen} \cdot I_{Gemessen}$` |
+| `spitze_effektiv_wert` | `U_\text{eff}` une fois, `U_{eff}` deux fois |
+
+Mesuré dans le PDF de la classe A, la première ligne sortait :
+
+```
+𝑃mes = 𝑈mes ⋅ 𝐼𝑚𝑒𝑠
+```
+
+— les trois lettres de l'indice du `I` en italique, quand celles du `P` et du
+`U` sont en romain.
+
+**Nos deux traitements diffèrent, et la différence tient au §8.**
+
+- `strom_spannung_messung_3` : **corrigé** en `I_\text{mes}`. Nous traduisions
+  déjà l'indice (`Gemessen` → `mes`, `Wahr` → `vrai`, abréviations prescrites
+  par le §6) — le verbatim était donc rompu de toute façon, et ajouter `\text`
+  ne fait que rétablir la cohérence de notre propre ligne. Dérogation inscrite.
+- `spitze_effektiv_wert` : **préservé tel quel**. « eff » s'écrit pareil dans
+  les deux langues, nous n'avons rien traduit, le verbatim tient. Le corriger
+  reviendrait à corriger silencieusement un défaut amont, ce que le §8
+  interdit. **Le défaut reste donc visible dans le livre français comme dans
+  l'allemand** — c'est un choix, pas un oubli.
+
+**Portée mesurée avant d'écrire la règle**, sur les 412 sections traduites :
+**deux** sections seulement portent un indice de trois lettres ou plus sans
+`\mathrm` ni `\text`, et ce sont ces deux-là. Le corpus n'est pas
+massivement touché.
+
+**Côté allemand, les deux défauts demeurent.** À signaler.

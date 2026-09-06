@@ -17,7 +17,7 @@ La figure [ref:e_frequenzmodulation_frequenzhub] montre à titre d'exemple un si
 </margin>
 
 <indepth>
-La largeur de bande occupée par une émission FM est déterminée par l'excursion et par la fréquence de modulation maximale. En première approximation, pour une faible excursion et une fréquence de modulation basse, on peut appliquer la *formule de Carson*. Elle indique dans quelle largeur de bande se trouvent $\qty{90}{\percent}$ de la puissance d'émission.
+La largeur de bande occupée par une émission FM est déterminée par l'excursion et par la fréquence de modulation maximale. En première approximation, pour une faible excursion et une fréquence de modulation basse, on peut appliquer la *formule de Carson*. Elle indique dans quelle largeur de bande se trouvent $\qty{99}{\percent}$ de la puissance d'émission.
 
 $B\approx2 \cdot \left(\Delta f_{\textrm{T}} + f_{\textrm{mod max}} \right)$
   

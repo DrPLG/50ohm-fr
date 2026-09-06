@@ -14,7 +14,7 @@ L'origine de beaucoup d'abréviations remonte à la télégraphie Morse. L'abré
 [table:n_abkuerzungen:Récapitulatif des abréviations]
 </webmargin>
 
-Le radioamateurisme est né aux États-Unis. C'est pourquoi beaucoup de nos termes techniques viennent de l'anglais américain, par exemple Transmitter au lieu d'émetteur et Receiver au lieu de récepteur. Le Transmitter s'abrège TX, le Receiver RX et le Émetteur-récepteur — l'émetteur-récepteur — TRX.
+Le radioamateurisme est né aux États-Unis. C'est pourquoi beaucoup de nos termes techniques viennent de l'anglais américain, par exemple Transmitter au lieu d'émetteur et Receiver au lieu de récepteur. Le Transmitter s'abrège TX, le Receiver RX et le Transceiver — l'émetteur-récepteur — TRX.
 
 [question:BB106]
 
