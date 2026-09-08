@@ -279,8 +279,11 @@ DEROGATIONS = {
     ("A", "personenschutzabstand_3"):
         "corrigés développés de source française (§6) : 162 lignes contre 30 "
         "en amont, qui ne porte AUCUN indice dans cette section — les "
-        "P_\\mathrm{S}, P_\\mathrm{EIRP}, G_\\mathrm{i} et g_\\mathrm{d} "
-        "sont notre notation, non un verbatim amont à préserver",
+        "P_\\mathrm{Sender}, P_\\mathrm{A}, P_\\mathrm{EIRP}, G_\\mathrm{i} et "
+        "g_\\mathrm{d} sont notre notation, non un verbatim amont à préserver. "
+        "Uniformisée le 06/09/2026 (décision de Pierre) : P_\\mathrm{S} était "
+        "ambigu — il désigne le Signal dans A/shannon_hartley_gesetzt, au "
+        "sommaire du même livre — et P_A y coexistait avec P_\\mathrm{A}",
     ("A", "am_2"):
         "deux traductions légitimes : $\\hat{U}_\\mathrm{T}$ (Träger) rendu "
         "$\\hat{U}_\\mathrm{p}$ (porteuse), indice manifestement allemand "

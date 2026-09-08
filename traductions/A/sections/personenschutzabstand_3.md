@@ -6,7 +6,7 @@ Comme des mesures et des simulations se prêtent mal à un examen écrit, les qu
 
 [question:AK106]
 
-Pour le calcul, on a besoin de la puissance d'émission ($P_\mathrm{S}$), du facteur de gain de l'antenne rapporté au radiateur isotrope ($G_\mathrm{i} = 1,64$) et de la valeur limite de l'intensité de champ $(E = \qty{28}{\volt\per\meter})$ dans le champ lointain d'une antenne. La longueur d'onde ($\qty{10}{\meter}$) n'est indiquée que pour déterminer le début du champ lointain.
+Pour le calcul, on a besoin de la puissance d'émission ($P_\mathrm{Sender}$), du facteur de gain de l'antenne rapporté au radiateur isotrope ($G_\mathrm{i} = 1,64$) et de la valeur limite de l'intensité de champ $(E = \qty{28}{\volt\per\meter})$ dans le champ lointain d'une antenne. La longueur d'onde ($\qty{10}{\meter}$) n'est indiquée que pour déterminer le début du champ lointain.
 
 $\begin{split} d &=\dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{A} \cdot G_\mathrm{i}}}{E}\\ d &=\dfrac{\sqrt{\qty{30}{\ohm} \cdot \qty{100}{\watt} \cdot 1,64}}{\qty{28}{\volt\per\meter}}\\ d &\approx \qty{2,50}{\meter}\end{split}$
 
@@ -22,7 +22,7 @@ Cette question ressemble à la précédente. Ici, il faut en plus tenir compte d
 
 Il est judicieux de calculer d'abord l'EIRP.
 
-$P_\mathrm{EIRP} = P_\mathrm{S} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}$
+$P_\mathrm{EIRP} = P_\mathrm{Sender} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}$
 Pour une antenne directive, la valeur de $g_\mathrm{d}$ doit être indiquée. Un simple dipôle n'a de gain que par rapport à un radiateur isotrope. Ici, $g_\mathrm{d} = \qty{0}{\dBd}$.
 $\begin{split}P_\mathrm{EIRP} &= \qty{300}{\watt}\cdot {10^\dfrac{\qty{0}{\dBd} −  \qty{0,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{300}{\watt}\cdot {10^\dfrac{\qty{1,65}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{300}{\watt}\cdot {10^{0,165}}\\ P_\mathrm{EIRP} &\approx \qty{438,65}{\watt}\end{split}$
 
@@ -39,7 +39,7 @@ La distance de sécurité de $\qty{4,10}{\meter}$ se situe ici aussi dans le cha
 [question:AK109]
 
 On peut procéder exactement comme pour la question précédente.
-$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{S} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^\dfrac{\qty{0}{\dBd} −  \qty{0,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^\dfrac{\qty{1,65}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^{0,165}}\\ P_\mathrm{EIRP} &\approx \qty{1023,52}{\watt}\end{split}$
+$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{Sender} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^\dfrac{\qty{0}{\dBd} −  \qty{0,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^\dfrac{\qty{1,65}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{700}{\watt}\cdot {10^{0,165}}\\ P_\mathrm{EIRP} &\approx \qty{1023,52}{\watt}\end{split}$
 
 $\begin{split} d & =\dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{EIRP}}}{E}\\ d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot \qty{1023,52}{\watt}}} {\qty{28}{\volt\per\meter}}\\ d &\approx \qty{6,26}{\meter}\end{split}$
 
@@ -47,7 +47,7 @@ $\begin{split} d & =\dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{EIRP}}}{E}\\ d &
 
 Ici, la distance de sécurité doit être calculée pour une antenne directive. Le gain vaut $g_\mathrm{d} = \qty{11,5}{\dBd}$.
 
-$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{S} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^\dfrac{\qty{11,5}{\dB} −  \qty{1,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^\dfrac{\qty{12,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^{1,215}}\\ P_\mathrm{EIRP} &\approx \qty{1230,44}{\watt}\end{split}$
+$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{Sender} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^\dfrac{\qty{11,5}{\dB} −  \qty{1,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^\dfrac{\qty{12,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{75}{\watt}\cdot {10^{1,215}}\\ P_\mathrm{EIRP} &\approx \qty{1230,44}{\watt}\end{split}$
 
 $\begin{split} d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{EIRP}}}{E}\\ d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot \qty{1230,44}{\watt}}} {\qty{28}{\volt\per\meter}}\\ d &\approx \qty{6,86}{\meter}\end{split}$
 
@@ -61,7 +61,7 @@ La distance de sécurité de $\qty{6,86}{\meter}$ se situe ici aussi dans le cha
 
 La démarche est analogue à celle de la question précédente.
 
-$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{S} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^\dfrac{\qty{10,5}{\dBd} −  \qty{1,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^\dfrac{\qty{11,15}{\dBd}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^{1,115}}\\ P_\mathrm{EIRP} &\approx \qty{1303,17}{\watt}\end{split}$
+$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{Sender} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^\dfrac{\qty{10,5}{\dBd} −  \qty{1,5}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^\dfrac{\qty{11,15}{\dBd}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{100}{\watt}\cdot {10^{1,115}}\\ P_\mathrm{EIRP} &\approx \qty{1303,17}{\watt}\end{split}$
 
 $\begin{split} d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{EIRP}}}{E}\\ d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot \qty{1303,17}{\watt}}} {\qty{28}{\volt\per\meter}}\\ d &\approx \qty{7,1}{\meter}\end{split}$
 
@@ -71,7 +71,7 @@ La distance de sécurité de $\qty{7,1}{\meter}$ se situe ici aussi dans le cham
 
 La bande des $\qty{13}{\centi\meter}$ s'étend de $\qtyrange{2320}{2450}{\mega\hertz}$. Pour la gamme de fréquences $\qtyrange{2000}{300000}{\mega\hertz}$, la valeur limite de l'intensité de champ électrique est $\qty{61}{\volt\per\meter}$.
 
-$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{S} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^\dfrac{\qty{18}{\dBd} −  \qty{2}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^\dfrac{\qty{18,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^{1,815}}\\ P_\mathrm{EIRP} &\approx \qty{2612,52}{\watt}\end{split}$
+$\begin{split} P_\mathrm{EIRP} &= P_\mathrm{Sender} \cdot {10^\dfrac{g_\mathrm{d}  −  a  +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^\dfrac{\qty{18}{\dBd} −  \qty{2}{\dB} +  \qty{2,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^\dfrac{\qty{18,15}{\dB}}{\qty{10}{\dB}}}\\ P_\mathrm{EIRP} &= \qty{40}{\watt}\cdot {10^{1,815}}\\ P_\mathrm{EIRP} &\approx \qty{2612,52}{\watt}\end{split}$
 
 $\begin{split} d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot P_\mathrm{EIRP}}}{E}\\ d &= \dfrac{\sqrt{\qty{30}{\ohm} \cdot \qty{2612,52}{\watt}}} {\qty{61}{\volt\per\meter}}\\ d &\approx \qty{4,6}{\meter}\end{split}$
 
@@ -97,7 +97,7 @@ Le § 8 de la BEMFV établit entre autres que la distance de sécurité liée au
 Dans la puissance rayonnée intervient, outre la puissance d'émission, le gain d'antenne exprimé en $\unit{\dBi}$. Il est indiqué $\qty{6}{\dBd}$. Rapporté au radiateur isotrope, cela fait $\qty{6}{\dBd} + \qty{2,15}{\dB}$. Il en résulte un facteur de gain de $G_i = 4 \cdot 1,64 = 6,56$.
 
 La puissance d'émission maximale peut maintenant être déterminée. Pour cela, il faut réarranger la formule de l'intensité de champ dans le champ lointain d'une antenne :
-$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_A\cdot G_i}}{d}\\ E \cdot d &= \sqrt{\qty{30}{\ohm}\cdot P_A\cdot G_i}\\ E^2 \cdot d^2 &= \qty{30}{\ohm}\cdot P_A\cdot G_i\\ \dfrac{E^2 \cdot d^2}{\qty{30}{\ohm}\cdot G_i} &= P_A\\ P_A &= \dfrac{E^2 \cdot d^2}{\qty{30}{\ohm}\cdot G_i}\\ P_A &= \qty{\dfrac{28^2 \cdot 5^2}{30 \cdot 6,56}}{\watt}\\ P_A &\approx \qty{99,59}{\watt}\end{split}$
+$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i}}{d}\\ E \cdot d &= \sqrt{\qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i}\\ E^2 \cdot d^2 &= \qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i\\ \dfrac{E^2 \cdot d^2}{\qty{30}{\ohm}\cdot G_i} &= P_\mathrm{A}\\ P_\mathrm{A} &= \dfrac{E^2 \cdot d^2}{\qty{30}{\ohm}\cdot G_i}\\ P_\mathrm{A} &= \qty{\dfrac{28^2 \cdot 5^2}{30 \cdot 6,56}}{\watt}\\ P_\mathrm{A} &\approx \qty{99,59}{\watt}\end{split}$
 La puissance d'émission doit être limitée à env. $\qty{100}{\watt}$.
 
 Par simple sécurité, l'équation aux dimensions. Le résultat a pour unité le watt.
@@ -113,36 +113,36 @@ Pour le calcul de l'intensité de champ électrique, on a besoin de la puissance
 
 [question:AK113]
 
-$P_A$, puissance au point d'alimentation : $\qty{250}{\watt}$ (pas de câble, alimentation directe)
+$P_\mathrm{A}$, puissance au point d'alimentation : $\qty{250}{\watt}$ (pas de câble, alimentation directe)
 
 $G_i$, facteur de gain : $\qty{12,15}{\dBi}$ ou $\qty{10}{\dBi}$ et $\qty{2,15}{\dBi}$, ce qui correspond aux facteurs $10 \cdot 1,64 = 16,4$
 
 $d$, distance : $\qty{30}{\meter}$
 
 La formule ne vaut que pour le champ lointain. On peut le vérifier avec $d > \dfrac{\lambda}{2 \cdot \pi}$.
-$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_A\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{250}{\watt}\cdot 16,4}}{\qty{30}{\meter}}\\ E &\approx \qty{11,7}{\volt\per\meter}\end{split}$
+$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{250}{\watt}\cdot 16,4}}{\qty{30}{\meter}}\\ E &\approx \qty{11,7}{\volt\per\meter}\end{split}$
 
 [question:AK114]
 
-$P_A$, puissance au point d'alimentation : $\qty{10}{\watt}$ (pas de câble, alimentation directe)
+$P_\mathrm{A}$, puissance au point d'alimentation : $\qty{10}{\watt}$ (pas de câble, alimentation directe)
 
 $G_i$, facteur de gain : $\qty{2,15}{\dBi}$, ce qui correspond au facteur $\num{1,64}$ (dipôle comme antenne)
 
 $d$, distance : $\qty{10}{\meter}$
 
 La formule ne vaut que pour le champ lointain. On peut le vérifier avec $ d > \dfrac{\lambda}{2 \cdot \pi}$.
-$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_A\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{10}{\watt}\cdot 1,64}}{\qty{10}{\meter}}\\ E &\approx \qty{2,2}{\volt\per\meter}\end{split}$
+$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{10}{\watt}\cdot 1,64}}{\qty{10}{\meter}}\\ E &\approx \qty{2,2}{\volt\per\meter}\end{split}$
 
 [question:AK115]
 
-$P_A$, puissance au point d'alimentation : $\qty{100}{\watt}$ (puissance rayonnée en ERP)
+$P_\mathrm{A}$, puissance au point d'alimentation : $\qty{100}{\watt}$ (puissance rayonnée en ERP)
 
 $G_i$, facteur de gain : $\qty{2,15}{\dBi}$, ce qui correspond au facteur $\num{1,64}$ (puissance rayonnée en ERP, facteur pour l'EIRP)
 
 $d$, distance : $\qty{100}{\meter}$
 
 La formule ne vaut que pour le champ lointain. On peut le vérifier avec $ d > \dfrac{\lambda}{2 \cdot \pi}$.
-$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_A\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{100}{\watt}\cdot 1,64}}{\qty{100}{\meter}}\\ E &\approx \qty{0,7}{\volt\per\meter}\end{split}$
+$\begin{split}E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot P_\mathrm{A}\cdot G_i}}{d}\\ E &= \dfrac{\sqrt{\qty{30}{\ohm}\cdot \qty{100}{\watt}\cdot 1,64}}{\qty{100}{\meter}}\\ E &\approx \qty{0,7}{\volt\per\meter}\end{split}$
 
 <france>
 # Le calcul reste le même, le dossier n'existe pas

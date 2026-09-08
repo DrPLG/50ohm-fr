@@ -15,7 +15,31 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.28
+Version du script : v0.29
+    v0.29 — la PAGE DE TITRE suit le format du papier (décision de Pierre,
+            06/09/2026, en vue du test de la classe E en 20 x 24).
+            La v0.23 avait rendu la maquette paramétrable, mais la couverture
+            était restée cotée en absolu : cinq décalages verticaux (3,5 cm,
+            4,2 cm, 2 cm, 1,6 cm, 1,5 cm) et six corps de police (220, 150,
+            140, 56, 58, 10 pt). Sur une page 19 % plus courte, tout remontait.
+            *Mesuré sur le PDF N en 20 x 24, pixel par pixel :* le filigrane
+            gardait ses 85 mm et passait de 29 % à 35 % de la hauteur, sa
+            position glissant de 29,7-58,3 % à 24,7-60,3 %. Le jeu à gauche
+            dans le bandeau tombait de 11,6 à 8,5 mm. **Il ne débordait pas** —
+            l'impression contraire, tirée d'un simple coup d'œil, était fausse.
+            Les décalages passent en fractions de \paperheight, les corps en
+            fractions de \paperwidth. Après correction, la classe E en 20 x 24
+            place son filigrane à 28,1-58,7 % contre 29,7-58,3 % en A4.
+            *Piège de calage :* les coefficients sont calés sur le point TeX
+            (1 pt = 1/72,27 in), donc \paperwidth vaut 597,50787 pt en A4 et
+            non 595,28 — l'erreur aurait décalé le filigrane de 0,8 pt.
+            *Neutralité PROUVÉE, pas supposée :* couverture A4 compilée avant
+            et après, rendue à 150 dpi et comparée octet par octet —
+            6 524 950 octets identiques.
+            *Piège rencontré, et il a d'abord fait conclure à un désastre :*
+            une page `remember picture, overlay` exige DEUX passes. À la
+            première, le bandeau et le pied de page sortent n'importe où. La
+            comparaison de neutralité elle-même en souffrait.
     v0.28 — `\DeclareSIUnit{\dBc}{dBc}` (décision de Pierre, 04/09/2026).
             L'amont emploie `\dBc` six fois dans `unerwuenschte_aussendungen_3`,
             réécrite le 03/09, sans l'avoir jamais déclarée : `\dBm` figure au
@@ -1609,18 +1633,23 @@ MASTER_HEADER_FR = r"""\documentclass{FiftyOhmBook}
 	% l'horizontale, plusieurs s'empilent (cf. v0.20).
 	@WATERMARK@
 	% Bloc-titre dans la zone claire (2/3 gauche)
+	% v0.29 — cotes verticales en fractions de \paperheight et corps de police
+	% en fractions de \paperwidth. En A4 les coefficients redonnent EXACTEMENT
+	% les valeurs d'origine (4,2 cm, 56 pt, 58 pt, 10 pt) : ils sont calés sur
+	% le point TeX (1 pt = 1/72,27 in), donc \paperwidth = 597,50787 pt et non
+	% 595,28 — l'erreur aurait décalé le filigrane de 0,8 pt.
 	\node[anchor=west, align=left, text width=0.55\paperwidth]
-		at ($(current page.west)+(0.09\paperwidth,4.2cm)$)
-		{{\fontsize{56}{58}\selectfont\bfseries 50\,Ohm}\\[10pt]
+		at ($(current page.west)+(0.09\paperwidth,0.1414141\paperheight)$)
+		{{\fontsize{0.0937226\paperwidth}{0.0970699\paperwidth}\selectfont\bfseries 50\,Ohm}\\[0.0167362\paperwidth]
 		 {\Large\color{TitleBand}\bfseries Préparation à l'examen radioamateur}};
 	% Titre de l'ouvrage, sur le bandeau foncé, texte blanc
 	\node[anchor=east, align=right, text=white, text width=0.30\paperwidth,
 		font=\Large\bfseries]
-		at ($(current page.east)+(-0.02\paperwidth,-2cm)$)
+		at ($(current page.east)+(-0.02\paperwidth,-0.0673401\paperheight)$)
 		{@TITLE@};
 	% Pied de page : source, licence, date (zone claire, bas de page)
 	\node[anchor=south west, align=left, font=\small, text=black!70]
-		at ($(current page.south west)+(0.09\paperwidth,1.6cm)$)
+		at ($(current page.south west)+(0.09\paperwidth,0.0538721\paperheight)$)
 		{Réalisé à partir des contenus de 50ohm.de (en allemand)\\
 		 50ohm.de-Autorenteam, coordonné par le référat AJW du DARC e.\,V.\\
 		 Traduit avec l'aide d'une IA par Pierre F4JWI\\[2pt]
@@ -2295,18 +2324,30 @@ def main():
         #
         # Décision de Pierre du 15/08/2026, sur épreuve : trois dispositions
         # ont été composées et comparées (à plat, pivotée à 90°, empilée).
+        # v0.29 — le filigrane suit le papier. Son corps est une fraction de
+        # \paperwidth (il doit tenir dans un bandeau qui vaut 0,34 de cette
+        # largeur) et sa cote verticale une fraction de \paperheight. En A4 les
+        # coefficients redonnent exactement 220 pt / 3,5 cm et 150 pt / 1,5 cm.
+        #
+        # Sans cela, le filigrane gardait sa taille absolue dans une page 19 %
+        # plus courte : mesuré sur le PDF N en 20 x 24, il passait de 29 % à
+        # 35 % de la hauteur et le jeu à gauche dans le bandeau tombait de
+        # 11,6 à 8,5 mm. Il ne débordait pas — vérifié pixel par pixel — mais
+        # la maquette 2/3-1/3 s'en trouvait déséquilibrée.
         if len(lettres) == 1:
             watermark = (
                 r"\node[anchor=east, text=white!22, "
-                r"font=\fontsize{220}{220}\selectfont\bfseries]" "\n"
-                r"		at ($(current page.east)+(-0.02\paperwidth,3.5cm)$) "
+                r"font=\fontsize{0.3681960\paperwidth}{0.3681960\paperwidth}"
+                r"\selectfont\bfseries]" "\n"
+                r"		at ($(current page.east)+(-0.02\paperwidth,0.1178451\paperheight)$) "
                 f"{{{lettres}}};")
         else:
             empilees = r"\\".join(lettres)
             watermark = (
                 r"\node[anchor=north, align=center, text=white!22, "
-                r"font=\fontsize{150}{140}\selectfont\bfseries]" "\n"
-                r"		at ($(current page.north east)+(-0.17\paperwidth,-1.5cm)$) "
+                r"font=\fontsize{0.2510427\paperwidth}{0.2343065\paperwidth}"
+                r"\selectfont\bfseries]" "\n"
+                r"		at ($(current page.north east)+(-0.17\paperwidth,-0.0505051\paperheight)$) "
                 f"{{{empilees}}};")
         header = header.replace("@WATERMARK@", watermark)
         header = header.replace("@VERSION@", args.version_label)
