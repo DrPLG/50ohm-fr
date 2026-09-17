@@ -121,6 +121,14 @@
 % même (200 x 240 mm).
 \providecommand{\Format}{a4}
 
+% Reliure : « souple » (dos carré collé, fond perdu 3 mm) ou « rigide »
+% (couverture rigide, dite hardcover). En rigide, consignes de l'imprimeur
+% du 17/09/2026 : chaque plat déborde du livre de 5 mm en largeur et en
+% hauteur (le carton dépasse du bloc), et le fichier porte 15 mm de rabat
+% autour du carton au lieu de 3 mm de fond perdu. Les aplats vont déjà au
+% bord du papier : ils remplissent le rabat d'eux-mêmes.
+\providecommand{\Reliure}{souple}
+
 % Pagination et version imposées de l'extérieur. Vides = tables du § 2.
 % La fenêtre les renseigne toujours : la pagination vient du journal du
 % livre réellement compilé, dans le format demandé.
@@ -155,12 +163,22 @@
 % Écarts que cela recouvre, pour mémoire : une main de 1,0 donnerait
 % 11,61 mm pour N, une main de 1,3 en donnerait 16,77. Il ne fallait pas
 % deviner.
+%  E   — 17 mm, VALEUR DONNÉE PAR L'IMPRIMEUR le 17/09/2026 pour 276 pages,
+%        20 x 24, couverture RIGIDE, reliure collée (Klebebindung), papier
+%        115 g. En reliure cousue (Fadenheftung), il annonce 18 mm.
+%
+% \DosImposeReliure<classe> : la reliure pour laquelle la valeur a été
+% donnée. Le dos d'une couverture rigide n'est pas celui d'un dos carré
+% collé souple, même à pagination égale.
 \def\DosImposeN{14}   \def\DosImposePagesN{258}  \def\DosImposeFormatN{a4}
-\def\DosImposeE{0}    \def\DosImposePagesE{0}    \def\DosImposeFormatE{}
+\def\DosImposeE{17}   \def\DosImposePagesE{276}  \def\DosImposeFormatE{20x24-marge}
 \def\DosImposeA{0}    \def\DosImposePagesA{0}    \def\DosImposeFormatA{}
 \def\DosImposeNE{0}   \def\DosImposePagesNE{0}   \def\DosImposeFormatNE{}
 \def\DosImposeEA{0}   \def\DosImposePagesEA{0}   \def\DosImposeFormatEA{}
 \def\DosImposeNEA{0}  \def\DosImposePagesNEA{0}  \def\DosImposeFormatNEA{}
+\def\DosImposeReliureN{souple}  \def\DosImposeReliureE{rigide}
+\def\DosImposeReliureA{souple}  \def\DosImposeReliureNE{souple}
+\def\DosImposeReliureEA{souple} \def\DosImposeReliureNEA{souple}
 
 % Fond perdu, en mm. 3 mm est la valeur courante ; certains imprimeurs
 % demandent 5 mm.
@@ -281,6 +299,7 @@ notion, avec leurs réponses.%
 \@resoudre\DosImpose{DosImpose}
 \@resoudre\DosImposePages{DosImposePages}
 \@resoudre\DosImposeFormat{DosImposeFormat}
+\@resoudre\DosImposeReliure{DosImposeReliure}
 \@resoudre\Version{Version}
 
 % Valeurs imposées de l'extérieur. Test de vacuité par \detokenize : il ne
@@ -307,6 +326,17 @@ notion, avec leurs réponses.%
     {Valeurs admises : a4, 20x24, 20x24-marge.}%
   \def\PageLargeur{210}\def\PageHauteur{297}
 \fi\fi\fi
+% Reliure. Hors de « souple » et « rigide » : erreur, pas de supposition.
+\def\@reliuresouple{souple}
+\def\@reliurerigide{rigide}
+\ifx\Reliure\@reliurerigide
+  \edef\PageLargeur{\fpeval{\PageLargeur + 5}}
+  \edef\PageHauteur{\fpeval{\PageHauteur + 5}}
+  \def\FondPerdu{15}
+\else\ifx\Reliure\@reliuresouple\else
+  \PackageError{couverture}{Reliure \Reliure\space inconnue}%
+    {Valeurs admises : souple, rigide.}%
+\fi\fi
 \makeatother
 
 % Garde-fou : une édition jamais produite n'a pas de couverture.
@@ -314,6 +344,13 @@ notion, avec leurs réponses.%
   \PackageError{couverture}{L'edition \Classe\space n'a pas de pagination}%
     {Cette edition n'a jamais ete compilee. Renseigner \string\Donnees\Classe
      ou passer \string\PagesForcees.}%
+\fi
+
+% Avertissement : l'imprimeur demande un nombre de pages multiple de 4
+% (17/09/2026). Pas une erreur : c'est son exigence, pas une loi du papier.
+\ifnum\fpeval{\NbPages - 4*floor(\NbPages/4)}=0 \else
+  \typeout{COUVERTURE-AVERTISSEMENT \NbPages\space pages : pas un multiple
+    de 4, que l'imprimeur exige -- ajouter des pages a l'interieur}%
 \fi
 
 % Garde-fou : un dos carré collé impose un nombre de pages pair.
@@ -334,20 +371,24 @@ notion, avec leurs réponses.%
 \ifnum\fpeval{\DosImpose > 0}=1
   \ifnum\fpeval{\NbPages = \DosImposePages}=1
     \ifx\Format\DosImposeFormat
-      \def\DosOrigine{imposee}
+      \ifx\Reliure\DosImposeReliure
+        \def\DosOrigine{imposee}
+      \fi
     \fi
   \fi
   \def\MotCalculee{calculee}
   \ifx\DosOrigine\MotCalculee
     \typeout{COUVERTURE-AVERTISSEMENT dos impose de \DosImpose\space mm
-      donne pour \DosImposePages\space pages en \DosImposeFormat\space --
-      inapplicable a \NbPages\space pages en \Format, dos calcule}%
+      donne pour \DosImposePages\space pages en \DosImposeFormat\space
+      (reliure \DosImposeReliure) -- inapplicable a \NbPages\space pages en
+      \Format\space (reliure \Reliure), dos calcule}%
   \fi
 \fi
 % NB : pas de \@ dans ces noms. Cette section est hors \makeatletter, et
 % « \def\@imposee{...} » y redéfinit \@ (suivi du texte « imposee ») : le
 % test échouait toujours, en silence. Constaté le 16/09/2026 — le dos de N
 % tombait juste par coïncidence, 14,0 mm calculés pour 14 imposés.
+\def\MotRigide{rigide}
 \def\MotImposee{imposee}
 \ifx\DosOrigine\MotImposee
   \edef\Dos{\DosImpose}
@@ -401,6 +442,10 @@ notion, avec leurs réponses.%
 \edef\BandeauAccent{\fpeval{\BandeauG - 0.7}}
 \edef\DosAccentG{\fpeval{\DosG - 0.7}}
 \edef\DosAccentD{\fpeval{\DosD + 0.7}}
+% Couverture rigide : le bleu du dos déborde de 2 mm sur chaque plat, pour
+% absorber la tolérance de l'imprimeur sur l'épaisseur du dos (±10 %).
+\edef\DosEtenduG{\fpeval{\DosG - 2}}
+\edef\DosEtenduD{\fpeval{\DosD + 2}}
 
 % Filigrane de classe.
 \edef\FiligraneX{\fpeval{(\BandeauG + \CoupeD)/2}}
@@ -585,12 +630,20 @@ notion, avec leurs réponses.%
 % La 4e de couverture reste sur le blanc du papier.
 % Le bandeau bleu couvre le dos, puis reprend au tiers extérieur de la
 % 1re de couverture — même partition 2/3-1/3 que la page de titre.
-\fill[TitleBand] (\DosG, 0) rectangle (\DosD, \PapierH);
+% Couverture rigide : pas de filets au dos (ils tomberaient à côté des
+% plis, vu la tolérance), et un dos bleu élargi de 2 mm de chaque côté.
+\ifx\Reliure\MotRigide
+  \fill[TitleBand] (\DosEtenduG, 0) rectangle (\DosEtenduD, \PapierH);
+\else
+  \fill[TitleBand] (\DosG, 0) rectangle (\DosD, \PapierH);
+\fi
 \fill[TitleBand] (\BandeauG, 0) rectangle (\PapierL, \PapierH);
 % Filets d'accent : à la jonction sur la 1re, de part et d'autre du dos.
 \fill[TitleAccent] (\BandeauAccent, 0) rectangle (\BandeauG, \PapierH);
-\fill[TitleAccent] (\DosAccentG, 0) rectangle (\DosG, \PapierH);
-\fill[TitleAccent] (\DosD, 0) rectangle (\DosAccentD, \PapierH);
+\ifx\Reliure\MotRigide\else
+  \fill[TitleAccent] (\DosAccentG, 0) rectangle (\DosG, \PapierH);
+  \fill[TitleAccent] (\DosD, 0) rectangle (\DosAccentD, \PapierH);
+\fi
 
 % ---- 1re de couverture ----------------------------------------------
 % Filigrane de classe, en réserve claire, détouré au bandeau.
@@ -689,7 +742,8 @@ notion, avec leurs réponses.%
 
 \end{tikzpicture}
 \typeout{COUVERTURE-BILAN alertes=\the\NbAlertes\space; classe=\Classe\space;
-  format=\Format\space; pages=\NbPages\space; version=\Version\space;
+  format=\Format\space; reliure=\Reliure\space; pages=\NbPages\space;
+  version=\Version\space;
   dos=\Dos\space mm (\DosOrigine); fini=\FiniL x \PageHauteur\space mm;
   papier=\PapierL x \PapierH\space mm}
 \end{document}

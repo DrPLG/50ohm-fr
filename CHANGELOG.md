@@ -57,6 +57,30 @@ principal : les deux lisent l'ouvrage comme un manuel de la licence
 
 `verifier_traduction.py` : 12 sections, 0 écart.
 
+#### Ajouté — impression de E en couverture rigide
+
+Livre E en 20 × 24 marge 52 mm (274 p., v0.30), mis aux exigences de
+l'imprimeur **sans recompiler** :
+
+- **multiple de 4 pages** : deux pages « Notes » (p. 275-276), composées avec
+  la classe du livre — `impression/notes-E.tex` — puis fusionnées au PDF ;
+- **fond perdu de 3 mm** (fichier de 206 × 246 mm) : `impression/fondperdu-E.tex`
+  pose chaque page à l'échelle 1 et prolonge les aplats de la page de titre,
+  seule à toucher le bord ; TrimBox et BleedBox déclarées. Contrôle au pixel
+  à 254 dpi : aucun contenu déplacé.
+- *Connu :* les folios sont à 4,2 mm de la coupe, pour 5 mm demandés —
+  accepté.
+
+#### Modifié — `couverture.tex` : `\Reliure{souple|rigide}`
+
+En rigide : plats de format + 5 mm, rabat de 15 mm, dos sans filets et bleu
+élargi de 2 mm par côté (tolérance de ±10 % annoncée sur le dos). **Dos de E
+imposé à 17 mm** (276 p., reliure collée). Le dos imposé porte désormais sa
+reliure, et un avertissement signale une pagination qui n'est pas un multiple
+de 4. Fichier produit : **457 × 275 mm**, conforme au devis.
+**Mode souple neutre : 0 pixel différent** sur l'épreuve et le fichier
+d'impression.
+
 ### 16 septembre 2026 — fenêtre de compilation, page de titre 20 × 24, couverture
 
 #### Ajouté — `fenetre_compilation.py` v0.2

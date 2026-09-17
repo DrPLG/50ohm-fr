@@ -1,0 +1,28 @@
+% Deux pages « Notes » ajoutées en fin de livre (décision de Pierre du
+% 17/09/2026) : l'imprimeur exige un nombre de pages multiple de 4, et le
+% livre E en 20 x 24 marge en compte 274. Composées avec la classe du livre
+% pour en reprendre polices, marges, titre et folio ; fusionnées ensuite au
+% PDF du livre par Ghostscript, sans recompiler le livre.
+%
+% MODE D'EMPLOI. Ce fichier ne compile que dans l'arbre généré du livre, qui
+% contient FiftyOhmBook.cls (ici build-E-20x24-marge). Pour un autre tome :
+% copier dans build-<ÉDITION>-<format>, ajuster \setcounter{page} (première
+% page ajoutée) et le nombre de pages ; lualatex deux fois ; puis
+%   gs -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress ... book-E.pdf notes-E.pdf
+% (en Git Bash, préfixer par MSYS_NO_PATHCONV=1, CLAUDE.md § 11).
+\documentclass{FiftyOhmBook}
+\newlength{\largeurnotes}
+\setlength{\largeurnotes}{\dimexpr\textwidth+\marginparsep+\marginparwidth\relax}
+% Lignes d'écriture sur toute la largeur texte + marge, jusqu'au bas de la
+% page. Page impaire : la marge est à droite, rien à décaler. Page paire : la
+% marge est à gauche, on décale d'autant vers la gauche.
+\newcommand{\lignesnotes}[1]{%
+	\xleaders\vbox to 9mm{\vfil\moveleft#1\hbox{\color{black!35}\rule{\largeurnotes}{0.4pt}}}\vfill}
+\begin{document}
+\setcounter{page}{275}
+\chapter*{Notes}
+\lignesnotes{0pt}
+\newpage
+\null
+\lignesnotes{\dimexpr\marginparsep+\marginparwidth\relax}
+\end{document}
