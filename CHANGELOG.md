@@ -12,7 +12,7 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
-### 17 septembre 2026 — quatrième resynchronisation, relectures de Pauline et Jérôme
+### 17 septembre 2026 — quatrième resynchronisation, relectures du livre N
 
 #### Modifié — resynchronisation `04cc9316` → `48e18bf4` (7 commits, classe A seule)
 
@@ -34,7 +34,7 @@ Manifeste : **645 éléments, 0 dérive**.
 
 #### Ajouté — feuille d'arbitrage nº 10
 
-Relectures du **livre N** : Jérôme (ch. 3 à 14, J25-J59) et Pauline (ch. 1 à
+Relectures du **livre N** : Jérôme (ch. 3 à 14, J25-J59) et une seconde relecture (ch. 1 à
 8, ~120 annotations sur 88 pages, crayon iPad aplati en calque image). Constat
 principal : les deux lisent l'ouvrage comme un manuel de la licence
 **française** — question de positionnement laissée ouverte par Pierre.
