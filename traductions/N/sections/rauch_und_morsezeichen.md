@@ -16,7 +16,7 @@ En radio, on procède de façon semblable. À la place des signaux de fumée, il
 
 Si l'on convient au préalable — comme pour les signaux de fumée — de la signification de certaines suites d'intervalles différents, on peut transmettre des messages. Au milieu du XIXe siècle, on s'est accordé sur le code Morse encore usuel aujourd'hui.
 
-Si l'on manipule par exemple la suite *long, court, long, court*, cela représente le « C », et *long, long, court, long* signifie « Q ». La figure [ref:n_cqcq_horiz] représente l'émission de la séquence « CQ » en télégraphie Morse. Nous apprendrons le code Morse complet dans un chapitre ultérieur.
+Si l'on manipule par exemple la suite « — · — · » (*long, court, long, court*), cela représente le « C », et « — — · — » (*long, long, court, long*) signifie « Q ». La figure [ref:n_cqcq_horiz] représente l'émission de la séquence « CQ » en télégraphie Morse. Nous apprendrons le code Morse complet dans un chapitre ultérieur.
 
 <margin>
 [photo:216:n_cqcq_horiz:« CQ CQ » en télégraphie Morse]

@@ -12,6 +12,51 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 17 septembre 2026 — quatrième resynchronisation, relectures de Pauline et Jérôme
+
+#### Modifié — resynchronisation `04cc9316` → `48e18bf4` (7 commits, classe A seule)
+
+`diff` des deux instantanés : **exactement les 7 fichiers annoncés par l'API**,
+0 nom corrompu, 911 dessins, 410 sections. N, E et SWL ne sont pas touchés.
+
+- `A/mehrwegeausbreitung` retraduite : l'amont **retire lui-même la référence
+  morte `a_mehrwegeausbreitung_ionosphäre`** (remplacée par un `%TODO`, repris
+  verbatim), allonge la légende du dessin 1064 et retouche trois tournures.
+  Quatrième défaut que l'amont corrige seul. **A attendu à 1 `??`, NEA à 2**,
+  à mesurer à la prochaine compilation.
+- `A/antennenformen_3` (*Halbwellenantenne*) et `A/modulatoren` (article) :
+  corrections de l'allemand seul, français déjà juste — réenregistrées.
+- `solutions/AF307` et trois diapositives : hors livre.
+- Générateur (`f2994275` → `28cf1143`) : `renderer/morse.py` déjà évalué le
+  26/08 ; le reste sert le site web. Sans effet.
+
+Manifeste : **645 éléments, 0 dérive**.
+
+#### Ajouté — feuille d'arbitrage nº 10
+
+Relectures du **livre N** : Jérôme (ch. 3 à 14, J25-J59) et Pauline (ch. 1 à
+8, ~120 annotations sur 88 pages, crayon iPad aplati en calque image). Constat
+principal : les deux lisent l'ouvrage comme un manuel de la licence
+**française** — question de positionnement laissée ouverte par Pierre.
+
+#### Corrigé — livre N (sources seulement, N non recompilé)
+
+- **Tableau des préfixes spéciaux imprimé deux fois** (p. 75-76) : conservé
+  dans `besondere_anlaesse`, réduit à une phrase de renvoi dans
+  `rufzeichenzusaetze`. Défaut de notre fait.
+  La phrase « réattribués d'une année sur l'autre », absente de l'art. 7 de
+  l'arrêté du 21/09/2000, est alignée sur le texte : « Les indicatifs
+  spéciaux sont réattribuables. » Vérifié à la source par Pierre.
+- **Dessin 630 forké** : *Netzwerk* → « Réseau », *CAT-/Digimode-Interface* →
+  « Interface CAT / digimode ». Inventorié au chantier nº 3
+  (`ANALYSE-DESSINS.md` l. 95), jamais forké : `sonde_dessins.py` ne voit que
+  les forks. Compilé isolément, vérifié au rendu.
+- **Mnémotechniques allemands** (J27, J35, P05) : HV, OE, QRV, QRM, QRO, QSB,
+  K — remplacés par un équivalent français ou anglais, ou retirés.
+- **Retouches de langue** (J03, J51, P12) : 8 sections.
+
+`verifier_traduction.py` : 12 sections, 0 écart.
+
 ### 16 septembre 2026 — fenêtre de compilation, page de titre 20 × 24, couverture
 
 #### Ajouté — `fenetre_compilation.py` v0.2

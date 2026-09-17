@@ -22,4 +22,4 @@ Nous avons aussi déjà rencontré l'abréviation CW pour Continuous Wave, emplo
 
 [question:BB107]
 
-Nous avons déjà abordé une série d'abréviations de la télégraphie : le « R » (received, ou roger) comme accusé de réception au début d'un passage est l'un des rares signes utilisés exclusivement en télégraphie. Il en va de même pour le signe « K ». Un moyen mnémotechnique est « Kommen » (venez) comme invitation à émettre. Pour « BK », « *B*rea*k* » s'impose comme aide-mémoire. Le tableau [ref:n_abkuerzungen] récapitule les abréviations les plus importantes pour l'examen.
+Nous avons déjà abordé une série d'abréviations de la télégraphie : le « R » (received, ou roger) comme accusé de réception au début d'un passage est l'un des rares signes utilisés exclusivement en télégraphie. Il en va de même pour le signe « K ». Il invite le correspondant à émettre. Pour « BK », « *B*rea*k* » s'impose comme aide-mémoire. Le tableau [ref:n_abkuerzungen] récapitule les abréviations les plus importantes pour l'examen.

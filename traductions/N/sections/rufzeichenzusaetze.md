@@ -65,14 +65,5 @@ Deux cas de mobilité internationale relèvent, eux, des textes :
 - un radioamateur français en séjour de moins de trois mois dans un pays appliquant la recommandation CEPT T/R 61-01 ou lié à la France par un accord d'État à État émet sous la forme préfixe du pays d'accueil, barre oblique, son indicatif français, puis /P ou /M ;
 - un radioamateur étranger en séjour de moins de trois mois en France émet sous la forme F, barre oblique, son indicatif national, puis /P, /M ou /MM. Aucune formalité n'est à accomplir. Au-delà de trois mois, l'ANFR lui attribue un indicatif français dont le suffixe commence par V s'il vient de l'Union européenne, par W s'il vient d'un pays lié par un accord de réciprocité.
 
-Reste un cas que l'Allemagne traite par un additif et la France par un indicatif entier : l'**indicatif spécial temporaire**. Il se compose d'un préfixe de deux lettres, d'un à trois chiffres, puis d'un suffixe d'un à quatre caractères dont le dernier est obligatoirement une lettre — TM0A, TX2F, TO2018D.
-
-| l: Préfixe | X: Emploi |
-| TM | France continentale |
-| TO | Guadeloupe, Guyane, Martinique, Mayotte, Saint-Barthélemy, Saint-Martin, Saint-Pierre-et-Miquelon, La Réunion et dépendances |
-| TX | Clipperton, Nouvelle-Calédonie, Polynésie française, Terres australes et antarctiques, Wallis-et-Futuna |
-| TK | Corse |
-| FX | événement exceptionnel lié à une station spatiale |
-
-L'utilisation est limitée à quinze jours sur une période de six mois. La demande, motivée, se dépose vingt jours ouvrables avant la date d'utilisation. Ces indicatifs sont réattribuables sans délai à la fin de la période.
+Reste un cas que l'Allemagne traite par un additif et la France par un indicatif entier : l'**indicatif spécial temporaire**, en TM, TO, TX ou TK, présenté à la section suivante.
 </france>

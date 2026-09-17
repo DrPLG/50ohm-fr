@@ -30,9 +30,9 @@
     "sha256_amont": "23b3c68df12b8f59ce87eb162fb34fe859fb889b3307e250c3b8a577e5b4340f"
   },
   "antennenformen_3": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "5ecc8264a0979407215e6c61dba6164ee8c2aa5935a9b84fe182a68fe6b35451"
+    "date_traduction": "2026-09-17",
+    "note": "resync 48e18bf4 : Halbwellantenne -> Halbwellenantenne, sans effet en francais (demi-onde)",
+    "sha256_amont": "801a9193b8f48c782c091999774318fcee99c3fcdfbdf555c99e0d2804e17f4f"
   },
   "anti_alias_rekonstruktionsfilter": {
     "date_traduction": "2026-08-20",
@@ -300,9 +300,9 @@
     "sha256_amont": "270c8b313f8925938758c1826a7c1799d314939b9161b14e8c7bfada4de0f7c9"
   },
   "mehrwegeausbreitung": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "c3ab057f7c8a4573d64e8e388ca998f26434ab815017fe4cd8dfe9d165e0c601"
+    "date_traduction": "2026-09-17",
+    "note": "resync 48e18bf4 : ref morte ionosphaere retiree, %TODO, legende 1064 allongee, 3 retouches de style",
+    "sha256_amont": "fc45da821e381260117b89962304993523dfcb35626226b5c9e5ac337b3d1925"
   },
   "mischer_2": {
     "date_traduction": "2026-08-14",
@@ -310,9 +310,9 @@
     "sha256_amont": "2c17ba80ec7e4ee18ee7e2f3093fdc66fdc04f30027294f5628cd26495aece67"
   },
   "modulatoren": {
-    "date_traduction": "2026-08-14",
-    "note": "ligne de base 2026-08-14 : empreinte de l'amont du jour, pas une relecture ligne a ligne",
-    "sha256_amont": "4653e44bc96d39a237b695924ea3e9355c38dfc2226a853d76a65f1634558c2c"
+    "date_traduction": "2026-09-17",
+    "note": "resync 48e18bf4 : article allemand ajoute (des konstanten Filters), francais deja correct",
+    "sha256_amont": "8224220d0b8f8c268454a2407fd6c4958359e48b22b97a69cfe9b6bd2c282c69"
   },
   "muf_luf_2": {
     "date_traduction": "2026-08-14",

@@ -6,7 +6,7 @@ Nous l'avons appris : les oscillations électriques sont des tensions alternativ
   
 ---
 
-Cette forme fondamentale s'appelle l'oscillation sinusoïdale [index:Oscillation:Sinusoïdale]. On la reconnaît bien à son tracé en forme de vague. À côté des tensions alternatives sinusoïdales, il existe une multitude d'autres oscillations. Les plus connues sont les suivantes :
+Cette forme s'appelle l'oscillation sinusoïdale [index:Oscillation:Sinusoïdale]. On la reconnaît bien à son tracé en forme de vague. À côté des tensions alternatives sinusoïdales, il existe une multitude d'autres oscillations. Les plus connues sont les suivantes :
 * l'oscillation rectangulaire (figure [ref:sinusschwingung_rechteck]) [index:Oscillation:Rectangulaire]
 * l'oscillation triangulaire (figure [ref:sinusschwingung_dreieck]) [index:Oscillation:Triangulaire]
 * l'oscillation en dents de scie (figure [ref:sinusschwingung_saegezahn]) [index:Oscillation:Dents de scie]

@@ -35,7 +35,7 @@ Il existe différents alphabets d'épellation, p. ex. l'alphabet allemand, autri
 
 [question:VD206]
 
-L'alphabet d'épellation ne contient toutefois pas de chiffres [index:Alphabet d'épellation:Chiffres]. Dans le trafic national (en Allemagne), les chiffres se prononcent en allemand, p. ex. Delta Mike *Vier* Echo Alpha X-ray. Dans le trafic international, on utilise l'anglais, p. ex. Delta Mike *Four* Echo Alfa X-ray.
+L'alphabet d'épellation ne contient pas de chiffres [index:Alphabet d'épellation:Chiffres]. Dans le trafic national (en Allemagne), les chiffres se prononcent en allemand, p. ex. Delta Mike *Vier* Echo Alpha X-ray. Dans le trafic international, on utilise l'anglais, p. ex. Delta Mike *Four* Echo Alfa X-ray.
 
 L'alphabet d'épellation peut naturellement aussi servir à épeler d'autres mots, p. ex. un nom ou un lieu. L'alphabet international ne contient cependant pas les trémas allemands [index:Alphabet d'épellation:Trémas]. C'est pourquoi le Ä s'épelle « Alfa Echo », le Ö « Oscar Echo », le Ü « Uniform Echo » et le ß « Sierra Sierra ».
 
