@@ -15,7 +15,34 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.29
+Version du script : v0.30
+    v0.30 — le FILIGRANE EMPILÉ suit aussi la hauteur du papier (décision de
+            Pierre, 16/09/2026, sur épreuve).
+            *Constat :* NEA compilé en 20 x 24, le A du filigrane tombait sur
+            « Cours complet / Classes N, E et A ». Mesuré au pixel dans le
+            bandeau : en A4, le A finit à 148,9 mm et le titre commence à
+            163,1 mm (14,2 mm d'air) ; en 20 x 24 le A descend jusqu'à
+            ~140 mm alors que le titre commence vers 131 mm.
+            *Cause, de notre fait et introduite par la v0.29 :* le corps du
+            filigrane était une fraction de \paperwidth, la position du titre
+            une fraction de \paperheight. Tant que le rapport largeur/hauteur
+            est celui de l'A4 (0,707), c'est la même chose ; le 20 x 24 vaut
+            0,833, la pile de lettres reste grande pendant que le titre
+            remonte. La v0.29 n'avait été vérifiée que sur N et E — UNE lettre,
+            posée à l'horizontale, qui n'est pas concernée.
+            *Correction :* corps et interligne de la pile = MIN(cote actuelle
+            en \paperwidth, cote en \paperheight). La cote en hauteur est prise
+            un rien AU-DESSUS de son équivalent A4 (150,02 pt pour 150 ;
+            140,007 pt pour 140) : en A4 c'est TOUJOURS la branche largeur qui
+            l'emporte, avec les mêmes jetons, donc les mêmes sp.
+            *Neutralité PROUVÉE :* page de titre NEA A4 compilée avant et
+            après, rendue à 150 dpi — 6 524 950 octets identiques, 0 pixel
+            différent. Un premier essai avec le coefficient simplement converti
+            en hauteur (0,1775049) donnait 237 pixels différents sur le contour
+            des lettres : quelques sp d'écart, invisibles mais non neutres.
+            *En 20 x 24 :* lettres de 27,8 mm au lieu de 32,6 ; le A finit à
+            120,8 mm, le titre commence à 130,6 mm — 9,8 mm d'air.
+            Portée : NE, EA, NEA et SWL. N, E et A (une lettre) ne changent pas.
     v0.29 — la PAGE DE TITRE suit le format du papier (décision de Pierre,
             06/09/2026, en vue du test de la classe E en 20 x 24).
             La v0.23 avait rendu la maquette paramétrable, mais la couverture
@@ -2342,10 +2369,26 @@ def main():
                 r"		at ($(current page.east)+(-0.02\paperwidth,0.1178451\paperheight)$) "
                 f"{{{lettres}}};")
         else:
+            # v0.30 — une PILE de lettres est contrainte par la hauteur autant
+            # que par la largeur : son corps est le minimum des deux cotes.
+            # 0.17753 et 0.16568 donnent 150,02 et 140,007 pt en A4, un rien
+            # au-dessus de 150 et 140 : la branche largeur l'y emporte
+            # toujours, et l'A4 reste identique à l'octet (vérifié au pixel).
+            # Sur un papier proportionnellement moins haut (20 x 24), la
+            # hauteur prend la main et la pile ne descend plus sur le titre.
             empilees = r"\\".join(lettres)
             watermark = (
-                r"\node[anchor=north, align=center, text=white!22, "
-                r"font=\fontsize{0.2510427\paperwidth}{0.2343065\paperwidth}"
+                r"\newlength{\DARCfiligraneCorps}"
+                r"\newlength{\DARCfiligraneInterligne}" "\n"
+                r"	\setlength{\DARCfiligraneCorps}{0.2510427\paperwidth}"
+                r"\ifdim 0.17753\paperheight<\DARCfiligraneCorps"
+                r"\setlength{\DARCfiligraneCorps}{0.17753\paperheight}\fi" "\n"
+                r"	\setlength{\DARCfiligraneInterligne}{0.2343065\paperwidth}"
+                r"\ifdim 0.16568\paperheight<\DARCfiligraneInterligne"
+                r"\setlength{\DARCfiligraneInterligne}{0.16568\paperheight}\fi" "\n"
+                r"	\node[anchor=north, align=center, text=white!22, "
+                r"font=\fontsize{\the\DARCfiligraneCorps}"
+                r"{\the\DARCfiligraneInterligne}"
                 r"\selectfont\bfseries]" "\n"
                 r"		at ($(current page.north east)+(-0.17\paperwidth,-0.0505051\paperheight)$) "
                 f"{{{empilees}}};")

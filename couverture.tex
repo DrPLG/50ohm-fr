@@ -1,0 +1,695 @@
+% =====================================================================
+%  couverture.tex — couverture dos carré collé pour les livres 50ohm-fr
+% =====================================================================
+%
+%  Produit une couverture d'un seul tenant : 4e de couverture | dos |
+%  1re de couverture, aux dimensions exactes du livre relié, fond perdu
+%  compris. L'épaisseur du dos est CALCULÉE à partir du nombre de pages,
+%  du grammage et du bouffant du papier.
+%
+%  ORIGINE ET ÉTAT. Écrit le 20/08/2026 dans Fichierstravail/ (hors git),
+%  versé au dépôt le 16/09/2026 pour que fenetre_compilation.py puisse
+%  l'appeler. Ce qui a changé à cette occasion :
+%
+%    - le FORMAT est un paramètre (\Format = a4, 20x24 ou 20x24-marge,
+%      mêmes noms que --format de build_book.py) ;
+%    - la pagination et la version peuvent être IMPOSÉES de l'extérieur
+%      (\PagesForcees, \VersionForcee) : la fenêtre lit la pagination dans
+%      le journal du livre qu'elle vient de compiler, au lieu de se fier à
+%      une table qui vieillit ;
+%    - un dos imposé par l'imprimeur n'est appliqué QUE pour la pagination
+%      et le format pour lesquels il a été donné ;
+%    - un CONTRÔLE DE SUPERPOSITION est calculé par LaTeX lui-même, à partir
+%      des boîtes réelles des nœuds, et écrit dans le journal ;
+%    - le tome SWL est refusé explicitement : sa 4e de couverture n'est pas
+%      rédigée (le texte commun parle des classes N, E et A).
+%
+%    Neutralité vérifiée : en A4, pour N (258 p., a.2) et NEA (816 p., a.3),
+%    en épreuve comme en impression, le rendu est identique au pixel près à
+%    celui du gabarit d'origine.
+%
+%  COMPILATION (LuaLaTeX, depuis la racine du dépôt) :
+%
+%      lualatex couverture.tex
+%      lualatex couverture.tex        <-- DEUX FOIS, obligatoirement
+%
+%  DEUX PASSES SONT NÉCESSAIRES. Le dessin s'ancre sur « current page »,
+%  dont la position n'est connue qu'après un premier passage : à la
+%  première compilation, tout se tasse dans le coin supérieur et la
+%  couverture paraît ratée alors qu'elle ne l'est pas. Aucune erreur n'est
+%  émise — seul le rendu le montre. Le contrôle de superposition, lui
+%  aussi, ne vaut qu'à la seconde passe.
+%
+%  Le plus simple est de passer par fenetre_compilation.py (case
+%  « couverture pour l'imprimeur »), qui enchaîne les deux passes, produit
+%  l'épreuve ET le fichier d'impression, et relit le contrôle.
+%
+%  À la main, pour une autre classe, un autre format, une pagination mesurée :
+%
+%      lualatex "\def\Classe{A}\def\Format{20x24}\def\PagesForcees{482}\input{couverture.tex}"
+%
+%  Pour le fichier destiné à l'imprimeur (sans repères) :
+%
+%      lualatex "\def\Reperes{non}\input{couverture.tex}"
+%
+%  ---------------------------------------------------------------------
+%  DEUX MODES, un seul paramètre : \Reperes
+%
+%    oui  — mode ÉPREUVE. Ajoute une marge technique, les traits de coupe,
+%           les limites du dos, la zone de sécurité et les cotes. C'est ce
+%           qu'il faut pour vérifier à l'écran.
+%    non  — mode PRODUCTION. Papier = format final + fond perdu, rien
+%           d'autre. C'est ce fichier-là qu'on envoie à l'imprimeur.
+%
+%  ---------------------------------------------------------------------
+%  CONTRÔLE DE SUPERPOSITION
+%
+%  À la fin du dessin, chaque bloc de texte est mesuré par ses ancres TikZ
+%  (quatre coins, ce qui vaut aussi pour le texte pivoté du dos) et comparé
+%  à la zone où il doit tenir, puis aux blocs voisins. Le journal porte une
+%  ligne par vérification :
+%
+%      COUVERTURE-CONTROLE OK      <quoi> : ...
+%      COUVERTURE-CONTROLE ALERTE  <quoi> : ...
+%
+%  et un bilan : COUVERTURE-BILAN alertes=<n> ; ...
+%
+%  Ce que le contrôle VOIT : un bloc qui franchit le pli du dos, la coupe,
+%  la zone de sécurité ou le bord du bandeau ; deux blocs qui se chevauchent ;
+%  un bloc qui empiète sur l'emplacement réservé au code-barres ISBN.
+%  Ce qu'il NE VOIT PAS : une ligne trop longue à l'INTÉRIEUR d'un bloc à
+%  largeur fixe (la boîte garde sa largeur, le texte déborde). Celle-là se
+%  signale par un « Overfull \hbox » dans le même journal, que la fenêtre
+%  compte aussi.
+%
+%  ---------------------------------------------------------------------
+%  AVERTISSEMENT SUR L'ÉPAISSEUR DU DOS
+%
+%  Le dos se calcule ainsi :
+%
+%      épaisseur d'une feuille (mm) = grammage x bouffant / 1000
+%      dos (mm)                     = (nombre de pages / 2) x épaisseur
+%
+%  On divise par deux parce qu'une feuille porte DEUX pages.
+%
+%  Le « bouffant » (main, volume, bulk) dépend du papier et n'est pas
+%  devinable : un offset 80 g courant est autour de 1,30, un bouffant
+%  d'édition monte à 1,75 et plus. UN ÉCART DE BOUFFANT DÉPLACE LE DOS DE
+%  PLUSIEURS MILLIMÈTRES. Demander à l'imprimeur soit son bouffant, soit
+%  directement l'épaisseur du dos, et reporter ci-dessous. Tant que cette
+%  valeur n'est pas confirmée, la couverture n'est pas bonne à tirer.
+%
+%  Si l'imprimeur donne le dos en clair, forcer la valeur avec \DosImpose.
+% =====================================================================
+
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------
+% 1. PARAMÈTRES — c'est la seule zone à modifier
+% ---------------------------------------------------------------------
+
+% Classe de l'ouvrage : N, E, A, NE, EA ou NEA.
+% (\providecommand : une valeur passée en ligne de commande l'emporte.)
+\providecommand{\Classe}{NEA}
+
+% Mode épreuve (oui) ou production (non).
+\providecommand{\Reperes}{oui}
+
+% Format du livre FINI : a4, 20x24 ou 20x24-marge — les noms de --format
+% dans build_book.py. Les deux maquettes 20 x 24 ne diffèrent que par leur
+% colonne de marge intérieure : le livre fini, donc la couverture, est le
+% même (200 x 240 mm).
+\providecommand{\Format}{a4}
+
+% Pagination et version imposées de l'extérieur. Vides = tables du § 2.
+% La fenêtre les renseigne toujours : la pagination vient du journal du
+% livre réellement compilé, dans le format demandé.
+\providecommand{\PagesForcees}{}
+\providecommand{\VersionForcee}{}
+
+% Papier de l'INTÉRIEUR du livre (pas de la couverture).
+% CoolLibri, papier « Standard 90 g blanc ».
+\def\Grammage{90}        % g/m²
+\def\Bouffant{1.206}     % main DÉDUITE, voir ci-dessous
+
+% Épaisseur du dos IMPOSÉE par l'imprimeur, en mm, par classe.
+% Une valeur > 0 prime sur le calcul — MAIS SEULEMENT pour la pagination et
+% le format pour lesquels l'imprimeur l'a donnée (\DosImposePages<classe>,
+% \DosImposeFormat<classe>). Hors de ce cas, le dos est calculé et le
+% journal le dit : un dos de 14 mm donné pour 258 pages A4 ne vaut rien pour
+% 262 pages, ni pour le même livre recomposé en 20 x 24.
+%
+% ATTENTION : cette valeur est propre à CHAQUE ÉDITION. Un dos unique
+% appliqué aux quatre livres serait faux pour trois d'entre eux.
+%
+%  N   — 14 mm, VALEUR DONNÉE PAR COOLIBRI pour 258 pages en 90 g, A4.
+%        Fichier attendu : 440 x 303 mm, ce que ce gabarit produit en mode
+%        production (2 x 210 + 14 + 2 x 3 = 440 ; 297 + 2 x 3 = 303).
+%        Le N de la a.3 compte 262 pages : cette valeur ne s'y applique plus.
+%  E, A, NEA — non demandés à l'imprimeur : ils sont CALCULÉS avec la main
+%        déduite ci-dessous. À faire confirmer avant tout tirage.
+%
+% La main de 1,206 n'est pas publiée par CoolLibri : elle est déduite de
+% leur propre chiffre, 14 mm / (0,090 x 258/2) = 1,206. Elle reproduit donc
+% exactement le dos de N, et n'est qu'une ESTIMATION pour les autres.
+% Écarts que cela recouvre, pour mémoire : une main de 1,0 donnerait
+% 11,61 mm pour N, une main de 1,3 en donnerait 16,77. Il ne fallait pas
+% deviner.
+\def\DosImposeN{14}   \def\DosImposePagesN{258}  \def\DosImposeFormatN{a4}
+\def\DosImposeE{0}    \def\DosImposePagesE{0}    \def\DosImposeFormatE{}
+\def\DosImposeA{0}    \def\DosImposePagesA{0}    \def\DosImposeFormatA{}
+\def\DosImposeNE{0}   \def\DosImposePagesNE{0}   \def\DosImposeFormatNE{}
+\def\DosImposeEA{0}   \def\DosImposePagesEA{0}   \def\DosImposeFormatEA{}
+\def\DosImposeNEA{0}  \def\DosImposePagesNEA{0}  \def\DosImposeFormatNEA{}
+
+% Fond perdu, en mm. 3 mm est la valeur courante ; certains imprimeurs
+% demandent 5 mm.
+\def\FondPerdu{3}
+
+% Marge technique autour du fond perdu, en mm. Sert à loger les traits de
+% coupe en mode épreuve. Ignorée en mode production.
+\def\MargeTech{12}
+
+% Zone de sécurité, en mm : aucun texte ne doit s'en approcher davantage
+% du bord de coupe.
+\def\Securite{8}
+
+% ---------------------------------------------------------------------
+% 2. DONNÉES PAR CLASSE
+%    pages : nombre de pages du PDF intérieur, COUVERTURE NON COMPRISE.
+%    Un dos carré collé impose un nombre de pages PAIR ; le fichier
+%    refuse de compiler si le compte est impair.
+%
+%    Ces tables ne servent que si \PagesForcees et \VersionForcee sont
+%    vides, c'est-à-dire à la main. Valeurs A4 mesurées sur les PDF de la
+%    a.3 (CLAUDE.md § 1, 05/09/2026). En 20 x 24, la pagination change
+%    entièrement : NEA passe de 816 à 1036 pages.
+% ---------------------------------------------------------------------
+
+\def\DonneesN{262}
+\def\DonneesE{214}
+\def\DonneesA{386}
+\def\DonneesNE{0}      % édition jamais produite
+\def\DonneesEA{0}      % édition jamais produite
+\def\DonneesNEA{816}
+
+% Version imprimée sur le dos et la 1re de couverture, PAR CLASSE.
+% « Les versions sont suivies par classe, chacune évoluant à son rythme »
+% (CHANGELOG.md).
+\def\VersionN{a.3}
+\def\VersionE{a.3}
+\def\VersionA{a.3}
+\def\VersionNE{a.3}
+\def\VersionEA{a.3}
+\def\VersionNEA{a.3}
+
+% ---------------------------------------------------------------------
+% 3. TEXTES
+% ---------------------------------------------------------------------
+
+\def\TitreOuvrage{50\,Ohm}
+\def\SousTitre{Préparation à l'examen radioamateur}
+
+% Sous-titre propre à chaque classe (repris de FR_TITLES, build_book.py).
+\def\SousTitreN{Cours complet — classe N}
+\def\SousTitreE{Cours complet — classe E}
+\def\SousTitreA{Cours complet — classe A}
+\def\SousTitreNE{Cours complet — classes N et E}
+\def\SousTitreEA{Cours complet — classes E et A}
+\def\SousTitreNEA{Cours complet — classes N, E et A}
+
+% Lettres du filigrane, empilées de haut en bas (cf. build_book.py v0.20).
+\def\LettresN{N}
+\def\LettresE{E}
+\def\LettresA{A}
+\def\LettresNE{N,E}
+\def\LettresEA{E,A}
+\def\LettresNEA{N,E,A}
+
+% Texte de 4e de couverture.
+% NB : il parle des classes N, E et A quelle que soit l'édition. Juste pour
+% N, E, A et NEA ; approximatif pour NE et EA ; faux pour SWL, d'où son refus.
+\def\QuatriemeTexte{%
+Ce guide d'étude prépare aux examens radioamateur allemands des classes
+N, E et A. Il traduit en français les contenus du projet 50ohm.de, publiés
+par le référat AJW du DARC e.\,V., et les complète d'encarts « En France »
+qui signalent, sans rien retirer au texte allemand, ce que la
+réglementation française prévoit sur le même sujet.\par\smallskip
+Les questions officielles du catalogue allemand accompagnent chaque
+notion, avec leurs réponses.%
+}
+
+\def\Auteur{Traduit avec l'aide d'une IA par Pierre F4JWI}
+\def\Depot{github.com/DrPLG/50ohm-fr}
+
+% =====================================================================
+%  À PARTIR D'ICI, PLUS RIEN À MODIFIER
+% =====================================================================
+
+\usepackage{iftex}
+\RequireLuaTeX
+\usepackage{xfp}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\usepackage{geometry}
+
+% ---------------------------------------------------------------------
+% 4. RÉSOLUTION DES DONNÉES DE LA CLASSE
+% ---------------------------------------------------------------------
+
+\makeatletter
+% Tome SWL : refus explicite, plutôt qu'un « classe inconnue » qui laisserait
+% croire à un oubli. Le texte de 4e parle des classes N, E et A.
+\def\@swlmot{SWL}
+\ifx\Classe\@swlmot
+  \PackageError{couverture}{Pas de couverture pour le tome SWL}%
+    {Sa 4e de couverture n'est pas redigee : le texte commun parle des
+     classes N, E et A. C'est une decision editoriale a prendre d'abord.}%
+\fi
+
+\def\@resoudre#1#2{%
+  \expandafter\let\expandafter#1\csname #2\Classe\endcsname
+  \ifx#1\relax
+    \PackageError{couverture}{Classe \Classe\space inconnue : pas de #2\Classe}%
+      {Valeurs admises : N, E, A, NE, EA, NEA.}%
+  \fi}
+\@resoudre\NbPages{Donnees}
+\@resoudre\SousTitreClasse{SousTitre}
+\@resoudre\Lettres{Lettres}
+\@resoudre\DosImpose{DosImpose}
+\@resoudre\DosImposePages{DosImposePages}
+\@resoudre\DosImposeFormat{DosImposeFormat}
+\@resoudre\Version{Version}
+
+% Valeurs imposées de l'extérieur. Test de vacuité par \detokenize : il ne
+% dépend pas de la façon dont la macro a été définie.
+\if\relax\detokenize\expandafter{\PagesForcees}\relax\else
+  \let\NbPages\PagesForcees
+\fi
+\if\relax\detokenize\expandafter{\VersionForcee}\relax\else
+  \let\Version\VersionForcee
+\fi
+
+% Format du livre fini.
+\def\@formatAquatre{a4}
+\def\@formatVingt{20x24}
+\def\@formatVingtMarge{20x24-marge}
+\ifx\Format\@formatAquatre
+  \def\PageLargeur{210}\def\PageHauteur{297}
+\else\ifx\Format\@formatVingt
+  \def\PageLargeur{200}\def\PageHauteur{240}
+\else\ifx\Format\@formatVingtMarge
+  \def\PageLargeur{200}\def\PageHauteur{240}
+\else
+  \PackageError{couverture}{Format \Format\space inconnu}%
+    {Valeurs admises : a4, 20x24, 20x24-marge.}%
+  \def\PageLargeur{210}\def\PageHauteur{297}
+\fi\fi\fi
+\makeatother
+
+% Garde-fou : une édition jamais produite n'a pas de couverture.
+\ifnum\NbPages=0
+  \PackageError{couverture}{L'edition \Classe\space n'a pas de pagination}%
+    {Cette edition n'a jamais ete compilee. Renseigner \string\Donnees\Classe
+     ou passer \string\PagesForcees.}%
+\fi
+
+% Garde-fou : un dos carré collé impose un nombre de pages pair.
+\ifodd\NbPages
+  \PackageError{couverture}{Nombre de pages impair (\NbPages)}%
+    {Un dos carre colle exige un nombre PAIR de pages : une feuille en
+     porte deux. Ajouter une page blanche a l'interieur.}%
+\fi
+
+% ---------------------------------------------------------------------
+% 5. GÉOMÉTRIE — c'est ici que se joue l'exactitude du dos
+% ---------------------------------------------------------------------
+
+% Épaisseur du dos : valeur imposée si elle est donnée ET qu'elle vaut pour
+% cette pagination et ce format ; calcul sinon.
+\edef\DosCalcule{\fpeval{round(\NbPages / 2 * \Grammage * \Bouffant / 1000, 2)}}
+\def\DosOrigine{calculee}
+\ifnum\fpeval{\DosImpose > 0}=1
+  \ifnum\fpeval{\NbPages = \DosImposePages}=1
+    \ifx\Format\DosImposeFormat
+      \def\DosOrigine{imposee}
+    \fi
+  \fi
+  \def\MotCalculee{calculee}
+  \ifx\DosOrigine\MotCalculee
+    \typeout{COUVERTURE-AVERTISSEMENT dos impose de \DosImpose\space mm
+      donne pour \DosImposePages\space pages en \DosImposeFormat\space --
+      inapplicable a \NbPages\space pages en \Format, dos calcule}%
+  \fi
+\fi
+% NB : pas de \@ dans ces noms. Cette section est hors \makeatletter, et
+% « \def\@imposee{...} » y redéfinit \@ (suivi du texte « imposee ») : le
+% test échouait toujours, en silence. Constaté le 16/09/2026 — le dos de N
+% tombait juste par coïncidence, 14,0 mm calculés pour 14 imposés.
+\def\MotImposee{imposee}
+\ifx\DosOrigine\MotImposee
+  \edef\Dos{\DosImpose}
+\else
+  \edef\Dos{\DosCalcule}
+\fi
+
+% Marge technique : uniquement en mode épreuve.
+\def\ouimot{oui}
+\ifx\Reperes\ouimot \edef\Tech{\MargeTech}\else \def\Tech{0}\fi
+
+% Dimensions du papier.
+%   largeur = marge + fond perdu + 4e + dos + 1re + fond perdu + marge
+%   hauteur = marge + fond perdu + hauteur + fond perdu + marge
+\edef\PapierL{\fpeval{2*\PageLargeur + \Dos + 2*\FondPerdu + 2*\Tech}}
+\edef\PapierH{\fpeval{\PageHauteur + 2*\FondPerdu + 2*\Tech}}
+
+\geometry{paperwidth=\PapierL mm, paperheight=\PapierH mm,
+          margin=0pt, nohead, nofoot}
+
+% ---------------------------------------------------------------------
+%  TOUTES LES COTES SONT FIGÉES ICI, ET NULLE PART AILLEURS.
+%
+%  Raison, payée par trois compilations ratées : un \fpeval laissé dans
+%  une coordonnée ou dans le texte d'un nœud TikZ n'est pas développé au
+%  moment où TikZ analyse le chemin. On obtient « Giving up on this path.
+%  Did you forget a semicolon? », qui accuse une ponctuation alors que la
+%  faute est ailleurs. Le corps du document ci-dessous n'emploie donc que
+%  des macros déjà calculées.
+% ---------------------------------------------------------------------
+
+% Repères horizontaux, mesurés depuis le bord GAUCHE du papier.
+\edef\CoupeG{\fpeval{\Tech + \FondPerdu}}          % coupe gauche (4e de couv.)
+\edef\DosG{\fpeval{\CoupeG + \PageLargeur}}         % dos, début
+\edef\DosD{\fpeval{\DosG + \Dos}}                   % dos, fin
+\edef\CoupeD{\fpeval{\DosD + \PageLargeur}}         % coupe droite (1re de couv.)
+% Repères verticaux, depuis le bord BAS.
+\edef\CoupeB{\fpeval{\Tech + \FondPerdu}}
+\edef\CoupeH{\fpeval{\CoupeB + \PageHauteur}}
+% Axes.
+\edef\DosAxe{\fpeval{(\DosG + \DosD)/2}}
+\edef\MilieuH{\fpeval{(\CoupeB + \CoupeH)/2}}
+\edef\MilieuL{\fpeval{\PapierL/2}}
+
+% Format fini, pour les cotes affichées.
+\edef\FiniL{\fpeval{2*\PageLargeur + \Dos}}
+
+% Bandeau de la 1re de couverture : même proportion que la page de titre.
+\edef\BandeauL{\fpeval{round(0.34*\PageLargeur, 2)}}
+\edef\BandeauG{\fpeval{\CoupeD - \BandeauL}}
+\edef\BandeauAccent{\fpeval{\BandeauG - 0.7}}
+\edef\DosAccentG{\fpeval{\DosG - 0.7}}
+\edef\DosAccentD{\fpeval{\DosD + 0.7}}
+
+% Filigrane de classe.
+\edef\FiligraneX{\fpeval{(\BandeauG + \CoupeD)/2}}
+\edef\FiligraneY{\fpeval{\CoupeH - 6}}
+
+% Bloc-titre de la 1re de couverture.
+\edef\TitreX{\fpeval{\DosD + 12}}
+\edef\TitreY{\fpeval{\CoupeH - 72}}
+\edef\TitreW{\fpeval{\BandeauG - \DosD - 16}}
+\edef\VersionY{\fpeval{\CoupeB + 14}}
+
+% 4e de couverture.
+\edef\QuatreX{\fpeval{\CoupeG + \Securite + 6}}
+\edef\QuatreY{\fpeval{\CoupeH - \Securite - 14}}
+\edef\QuatreBasY{\fpeval{\CoupeB + \Securite + 22}}
+\edef\QuatreW{\fpeval{\PageLargeur - 2*\Securite - 12}}
+
+% Zone de sécurité.
+\edef\SecG{\fpeval{\CoupeG + \Securite}}
+\edef\SecD{\fpeval{\CoupeD - \Securite}}
+\edef\SecB{\fpeval{\CoupeB + \Securite}}
+\edef\SecH{\fpeval{\CoupeH - \Securite}}
+
+% Zones de contrôle : ce qui doit rester de part et d'autre du pli du dos.
+\edef\PliQuatre{\fpeval{\DosG - \Securite}}         % 4e : limite côté dos
+\edef\PliPremiere{\fpeval{\DosD + \Securite}}       % 1re : limite côté dos
+
+% Traits de coupe et cotes, dans la marge technique.
+\edef\TechExt{\fpeval{\Tech - 8}}
+\edef\TechInt{\fpeval{\Tech - 1}}
+\edef\TechCote{\fpeval{\Tech - 9}}
+\edef\HautInt{\fpeval{\PapierH - \Tech + 1}}
+\edef\HautExt{\fpeval{\PapierH - \Tech + 8}}
+\edef\HautCote{\fpeval{\PapierH - \Tech + 9}}
+\edef\DroitInt{\fpeval{\PapierL - \Tech + 1}}
+\edef\DroitExt{\fpeval{\PapierL - \Tech + 8}}
+
+% Emplacement du code-barres ISBN : en bas à DROITE de la 4e de couverture,
+% selon l'usage éditorial, et non à gauche où il chevaucherait les mentions
+% de licence.
+\edef\IsbnD{\fpeval{\DosG - \Securite}}
+\edef\IsbnG{\fpeval{\IsbnD - 40}}
+\edef\IsbnH{\fpeval{\SecB + 25}}
+\edef\IsbnCX{\fpeval{\IsbnG + 20}}
+\edef\IsbnCY{\fpeval{\SecB + 12.5}}
+
+% Cartouches de cotes, dans la marge technique. Ancrés vers l'INTÉRIEUR du
+% papier : ancrés vers l'extérieur, ils débordaient et étaient rognés.
+\edef\CoteBasY{\fpeval{1}}
+\edef\CoteHautY{\fpeval{\PapierH - 1}}
+
+% ---------------------------------------------------------------------
+% 6. COULEURS ET POLICES — reprises de la page de titre (build_book.py)
+% ---------------------------------------------------------------------
+
+\definecolor{TitleBand}{cmyk}{.9,.55,.1,.35}   % bleu profond
+\definecolor{TitleAccent}{cmyk}{.05,.8,1,0}    % rouge DARC (accent fin)
+\definecolor{Repere}{cmyk}{0,1,1,0}            % magenta : repères de montage
+
+\setmainfont{Libertinus Serif}[
+  ItalicFont     = Libertinus Serif Italic,
+  BoldFont       = Libertinus Serif Bold,
+  BoldItalicFont = Libertinus Serif Bold Italic]
+
+\pagestyle{empty}
+
+% ---------------------------------------------------------------------
+% 7. FILIGRANE DE CLASSE
+%    Le texte est construit ici, et non dans le nœud : un \\ produit à
+%    l'intérieur d'un \foreach referme le groupe d'alignement de TikZ.
+%    Une lettre seule est grande ; plusieurs s'empilent et se réduisent
+%    (build_book.py v0.20 : « NEA » à 105 pt débordait encore).
+% ---------------------------------------------------------------------
+
+\makeatletter
+\def\FiligraneTexte{}
+\newif\ifpremierelettre \premierelettretrue
+\count255=0
+\@for\@tempa:=\Lettres\do{%
+  \advance\count255 by 1\relax
+  \ifpremierelettre \premierelettrefalse
+  \else \g@addto@macro\FiligraneTexte{\\}\fi
+  \expandafter\g@addto@macro\expandafter\FiligraneTexte\expandafter{\@tempa}}%
+\xdef\NbLettres{\the\count255}
+\makeatother
+
+\ifnum\NbLettres=1 \def\CorpsF{150}\else\def\CorpsF{86}\fi
+\edef\CorpsFI{\fpeval{round(\CorpsF*1.02, 0)}}
+
+% Texte du cartouche de cotes, lui aussi construit hors du nœud TikZ.
+%
+% NE PAS y employer \textsuperscript : dans un nœud « align=center », il
+% casse le chemin TikZ (« Giving up on this path. Did you forget a
+% semicolon? »), et l'erreur est signalée sur le nœud SUIVANT — elle
+% accuse donc une ponctuation là où la faute est ici. Isolé par essais :
+% $^2$ et le caractère ² passent, \textsuperscript non.
+\def\CotesTexte{%
+  \Classe\ --- \NbPages\ pages --- papier \Grammage\ g/m$^2$,
+  bouffant \Bouffant\ --- fond perdu \FondPerdu\ mm\\
+  papier \PapierL\ mm sur \PapierH\ mm --- fini \FiniL\ mm sur
+  \PageHauteur\ mm\\
+  EPREUVE, ne pas envoyer a l'impression%
+}
+
+% ---------------------------------------------------------------------
+% 8. CONTRÔLE DE SUPERPOSITION
+%
+%  \MesureNoeud{nœud}{préfixe}{retrait} mesure la boîte d'un nœud par ses
+%  quatre coins (un nœud pivoté a ses ancres pivotées : le min et le max des
+%  quatre suffisent) et la ramène au repère du papier, en mm. Le point (0,0)
+%  est lu par le même « let » que les ancres : les deux passent donc par la
+%  même transformation, et la comparaison ne dépend pas de l'endroit où
+%  TeX a posé l'image sur la page.
+%
+%  Le retrait sert au seul filigrane, pour mesurer les lettres et non leur
+%  cadre : c'est le bord des lettres que le détourage rognerait.
+%
+%  PIÈGE MESURÉ le 16/09/2026 : la marge interne TikZ (.3333em) n'est PAS
+%  évaluée dans la police du nœud, mais dans celle qui entoure le dessin.
+%  Instrumenté : dans le nœud, em = 150 pt ; boîte brute du « N » :
+%  41,7 x 37,5 mm, soit la lettre plus 2 x 1,3 mm — 1,3 mm étant .3333em
+%  à 11 pt. Un retrait calculé à 150 pt (17,6 mm) ramenait la lettre à
+%  6,6 mm de large, et le contrôle aurait dit OK sur une mesure absurde.
+% ---------------------------------------------------------------------
+
+\newcount\NbAlertes
+\newdimen\FiligraneSep
+\newsavebox\CreditsBoite
+
+% Crédits de 4e : lignes coupées à la main. Leur largeur RÉELLE est celle
+% de la plus longue ligne, mesurée dans une boîte à part (voir § 8, ISBN).
+\def\CreditsTexte{%
+    Réalisé à partir des contenus de 50ohm.de (en allemand)\\
+    50ohm.de-Autorenteam, coordonné par le référat AJW du DARC e.\,V.\\
+    \Auteur\\[3pt]
+    Licence CC BY 4.0 --- \texttt{\Depot}}
+
+\def\MesureNoeud#1#2#3{%
+  \path let \p1=(#1.south west), \p2=(#1.north east),
+            \p3=(#1.north west), \p4=(#1.south east), \p5=(0,0) in
+    \pgfextra{%
+      \expandafter\xdef\csname #2xmin\endcsname{\fpeval{round((min(\x1,\x2,\x3,\x4) - \x5 + #3)/1mm, 2)}}%
+      \expandafter\xdef\csname #2xmax\endcsname{\fpeval{round((max(\x1,\x2,\x3,\x4) - \x5 - #3)/1mm, 2)}}%
+      \expandafter\xdef\csname #2ymin\endcsname{\fpeval{round((min(\y1,\y2,\y3,\y4) - \y5 + #3)/1mm, 2)}}%
+      \expandafter\xdef\csname #2ymax\endcsname{\fpeval{round((max(\y1,\y2,\y3,\y4) - \y5 - #3)/1mm, 2)}}%
+    };}
+
+% \ControleDans{libellé}{préfixe}{xmin}{xmax}{ymin}{ymax}
+\def\ControleDans#1#2#3#4#5#6{%
+  \ifnum\fpeval{\csname #2xmin\endcsname >= #3 && \csname #2xmax\endcsname <= #4
+             && \csname #2ymin\endcsname >= #5 && \csname #2ymax\endcsname <= #6}=1
+    \typeout{COUVERTURE-CONTROLE OK #1 : x \csname #2xmin\endcsname-\csname #2xmax\endcsname,
+      y \csname #2ymin\endcsname-\csname #2ymax\endcsname\space dans x #3-#4, y #5-#6}%
+  \else
+    \global\advance\NbAlertes by 1
+    \typeout{COUVERTURE-CONTROLE ALERTE #1 : x \csname #2xmin\endcsname-\csname #2xmax\endcsname,
+      y \csname #2ymin\endcsname-\csname #2ymax\endcsname\space HORS de x #3-#4, y #5-#6}%
+  \fi}
+
+% \ControleDisjoints{libellé}{préfixe}{xmin}{xmax}{ymin}{ymax}
+% Deux rectangles se chevauchent si et seulement s'ils se recouvrent sur
+% les DEUX axes à la fois.
+\def\ControleDisjoints#1#2#3#4#5#6{%
+  \ifnum\fpeval{\csname #2xmin\endcsname < #4 && #3 < \csname #2xmax\endcsname
+             && \csname #2ymin\endcsname < #6 && #5 < \csname #2ymax\endcsname}=1
+    \global\advance\NbAlertes by 1
+    \typeout{COUVERTURE-CONTROLE ALERTE #1 : chevauchement}%
+  \else
+    \typeout{COUVERTURE-CONTROLE OK #1 : disjoints}%
+  \fi}
+
+\begin{document}
+% Marge interne du filigrane, évaluée dans la police qui ENTOURE le dessin :
+% c'est là que TikZ évalue le .3333em de « inner sep » (cf. § 8).
+\FiligraneSep=.3333em
+% Largeur réelle des crédits : la plus longue ligne, dans leur police.
+\sbox\CreditsBoite{\small\begin{tabular}{@{}l@{}}\CreditsTexte\end{tabular}}%
+\begin{tikzpicture}[remember picture, overlay,
+                    x=1mm, y=1mm, shift={(current page.south west)}]
+
+% ---- Fonds ----------------------------------------------------------
+% La 4e de couverture reste sur le blanc du papier.
+% Le bandeau bleu couvre le dos, puis reprend au tiers extérieur de la
+% 1re de couverture — même partition 2/3-1/3 que la page de titre.
+\fill[TitleBand] (\DosG, 0) rectangle (\DosD, \PapierH);
+\fill[TitleBand] (\BandeauG, 0) rectangle (\PapierL, \PapierH);
+% Filets d'accent : à la jonction sur la 1re, de part et d'autre du dos.
+\fill[TitleAccent] (\BandeauAccent, 0) rectangle (\BandeauG, \PapierH);
+\fill[TitleAccent] (\DosAccentG, 0) rectangle (\DosG, \PapierH);
+\fill[TitleAccent] (\DosD, 0) rectangle (\DosAccentD, \PapierH);
+
+% ---- 1re de couverture ----------------------------------------------
+% Filigrane de classe, en réserve claire, détouré au bandeau.
+\begin{scope}
+\clip (\BandeauG, 0) rectangle (\PapierL, \PapierH);
+\node[name=filigrane, anchor=north, align=center, text=white, opacity=0.16,
+      font=\fontsize{\CorpsF}{\CorpsFI}\selectfont\bfseries]
+  at (\FiligraneX, \FiligraneY) {\FiligraneTexte};
+\end{scope}
+
+\node[name=titre, anchor=west, align=left, text width=\TitreW mm]
+  at (\TitreX, \TitreY) {%
+    {\fontsize{54}{56}\selectfont\bfseries \TitreOuvrage}\\[10pt]
+    {\Large\color{TitleBand}\bfseries \SousTitre}\\[16pt]
+    {\large\color{black!75} \SousTitreClasse}};
+
+\node[name=version, anchor=south west, align=left, font=\small, text=black!70]
+  at (\TitreX, \VersionY) {Version \Version\\ Licence CC BY 4.0};
+
+% ---- Dos -------------------------------------------------------------
+% Un dos étroit ne reçoit pas de texte : en deçà de 6 mm, le débord au
+% massicot ferait mordre le texte vertical sur les plats.
+\ifnum\fpeval{\Dos >= 6}=1
+  \node[name=dos, rotate=90, anchor=center, text=white, font=\bfseries,
+        inner sep=0pt]
+    at (\DosAxe, \MilieuH)
+    {\TitreOuvrage\ \ --- \ \SousTitreClasse\ \ --- \ \Version};
+\fi
+
+% ---- 4e de couverture ------------------------------------------------
+\node[name=quatre, anchor=north west, align=justify, text width=\QuatreW mm]
+  at (\QuatreX, \QuatreY) {\QuatriemeTexte};
+
+% Le texte vit dans \CreditsTexte (§ 8) pour être mesuré à part : la boîte
+% du nœud a la largeur fixe \QuatreW et couvre l'emplacement ISBN sans
+% qu'aucun caractère n'y soit. Retirer « text width » pour l'éviter change
+% l'interlignage — essayé le 16/09/2026, 6 934 pixels différents.
+\node[name=credits, anchor=south west, align=left, font=\small, text=black!70,
+      text width=\QuatreW mm]
+  at (\QuatreX, \QuatreBasY) {\CreditsTexte};
+
+% ---- Repères de fabrication (mode épreuve uniquement) ----------------
+\ifx\Reperes\ouimot
+  % Traits de coupe, hors du fond perdu.
+  \foreach \x in {\CoupeG, \CoupeD} {
+    \draw[Repere, line width=0.25pt] (\x, \TechExt) -- (\x, \TechInt);
+    \draw[Repere, line width=0.25pt] (\x, \HautInt) -- (\x, \HautExt);}
+  \foreach \y in {\CoupeB, \CoupeH} {
+    \draw[Repere, line width=0.25pt] (\TechExt, \y) -- (\TechInt, \y);
+    \draw[Repere, line width=0.25pt] (\DroitInt, \y) -- (\DroitExt, \y);}
+  % Limites du dos, en pointillés.
+  \foreach \x in {\DosG, \DosD} {
+    \draw[Repere, line width=0.25pt, dashed] (\x, \TechExt) -- (\x, \TechInt);
+    \draw[Repere, line width=0.25pt, dashed] (\x, \HautInt) -- (\x, \HautExt);}
+  % Zone de sécurité.
+  \draw[Repere, line width=0.2pt, dotted]
+    (\SecG, \SecB) rectangle (\SecD, \SecH);
+  % Emplacement réservé au code-barres ISBN.
+  \draw[Repere, line width=0.2pt] (\IsbnG, \SecB) rectangle (\IsbnD, \IsbnH);
+  \node[font=\tiny\sffamily, text=Repere, align=center]
+    at (\IsbnCX, \IsbnCY) {emplacement\\ISBN};
+  % Cotes.
+  \node[anchor=north, font=\tiny\sffamily, text=Repere]
+    at (\DosAxe, \CoteHautY) {dos \Dos\ mm (\DosOrigine)};
+  \node[anchor=south, font=\tiny\sffamily, text=Repere, align=center]
+    at (\MilieuL, \CoteBasY) {\CotesTexte};
+\fi
+
+% ---- Contrôle de superposition (§ 8) ----------------------------------
+% Rien n'est dessiné : des mesures et des lignes de journal.
+\MesureNoeud{filigrane}{Fil}{\the\FiligraneSep}
+\MesureNoeud{titre}{Tit}{0pt}
+\MesureNoeud{version}{Ver}{0pt}
+\MesureNoeud{quatre}{Qua}{0pt}
+\MesureNoeud{credits}{Cre}{0pt}
+% Bord droit des crédits = bord gauche + marge interne + plus longue ligne.
+\xdef\Crexmax{\fpeval{round(\Crexmin + (\the\FiligraneSep + \the\wd\CreditsBoite)/1mm, 2)}}
+
+% Le filigrane peut entrer dans la zone de sécurité (il est décoratif),
+% pas franchir la coupe ni sortir du bandeau — le détourage le rognerait.
+\ControleDans{filigrane dans le bandeau}{Fil}{\BandeauG}{\CoupeD}{\CoupeB}{\CoupeH}
+\ControleDans{titre sur la 1re, hors bandeau}{Tit}{\PliPremiere}{\BandeauAccent}{\SecB}{\SecH}
+\ControleDans{version sur la 1re, hors bandeau}{Ver}{\PliPremiere}{\BandeauAccent}{\SecB}{\SecH}
+\ControleDans{texte de 4e dans la zone de securite}{Qua}{\SecG}{\PliQuatre}{\SecB}{\SecH}
+\ControleDans{credits de 4e dans la zone de securite}{Cre}{\SecG}{\PliQuatre}{\SecB}{\SecH}
+\ControleDisjoints{titre / version}{Tit}{\Verxmin}{\Verxmax}{\Verymin}{\Verymax}
+\ControleDisjoints{texte de 4e / credits}{Qua}{\Crexmin}{\Crexmax}{\Creymin}{\Creymax}
+\ControleDisjoints{texte de 4e / emplacement ISBN}{Qua}{\IsbnG}{\IsbnD}{\SecB}{\IsbnH}
+\ControleDisjoints{credits / emplacement ISBN}{Cre}{\IsbnG}{\IsbnD}{\SecB}{\IsbnH}
+\ifnum\fpeval{\Dos >= 6}=1
+  \MesureNoeud{dos}{Dos}{0pt}
+  \ControleDans{texte du dos entre les plis}{Dos}{\DosG}{\DosD}{\SecB}{\SecH}
+\else
+  \typeout{COUVERTURE-CONTROLE OK dos de \Dos\space mm : trop etroit, sans texte}%
+\fi
+
+\end{tikzpicture}
+\typeout{COUVERTURE-BILAN alertes=\the\NbAlertes\space; classe=\Classe\space;
+  format=\Format\space; pages=\NbPages\space; version=\Version\space;
+  dos=\Dos\space mm (\DosOrigine); fini=\FiniL x \PageHauteur\space mm;
+  papier=\PapierL x \PapierH\space mm}
+\end{document}

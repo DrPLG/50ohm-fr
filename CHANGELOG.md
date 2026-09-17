@@ -12,6 +12,65 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 16 septembre 2026 — fenêtre de compilation, page de titre 20 × 24, couverture
+
+#### Ajouté — `fenetre_compilation.py` v0.2
+
+Lanceur Tkinter : tome (les sept éditions), format, langue, version, pièces
+liminaires ; purge, `build_book.py`, contrôles du § 4, compression. Il couvre
+ce que `compiler.bat` ne sait pas faire — NEA et SWL, qui exigent de répéter
+`--translations`. Une compilation du livre demande une confirmation
+récapitulative, avec la durée attendue.
+
+Les deux vérificateurs tournent aussi sur une sortie au nom non canonique
+(`build-NEA-20x24-marge`), par une jonction temporaire. **La v0.1 les sautait,
+et c'est ainsi qu'est passé le premier constat ci-dessous.**
+
+#### Ajouté — `couverture.tex`, versé au dépôt
+
+Le gabarit dos carré collé du 20/08, jusque-là dans `Fichierstravail/`, est
+appelé par la fenêtre (case « couverture pour l'imprimeur » : épreuve et
+fichier d'impression). Nouveautés : format en paramètre, pagination lue dans
+le journal du livre réellement compilé, dos imposé appliqué seulement à la
+pagination et au format pour lesquels l'imprimeur l'a donné, et **contrôle de
+superposition calculé par LaTeX** à partir des boîtes des nœuds.
+
+- **Neutralité :** en A4, N (258 p.) et NEA (816 p.), épreuve et impression,
+  rendu identique au pixel au gabarit d'origine.
+- **Le contrôle sait dire non :** cinq fautes injectées, cinq alertes.
+- **20 × 24 :** six éditions, épreuve et impression — **0 alerte, 0 ligne
+  trop longue**. Paginations mesurées pour N (318), E (270) et NEA (1036) ;
+  estimées pour A, NE et EA, jamais compilées dans ce format.
+- **Dos du NEA en 20 × 24 : 56,2 mm** (1036 pages), calculé avec la main
+  estimée de 1,206.
+- Le SWL est refusé : sa 4e de couverture n'est pas rédigée.
+
+#### Corrigé — `build_book.py` v0.30 : le filigrane empilé suit la hauteur
+
+NEA en 20 × 24 : le A du filigrane tombait sur « Cours complet / Classes N,
+E et A ». Défaut **de notre fait, introduit par la v0.29**, qui cotait le
+corps du filigrane en largeur de papier et le titre en hauteur. Corps et
+interligne de la pile = minimum des deux cotes.
+
+- **A4 identique à l'octet** (NEA et N, rendus à 150 dpi, 0 pixel différent).
+- **20 × 24 :** 9,8 mm d'air entre le A et le titre (−9 mm avant).
+- Portée : NE, EA, NEA, SWL. N, E et A n'ont qu'une lettre.
+
+#### Connu — NEA 20 × 24 (marge 52 mm), compilé le 16/09/2026
+
+| | A4 | 20 × 24 marge |
+| --- | ---: | ---: |
+| pages | 816 | **1036** |
+| notes de marge rétrogradées | 5 | **7** (685 et 621 pt, sous le nouveau seuil de 574,7) |
+| questions séparées de leurs réponses | 0 | **3** — AD406, AD416, AD502 |
+| figures séparées de leur légende | 0 | 0 (624 contrôlées) |
+| lignes débordant dans la gouttière (> 7 mm) | 3 (tableau CEPT, connu) | 5 |
+
+Les deux débordements neufs existaient en A4, plus petits : `fernmeldegeheimnis_abhoerverbot`
+(19,7 → 31,0 pt, le mot composé *Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz*)
+et `widerstand_materialien` (9,4 → 20,8 pt). Aucun ne chevauche une note de
+marge — vérifié sur les pages 225 et 1019.
+
 ### 4 septembre 2026 — troisième resynchronisation amont
 
 **`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard** —
