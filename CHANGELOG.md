@@ -41,6 +41,23 @@ main la veille :
 - Cas de trois pages ajoutées à partir d'une page paire : pas de page blanche
   parasite (`open=any`), lignes du bon côté de la marge.
 
+#### Corrigé — deux encarts de N, vérifiés à la source avant la release a.3
+
+Les points « à vérifier avant publication » ont été lus à la source :
+taxe de 46 € (loi n° 2018-1317, communiqué ANFR), décret n° 67-1171
+(art. 1), arrêté du 23 avril 2012 (art. 2 et 3), décret n° 2014-1621 —
+**confirmés**. Deux retouches, décidées par Pierre :
+
+- `funkamateur` : l'arrêté de 2012 « a supprimé l'épreuve de télégraphie et
+  unifié les certificats » → « a institué un certificat d'opérateur unique,
+  dont l'examen ne comporte plus que deux épreuves, réglementation et
+  technique » : c'est ce que dit son art. 2 ;
+- `gebuehren_beitraege` : examen et certificat « gratuits **depuis 2021** » →
+  « gratuits ». Aucune base officielle trouvée pour la date (l'art. 64 de la
+  loi n° 2020-1721, souvent cité, ne parle pas des radioamateurs).
+
+`verifier_traduction.py` : 0 écart. N non recompilé.
+
 ### 17 septembre 2026 — quatrième resynchronisation, relectures du livre N
 
 #### Modifié — resynchronisation `04cc9316` → `48e18bf4` (7 commits, classe A seule)

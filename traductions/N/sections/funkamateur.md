@@ -15,7 +15,7 @@ Mais ce n'est pas tout. Un radioamateur ne peut s'occuper du service radioamateu
 
 Manœuvrer une station d'amateur suppose, comme en Allemagne, deux choses distinctes : un **certificat d'opérateur**, qui atteste la compétence, et un **indicatif d'appel personnel**, qui autorise l'exploitation. C'est l'article 1er de l'arrêté du 21 septembre 2000 modifié.
 
-La grande différence est qu'il n'existe **qu'une seule classe** en France. L'arrêté du 23 avril 2012 a supprimé l'épreuve de télégraphie et unifié les certificats : celui qui est délivré aujourd'hui vaut HAREC au sens de la recommandation CEPT T/R 61-02 et ouvre les droits de l'ancienne classe 2. Il n'existe donc pas d'équivalent français des classes N et E : le candidat français passe d'emblée l'examen le plus complet.
+La grande différence est qu'il n'existe **qu'une seule classe** en France. L'arrêté du 23 avril 2012 a institué un certificat d'opérateur unique, dont l'examen ne comporte plus que deux épreuves, réglementation et technique — la télégraphie n'en fait plus partie. Le certificat délivré aujourd'hui vaut HAREC au sens de la recommandation CEPT T/R 61-02 et ouvre les droits de l'ancienne classe 2. Il n'existe donc pas d'équivalent français des classes N et E : le candidat français passe d'emblée l'examen le plus complet.
 
 Les titulaires d'anciens certificats conservent leurs droits acquis :
 
