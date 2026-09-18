@@ -49,6 +49,21 @@ PIÈGES DU DÉPÔT REPRIS ICI, chacun payé au moins une fois :
 
 HISTORIQUE :
 
+  v0.3 (18/09/2026) — trois ajouts, demandés par Pierre après l'impression de E :
+     - « PDF INTÉRIEUR POUR L'IMPRIMEUR », en case à cocher : /prepress
+       (300 dpi, jamais /ebook), nommé « -IMPRESSION », avec en option le FOND
+       PERDU de 3 mm — pages à l'échelle 1 sur une feuille agrandie, page de
+       titre prolongée, TrimBox/BleedBox. Généralise impression/fondperdu-E.tex
+       à tout format ;
+     - « COMPLÉTER À UN MULTIPLE DE 4 PAGES », en case à cocher : l'imprimeur
+       l'exige. Les pages manquantes (0 à 3) sont des pages « Notes »,
+       composées avec la classe du livre (polices, marges, folios) puis
+       fusionnées au PDF par Ghostscript — SANS recompiler le livre. La
+       compression et la couverture partent ensuite du livre complété.
+       Même procédé que impression/notes-E.tex, généralisé ;
+     - RELIURE de la couverture, en boutons radio : dos carré collé ou
+       couverture rigide (\Reliure de couverture.tex). Le dos d'une
+       couverture rigide se demande à l'imprimeur : calculé, il est faux.
   v0.2 (16/09/2026) — trois ajouts, demandés après la première compilation du
        NEA en 20 x 24 :
      - COUVERTURE POUR L'IMPRIMEUR, en case à cocher : couverture.tex compilé
@@ -336,6 +351,62 @@ def nom_pdf_compresse(edition, version, format_papier):
     return "livre-{}-{}{}.pdf".format(edition, version, suffixe)
 
 
+def nom_pdf_impression(edition, version, format_papier):
+    """livre-E-a.3-20x24-marge-IMPRESSION.pdf (CLAUDE.md § 3, Compression)."""
+    return nom_pdf_compresse(edition, version, format_papier)[:-4] + "-IMPRESSION.pdf"
+
+
+# Format FINI du livre, en mm (largeur, hauteur) — les geometry de build_book.py.
+FORMATS_MM = {"a4": (210, 297), "20x24": (200, 240), "20x24-marge": (200, 240)}
+
+# Fond perdu de l'intérieur, en mm. Consigne de l'imprimeur du 17/09/2026 :
+# fichier de (largeur + 6 mm) x (hauteur + 6 mm).
+FOND_PERDU_MM = 3
+
+
+def tex_fond_perdu(source, largeur, hauteur, fond=FOND_PERDU_MM):
+    r"""Source LaTeX de l'intérieur avec fond perdu, à partir du PDF `source`.
+
+    Chaque page est centrée à l'échelle 1 sur une feuille agrandie de `fond`
+    mm de chaque côté ; TrimBox et BleedBox sont déclarées. Seule la page de
+    titre touche le bord (bandeau et filet, build_book.py) : ses aplats sont
+    prolongés dans le fond perdu, avec 0,2 mm de recouvrement vers
+    l'intérieur pour ne laisser aucun filet blanc. Bandeau : 0,34 de la
+    largeur à droite ; filet : entre 0,345 et 0,34.
+    Généralise impression/fondperdu-E.tex, validé au pixel le 17/09/2026.
+    """
+    L, H, b = largeur + 2 * fond, hauteur + 2 * fond, fond
+    bp = 72 / 25.4
+    bande = b + largeur * (1 - 0.34)
+    filet = b + largeur * (1 - 0.345)
+    ch = lambda v: ("%.4f" % v).rstrip("0").rstrip(".")
+    boites = (r"\pdfvariable pageattr{/TrimBox [%.5f %.5f %.5f %.5f] "
+              r"/BleedBox [0 0 %.5f %.5f]}"
+              % (b * bp, b * bp, (b + largeur) * bp, (b + hauteur) * bp, L * bp, H * bp))
+    return "\n".join([
+        r"\documentclass{article}",
+        r"\usepackage[paperwidth=%smm, paperheight=%smm, margin=0pt]{geometry}"
+        % (ch(L), ch(H)),
+        r"\usepackage{pdfpages}",
+        r"\usepackage{tikz}",
+        r"\definecolor{TitleBand}{cmyk}{.9,.55,.1,.35}",
+        r"\definecolor{TitleAccent}{cmyk}{.05,.8,1,0}",
+        boites,
+        r"\begin{document}",
+        r"\includepdf[pages=1, noautoscale, pagecommand={%",
+        r"	\begin{tikzpicture}[remember picture, overlay, x=1mm, y=1mm, "
+        r"shift={(current page.south west)}]",
+        r"		\fill[TitleBand]   (%s, 0) rectangle (%s, %s);" % (ch(L - b - 0.2), ch(L), ch(H)),
+        r"		\fill[TitleBand]   (%s, %s) rectangle (%s, %s);" % (ch(bande), ch(H - b - 0.2), ch(L), ch(H)),
+        r"		\fill[TitleBand]   (%s, 0) rectangle (%s, %s);" % (ch(bande), ch(L), ch(b + 0.2)),
+        r"		\fill[TitleAccent] (%s, %s) rectangle (%s, %s);" % (ch(filet), ch(H - b - 0.2), ch(bande), ch(H)),
+        r"		\fill[TitleAccent] (%s, 0) rectangle (%s, %s);" % (ch(filet), ch(bande), ch(b + 0.2)),
+        r"	\end{tikzpicture}}]{%s}" % source,
+        r"\includepdf[pages=2-, noautoscale]{%s}" % source,
+        r"\end{document}",
+    ]) + "\n"
+
+
 def construire_commande(python, edition, langue, format_papier, version,
                         contenus, sortie, pieces, compiler_=True):
     """La ligne de commande exacte, sous forme de liste d'arguments.
@@ -359,10 +430,63 @@ def construire_commande(python, edition, langue, format_papier, version,
     return cmd
 
 
-def nom_couverture(edition, version, format_papier):
-    """couverture-NEA-a.3-20x24-marge ; le suffixe épreuve/impression suit."""
+def nom_couverture(edition, version, format_papier, reliure="souple"):
+    """couverture-NEA-a.3-20x24-marge[-rigide] ; épreuve/impression suit.
+
+    Le dos carré collé garde le nom d'avant la v0.3 : aucun fichier existant
+    ne change de nom."""
     suffixe = "" if format_papier == "a4" else "-" + format_papier
+    if reliure == "rigide":
+        suffixe += "-rigide"
     return "couverture-{}-{}{}".format(edition, version, suffixe)
+
+
+# Reliures de la couverture : valeur passée à \Reliure, libellé de la fenêtre.
+RELIURES = [("souple", "dos carré collé"),
+            ("rigide", "couverture rigide (reliée)")]
+
+# Titre des pages ajoutées pour atteindre un multiple de 4.
+TITRE_NOTES = {"fr": "Notes", "de": "Notizen"}
+
+
+def pages_a_ajouter(pages, multiple=4):
+    """Nombre de pages à ajouter pour que `pages` soit un multiple de 4."""
+    return (-pages) % multiple
+
+
+def tex_pages_notes(premiere, nombre, titre="Notes"):
+    r"""Source LaTeX de `nombre` pages « Notes », numérotées dès `premiere`.
+
+    Compilé DANS la sortie du livre, qui contient FiftyOhmBook.cls : polices,
+    marges et folios sont ceux du livre. Lignes d'écriture sur toute la
+    largeur texte + colonne de marge. La colonne est à droite sur une page
+    impaire, à gauche sur une paire (twoside) : on décale alors d'autant.
+    open=any : sinon \chapter* ouvrirait sur une page de droite et ajouterait
+    une page blanche quand la première page ajoutée est paire.
+    Validé au rendu le 17/09/2026 sur E (274 -> 276 p.), cf. notes-E.tex.
+    """
+    lignes = [
+        r"\documentclass{FiftyOhmBook}",
+        r"\KOMAoptions{open=any}",
+        r"\newlength{\largeurnotes}",
+        r"\setlength{\largeurnotes}{\dimexpr\textwidth+\marginparsep+\marginparwidth\relax}",
+        r"\newcommand{\lignesnotes}[1]{%",
+        r"	\xleaders\vbox to 9mm{\vfil\moveleft#1\hbox{\color{black!35}"
+        r"\rule{\largeurnotes}{0.4pt}}}\vfill}",
+        r"\begin{document}",
+        r"\setcounter{page}{%d}" % premiere,
+    ]
+    for i in range(nombre):
+        page = premiere + i
+        decalage = (r"0pt" if page % 2 else
+                    r"\dimexpr\marginparsep+\marginparwidth\relax")
+        if i == 0:
+            lignes.append(r"\chapter*{%s}" % titre)
+        else:
+            lignes += [r"\newpage", r"\null"]
+        lignes.append(r"\lignesnotes{%s}" % decalage)
+    lignes.append(r"\end{document}")
+    return "\n".join(lignes) + "\n"
 
 
 def pages_du_journal(log, edition):
@@ -459,6 +583,10 @@ class Fenetre:
         self.v_compresser = tk.BooleanVar(value=True)
         self.v_gardien = tk.BooleanVar(value=False)
         self.v_couverture = tk.BooleanVar(value=False)
+        self.v_multiple4 = tk.BooleanVar(value=False)
+        self.v_impression = tk.BooleanVar(value=False)
+        self.v_fond_perdu = tk.BooleanVar(value=True)
+        self.v_reliure = tk.StringVar(value="souple")
         self.v_etat = tk.StringVar(value="prêt")
         self.v_ressources = tk.StringVar(value="")
 
@@ -557,12 +685,37 @@ class Fenetre:
         self.c_compresser = ttk.Checkbutton(
             boite, text="compresser (Ghostscript)", variable=self.v_compresser)
         self.c_compresser.grid(row=2, column=1, sticky="w", padx=(16, 0))
+        self.c_multiple4 = ttk.Checkbutton(
+            boite, text="compléter à un multiple de 4 pages (pages « Notes » "
+                        "en fin de livre, sans recompiler)",
+            variable=self.v_multiple4)
+        self.c_multiple4.grid(row=3, column=0, columnspan=2, sticky="w")
+        self.c_impression = ttk.Checkbutton(
+            boite, text="PDF intérieur pour l'imprimeur (/prepress, 300 dpi, "
+                        "« -IMPRESSION »)",
+            variable=self.v_impression, command=self._sur_livre)
+        self.c_impression.grid(row=4, column=0, columnspan=2, sticky="w")
+        self.c_fond_perdu = ttk.Checkbutton(
+            boite, text="avec fond perdu de {} mm (page de titre prolongée, "
+                        "boîtes de coupe)".format(FOND_PERDU_MM),
+            variable=self.v_fond_perdu)
+        self.c_fond_perdu.grid(row=5, column=0, columnspan=2, sticky="w",
+                               padx=(22, 0))
         self.c_couverture = ttk.Checkbutton(
             boite, text="couverture pour l'imprimeur (épreuve + impression)",
-            variable=self.v_couverture)
-        self.c_couverture.grid(row=3, column=0, columnspan=2, sticky="w")
+            variable=self.v_couverture, command=self._sur_livre)
+        self.c_couverture.grid(row=6, column=0, columnspan=2, sticky="w")
+        reliure = ttk.Frame(boite)
+        reliure.grid(row=7, column=0, columnspan=2, sticky="w", padx=(22, 0))
+        ttk.Label(reliure, text="Reliure :").pack(side="left", padx=(0, 8))
+        self.r_reliure = []
+        for valeur, texte in RELIURES:
+            r = ttk.Radiobutton(reliure, text=texte, value=valeur,
+                                variable=self.v_reliure)
+            r.pack(side="left", padx=(0, 12))
+            self.r_reliure.append(r)
         self.l_couverture = ttk.Label(boite, foreground="#555")
-        self.l_couverture.grid(row=4, column=0, columnspan=2, sticky="w")
+        self.l_couverture.grid(row=8, column=0, columnspan=2, sticky="w")
         ligne += 1
 
         # --- Sortie
@@ -667,6 +820,20 @@ class Fenetre:
         elif livre == "generer":
             pourquoi = "il faut un livre compilé pour connaître la pagination"
         self._activer(self.c_couverture, self.v_couverture, not pourquoi)
+        # La reliure n'a de sens que si la couverture est demandée.
+        reliure_active = self._coche(self.c_couverture, self.v_couverture)
+        for r in self.r_reliure:
+            r.state(["!disabled"] if reliure_active else ["disabled"])
+        # Compléter les pages : il faut un PDF de livre et Ghostscript.
+        self._activer(self.c_multiple4, self.v_multiple4,
+                      livre != "generer" and self.gs is not None)
+        # PDF d'impression : Ghostscript ; le fond perdu demande en plus
+        # lualatex (pdfpages), et n'a de sens que si l'impression est cochée.
+        self._activer(self.c_impression, self.v_impression,
+                      livre != "generer" and self.gs is not None)
+        self._activer(self.c_fond_perdu, self.v_fond_perdu,
+                      self._coche(self.c_impression, self.v_impression)
+                      and shutil.which("lualatex") is not None)
         if pourquoi:
             self.l_couverture.configure(text="   " + pourquoi)
         elif edition in ("NE", "EA"):
@@ -691,7 +858,7 @@ class Fenetre:
         self.tk.after(20000, self._etat_ressources)
 
     def _verdict_environnement(self):
-        self._ecrire("fenetre_compilation.py v0.2\n", "titre")
+        self._ecrire("fenetre_compilation.py v0.3\n", "titre")
         if self.generateur:
             self._ecrire("Générateur : {}\n".format(self.generateur))
             self._ecrire("Contenus   : {}\n".format(self.contenus))
@@ -782,6 +949,15 @@ class Fenetre:
             "compresser": self._coche(self.c_compresser, self.v_compresser),
             "gardien": self._coche(self.c_gardien, self.v_gardien),
             "couverture": self._coche(self.c_couverture, self.v_couverture),
+            "multiple4": self._coche(self.c_multiple4, self.v_multiple4),
+            "impression": self._coche(self.c_impression, self.v_impression),
+            "fond_perdu": self._coche(self.c_fond_perdu, self.v_fond_perdu),
+            "reliure": self.v_reliure.get(),
+            # Renseignés par _completer si des pages sont ajoutées : le PDF à
+            # compresser et la pagination de la couverture changent alors.
+            "pdf_livre": None,
+            "sources_livre": None,
+            "pages": None,
         }
         plan["commande"] = construire_commande(
             self.python, edition, plan["langue"], plan["format"],
@@ -806,7 +982,8 @@ class Fenetre:
         plan = self._plan()
         edition, pieces, livre = plan["edition"], plan["pieces"], plan["livre"]
         if livre == "rien" and not (plan["controles"] or plan["compresser"]
-                                    or plan["couverture"]):
+                                    or plan["couverture"] or plan["multiple4"]
+                                    or plan["impression"]):
             messagebox.showinfo("Rien à faire",
                                 "Le livre n'est pas touché et aucune autre étape "
                                 "n'est cochée.")
@@ -827,13 +1004,20 @@ class Fenetre:
             resume = (
                 "Tome {} — format {} — langue {} — version {}\n"
                 "Pièces liminaires : {}\n"
+                "Multiple de 4 pages : {}\n"
+                "PDF intérieur pour l'imprimeur : {}\n"
                 "Couverture pour l'imprimeur : {}\n"
                 "Sortie : {}\n\n"
                 "Durée attendue : {}. La machine sera monopolisée d'autant.\n\n"
                 "Lancer la compilation ?"
             ).format(edition, plan["format"], plan["langue"], plan["version"],
                      ", ".join(t for t, _ in pieces) or "aucune",
-                     "oui" if plan["couverture"] else "non",
+                     "compléter par des pages « Notes »" if plan["multiple4"]
+                     else "non",
+                     ("oui, avec fond perdu" if plan["fond_perdu"] else "oui, "
+                      "sans fond perdu") if plan["impression"] else "non",
+                     dict(RELIURES)[plan["reliure"]] if plan["couverture"]
+                     else "non",
                      plan["sortie"].name, DUREES.get(edition, "inconnue"))
             if not messagebox.askokcancel("Compiler ?", resume, default="cancel"):
                 return
@@ -896,8 +1080,19 @@ class Fenetre:
                            "{}.\n".format(sortie.name))
             if plan["controles"]:
                 self._controles(plan)
+            if plan["multiple4"]:
+                # Après les contrôles, qui portent sur le livre tel que LaTeX
+                # l'a composé ; avant la compression et la couverture, qui
+                # doivent partir du livre complété.
+                code = self._completer(plan)
+                if code != 0:
+                    return
             if plan["compresser"]:
                 self._compresser(plan)
+            if plan["impression"]:
+                code = self._impression(plan)
+                if code != 0:
+                    return
             if plan["couverture"]:
                 code = self._couverture(plan)
         except Exception as e:  # le thread ne doit jamais mourir en silence
@@ -1048,18 +1243,172 @@ class Fenetre:
         except OSError:
             pass
 
+    def _completer(self, plan):
+        """Pages « Notes » jusqu'au multiple de 4 exigé par l'imprimeur.
+
+        Rend 0 si le livre est complet (ou l'était déjà), 1 sinon. En cas de
+        succès, plan["pdf_livre"] et plan["pages"] désignent le livre complété :
+        la compression et la couverture en partent.
+        """
+        edition, sortie = plan["edition"], plan["sortie"]
+        self._dire("\n" + "-" * 70 + "\nMultiple de 4 pages\n" + "-" * 70 + "\n",
+                   "titre")
+        brut = sortie / "book-{}.pdf".format(edition)
+        pages = pages_du_journal(sortie / "book-{}.log".format(edition), edition)
+        if pages is None or not brut.exists():
+            self._dire("[ALERTE] livre ou pagination introuvable dans {} : rien "
+                       "à compléter.\n".format(sortie.name), "alerte")
+            return 1
+        manque = pages_a_ajouter(pages)
+        if manque == 0:
+            self._dire("[OK]      {} pages : déjà un multiple de 4, rien à "
+                       "ajouter.\n".format(pages), "ok")
+            return 0
+        self._dire("{} pages : {} page(s) « {} » ajoutée(s), p. {} à {}.\n".format(
+            pages, manque, TITRE_NOTES.get(plan["langue"], "Notes"),
+            pages + 1, pages + manque))
+
+        # Composées DANS la sortie : FiftyOhmBook.cls y est. Une seule passe :
+        # aucune référence croisée, et le décalage de marge est écrit en dur.
+        job = "notes-{}".format(edition)
+        (sortie / (job + ".tex")).write_text(
+            tex_pages_notes(pages + 1, manque,
+                            TITRE_NOTES.get(plan["langue"], "Notes")),
+            encoding="utf-8")
+        self.processus = subprocess.Popen(
+            ["lualatex", "-interaction=nonstopmode", "-halt-on-error", job + ".tex"],
+            cwd=str(sortie), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            creationflags=_sans_fenetre())
+        rc = self.processus.wait()
+        self.processus = None
+        texte_log = (sortie / (job + ".log")).read_text(encoding="utf-8",
+                                                        errors="replace")
+        m = re.findall(r"Output written on {}\.pdf \((\d+) pages?".format(job),
+                       texte_log)
+        obtenues = int(m[-1]) if m else None
+        if rc != 0 or obtenues != manque:
+            self._dire("[ALERTE] pages « Notes » : lualatex rc={}, {} page(s) "
+                       "produite(s) pour {} attendue(s) — voir {}\\{}.log\n"
+                       .format(rc, obtenues, manque, sortie.name, job), "alerte")
+            return 1
+
+        # Fusion. /prepress et non /ebook : ce fichier est la source de
+        # l'impression, il ne doit pas perdre en résolution (300 dpi).
+        complet = sortie / "book-{}-complet.pdf".format(edition)
+        r = subprocess.run(
+            [str(self.gs), "-q", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.5",
+             "-dPDFSETTINGS=/prepress", "-dDetectDuplicateImages=true",
+             "-dNOPAUSE", "-dBATCH", "-sOutputFile=" + str(complet),
+             str(brut), str(sortie / (job + ".pdf"))],
+            cwd=str(sortie), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            creationflags=_sans_fenetre())
+        if r.returncode != 0 or not complet.exists():
+            self._dire("[ALERTE] fusion Ghostscript : rc={}\n{}".format(
+                r.returncode, _decoder(r.stdout)), "alerte")
+            return 1
+        plan["pdf_livre"] = complet
+        # La compression repart des SOURCES (livre brut + pages Notes), pas du
+        # fichier fusionné : celui-ci est déjà passé en /prepress, et une
+        # seconde compression recompresserait les images deux fois.
+        plan["sources_livre"] = [brut, sortie / (job + ".pdf")]
+        plan["pages"] = pages + manque
+        self._dire("[OK]      livre complété : {} ({} pages, {:.1f} Mo)\n".format(
+            complet.name, plan["pages"], complet.stat().st_size / 1e6), "ok")
+        return 0
+
+    def _impression(self, plan):
+        """PDF intérieur pour l'imprimeur : /prepress, avec ou sans fond perdu.
+
+        Source : le livre complété de ses pages « Notes » s'il l'a été (déjà en
+        /prepress), sinon le PDF brut converti en /prepress — jamais le PDF
+        /ebook, ré-échantillonné à 150 dpi (CLAUDE.md § 3). Rend 0 ou 1.
+        """
+        edition, sortie = plan["edition"], plan["sortie"]
+        self._dire("\n" + "-" * 70 + "\nPDF intérieur pour l'imprimeur\n"
+                   + "-" * 70 + "\n", "titre")
+        brut = sortie / "book-{}.pdf".format(edition)
+        if plan["pdf_livre"]:
+            source = plan["pdf_livre"]
+        else:
+            if not brut.exists():
+                self._dire("[ALERTE] {} absent — rien à préparer.\n"
+                           .format(brut.name), "alerte")
+                return 1
+            source = sortie / "book-{}-prepress.pdf".format(edition)
+            r = subprocess.run(
+                [str(self.gs), "-q", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.5",
+                 "-dPDFSETTINGS=/prepress", "-dDetectDuplicateImages=true",
+                 "-dNOPAUSE", "-dBATCH", "-sOutputFile=" + str(source), str(brut)],
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                creationflags=_sans_fenetre())
+            if r.returncode != 0 or not source.exists():
+                self._dire("[ALERTE] conversion /prepress : rc={}\n{}".format(
+                    r.returncode, _decoder(r.stdout)), "alerte")
+                return 1
+        pages = plan["pages"] or pages_du_journal(
+            sortie / "book-{}.log".format(edition), edition)
+        if pages and pages % 4:
+            self._dire("[ATTENTION] {} pages : pas un multiple de 4, que "
+                       "l'imprimeur exige. Cocher « compléter à un multiple de "
+                       "4 pages ».\n".format(pages), "alerte")
+
+        final = source
+        if plan["fond_perdu"]:
+            largeur, hauteur = FORMATS_MM[plan["format"]]
+            job = "fondperdu-{}".format(edition)
+            (sortie / (job + ".tex")).write_text(
+                tex_fond_perdu(source.name, largeur, hauteur), encoding="utf-8")
+            # Deux passes : « remember picture » ne connaît la page qu'à la 2e.
+            for passe in (1, 2):
+                self.processus = subprocess.Popen(
+                    ["lualatex", "-interaction=nonstopmode", "-halt-on-error",
+                     job + ".tex"], cwd=str(sortie), stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL, creationflags=_sans_fenetre())
+                rc = self.processus.wait()
+                self.processus = None
+                if rc != 0:
+                    self._dire("[ALERTE] fond perdu : lualatex rc={} à la passe "
+                               "{} — voir {}\\{}.log\n".format(rc, passe,
+                                                            sortie.name, job),
+                               "alerte")
+                    return 1
+            m = re.findall(r"Output written on {}\.pdf \((\d+) pages?".format(job),
+                           (sortie / (job + ".log")).read_text(
+                               encoding="utf-8", errors="replace"))
+            obtenues = int(m[-1]) if m else None
+            if pages and obtenues != pages:
+                self._dire("[ALERTE] fond perdu : {} pages produites pour {} "
+                           "attendues.\n".format(obtenues, pages), "alerte")
+                return 1
+            final = sortie / (job + ".pdf")
+            self._dire("Fond perdu de {} mm : feuille de {} x {} mm, format fini "
+                       "{} x {} mm (TrimBox), {} pages.\n".format(
+                           FOND_PERDU_MM, largeur + 2 * FOND_PERDU_MM,
+                           hauteur + 2 * FOND_PERDU_MM, largeur, hauteur, obtenues))
+
+        cible = RACINE / nom_pdf_impression(edition, plan["version"], plan["format"])
+        shutil.copyfile(final, cible)
+        self._dire("[OK]      {} ({:.1f} Mo) — c'est CE fichier qui part chez "
+                   "l'imprimeur.\n".format(cible.name, cible.stat().st_size / 1e6),
+                   "ok")
+        self._dire("Couleur : le PDF reste en couleur ; un intérieur noir et blanc "
+                   "est converti par l'imprimeur.\n")
+        return 0
+
     def _couverture(self, plan):
-        """Couverture dos carré collé : épreuve puis fichier d'impression.
+        """Couverture, dos carré collé ou rigide : épreuve puis impression.
 
         Rend 0 si les deux sont produites sans alerte, 1 sinon. La pagination
         vient du journal du livre — donc du livre réellement composé, dans le
-        format demandé — et non d'une table.
+        format demandé — et non d'une table ; ou, si des pages « Notes » ont
+        été ajoutées, du livre complété.
         """
         edition, sortie = plan["edition"], plan["sortie"]
-        self._dire("\n" + "-" * 70 + "\nCouverture pour l'imprimeur\n"
-                   + "-" * 70 + "\n", "titre")
+        reliure = plan["reliure"]
+        self._dire("\n" + "-" * 70 + "\nCouverture pour l'imprimeur — {}\n"
+                   .format(dict(RELIURES)[reliure]) + "-" * 70 + "\n", "titre")
         log_livre = sortie / "book-{}.log".format(edition)
-        pages = pages_du_journal(log_livre, edition)
+        pages = plan["pages"] or pages_du_journal(log_livre, edition)
         if pages is None:
             self._dire("[ALERTE] pagination introuvable dans {} : le livre "
                        "n'a pas été compilé dans cette sortie.\n"
@@ -1069,16 +1418,17 @@ class Fenetre:
             self._dire("[ALERTE] {} pages : un dos carré collé exige un nombre "
                        "PAIR.\n".format(pages), "alerte")
             return 1
-        self._dire("Pagination lue dans {} : {} pages.\n"
-                   .format(log_livre.name, pages))
+        self._dire("Pagination lue dans {} : {} pages.\n".format(
+            plan["pdf_livre"].name if plan["pages"] else log_livre.name, pages))
 
         dossier = RACINE / DOSSIER_COUVERTURE
         dossier.mkdir(exist_ok=True)
-        base = nom_couverture(edition, plan["version"], plan["format"])
+        base = nom_couverture(edition, plan["version"], plan["format"], reliure)
         argument = (r"\def\Classe{%s}\def\Format{%s}\def\PagesForcees{%d}"
-                    r"\def\VersionForcee{%s}" % (edition, plan["format"], pages,
-                                                 plan["version"]))
+                    r"\def\VersionForcee{%s}\def\Reliure{%s}"
+                    % (edition, plan["format"], pages, plan["version"], reliure))
         resultat = 0
+        dos_impose = False
         for reperes, suffixe in (("oui", "epreuve"), ("non", "impression")):
             job = "{}-{}".format(base, suffixe)
             for ext in (".aux", ".log"):
@@ -1124,6 +1474,7 @@ class Fenetre:
                 resultat = 1
             else:
                 self._dire("  " + bilan[-1][len("COUVERTURE-BILAN "):] + "\n")
+                dos_impose = "(imposee)" in bilan[-1]
             for l in avertis:
                 self._dire("  [ATTENTION] " + l[len("COUVERTURE-AVERTISSEMENT "):]
                            + "\n", "alerte")
@@ -1139,9 +1490,19 @@ class Fenetre:
             if alertes or overfull:
                 resultat = 1
 
-        self._dire("\nLe dos est CALCULÉ avec une main de 1,206 déduite du seul "
-                   "chiffre de CoolLibri pour N (258 p.) : estimation à faire "
-                   "confirmer par l'imprimeur avant tout tirage.\n")
+        if dos_impose:
+            self._dire("\nLe dos est IMPOSÉ par l'imprimeur pour cette pagination, "
+                       "ce format et cette reliure (couverture.tex).\n", "ok")
+        elif reliure == "rigide":
+            self._dire("\n[ATTENTION] Dos CALCULÉ pour une couverture rigide : le "
+                       "calcul suppose le papier du dos carré collé (90 g). "
+                       "Demander l'épaisseur à l'imprimeur et la porter dans "
+                       "couverture.tex (\\DosImpose...) avant tout tirage.\n",
+                       "alerte")
+        else:
+            self._dire("\nLe dos est CALCULÉ avec une main de 1,206 déduite du "
+                       "seul chiffre de CoolLibri pour N (258 p.) : estimation à "
+                       "faire confirmer par l'imprimeur avant tout tirage.\n")
         if edition in ("NE", "EA"):
             self._dire("La 4e de couverture parle des classes N, E et A : à "
                        "relire pour l'édition {}.\n".format(edition))
@@ -1153,6 +1514,8 @@ class Fenetre:
         minutes. C'est ce qui sépare les deux règles."""
         edition, sortie = plan["edition"], plan["sortie"]
         brut = sortie / "book-{}.pdf".format(edition)
+        # Livre complété de pages « Notes » : ses deux sources, dans l'ordre.
+        sources = plan["sources_livre"] or [brut]
         if not brut.exists():
             self._dire("\n[ALERTE] {} absent — rien à compresser.\n"
                        .format(brut.name), "alerte")
@@ -1165,7 +1528,7 @@ class Fenetre:
         cmd = [str(self.gs), "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.5",
                "-dPDFSETTINGS=/ebook", "-dDetectDuplicateImages=true",
                "-dNOPAUSE", "-dBATCH",
-               "-sOutputFile=" + str(cible), str(brut)]
+               "-sOutputFile=" + str(cible)] + [str(s) for s in sources]
         self.processus = subprocess.Popen(
             cmd, cwd=str(RACINE), stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT, creationflags=_sans_fenetre())

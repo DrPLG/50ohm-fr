@@ -12,6 +12,35 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 18 septembre 2026 — la fenêtre de compilation prépare l'impression
+
+#### Ajouté — `fenetre_compilation.py` v0.3
+
+Trois options, demandées par Pierre après la mise en impression de E à la
+main la veille :
+
+- **compléter à un multiple de 4 pages** : pages « Notes » (0 à 3) composées
+  dans la sortie avec la classe du livre, fusionnées en
+  `book-<ÉD>-complet.pdf` (/prepress) sans recompiler. La compression repart
+  des sources, pour ne pas recompresser les images deux fois ;
+- **PDF intérieur pour l'imprimeur** (`-IMPRESSION`, /prepress), avec en
+  option le **fond perdu de 3 mm** : généralisation de
+  `impression/fondperdu-E.tex` à tout format ;
+- **reliure de la couverture** en boutons radio : dos carré collé ou
+  couverture rigide. En rigide sans dos imposé, un avertissement demande
+  l'épaisseur à l'imprimeur.
+
+**Essais de bout en bout**, livre non recompilé :
+
+- **E, 20 × 24 marge, rigide** : **0 pixel différent** avec les fichiers faits
+  à la main le 17/09 — pages Notes, livre complété, intérieur avec fond perdu
+  (5 pages comparées à 254 dpi), couverture épreuve et impression ;
+- **N, A4** : feuille de 216 × 303 mm, fond perdu de la page de titre sans
+  blanc, avertissement « 262 pages : pas un multiple de 4 ». Fichiers d'essai
+  supprimés, N étant périmé.
+- Cas de trois pages ajoutées à partir d'une page paire : pas de page blanche
+  parasite (`open=any`), lignes du bon côté de la marge.
+
 ### 17 septembre 2026 — quatrième resynchronisation, relectures du livre N
 
 #### Modifié — resynchronisation `04cc9316` → `48e18bf4` (7 commits, classe A seule)
