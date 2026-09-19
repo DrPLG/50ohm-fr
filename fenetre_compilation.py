@@ -573,7 +573,7 @@ class Fenetre:
         self.v_edition = tk.StringVar(value="N")
         self.v_format = tk.StringVar(value="a4")
         self.v_langue = tk.StringVar(value="fr")
-        self.v_version = tk.StringVar(value="a.3")
+        self.v_version = tk.StringVar(value="a.4")
         self.v_sortie = tk.StringVar()
         self.v_pieces = [tk.BooleanVar(value=True) for _ in PIECES]
         self.v_purger = tk.BooleanVar(value=True)

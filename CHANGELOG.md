@@ -8,7 +8,22 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
-## a.3 (en cours) — 20 août 2026
+## a.4 (en cours) — 19 septembre 2026
+
+**Chantier ouvert le 19/09/2026**, le jour de la publication de la a.3, sur la
+branche `version-a.4`.
+
+#### Modifié
+
+- `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
+
+---
+
+## a.3 — 19 septembre 2026
+
+**Publiée le 19/09/2026** : tag `a.3`, release « Version a.3 », cinq PDF
+(NEA A4 818 p. ; N 318, E 276, A 482, SWL 68 en 20 × 24 marge).
+<https://github.com/DrPLG/50ohm-fr/releases/tag/a.3>
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 

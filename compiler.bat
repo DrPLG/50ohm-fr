@@ -101,13 +101,13 @@ if "%CLASSE%"=="" (
     if errorlevel 3 (set "CLASSE=A") else if errorlevel 2 (set "CLASSE=E") else if errorlevel 1 (set "CLASSE=N")
 )
 
-REM Chantier a.3 (cf. CLAUDE.md section 12) : les trois classes portent
-REM desormais l'etiquette a.3. Elles gardent les pieces liminaires
+REM Chantier a.4 (ouvert le 19/09/2026) : les trois classes portent
+REM desormais l'etiquette a.4. Elles gardent les pieces liminaires
 REM (avant-propos, remerciements) introduites en a.1.
 set "VERSION="
-if /i "%CLASSE%"=="N" set "VERSION=a.3"
-if /i "%CLASSE%"=="E" set "VERSION=a.3"
-if /i "%CLASSE%"=="A" set "VERSION=a.3"
+if /i "%CLASSE%"=="N" set "VERSION=a.4"
+if /i "%CLASSE%"=="E" set "VERSION=a.4"
+if /i "%CLASSE%"=="A" set "VERSION=a.4"
 
 if not defined VERSION (
     echo.
