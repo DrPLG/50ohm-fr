@@ -64,7 +64,7 @@ Si tous les condensateurs ont la même valeur de capacité, on peut calculer fac
 Dans le montage en série de condensateurs de l'exercice suivant, on trouve comme préfixes $\unit{\micro\farad}$ et $\unit{\nano\farad}$. Il est très judicieux de convertir d'abord $\qty{200000}{\nano\farad}$ en $\qty{200}{\micro\farad}$. Pour un montage en série, on peut alors appliquer la formule du formulaire.
 
 
-$C_{\mathrm{ges}} =\frac{1}{\frac{1}{\qty{100}{\micro\farad}} + \frac{1}{\qty{50}{\micro\farad}} + \frac{1}{\qty{100}{\micro\farad}}}$
+$C_{\mathrm{ges}} =\frac{1}{\frac{1}{\qty{100}{\micro\farad}} + \frac{1}{\qty{200}{\micro\farad}} + \frac{1}{\qty{200}{\micro\farad}}}$
 
 [question:ED120]
 

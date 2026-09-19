@@ -42,5 +42,5 @@ La France réserve aux événements des préfixes entièrement distincts, ce qui
 
 La structure est libre dans des limites précises : le préfixe de deux lettres, puis un à trois chiffres de 0 à 999, puis un suffixe d'un à quatre caractères dont le dernier est obligatoirement une lettre. TM2026A, TO2018D ou TX2F sont ainsi valides.
 
-L'indicatif spécial est attribué par l'ANFR pour quinze jours au plus sur une période de six mois, sur dossier accompagné de la copie du certificat d'opérateur, à déposer au minimum vingt jours ouvrables avant la date d'utilisation. Contrairement aux indicatifs personnels, les indicatifs spéciaux peuvent être réattribués d'une année sur l'autre.
+L'indicatif spécial est attribué par l'ANFR pour quinze jours au plus sur une période de six mois, sur dossier accompagné de la copie du certificat d'opérateur, à déposer au minimum vingt jours ouvrables avant la date d'utilisation. Les indicatifs spéciaux sont réattribuables.
 </france>

@@ -17,7 +17,7 @@ La figure [ref:e_frequenzmodulation_frequenzhub] montre à titre d'exemple un si
 </margin>
 
 <indepth>
-La largeur de bande occupée par une émission FM est déterminée par l'excursion et par la fréquence de modulation maximale. En première approximation, pour une faible excursion et une fréquence de modulation basse, on peut appliquer la *formule de Carson*. Elle indique dans quelle largeur de bande se trouvent $\qty{90}{\percent}$ de la puissance d'émission.
+La largeur de bande occupée par une émission FM est déterminée par l'excursion et par la fréquence de modulation maximale. En première approximation, pour une faible excursion et une fréquence de modulation basse, on peut appliquer la *formule de Carson*. Elle indique dans quelle largeur de bande se trouvent $\qty{99}{\percent}$ de la puissance d'émission.
 
 $B\approx2 \cdot \left(\Delta f_{\textrm{T}} + f_{\textrm{mod max}} \right)$
   
@@ -36,7 +36,7 @@ Du fait que l'information modulée n'est pas contenue dans l'amplitude mais uniq
 [question:EE302]
 [question:EE303]
 <france>
-# Ce que « prescriptions légales » veut dire en France
+# Ce que « prescriptions légales » veut dire
 
 Les prescriptions auxquelles renvoie ce paragraphe sont, côté français, des valeurs chiffrées. Le paragraphe 3 de l'annexe de la décision ARCEP n° 2012-1241 plafonne la largeur de bande occupée en fonction de la seule fréquence d'émission, quel que soit le mode :
 

@@ -29,6 +29,6 @@ Le *démodulateur* est représenté par le symbole de la diode, qui est le compo
 
 [question:NF201]
 
-Selon sa constitution exacte, un récepteur présente des propriétés différentes. Une propriété importante est la sensibilité. Elle désigne la capacité du récepteur à recevoir des signaux faibles. Plus un récepteur est sensible, plus les signaux qu'il peut recevoir sont faibles.
+Selon sa constitution exacte, un récepteur présente des propriétés différentes. Une propriété importante est la sensibilité. Elle désigne la capacité du récepteur à recevoir des signaux faibles. Plus un récepteur est sensible, plus il peut recevoir des signaux faibles.
 
 [question:NF303]

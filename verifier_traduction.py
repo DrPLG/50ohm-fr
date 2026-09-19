@@ -86,7 +86,29 @@ import re
 import sys
 import unicodedata
 
-CLASSES = ("N", "E", "A")
+# Sous Windows, la console hérite d'une page de code héritée (cp1252 ici) et
+# Python y plante sur tout caractère qu'elle ne connaît pas. Le script en émet
+# forcément : il cite le corpus, qui est saturé de λ, de µ, de tirets
+# cadratins et de guillemets français.
+#
+# Constaté le 20/08/2026 : la passe --tout s'interrompait sur un λ par
+# UnicodeEncodeError, APRÈS avoir affiché la moitié de ses résultats. Le code
+# de retour devenait alors celui d'un plantage, indiscernable d'un rc=1
+# légitime — un contrôle qui ne peut pas rendre son verdict ne contrôle rien.
+#
+# errors="replace" plutôt que "strict" : mieux vaut un « ? » à l'écran qu'un
+# verdict perdu.
+for _flux in (sys.stdout, sys.stderr):
+    try:
+        _flux.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
+        pass
+
+# Le cursus SWL est entré dans le périmètre le 25/08/2026 : c'est un
+# cinquième tome, préparant l'examen DE du DARC. Ses sections vivent dans
+# traductions/SWL/sections/ comme celles des trois classes d'examen, et
+# les huit contrôles du §5 s'y appliquent à l'identique.
+CLASSES = ("N", "E", "A", "SWL")
 
 # Balises DARCdown reconnues par le parseur amont (renderer/tag.py), plus
 # <france>, qui est notre ajout.
@@ -116,6 +138,34 @@ ALLEMAND = re.compile(
 # Écarts VOULUS, décidés et documentés. Affichés, mais sans effet sur le rc.
 # Les retirer d'ici si la raison disparaît — ce n'est pas une liste d'excuses.
 DEROGATIONS = {
+    # Le moyen mnémotechnique des codes Q REPOSE sur les mots allemands :
+    # « QRM est une perturbation d'origine humaine (*m*enschengemacht) »,
+    # « QSB fait monter et descendre la force du signal (*S*ignalstärke
+    # *b*ergauf und *b*ergab) ». Traduire ces mots détruirait l'astuce, qui
+    # est tout l'objet de l'encart. Même traitement que « grande puissance
+    # (gr*o*ße Leistung) » dans N/q_schluessel.
+    ("SWL", "swl_q_gruppen"):
+        "glose allemande volontaire : les moyens mnémotechniques des codes "
+        "Q reposent sur les mots allemands eux-mêmes (menschengemacht, "
+        "Signalstärke bergauf und bergab)",
+    # Doubles crochets d'unité ramenés au crochet simple (20 formules, 3
+    # sections). L'amont écrit $f[[\unit{\mega\hertz}]]$ ; rien n'absorbe le
+    # doublement — ni le parseur, qui ne traite pas « [[ », ni LaTeX, où les
+    # crochets sont des délimiteurs ordinaires en mode mathématique — et le PDF
+    # compose littéralement « f [[MHz]] ». Le PRINCIPE du crochet est conservé :
+    # c'est la « zugeschnittene Größengleichung » du formulaire officiel que le
+    # candidat aura sous les yeux à l'examen. Décision de Pierre, 20/08/2026.
+    # Voir defauts-amont.md §21.
+    ("N", "wellenlaenge"):
+        "doubles crochets d'unité ramenés au crochet simple : "
+        "$f[[\\unit{\\mega\\hertz}]]$ compose « f [[MHz]] » "
+        "(defauts-amont.md §21)",
+    ("E", "formeln_umstellen"):
+        "doubles crochets d'unité ramenés au crochet simple "
+        "(defauts-amont.md §21)",
+    ("E", "wellenlaenge_2"):
+        "doubles crochets d'unité ramenés au crochet simple "
+        "(defauts-amont.md §21)",
     ("A", "elektrische_verlaengerung_verkuerzung"):
         "légende du dessin 650 écrite \\frac{5}{8} là où l'amont écrit "
         "\\qty{5}{8}, qui compose « 58λ » (defauts-amont.md §6)",
@@ -128,10 +178,117 @@ DEROGATIONS = {
         "PDF (CLAUDE.md §6)",
     ("A", "antennenformen_3"): "idem $ü$ -> $m$",
     ("A", "brueckengleichrichter"): "idem $ü$ -> $m$",
+    ("A", "digital_iq"):
+        "\\qty{10}{\\mega\\sample\\per\\second} rendu \\qty{10}{\\mega\\sps} : "
+        "\\sample n'est déclarée nulle part en amont, l'unité est une erreur "
+        "fatale de compilation (defauts-amont.md §18)",
+    ("A", "transverter_2"):
+        "<indepth> ajouté côté français sur l'inversion de bande latérale SSB : "
+        "contenu technique, non national — le §7 réserve <france> aux "
+        "compléments nationaux (décision de Pierre, 20/08/2026)",
+    ("A", "elektrische_geaete_oeffnen_2"):
+        "<tipp> amont rendu <tip> : 'tipp' n'est pas un marqueur DARCdown, il "
+        "s'imprime littéralement dans le PDF allemand (defauts-amont.md §17)",
+    ("A", "symbole_symbolrate"):
+        "\\bit\\per{Symbol} rendu \\bit\\per{symbole} : mot allemand DANS une "
+        "formule, traduit par analogie avec « Ordnung -> ordre » (CLAUDE.md §9, "
+        "tranché le 15/08/2026)",
     ("N", "morsetelegrafie"):
         "[morse:ß] ajouté à la table du code Morse (correction livrée en a.2) ; "
         "décale d'un rang tous les marqueurs suivants, d'où l'écart de "
         "marqueurs signalé sur toute la fin de la section",
+
+    # ------------------------------------------------------------------
+    # Vérifiées une par une le 06/09/2026, décision de Pierre. Elles ne
+    # sont PAS des relâchements de contrôle : chacune a été ouverte, lue
+    # et comparée à l'amont avant d'être inscrite ici.
+    #
+    # ATTENTION, et c'est le prix à payer : une dérogation couvre la
+    # section ENTIÈRE. Si l'amont réécrit demain l'une de celles-ci,
+    # verifier_traduction.py se taira. C'est verifier_amont.py qui reste
+    # l'oracle de ce cas-là, par empreinte — les deux outils sont
+    # complémentaires et aucun ne remplace l'autre (CLAUDE.md §5).
+    # ------------------------------------------------------------------
+
+    # L'amont écrit I_{Gemessen} SANS \text{} alors que P_\text{Gemessen} et
+    # U_\text{Gemessen} en ont un, sur la même ligne. Sans \text, les trois
+    # lettres de l'indice sont composées en italique mathématique, chacune
+    # traitée comme une variable : mesuré dans le PDF de la classe A, où la
+    # ligne sortait « P(mes) = U(mes) · I m e s ». Nous écrivons I_\text{mes},
+    # cohérent avec ses deux voisins. La traduction Gemessen -> mes et
+    # Wahr -> vrai est, elle, prescrite par le §6.
+    ("A", "strom_spannung_messung_3"):
+        "I_{Gemessen} amont sans \\text{} rendu I_\\text{mes} : sans \\text, "
+        "l'indice compose en italique mathématique, à côté de P_\\text{mes} et "
+        "U_\\text{mes} qui sont en romain (defauts-amont.md §25)",
+
+    # Table de conversion dB -> rapport de puissance et de tension, ajoutée
+    # côté français dans un <tip>. Complément PÉDAGOGIQUE, non national : le
+    # §7 réserve <france> aux compléments nationaux. Même traitement que
+    # A/transverter_2, tranché le 20/08/2026.
+    ("A", "effektive_strahlungsleistung_erp_2"):
+        "table de conversion dB -> rapport ajoutée dans un <tip> : complément "
+        "pédagogique, non national — le §7 réserve <france> aux compléments "
+        "nationaux (même traitement que transverter_2)",
+
+    # --- Germanismes : onze citations VOLONTAIRES, vérifiées en contexte ---
+    # La sonde du §5 ne peut pas distinguer un germanisme résiduel d'un terme
+    # allemand cité à dessein. Les onze ci-dessous sont du second type.
+    ("N", "ausgangsleistung"):
+        "« Maximale Leistung » cité entre guillemets : libellé de la colonne "
+        "d'un tableau réglementaire allemand, glosé « (puissance maximale) »",
+    ("N", "q_schluessel"):
+        "« große Leistung » cité : le moyen mnémotechnique des codes Q repose "
+        "sur le mot allemand (même cas que SWL/swl_q_gruppen)",
+    ("N", "besondere_anlaesse"):
+        "« der » dans un nom propre allemand cité",
+    ("N", "gefahren"):
+        "« Verband der Elektrotechnik Elektronik und Informationstechnik » : "
+        "nom officiel de l'association allemande VDE, cité en entier",
+    ("N", "gesetze_vorschriften"):
+        "« den », « über » dans des intitulés officiels allemands cités",
+    ("N", "zulassung"):
+        "« Zulassung zur Teilnahme am Amateurfunkdienst » : nom officiel de "
+        "l'autorisation allemande, cité en entier",
+    ("E", "spannungsquelle"):
+        "« Verband der Elektrotechnik Elektronik und Informationstechnik » : "
+        "nom officiel du VDE, cité en entier",
+    ("E", "moegel_dellinger_effekt"):
+        "« der » dans un nom propre allemand cité",
+    # N_Ende est du contenu FRANÇAIS d'origine, pas une traduction : « der » et
+    # « werden » y sont dans des URL du DARC (darc.de/der-club/distrikte/,
+    # darc.de/mitgliedschaft/mitglied-werden/).
+    ("N", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+    ("E", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+    ("A", "N_Ende"):
+        "« der », « werden » dans des URL du DARC — section de contenu "
+        "français, non traduite de l'amont",
+
+    # --- Ajouts pédagogiques français, vérifiés le 06/09/2026 ---
+    # Aucun ne retire ni ne réécrit l'amont : ils l'explicitent.
+    ("N", "analog_vs_digital"):
+        "« $0\\%$ et $100\\%$ de l'amplitude maximale » explicité côté "
+        "français : l'amont dit « deux paliers » sans les chiffrer",
+    ("E", "naeherungsformel_1"):
+        "condition du champ proche réactif ($d \\le \\lambda/2\\pi$) "
+        "explicitée côté français, en regard du $d > \\lambda/2\\pi$ amont",
+    ("A", "personenschutzabstand_3"):
+        "corrigés développés de source française (§6) : 162 lignes contre 30 "
+        "en amont, qui ne porte AUCUN indice dans cette section — les "
+        "P_\\mathrm{Sender}, P_\\mathrm{A}, P_\\mathrm{EIRP}, G_\\mathrm{i} et "
+        "g_\\mathrm{d} sont notre notation, non un verbatim amont à préserver. "
+        "Uniformisée le 06/09/2026 (décision de Pierre) : P_\\mathrm{S} était "
+        "ambigu — il désigne le Signal dans A/shannon_hartley_gesetzt, au "
+        "sommaire du même livre — et P_A y coexistait avec P_\\mathrm{A}",
+    ("A", "am_2"):
+        "deux traductions légitimes : $\\hat{U}_\\mathrm{T}$ (Träger) rendu "
+        "$\\hat{U}_\\mathrm{p}$ (porteuse), indice manifestement allemand "
+        "(§6) ; et la légende du dessin 28 rend « $> 100\\%$ » par « supérieur "
+        "à $100\\%$ », plus lisible en français",
 }
 
 

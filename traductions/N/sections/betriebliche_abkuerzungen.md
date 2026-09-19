@@ -5,7 +5,7 @@ L'origine de beaucoup d'abréviations remonte à la télégraphie Morse. L'abré
 | BK | Interruption de l'émission ; passation informelle (*B*rea*k*) |
 | CQ | Appel général |
 | CW | *C*ontinuous *W*ave (synonyme de télégraphie Morse) |
-| K | Invitation à émettre (« *K*ommen », venez) |
+| K | Invitation à émettre |
 | PSE | S'il vous plaît, *P*lea*se* | 
 | R | Received (accusé de réception, *R*oger) |
 | RX | Receiver (récepteur) |
@@ -14,7 +14,7 @@ L'origine de beaucoup d'abréviations remonte à la télégraphie Morse. L'abré
 [table:n_abkuerzungen:Récapitulatif des abréviations]
 </webmargin>
 
-Le radioamateurisme est né aux États-Unis. C'est pourquoi beaucoup de nos termes techniques viennent de l'anglais américain, par exemple Transmitter au lieu d'émetteur et Receiver au lieu de récepteur. Le Transmitter s'abrège TX, le Receiver RX et le Émetteur-récepteur — l'émetteur-récepteur — TRX.
+Le radioamateurisme est né aux États-Unis. C'est pourquoi beaucoup de nos termes techniques viennent de l'anglais américain, par exemple Transmitter au lieu d'émetteur et Receiver au lieu de récepteur. Le Transmitter s'abrège TX, le Receiver RX et le Transceiver — l'émetteur-récepteur — TRX.
 
 [question:BB106]
 
@@ -22,4 +22,4 @@ Nous avons aussi déjà rencontré l'abréviation CW pour Continuous Wave, emplo
 
 [question:BB107]
 
-Nous avons déjà abordé une série d'abréviations de la télégraphie : le « R » (received, ou roger) comme accusé de réception au début d'un passage est l'un des rares signes utilisés exclusivement en télégraphie. Il en va de même pour le signe « K ». Un moyen mnémotechnique est « Kommen » (venez) comme invitation à émettre. Pour « BK », « *B*rea*k* » s'impose comme aide-mémoire. Le tableau [ref:n_abkuerzungen] récapitule les abréviations les plus importantes pour l'examen.
+Nous avons déjà abordé une série d'abréviations de la télégraphie : le « R » (received, ou roger) comme accusé de réception au début d'un passage est l'un des rares signes utilisés exclusivement en télégraphie. Il en va de même pour le signe « K ». Il invite le correspondant à émettre. Pour « BK », « *B*rea*k* » s'impose comme aide-mémoire. Le tableau [ref:n_abkuerzungen] récapitule les abréviations les plus importantes pour l'examen.

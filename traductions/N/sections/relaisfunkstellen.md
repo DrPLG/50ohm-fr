@@ -6,7 +6,7 @@ Si, par exemple, une montagne se dresse entre deux stations, il est impossible d
 
 Les stations relais sont aussi appelées relais ou repeaters. On les reconnaît à ce qu'elles émettent régulièrement leur indicatif. Selon le [plan des indicatifs](https://50ohm.de/rzp), l'indicatif d'une station relais commence en général par DB0, DM0 ou DO0.
 
-La définition officielle des repeaters est un peu plus aride : *« Station relais » : une station radioamateur télécommandée (y compris dans des satellites) qui réémet, sur déclenchement à distance, des émissions radioamateur reçues, des parties de celles-ci ou d'autres signaux injectés ou mémorisés, et qui sert ainsi à améliorer la joignabilité des stations radioamateur.*
+La définition officielle des stations relais est un peu plus aride : *« Station relais » : une station radioamateur télécommandée (y compris dans des satellites) qui réémet, sur déclenchement à distance, des émissions radioamateur reçues, des parties de celles-ci ou d'autres signaux injectés ou mémorisés, et qui sert ainsi à améliorer la joignabilité des stations radioamateur.*
 
 La question suivante sur cette définition se résout d'ailleurs bien par élimination, si l'on sait ceci :
 * Les stations relais ne sont pas exploitées avec des indicatifs personnels.
@@ -38,7 +38,7 @@ Par exemple, la fréquence d'un relais des $\qty{70}{\centi\meter}$ s'indique ai
 [question:BE403]
 
 <indepth>
-Certaines stations relais travaillent aussi en *trafic crossband*. Cela signifie qu'une station émet et reçoit sur une bande (p. ex. $\qty{70}{\centi\meter}$), une autre station sur le même relais mais sur une autre bande (p. ex. $\qty{2}{\meter}$). La commande du relais achemine les conversations entre les deux bandes. Une conversion du mode d'émission peut aussi avoir lieu, par exemple de SSB vers FM.
+Certaines stations relais travaillent aussi en *trafic crossband*. Cela signifie qu'une station émet et reçoit sur une bande (p. ex. $\qty{70}{\centi\meter}$), tandis qu'une autre station est sur le même relais mais sur une autre bande (p. ex. $\qty{2}{\meter}$). La commande du relais achemine les conversations entre les deux bandes. Une conversion du mode d'émission peut aussi avoir lieu, par exemple de SSB vers FM.
 </indepth>
 
 Une station relais qui transmet des données plutôt que de la voix s'appelle un digipeater. Un digipeater est capable de recevoir des paquets de données et de les réémettre. Sa particularité est que la réémission peut ne porter que sur des parties des données ou s'effectuer en différé. Des paquets peuvent aussi être répétés, ou certains champs de données modifiés.
@@ -56,7 +56,7 @@ Les informations sur les stations relais, leurs paramètres techniques et leurs 
 [question:NE309]
 [question:NE308]
 
-Un réglage important en trafic FM est la largeur de canal. Rappelons-le : la largeur de bande indique combien de « place » l'émission occupe dans le spectre. Il y a d'une part le Wide-FM, d'une largeur de $\qty{25}{\kilo\hertz}$, affiché p. ex. *FM-W* à l'écran. Il y a d'autre part la FM à bande étroite (Narrow-FM), qui n'occupe que $\qty{12,5}{\kilo\hertz}$ et s'affiche p. ex. *FM-N* sur le poste. Beaucoup de repeaters n'apprécient pas du tout les signaux trop larges : il peut en résulter des signaux distordus et des perturbations des fréquences relais voisines.
+Un réglage important en trafic FM est la largeur de canal. Rappelons-le : la largeur de bande indique combien de « place » l'émission occupe dans le spectre. Il y a d'une part le Wide-FM, d'une largeur de $\qty{25}{\kilo\hertz}$, affiché p. ex. *FM-W* à l'écran. Il y a d'autre part la FM à bande étroite (Narrow-FM), qui n'occupe que $\qty{12,5}{\kilo\hertz}$ et s'affiche p. ex. *FM-N* sur le poste. Beaucoup de relais n'apprécient pas du tout les signaux trop larges : il peut en résulter des signaux distordus et des perturbations des fréquences relais voisines.
 
 [question:BE407]
 

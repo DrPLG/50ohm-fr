@@ -1,9 +1,9 @@
 Il existe aussi des résistances dépendantes de la température, appelées *thermistances CTP* et *thermistances CTN*.
 
-- Les *thermistances CTP* possèdent une faible résistance à basse température et conduisent donc bien le courant. Lorsque la température augmente, leur conductivité diminue et leur résistance augmente.
-- Les *thermistances CTN* se comportent exactement à l'inverse : elles conduisent mieux le courant aux températures élevées, tandis que leur résistance est grande aux basses températures.
+- Les *thermistances CTP* possèdent une faible résistance à basse température et conduisent donc bien le courant. Lorsque la température augmente, leur résistance croît et leur conductivité diminue.
+- Les *thermistances CTN* se comportent exactement à l'inverse : elles conduisent mieux le courant aux températures élevées, tandis que leur résistance est grande aux basses températures. Autrement dit, lorsque la température augmente, leur résistance diminue et leur conductivité augmente.
 
-Les thermistances CTN sont aussi appelées *NTC* (de l'anglais Negative Temperature Coefficient) et les thermistances CTP *PTC* (de l'anglais Positive Temperature Coefficient).
+Les thermistances CTN sont aussi appelées *NTC* (de l'anglais Negative Temperature Coefficient) et les thermistances CTP *PTC* (de l'anglais Positive Temperature Coefficient). Les résistances dépendantes de la température sont utilisées par exemple pour la mesure de température ou pour la limitation du courant d'appel.
 
 Ces types de résistances sont repérés par des symboles particuliers, comme le montre la figure [ref:e_schaltbildNtcPtc]. La petite lettre grecque $\vartheta$ (prononcée « thêta »), qui représente la température, y est importante. S'y ajoutent deux flèches qui décrivent la dépendance de la résistance vis-à-vis de la température.
 

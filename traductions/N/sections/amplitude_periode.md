@@ -1,4 +1,4 @@
-L'écart maximal entre la ligne du zéro et le point le plus haut ou le plus bas de la tension alternative s'appelle, comme le montre la figure [ref:amplitude_periode_amplitudee], l'*amplitude* [index:Oscillation:Amplitude].
+L'écart maximal entre la ligne du zéro et le point le plus haut ou le plus bas de la tension alternative s'appelle l'*amplitude* (figure [ref:amplitude_periode_amplitudee]) [index:Oscillation:Amplitude].
 
 <margin>
 [picture:726:amplitude_periode_amplitudee:Amplitude d'une oscillation sinusoïdale]

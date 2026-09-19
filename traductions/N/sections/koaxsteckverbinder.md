@@ -21,7 +21,7 @@ Certains connecteurs coaxiaux fréquemment rencontrés en radioamateurisme doive
 * SMA
 
 <indepth>
-Comme les câbles coaxiaux présentent des *diamètres différents*, il faut veiller à utiliser un connecteur adapté au diamètre du câble. Tous les connecteurs ne conviennent pas à toutes les sections de câble, et certains existent en différentes exécutions selon le diamètre.
+Comme les câbles coaxiaux présentent des *diamètres différents*, il faut veiller à utiliser un connecteur adapté au diamètre du câble. Tous les connecteurs ne conviennent pas à toutes les sections de câble, et plusieurs modèles sont disponibles selon le diamètre.
 </indepth>
 
 Le choix du connecteur pour un usage donné dépend en particulier de la plage de fréquences utilisée et de la puissance d'émission, mais aussi du type de câble employé. Les connecteurs devraient avoir la même *impédance caractéristique* que le câble coaxial, pour éviter des réflexions indésirables.

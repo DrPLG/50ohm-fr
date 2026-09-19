@@ -59,8 +59,24 @@ import sys
 from datetime import date
 from pathlib import Path
 
+# Sous Windows, la console hérite d'une page de code héritée (cp1252 ici) et
+# Python y plante sur tout caractère qu'elle ne connaît pas — alors même que ce
+# script CITE le corpus, saturé de λ, de µ, de Ω et de tirets cadratins.
+# Constaté le 20/08/2026 sur verifier_traduction.py, qui s'interrompait en
+# plein verdict. errors="replace" : mieux vaut un « ? » à l'écran qu'un
+# verdict perdu.
+for _flux in (sys.stdout, sys.stderr):
+    try:
+        _flux.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
+        pass
+
 RACINE = Path(__file__).resolve().parent
-CLASSES = ("N", "E", "A")
+# SWL, cinquième tome entré dans le périmètre le 25/08/2026 : ses dessins
+# forkés et ses sections traduites se suivent comme ceux des trois classes
+# d'examen. Les trois dessins du cursus (729, 733, 741) sont repris des
+# forks de N, à l'octet près.
+CLASSES = ("N", "E", "A", "SWL")
 
 # Tout ce qui distingue un type de suivi de l'autre. Ajouter un type revient a
 # ajouter une entree ici : le reste du script n'en sait rien.

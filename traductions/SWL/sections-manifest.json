@@ -1,0 +1,152 @@
+{
+  "swl_abhoerverbot": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "414294cd8d92a1ed07f6c303a2ad069e959a5714574b783b732f660aa213b990"
+  },
+  "swl_abkuerzungen": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "3cec37dbacddac2bd6911b37e6fdfe8971d841f2ed0fe23a55ebfb3bdb9a06c5"
+  },
+  "swl_abschluss": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "e61ba1a946fbf9809ee55fe12c55991dfd7fc9b939d7c4b597574723e5214c3f"
+  },
+  "swl_antennensicherheit": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "904d297606432fc8d7c9177922b9d31087e4b0a87c3062fcee3604c157c92302"
+  },
+  "swl_antrag": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "a5fe1c76e9cc02c5623e56cec94051bc8d5107df2ed26fbb1fdb4cda200392a6"
+  },
+  "swl_bedienung": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "4fe8f260e1e2a559d73dccf3114611ea11e464984cedf2d6c210b7fb058a9458"
+  },
+  "swl_betriebsbeobachtung": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "87acd97a809c3e53914fbafa3a79ed0f7d65d684a20226ee23c2fd8246973c32"
+  },
+  "swl_buchstabieralphabet": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "23df97f986adf4208cbb20a6defabe1bbde1e17c7b02139a94589c393b53122f"
+  },
+  "swl_de_kennzeichen": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "cea89641a43fcdb653ef2feb92aebac767e15d7d4b8ca7d06cc49a49a39e2eca"
+  },
+  "swl_de_pruefung": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "d8d9457801ab0ea963356f8009da24cd9b22611fe0772008e974a11fff336bbf"
+  },
+  "swl_dem": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "af4fa9c72a18a4667586b220cb79890f1653df29d2a2d0ae0448e6ccb780f6c9"
+  },
+  "swl_dld": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "aa646eab3582a1da031a8ee720b0571a9a735282cf4853a555487554ba95c69a"
+  },
+  "swl_elektrische_sicherheit": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "de6c0e4ca9a2f0ce1e541503b792acf52918a4dfa1cce77b2b144d34e3b0365b"
+  },
+  "swl_erste_empfangsstation": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "3a495ce7e8c70763941eca31cb696617cbe1edef46d2cb93ed0a65b8e653d439"
+  },
+  "swl_frequenzbereiche": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "adefb45e20841ebd9c118df482d56b8e9b741b48b20e12a086e96acf16ec54ba"
+  },
+  "swl_ionosphaere": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "7d91006794093ae1bb221814aed10b9532a6c8632a17c2a91d4e4ec1d48e3a7e"
+  },
+  "swl_landeskenner": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "bf55780b7551713d9a8c30b065a912ce750532fd78e7b8b7967929061cc119f3"
+  },
+  "swl_logbuch": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "6831548496c113cae2972aa8c282a87c52ca3abf816dc0682533943233dfd960"
+  },
+  "swl_modulationsarten": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "8051560d150a847e5ea3fc751aea518085ec086ac34e54227eadd379dfe50855"
+  },
+  "swl_q_gruppen": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "d3c34c8204db3dd395e58f26187388055e51aa8d573c317a4723ccd5bc113d0c"
+  },
+  "swl_qsl": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "58f71e0407001599431ef068a28ae212448cfc70a9a2a20ad80ed0e47d406f42"
+  },
+  "swl_qso": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "81d63d62c31db0c25541cce431b3946a06957716583862cf54360ef95174e087"
+  },
+  "swl_rechtsgrundlagen": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "cd5fe7d01c59718480d3fb22d8c78b15790db252c1b753e5b56f493eb46edd1e"
+  },
+  "swl_relais": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "e970eec210bfa5cc07294c9110762b2a566f0cb98003cfe41726130564061a85"
+  },
+  "swl_rst": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "eb2ac74994fb84b9653358ef26074c305fde935ae4f0437098792e2d1aeecdda"
+  },
+  "swl_rufzeichen": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "03415abc90c3578ca196b28191850641882a26db2713f38af2f7270c72b5a97b"
+  },
+  "swl_sporadic_e": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "a5c39d56fd72984635d50c24bf82fdfb913ab0047a16e2a1a6b20d3db23a397e"
+  },
+  "swl_steckverbinder": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "f33b6ae4951bba616c5b9804e5a329d459c2f3512e033deb307eb2999a9ce4a9"
+  },
+  "swl_vorwort": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "81cabdc169c743c6f93590b0143801a01996bc501b51b4fd19a17eaece7584a4"
+  },
+  "swl_was_ist_swl": {
+    "date_traduction": "2026-08-25",
+    "note": "Traduction initiale du cursus SWL, 25/08/2026",
+    "sha256_amont": "353d2e54211a0921345cc1314982b1f3216df656561065c4d852f47a6d138e93"
+  }
+}

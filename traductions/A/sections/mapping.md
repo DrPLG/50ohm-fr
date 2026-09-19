@@ -1,40 +1,37 @@
-Dans le cadre du traitement numérique du signal, le *mapping* désigne l'étape au cours de laquelle les données numériques sont converties en points de signal spécifiques (les symboles), qui peuvent être émis par le système de transmission. C'est un processus déterminant de la modulation, en particulier pour les modulations d'amplitude en quadrature (QAM) et les modulations par déplacement de phase telles que la QPSK (Quadrature Phase Shift Keying).
-
-Pour visualiser les symboles, nous utilisons un *diagramme de constellation* comme celui de la figure [ref:a_konstellation], qui représente les points de signal possibles dans un espace à deux dimensions. On désigne souvent les axes par In-Phase (I) et Quadrature (Q). Chaque point du diagramme représente une amplitude et une phase déterminées, associées par le mapping à une combinaison de bits déterminée, comme le montre la figure [ref:a_qpsk].
+Dans les procédés de transmission numériques, les bits à transmettre doivent être associés aux différents symboles possibles. Cette association est appelée *mapping*. Le bloc qui procède à cette association est appelé *mapper*. Le symbole fonctionnel d'un mapper est représenté à la figure [ref:a_mapper]. Le mapper reçoit un flux binaire numérique et associe les combinaisons de bits qu'il contient aux symboles correspondants dans un diagramme de constellation.
 
 <margin>
-[picture:1060:a_konstellation:Diagramme de constellation]
+[picture:1102:a_mapper:Schéma fonctionnel d'un mapper]
 </margin>
 
 ---
 
-Examinons dans un premier temps la QPSK sur la figure [ref:a_qpsk] : en QPSK, les bits sont regroupés deux par deux en un symbole. Comme nous avons deux bits par symbole, il en résulte quatre combinaisons possibles ($\num{00}$, $\num{01}$, $\num{10}$, $\num{11}$). Chacune de ces combinaisons est associée à un point de signal spécifique, représenté par une phase déterminée.
+Pour découvrir le principe du mapping, considérons d'abord la *modulation par déplacement d'amplitude* (*Amplitude-Shift Keying*, ASK), déjà connue de la classe E. La figure [ref:a_ask] montre une ASK binaire en représentation temporelle. L'amplitude du signal porteur y est commutée entre deux valeurs. Une grande amplitude peut par exemple représenter le bit $1$, et une petite amplitude le bit $0$.
 
 <margin>
-[picture:1059:a_qpsk:Diagramme I-Q d'un mapping QPSK]
+[picture:700:a_ask:ASK (Amplitude-Shift Keying) en représentation temporelle]
 </margin>
 
 ---
 
-En QPSK, chaque symbole possède sa propre phase. Les phases sont typiquement définies par pas de $\qty{90}{\degree}$ et associées (« mappées ») aux quatre combinaisons de bits possibles, par exemple :
+Les deux symboles possibles peuvent aussi être représentés dans le diagramme de constellation découvert précédemment. Comme, dans cet exemple, seule l'amplitude change et que la phase reste la même, les deux points de signal se situent sur l'axe I. La différence de distance à l'origine correspond aux deux amplitudes différentes. Une valeur binaire est maintenant associée à chacun des deux points de signal par le mapping.
 
-- $\num{11}$ correspond à $\qty{45}{\degree}$
-- $\num{01}$ correspond à $\qty{135}{\degree}$
-- $\num{00}$ correspond à $\qty{225}{\degree}$
-- $\num{10}$ correspond à $\qty{315}{\degree}$
-
-L'amplitude des signaux reste ici constante, et l'information est transmise exclusivement par la position de phase. C'est pourquoi les quatre points du diagramme de constellation de la QPSK se situent sur un cercle. 
-
-<indepth>
-À strictement parler, il existe aussi d'autres façons d'associer les phases aux combinaisons de bits, pour autant qu'elles soient univoques. Le mapping présenté ici n'est qu'un exemple. Dans l'exemple montré ici, les associations ont été choisies de sorte que peu de bits changent entre symboles voisins. Cela présente l'avantage que peu d'erreurs sur les bits apparaissent sous l'effet du bruit. On utilise pour cela le code de Gray, qui trouve son application dans la plupart des procédés de transmission numériques.
-</indepth>
+<margin>
+[picture:1128:a_ask_mapping:ASK (Amplitude-Shift Keying) dans le diagramme de constellation]
+</margin>
 
 ---
 
-Chacun de ces points représente un symbole. Le récepteur peut déterminer, à partir de la position de phase, quelle combinaison de bits a été émise. Le diagramme de constellation de la QPSK montre quatre points de signal à angle droit les uns des autres, correspondant aux quatre phases utilisées. La grande séparation entre les différentes phases permet un décodage fiable, même dans des conditions bruitées.
+Une modulation par déplacement d'amplitude n'est pas limitée à deux amplitudes possibles. Si l'on emploie par exemple quatre amplitudes différentes, on dispose de quatre symboles différents. Comme deux bits permettent de former quatre combinaisons de bits différentes, chaque symbole peut se voir attribuer l'une des combinaisons $00$, $01$, $10$ ou $11$.
 
-Si, en plus de la phase, on fait aussi varier l'amplitude, on parle de modulation d'amplitude en quadrature (QAM). En QAM, l'amplitude comme la phase sont modifiées, afin de transmettre davantage de bits par symbole. Par exemple, en 16-QAM, chaque symbole peut représenter quatre bits, ce qui conduit à 16 points de signal possibles dans le diagramme de constellation. Un exemple de mapping 16-QAM est présenté à la figure [ref:a_qam].
+La figure [ref:a_4_ask] montre une telle *4-ASK*, à quatre amplitudes différentes, en représentation temporelle. On peut par exemple employer $\qty{25}{\percent}$, $\qty{50}{\percent}$, $\qty{75}{\percent}$ et $\qty{100}{\percent}$ de l'amplitude maximale. Chaque symbole permet ainsi de transmettre deux bits.
 
 <margin>
-[picture:1061:a_qam:Diagramme I-Q d'un mapping 16-QAM]
+[picture:701:a_4_ask:Modulation par déplacement d'amplitude quaternaire (Quaternary Amplitude-Shift Keying)]
+</margin>
+
+Le diagramme de constellation comporte lui aussi désormais quatre points de signal possibles. Comme seule l'amplitude continue de changer, les quatre points se situent dans cet exemple sur l'axe I. Une combinaison de bits déterminée est associée à chaque point.
+
+<margin>
+[picture:1129:a_4_ask_mapping:Modulation par déplacement d'amplitude quaternaire (Quaternary Amplitude-Shift Keying) dans le diagramme de constellation]
 </margin>

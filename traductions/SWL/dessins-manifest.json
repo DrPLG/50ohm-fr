@@ -1,0 +1,17 @@
+{
+  "729": {
+    "date_fork": "2026-08-25",
+    "note": "Fork repris des classes N et E, identique a l octet pres ; cursus SWL, 25/08/2026",
+    "sha256_amont": "596cb2846c974a702be3023a76aa6134811aa6f985422091be61c8b3409c0f3c"
+  },
+  "733": {
+    "date_fork": "2026-08-25",
+    "note": "Fork repris des classes N et E, identique a l octet pres ; cursus SWL, 25/08/2026",
+    "sha256_amont": "293da1964ed8005461c9adac7d76c359eab93c5d04fabdb21b9f8f26434f6156"
+  },
+  "741": {
+    "date_fork": "2026-08-25",
+    "note": "Fork repris des classes N et E, identique a l octet pres ; cursus SWL, 25/08/2026",
+    "sha256_amont": "1b104a7fd85d28d59e7b841f8859f974f4a9e77d8a0f21a8bdcfc199ed875aa3"
+  }
+}

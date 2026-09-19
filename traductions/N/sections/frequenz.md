@@ -1,4 +1,4 @@
-La tension alternative de notre réseau électrique *oscille* 50 fois par seconde dans un sens puis dans l'autre. Le nombre d'oscillations [index:Oscillation] par seconde s'appelle la fréquence [index:Fréquence]. La fréquence s'exprime dans l'unité hertz [index:Unité:Hertz], abrégée $\unit{\hertz}$. Un $\unit{\hertz}$ correspond exactement à une oscillation par seconde. Le réseau électrique a donc une fréquence de $\qty{50}{\hertz}$.
+La tension alternative de notre réseau électrique *oscille* 50 fois par seconde dans un sens puis dans l'autre. Le nombre d'oscillations [index:Oscillation] par seconde s'appelle la fréquence [index:Fréquence]. La fréquence s'exprime en hertz [index:Unité:Hertz] ($\unit{\hertz}$). Un $\unit{\hertz}$ correspond exactement à une oscillation par seconde. Le réseau électrique a donc une fréquence de $\qty{50}{\hertz}$.
 
 <unit>
 L'*unité hertz* sert à mesurer la fréquence. Un hertz égale une oscillation par seconde. L'unité a été nommée d'après le physicien allemand Heinrich Rudolf Hertz qui, en 1886, fut le premier être humain à produire et à mettre en évidence des ondes électromagnétiques.

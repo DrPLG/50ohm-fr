@@ -11,7 +11,7 @@ Résolvons à titre d'exemple le premier exercice d'examen de la figure [ref:e_w
 À la dernière étape 3, nous additionnons toutes les valeurs de résistance restantes du montage en série. Il en résulte une résistance totale de $\qty{550}{\ohm}$, comme le montrent les figures [ref:e_widerstandsnetzwerk_schritt2] et [ref:e_widerstandsnetzwerk_schritt3].
 
 <margin>
-[picture:306:e_widerstandsnetzwerk_schritt0:Étape 0 - Montage de départ]
+[picture:1141:e_widerstandsnetzwerk_schritt0:Étape 0 - Montage de départ]
 [picture:816:e_widerstandsnetzwerk_schritt1:Étape 1 - Montages en série regroupés]
 [picture:817:e_widerstandsnetzwerk_schritt2:Étape 2 - Montages en parallèle regroupés]
 [picture:818:e_widerstandsnetzwerk_schritt3:Étape 3 - Montage en série regroupé]

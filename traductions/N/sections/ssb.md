@@ -10,7 +10,7 @@ L'abréviation courante *USB* ne désigne pas la bande latérale inférieure mai
 
 Fait remarquable : toute l'information du signal modulant se trouve intégralement dans les bandes latérales, à l'identique et en miroir dans les bandes inférieure et supérieure. La porteuse elle-même ne contient aucune information ! Il suffit donc en réalité de n'émettre qu'une seule bande latérale et de renoncer à la porteuse et à l'autre bande latérale. C'est exactement ce que fait la modulation à bande latérale unique. La dénomination anglaise single-sideband modulation, abrégée *SSB*, est la plus courante. Elle peut techniquement se réaliser, par exemple, en supprimant la porteuse pendant la modulation et en filtrant la bande latérale souhaitée.
 
-L'avantage du SSB est qu'aucune puissance d'émission n'est « gaspillée » pour la porteuse superflue et la seconde bande latérale. Toute la puissance d'émission peut au contraire servir à la transmission de l'information.
+L'avantage de la SSB est qu'aucune puissance d'émission n'est « gaspillée » pour la porteuse superflue et la seconde bande latérale. Toute la puissance d'émission peut au contraire servir à la transmission de l'information.
 
 ---
 

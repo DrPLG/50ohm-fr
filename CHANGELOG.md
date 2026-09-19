@@ -8,6 +8,964 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 ---
 
+## a.3 (en cours) — 20 août 2026
+
+**Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
+
+### 19 septembre 2026 — questions trop hautes, livres de la release recompilés
+
+#### Corrigé — `build_book.py` v0.31 puis v0.32 : questions plus hautes que la page
+
+En 20 × 24 marge, **AD406, AD416 et AD502** (classe A, réponses en image)
+laissaient chacune une page presque blanche : un fragment de cadre vide en
+haut, la question entière à la page suivante. La question dépassait
+`\textheight`, et son contenu insécable ne pouvait pas se répartir.
+
+- **v0.31** : `\QuestionMD` compose la question dans une boîte, la mesure, et
+  la réduit à la hauteur du bloc de texte si elle ne tient pas. Sinon, la
+  boîte est jetée et la question composée par le code d'origine.
+- **v0.32** : la v0.31 composait **toutes** les questions deux fois. À la
+  1re passe, sans cache d'images, chaque dessin de réponse créait ses
+  chaînes deux fois, et le **NEA A4 a échoué** : « TeX capacity exceeded
+  [number of strings=475704] », p. 655. Mesuré sur un extrait de la partie A
+  du NEA, une passe : v0.30 **359 317** chaînes, v0.31 **418 037**,
+  v0.32 **359 362**. La mesure n'est plus faite que pour une question
+  **coupée à la passe précédente** (labels de contrôle sur deux pages), ou
+  **déjà réduite** (marque `\DARCqReduite` écrite dans le `.aux`, sans
+  laquelle la réduction oscillerait d'une passe à l'autre).
+
+*Neutralité :* un livre sans question coupée est composé exactement comme en
+v0.30. **E** : identique au pixel à sa référence du 17/09, hormis la date de
+la page de titre. **N** : identique au pixel à la v0.31, elle-même identique
+à la v0.30 hormis la date. **SWL** : identique au pixel en v0.31.
+Seul **A en 20 × 24** a des questions réduites : AD406, AD416, AD502.
+
+#### Corrigé — N, `betriebliche_abkuerzungen`
+
+La ligne « K » du tableau récapitulatif portait encore l'aide-mémoire
+allemand « *K*ommen ». Réduite à « Invitation à émettre ».
+
+#### Modifié — SWL : avant-propos et remerciements
+
+Le cursus SWL reçoit les deux pièces liminaires, comme les livres de classe
+(décision de Pierre). **64 → 68 pages** en 20 × 24 marge.
+
+#### Livres recompilés en v0.32
+
+| livre | format | pages | « ?? » | notes rétrogradées |
+| --- | --- | ---: | ---: | ---: |
+| N | 20 × 24 marge | 318 | 0 | 1 |
+| E | 20 × 24 marge | 274 (+ 2 pages Notes = 276) | 1 | 1 |
+| A | 20 × 24 marge | 482 | 1 | 5 |
+| NEA | A4 | **818** | **2** | 5 |
+| SWL | 20 × 24 marge | 68 | 0 réelle | 1 |
+
+Tous : 0 question coupée, 0 figure séparée de sa légende, 0 erreur fatale.
+Le NEA passe de 816 à 818 pages : ses sources ont changé depuis sa dernière
+compilation A4 (09/09) ; la part de chaque changement n'a pas été mesurée.
+Les deux « ?? » du NEA (`e_ssb_am_modulation`, `a_zeppelinantenn`) étaient
+déduits ; ils sont désormais **mesurés**.
+
+### 18 septembre 2026 — la fenêtre de compilation prépare l'impression
+
+#### Ajouté — `fenetre_compilation.py` v0.3
+
+Trois options, demandées par Pierre après la mise en impression de E à la
+main la veille :
+
+- **compléter à un multiple de 4 pages** : pages « Notes » (0 à 3) composées
+  dans la sortie avec la classe du livre, fusionnées en
+  `book-<ÉD>-complet.pdf` (/prepress) sans recompiler. La compression repart
+  des sources, pour ne pas recompresser les images deux fois ;
+- **PDF intérieur pour l'imprimeur** (`-IMPRESSION`, /prepress), avec en
+  option le **fond perdu de 3 mm** : généralisation de
+  `impression/fondperdu-E.tex` à tout format ;
+- **reliure de la couverture** en boutons radio : dos carré collé ou
+  couverture rigide. En rigide sans dos imposé, un avertissement demande
+  l'épaisseur à l'imprimeur.
+
+**Essais de bout en bout**, livre non recompilé :
+
+- **E, 20 × 24 marge, rigide** : **0 pixel différent** avec les fichiers faits
+  à la main le 17/09 — pages Notes, livre complété, intérieur avec fond perdu
+  (5 pages comparées à 254 dpi), couverture épreuve et impression ;
+- **N, A4** : feuille de 216 × 303 mm, fond perdu de la page de titre sans
+  blanc, avertissement « 262 pages : pas un multiple de 4 ». Fichiers d'essai
+  supprimés, N étant périmé.
+- Cas de trois pages ajoutées à partir d'une page paire : pas de page blanche
+  parasite (`open=any`), lignes du bon côté de la marge.
+
+#### Corrigé — deux encarts de N, vérifiés à la source avant la release a.3
+
+Les points « à vérifier avant publication » ont été lus à la source :
+taxe de 46 € (loi n° 2018-1317, communiqué ANFR), décret n° 67-1171
+(art. 1), arrêté du 23 avril 2012 (art. 2 et 3), décret n° 2014-1621 —
+**confirmés**. Deux retouches, décidées par Pierre :
+
+- `funkamateur` : l'arrêté de 2012 « a supprimé l'épreuve de télégraphie et
+  unifié les certificats » → « a institué un certificat d'opérateur unique,
+  dont l'examen ne comporte plus que deux épreuves, réglementation et
+  technique » : c'est ce que dit son art. 2 ;
+- `gebuehren_beitraege` : examen et certificat « gratuits **depuis 2021** » →
+  « gratuits ». Aucune base officielle trouvée pour la date (l'art. 64 de la
+  loi n° 2020-1721, souvent cité, ne parle pas des radioamateurs).
+
+`verifier_traduction.py` : 0 écart. N non recompilé.
+
+### 17 septembre 2026 — quatrième resynchronisation, relectures du livre N
+
+#### Modifié — resynchronisation `04cc9316` → `48e18bf4` (7 commits, classe A seule)
+
+`diff` des deux instantanés : **exactement les 7 fichiers annoncés par l'API**,
+0 nom corrompu, 911 dessins, 410 sections. N, E et SWL ne sont pas touchés.
+
+- `A/mehrwegeausbreitung` retraduite : l'amont **retire lui-même la référence
+  morte `a_mehrwegeausbreitung_ionosphäre`** (remplacée par un `%TODO`, repris
+  verbatim), allonge la légende du dessin 1064 et retouche trois tournures.
+  Quatrième défaut que l'amont corrige seul. **A attendu à 1 `??`, NEA à 2**,
+  à mesurer à la prochaine compilation.
+- `A/antennenformen_3` (*Halbwellenantenne*) et `A/modulatoren` (article) :
+  corrections de l'allemand seul, français déjà juste — réenregistrées.
+- `solutions/AF307` et trois diapositives : hors livre.
+- Générateur (`f2994275` → `28cf1143`) : `renderer/morse.py` déjà évalué le
+  26/08 ; le reste sert le site web. Sans effet.
+
+Manifeste : **645 éléments, 0 dérive**.
+
+#### Ajouté — feuille d'arbitrage nº 10
+
+Relectures du **livre N** : Jérôme (ch. 3 à 14, J25-J59) et une seconde relecture (ch. 1 à
+8, ~120 annotations sur 88 pages, crayon iPad aplati en calque image). Constat
+principal : les deux lisent l'ouvrage comme un manuel de la licence
+**française** — question de positionnement laissée ouverte par Pierre.
+
+#### Corrigé — livre N (sources seulement, N non recompilé)
+
+- **Tableau des préfixes spéciaux imprimé deux fois** (p. 75-76) : conservé
+  dans `besondere_anlaesse`, réduit à une phrase de renvoi dans
+  `rufzeichenzusaetze`. Défaut de notre fait.
+  La phrase « réattribués d'une année sur l'autre », absente de l'art. 7 de
+  l'arrêté du 21/09/2000, est alignée sur le texte : « Les indicatifs
+  spéciaux sont réattribuables. » Vérifié à la source par Pierre.
+- **Dessin 630 forké** : *Netzwerk* → « Réseau », *CAT-/Digimode-Interface* →
+  « Interface CAT / digimode ». Inventorié au chantier nº 3
+  (`ANALYSE-DESSINS.md` l. 95), jamais forké : `sonde_dessins.py` ne voit que
+  les forks. Compilé isolément, vérifié au rendu.
+- **Mnémotechniques allemands** (J27, J35, P05) : HV, OE, QRV, QRM, QRO, QSB,
+  K — remplacés par un équivalent français ou anglais, ou retirés.
+- **Retouches de langue** (J03, J51, P12) : 8 sections.
+
+`verifier_traduction.py` : 12 sections, 0 écart.
+
+#### Ajouté — impression de E en couverture rigide
+
+Livre E en 20 × 24 marge 52 mm (274 p., v0.30), mis aux exigences de
+l'imprimeur **sans recompiler** :
+
+- **multiple de 4 pages** : deux pages « Notes » (p. 275-276), composées avec
+  la classe du livre — `impression/notes-E.tex` — puis fusionnées au PDF ;
+- **fond perdu de 3 mm** (fichier de 206 × 246 mm) : `impression/fondperdu-E.tex`
+  pose chaque page à l'échelle 1 et prolonge les aplats de la page de titre,
+  seule à toucher le bord ; TrimBox et BleedBox déclarées. Contrôle au pixel
+  à 254 dpi : aucun contenu déplacé.
+- *Connu :* les folios sont à 4,2 mm de la coupe, pour 5 mm demandés —
+  accepté.
+
+#### Modifié — `couverture.tex` : `\Reliure{souple|rigide}`
+
+En rigide : plats de format + 5 mm, rabat de 15 mm, dos sans filets et bleu
+élargi de 2 mm par côté (tolérance de ±10 % annoncée sur le dos). **Dos de E
+imposé à 17 mm** (276 p., reliure collée). Le dos imposé porte désormais sa
+reliure, et un avertissement signale une pagination qui n'est pas un multiple
+de 4. Fichier produit : **457 × 275 mm**, conforme au devis.
+**Mode souple neutre : 0 pixel différent** sur l'épreuve et le fichier
+d'impression.
+
+### 16 septembre 2026 — fenêtre de compilation, page de titre 20 × 24, couverture
+
+#### Ajouté — `fenetre_compilation.py` v0.2
+
+Lanceur Tkinter : tome (les sept éditions), format, langue, version, pièces
+liminaires ; purge, `build_book.py`, contrôles du § 4, compression. Il couvre
+ce que `compiler.bat` ne sait pas faire — NEA et SWL, qui exigent de répéter
+`--translations`. Une compilation du livre demande une confirmation
+récapitulative, avec la durée attendue.
+
+Les deux vérificateurs tournent aussi sur une sortie au nom non canonique
+(`build-NEA-20x24-marge`), par une jonction temporaire. **La v0.1 les sautait,
+et c'est ainsi qu'est passé le premier constat ci-dessous.**
+
+#### Ajouté — `couverture.tex`, versé au dépôt
+
+Le gabarit dos carré collé du 20/08, jusque-là dans `Fichierstravail/`, est
+appelé par la fenêtre (case « couverture pour l'imprimeur » : épreuve et
+fichier d'impression). Nouveautés : format en paramètre, pagination lue dans
+le journal du livre réellement compilé, dos imposé appliqué seulement à la
+pagination et au format pour lesquels l'imprimeur l'a donné, et **contrôle de
+superposition calculé par LaTeX** à partir des boîtes des nœuds.
+
+- **Neutralité :** en A4, N (258 p.) et NEA (816 p.), épreuve et impression,
+  rendu identique au pixel au gabarit d'origine.
+- **Le contrôle sait dire non :** cinq fautes injectées, cinq alertes.
+- **20 × 24 :** six éditions, épreuve et impression — **0 alerte, 0 ligne
+  trop longue**. Paginations mesurées pour N (318), E (270) et NEA (1036) ;
+  estimées pour A, NE et EA, jamais compilées dans ce format.
+- **Dos du NEA en 20 × 24 : 56,2 mm** (1036 pages), calculé avec la main
+  estimée de 1,206.
+- Le SWL est refusé : sa 4e de couverture n'est pas rédigée.
+
+#### Corrigé — `build_book.py` v0.30 : le filigrane empilé suit la hauteur
+
+NEA en 20 × 24 : le A du filigrane tombait sur « Cours complet / Classes N,
+E et A ». Défaut **de notre fait, introduit par la v0.29**, qui cotait le
+corps du filigrane en largeur de papier et le titre en hauteur. Corps et
+interligne de la pile = minimum des deux cotes.
+
+- **A4 identique à l'octet** (NEA et N, rendus à 150 dpi, 0 pixel différent).
+- **20 × 24 :** 9,8 mm d'air entre le A et le titre (−9 mm avant).
+- Portée : NE, EA, NEA, SWL. N, E et A n'ont qu'une lettre.
+
+#### Connu — NEA 20 × 24 (marge 52 mm), compilé le 16/09/2026
+
+| | A4 | 20 × 24 marge |
+| --- | ---: | ---: |
+| pages | 816 | **1036** |
+| notes de marge rétrogradées | 5 | **7** (685 et 621 pt, sous le nouveau seuil de 574,7) |
+| questions séparées de leurs réponses | 0 | **3** — AD406, AD416, AD502 |
+| figures séparées de leur légende | 0 | 0 (624 contrôlées) |
+| lignes débordant dans la gouttière (> 7 mm) | 3 (tableau CEPT, connu) | 5 |
+
+Les deux débordements neufs existaient en A4, plus petits : `fernmeldegeheimnis_abhoerverbot`
+(19,7 → 31,0 pt, le mot composé *Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz*)
+et `widerstand_materialien` (9,4 → 20,8 pt). Aucun ne chevauche une note de
+marge — vérifié sur les pages 225 et 1019.
+
+### 4 septembre 2026 — troisième resynchronisation amont
+
+**`bc8dfcd8` → `04cc9316`, 16 commits, 12 sections traduites en retard** —
+8 en classe E, 3 en A, 1 en N. Le catalogue de questions n'a pas bougé :
+aucune question gagnée, perdue ni déplacée. Le cursus SWL n'est pas touché.
+
+Le piège du § 10 s'est présenté pour la troisième fois : `verifier_amont.py`
+rendait `rc=0` sur 643 éléments pendant que l'amont avait 16 commits d'avance.
+**Seul le contrôle réseau voit cette dérive** — le contrôle local ne compare
+qu'à l'instantané téléchargé.
+
+**Les trois classes recompilées en v0.28, toutes à pagination inchangée :**
+
+| | pages | notes de marge | « ?? » | figures contrôlées | compressé |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| N | **262** | 1 (attendu 1) | 0 | 148 | 3,05 Mo |
+| E | **214** | 0 (attendu 0) | 1 (amont, §8) | 197 | 3,03 Mo |
+| A | **386** | 4 (attendu 4) | 2 (amont, §8) | 290 | 5,41 Mo |
+| NEA | **816** (814 → 816) | 5 (attendu 5) | 3 (amont, §8) | 624 | 11,05 Mo |
+| SWL | **52** | 1 (doc. corrigée) | 3, dont **0 réelle** | 16 | 1,15 Mo |
+
+`14.63995pt`, `lost some margin notes` et `Float too large` à **0** partout ;
+`verifier_questions.py` et `verifier_figures.py` en `rc=0` sur les trois.
+Le contexte de chaque « ?? » a été lu, pas seulement compté — ce sont bien les
+trois orphelines amont connues.
+
+Que cinq paragraphes neufs et deux figures n'aient coûté **aucune page** en
+classe A est le résultat le plus inattendu de la journée. **Le NEA, lui,
+gagne bien ses deux pages** (814 → 816) : la même matière, composée dans un
+flux de 816 pages, ne retombe pas sur les mêmes coupures.
+
+### Le tome SWL — recompilé, et deux valeurs de référence corrigées
+
+**Aucune de ses 30 sections n'était touchée** par la resynchronisation —
+vérifié en dépliant `toc/swl.json`, pas supposé. Il ne lui manquait que la
+recompilation : son PDF datait du **25/08**, veille de la v0.26.
+`verifier_traduction.py` : 29 conformes, 1 dérogation assumée (les codes Q,
+dont les moyens mnémotechniques reposent sur les mots allemands), 0 écart.
+**52 pages, inchangées.**
+
+**Le § 4 se trompait sur deux de ses valeurs attendues, et les deux erreurs
+allaient dans le sens rassurant :**
+
+- **note de marge : 1, non 0.** `swl_steckverbinder` culmine à 808,94 pt pour
+  un seuil de 711,32. Ce n'est **pas** une régression de la v0.28 : le journal
+  du 25/08 portait déjà l'avertissement, à la hauteur identique au centième.
+- **« ?? » : 3 dans le PDF, 0 réelles.** C'est le faux positif BB203 déjà
+  décrit au § 4 — deux `?` légitimes qui se collent dans une réponse restée en
+  allemand, que l'espace fine française ne sépare donc pas.
+
+### Deux correctifs aux vérificateurs
+
+Trouvés en contrôlant le SWL, et le second est le plus important :
+
+- **le chemin du `.aux` était en dur** en `build-<livre>`. Le SWL se compile
+  dans `build-SWL-fr` (il existe aussi en allemand, dans `build-SWL-de`) : les
+  deux scripts ne trouvaient rien. Ils acceptent désormais le suffixe de langue.
+- **`verifier_questions.py` rendait `rc=0` après avoir dit « .aux absent ».**
+  Un contrôle qui n'a rien lu et rend vert est indiscernable d'un vrai succès —
+  il a trompé **deux fois le 05/09/2026**, d'abord sur un argument erroné, puis
+  sur le SWL. Il rend maintenant **`rc=2` « aucun verdict rendu »**, comme
+  `verifier_figures.py` le faisait déjà, et nomme les classes réellement
+  examinées dans son message de succès.
+
+Non-régression vérifiée sur les quatre autres tomes : `rc=0`, 1 259 figures
+contrôlées.
+
+### Compilation du NEA — ce que l'interruption a appris
+
+Le premier lancement s'est arrêté à la 3ᵉ passe, page 682, machine éteinte.
+**Tout n'a pas eu à être purgé**, et la distinction vaut d'être retenue :
+
+- **l'arbre généré par Python** (379 sections, 911 dessins, le 202
+  précompilé) était écrit **1 h 37 avant l'arrêt** — intact, conservé ;
+- **le `.aux` était tronqué**, mesuré et non supposé. C'est lui qui porte le
+  `\DARCimageCache` : lui seul, avec les autres auxiliaires, devait partir.
+
+*Faux signal écarté en chemin :* le test de troncature du § 4
+(`[ -n "$(tail -c 1 "$f")" ]`) a désigné **50 `.tex` générés** comme
+suspects. Ils ne le sont pas — ce test vise les **auxiliaires LaTeX**, et
+les fichiers du générateur se terminent normalement sans saut de ligne
+final. Ce sont les horodatages qui ont tranché, pas le test.
+
+*Piège Ghostscript, et il a failli passer :* la compression a d'abord
+échoué en `rc=127` — Ghostscript est ici en **32 bits**
+(`gswin32c.exe` sous `Program Files (x86)`, § 11) — **et le fichier
+`livre-NEA-a.3.pdf` existait quand même**, à 11,03 Mo. C'était celui du
+26/08. Un `ls` sur le PDF de sortie n'atteste donc rien : **vérifier son
+horodatage**, pas sa seule présence.
+
+*Durée mesurée :* **1 h 39** pour trois passes, arbre déjà généré — le § 2
+annonçait « ~1 h ». Corrigé.
+
+*Piste ouverte :* le **gardien d'auxiliaires** du § 4, qui copie
+périodiquement le `.aux` sain, est décrit comme réservé à la classe A. Le
+NEA étant deux fois plus long, il y aurait davantage sa place — les deux
+premières passes, déjà convergées à 816 pages, ont été entièrement
+reperdues faute de lui.
+
+**E et A ont été compilées en parallèle**, sur remarque de Pierre : la règle du
+§ 4 disait « une seule compilation à la fois » alors que ce qui s'écrase, ce
+sont les auxiliaires d'un *même* répertoire. Règle réécrite — le parallélisme
+entre classes est permis, la limite réelle étant la mémoire disponible, à
+mesurer avant de lancer.
+
+### Ajouté
+
+- **v0.28 — `\DeclareSIUnit{\dBc}{dBc}`.** L'amont emploie `\dBc` six fois
+  dans `unerwuenschte_aussendungen_3` sans l'avoir jamais déclarée : erreur
+  **fatale**, latexmk en rc=12. C'est la répétition exacte de `\sample`
+  (§ 18 des défauts amont), quinze jours plus tard. Décision de Pierre :
+  déclarer plutôt qu'écrire l'unité en littéral, pour garder les six formules
+  verbatim. Détail au § 24 de `docs/defauts-amont.md`.
+- **Cinq paragraphes neufs en classe A** (`unerwuenschte_aussendungen_3`) :
+  les valeurs limites d'émissions non désirées en $\unit{\dBc}$, et la
+  comparaison entre la norme ETSI EN 301783 (appareils commercialisés dans
+  l'Union) et la Verfügung 33/2007 (appareils construits soi-même).
+- **Dessin 1139 forké et francisé** (`a_etsi_vfg`) — deux libellés d'axes,
+  `Frequenz` et `Grenzwert`. Les noms propres « ETSI » et « Vfg. 33/2007 »
+  sont conservés, comme « Verfügung 33 » l'est dans la prose. **229 dessins
+  forkés** au total, 644 éléments suivis au manifeste.
+- **Dessins 1140 et 1141 appelés sans fork.** Le 1141 (réseau de résistances)
+  ne porte aucun texte ; le 1140 ne porte que les libellés `1. OW / 2 Harm.`,
+  **déjà laissés tels quels dans le 868** et glosés par la légende française.
+  Cohérence avec le précédent, pas oubli.
+
+### Modifié
+
+- **Radio-clubs allemands : l'indicatif n'est plus limité à cinq ans**
+  (`klubstationen`, classe N). Il est désormais attribué en règle générale
+  sans limitation de durée ; seules les stations particulières, comme les
+  stations de radiocommunication d'urgence, gardent une durée de cinq ans.
+  C'est le seul changement de **fond réglementaire** de la salve.
+- `schwingkreis_1` (E) : l'amont corrige sa propre coquille d'ident,
+  `e_wiederstaende_*` → `e_widerstaende_*`. Suivi sur les quatre occurrences,
+  déclarations et renvois. **C'est le troisième défaut que l'amont corrige
+  seul**, après `a_sender` et les trois coquilles du 19/08.
+- `reihe_parallel_widerstandsnetz_1` (E) : le dessin 306 est remplacé par le
+  1141 en amont.
+- Gloses et reformulations : `bfo_1` et `bfo_2` (BFO développé en anglais),
+  `ueberlagerungsempfaenger_einfachsuper_1` (VFO développé, `$f_z$` passé en
+  `$f_\mathrm{z}$`), `widerstand_materialien` et `widerstand_ntc_ptc`
+  (phrases ajoutées sur les applications HF et les usages des thermistances).
+
+### Préservé
+
+- **Trois sections n'ont demandé aucune retouche française** —
+  `detektorempfänger` (E), `leistungsvertaerker` (A) et
+  `unerwuenschte_aussendungen_2` (E). L'amont y a corrigé sa seule
+  orthographe allemande (`Detektor-Empfänger` → `Detektorempfänger`,
+  `Parallel-Schwingkreis` → `Parallelschwingkreis`), invisible en français.
+  Seule leur empreinte a été réenregistrée. Une seule glose allemande citée
+  dans notre prose était touchée, `(Geradeaus-Empfänger)`, mise à jour.
+- **Douze corrigés amont neufs** (`contents/solutions/`, AD508 à AJ211) restent
+  hors périmètre : ni `build_book.py` ni nos livres ne lisent ce répertoire,
+  qui alimente le site 50ohm.de. À rouvrir si l'on veut un jour ces
+  démonstrations dans les PDF.
+
+### Connu
+
+- **Deux unités non déclarées en trois semaines.** `\sample` le 20/08,
+  `\dBc` le 04/09 : ce n'est plus un accident isolé mais un mode de
+  défaillance récurrent du corpus amont, entièrement invisible aux huit
+  contrôles du § 5 — `verifier_traduction.py` compare nos formules aux siennes
+  et les trouve identiques, ce qu'elles sont. **Seule une compilation le
+  voit.** Argument net en faveur du document réduit systématique après chaque
+  resynchronisation.
+
+### 26 août 2026 (soir) — les adresses imprimées, et un disque plein
+
+**v0.27 compilée et contrôlée.** N reste à **262 pages** : imprimer les
+39 adresses de la classe N n'a coûté **aucune page**, et 5 Ko sur le PDF
+compressé. Le pari des URL courtes — médiane 20 caractères — est tenu.
+
+Contrôles tous verts : les quatre du §4, `verifier_figures` **148 figures,
+0 coupée**, `verifier_questions` 0, `??` 0. Les corrections de la journée sont
+vérifiées **dans le PDF** : « bande haute des ondes courtes », « Le plafond est
+de », « charge fictive », « la SSB », et le lien « … du DARC (50ohm.de/tr) ».
+
+#### L'incident qu'il faut consigner : `fwrite() failed`
+
+La première tentative a échoué en `rc=1`, avec au journal :
+
+```
+! error:  (file io): fwrite() failed
+!  ==> Fatal error occurred, no output PDF file produced!
+```
+
+**Ce n'est pas une erreur LaTeX, c'est une erreur d'écriture : le disque C:
+était plein**, 0 Go libre. Le PDF brut de N pèse 313 Mo, celui du NEA 648.
+
+Il aurait été facile d'incriminer la v0.27, écrite dans l'heure. Le journal
+disait la vérité dès la première ligne — c'est la même leçon que le 25/08, où
+trois diagnostics faux se sont succédé alors que la cause était affichée en
+clair.
+
+> **Et un piège autrement plus grave a été évité.** Chacun des répertoires
+> `build-*` contient **trois jonctions** pointant vers
+> `50ohm-contents-dl-main\contents\photos` — l'instantané **en service**. Un
+> `rm -rf` ordinaire les aurait traversées et aurait détruit les 343 photos de
+> l'amont, qu'il aurait fallu retélécharger.
+>
+> **Marche à suivre pour supprimer un répertoire de build :** retirer d'abord
+> les jonctions une à une (`cmd /c rmdir`, qui ne les suit pas), puis le reste,
+> puis **vérifier l'amont** — compte des photos et `verifier_amont.py`.
+> Fait ici : 343 photos intactes, 643 éléments, 0 dérive.
+
+Libéré 1,54 Go sur décision de Pierre : les trois builds d'essai
+(`build-N-2024`, `build-N-2024m`, `build-N-de`) et `build-NEA`. Les PDF
+correspondants sont conservés — ce sont eux qui servent de référence, pas les
+arbres de compilation.
+
+*Conséquence à connaître :* `build-NEA` n'ayant plus de `.aux`,
+`verifier_figures.py` ne peut plus rien dire du NEA. Il le **signale** en
+rendant `rc=2` et « AUCUN VERDICT RENDU », au lieu d'un `rc=0` trompeur.
+
+*Reste à surveiller :* 3,8 Go libres. NEA demande à lui seul ~700 Mo de PDF
+brut. Les deux gros postes écartés — `slides-bandbreite` (1,55 Go) et les deux
+instantanés périmés (1,16 Go) — redeviendront la question à sa recompilation.
+
+### 26 août 2026 (suite) — une figure ne se sépare plus de sa légende
+
+Deux défauts de mise en page relevés par Sylvain F6DBI, traités selon deux
+approches différentes à la demande de Pierre : le premier au cas par cas, le
+second **en règle**, le format 20 × 24 devant de toute façon redistribuer tous
+les points de coupure.
+
+#### Corrigé — S07, un chevauchement qui rendait une valeur illisible
+
+Dessin **680** (figure 12.8, `netzgeraet_1`) : l'étiquette « ⎓13,8 V » et le
+label « Risque de court-circuit et d'inversion de polarité » se recouvraient,
+et le PDF donnait à lire « 13,8 **Ⅴ**isque de court-circuit… ».
+
+*Cause :* le label français fait **50 caractères** là où l'allemand
+(*Kurzschluss- und Verpolungsgefahr*) en fait **33** — une fois et demie plus
+long. Centré sur le fil du bas, il atteignait la sortie de l'alimentation.
+C'est le motif déjà rencontré en a.2 avec le `{lX}` de
+`widerstand_materialien`.
+
+*Correctif :* le texte passe sur deux lignes dans un `\parbox` centré. Rien
+n'est retiré, la largeur est divisée par deux. Dessin compilé isolément et
+**relu à l'écran**, pas seulement recompilé.
+
+#### Corrigé — S10, et la cause racine était de notre fait
+
+Une figure et sa légende pouvaient être séparées par un saut de page : le
+lecteur voyait un graphique sans titre, puis un titre sans graphique.
+
+*Cause, et elle nous appartient.* L'amont protégeait déjà le couple —
+`\WebMargin` valait `\noindent\parbox{\linewidth}{#1}`, et un `\parbox` ne se
+coupe pas. Notre patch du `.sty` l'a rendu **sécable** pour qu'un grand tableau
+cesse de déborder sous le bas de page, retirant du même coup la protection des
+**figures**. Un correctif en avait donc créé un autre, dans une famille
+voisine.
+
+*Correctif, v0.25 → **v0.26**.* `\DARCfigbloc` rend insécable le couple
+{image + légende}. Il agit dans `render_image`, et non dans `\WebMargin` :
+les cas relevés se répartissent sur **trois** contextes — `\WebMargin` (corps),
+`\Margin` (note de marge) et le corps sans enveloppe — dont `render_image` est
+le seul point commun.
+
+*Limite assumée, décidée par Pierre :* les **tableaux restent sécables**. Un
+tableau plus haut qu'une page doit pouvoir se couper, sous peine de déborder —
+c'est précisément ce que le patch du `.sty` corrigeait. Séparer le traitement
+des images et celui des tableaux évite de rouvrir le défaut qu'on vient de
+fermer.
+
+*Coût mesuré, sur le livre entier :* **N passe de 260 à 262 pages**, soit
+**deux pages** pour 148 figures protégées. Rendre une figure insécable la fait
+basculer entière, ce qui peut laisser du blanc en bas de page ; l'extrapolation
+faite depuis un document réduit de cinq sections (+1 page) aurait donné un
+chiffre bien plus élevé — une raison de plus de mesurer sur le livre.
+
+*Résultat, contrôlé :* `verifier_figures.py` rend **148 figures repérées,
+0 coupée**. La figure 2.29 des taches solaires, celle que Sylvain avait
+signalée, a ses deux repères **page 58** ; elle était à cheval sur 57 et 58.
+Vérifié aussi sur épreuve, à l'écran.
+
+#### Ajouté — `verifier_figures.py` v0.1
+
+Deux `\label` par figure, relus dans le `.aux`, exactement comme
+`verifier_questions.py` le fait depuis la v0.18. Entre au tableau des contrôles
+du §4.
+
+> **La leçon a été payée deux fois, et c'est la même.** Un premier contrôle
+> comptait les légendes ouvrant une page dans le texte extrait du PDF. Il
+> annonçait **8 cas**. Plusieurs étaient **faux** : une photographie ne contient
+> aucun texte extractible, si bien que sa légende apparaît comme première ligne
+> de la page alors que l'image est juste au-dessus. Vérifié par les repères :
+> la photo du tableau AFuV, déclarée orpheline, a ses deux repères **sur la même
+> page**.
+>
+> C'est mot pour mot l'erreur décrite dans la docstring de
+> `verifier_questions.py` — « elle était bruitée… douze faux positifs » —
+> commise à nouveau sur les figures. **Le PDF n'est pas un oracle ; LaTeX l'est.**
+>
+> **Et le texte extrait ment aussi dans l'autre sens.** Le même jour, trois
+> corrections pourtant bien présentes dans le PDF ont été introuvables au
+> `grep` : `efficace` y est composé avec une **ligature ﬃ** et ressort en
+> « efÏcace » ; `(self)` ressort en « (self )», une espace ayant été insérée ;
+> et `pdftotext` sort par défaut en **ISO-8859**, pas en UTF-8, ce qui casse
+> tout motif accentué. Un faux positif et trois faux négatifs le même jour.
+>
+> Les consignes qui en découlent sont au §4 du `CLAUDE.md` : `-enc UTF-8`
+> systématique, chercher un fragment sans ligature ni ponctuation, et mesurer
+> toute question de **pagination** par des `\label` relus dans le `.aux`.
+
+Le script rend **rc=2** quand il n'a rien pu contrôler, et non rc=0 : un
+contrôle sans verdict ne contrôle rien — c'est le piège de `sonde_dessins.py`
+au §12, qui rendait rc=0 pendant que 39 dessins étaient fautifs.
+
+### 26 août 2026 — le tableau que personne n'avait vu
+
+**Aucune dérive amont, pour la première fois.** L'instantané en service
+(`bc8dfcd8`) est **exactement** le `main` du DARC : zéro commit d'écart, zéro
+section à traduire. Le manifeste suit 643 éléments, 0 dérive.
+
+Seul le **générateur** a bougé — 2 commits, un fichier : `renderer/morse.py`,
+qui corrige les prosignes CW (`ar`, `bk`, `sk`, `correction`), jusqu'ici épelés
+lettre par lettre. **Sans effet sur nos livres** : `morsetelegrafie` contourne
+ce défaut depuis longtemps en écrivant les suites à la main, et les quatre ont
+été vérifiées symbole par symbole contre le parseur corrigé — **identiques**.
+Notre contournement devient redondant ; il n'est pas faux.
+
+#### Corrigé
+
+- **Le tableau CEPT de `funken_im_ausland` ne tenait pas dans sa colonne de
+  marge**, et cela ne s'est vu qu'en ouvrant le livre. La resynchronisation de
+  la veille l'avait fait passer de deux colonnes courtes à **trois**, dont deux
+  portant des intitulés officiels anglais non sécables — le tout dans un
+  `<margin>` de 52 mm.
+  *Ce que cela donnait, mesuré :* note de marge de **1133,75 pt** pour un seuil
+  de 711,32, débordement de 230,78 pt, troisième colonne composée **à un mot
+  par ligne** (« Ex-pli-ca-tion »), tableau occupant **une page entière** et
+  légende restée **seule** en haut de la suivante. Le livre gagnait 4 pages.
+  *Correctif :* deuxième colonne passée en largeur élastique
+  (`| l: Document CEPT | X: Intitulé | X: Explication |`). Dérogation assumée au
+  balisage amont, décidée par Pierre — le défaut est amont, et le livre
+  **allemand** en souffre probablement davantage, ses cellules étant plus
+  longues. Consigné au §23 de `docs/defauts-amont.md`.
+  *Ce qui ne suffisait pas, et c'est instructif :* changer le spécificateur
+  laisse la mesure de la note **inchangée au centième** — 1133,74988 pt dans les
+  deux cas — parce qu'elle est prise à la largeur de la marge, **avant** toute
+  rétrogradation. Seule la recomposition dans le corps en profite.
+  **L'avertissement subsiste donc au journal alors que le rendu est correct :
+  ici, l'avertissement n'est pas l'oracle.** Vérifié sur épreuve, p. 102.
+
+#### Modifié
+
+- **`compiler.bat` : la classe N attend désormais 1 note de marge rétrogradée,
+  et non 0.** Même mouvement que la classe A passée de 3 à 4 en v0.18 : le
+  garde-fou v0.13 fait son travail, les deux erreurs fatales restent à 0, et la
+  note se compose correctement dans le corps.
+
+#### Recompilé
+
+| livre | avant | après | pourquoi |
+| --- | ---: | ---: | --- |
+| N | 258 | **260** | 66 « und », « domicile fiscal », `funken_im_ausland`, tableau CEPT |
+| NEA | 812 | **814** | contient N |
+
+**E, A et SWL n'ont pas été recompilés**, et c'est une décision mesurée, pas
+une économie : `funken_im_ausland` n'apparaît que dans les sommaires de N et
+NEA, aucun de leurs fichiers n'a bougé depuis leur dernière compilation
+(vérifié par dates **et** par git), et le SWL a été compilé après la correction
+des questions dont il dépend.
+
+*Une compilation NEA a été lancée puis **interrompue** en cours de première
+passe, le défaut du tableau ayant été découvert entre-temps : elle aurait
+produit un livre à jeter en une heure de machine. Auxiliaires purgés avant
+relance, conformément au §4.*
+
+#### Contrôlé
+
+Tous verts. `??` : **3 en NEA — et le contexte de chacun a été lu**, non
+déduit : ce sont bien les trois références orphelines connues
+(`a_mehrwegeausbreitung_ionosphäre`, la figure SSB de la classe E,
+`a_zeppelinantenn`). La valeur de 3, portée « à confirmer » au §4 depuis le
+20/08, est désormais **confirmée**.
+
+#### Relectures reçues
+
+Les premiers retours de **Jérôme F4JTL** (26 remarques, chapitres 1 et 2) et
+**Sylvain F6DBI** (31 remarques, les 258 pages) sont dépouillés, ancrés sur les
+sections et versés en feuille d'arbitrage nº 9. **Rien n'est appliqué** :
+Pierre les valide une par une.
+
+Trois enseignements se dégagent du dépouillement :
+
+- **une remarque de relecteur est un échantillon, pas un inventaire.** Sylvain
+  signale deux répétitions « En France / En France » ; il y en a **19** sur 77
+  encarts (N 13, E 2, SWL 4). Les corriger page à page en aurait laissé 17 ;
+- **cinq remarques n'en font qu'une** : le germanisme *regeln* rendu par
+  « régler » là où le français dit « fixer » ou « définir » ;
+- **le recouvrement avec l'outillage est faible.** Sur 57 remarques, deux
+  seulement recoupent ce que nos contrôles avaient déjà corrigé. Les deux
+  dispositifs attrapent des choses différentes — c'est une bonne nouvelle.
+
+### 25 août 2026 — quatrième resynchronisation, et un cinquième tome
+
+**L'amont est passé de `7c1d87a3` à `bc8dfcd8` : 46 commits, 78 fichiers.**
+Mais le périmètre réel est bien plus étroit que ces chiffres, et c'est encore
+une fois la mesure qui l'a établi : **une seule** de nos sections est touchée,
+et **aucun** de nos 228 dessins forkés.
+
+L'essentiel de ces 78 fichiers est un **cursus entièrement nouveau**.
+
+#### Resynchronisé
+
+- **`funken_im_ausland`** (classe N), seule section de notre périmètre touchée.
+  Le tableau CEPT passe de deux à trois colonnes, avec les intitulés officiels
+  des documents (*Radio Amateur Entry Level Examination and Licence*, *CEPT
+  Novice Radio Amateur Licence*…), conservés en anglais puisque ce sont des
+  titres officiels ; l'ordre des lignes change. Une précision d'examen est
+  ajoutée sur la traduction allemande *ECC-Empfehlung*.
+  **Un changement réglementaire réel** au passage : l'amont retire la mention
+  CEPT-Novice / classe E du dispositif de reconnaissance en cas d'installation
+  durable à l'étranger, et ne garde que le HAREC / classe A.
+  Huit contrôles du §5 au vert, manifeste réenregistré, dérive revenue à 0.
+
+#### Ajouté
+
+- **Le cursus SWL entre dans le périmètre — ce sera un cinquième tome.**
+  Décision de Pierre du 25/08/2026. L'amont a publié un « SWL-Kurs » préparant
+  l'examen **DE** du DARC — un insigne d'écouteur, **pas** une licence
+  d'émission.
+
+  | | |
+  | --- | ---: |
+  | chapitres · sections | 10 · 30 |
+  | prose à traduire | **5 613 mots** (3,9 % du corpus) |
+  | questions appelées | 71 |
+  | — déjà traduites chez nous | **60** |
+  | — restant à traduire | **11** (`SWL001`–`SWL011`) |
+  | dessins · photos · tableaux | 3 · 13 · 9 |
+  | balises employées | toutes déjà gérées |
+
+- **v0.24 — le générateur sait produire le tome SWL.** Quatre points de code
+  étaient prévus ; un cinquième est apparu à la mesure.
+  1. `--edition` accepte `SWL` ;
+  2. le sommaire est résolu **sans tenir compte de la casse** : l'amont a nommé
+     le sien `swl.json` quand les six autres sont `A.json`, `NEA.json`… Une
+     résolution générale a été préférée à une exception écrite en dur ;
+  3. le chargement des questions prend **tous** les `fragenkatalog*.json` :
+     les 11 questions du cursus vivent dans un fichier séparé, et le code
+     citait `fragenkatalog3b.json` en dur ;
+  4. titre français et filigrane à trois lettres, que la v0.20 empile déjà ;
+  5. **l'imprévu** : `build()` exigeait *à la fois* la question et ses
+     métadonnées. L'amont livre son catalogue **sans** `metadata_swl.json`
+     (`defauts-amont.md` §22), si bien que les 11 questions étaient déclarées
+     « introuvables » alors qu'elles étaient correctement chargées. Le code
+     distingue désormais une **question** absente — vrai défaut — d'une
+     **métadonnée** absente, qui n'a aucun effet quand la question n'a pas
+     d'image, ce qui est le cas des onze.
+
+  *Neutralité vérifiée par comparaison des arbres générés* : la classe N sort
+  identique à la v0.23, à l'horodatage près du journal de précompilation.
+
+### 20 août 2026, après-midi — le livre allemand, et le format en paramètre
+
+Séance en trois temps : compiler pour la première fois le livre **allemand**,
+recompiler les livres de la a.3, et rendre le **format de page** paramétrable.
+
+Contrôle de dérive amont en ouverture : `7c1d87a3` en local **et** sur le
+dépôt du DARC. Pour la première fois depuis que ce contrôle existe, le réseau
+et l'instantané concordent — aucune dérive à rattraper.
+
+#### Ajouté
+
+- **v0.23 — option `--format a4|20x24`** (feuille nº 8, D2 = variante C, D3a).
+  La maquette n'était pas paramétrable : papier, cinq cotes, folio et largeur
+  du dessin 202 étaient écrits en dur. Ils passent dans un tableau `FORMATS`.
+  **Défaut `a4`** : sans l'option, le `.cls` produit ne diffère de celui de la
+  v0.22 par **aucune ligne de code** — seul un commentaire se déplace, les
+  cotes en toutes lettres n'étant plus écrites qu'une fois, là où le format les
+  décide. Quatre points de code suffisaient : tout le reste de la mise en page
+  est en unités relatives, y compris les clamps v0.17 et v0.18, la page de
+  titre et **907 des 908 dessins amont**.
+  Maquette 20 × 24 retenue : `15 + 125 + 6 + 42 + 12 = 200 mm`, hauteur de
+  texte 202 mm, folio à 45 mm — cette dernière valeur n'étant pas devinée mais
+  calculée par `2 × (paperwidth/2 − (inner + textwidth/2))`, formule que
+  l'A4 vérifie (elle y redonne les 56 mm déjà codés).
+- **Le livre N en allemand**, compilé pour la première fois dans ce dépôt :
+  **230 pages**, quatre contrôles du §4 verts, 2,86 Mo après compression.
+  La traduction française coûte donc **28 pages, soit +12,2 %** (258 contre
+  230) — premier chiffre dont nous disposions sur ce point.
+
+#### Compilé
+
+- **Classe A, a.3 : 386 pages** (384 en a.2), 5,40 Mo. Convergée, aucune erreur
+  fatale, et **les deux seuils annoncés tranchés par la mesure — un seul des
+  deux bougeait** :
+  - **notes de marge : 4, inchangé.** On en attendait 5, en croyant que
+    `fehlerkorrektur` viendrait s'ajouter aux quatre existantes après que
+    l'amont eut rallongé son encart Hamming. Elle y était **déjà** : comparée à
+    la console de la a.2, les trois premières hauteurs sont identiques au
+    centième (731,83 · 976,66 · 828,91 pt) et la quatrième passe de 919,69 à
+    **1035,49 pt**. Elle a grossi, elle ne s'est pas ajoutée. `compiler.bat`
+    avait raison, rien n'a été touché ;
+  - **références `??` : 3 → 2, confirmé sur le PDF.** L'amont a corrigé
+    `a_sender` en `a_sdr_sender`. Restent `a_mehrwegeausbreitung_ionosphäre` et
+    `a_zeppelinantenn`. **Deuxième défaut que l'amont corrige seul** sans que
+    nous l'ayons signalé, après les trois coquilles du 19/08.
+- **Classe N, a.3 : 258 pages**, pagination inchangée. N n'était pas au
+  programme de la a.3 : elle y est entrée par la correction des doubles
+  crochets, qui touche `wellenlaenge`. Quatre contrôles verts, convergée.
+- **Classe E, a.3 : 214 pages**, 3,02 Mo. Les quatre contrôles du §4 sont
+  verts, une seule référence `??` (le défaut amont `e_ssb_am_modulation`), et
+  aucun « Rerun » demandé — le document est convergé.
+  **La pagination ne bouge pas** : 214 pages en a.2 comme en a.3, malgré
+  l'ident renommé et la section réécrite.
+  *À savoir pour les diagnostics futurs :* l'index de la classe E est **vide**,
+  et c'est normal. E ne porte **aucune** entrée `\index{}` (N en compte 77) —
+  un `book-E.idx` à zéro octet n'est donc pas le symptôme d'une compilation
+  incomplète, contrairement à ce qu'il donnerait à croire en classe N.
+
+#### Corrigé
+
+- **v0.22 — la francisation typographique n'est plus inconditionnelle.** Trois
+  réglages de la v0.17 (arbitrage nº 1) s'appliquaient quelle que soit la
+  langue : `\babelprovide{french}` en langue **principale**, les puces en tiret
+  cadratin avec le séparateur de légende « -- », et les listes resserrées. Le
+  livre allemand aurait donc été coupé selon les règles **françaises** et aurait
+  porté des espaces fines devant « : ; ! ? » — deux fautes en allemand. Vérifié
+  après correction, sur document réduit : `Fern-mel-de-an-la-ge`,
+  `Be-triebs-span-nung`, et le séparateur redevenu `Abb. 1:`.
+- **`compiler.bat` ne pouvait plus être lancé.** Le `.gitattributes` portait
+  `* text=auto eol=lf`, qui normalise en LF **le répertoire de travail** —
+  y compris les `.bat`. Sur des fins de ligne LF nues, cmd.exe se désynchronise
+  en lisant le script et perd des caractères en tête de ligne : « setlocal »
+  devient « tlocal », « chcp » devient « cp », et le batch part en cascade de
+  « n'est pas reconnu en tant que commande interne ou externe ». Règle
+  `*.bat text eol=crlf` ajoutée, fichier reconverti en binaire.
+- **Les quatre scripts de contrôle plantaient sur la console Windows.**
+  `verifier_traduction.py --tout` s'interrompait sur un `λ` par
+  `UnicodeEncodeError`, APRÈS avoir affiché la moitié de ses résultats : son
+  code de retour devenait celui d'un plantage, **indiscernable d'un `rc=1`
+  légitime**. Un contrôle qui ne peut pas rendre son verdict ne contrôle rien.
+  Les quatre reconfigurent désormais leur sortie en UTF-8. Verdict complet
+  retrouvé : **382 sections, 355 conformes, 7 dérogations, 20 écarts** — tous
+  préexistants et documentés.
+
+- **Doubles crochets d'unité ramenés au crochet simple** — 20 formules, 3
+  sections (`N/wellenlaenge`, `E/wellenlaenge_2`, `E/formeln_umstellen`).
+  L'amont écrit `$f[[\unit{\mega\hertz}]]$` ; rien n'absorbe le doublement — ni
+  le parseur, qui ne traite pas `[[`, ni LaTeX, où les crochets sont des
+  délimiteurs ordinaires en mode mathématique — et le PDF composait
+  littéralement **« f [[MHz]] »**, sans le moindre avertissement.
+  Le **principe** du crochet est conservé : c'est la *zugeschnittene
+  Größengleichung* du formulaire officiel que le candidat aura sous les yeux à
+  l'examen, et le texte amont dit lui-même en venir. Seul le doublement tombe.
+  Relevé par Pierre à la lecture du N en 20 × 24 ; décision du 20/08/2026.
+  Dérogation assumée à « formules verbatim » (§6), déclarée dans
+  `verifier_traduction.py`, détaillée en `defauts-amont.md` §21.
+  **Conséquence : N et E sont à recompiler.** La classe A n'a aucune
+  occurrence et n'est pas concernée.
+
+- **66 connecteurs allemands « und » traduits en « et »**, dans **15 questions
+  de la classe N**. Le §6 classe pourtant une question en « forme complète »
+  précisément quand ses réponses contiennent de la prose allemande,
+  « connecteurs compris (und, bis, ca., Punkt, beides) » : la règle était
+  écrite, elle n'avait pas été appliquée sur ces quinze-là.
+  Questions touchées : `BD303` à `BD318` (13 sur les indicatifs de pays),
+  `NA101` et `VD738`. **E et A sont indemnes** — zéro occurrence, mesuré.
+  **Deux exceptions conservées, vérifiées une par une** : `VC104`
+  (« Bundesanstalt für Post und Telekommunikation » est un nom propre
+  d'institution, comme « Bundesnetzagentur » dans la même question) et `VE501`
+  (« Elektromagnetische Verträglichkeit in der Umwelt » est la glose du sigle
+  EMVU, sujet même de la question).
+  **Conséquence : N et NEA sont à recompiler.**
+
+  *Comment il a été trouvé, et c'est le plus instructif.* Pas par un contrôle,
+  mais en **lisant** le rendu Beamer de `bandbreite` : « 135,7 à 137,8 kHz,
+  472 à 479 kHz **und** 10100 à 10150 kHz ». Aucun de nos quatre scripts ne
+  regarde `questions.json` — `verifier_traduction.py` compare les sections à
+  l'amont, `sonde_dessins.py` lit les dessins. Ce défaut était dans les PDF
+  publiés de la **a.2** depuis le 19/08, sous les yeux de tous. **Un prototype
+  écrit pour répondre à une question de faisabilité a trouvé un défaut que
+  l'outillage ne pouvait pas voir.**
+
+#### Préservé
+
+- Le défaut amont **§20** (marqueurs `[photo:…][index:…]` accolés) est
+  désormais constaté **dans le PDF allemand** : la photo du S-mètre manque et
+  son renvoi pend en « Wie im Bild ?? zu sehen ist ». C'est la capture qui
+  manquait au courrier `COURRIER-DARC-DE.md`.
+
+#### Connu
+
+- **`compiler.bat` ne peut pas aller au bout en processus détaché**, et ce
+  n'est pas un défaut : sa ligne 274 demande `Compresser le PDF avec
+  Ghostscript maintenant ?`, conformément au §2 qui veut que la compression
+  soit décidée par Pierre. Sans console interactive, la question reste sans
+  réponse et le batch attend — après avoir tout fait, contrôles compris.
+  Pour un lancement automatique : `echo O | compiler.bat N`.
+
+  *Trois diagnostics faux avant celui-là, et c'est la leçon de la journée.*
+  L'arrêt des batches a été successivement attribué à un `find` parcourant le
+  disque, puis à `find.exe` bloqué sur son entrée standard — au point qu'un
+  correctif a été écrit pour ce second motif. Il n'a rien changé : à la
+  compilation suivante, le batch s'est arrêté au même endroit, **sans le
+  moindre `find.exe` vivant**. La vraie cause était affichée en clair dans la
+  console depuis le début. Le correctif du comptage est conservé — il est
+  équivalent, vérifié 4 = 4 — mais son commentaire a été rectifié.
+  **Lire ce que la machine affiche avant de théoriser sur ce qu'elle fait.**
+
+- **Le comptage des `??` dans le PDF sur-compte en allemand.** Le §4 érige ce
+  comptage en référence contre le journal, qui sous-compte — vrai en français,
+  trompeur en allemand : le PDF N allemand porte **4 occurrences pour 1 seul
+  vrai défaut**, les trois autres étant la question BB203 sur les codes Q, où
+  deux `?` légitimes se collent (`bestätigen??`). En français, l'espace fine
+  de la v0.17 les sépare. Le contrôle se relit, il ne se prend pas au mot.
+- **Les 260 « Missing character » sur le caractère `` ` ``** ne concernent
+  **que la classe E** : le N allemand comme le N français en comptent **zéro**,
+  et leurs profils sont par ailleurs identiques (51 caractères manquants, dont
+  42 `;` du défaut `\tikzstyle` et 9 `0` venant des formes circuitikz). En E,
+  ils apparaissent page 23, après le dessin 992 — dont les 7 826 lignes de
+  `filecontents` émettent des messages du type `` `world.dat' ``. Piste, pas
+  conclusion.
+
+### 20 août 2026 — troisième resynchronisation amont (feuille d'arbitrage nº 7)
+
+**Ce n'est plus une dérive de contenu, c'est une restructuration de périmètre**
+— une première pour ce dépôt. L'amont est passé de `07f3c861` à `7c1d87a3` :
+**56 commits, 75 fichiers, 20 sections traduites** (19 en A, 1 en E), et
+**5 sommaires** touchés.
+
+| | avant | après |
+| --- | ---: | ---: |
+| sections classe A | 152 | **148** |
+| sections classe E | 103 | 103 |
+| sections classe NEA | 383 | **379** |
+| dessins forkés (N · E · A) | 39 · 73 · 113 | 39 · 73 · **116** |
+| éléments suivis au manifeste | 611 | **610** |
+
+Le chapitre `a_digitale_signalverarbeitung` passe de 14 à 8 sections,
+`a_digitale_uebertragungsverfahren` de 13 à 15, et **deux sections changent de
+chapitre** (`iq_verfahren`, `polarmodulation`).
+
+#### Ajouté
+
+- **5 sections traduites** : `dac_adc`, `anti_alias_rekonstruktionsfilter`,
+  `symbole_symbolrate`, `digital_iq` (classe A) et `datenuebertragungsrate`
+  (classe E).
+- **3 dessins forkés et francisés** : 1130 (convertisseurs A/N et N/A), 1131
+  (filtres anti-repliement et de reconstruction, avec `A` → `S` pour la
+  sortie), 1132 (« Autres parties du récepteur », « Information de commande »).
+  **13 dessins nouvellement appelés ont été examinés un à un** ; les 10 autres
+  ne composent aucun texte allemand.
+- 4 titres de section neufs, 1 abstract de chapitre.
+
+#### Modifié
+
+- **11 sections resynchronisées** : `psk`, `qam`, `sampling_quantisierung`,
+  `iq_verfahren`, `mapping` et `fourier_transformation` sont des réécritures
+  quasi complètes ; `digitale_filter`, `fehlerkorrektur`, `ofdm`,
+  `parasitaere_schwingungen` et `sende_empfangsketten` sont des ajouts ciblés.
+- **2 titres changés en amont** : `psk` devient « Modulation par déplacement de
+  phase : PSK et QPSK », `iq_verfahren` « Représentation I/Q et diagramme de
+  constellation ».
+
+#### Retiré
+
+- **9 traductions**, dont les 8 sections de la classe A fondues dans les
+  nouvelles (`analog_digital_umsetzer`, `digital_analog_umsetzer`,
+  `anwendung_dac_adc`, `anti_alias_filter`, `rekonstruktionsfilter`,
+  `sampling`, `quantisierung`, `mehrwertige_verfahren`) et
+  `datenuebertragungsdrate` en classe E. Décision de Pierre : suppression
+  simple, git fait mémoire.
+- L'ident amont `datenuebertragungs**d**rate` est corrigé en
+  `datenuebertragungsrate`. **Ce n'est pas un simple renommage** : la section
+  est aussi réécrite et amputée de la notion de rapidité de modulation.
+
+#### Corrigé
+
+- **`\sample`** (`digital_iq`) : l'unité n'est déclarée nulle part en amont et
+  l'erreur est **fatale** — `latexmk` sort en `rc=12`. Rendue `\mega\sps`.
+  Voir `docs/defauts-amont.md` §18.
+- **`<tipp>`** (`elektrische_geaete_oeffnen_2`) : marqueur DARCdown inexistant,
+  qui **s'imprime littéralement dans le PDF allemand**. Rendu `<tip>`. §17.
+- **Référence orpheline `a_sender`** : corrigée en amont (`a_sdr_sender`),
+  correction adoptée. La classe A devrait passer de **3 à 2 `??`** — confirmé
+  par le validateur du générateur, à vérifier sur le PDF.
+
+#### Préservé
+
+- **Labels dupliqués `a_adc_4bit` et `a_adc_12bit`** : les dessins 300 et 299
+  sont déclarés dans `dac_adc` **et** `anti_alias_rekonstruktionsfilter`, avec
+  des légendes différentes et un renvoi de part et d'autre. Défaut **introduit
+  par la refonte**, confirmé à la compilation (`multiply defined`). §13.
+- Trois coquilles allemandes (`ofdm`, `datenuebertragungsrate`,
+  `parasitaere_schwingungen`). §14.
+- **La classe E emploie le baud sans plus le définir** : la rapidité de
+  modulation part en classe A, alors que `9600_port` écrit
+  `\qty{9600}{\baud}` douze fois. Suivi tel quel (décision de Pierre, D6a) —
+  l'examen E n'interroge pas dessus. §16.
+
+#### Connu
+
+- **Une cinquième note de marge rétrogradée en classe A**, dans
+  `fehlerkorrektur` : l'amont a rallongé l'encart `<indepth>` du code de
+  Hamming, qui culmine à **1035,5 pt** pour un seuil de 711,3 pt. Le garde-fou
+  v0.13 fait son travail, mais le compte du §4 passe de 4 à 5.
+- Les avertissements « Missing character … in font nullfont » ont été
+  **mesurés** : ils viennent des formes circuitikz du dessin 196 et des
+  `\tikzstyle` dépréciés, **aucun texte lisible ne disparaît**. Les dessins ASK
+  et FSK, rendus en image, portent bien leurs six bits. §19.
+
+#### Mesuré
+
+- **L'hypothèse du remontage était fausse.** La note de clôture du 19/08
+  pariait qu'il y aurait « beaucoup à réemployer plutôt qu'à retraduire » :
+  comparaison phrase à phrase des 5 sections neuves (142 phrases), **95 % de
+  prose neuve**, et 4 des 7 phrases reprises sont de simples lignes
+  `[question:…]`. C'est une réécriture, pas un remontage.
+- **Aucune question perdue ni gagnée** : 717 · 462 · 1 750, usages identiques.
+  Les 28 mouvements sont des déplacements, et nos `questions.json` étant
+  indexés par identifiant, ils ne coûtent rien.
+- Instantané rebasculé et vérifié : **4 162 blobs sur 4 162 identiques** à
+  l'arbre amont par empreinte git, **0 nom corrompu**.
+- `verifier_traduction.py` : **20 écarts**, contre 22 avant la session — tous
+  préexistants et documentés dans `docs/ecarts-traduction.md`. Aucun écart neuf
+  n'a été introduit.
+
+---
+
 ## a.2 — 14 au 19 août 2026 — **première version publiée**
 
 Publiée le 19/08/2026, tag `a.2`. C'est la **première release du dépôt** : la

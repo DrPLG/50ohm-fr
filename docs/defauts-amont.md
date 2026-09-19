@@ -497,3 +497,557 @@ Deux conséquences, et la seconde est la plus importante :
 Le §8 de `CLAUDE.md` datait la correction de `Blochschaltbild` du 16/08/2026.
 La mesure la place plus tard : notre instantané `a290eb28`, pris le 17/08,
 portait encore la coquille. Elle fait partie des 18 commits repris le 19/08.
+
+## 13. Labels dupliqués `a_adc_4bit` et `a_adc_12bit` — dessins 300 et 299
+
+**Constaté le** 20/08/2026, pendant la resynchronisation de la refonte du
+chapitre DSP (amont `7c1d87a3`).
+
+Les dessins 300 et 299 sont déclarés **deux fois chacun, dans deux sections
+différentes de la même classe**, avec le même label et des légendes
+différentes :
+
+- `dac_adc` : `[picture:300:a_adc_4bit:Sinussignal digitalisiert durch einen 4-Bit-A/D-Umsetzer und anschließende D/A-Umsetzung]`
+- `anti_alias_rekonstruktionsfilter` : `[picture:300:a_adc_4bit:Signal vor dem Rekonstruktionsfilter]`
+
+et de même pour 299 / `a_adc_12bit`.
+
+Les deux sections appartiennent toutes deux au chapitre
+`a_digitale_signalverarbeitung` de la classe A, et **les deux y renvoient** :
+`anti_alias_rekonstruktionsfilter` écrit « vgl. Abbildung [ref:a_adc_12bit] ».
+La collision est donc certaine, comme au §7 — elle ne dépend pas de l'édition
+compilée. Le renvoi désignera l'une des deux occurrences, et le lecteur pourra
+être envoyé vers la figure portant l'autre légende.
+
+C'est la même famille que les 20 labels dupliqués du §8 de `CLAUDE.md`, mais ce
+cas-ci est **nouveau** : il a été introduit par la refonte du 19/08, alors que
+les deux figures étaient auparavant déclarées une seule fois, dans
+`analog_digital_umsetzer`.
+
+Préservé verbatim côté français, légendes traduites de part et d'autre.
+
+## 14. Coquilles relevées pendant la resynchronisation du 20/08/2026
+
+Toutes dans des sections réécrites en amont entre le 19 et le 20/08.
+
+| section | écrit | attendu |
+| --- | --- | --- |
+| `ofdm` | `Frequenzmultiplexverfahren, (Orthogonal…` | virgule parasite avant la parenthèse |
+| `datenuebertragungsrate` | `Sie gibt an wie viele Bit…` | `gibt an, wie viele` — virgule manquante |
+| `parasitaere_schwingungen` | `parisitäre Schwingungen` | `parasitäre` — coquille **conservée** lors de la réécriture du paragraphe |
+
+Aucune n'a d'effet sur la version française : les trois portent sur la
+ponctuation ou l'orthographe allemandes.
+
+À noter tout de même, en sens inverse : la réécriture d'`ofdm` **corrige** une
+erreur de terminologie. L'amont écrivait « orthogonale Frequenzmodulation »
+là où OFDM est un **multiplexage**, non une modulation ; il écrit désormais
+« orthogonales Frequenzmultiplexverfahren ». Notre traduction portait déjà
+« multiplexage par répartition orthogonale de la fréquence » et n'avait donc
+pas à changer.
+
+## 15. Référence orpheline `a_sender` — CORRIGÉE EN AMONT
+
+**Retirée du relevé le** 20/08/2026.
+
+Le §8 de `CLAUDE.md` listait `a_sender` (classe A, ch. 10) parmi les cinq
+références orphelines. La réécriture de `sende_empfangsketten` la corrige :
+l'amont écrit désormais `[ref:a_sdr_sender]`, qui est bien le label déclaré
+dans la même section.
+
+Nous avons adopté la correction. **La classe A devrait donc passer de 3 à 2
+`??`** — à confirmer par extraction du PDF après compilation, le journal
+sous-comptant (CLAUDE.md §4).
+
+C'est le **quatrième** défaut que l'amont corrige seul sans que nous l'ayons
+signalé, après les trois coquilles du §12. L'argument du §12 s'en trouve
+renforcé d'autant.
+
+## 16. La classe E emploie le baud sans plus le définir
+
+**Constaté le** 20/08/2026. C'est le défaut le plus consistant de cette salve,
+et le seul qui touche un candidat.
+
+La refonte scinde `datenuebertragungsdrate` : la notion de *Symbolrate* en sort
+pour rejoindre la nouvelle section `symbole_symbolrate`, **qui n'est au
+sommaire que de la classe A**. La section E qui lui succède,
+`datenuebertragungsrate`, passe de 210 à 83 mots et ne définit plus que le
+débit de données et la largeur de bande.
+
+Or l'unité baud reste employée en classe E : `9600_port` écrit
+`\qty{9600}{\baud}` **douze fois** (port 9 600 bauds, Packet Radio).
+
+**Un candidat de la classe E rencontre donc l'unité sans que la rapidité de
+modulation lui ait été présentée nulle part.**
+
+Nuance qui limite la portée, et qu'il faut donner au DARC en même temps que le
+constat : **l'examen E n'interroge pas là-dessus.** Les deux questions de la
+section (EA106, EE401) portent sur le débit de données et la largeur de bande ;
+c'est AA104, « unité de la Symbolrate », qui part en classe A avec la section.
+Le défaut est pédagogique, non réglementaire.
+
+Suivi tel quel côté français (décision de Pierre du 20/08/2026, feuille
+d'arbitrage nº 7, D6a) : nous ne comblons pas le trou par un encart `<france>`,
+que le §7 de `CLAUDE.md` réserve aux compléments **nationaux**.
+
+## 17. `<tipp>` au lieu de `<tip>` — les balises s'impriment dans le PDF
+
+**Constaté le** 20/08/2026 dans `elektrische_geaete_oeffnen_2` (classe A), en
+examinant un écart que `docs/ecarts-traduction.md` avait classé « ajout français
+hors encart `<france>` ». Ce n'en était pas un.
+
+L'amont écrit :
+
+```
+<tipp>
+Um wirklich auf der sicheren Seite zu sein, …
+</tipp>
+```
+
+Or **`tipp` n'est pas un marqueur DARCdown.** La liste `captures` de
+`renderer/tag.py` déclare `tip`, pas `tipp`. Sur les 63 emplois du marqueur
+dans le corpus amont, **62 s'écrivent `<tip>` et un seul `<tipp>`** — celui-ci.
+
+**Mesuré** en passant les deux variantes dans le renderer amont :
+
+| source | LaTeX produit |
+| --- | --- |
+| `<tip>…</tip>` | `\MarginTip{…}` |
+| `<tipp>…</tipp>` | `<tipp>` et `</tipp>` **rendus littéralement**, encadrant le texte |
+
+Conséquence côté allemand : l'encart n'est pas composé, et le lecteur voit les
+deux balises imprimées telles quelles dans le PDF, autour d'un paragraphe resté
+dans le corps du texte.
+
+Notre traduction écrit `<tip>` et compose donc l'encart correctement. **Ce
+n'est pas une dérogation de confort : c'est la correction d'un défaut amont**,
+et c'est à ce titre qu'elle est inscrite dans la table `DEROGATIONS` de
+`verifier_traduction.py`.
+
+C'est le seul défaut du relevé dont l'effet soit **visible à l'œil nu dans le
+PDF allemand publié**.
+
+## 18. `\sample` — une unité jamais déclarée, erreur fatale de compilation
+
+**Constaté le** 20/08/2026 en compilant le document réduit de la
+resynchronisation. C'est le défaut le plus grave de la salve : **il empêche la
+compilation.**
+
+La section `digital_iq`, créée en amont le 19/08, écrit :
+
+```
+$\qty{10}{\mega\sample\per\second}$
+```
+
+Or `\sample` **n'est déclarée nulle part**. Vérifié sur l'ensemble des
+déclarations d'unités du dépôt générateur :
+
+- `latex/DARC-ausbildungsmaterialien.sty` : `\baud`, `\dBi`, `\dBm`, `\dBu`,
+  `\dBV`, `\dBW`, `\ppm`, `\pps`, `\CPM`, `\WPM`, `\noop` ;
+- `latex/settings.tex` : `\baud`.
+
+Aucune n'est `\sample`, et l'unité n'apparaît qu'**une seule fois dans tout le
+corpus amont** — à cet endroit.
+
+Résultat mesuré :
+
+```
+! Undefined control sequence.
+<argument> \mega \sample
+                        \per \second
+```
+
+`latexmk` sort en `rc=12`. **La classe A allemande bute donc sur le même
+écueil** — comme pour `\qty{120\pi}{\ohm}` (§ CLAUDE.md v0.14) et
+`\qty{0.05}{\lambda}` (v0.16), mais cette fois l'erreur est *fatale* et non
+silencieuse : elle ne compose pas faux, elle ne compile pas.
+
+**Correctif côté français** (décision de Pierre du 20/08/2026) : la formule est
+rendue `$\qty{10}{\mega\sps}$`, `\sps` étant l'unité que notre classe déclare
+déjà (`\DeclareSIUnit{\sps}{Sps}`) et qu'emploie `sampling_quantisierung` sous
+la forme `\qty{44,1}{\kilo\sps}`. Le rendu est « MSps », cohérent avec le
+« kSps » de la section voisine. Dérogation inscrite dans
+`verifier_traduction.py`.
+
+Aucune montée de version de `build_book.py` n'a été nécessaire : le correctif
+vit dans la traduction, pas dans le générateur.
+
+## 19. « Missing character … in font nullfont » — mesuré, et sans effet visible
+
+**Vérifié le** 20/08/2026, à la demande de Pierre. Ce n'est pas un défaut neuf :
+le §8 de `CLAUDE.md` le signale depuis longtemps, en l'attribuant à la syntaxe
+dépréciée `\tikzstyle{…}=[…];`. Ce qui manquait, c'est la **preuve** que rien
+ne disparaît du PDF.
+
+Sur le document réduit de la resynchronisation, 27 avertissements :
+
+| glyphe | nombre | origine mesurée |
+| --- | ---: | --- |
+| `0` (U+0030) | 24 | dessin **196**, formes circuitikz `box` / `mixer` / `adder` |
+| `;` (U+003B) | 3 | `\tikzstyle` déprécié (dessin 704), cause déjà connue au §8 |
+
+**Les deux ont été isolés et rendus en image.**
+
+- Dessin 196 compilé seul : 3 avertissements, un par forme `box`. Le dessin
+  sort **complet** — I, Q, X, G, φ, les deux mélangeurs et l'additionneur sont
+  tous présents. Le « 0 » perdu est un artefact interne du tracé des formes, pas
+  du texte destiné au lecteur.
+- Dessins **700 (ASK) et 703 (FSK)** compilés ensemble — ceux qui portent les
+  bits sous les courbes, et donc le vrai risque : **zéro avertissement**, et les
+  six bits `0 0 1 0 1 1` sont composés correctement dans chaque figure.
+
+**Conclusion : aucun contenu lisible ne disparaît.** Contrairement au lambda du
+§3 et à la barre de fraction du §6, ces avertissements-ci sont bénins.
+
+À noter tout de même pour le signalement : le phénomène est présent dans les
+**PDF déjà publiés** — le journal du livre E de la a.2 en porte 299, dont 260
+sur le caractère `` ` ``. Ces 260-là n'ont **pas** été analysés ici et sortent
+du périmètre de cette session.
+
+## 20. Deux marqueurs accolés sur une même ligne — la figure disparaît
+
+**Constaté le** 20/08/2026, en générant pour la première fois le livre **N en
+allemand** (`--lang de`, sans `--translations`). Ce défaut ne pouvait pas se
+voir autrement : notre traduction le corrige sans le savoir.
+
+`contents/sections/rst.md`, ligne 6 :
+
+```
+[photo:123:n_rst_s-meter:Display eines IC9700-Transceivers, …anzeigt][index:S-Meter]
+```
+
+Les deux marqueurs sont **accolés sur la même ligne**. Le parseur ne rend
+alors **ni l'un ni l'autre** :
+
+```
+!! marqueur non rendu : rst.tex:7 -> [photo:123:n\_rst\_s-meter:Display eines…
+!! référence orpheline (\ref sans \label) : n_rst_s-meter (rst.tex)
+```
+
+Trois conséquences dans le livre allemand : la photo du S-mètre n'est pas
+composée, l'entrée d'index « S-Meter » est perdue, et le renvoi
+`[ref:n_rst_s-meter]` devient orphelin — une référence `??` de plus.
+
+**Confirmé dans le PDF le 20/08/2026**, le livre allemand ayant été compilé le
+jour même (230 pages). Ce n'était jusque-là qu'un avertissement de génération ;
+c'est maintenant une phrase imprimée, page 15 :
+
+> Wie im Bild **??** zu sehen ist, wird das S-Meter meist mit Werten von 1 bis
+> 9 gefolgt von dB-Werten beschriftet.
+
+Le lecteur allemand est donc renvoyé à une figure qui n'existe pas, dans une
+section dont le sujet **est** la lecture du S-mètre. C'est la capture à joindre
+au signalement.
+
+*Au passage, une leçon de mesure.* Le texte extrait du PDF porte **quatre**
+occurrences de `??`, pour ce seul vrai défaut. Les trois autres viennent de la
+question BB203 sur les codes Q, où deux points d'interrogation parfaitement
+légitimes se retrouvent collés — « Können Sie den Empfang bestätigen?? ». En
+français, l'espace fine insécable les sépare et le cas ne se présente jamais.
+Le comptage brut des `??` n'est donc pas un oracle en allemand : il faut lire
+le contexte de chaque occurrence.
+
+**Notre version française est correcte** : elle place le `[photo:…]` et le
+`[index:S-mètre]` sur deux lignes, et les deux sont rendus. Ce n'est pas une
+décision consciente — c'est un effet heureux de la mise en forme de la
+traduction.
+
+**Portée mesurée avant d'écrire cette entrée.** Sur les 380 sections amont,
+`[picture|photo]` suivi d'un autre marqueur **sur la même ligne** n'apparaît
+qu'**une seule fois** : celle-ci. Et aucune de nos 382 traductions ne
+reproduit le motif.
+
+> *Méthode, et l'erreur vaut d'être notée.* Un premier comptage avait rendu
+> **66 occurrences dans 49 sections**, dont « toutes » reproduites côté
+> français. C'était faux : le `\s*` du motif englobait le saut de ligne, si
+> bien que le contrôle comptait aussi les marqueurs correctement séparés — y
+> compris ceux dont le rendu est bon. Corrigé en `[^\S\n]*`, le compte tombe
+> de 66 à 1. **Sixième récidive du même piège** : un contrôle vert, ou rouge,
+> ne vaut que ce que vaut sa définition.
+
+---
+
+## 21. Doubles crochets d'unité — « f [[MHz]] » imprimé tel quel
+
+**Constaté le** 20/08/2026, par Pierre, à la lecture du N composé en 20 × 24.
+
+L'amont écrit systématiquement l'unité d'une *zugeschnittene Größengleichung*
+entre **doubles** crochets :
+
+```
+$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]}$
+```
+
+**Le principe est une habitude allemande authentique**, et il n'est pas en
+cause : `f[MHz]` signifie « la valeur numérique de f exprimée en mégahertz ».
+Le texte amont précise lui-même que ces formules viennent du **formulaire
+officiel remis aux candidats** (« Die beiden Formeln finden sich auch in der
+Formelsammlung, die bei der Prüfung als Hilfsmittel vorliegt »).
+
+**C'est le doublement qui est fautif, et rien ne l'absorbe :**
+
+- le parseur DARCdown ne traite **pas** `[[` — aucune occurrence dans les 25
+  fichiers de `renderer/` ;
+- en mode mathématique, `[` et `]` sont des délimiteurs **ordinaires** : LaTeX
+  les compose l'un après l'autre sans broncher ;
+- le PDF porte donc littéralement **`f [[MHz]]`** et **`λ[[m]]`**, vérifié sur
+  le texte extrait du livre N.
+
+Aucune erreur n'est émise, ni à la génération ni à la compilation : c'est la
+signature déjà rencontrée aux §2, §6 et §16 — un rendu faux, sans alerte.
+
+**Portée mesurée.** Dans `contents/sections/`, les 20 occurrences de la
+notation `grandeur[unité]` sont **toutes** doublées. *(Une 21ᵉ, dans
+`leiterwiderstand`, s'écrit `\left[\unit{…}\right]` : c'est un en-tête de
+tableau donnant l'unité de ρ, un usage distinct et correct.)*
+
+**Mais l'amont écrit AUSSI la forme simple, et c'est ce qui tranche.** Le
+dossier `contents/slides/` — 381 fichiers, un par section — porte 15
+occurrences de la notation, dont **8 à crochet simple**. Mieux : la **même
+formule** y est écrite des deux façons, dans deux fichiers voisins :
+
+| fichier amont | écriture |
+| --- | --- |
+| `slides/wellenlaenge.md` | `$f[\unit{\mega\hertz}] = \dfrac{300}{\lambda[\unit{\meter}]}$` |
+| `sections/wellenlaenge.md` | `$f[[\unit{\mega\hertz}]] = \dfrac{300}{\lambda[[\unit{\meter}]]}$` |
+| `slides/wellenlaenge_2.md` | `$f[[\unit{\mega\hertz}]] \approx …$` |
+
+Le doublement n'est donc **pas** une convention de l'auteur appliquée
+sciemment : c'est une **inconsistance** de son propre corpus. La forme simple
+est attestée sous sa plume, pour la formule même qui nous occupe.
+
+*Note d'honnêteté : une première rédaction de cette entrée affirmait que la
+forme simple « n'apparaît nulle part ». C'était faux, et dû à un motif de
+recherche mal échappé. La mesure corrigée est celle ci-dessus — et elle
+renforce la décision au lieu de l'affaiblir.*
+
+| section | classe | occurrences |
+| --- | --- | ---: |
+| `wellenlaenge` | N | 8 |
+| `wellenlaenge_2` | E | 8 |
+| `formeln_umstellen` | E | 4 |
+| **total** | | **20** |
+
+La classe A n'est pas concernée.
+
+**Hypothèse sur l'origine**, donnée pour ce qu'elle vaut : l'auteur a voulu
+*échapper* le crochet pour le parseur, en le doublant comme le font d'autres
+systèmes de balisage. Le parseur n'attend pas cet échappement.
+
+**Décision de Pierre du 20/08/2026 : corrigé côté français**, au crochet
+simple. C'est une dérogation assumée à la règle « formules verbatim » du §6,
+dans le même esprit que « Ordnung → ordre » du 15/08. Le **principe** du
+crochet est conservé : le candidat passe l'examen allemand et manipulera le
+formulaire officiel, où la notation à crochet simple est l'usage. Les trois
+sections sont déclarées en dérogation dans `verifier_traduction.py`.
+
+**L'allemand reste cassé** — et c'est une entrée de plus pour le signalement.
+
+---
+
+## 22. Un catalogue de questions livré sans son fichier de métadonnées
+
+**Constaté le** 25/08/2026, en ajoutant le cursus SWL au générateur.
+
+L'amont a publié `contents/questions/fragenkatalog_swl.json` — les 11 questions
+propres à l'examen DE — **sans le `metadata_swl.json` correspondant**. Le
+dossier ne contient que :
+
+```
+fragenkatalog3b.json     1341 Ko
+fragenkatalog_swl.json      9 Ko
+metadata3b.json           352 Ko      <- ne couvre QUE le catalogue 3b
+```
+
+**Effet côté générateur.** `metadata3b.json` porte, pour chacune des 1 750
+questions, les images associées à l'énoncé et aux quatre réponses
+(`picture_question`, `picture_a` … `picture_d`) plus un `layout`. Notre
+`QuestionBuilder.build()` exigeait **les deux** :
+
+```python
+if question is None or metadata is None:
+    self.missing.add(number)
+```
+
+Les 11 questions SWL étaient donc déclarées « introuvables » alors qu'elles
+étaient parfaitement chargées. Le message était trompeur : il désignait la
+question, quand c'est la métadonnée qui manquait.
+
+**Portée réelle, mesurée avant de corriger.** Aucune des 11 questions SWL ne
+porte d'image : elles ne contiennent que `number`, `class`, `question` et
+`answer_a` … `answer_d`. Pour une question sans image, l'entrée de
+`metadata3b.json` est de toute façon un dictionnaire de chaînes vides —
+vérifié sur `BD303`. L'absence du fichier est donc **sans conséquence sur le
+rendu**, et c'est ce qui a permis de la traiter comme telle.
+
+**Côté français.** Corrigé en v0.24 de `build_book.py`, non pas en fabriquant
+des métadonnées mais en distinguant les deux cas : une **question** absente
+reste un défaut signalé, une **métadonnée** absente devient un défaut vide et
+un simple compte informatif en fin de génération.
+
+Ce n'est pas un défaut de contenu mais de **livraison** : si le DARC ajoute
+plus tard une question SWL avec image, elle sera composée sans son image et
+rien ne le signalera — l'entrée manquante ne peut pas dire ce qu'elle aurait
+dû contenir. À signaler.
+
+---
+
+## 23. Tableau à trois colonnes placé dans une colonne de marge de 52 mm
+
+**Section :** `funken_im_ausland` (classe N) · **repéré le 26/08/2026**, sur la
+première compilation suivant la resynchronisation `bc8dfcd8`.
+
+L'amont a remanié le tableau des documents CEPT. Il comptait deux colonnes
+courtes ; il en compte désormais **trois**, dont deux portent des intitulés
+officiels en anglais, non sécables et très longs :
+
+```
+| l: CEPT-Dokument | Bezeichnung | X: Erläuterung |
+| ECC Recommendation T/R 61-02 | Harmonized Amateur Radio Examination
+  Certificate (HAREC) | Gegenseitige Anerkennung … |
+```
+
+Ce tableau reste dans un bloc `<margin>`, donc dans une colonne de **52 mm**.
+Or la seule première colonne — « ECC Recommendation T/R 61-02 » — y est déjà
+plus large que la colonne entière. La colonne élastique `X` reçoit alors une
+largeur résiduelle voisine de zéro.
+
+**Ce que cela produit, mesuré sur le PDF français :**
+
+- note de marge de **1133,75 pt** pour un seuil de 711,32 pt, soit 422 pt de
+  trop : le garde-fou v0.13 la rétrograde dans le corps du texte ;
+- `Overfull \hbox` de **230,78 pt** dans l'alignement, et l'avertissement
+  `tabularx : X Columns too narrow (table too wide)` ;
+- à l'écran, la troisième colonne est composée **à un mot par ligne**, en
+  césure verticale — « Ex-pli-ca-tion », « Pro-gramme de la li-cence d'en-trée » ;
+- le tableau occupe **une page entière** (p. 103 de la a.3) et sa légende se
+  retrouve **seule en haut de la page suivante** ;
+- le livre gagne **4 pages**, passant de 258 à 262.
+
+Aucune de ces conséquences n'est une erreur fatale : la compilation **réussit**,
+et les quatre contrôles du §4 restent verts sauf le compte de notes
+rétrogradées, qui passe de 0 à 1 en classe N. C'est encore un défaut qui ne se
+voit **qu'en ouvrant le livre**.
+
+**Côté français.** La deuxième colonne est passée en largeur élastique :
+
+```
+| l: Document CEPT | X: Intitulé | X: Explication |
+```
+
+Le tableau redevient lisible, la pagination retombe à **258 pages** et le
+compte de notes rétrogradées revient à 0. Décision de Pierre du 26/08/2026 :
+dérogation assumée au balisage amont, le défaut étant amont.
+
+**Ce qui ne marche pas, et mérite d'être noté :** ajuster le seul spécificateur
+sans sortir de la marge ne suffit pas. Testé, `lXX` laisse la mesure de la note
+**inchangée au centième** — 1133,74988 pt dans les deux cas — parce que la
+mesure se fait à la largeur de la colonne de marge, avant toute rétrogradation.
+C'est la recomposition dans le corps qui bénéficie du changement, pas la mesure.
+L'avertissement `X Columns too narrow` subsiste donc au journal alors que le
+rendu est correct : **ici, l'avertissement n'est pas l'oracle**.
+
+**Côté allemand, le défaut demeure**, et il y est probablement pire : les
+cellules allemandes sont plus longues que les nôtres. À signaler.
+
+## 24. `\dBc` — la deuxième unité jamais déclarée, erreur fatale de compilation
+
+**Constaté le** 04/09/2026, en traduisant la resynchronisation
+`bc8dfcd8` → `04cc9316`. C'est la **répétition exacte du § 18** (`\sample`),
+quinze jours plus tard, et c'est le seul défaut de la salve qui empêche de
+compiler.
+
+La section `unerwuenschte_aussendungen_3`, réécrite en amont le 03/09, emploie
+`\dBc` **six fois** dans cinq paragraphes neufs :
+
+```
+Die Grenzwerte sind üblicherweise in $\unit{\dBc}$ angegeben …
+… ein Grenzwert von $\qty{-50}{\dBc}$ …
+```
+
+Or `\dBc` **n'est déclarée nulle part**. Vérifié sur l'ensemble des
+déclarations d'unités du dépôt générateur :
+
+- `latex/DARC-ausbildungsmaterialien.sty` : `\baud`, `\dBi`, `\dBm`,
+  `\dBu`, `\dBV`, `\dBW`, `\ppm`, `\pps`, `\CPM`, `\WPM`, `\noop` ;
+- `latex/settings.tex` : `\baud`.
+
+**`\dBm` y est, `\dBc` n'y est pas** — et c'est l'auteur du même dessin, dans
+la même salve, qui écrit « Angaben in dBc » en commentaire du 1139. L'unité
+n'apparaît nulle part ailleurs dans le corpus amont : uniquement dans cette
+section neuve.
+
+Comme au § 18, l'erreur est *fatale* et non silencieuse — `\dBc` n'étant pas
+défini, TeX lève « Undefined control sequence » et `latexmk` sort en `rc=12`.
+Elle ne compose pas faux, elle ne compile pas. **La classe A allemande bute
+donc sur le même écueil.**
+
+**Correctif côté français :** `\DeclareSIUnit{\dBc}{dBc}` ajouté au bloc
+« Unités du build interne absentes des fichiers publics » de `build_book.py`,
+qui en portait déjà sept (`\dBd`, `\oszidiv`, `\milliOhm`, `\mOhm`,
+`\kiloOhm`, `\dBuV`, `\sps`). Les formules restent verbatim, conformément
+au § 5.
+
+**L'autre voie a été mesurée, pas supposée.** Écrire l'unité en littéral —
+`$\qty{-50}{dBc}$`, sans macro — compile aussi, en `rc=0`, et donne un rendu
+**identique au caractère près** : « −50 dBc ». C'est la solution retenue au
+§ 18 pour `\sample`, et elle évite toute montée de version. Elle a été écartée
+ici parce qu'elle ferait diverger six formules du texte amont, là où la
+déclaration est neutre : une unité de plus, invisible partout ailleurs, et
+que l'amont déclarera vraisemblablement lui-même le jour où il s'en apercevra —
+comme il l'a fait pour `\dBm`.
+
+**Ce que ce défaut apprend, et c'est sa vraie valeur :** en trois semaines,
+l'amont a introduit **deux** unités non déclarées dans deux sections neuves.
+Ce n'est pas un accident isolé mais un mode de défaillance récurrent du corpus,
+et il est entièrement invisible aux contrôles du § 5 — `verifier_traduction.py`
+compare nos formules aux siennes et les trouve identiques, ce qu'elles sont.
+**Seule une compilation le voit**, et c'est l'argument le plus net en faveur du
+document réduit systématique après chaque resynchronisation.
+
+## 25. Indices sans `\mathrm` ni `\text` — l'italique mathématique, lettre à lettre
+
+**Constaté le** 06/09/2026, en examinant les écarts résiduels de
+`verifier_traduction.py`. Défaut **visible dans le PDF**, mais discret : il ne
+lève aucune erreur, aucun avertissement.
+
+Un indice de plusieurs lettres écrit `X_{abc}` — sans `\mathrm` ni `\text` —
+est composé en **italique mathématique**, chaque lettre traitée comme une
+variable distincte, avec l'espacement mathématique qui va avec. Écrit
+`X_\mathrm{abc}`, il sort en romain, serré, comme un indice doit l'être.
+
+L'amont mélange les deux **sur la même ligne**, ce qui rend le défaut évident
+une fois qu'on le cherche :
+
+| section | ligne amont |
+| --- | --- |
+| `strom_spannung_messung_3` | `$P_\text{Gemessen}=U_\text{Gemessen} \cdot I_{Gemessen}$` |
+| `spitze_effektiv_wert` | `U_\text{eff}` une fois, `U_{eff}` deux fois |
+
+Mesuré dans le PDF de la classe A, la première ligne sortait :
+
+```
+𝑃mes = 𝑈mes ⋅ 𝐼𝑚𝑒𝑠
+```
+
+— les trois lettres de l'indice du `I` en italique, quand celles du `P` et du
+`U` sont en romain.
+
+**Nos deux traitements diffèrent, et la différence tient au §8.**
+
+- `strom_spannung_messung_3` : **corrigé** en `I_\text{mes}`. Nous traduisions
+  déjà l'indice (`Gemessen` → `mes`, `Wahr` → `vrai`, abréviations prescrites
+  par le §6) — le verbatim était donc rompu de toute façon, et ajouter `\text`
+  ne fait que rétablir la cohérence de notre propre ligne. Dérogation inscrite.
+- `spitze_effektiv_wert` : **préservé tel quel**. « eff » s'écrit pareil dans
+  les deux langues, nous n'avons rien traduit, le verbatim tient. Le corriger
+  reviendrait à corriger silencieusement un défaut amont, ce que le §8
+  interdit. **Le défaut reste donc visible dans le livre français comme dans
+  l'allemand** — c'est un choix, pas un oubli.
+
+**Portée mesurée avant d'écrire la règle**, sur les 412 sections traduites :
+**deux** sections seulement portent un indice de trois lettres ou plus sans
+`\mathrm` ni `\text`, et ce sont ces deux-là. Le corpus n'est pas
+massivement touché.
+
+**Côté allemand, les deux défauts demeurent.** À signaler.

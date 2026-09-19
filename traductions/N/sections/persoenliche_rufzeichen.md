@@ -68,5 +68,5 @@ Le suffixe obéit lui aussi à la grille, et c'est là que la logique française
 - **Z** : stations répétitrices, relais et balises ;
 - **X et Y** : réserve.
 
-Deux détails pratiques. En France continentale, les suffixes personnels à deux lettres ne sont plus attribués — un F6AB est forcément un ancien ; le suffixe compte trois lettres, et pourra passer à quatre lorsque la série F4 sera épuisée. Et surtout : **l'indicatif n'est pas choisi**. Il est attribué informatiquement, sur le fondement de l'adresse du domicile fiscal. Le « Wunschrufzeichen » allemand n'a pas d'équivalent français.
+Deux détails pratiques. En France continentale, les suffixes personnels à deux lettres ne sont plus attribués — un F6AB est forcément un ancien ; le suffixe compte trois lettres, et pourra passer à quatre lorsque la série F4 sera épuisée. Et surtout : **l'indicatif n'est pas choisi**. Il est attribué informatiquement, à partir de l'adresse et de la position géographique de la station déclarée. Le « Wunschrufzeichen » allemand n'a pas d'équivalent français.
 </france>

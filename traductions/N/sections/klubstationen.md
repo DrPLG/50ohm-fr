@@ -33,7 +33,7 @@ Les questions suivantes se traitent de nouveau à l'aide du [plan des indicatifs
 [question:BD101]
 [question:BD103]
 
-Pour demander un indicatif de station de radio-club, le groupe doit désigner un responsable de station, lui-même radioamateur titulaire de l'autorisation de participation au service radioamateur. Le responsable de station devient titulaire de l'indicatif, attribué pour une durée limitée de cinq ans. La prolongation doit être demandée à temps. L'indicatif de la station de radio-club ne peut être utilisé qu'une fois l'attribution effective.
+Pour demander un indicatif de station de radio-club, le groupe doit désigner un responsable de station, lui-même radioamateur titulaire de l'autorisation de participation au service radioamateur. Le responsable de station devient titulaire de l'indicatif, attribué en règle générale sans limitation de durée. Pour les stations de radio-club particulières, comme par exemple les stations de radio-club de radiocommunication d'urgence, l'indicatif est attribué pour une durée limitée de cinq ans. Les dispositions précises peuvent toujours être consultées dans le [plan des indicatifs](https://50ohm.de/rzp). L'indicatif de la station de radio-club ne peut être utilisé qu'une fois l'attribution effective.
 
 [question:VD401]
 [question:VD402]

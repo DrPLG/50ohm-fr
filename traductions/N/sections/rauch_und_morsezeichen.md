@@ -16,7 +16,7 @@ En radio, on procède de façon semblable. À la place des signaux de fumée, il
 
 Si l'on convient au préalable — comme pour les signaux de fumée — de la signification de certaines suites d'intervalles différents, on peut transmettre des messages. Au milieu du XIXe siècle, on s'est accordé sur le code Morse encore usuel aujourd'hui.
 
-Si l'on manipule par exemple la suite *long, court, long, court*, cela représente le « C », et *long, long, court, long* signifie « Q ». La figure [ref:n_cqcq_horiz] représente l'émission de la séquence « CQ » en télégraphie Morse. Nous apprendrons le code Morse complet dans un chapitre ultérieur.
+Si l'on manipule par exemple la suite « — · — · » (*long, court, long, court*), cela représente le « C », et « — — · — » (*long, long, court, long*) signifie « Q ». La figure [ref:n_cqcq_horiz] représente l'émission de la séquence « CQ » en télégraphie Morse. Nous apprendrons le code Morse complet dans un chapitre ultérieur.
 
 <margin>
 [photo:216:n_cqcq_horiz:« CQ CQ » en télégraphie Morse]
@@ -29,7 +29,7 @@ De tels procédés de transmission s'appellent la *télégraphie*. Les procédé
 Dans le langage technique, ce support — la fumée ou l'oscillation électrique — s'appelle la *porteuse*, car elle porte l'information de l'émetteur au récepteur. Pour les porteuses radio, qui utilisent des fréquences assez élevées, on parle aussi de porteuse haute fréquence, ou porteuse HF. Le procédé qui consiste à modifier la porteuse — l'agitation de la couverture ou l'allumage et l'extinction rythmés de l'oscillation électrique — s'appelle la *modulation*.
 
 <wordorigin>
-Le terme *télégraphie* renferme deux mots du grec ancien : τηλε (tele) signifie « loin » et γράφειν (graphein) « écrire » ou « dessiner ». *Modulation* vient du latin : modulatio y désigne la mesure, le rythme.
+Le terme *télégraphie* renferme deux mots du grec ancien : τηλε (tele) qui signifie « loin » et γράφειν (graphein) « écrire » ou « dessiner ». *Modulation* vient du latin : modulatio qui désigne la mesure, le rythme.
 </wordorigin>
 
 [question:NE201]

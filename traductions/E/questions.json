@@ -365,28 +365,28 @@
   "answer_d": "Les résistances LDR"
  },
  "EC107": {
-  "question": "Une antenne artificielle (charge fictive) pour la plage VHF devrait, pour de meilleures propriétés, être constituée par exemple de ...",
+  "question": "Une charge fictive pour la plage VHF devrait, pour de meilleures propriétés, être constituée par exemple de ...",
   "answer_a": "résistances à oxyde métallique non enroulées.",
   "answer_b": "résistances bobinées de forte charge admissible.",
   "answer_c": "résistances chauffantes refroidies activement.",
   "answer_d": "résistances réactives résistant à la température."
  },
  "EC104": {
-  "question": "Quelle propriété devraient présenter les composants utilisés pour construire des antennes artificielles (charges fictives) destinées à un emploi dans les plages VHF et UHF ?",
+  "question": "Quelle propriété devraient présenter les composants utilisés pour construire des charges fictives destinées à un emploi dans les plages VHF et UHF ?",
   "answer_a": "une faible inductance propre et une faible capacité propre",
   "answer_b": "une faible conductance électrique et électronique",
   "answer_c": "une forte inductance propre et une forte capacité propre",
   "answer_d": "une forte conductance électrique et électronique"
  },
  "EC106": {
-  "question": "Lesquels des composants suivants pourraient être utilisés pour une antenne artificielle (charge fictive) précise, destinée à être employée à 50 MHz ?",
+  "question": "Lesquels des composants suivants pourraient être utilisés pour une charge fictive précise, destinée à être employée à 50 MHz ?",
   "answer_a": "Dix résistances à couche de carbone de 500 ohms non enroulées, montées en parallèle",
   "answer_b": "Une seule résistance bobinée de 50 ohms",
   "answer_c": "Deux résistances bobinées de 100 ohms montées en parallèle",
   "answer_d": "Deux résistances à couche de carbone de 25 ohms enroulées, montées en série"
  },
  "EC105": {
-  "question": "Lesquels des composants suivants pourraient être utilisés pour une antenne artificielle (charge fictive) fonctionnant bien, destinée à être employée à 28 MHz ?",
+  "question": "Lesquels des composants suivants pourraient être utilisés pour une charge fictive fonctionnant bien, destinée à être employée à 28 MHz ?",
   "answer_a": "Dix résistances à couche de carbone de 500 ohms",
   "answer_b": "Une résistance bobinée de 50 ohms",
   "answer_c": "Deux résistances bobinées de 100 ohms montées en parallèle",
@@ -439,10 +439,10 @@
   "answer_d": "Non, car la puissance réactive n'est pas prise en compte."
  },
  "EB507": {
-  "question": "La valeur efficace de la tension aux bornes d'une antenne artificielle de 50 ohms est mesurée à 100 V. La puissance dans la charge vaut ..."
+  "question": "La valeur efficace de la tension aux bornes d'une charge fictive de 50 ohms est mesurée à 100 V. La puissance dans la charge vaut ..."
  },
  "EB508": {
-  "question": "Quelle puissance est dissipée dans une antenne artificielle de 50 ohms lorsqu'un courant efficace de 2 A la traverse ?"
+  "question": "Quelle puissance est dissipée dans une charge fictive de 50 ohms lorsqu'un courant efficace de 2 A la traverse ?"
  },
  "EB509": {
   "question": "Pour quelle puissance une résistance de 100 ohms doit-elle au minimum être dimensionnée si une tension de 10 V doit chuter à ses bornes ?"
@@ -460,7 +460,7 @@
   "question": "Un oscilloscope indique une valeur crête à crête sinusoïdale de 25 V aux bornes d'une résistance de 1000 Ω. Le courant efficace traversant la résistance vaut ..."
  },
  "EB514": {
-  "question": "Une antenne artificielle de 50 ohms (charge fictive) est constituée de 11 résistances à couche de carbone de 560 ohms montées en parallèle, chacune ayant une charge nominale de 5 W. Quelle charge nominale en résulte-t-il pour l'antenne artificielle ?"
+  "question": "Une charge fictive de 50 ohms est constituée de 11 résistances à couche de carbone de 560 ohms montées en parallèle, chacune ayant une charge nominale de 5 W. Quelle charge nominale en résulte-t-il pour la charge fictive ?"
  },
  "EA107": {
   "question": "De combien de décibels le niveau de puissance varie-t-il lorsque la puissance est doublée ?"

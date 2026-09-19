@@ -1,0 +1,40 @@
+% Intérieur du livre E pour l'imprimeur (couverture rigide) : format fini
+% 200 x 240 mm, fichier demandé en (largeur + 6 mm) x (hauteur + 6 mm), soit
+% 3 mm de fond perdu de chaque côté. Consignes de l'imprimeur, 17/09/2026.
+%
+% Chaque page du PDF d'impression (276 p., pages « Notes » comprises) est
+% centrée, à l'échelle 1, sur une feuille de 206 x 246 mm. Seule la page de
+% titre touche le bord (bandeau et filet, cf. build_book.py) : on prolonge ses
+% aplats de 3 mm dans le fond perdu, mêmes couleurs, avec un léger recouvrement
+% vers l'intérieur pour ne laisser aucun filet blanc. TrimBox et BleedBox sont
+% déclarées sur toutes les pages.
+%
+% MODE D'EMPLOI. À copier dans build-E-20x24-marge, à côté du PDF source
+% \source (l'intérieur 276 p. SANS fond perdu, pages « Notes » comprises) ;
+% lualatex DEUX fois (remember picture). Pour un autre format ou un autre
+% fond perdu, recalculer : la géométrie, les boîtes /TrimBox et /BleedBox en
+% points PostScript (1 mm = 2,8346457 bp), et les abscisses du bandeau de
+% la page de titre (0,34 et 0,345 x la largeur du papier, cf. build_book.py).
+% Contrôle : comparer au pixel à 254 dpi (1 mm = 10 px), jamais à 150 dpi.
+\documentclass{article}
+\usepackage[paperwidth=206mm, paperheight=246mm, margin=0pt]{geometry}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\definecolor{TitleBand}{cmyk}{.9,.55,.1,.35}   % = build_book.py, page de titre
+\definecolor{TitleAccent}{cmyk}{.05,.8,1,0}
+% 1 mm = 2,8346457 bp. Coupe : 3 mm -> 203 mm et 243 mm.
+\pdfvariable pageattr{/TrimBox [8.50394 8.50394 575.43307 688.81890] /BleedBox [0 0 583.93701 697.32283]}
+\newcommand{\source}{interieur-E-276p-sans-fond-perdu.pdf}
+\begin{document}
+% Page de titre. Repère : coin inférieur gauche de la feuille, en mm.
+% Bandeau : x de 135 (= 3 + 200 - 0,34 x 200) au bord ; filet : x de 134 à 135.
+\includepdf[pages=1, noautoscale, pagecommand={%
+	\begin{tikzpicture}[remember picture, overlay, x=1mm, y=1mm, shift={(current page.south west)}]
+		\fill[TitleBand]   (202.8, 0)     rectangle (206, 246);    % droite
+		\fill[TitleBand]   (135, 242.8)   rectangle (206, 246);    % haut
+		\fill[TitleBand]   (135, 0)       rectangle (206, 3.2);    % bas
+		\fill[TitleAccent] (134, 242.8)   rectangle (135, 246);    % filet, haut
+		\fill[TitleAccent] (134, 0)       rectangle (135, 3.2);    % filet, bas
+	\end{tikzpicture}}]{\source}
+\includepdf[pages=2-, noautoscale]{\source}
+\end{document}

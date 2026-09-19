@@ -64,7 +64,7 @@ $U_\text{mes}=0,95 \cdot U_\text{vrai}$ et $I_\text{mes}=0,95 \cdot I_\text{vrai
 
 Nous calculons la puissance avec notre formule bien connue :
 
-$P_\text{mes}=U_\text{mes} \cdot I_{mes}$
+$P_\text{mes}=U_\text{mes} \cdot I_\text{mes}$
 
 Insérons maintenant les valeurs vraies : 
 

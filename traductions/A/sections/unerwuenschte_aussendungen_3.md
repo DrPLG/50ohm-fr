@@ -36,26 +36,45 @@ Si certaines harmoniques supérieures ou harmoniques d'un signal doivent être s
 
 ---
 
-Selon le règlement allemand sur le service amateur (AFuV), les émissions non désirées doivent être limitées au niveau le plus faible possible. La [Verfügung 33](https://50ohm.de/vfg33) de 2007 fixe cependant des valeurs limites précises, qui doivent être respectées par le radioamateur mais aussi par les fabricants d'appareils commerciaux.
+Selon le règlement allemand sur le service amateur (AFuV), les émissions non désirées doivent être limitées au niveau le plus faible possible. Pour les appareils radioamateurs construits soi-même, ainsi que pour les appareils commercialisés à l'origine et modifiés par un radioamateur, la [Verfügung 33/2007](https://50ohm.de/vfg33) de la Bundesnetzagentur (BNetzA) fixe des valeurs limites concrètes. La figure [ref:a_vfg33] montre un extrait de cette décision, avec les valeurs limites admissibles pour les émissions non désirées.
+
+Les valeurs limites sont habituellement exprimées en $\unit{\dBc}$ et indiquent de combien de décibels une émission non désirée doit être atténuée par rapport au signal de la porteuse, respectivement par rapport au niveau de crête maximal du signal émis (PEP). En alternative à l'indication relative en $\unit{\dBc}$, une valeur limite absolue de puissance peut aussi s'appliquer aux émissions non désirées, par exemple en $\unit{\dBm}$ ou en $\unit{\micro\watt}$. C'est alors, dans chaque cas, la plus élevée des deux valeurs de puissance admissibles qui fait foi.
+
+Pour les appareils radioamateurs commercialisés dans l'Union européenne, des valeurs limites s'appliquent également aux émissions non désirées. Elles sont réglementées de façon uniforme à l'échelle de l'Union. À la différence des valeurs limites de la Verfügung 33/2007, les valeurs admissibles dépendent ici en partie de la puissance d'émission de l'appareil. La figure [ref:a_etsi_vfg] met en regard les valeurs limites des appareils commercialisés et les prescriptions de la Verfügung 33/2007.
+
+Un exemple éclaire la différence : pour un appareil portatif commercialisé d'une puissance d'émission de $\qty{5}{\watt}$, une valeur limite de $\qty{-50}{\dBc}$ s'applique dans la plage de fréquences représentée. Si en revanche un appareil équivalent de $\qty{5}{\watt}$ est construit soi-même pour la bande des 2 m ou des 70 cm, c'est une valeur limite de $\qty{-60}{\dBc}$ qui doit être respectée selon la Verfügung 33/2007.
+
+Pour une puissance d'émission de $\qty{750}{\watt}$, cette valeur limite reste à $\qty{-60}{\dBc}$ pour l'appareil construit soi-même. Pour un appareil commercialisé de même puissance s'applique en revanche une valeur limite plus sévère de $\qty{-70}{\dBc}$.
+
+Les questions d'examen suivantes portent sur des appareils radioamateurs construits soi-même ou modifiés, et donc sur les valeurs limites pour les émissions non désirées telles qu'elles sont fixées dans la Verfügung 33/2007 de la Bundesnetzagentur.
 
 <margin>
-[photo:319:a_vfg33:Extrait de la Verfügung 33 de 2007]
+[photo:319:a_vfg33:Extrait de la Verfügung 33 de 2007.]
+[picture:1139:a_etsi_vfg:Comparaison de la norme ETSI EN 301783 avec la Verfügung 33 de 2007. En arrière-plan, les bandes radioamateurs sont grisées.]
 </margin>
 
-Pour le domaine VHF/UHF/SHF de $\qtyrange{50}{1000}{\mega\hertz}$, les émissions parasites et les harmoniques supérieures doivent être atténuées d'au moins $\qty{60}{\dB}$ par rapport au niveau de crête maximal du signal émis (PEP), tant que la puissance de ces signaux se situe au-dessus d'un niveau de $\qty{0,25}{\micro\watt}$ (cf. figure [ref:a_uagw]).
+---
 
-[question:AJ225]
+Pour le domaine VHF/UHF/SHF de $\qtyrange{50}{1000}{\mega\hertz}$, les émissions parasites et les harmoniques supérieures doivent être atténuées d'au moins $\qty{60}{\dB}$ par rapport au niveau de crête maximal du signal émis (PEP), tant que la puissance de ces signaux se situe au-dessus d'un niveau de $\qty{0,25}{\micro\watt}$ (cf. figure [ref:a_uagw]).
 
 <margin>
 [picture:918:a_uagw:Atténuation des harmoniques supérieures dans le domaine VHF/UHF/SHF]
 </margin>
 
-Pour le domaine décamétrique de $\qtyrange{1,7}{35}{\mega\hertz}$, les émissions parasites et les harmoniques supérieures doivent être atténuées d'au moins $\qty{40}{\dB}$ par rapport au niveau de crête maximal du signal émis (PEP), tant que la puissance de ces signaux se situe au-dessus d'un niveau de $\qty{0,25}{\micro\watt}$.
+[question:AJ225]
+
+---
+
+Pour le domaine décamétrique de $\qtyrange{1,7}{35}{\mega\hertz}$, les émissions parasites et les harmoniques supérieures doivent être atténuées d'au moins $\qty{40}{\dB}$ par rapport au niveau de crête maximal du signal émis (PEP), tant que la puissance de ces signaux se situe au-dessus d'un niveau de $\qty{0,25}{\micro\watt}$ (cf. figure [ref:a_uagw2]).
+
+<margin>
+[picture:1140:a_uagw2:Atténuation des harmoniques supérieures dans le domaine décamétrique]
+</margin>
 
 [question:AJ224]
 
 %TODO BILD VON DL1COM EINBAUEN
-Un analyseur de spectre permet, dans le mode spurious emissions, d'effectuer une mesure des harmoniques supérieures, ou harmoniques (angl. harmonics), comme le représente la figure [ref:a_uagw]. L'analyseur de spectre saisit ce faisant automatiquement le niveau de la porteuse ainsi que la réjection des harmoniques et les affiche en outre à l'écran. Lorsque l'on construit soi-même un appareil, il est décisif de s'assurer par des mesures que les valeurs limites prescrites sont respectées. Un fabricant commercial d'appareils radio atteste certes du respect de ces valeurs limites par la déclaration CE, il arrive néanmoins que certains appareils ne satisfassent pas aux exigences — dans de tels cas, la Bundesnetzagentur peut en interdire l'exploitation et la vente.
+Un analyseur de spectre permet, dans le mode *Spurious Emissions*, d'effectuer une mesure des harmoniques supérieures, ou harmoniques (angl. harmonics), comme le représente la figure [ref:a_uagw]. L'analyseur de spectre saisit ce faisant automatiquement le niveau de la porteuse ainsi que la réjection des harmoniques et les affiche en outre à l'écran. Lorsque l'on construit soi-même un appareil, il est décisif de s'assurer par des mesures que les valeurs limites prescrites sont respectées. Un fabricant commercial d'appareils radio atteste certes du respect de ces valeurs limites par la déclaration CE, il arrive néanmoins que certains appareils ne satisfassent pas aux exigences — dans de tels cas, la Bundesnetzagentur peut en interdire l'exploitation et la vente.
 
 Les émissions non désirées ne naissent pas seulement des harmoniques supérieures : elles peuvent aussi apparaître dans l'élaboration de la fréquence des émetteurs — par exemple du fait de produits de mélange indésirables, de fluctuations de la tension d'alimentation ou d'une saturation du signal BF. C'est ce que nous allons maintenant examiner d'un peu plus près. 
 

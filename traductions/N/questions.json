@@ -422,39 +422,39 @@
   "answer_d": "Allemagne (DA-DO), Taïwan (DP-DT) et Philippines (DU-DZ)"
  },
  "BD303": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, ON und OK correspondent aux pays…",
-  "answer_a": "Autriche, Belgique und Tchéquie.",
-  "answer_b": "Danemark, Belgique und Slovaquie.",
-  "answer_c": "Autriche, Danemark und Belgique.",
-  "answer_d": "Finlande, Tchéquie und Danemark."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, ON et OK correspondent aux pays…",
+  "answer_a": "Autriche, Belgique et Tchéquie.",
+  "answer_b": "Danemark, Belgique et Slovaquie.",
+  "answer_c": "Autriche, Danemark et Belgique.",
+  "answer_d": "Finlande, Tchéquie et Danemark."
  },
  "BD304": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, PA, und SM correspondent aux pays…",
-  "answer_a": "Autriche, Pays-Bas und Suède.",
-  "answer_b": "Autriche, Brésil und Suisse.",
-  "answer_c": "Autriche, Pologne und Afrique du Sud.",
-  "answer_d": "Autriche, Pays-Bas und Écosse."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs OE, PA, et SM correspondent aux pays…",
+  "answer_a": "Autriche, Pays-Bas et Suède.",
+  "answer_b": "Autriche, Brésil et Suisse.",
+  "answer_c": "Autriche, Pologne et Afrique du Sud.",
+  "answer_d": "Autriche, Pays-Bas et Écosse."
  },
  "BD305": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs F, PA und SP correspondent aux pays…",
-  "answer_a": "France, Pays-Bas und Pologne.",
-  "answer_b": "Suède, Pays-Bas und Pologne.",
-  "answer_c": "Pays-Bas, Pologne und Belgique.",
-  "answer_d": "Afrique du Sud, Danemark und Luxembourg."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs F, PA et SP correspondent aux pays…",
+  "answer_a": "France, Pays-Bas et Pologne.",
+  "answer_b": "Suède, Pays-Bas et Pologne.",
+  "answer_c": "Pays-Bas, Pologne et Belgique.",
+  "answer_d": "Afrique du Sud, Danemark et Luxembourg."
  },
  "BD306": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs SM, SP und ZS correspondent aux pays…",
-  "answer_a": "Suède, Pologne und Afrique du Sud.",
-  "answer_b": "Suède, Slovaquie und Pologne.",
-  "answer_c": "Slovénie, Pologne und Suède.",
-  "answer_d": "Suède, Slovénie und Pologne."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs SM, SP et ZS correspondent aux pays…",
+  "answer_a": "Suède, Pologne et Afrique du Sud.",
+  "answer_b": "Suède, Slovaquie et Pologne.",
+  "answer_c": "Slovénie, Pologne et Suède.",
+  "answer_d": "Suède, Slovénie et Pologne."
  },
  "BD307": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs 4X, F und OZ correspondent aux pays…",
-  "answer_a": "Israël, France und Danemark.",
-  "answer_b": "Italie, Belgique und Slovaquie.",
-  "answer_c": "Suède, Belgique und Écosse.",
-  "answer_d": "Suisse, Luxembourg und Pologne."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs 4X, F et OZ correspondent aux pays…",
+  "answer_a": "Israël, France et Danemark.",
+  "answer_b": "Italie, Belgique et Slovaquie.",
+  "answer_c": "Suède, Belgique et Écosse.",
+  "answer_d": "Suisse, Luxembourg et Pologne."
  },
  "BD308": {
   "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs EA, EI, EK, EM, ES correspondent aux pays…",
@@ -464,18 +464,18 @@
   "answer_d": "Espagne, Ukraine, Arménie, Estonie, Irlande"
  },
  "BD309": {
-  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs VE, VK und PY correspondent aux pays…",
-  "answer_a": "Canada, Australie und Brésil.",
-  "answer_b": "Canada, Brésil und États-Unis.",
-  "answer_c": "États-Unis, Australie und Brésil.",
-  "answer_d": "Canada, Australie und Japon."
+  "question": "Quels pays correspondent, dans l'ordre, aux indicateurs suivants ? Les indicateurs VE, VK et PY correspondent aux pays…",
+  "answer_a": "Canada, Australie et Brésil.",
+  "answer_b": "Canada, Brésil et États-Unis.",
+  "answer_c": "États-Unis, Australie et Brésil.",
+  "answer_d": "Canada, Australie et Japon."
  },
  "BD310": {
   "question": "Quel groupe indique correctement les indicateurs de la Suisse, de l'Espagne et de la Belgique ?",
-  "answer_a": "HB9, EA und ON",
-  "answer_b": "SZ, SP und BE",
-  "answer_c": "SP, ON und EA",
-  "answer_d": "EA, SP und BE"
+  "answer_a": "HB9, EA et ON",
+  "answer_b": "SZ, SP et BE",
+  "answer_c": "SP, ON et EA",
+  "answer_d": "EA, SP et BE"
  },
  "BD311": {
   "question": "Quel groupe indique correctement les indicateurs de l'Espagne, du Luxembourg et de la Pologne ?",
@@ -486,17 +486,17 @@
  },
  "BD312": {
   "question": "Quel groupe indique correctement les indicateurs des États-Unis, de la Nouvelle-Zélande et de l'Argentine ?",
-  "answer_a": "W, ZL und LU",
-  "answer_b": "K, ZS und A",
-  "answer_c": "N, LU und PY",
-  "answer_d": "AL, CE und VE"
+  "answer_a": "W, ZL et LU",
+  "answer_b": "K, ZS et A",
+  "answer_c": "N, LU et PY",
+  "answer_d": "AL, CE et VE"
  },
  "BD313": {
   "question": "Quel groupe indique correctement les indicateurs de la Chine, du Canada et de l'Australie ?",
-  "answer_a": "BY, VE und VK",
-  "answer_b": "BY, JA und VK",
-  "answer_c": "JA, VE und VK",
-  "answer_d": "N, VE und VK"
+  "answer_a": "BY, VE et VK",
+  "answer_b": "BY, JA et VK",
+  "answer_c": "JA, VE et VK",
+  "answer_d": "N, VE et VK"
  },
  "BD314": {
   "question": "Quelle réponse ne contient que des indicateurs de pays limitrophes de la République fédérale d'Allemagne ?",
@@ -507,31 +507,31 @@
  },
  "BD315": {
   "question": "Quelle réponse ne contient que des indicatifs des États-Unis (USA) ?",
-  "answer_a": "K3LR, W3DZZ und K4EAX",
-  "answer_b": "W0FKK, N6CAL und VE5VK",
-  "answer_c": "US2ABC, AB0GC und W4EAX",
-  "answer_d": "K1TTT, KA7KLE und UA3RUS"
+  "answer_a": "K3LR, W3DZZ et K4EAX",
+  "answer_b": "W0FKK, N6CAL et VE5VK",
+  "answer_c": "US2ABC, AB0GC et W4EAX",
+  "answer_d": "K1TTT, KA7KLE et UA3RUS"
  },
  "BD316": {
   "question": "Quels trois indicateurs de pays appartiennent à un seul et même continent ?",
-  "answer_a": "W, VE und XE",
-  "answer_b": "K, VE und BY",
-  "answer_c": "N, XE und DS",
-  "answer_d": "XE, VE und JA"
+  "answer_a": "W, VE et XE",
+  "answer_b": "K, VE et BY",
+  "answer_c": "N, XE et DS",
+  "answer_d": "XE, VE et JA"
  },
  "BD317": {
   "question": "Quels indicateurs sont attribués à des pays d'Amérique du Sud ?",
-  "answer_a": "PY, CE und LU",
-  "answer_b": "LU, CE und BY",
-  "answer_c": "CE, LU und JA",
-  "answer_d": "PY, CE und VE"
+  "answer_a": "PY, CE et LU",
+  "answer_b": "LU, CE et BY",
+  "answer_c": "CE, LU et JA",
+  "answer_d": "PY, CE et VE"
  },
  "BD318": {
   "question": "Quels indicateurs sont attribués à des pays d'Asie ?",
-  "answer_a": "BY, JA und VU",
-  "answer_b": "VU, JA und K",
-  "answer_c": "JA, VU und PY",
-  "answer_d": "LU, DS und JA"
+  "answer_a": "BY, JA et VU",
+  "answer_b": "VU, JA et K",
+  "answer_c": "JA, VU et PY",
+  "answer_d": "LU, DS et JA"
  },
  "BE101": {
   "question": "Comment pouvez-vous commencer une liaison radioamateur, par exemple ?",
@@ -569,7 +569,7 @@
   "answer_d": "J'accorde mon émetteur sur la fréquence, puis je lance mon appel CQ."
  },
  "BE106": {
-  "question": "Une fréquence sur une bande d'ondes courtes plus haute paraît d'abord libre, mais s'avère ensuite occupée. Quelle en est la cause la plus fréquente ?",
+  "question": "Une fréquence sur une bande haute des ondes courtes paraît d'abord libre, mais s'avère ensuite occupée. Quelle en est la cause la plus fréquente ?",
   "answer_a": "Une station émettant sur cette fréquence se trouve dans la zone de silence et n'a donc pas pu être entendue.",
   "answer_b": "Une station sur cette fréquence utilise l'autre bande latérale.",
   "answer_c": "Les conditions de propagation sont trop mauvaises pour les stations émettant sur cette fréquence.",
@@ -794,10 +794,10 @@
  },
  "NA101": {
   "question": "Un fil de 20 m de long est coupé aux 2/3 de sa longueur. Quelles sont approximativement les longueurs des morceaux obtenus ?",
-  "answer_a": "13,33 m und 6,67 m",
-  "answer_b": "12,22 m und 7,78 m",
-  "answer_c": "11,11 m und 8,89 m",
-  "answer_d": "14,44 m und 5,56 m"
+  "answer_a": "13,33 m et 6,67 m",
+  "answer_b": "12,22 m et 7,78 m",
+  "answer_c": "11,11 m et 8,89 m",
+  "answer_d": "14,44 m et 5,56 m"
  },
  "NA102": {
   "question": "On veut fabriquer des antennes à partir de 250 m de fil. Chaque antenne nécessite 18,5 m. Combien d'antennes peut-on fabriquer au maximum avec le fil disponible ?",
@@ -873,14 +873,14 @@
   "question": "Quelle image représente une tension alternative sinusoïdale ?"
  },
  "NB402": {
-  "question": "Que désigne le repère 1 dans l'instantané d'une onde représenté ?",
+  "question": "Que désigne le repère 1 dans la représentation instantanée d'une onde ?",
   "answer_a": "Amplitude",
   "answer_b": "Fréquence",
   "answer_c": "Période",
   "answer_d": "Longueur d'onde"
  },
  "NB403": {
-  "question": "Que désigne le repère 2 dans l'instantané d'une onde représenté ?",
+  "question": "Que désigne le repère 2 dans la représentation instantanée d'une onde ?",
   "answer_a": "Longueur d'onde",
   "answer_b": "Amplitude",
   "answer_c": "Tension",
@@ -1239,7 +1239,7 @@
   "answer_d": "Région 4"
  },
  "VA406": {
-  "question": "Où les préfixes des indicatifs radioamateur sont-ils réglés au niveau international ?",
+  "question": "Où les préfixes des indicatifs radioamateur sont-ils fixés au niveau international ?",
   "answer_a": "Dans le Règlement des radiocommunications (RR)",
   "answer_b": "Dans la loi sur le radioamateurisme (AFuG)",
   "answer_c": "Dans la liste des indicatifs de la BNetzA",
@@ -1309,7 +1309,7 @@
   "answer_d": "Jusqu'à un an"
  },
  "VB110": {
-  "question": "Comment un radioamateur d'un pays appliquant la recommandation CEPT T/R 61-01 ou ECC (05)06 doit-il compléter son indicatif d'origine lors de l'exploitation d'une station en Allemagne ? Selon la classe du radioamateur, on…",
+  "question": "Comment un radioamateur d'un pays appliquant la recommandation CEPT T/R 61-01 ou ECC (05)06 doit-il compléter son indicatif d'origine lors de l'exploitation d'une station en Allemagne ? Selon la classe du radioamateur, il ajoute le…",
   "answer_a": "préfixe DL/ ou DO/.",
   "answer_b": "suffixe /DL ou /DO.",
   "answer_c": "préfixe DE/ ou DP/.",
@@ -1351,7 +1351,7 @@
   "answer_d": "transférable s'il s'agit de radioamateurs étrangers séjournant temporairement en Allemagne."
  },
  "VC110": {
-  "question": "Que vaut pour les radioamateurs en matière d'utilisation des fréquences ? Un radioamateur peut, avec sa station…",
+  "question": "Quelle règle s'applique aux radioamateurs en matière d'utilisation des fréquences ? Un radioamateur peut, avec sa station…",
   "answer_a": "émettre sur les fréquences assignées au service radioamateur.",
   "answer_b": "émettre sur toutes les fréquences autorisées pour sa région UIT.",
   "answer_c": "utiliser des fréquences quelconques, tant qu'aucun autre service radio n'est perturbé.",
@@ -1407,7 +1407,7 @@
   "answer_d": "Dans l'annexe du règlement sur les fréquences (FreqV) et les communications associées de la BNetzA"
  },
  "VD102": {
-  "question": "Que vaut en matière de réception des émissions radioamateur ?",
+  "question": "Quelle règle s'applique en matière de réception des émissions radioamateur ?",
   "answer_a": "Aucune autorisation de participation au service radioamateur n'est nécessaire.",
   "answer_b": "Seuls des récepteurs homologués selon le TKG peuvent être utilisés.",
   "answer_c": "L'attribution d'un indicatif d'écouteur de la « série DE » est nécessaire.",
@@ -1870,10 +1870,10 @@
  },
  "VD738": {
   "question": "Dans quelles bandes radioamateur la largeur de bande occupée maximale admissible d'une émission est-elle de 800 Hz ?",
-  "answer_a": "135,7 à 137,8 kHz, 472 à 479 kHz und 10100 à 10150 kHz",
-  "answer_b": "1810 à 2000 kHz, 3500 à 3800 kHz und 7000 à 7200 kHz",
-  "answer_c": "7000 à 7100 kHz und 14000 à 14350 kHz",
-  "answer_d": "18068 à 18168 kHz und 24890 à 24990 kHz"
+  "answer_a": "135,7 à 137,8 kHz, 472 à 479 kHz et 10100 à 10150 kHz",
+  "answer_b": "1810 à 2000 kHz, 3500 à 3800 kHz et 7000 à 7200 kHz",
+  "answer_c": "7000 à 7100 kHz et 14000 à 14350 kHz",
+  "answer_d": "18068 à 18168 kHz et 24890 à 24990 kHz"
  },
  "VD739": {
   "question": "Dans laquelle des bandes radioamateur suivantes la largeur de bande occupée maximale admissible d'une émission est-elle de 2,7 kHz ?",
@@ -2674,14 +2674,14 @@
   "answer_d": "Diagramme en chute d'eau"
  },
  "VD727": {
-  "question": "Que s'applique-t-il aux titulaires d'indicatif de la classe E dans la plage de fréquences 1810 à 1850 kHz ?",
+  "question": "Quelle est la limite qui s'applique aux titulaires d'indicatif de la classe E dans la plage de fréquences 1810 à 1850 kHz ?",
   "answer_a": "Maximum 100 W PEP",
   "answer_b": "Maximum 75 W PEP ",
   "answer_c": "Maximum 750 W PEP",
   "answer_d": "Maximum 10 W PEP"
  },
  "VD729": {
-  "question": "Que s'applique-t-il aux titulaires d'indicatif des classes A et E dans la plage de fréquences 3,5 à 3,8 MHz ?",
+  "question": "Quelle est la limite qui s'applique aux titulaires d'indicatif des classes A et E dans la plage de fréquences 3,5 à 3,8 MHz ?",
   "answer_a": "Maximum 750 W PEP pour la classe A et maximum 100 W PEP pour la classe E",
   "answer_b": "Maximum 10 W PEP pour les deux classes",
   "answer_c": "Maximum 750 W PEP pour les deux classes",
@@ -2765,7 +2765,7 @@
   "answer_d": "J'essaie d'éviter toute modulation inutile."
  },
  "NF107": {
-  "question": "Pourquoi un émetteur ne devrait-il jamais être utilisé sans antenne adaptée ou sans dummy load ?",
+  "question": "Pourquoi un émetteur ne devrait-il jamais être utilisé sans antenne adaptée ou sans charge fictive ?",
   "answer_a": "L'onde réfléchie pourrait endommager l'étage final de l'émetteur.",
   "answer_b": "En l'absence de charge, la tension d'alimentation est régulée à la hausse, ce qui peut entraîner des surtensions. ",
   "answer_c": "La puissance absorbée peut surcharger l'alimentation de l'émetteur.  ",

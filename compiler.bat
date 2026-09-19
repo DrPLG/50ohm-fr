@@ -101,13 +101,13 @@ if "%CLASSE%"=="" (
     if errorlevel 3 (set "CLASSE=A") else if errorlevel 2 (set "CLASSE=E") else if errorlevel 1 (set "CLASSE=N")
 )
 
-REM Chantier a.2 (cf. CLAUDE.md section 12) : les trois classes portent
-REM desormais l'etiquette a.2. Elles gardent les pieces liminaires
+REM Chantier a.3 (cf. CLAUDE.md section 12) : les trois classes portent
+REM desormais l'etiquette a.3. Elles gardent les pieces liminaires
 REM (avant-propos, remerciements) introduites en a.1.
 set "VERSION="
-if /i "%CLASSE%"=="N" set "VERSION=a.2"
-if /i "%CLASSE%"=="E" set "VERSION=a.2"
-if /i "%CLASSE%"=="A" set "VERSION=a.2"
+if /i "%CLASSE%"=="N" set "VERSION=a.3"
+if /i "%CLASSE%"=="E" set "VERSION=a.3"
+if /i "%CLASSE%"=="A" set "VERSION=a.3"
 
 if not defined VERSION (
     echo.
@@ -220,10 +220,42 @@ REM displaymath (v0.18) coute environ 1 pt par formule, et la note de marge de
 REM schwingkreis_2, qui en contient 22, bascule au-dessus du seuil (734,6 pt
 REM pour 711,3). Le garde-fou v0.13 la compose alors dans le corps, en boite
 REM secable : pas d'erreur fatale, mais une section change de mise en page.
+REM Chantier a.3 : les deux seuils annonces ont ete MESURES le 20/08/2026,
+REM et un seul des deux bougeait. C'est exactement pourquoi on ne devinait pas.
+REM   - notes de marge classe A : 4, INCHANGE. On attendait 5, en croyant que
+REM     fehlerkorrektur allait s'ajouter aux 4 existantes apres que l'amont eut
+REM     rallonge son encart Hamming. Elle y etait DEJA : la comparaison avec la
+REM     console de la a.2 donne les trois premieres hauteurs identiques au
+REM     centieme (731,83 / 976,66 / 828,91 pt) et la quatrieme passant de
+REM     919,69 a 1035,49 pt. Elle a grossi, elle ne s'est pas ajoutee.
+REM   - references "??" classe A : 3 -> 2, CONFIRME sur le PDF. L'amont a
+REM     corrige a_sender en a_sdr_sender. Restent les deux defauts connus,
+REM     a_mehrwegeausbreitung_ionosphaere et a_zeppelinantenn. Ce script ne
+REM     teste pas les "??" : le compte se fait sur le PDF, cf. CLAUDE.md
+REM     section 4.
 set "NMARGE=0"
-for /f %%N in ('findstr /c:"Note de marge trop haute" "%LOG%" ^| find /c /v ""') do set "NMARGE=%%N"
+REM Comptage sans "find" : une boucle for /f suffit et fait un maillon
+REM de moins dans le pipeline. Equivalent verifie : 4 = 4 sur la classe A.
+REM
+REM MISE AU POINT, 20/08/2026 -- a lire avant de suspecter ce comptage.
+REM Ce correctif avait ete pose en croyant que find.exe, bloque sur son
+REM entree standard, suspendait le batch en processus detache. C ETAIT
+REM FAUX : apres correction, le batch s est bloque au meme endroit, sans
+REM le moindre find.exe vivant.
+REM La vraie cause etait affichee a l ecran depuis le debut -- le choice
+REM de la ligne 274, "Compresser le PDF avec Ghostscript maintenant ?".
+REM Ce choice a ete SUPPRIME le 20/08/2026, la compression se decidant
+REM desormais seule. Le pause final, lui, est conditionne a OHM_AUTO.
+for /f "delims=" %%L in ('findstr /c:"Note de marge trop haute" "%LOG%"') do set /a NMARGE+=1
 set "NMARGE_ATTENDU=0"
 if /i "%CLASSE%"=="A" set "NMARGE_ATTENDU=4"
+REM N passe de 0 a 1 le 26/08/2026 : le tableau CEPT resynchronise depuis
+REM l amont ne tient plus dans la colonne de marge (defauts-amont.md 23).
+REM La note est retrogradee dans le corps par le garde-fou v0.13 et s y
+REM compose correctement -- verifie sur epreuve, p. 102. L avertissement
+REM subsiste parce que la MESURE se fait a la largeur de la marge, avant
+REM toute retrogradation : la corriger ne le ferait pas disparaitre.
+if /i "%CLASSE%"=="N" set "NMARGE_ATTENDU=1"
 if "%NMARGE%"=="%NMARGE_ATTENDU%" (echo [OK]      Note de marge trop haute : %NMARGE% ^(attendu %NMARGE_ATTENDU%^)) else (echo [ALERTE]  Note de marge trop haute : %NMARGE% au lieu de %NMARGE_ATTENDU% attendu)
 
 echo.
@@ -250,24 +282,31 @@ REM parenthese fermante issue d'une expansion immediate refermerait ce bloc
 REM if( ) en plein milieu. L'expansion differee a lieu apres l'analyse.
 if defined GSEXE (
     echo Ghostscript : !GSEXE!
-    choice /m "Compresser le PDF avec Ghostscript maintenant "
-    if not errorlevel 2 (
+    REM Plus de confirmation : la compression se decide seule depuis le
+    REM 20/08/2026, cf. CLAUDE.md section 2. Elle coute quelques dizaines de
+    REM secondes, la ou une compilation coute des dizaines de minutes --
+    REM c est ce qui separe les deux regles. Le choice qui se trouvait ici
+    REM rendait par ailleurs le batch inutilisable en processus detache :
+    REM il attendait une touche APRES avoir tout fait, controles compris.
+    echo.
+    echo Compression en cours...
+    "%GSEXE%" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
+        -dDetectDuplicateImages=true -dNOPAUSE -dBATCH ^
+        -sOutputFile=livre-%CLASSE%-%VERSION%.pdf "%OUT%\book-%CLASSE%.pdf"
+    if exist "livre-%CLASSE%-%VERSION%.pdf" (
         echo.
-        echo Compression en cours...
-        "%GSEXE%" -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook ^
-            -dDetectDuplicateImages=true -dNOPAUSE -dBATCH ^
-            -sOutputFile=livre-%CLASSE%-%VERSION%.pdf "%OUT%\book-%CLASSE%.pdf"
-        if exist "livre-%CLASSE%-%VERSION%.pdf" (
-            echo.
-            echo PDF compresse : livre-%CLASSE%-%VERSION%.pdf
-        )
+        echo PDF compresse : livre-%CLASSE%-%VERSION%.pdf
     )
 ) else (
     echo Ghostscript introuvable sous "C:\Program Files\gs\" ni "C:\Program Files (x86)\gs\" -- compression ignoree.
 )
 
 echo.
-pause
+REM Le pause sert quand le batch est lance a la main ou par double-clic :
+REM sans lui, la fenetre se referme avant qu on ait lu les controles.
+REM Il bloque en revanche tout lancement automatique. Poser OHM_AUTO=1
+REM pour un enchainement sans intervention.
+if not defined OHM_AUTO pause
 exit /b 0
 
 REM ============================================================================

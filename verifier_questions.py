@@ -40,6 +40,18 @@ import pathlib
 import re
 import sys
 
+# Sous Windows, la console hérite d'une page de code héritée (cp1252 ici) et
+# Python y plante sur tout caractère qu'elle ne connaît pas — alors même que ce
+# script CITE le corpus, saturé de λ, de µ, de Ω et de tirets cadratins.
+# Constaté le 20/08/2026 sur verifier_traduction.py, qui s'interrompait en
+# plein verdict. errors="replace" : mieux vaut un « ? » à l'écran qu'un
+# verdict perdu.
+for _flux in (sys.stdout, sys.stderr):
+    try:
+        _flux.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):  # flux redirigé, ou déjà configuré
+        pass
+
 # \newlabel{NOM}{{numero}{page}{...}...} — on ne veut que le 2e groupe.
 MOTIF_LABEL = re.compile(r"\\newlabel\{DARCq@(debut|fin)@([^}]+)\}\{\{[^}]*\}\{([^}]*)\}")
 
@@ -53,9 +65,24 @@ def pages_des_questions(aux: pathlib.Path) -> dict:
     return out
 
 
+
+def chemin_aux(racine: pathlib.Path, livre: str) -> pathlib.Path | None:
+    """Localise le .aux d'un livre, suffixe de langue compris.
+
+    Le SWL se compile dans « build-SWL-fr » — il existe aussi en allemand,
+    dans « build-SWL-de ». Un chemin en dur « build-<livre> » ne le trouvait
+    pas, et le controle passait sans rien lire (05/09/2026).
+    """
+    for dossier in (f"build-{livre}", f"build-{livre}-fr"):
+        candidat = racine / dossier / f"book-{livre}.aux"
+        if candidat.is_file():
+            return candidat
+    return None
+
+
 def analyser(racine: pathlib.Path, classe: str):
-    aux = racine / f"build-{classe}" / f"book-{classe}.aux"
-    if not aux.is_file():
+    aux = chemin_aux(racine, classe)
+    if aux is None:
         return None
     pages = pages_des_questions(aux)
     coupees, incompletes = [], []
@@ -78,6 +105,7 @@ def main():
     racine = pathlib.Path(args.racine).resolve() if args.racine \
         else pathlib.Path(__file__).resolve().parent
     total_coupees = 0
+    examinees = []
 
     for classe in args.classes:
         r = analyser(racine, classe)
@@ -88,6 +116,7 @@ def main():
             print(f"=== classe {classe} : aucun repère de question dans le .aux.")
             print("    Le livre a-t-il été compilé avec build_book.py v0.18 ou plus ?\n")
             continue
+        examinees.append(classe)
         print(f"=== classe {classe} : {r['total']} questions repérées ===")
         print(f"  questions coupées : {len(r['coupees'])}")
         for numero, d, f in r["coupees"]:
@@ -102,7 +131,16 @@ def main():
     if total_coupees:
         print(f"{total_coupees} question(s) séparée(s) de leurs réponses.")
         sys.exit(1)
-    print("Aucune question n'est séparée de ses réponses.")
+
+    # rc=2 « rien contrôlé », jamais rc=0 : un contrôle qui n'a rien lu et
+    # rend vert est indiscernable d'un vrai succès. Constaté deux fois le
+    # 05/09/2026 — sur « build-N » passé comme classe, puis sur le SWL dont
+    # le .aux vit dans build-SWL-fr. verifier_figures.py rendait déjà rc=2.
+    if not examinees:
+        print("Aucune classe contrôlée — AUCUN VERDICT RENDU.")
+        sys.exit(2)
+    print(f"Aucune question n'est séparée de ses réponses "
+          f"({', '.join(examinees)}).")
 
 
 if __name__ == "__main__":

@@ -15,7 +15,165 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.21
+Version du script : v0.32
+    v0.32 — la mesure de la v0.31 n'est faite QUE pour les questions qui en
+            ont besoin (décision de Pierre, 19/09/2026).
+            *Constat :* NEA A4 en v0.31, échec fatal à la 1re passe, p. 655 :
+            « TeX capacity exceeded [number of strings=475704] ».
+            *Cause, MESURÉE :* la v0.31 compose chaque question deux fois. À la
+            1re passe, sans \DARCimageCache, chaque dessin de réponse est
+            mesuré deux fois sous deux clés, et crée ses chaînes deux fois.
+            Extrait de la partie A du NEA, une passe : v0.30 359 317 chaînes,
+            v0.31 418 037 (+58 720). Aux passes suivantes le cache existe et le
+            doublon ne coûte rien — d'où A 20 x 24 identique au chiffre près
+            (404 908) en fin de compilation, qui avait d'abord fait douter du
+            diagnostic. Le NEA v0.30 finissait déjà à 444 360 sur 475 704.
+            *Correction :* \DARCq@amesurer{id} ne lève la mesure que si la
+            passe précédente a posé les labels debut/fin de la question sur
+            deux pages différentes, ou si la question a déjà été réduite (marque
+            \DARCqReduite{id}, écrite dans le .aux au moment de la réduction —
+            sans elle, la question réduite tiendrait sur une page, ne serait
+            plus mesurée à la passe suivante, et oscillerait). \ifcsname ne crée
+            aucune chaîne : à la 1re passe, rien n'est mesuré. Un livre sans
+            question coupée est composé exactement comme en v0.30.
+    v0.31 — une QUESTION À RÉPONSES EN IMAGE trop haute pour la page est
+            RÉDUITE pour y tenir (décision de Pierre, 18/09/2026).
+            *Constat :* A en 20 x 24 marge, AD406, AD416 et AD502 laissaient
+            chacune une page presque blanche — un fragment de cadre vide en
+            haut, la question entière à la page suivante. Même trio que le NEA
+            20 x 24 du 16/09. En A4, aucun cas.
+            *Mécanisme, mesuré sur épreuve :* la question (énoncé + schéma +
+            quatre graphiques de réponse) fait un rien plus que \textheight
+            (202 mm en 20 x 24). La DARCQuestionBox est « breakable », mais
+            son contenu est un bloc insécable : le premier fragment reste vide
+            et tout part à la page suivante, où la boîte déborde légèrement.
+            *Correction :* \QuestionMD compose d'abord la question dans une
+            boîte (sans les labels de contrôle de la v0.18) et la mesure. Si
+            elle tient dans \textheight - 24 pt (marge du cadre), la boîte est
+            JETÉE et la question composée par le code d'origine, jeton pour
+            jeton : rien ne change pour elle. Sinon, la boîte est réduite
+            proportionnellement à cette hauteur, et le journal le dit
+            (« Question ... trop haute »).
+            *Portée :* \QuestionMD seule — les trois cas y sont. \Question et
+            \QuestionTwoCol ne sont pas touchées.
+    v0.30 — le FILIGRANE EMPILÉ suit aussi la hauteur du papier (décision de
+            Pierre, 16/09/2026, sur épreuve).
+            *Constat :* NEA compilé en 20 x 24, le A du filigrane tombait sur
+            « Cours complet / Classes N, E et A ». Mesuré au pixel dans le
+            bandeau : en A4, le A finit à 148,9 mm et le titre commence à
+            163,1 mm (14,2 mm d'air) ; en 20 x 24 le A descend jusqu'à
+            ~140 mm alors que le titre commence vers 131 mm.
+            *Cause, de notre fait et introduite par la v0.29 :* le corps du
+            filigrane était une fraction de \paperwidth, la position du titre
+            une fraction de \paperheight. Tant que le rapport largeur/hauteur
+            est celui de l'A4 (0,707), c'est la même chose ; le 20 x 24 vaut
+            0,833, la pile de lettres reste grande pendant que le titre
+            remonte. La v0.29 n'avait été vérifiée que sur N et E — UNE lettre,
+            posée à l'horizontale, qui n'est pas concernée.
+            *Correction :* corps et interligne de la pile = MIN(cote actuelle
+            en \paperwidth, cote en \paperheight). La cote en hauteur est prise
+            un rien AU-DESSUS de son équivalent A4 (150,02 pt pour 150 ;
+            140,007 pt pour 140) : en A4 c'est TOUJOURS la branche largeur qui
+            l'emporte, avec les mêmes jetons, donc les mêmes sp.
+            *Neutralité PROUVÉE :* page de titre NEA A4 compilée avant et
+            après, rendue à 150 dpi — 6 524 950 octets identiques, 0 pixel
+            différent. Un premier essai avec le coefficient simplement converti
+            en hauteur (0,1775049) donnait 237 pixels différents sur le contour
+            des lettres : quelques sp d'écart, invisibles mais non neutres.
+            *En 20 x 24 :* lettres de 27,8 mm au lieu de 32,6 ; le A finit à
+            120,8 mm, le titre commence à 130,6 mm — 9,8 mm d'air.
+            Portée : NE, EA, NEA et SWL. N, E et A (une lettre) ne changent pas.
+    v0.29 — la PAGE DE TITRE suit le format du papier (décision de Pierre,
+            06/09/2026, en vue du test de la classe E en 20 x 24).
+            La v0.23 avait rendu la maquette paramétrable, mais la couverture
+            était restée cotée en absolu : cinq décalages verticaux (3,5 cm,
+            4,2 cm, 2 cm, 1,6 cm, 1,5 cm) et six corps de police (220, 150,
+            140, 56, 58, 10 pt). Sur une page 19 % plus courte, tout remontait.
+            *Mesuré sur le PDF N en 20 x 24, pixel par pixel :* le filigrane
+            gardait ses 85 mm et passait de 29 % à 35 % de la hauteur, sa
+            position glissant de 29,7-58,3 % à 24,7-60,3 %. Le jeu à gauche
+            dans le bandeau tombait de 11,6 à 8,5 mm. **Il ne débordait pas** —
+            l'impression contraire, tirée d'un simple coup d'œil, était fausse.
+            Les décalages passent en fractions de \paperheight, les corps en
+            fractions de \paperwidth. Après correction, la classe E en 20 x 24
+            place son filigrane à 28,1-58,7 % contre 29,7-58,3 % en A4.
+            *Piège de calage :* les coefficients sont calés sur le point TeX
+            (1 pt = 1/72,27 in), donc \paperwidth vaut 597,50787 pt en A4 et
+            non 595,28 — l'erreur aurait décalé le filigrane de 0,8 pt.
+            *Neutralité PROUVÉE, pas supposée :* couverture A4 compilée avant
+            et après, rendue à 150 dpi et comparée octet par octet —
+            6 524 950 octets identiques.
+            *Piège rencontré, et il a d'abord fait conclure à un désastre :*
+            une page `remember picture, overlay` exige DEUX passes. À la
+            première, le bandeau et le pied de page sortent n'importe où. La
+            comparaison de neutralité elle-même en souffrait.
+    v0.28 — `\DeclareSIUnit{\dBc}{dBc}` (décision de Pierre, 04/09/2026).
+            L'amont emploie `\dBc` six fois dans `unerwuenschte_aussendungen_3`,
+            réécrite le 03/09, sans l'avoir jamais déclarée : `\dBm` figure au
+            .sty amont, `\dBc` non. L'erreur est FATALE et non silencieuse —
+            « Undefined control sequence », latexmk en rc=12 — donc la classe A
+            allemande bute sur le même écueil. C'est la répétition exacte de
+            `\sample` (v0.24 / défauts-amont §18), quinze jours plus tard :
+            deux unités non déclarées en trois semaines, ce n'est plus un
+            accident isolé.
+            *Une ligne, dans un bloc qui en portait déjà sept* — celui des
+            « unités du build interne absentes des fichiers publics ».
+            *L'autre voie a été mesurée, pas supposée :* écrire l'unité en
+            littéral (`$\qty{-50}{dBc}$`) compile aussi et rend le même texte
+            au caractère près. Écartée pour ne pas faire diverger six formules
+            du texte amont, là où la déclaration est neutre.
+            *Neutralité :* une unité déclarée de plus n'a aucun effet là où
+            elle n'est pas employée — `\dBc` n'apparaît nulle part ailleurs
+            dans le corpus, ni allemand ni français.
+    v0.24 — le tome SWL entre dans le périmètre (décision de Pierre,
+            25/08/2026). L'amont a ajouté un cursus « SWL-Kurs » préparant
+            l'examen DE du DARC : 10 chapitres, 30 sections, 5 613 mots,
+            71 questions dont 60 déjà traduites chez nous.
+            Quatre points de code, et quatre seulement : --edition accepte
+            SWL ; le sommaire est résolu sans tenir compte de la casse, parce
+            que l'amont l'a nommé « swl.json » quand les six autres sont
+            « A.json », « NEA.json »... ; le chargement des questions prend
+            TOUS les fragenkatalog*.json, les 11 questions propres au cursus
+            vivant dans un fichier séparé ; titre français et filigrane.
+            *Neutralité :* les six éditions existantes ne voient aucune
+            différence — même sommaire résolu, et le catalogue principal reste
+            chargé en premier. Vérifié par comparaison des arbres générés.
+
+    v0.23 — option --format a4|20x24 (feuille nº 8, D2 = variante C, D3a).
+            La maquette n'était pas paramétrable : papier, cinq cotes, folio et
+            largeur du dessin 202 étaient écrits en dur. Ils passent dans un
+            tableau FORMATS, et --format les choisit. Défaut « a4 » : sans
+            l'option, la classe produite est identique à celle de la v0.22
+            pour tout ce qui compose — vérifié par comparaison des .cls. Seul
+            un COMMENTAIRE se déplace : les cotes en toutes lettres, jusque-là
+            écrites deux fois, ne le sont plus qu'une, au point où le format
+            les décide. Les y laisser les aurait rendues fausses en 20 x 24.
+            Seuls quatre points de code étaient concernés, le reste de la mise
+            en page étant exprimé en unités relatives — y compris les clamps
+            v0.17 et v0.18, la page de titre et 907 des 908 dessins amont.
+            À savoir avant de compiler en 20 x 24 : le seuil de rétrogradation
+            des notes de marge SUIT \textheight et tombe de 711,3 pt à
+            574,7 pt. Toute note comprise entre ces deux hauteurs bascule du
+            bord dans le corps du texte, en boîte sécable. Ce n'est pas une
+            erreur — c'est le garde-fou v0.13 — mais c'est un changement de
+            mise en page, et le journal ne dit jamais la hauteur des notes qui
+            passent : seule une compilation le mesure.
+
+    v0.22 — francisation typographique conditionnée à --lang fr. Trois réglages
+            introduits en v0.17 (arbitrage nº 1) étaient inconditionnels dans
+            BOOK_CLASS : \babelprovide{french} en langue PRINCIPALE, les puces
+            en tiret cadratin avec le séparateur de légende « -- », et les
+            listes resserrées. Conséquence, mesurée en préparant la première
+            compilation du livre ALLEMAND de ce dépôt : il aurait été coupé
+            selon les règles françaises et aurait porté des espaces fines
+            devant « : ; ! ? » — deux fautes en allemand. Sans eux, babel garde
+            ngerman, hérité de DARC-ausbildungsmaterialien.sty (l. 7-8), et le
+            PDF est fidèle à ce que compose le DARC : c'est la condition pour
+            que des captures puissent être jointes au signalement.
+            Tout le reste de la classe reste inconditionnel — clamps, garde-fou
+            de note de marge, \raggedbottom, gras mathématique : ce sont des
+            correctifs techniques, valables dans les deux langues.
+
     v0.21 — fix_latex() : \qty{5}{8} -> \ensuremath{\frac{5}{8}}.
 
             Troisième défaut de la même famille que les v0.14 et v0.16 — une
@@ -347,6 +505,7 @@ import re
 import shutil
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 import mistletoe
@@ -541,13 +700,60 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
     RESIZEBOX_IMAGES = {"713"}
 
     def render_image(self, token):
+        """v0.26 — le couple {image + légende} est rendu insécable.
+
+        Une figure et sa légende étaient composées comme deux paragraphes
+        successifs : rien n'empêchait LaTeX de couper entre les deux. Mesuré
+        sur les PDF de la a.3, **8 légendes** ouvraient une page sans leur
+        figure — le relecteur n'en avait vu qu'une.
+
+        `\\DARCfigbloc` (défini dans la classe) enveloppe le tout dans une
+        minipage. C'est ici qu'il faut agir, et non dans `\\WebMargin` : les
+        huit cas se répartissent sur trois contextes différents, et seul
+        `render_image` les produit tous.
+
+        Les **tableaux** ne sont pas concernés — décision de Pierre du
+        26/08/2026 : un grand tableau doit rester sécable, sous peine de
+        déborder sous le bas de page.
+        """
         if getattr(token, "kind", None) == "picture" and token.id in self.RESIZEBOX_IMAGES:
-            return (
+            corps = (
                 f"\\resizebox{{\\linewidth}}{{!}}{{\\input{{img/{token.id}include}}}}\n"
                 f"\\captionof{{figure}}{{{token.text}}}\n"
                 f"\\label{{{token.marker}}}"
             )
-        return super().render_image(token)
+        else:
+            corps = super().render_image(token)
+        # Un token sans rendu (kind inconnu) ne doit pas produire de bloc vide.
+        if not corps.strip():
+            return corps
+        # Deux \label de mesure, sur le patron de la v0.18 pour les questions :
+        # LaTeX résout leur page au shipout, ce qu'aucune lecture du PDF ne sait
+        # faire de façon fiable. Une PHOTO ne contient aucun texte extractible :
+        # sa légende ouvre alors la page pour un extracteur, et un contrôle fondé
+        # sur le texte la déclare orpheline à tort. C'est la même erreur que
+        # celle décrite dans la docstring de verifier_questions.py.
+        reperes = self._figure_reperes(token.marker)
+        return f"\\DARCfigbloc{{%\n{reperes[0]}{corps}\n{reperes[1]}}}\n"
+
+    @staticmethod
+    def _figure_reperes(marker):
+        """Rend le couple de \\label encadrant une figure, relu par verifier_figures.
+
+        Le séparateur est « : » et non « @ » comme pour les questions : celles-ci
+        sont écrites côté LaTeX, dans la classe, alors que ceux-ci passent par
+        `fix_latex()`, dont la sanitisation des `\\label` remplace tout caractère
+        hors `[A-Za-z0-9_:.-]` par un tiret. Un « @ » y deviendrait « - ».
+
+        Le marqueur lui-même subit cette sanitisation — un ident à umlaut voit son
+        « ä » remplacé. C'est sans conséquence ici : les deux repères d'une même
+        figure la subissent à l'identique, et le vérificateur les apparie sur la
+        forme trouvée dans le `.aux`, sans jamais la reconstruire.
+        """
+        return (
+            f"\\label{{DARCfig:debut:{marker}}}%\n",
+            f"\\label{{DARCfig:fin:{marker}}}",
+        )
 
     def render_question(self, token):
         # Chaque question d'examen est placée dans une boîte à fond clair.
@@ -603,6 +809,49 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
     def render_reference(self, token):
         return f"\\ref{{{token.marker}}}"
 
+    def render_index(self, token):
+        """v0.25 — donne à chaque entrée d'index une clé de tri désaccentuée.
+
+        `makeindex` trie sur le **code** des caractères, pas selon l'ordre
+        alphabétique français. « É » (U+00C9) passe donc après « Z », et
+        « é » (U+00E9) après « z » — deux anomalies mesurées dans l'index de
+        la classe N :
+
+        - « Émetteur-récepteur » rejeté **en toute fin d'index**, après
+          « Zone de silence », au lieu de figurer dans les E ;
+        - « Diagramme en chute d'eau » classé **avant** « Déroulement du
+          trafic », l'accent étant cette fois au milieu du mot.
+
+        La syntaxe `clé@libellé` de makeindex sépare ce qui trie de ce qui
+        s'affiche. On ne l'ajoute que lorsque la clé diffère du libellé : une
+        entrée sans accent est laissée telle quelle, ce qui garde le `.idx`
+        lisible et limite la surface du correctif.
+
+        Le `@` et le `!` sont significatifs pour makeindex — le premier
+        introduit la clé, le second un niveau. Aucun terme du corpus n'en
+        contient aujourd'hui, mais on les échappe pour que ce ne soit pas au
+        prochain terme de le découvrir.
+        """
+        return "\\index{" + "!".join(
+            self._index_cle(part)
+            for part in ([token.first, token.second] if token.second else [token.first])
+        ) + "}"
+
+    @staticmethod
+    def _index_cle(terme):
+        """Rend `clé@terme`, ou `terme` seul si la désaccentuation ne change rien."""
+
+        def echappe(s):
+            # Ordre imposé : le guillemet est le caractère d'échappement de
+            # makeindex, il doit être doublé AVANT qu'on s'en serve.
+            return s.replace('"', '""').replace("@", '"@').replace("!", '"!')
+
+        decompose = unicodedata.normalize("NFD", terme)
+        sans_accent = "".join(c for c in decompose if unicodedata.category(c) != "Mn")
+        if sans_accent == terme:
+            return echappe(terme)
+        return f"{echappe(sans_accent)}@{echappe(terme)}"
+
     def render_qso(self, token):
         qso = ""
         for child in token.children:
@@ -650,8 +899,38 @@ class BookLaTeXRenderer(FiftyOhmLaTeXRenderer):
         return f"\n\\{level}{{{inner}}}\n"
 
     def render_link(self, token):
+        """v0.27 — l'adresse est imprimée à côté du libellé.
+
+        Un lien hypertexte est muet sur papier : le lecteur voit « ici » sans
+        savoir où cela mène. Mesuré sur le corpus, **aucune** des 111 adresses
+        n'apparaissait dans le PDF. Décision de Pierre du 26/08/2026, prise en
+        vue de l'impression (format 20 × 24).
+
+        Le coût est modeste : les URL sont courtes — médiane **20 caractères**,
+        81 sur 111 de la forme « 50ohm.de/xx » — et l'on retire encore le
+        protocole et le « www. », qui n'apprennent rien au lecteur.
+
+        L'adresse n'est PAS répétée quand le libellé la contient déjà : sans
+        cette garde, « darc.de » deviendrait « darc.de (darc.de) ».
+        """
         inner = self.render_inner(token)
-        return f"\\href{{{self.escape_url(token.target)}}}{{{inner}}}"
+        cible = self.escape_url(token.target)
+        lisible = self._url_lisible(token.target, inner)
+        if lisible is None:
+            return f"\\href{{{cible}}}{{{inner}}}"
+        return f"\\href{{{cible}}}{{{inner}}}\\DARClienurl{{{self.escape_url(lisible)}}}"
+
+    @staticmethod
+    def _url_lisible(cible, libelle):
+        """Rend l'adresse à imprimer, ou None s'il ne faut rien imprimer."""
+        court = re.sub(r"^https?://(www\.)?", "", cible).rstrip("/")
+        if not court:
+            return None
+        # Le libellé dit déjà l'adresse : ne pas la doubler.
+        nu = re.sub(r"\\[A-Za-z]+|[{}$]", "", libelle)
+        if court.lower() in nu.lower() or nu.strip().lower() in court.lower():
+            return None
+        return court
 
     def render_document(self, token):
         # Pas de préambule ni de \begin{document} : fragment inclus via \input
@@ -676,9 +955,24 @@ class QuestionBuilder:
     }
 
     def __init__(self, contents: Path, renderer_factory, translations: dict | None = None):
-        katalog = json.loads(
-            (contents / "contents/questions/fragenkatalog3b.json").read_text(encoding="utf-8")
-        )
+        # v0.24 — TOUS les catalogues du dossier, pas seulement le 3b.
+        #
+        # Les 11 questions propres au cursus SWL vivent dans un fichier
+        # separe, fragenkatalog_swl.json : citer fragenkatalog3b.json en dur
+        # les rendait inatteignables. Les 60 autres questions appelees par SWL
+        # viennent, elles, du catalogue principal — d'ou la fusion plutot que
+        # le choix de l'un ou de l'autre.
+        #
+        # Le glob est trie pour que l'ordre de chargement soit deterministe.
+        dossier_q = contents / "contents/questions"
+        catalogues = sorted(dossier_q.glob("fragenkatalog*.json"))
+        if not catalogues:
+            raise SystemExit(
+                f"!! aucun fragenkatalog*.json dans {dossier_q}")
+        katalog = {"sections": []}
+        for fichier in catalogues:
+            katalog["sections"].extend(
+                json.loads(fichier.read_text(encoding="utf-8"))["sections"])
         self.metadata = json.loads(
             (contents / "contents/questions/metadata3b.json").read_text(encoding="utf-8")
         )
@@ -687,6 +981,10 @@ class QuestionBuilder:
         self.renderer_factory = renderer_factory
         self.translations = translations or {}  # {numéro: {question, answer_a..d}}
         self.missing = set()
+        # Questions chargées mais dépourvues de métadonnées : distinctes
+        # des introuvables, et sans conséquence quand elles n'ont pas
+        # d'image (cf. build()).
+        self.sans_metadata = set()
         self.n_translated_q = 0
 
         self.questions = {}
@@ -716,10 +1014,24 @@ class QuestionBuilder:
 
     def build(self, number: str) -> str:
         question = self.questions.get(number)
-        metadata = self.metadata.get(number)
-        if question is None or metadata is None:
+        if question is None:
             self.missing.add(number)
             return f"% Frage {number} nicht gefunden\n"
+        # v0.24 — les métadonnées peuvent manquer sans que la question soit
+        # perdue. Elles ne portent QUE les images associées à un énoncé ou à
+        # une réponse (picture_question, picture_a..d) et un layout : pour une
+        # question sans image, l'entrée de metadata3b.json est un dictionnaire
+        # de chaînes vides.
+        #
+        # L'amont livre fragenkatalog_swl.json SANS metadata_swl.json. Les
+        # onze questions du cursus SWL étaient donc déclarées « introuvables »
+        # alors qu'elles étaient bien chargées — le test les exigeait toutes
+        # deux. Aucune n'a d'image, vérifié : elles ne portent que number,
+        # class, question et answer_a..d.
+        metadata = self.metadata.get(number)
+        if metadata is None:
+            metadata = {}
+            self.sans_metadata.add(number)
 
         # Traduction française : remplace le texte allemand quand disponible.
         tr = self.translations.get(number)
@@ -753,6 +1065,118 @@ class QuestionBuilder:
 # LaTeX auxiliaire : classe livre + compatibilité
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# v0.22 — Francisation typographique, injectée dans BOOK_CLASS en --lang fr
+# SEULEMENT.
+#
+# Ces trois réglages sont des choix éditoriaux français (v0.17, arbitrage nº 1),
+# pas des correctifs techniques. Laissés inconditionnels, ils composaient le
+# livre ALLEMAND en césure française, avec des espaces fines devant « : ; ! ? »
+# et un séparateur de légende « Abb. 1 -- » là où l'allemand veut « Abb. 1: ».
+#
+# En --lang de, les deux marqueurs sont remplacés par du vide : babel reste
+# chargé avec ngerman par DARC-ausbildungsmaterialien.sty (l. 7-8), soit
+# exactement ce que compose le DARC. \DARCnotransform survit sans dommage —
+# sa garde \@ifundefined ne trouve pas le transform et ne fait rien.
+# ---------------------------------------------------------------------------
+BABEL_FRANCAIS = r"""\babelprovide[import, main, transforms = punctuation.space]{french}"""
+
+CONVENTIONS_FRANCAISES = r"""% Conventions françaises complètes (décision de Pierre, arbitrage nº 1).
+% Écrites ici plutôt qu'héritées de frenchb : on obtient l'aspect voulu sans
+% embarquer ses redéfinitions de notes, de \@ et de captions.
+\AddToHook{begindocument}{%
+	% Puces en tiret cadratin, à tous les niveaux.
+	\renewcommand{\labelitemi}{\textemdash}%
+	\renewcommand{\labelitemii}{\textemdash}%
+	\renewcommand{\labelitemiii}{\textemdash}%
+	\renewcommand{\labelitemiv}{\textemdash}%
+	% Séparateur de légende : « Fig. 1 -- légende » au lieu de « Fig. 1: ».
+	\renewcommand*{\captionformat}{~\textendash~}%
+}
+% Listes resserrées, à la française. Réglé par crochet d'environnement plutôt
+% qu'avec enumitem : le corpus place beaucoup de listes DANS des tcolorbox,
+% où un paquet de listes supplémentaire ajouterait un facteur de risque.
+\AddToHook{env/itemize/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/enumerate/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+\AddToHook{env/description/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}"""
+
+# ---------------------------------------------------------------------------
+# v0.23 — Formats de page (feuille d'arbitrage nº 8, D2 = variante C, D3a).
+#
+# Un PARAMÈTRE plutôt qu'une classe jumelle : une seule classe à maintenir, et
+# tout correctif de mise en page profite aux deux formats. C'est aussi ce qui
+# rend possible D1(a) — le NEA restant en A4 pendant que N, E et A passent en
+# 20 x 24.
+#
+# « marge » est la largeur de la colonne de marge ; elle sert AUSSI à la
+# précompilation du dessin 202, seul dessin du corpus coté en absolu.
+#
+# « folio » n'est pas une valeur devinée mais le résultat de
+#     2 x ( paperwidth/2 - (inner + textwidth/2) )
+# le bloc texte n'étant pas centré sur le papier. Un espace ajouté à gauche ne
+# déplaçant le centre que de sa moitié, le facteur 2 est nécessaire.
+# ---------------------------------------------------------------------------
+FORMATS = {
+    "a4": {
+        "papier": "a4paper",
+        "inner": "18mm", "textwidth": "118mm",
+        "top": "25mm", "bottom": "22mm",
+        "sep": "7mm", "marge": "52mm",
+        "folio": "56mm",
+        "commentaire": "Maquette A4 : 18 + 118 (texte) + 7 (sép.) + 52 (marge) + 15 = 210 mm",
+    },
+    "20x24": {
+        "papier": "paperwidth=200mm,paperheight=240mm",
+        "inner": "15mm", "textwidth": "125mm",
+        "top": "20mm", "bottom": "18mm",
+        "sep": "6mm", "marge": "42mm",
+        "folio": "45mm",
+        "commentaire": "Maquette 20 x 24 (variante C) : 15 + 125 + 6 + 42 + 12 = 200 mm",
+    },
+    # v0.23 — maquette demandée par Pierre le 20/08/2026, après lecture du N
+    # composé en variante C : le 20 x 24, mais SANS toucher à la colonne de
+    # marge, qui reste à ses 52 mm d'A4.
+    #
+    # Le motif est mesurable. En variante C, la marge tombe à 33,6 % de la
+    # colonne de texte, contre 44,1 % en A4 : la maquette 2/3-1/3 se défait, et
+    # toute figure de marge est composée 19 % plus petite — or ces schémas
+    # portent du texte. Ici le rapport remonte à 45,6 %, soit au-dessus de
+    # l'A4, et les figures de marge retrouvent EXACTEMENT leur taille A4, le
+    # dessin 202 compris, qui se précompile à nouveau à 52 mm.
+    #
+    # Le prix est en pages : la colonne de texte tombe de 125 à 114 mm. Estimé
+    # à 331 pages contre 302 en variante C, par un modèle en 1/surface calibré
+    # sur l'A4 et vérifié à 0,2 % sur la variante C réellement compilée.
+    #
+    # Le folio retombe sur 56 mm, la valeur de l'A4 : 2 x (100 - (15 + 57)).
+    # C'est une coïncidence arithmétique, pas un choix.
+    "20x24-marge": {
+        "papier": "paperwidth=200mm,paperheight=240mm",
+        "inner": "15mm", "textwidth": "114mm",
+        "top": "20mm", "bottom": "18mm",
+        "sep": "7mm", "marge": "52mm",
+        "folio": "56mm",
+        "commentaire": "Maquette 20 x 24, colonne de marge d'A4 conservee : "
+                       "15 + 114 + 7 + 52 + 12 = 200 mm",
+    },
+}
+
+
+def geometrie_de(fmt):
+    """Rend le \\geometry et le \\cfoot correspondant au format demandé."""
+    f = FORMATS[fmt]
+    geom = (
+        "% " + f["commentaire"] + "\n"
+        "\\geometry{" + f["papier"] + ",twoside,"
+        "inner=" + f["inner"] + ",textwidth=" + f["textwidth"] + ","
+        "top=" + f["top"] + ",bottom=" + f["bottom"] + ",%\n"
+        "\tmarginparsep=" + f["sep"] + ",marginparwidth=" + f["marge"] + "}"
+    )
+    folio = ("\\cfoot*{\\Ifthispageodd{\\hspace*{" + f["folio"] + "}}"
+             "{\\hspace*{-" + f["folio"] + "}}\\pagemark}")
+    return geom, folio
+
+
 BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % Classe « livre » dérivée de FiftyOhm.cls (une colonne, marges identiques).
 \disable@package@load{physics}{}
@@ -783,7 +1207,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % Le transform est attaché à la LOCALE : le contenu allemand résiduel garde
 % ses espacements corrects.
 % ---------------------------------------------------------------------------
-\babelprovide[import, main, transforms = punctuation.space]{french}
+@BABEL_FRANCAIS@
 
 % ---------------------------------------------------------------------------
 % v0.17 (A1) — Le transform et les dessins TikZ ne s'entendent pas.
@@ -812,24 +1236,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \AddToHook{env/tikzpicture/begin}{\DARCnotransform}
 \AddToHook{env/circuitikz/begin}{\DARCnotransform}
 
-% Conventions françaises complètes (décision de Pierre, arbitrage nº 1).
-% Écrites ici plutôt qu'héritées de frenchb : on obtient l'aspect voulu sans
-% embarquer ses redéfinitions de notes, de \@ et de captions.
-\AddToHook{begindocument}{%
-	% Puces en tiret cadratin, à tous les niveaux.
-	\renewcommand{\labelitemi}{\textemdash}%
-	\renewcommand{\labelitemii}{\textemdash}%
-	\renewcommand{\labelitemiii}{\textemdash}%
-	\renewcommand{\labelitemiv}{\textemdash}%
-	% Séparateur de légende : « Fig. 1 -- légende » au lieu de « Fig. 1: ».
-	\renewcommand*{\captionformat}{~\textendash~}%
-}
-% Listes resserrées, à la française. Réglé par crochet d'environnement plutôt
-% qu'avec enumitem : le corpus place beaucoup de listes DANS des tcolorbox,
-% où un paquet de listes supplémentaire ajouterait un facteur de risque.
-\AddToHook{env/itemize/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
-\AddToHook{env/enumerate/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
-\AddToHook{env/description/begin}{\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}}
+@CONVENTIONS_FRANCAISES@
 
 % v0.17 (A2) — requis par le clamp de \DARCimage, ajouté en queue de
 % settings.tex ; chargé ici pour être disponible avant l'\input.
@@ -873,13 +1280,13 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % ---------------------------------------------------------------------------
 \raggedbottom
 
-% Maquette A4 : 2/3 texte, 1/3 marge (notes, photos, encadrés).
-% 18 + 118 (texte) + 7 (sép.) + 52 (marge) + 15 = 210 mm
+% Maquette 2/3 texte, 1/3 marge (notes, photos, encadrés). Les cotes exactes
+% sont posées juste en dessous, d'après le format demandé (v0.23) : les écrire
+% ici aussi les rendrait fausses dès qu'on quitte l'A4.
 \usepackage{geometry}
 % twoside : « inner » = côté reliure ; la colonne de marge (marginpar) bascule
 % automatiquement côté extérieur (droite sur page impaire, gauche sur page paire).
-\geometry{a4paper,twoside,inner=18mm,textwidth=118mm,top=25mm,bottom=22mm,%
-	marginparsep=7mm,marginparwidth=52mm}
+@GEOMETRIE@
 \setlength{\marginparpush}{6pt}
 % Comme dans kaobook : marginfix réordonne les \marginpar de chaque page
 % pour qu'aucune note/figure de marge ne déborde sous le bas de page ;
@@ -890,7 +1297,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 % optique de +28 mm (page impaire) ou -28 mm (page paire) vers le milieu du papier.
 \RequirePackage[automark]{scrlayer-scrpage}
 \clearpairofpagestyles
-\cfoot*{\Ifthispageodd{\hspace*{56mm}}{\hspace*{-56mm}}\pagemark}
+@FOLIO@
 \pagestyle{scrheadings}
 % Les grands schémas/tableaux peuvent déborder dans la colonne de marge,
 % toujours côté EXTÉRIEUR (droite sur page impaire, gauche sur page paire) :
@@ -1007,6 +1414,7 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 	\DeclareSIUnit{\kiloOhm}{\kilo\ohm}%
 	\DeclareSIUnit{\dBuV}{dBµV}%
 	\DeclareSIUnit{\sps}{Sps}%
+	\DeclareSIUnit{\dBc}{dBc}%
 }
 % Le contenu utilise parfois siunitx de façon non stricte (préfixe seul,
 % nombres comme 10^3...) : on dégrade ces erreurs en avertissements.
@@ -1135,6 +1543,49 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 }
 
 % ---------------------------------------------------------------------------
+% v0.26 (build_book.py) — Une figure ne se sépare plus de sa légende.
+%
+% CAUSE, et elle est de notre fait. L'amont protégeait déjà le couple :
+% \WebMargin valait \noindent\parbox{\linewidth}{#1}, et un \parbox ne se
+% coupe pas. Le patch du .sty (§ « \WebMargin compose dans le corps ») l'a
+% rendu sécable pour qu'un grand tableau cesse de déborder sous le bas de
+% page — et a du même coup retiré la protection des FIGURES.
+%
+% MESURÉ sur les PDF de la a.3, avant correction : 8 légendes ouvrent une
+% page sans leur figure — N 5, A 1, SWL 2, E 0. Le relecteur n'en avait
+% signalé qu'une (figure 2.29, p. 57-58 de la a.2).
+%
+% POURQUOI ICI plutôt que dans \WebMargin. Les huit cas se répartissent sur
+% TROIS contextes : \WebMargin (corps), \Margin (note de marge) et le corps
+% sans enveloppe. Restaurer le \parbox de \WebMargin n'en couvrirait qu'une
+% partie. \DARCfigbloc s'applique là où l'image et sa légende sont émises
+% ensemble, donc partout.
+%
+% LIMITE ASSUMÉE, décidée par Pierre le 26/08/2026 : les TABLEAUX restent
+% sécables. Un tableau plus haut qu'une page doit pouvoir se couper, sous
+% peine de déborder — c'est précisément le défaut que le patch du .sty
+% corrigeait. Si le contrôle signale un jour une légende de tableau
+% orpheline, elle se traitera à part.
+%
+% Le \par de tête et de queue est nécessaire : sans lui, la minipage
+% s'accolerait au paragraphe voisin au lieu de former un bloc.
+\newcommand{\DARCfigbloc}[1]{%
+	\par\noindent\begin{minipage}{\linewidth}#1\end{minipage}\par
+}
+
+% ---------------------------------------------------------------------------
+% v0.27 (build_book.py) — L'adresse d'un lien, imprimée à côté du libellé.
+%
+% Un lien hypertexte ne vaut qu'à l'écran. Sur papier, « ici » ne mène nulle
+% part : mesuré sur le PDF de la classe N, AUCUNE des 111 adresses du corpus
+% n'y était visible. Décision de Pierre du 26/08/2026, en vue de l'impression.
+%
+% \nolinkurl plutôt que \url : le libellé porte déjà le lien cliquable, en
+% faire un second sur l'adresse serait redondant. La police à chasse fixe et
+% le corps réduit distinguent l'adresse du texte courant sans l'imposer.
+\newcommand{\DARClienurl}[1]{\,\textup{({\small\nolinkurl{#1}})}}
+
+% ---------------------------------------------------------------------------
 % v0.13 (build_book.py) — Notes de marge plus hautes que la page.
 %
 % CAUSE. Dans latex.ltx, \marginpar se termine par \@xympar, qui appelle
@@ -1249,18 +1700,23 @@ MASTER_HEADER_FR = r"""\documentclass{FiftyOhmBook}
 	% l'horizontale, plusieurs s'empilent (cf. v0.20).
 	@WATERMARK@
 	% Bloc-titre dans la zone claire (2/3 gauche)
+	% v0.29 — cotes verticales en fractions de \paperheight et corps de police
+	% en fractions de \paperwidth. En A4 les coefficients redonnent EXACTEMENT
+	% les valeurs d'origine (4,2 cm, 56 pt, 58 pt, 10 pt) : ils sont calés sur
+	% le point TeX (1 pt = 1/72,27 in), donc \paperwidth = 597,50787 pt et non
+	% 595,28 — l'erreur aurait décalé le filigrane de 0,8 pt.
 	\node[anchor=west, align=left, text width=0.55\paperwidth]
-		at ($(current page.west)+(0.09\paperwidth,4.2cm)$)
-		{{\fontsize{56}{58}\selectfont\bfseries 50\,Ohm}\\[10pt]
+		at ($(current page.west)+(0.09\paperwidth,0.1414141\paperheight)$)
+		{{\fontsize{0.0937226\paperwidth}{0.0970699\paperwidth}\selectfont\bfseries 50\,Ohm}\\[0.0167362\paperwidth]
 		 {\Large\color{TitleBand}\bfseries Préparation à l'examen radioamateur}};
 	% Titre de l'ouvrage, sur le bandeau foncé, texte blanc
 	\node[anchor=east, align=right, text=white, text width=0.30\paperwidth,
 		font=\Large\bfseries]
-		at ($(current page.east)+(-0.02\paperwidth,-2cm)$)
+		at ($(current page.east)+(-0.02\paperwidth,-0.0673401\paperheight)$)
 		{@TITLE@};
 	% Pied de page : source, licence, date (zone claire, bas de page)
 	\node[anchor=south west, align=left, font=\small, text=black!70]
-		at ($(current page.south west)+(0.09\paperwidth,1.6cm)$)
+		at ($(current page.south west)+(0.09\paperwidth,0.0538721\paperheight)$)
 		{Réalisé à partir des contenus de 50ohm.de (en allemand)\\
 		 50ohm.de-Autorenteam, coordonné par le référat AJW du DARC e.\,V.\\
 		 Traduit avec l'aide d'une IA par Pierre F4JWI\\[2pt]
@@ -1278,9 +1734,15 @@ FR_TITLES = {
 	"NE": "Cours complet\\\\Classes N et E",
 	"EA": "Cours complet\\\\Classes E et A",
 	"NEA": "Cours complet\\\\Classes N, E et A",
+	# Le cursus SWL prepare l'examen DE du DARC — un insigne d'ecouteur,
+	# pas une licence d'emission. Le titre le dit, pour qu'on ne le prenne
+	# pas pour une quatrieme classe d'examen.
+	"SWL": "Cours complet\\\\\u00c9coute des bandes",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
+	# Trois lettres : le filigrane les empile, comme pour NEA (v0.20).
+	"SWL": "SWL",
 }
 
 MASTER_FOOTER = r"""
@@ -1374,6 +1836,27 @@ CLAMP_DARCIMAGE = r"""
 % l'aurait écrasé. Son analyse complète figure ci-dessus et dans la docstring.
 """
 
+def chemin_toc(contents, edition):
+    """Rend le chemin du sommaire, quelle que soit la casse de son nom.
+
+    Les six sommaires historiques s'appellent A.json, E.json, N.json, NE.json,
+    EA.json et NEA.json. Celui du cursus SWL, ajoute par l'amont en aout 2026,
+    s'appelle « swl.json » — en minuscules. Plutot que d'ecrire cette
+    exception en dur, on cherche d'abord le nom exact, puis on se rabat sur
+    une comparaison insensible a la casse : une future edition nommee
+    autrement passera sans nouvelle retouche.
+    """
+    exact = contents / "toc" / f"{edition}.json"
+    if exact.is_file():
+        return exact
+    dossier = contents / "toc"
+    if dossier.is_dir():
+        for p in dossier.glob("*.json"):
+            if p.stem.lower() == edition.lower():
+                return p
+    return exact          # inexistant : l'appelant produira l'erreur utile
+
+
 def fix_latex(text: str) -> str:
     """Corrige des idiomes du contenu que siunitx v3 rejette."""
     text = text.replace("\\qty{\\infty}", "\\infty\\,\\unit")
@@ -1446,7 +1929,10 @@ def escape_latex(text: str) -> str:
 # ident du dessin -> largeur cible. La largeur de la colonne de marge est de
 # 52 mm (cf. \geometry dans FiftyOhmBook.cls).
 PRECOMPILE_DRAWINGS = {
-    "202": "52mm",   # classe E : diagramme d'affaiblissement, axe de 21 x 29 cm
+    # v0.23 — la largeur suit désormais la colonne de marge du format retenu
+    # (52 mm en A4, 42 mm en 20 x 24). C'est le SEUL dessin du corpus coté en
+    # absolu : les 907 autres sont exprimés en \linewidth et suivent d'eux-mêmes.
+    "202": None,     # classe E : diagramme d'affaiblissement, axe de 21 x 29 cm
 }
 
 PRECOMPILE_WRAPPER = r"""\documentclass[border=2pt,varwidth=false]{standalone}
@@ -1608,8 +2094,11 @@ def link_dir(link: Path, target: Path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--edition", default="N", choices=["N", "E", "A", "NE", "EA", "NEA"])
+    ap.add_argument("--edition", default="N",
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL"])
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
+    ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
+                    help="Format de page (défaut : a4)")
     ap.add_argument("--translations", action="append", default=[],
                     help="Répertoire de traductions : sections/{ident}.md + titles.json. "
                          "Répétable — indispensable pour les éditions combinées NE, EA et "
@@ -1644,7 +2133,7 @@ def main():
     # (50ohm-contents-dl-main\50ohm-contents-dl-main\).
     attendus = [
         (contents / "latex" / "settings.tex", "fichiers LaTeX du dépôt de contenus"),
-        (contents / "toc" / f"{args.edition}.json", f"sommaire de l'édition {args.edition}"),
+        (chemin_toc(contents, args.edition), f"sommaire de l'édition {args.edition}"),
         (contents / "contents" / "sections", "sections DARCdown"),
         (contents / "contents" / "questions" / "fragenkatalog3b.json", "catalogue de questions"),
     ]
@@ -1745,6 +2234,86 @@ def main():
         sys.exit(3)
     txt_q = txt_q.replace(FIN_AVANT, FIN_APRES)
 
+    # v0.31 — Question à réponses en image trop haute pour la page.
+    # On reprend le corps EXACT de \QuestionMD (énoncé + tableau des réponses,
+    # tel que A4 et B6 l'ont laissé) et on le compose deux fois au plus : une
+    # fois dans une boîte, pour le mesurer ; puis, s'il tient, une seconde fois
+    # par le même texte — la boîte est jetée. Les labels de contrôle restent
+    # hors de la boîte de mesure : ils ne sont écrits qu'une fois.
+    # Le bloc est dans une zone \ExplSyntaxOn de l'amont : espaces ignorés,
+    # d'où les ~ dans le message du journal.
+    motif_md = re.compile(
+        r"(\\NewDocumentCommand\{\\QuestionMD\}\{\+m\+m\+m\+m\+m\+m\+m\}\s*\{%\s*"
+        r"\\par\\samepage\s*\\label\{DARCq@debut@#1\}%\s*)"
+        r"(\\__ptxcd_question_table_head:nnn\{#1\}\{#2\}\{#3\}.*?\\end\{questiontabular\})"
+        r"(\\label\{DARCq@fin@#1\}%\s*\\par\s*\})", re.S)
+    trouves_md = motif_md.findall(txt_q)
+    if len(trouves_md) != 1:
+        print(f"!! v0.31 : {len(trouves_md)} définition(s) de \\QuestionMD reconnue(s) "
+              f"au lieu d'une.\n   L'amont a changé sous la règle — vérifier "
+              f"DARC-ausbildungsmaterialien.sty avant de compiler.", file=sys.stderr)
+        sys.exit(3)
+
+    # v0.32 — la mesure n'est plus faite pour TOUTES les questions, mais
+    # seulement pour celles que la passe précédente a trouvées coupées (labels
+    # debut/fin sur deux pages) ou déjà réduites (marque \DARCqReduite écrite
+    # dans le .aux). Composer chaque question deux fois épuisait la table des
+    # chaînes de LuaTeX à la 1re passe du NEA (voir la docstring).
+    def _question_md(m):
+        corps = m.group(2)
+        return (m.group(1)
+                + "\t\t\\DARCq@amesurer{#1}%\n"
+                + "\t\t\\ifDARCq@mesurer\n"
+                + "\t\t\\setbox\\DARCqBoite=\\vbox{" + corps + "\\par}%\n"
+                + "\t\t\\ifdim\\dimexpr\\ht\\DARCqBoite+\\dp\\DARCqBoite\\relax>\\DARCqHauteurMax\n"
+                + "\t\t\t\\typeout{Question~#1~trop~haute~pour~la~page~--~reduite~"
+                  "a~la~hauteur~du~bloc~de~texte}%\n"
+                + "\t\t\t\\immediate\\write\\@mainaux{\\string\\DARCqReduite{#1}}%\n"
+                + "\t\t\t\\noindent\\resizebox*{!}{\\DARCqHauteurMax}{\\box\\DARCqBoite}"
+                  "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\else\n"
+                + "\t\t\t" + corps + "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\fi\n"
+                + "\t\t\\else\n"
+                + "\t\t\t" + corps + "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\fi\n"
+                + "\t\t\\par\n\t}")
+
+    txt_q = motif_md.sub(_question_md, txt_q)
+    # Registre et hauteur maximale, déclarés avant le hook qui définit les
+    # questions. 24 pt : filets, marges intérieures et boxsep de la
+    # DARCQuestionBox (≈ 15 pt), plus une réserve.
+    ANCRE_Q = "\\AddToHook{begindocument}[DARC-ausbildungsmaterialien-question]{"
+    if txt_q.count(ANCRE_Q) != 1:
+        print(f"!! v0.31 : {txt_q.count(ANCRE_Q)} hook(s) de questions au lieu d'un.",
+              file=sys.stderr)
+        sys.exit(3)
+    # v0.32 — \DARCq@amesurer{id} lève \ifDARCq@mesurer si la question a été
+    # réduite (marque du .aux) ou coupée à la passe précédente. \ifcsname ne
+    # crée AUCUNE chaîne quand le nom n'existe pas — c'est tout l'objet : à la
+    # 1re passe, rien n'est mesuré et la question est composée par le code
+    # d'origine. \DARCq@page prend le 2e groupe d'un \r@ : la page, avec ou
+    # sans hyperref.
+    txt_q = txt_q.replace(
+        ANCRE_Q,
+        "\\newsavebox\\DARCqBoite\n"
+        "\\newcommand\\DARCqHauteurMax{\\dimexpr\\textheight-24pt\\relax}\n"
+        "\\newif\\ifDARCq@mesurer\n"
+        "\\newcommand\\DARCqReduite[1]{\\expandafter\\gdef\\csname DARCq@reduite@#1\\endcsname{}}\n"
+        "\\def\\DARCq@page#1#2#3\\@nil{#2}\n"
+        "\\newcommand\\DARCq@amesurer[1]{%\n"
+        "\t\\DARCq@mesurerfalse\n"
+        "\t\\ifcsname DARCq@reduite@#1\\endcsname\n"
+        "\t\t\\DARCq@mesurertrue\n"
+        "\t\\else\\ifcsname r@DARCq@debut@#1\\endcsname\\ifcsname r@DARCq@fin@#1\\endcsname\n"
+        "\t\t\\edef\\DARCq@pa{\\expandafter\\expandafter\\expandafter\\DARCq@page"
+        "\\csname r@DARCq@debut@#1\\endcsname\\@nil}%\n"
+        "\t\t\\edef\\DARCq@pb{\\expandafter\\expandafter\\expandafter\\DARCq@page"
+        "\\csname r@DARCq@fin@#1\\endcsname\\@nil}%\n"
+        "\t\t\\ifx\\DARCq@pa\\DARCq@pb\\else\\DARCq@mesurertrue\\fi\n"
+        "\t\\fi\\fi\\fi\n"
+        "}\n" + ANCRE_Q)
+
     sty_q.write_text(txt_q, encoding="utf-8")
 
     # v0.4 — (a) Clamp de largeur des figures.
@@ -1785,7 +2354,39 @@ def main():
             "\t\\noindent #1\\par\n",
         )
         sty.write_text(txt, encoding="utf-8")
-    (out / "FiftyOhmBook.cls").write_text(BOOK_CLASS, encoding="utf-8")
+    # v0.22 — la francisation typographique n'est injectée qu'en --lang fr.
+    # v0.23 — les quatre marqueurs doivent apparaître EXACTEMENT une fois.
+    #
+    # Contrôler l'absence après coup ne suffit pas : un marqueur écrit deux
+    # fois est substitué deux fois, et le contrôle passe au vert. C'est
+    # exactement ce qui est arrivé en écrivant cette version — le mot
+    # « @GEOMETRIE@ » cité dans un COMMENTAIRE voisin a fait injecter un second
+    # \geometry au milieu de ce commentaire, dont la deuxième ligne, elle,
+    # n'était pas commentée. Attrapé par la comparaison des .cls, pas par le
+    # garde-fou d'alors.
+    for marqueur in ("@GEOMETRIE@", "@FOLIO@",
+                     "@BABEL_FRANCAIS@", "@CONVENTIONS_FRANCAISES@"):
+        n = BOOK_CLASS.count(marqueur)
+        if n != 1:
+            raise SystemExit(
+                "ECHEC FATAL : le marqueur %s apparait %d fois dans BOOK_CLASS, "
+                "une seule attendue. Ne jamais citer un marqueur dans un "
+                "commentaire de la classe." % (marqueur, n))
+    geom, folio = geometrie_de(args.format)
+    classe = BOOK_CLASS.replace("@GEOMETRIE@", geom).replace("@FOLIO@", folio)
+    if "@GEOMETRIE@" in classe or "@FOLIO@" in classe:
+        raise SystemExit("ECHEC FATAL : marqueur de format non substitue "
+                         "dans FiftyOhmBook.cls")
+    if args.lang == "fr":
+        classe = classe.replace("@BABEL_FRANCAIS@", BABEL_FRANCAIS)
+        classe = classe.replace("@CONVENTIONS_FRANCAISES@", CONVENTIONS_FRANCAISES)
+    else:
+        classe = classe.replace("@BABEL_FRANCAIS@\n", "")
+        classe = classe.replace("@CONVENTIONS_FRANCAISES@\n", "")
+    if "@BABEL_FRANCAIS@" in classe or "@CONVENTIONS_FRANCAISES@" in classe:
+        raise SystemExit("ECHEC FATAL : marqueur de francisation non substitue "
+                         "dans FiftyOhmBook.cls")
+    (out / "FiftyOhmBook.cls").write_text(classe, encoding="utf-8")
     (out / "latexmkrc").write_text(LATEXMKRC, encoding="utf-8")
 
     # 2. Dessins TikZ -> img/{id}include.tex (convention \DARCimage)
@@ -1820,6 +2421,8 @@ def main():
     # conservées, la hauteur devient compatible, et le reste de la chaîne
     # n'y voit que du feu.
     for ident, largeur in PRECOMPILE_DRAWINGS.items():
+        if largeur is None:          # v0.23 — largeur pilotée par le format
+            largeur = FORMATS[args.format]["marge"]
         src = out / "img" / f"{ident}include.tex"
         if not src.exists():
             continue
@@ -1839,7 +2442,7 @@ def main():
     qb = QuestionBuilder(contents, lambda: BookLaTeXRenderer(), translations=q_translations)
     question_renderer = qb.build
 
-    toc = json.loads((contents / "toc" / f"{args.edition}.json").read_text(encoding="utf-8"))
+    toc = json.loads(chemin_toc(contents, args.edition).read_text(encoding="utf-8"))
 
     # Traductions : fichiers parallèles optionnels
     tr_titles = {"chapters": {}, "sections": {}, "abstracts": {}}
@@ -1868,18 +2471,46 @@ def main():
         #
         # Décision de Pierre du 15/08/2026, sur épreuve : trois dispositions
         # ont été composées et comparées (à plat, pivotée à 90°, empilée).
+        # v0.29 — le filigrane suit le papier. Son corps est une fraction de
+        # \paperwidth (il doit tenir dans un bandeau qui vaut 0,34 de cette
+        # largeur) et sa cote verticale une fraction de \paperheight. En A4 les
+        # coefficients redonnent exactement 220 pt / 3,5 cm et 150 pt / 1,5 cm.
+        #
+        # Sans cela, le filigrane gardait sa taille absolue dans une page 19 %
+        # plus courte : mesuré sur le PDF N en 20 x 24, il passait de 29 % à
+        # 35 % de la hauteur et le jeu à gauche dans le bandeau tombait de
+        # 11,6 à 8,5 mm. Il ne débordait pas — vérifié pixel par pixel — mais
+        # la maquette 2/3-1/3 s'en trouvait déséquilibrée.
         if len(lettres) == 1:
             watermark = (
                 r"\node[anchor=east, text=white!22, "
-                r"font=\fontsize{220}{220}\selectfont\bfseries]" "\n"
-                r"		at ($(current page.east)+(-0.02\paperwidth,3.5cm)$) "
+                r"font=\fontsize{0.3681960\paperwidth}{0.3681960\paperwidth}"
+                r"\selectfont\bfseries]" "\n"
+                r"		at ($(current page.east)+(-0.02\paperwidth,0.1178451\paperheight)$) "
                 f"{{{lettres}}};")
         else:
+            # v0.30 — une PILE de lettres est contrainte par la hauteur autant
+            # que par la largeur : son corps est le minimum des deux cotes.
+            # 0.17753 et 0.16568 donnent 150,02 et 140,007 pt en A4, un rien
+            # au-dessus de 150 et 140 : la branche largeur l'y emporte
+            # toujours, et l'A4 reste identique à l'octet (vérifié au pixel).
+            # Sur un papier proportionnellement moins haut (20 x 24), la
+            # hauteur prend la main et la pile ne descend plus sur le titre.
             empilees = r"\\".join(lettres)
             watermark = (
-                r"\node[anchor=north, align=center, text=white!22, "
-                r"font=\fontsize{150}{140}\selectfont\bfseries]" "\n"
-                r"		at ($(current page.north east)+(-0.17\paperwidth,-1.5cm)$) "
+                r"\newlength{\DARCfiligraneCorps}"
+                r"\newlength{\DARCfiligraneInterligne}" "\n"
+                r"	\setlength{\DARCfiligraneCorps}{0.2510427\paperwidth}"
+                r"\ifdim 0.17753\paperheight<\DARCfiligraneCorps"
+                r"\setlength{\DARCfiligraneCorps}{0.17753\paperheight}\fi" "\n"
+                r"	\setlength{\DARCfiligraneInterligne}{0.2343065\paperwidth}"
+                r"\ifdim 0.16568\paperheight<\DARCfiligraneInterligne"
+                r"\setlength{\DARCfiligraneInterligne}{0.16568\paperheight}\fi" "\n"
+                r"	\node[anchor=north, align=center, text=white!22, "
+                r"font=\fontsize{\the\DARCfiligraneCorps}"
+                r"{\the\DARCfiligraneInterligne}"
+                r"\selectfont\bfseries]" "\n"
+                r"		at ($(current page.north east)+(-0.17\paperwidth,-0.0505051\paperheight)$) "
                 f"{{{empilees}}};")
         header = header.replace("@WATERMARK@", watermark)
         header = header.replace("@VERSION@", args.version_label)
@@ -1970,6 +2601,13 @@ def main():
               f"dérivé (sections renommées ou ajoutées).", file=sys.stderr)
     if qb.missing:
         print(f"Questions introuvables ({len(qb.missing)}) : {sorted(qb.missing)[:10]}...")
+    if qb.sans_metadata:
+        # Informatif, pas une alerte : sans image, une question se compose
+        # parfaitement sans métadonnées (v0.24).
+        print(f"   {len(qb.sans_metadata)} question(s) sans metadonnees amont "
+              f"(sans image, donc sans effet) : "
+              f"{', '.join(sorted(qb.sans_metadata)[:6])}"
+              f"{'...' if len(qb.sans_metadata) > 6 else ''}")
 
     if args.no_compile:
         return

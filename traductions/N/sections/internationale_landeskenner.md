@@ -6,7 +6,7 @@ Comme expliqué au chapitre sur les stations radioamateur, le préfixe permet de
 
 ---
 
-On a régulièrement besoin des indicateurs de pays tout au long de sa vie de radioamateur. Bien des radioamateurs se sont construit des moyens mnémotechniques pour mieux retenir les préfixes. Le tableau [ref:n_europaeische_landeskenner_eselsbruecken] présente les indicateurs de pays européens avec les pays correspondants. Le tableau [ref:n_internationale_landeskenner_eselsbruecken] montre d'autres indicateurs hors d'Europe. Pour certains, il existe des moyens mnémotechniques souvent utilisés (en allemand — libre à vous d'inventer les vôtres en français !). Si l'on retient bien les indicateurs mis en évidence, on peut traiter par élimination toutes les questions du catalogue portant sur les indicateurs de pays.
+On a régulièrement besoin des indicateurs de pays tout au long de sa vie de radioamateur. Bien des radioamateurs se sont construit des moyens mnémotechniques pour mieux retenir les préfixes. Le tableau [ref:n_europaeische_landeskenner_eselsbruecken] présente les indicateurs de pays européens avec les pays correspondants. Le tableau [ref:n_internationale_landeskenner_eselsbruecken] montre d'autres indicateurs hors d'Europe. Pour certains, il existe des moyens mnémotechniques souvent utilisés (libre à vous d'inventer les vôtres !). Si l'on retient bien les indicateurs mis en évidence, on peut traiter par élimination toutes les questions du catalogue portant sur les indicateurs de pays.
 
 <webmargin>
 | l: Indicateur | l: Mnémotechnique | X: Pays |
@@ -21,12 +21,12 @@ On a régulièrement besoin des indicateurs de pays tout au long de sa vie de ra
 | G | Grande-Bretagne | Royaume-Uni |
 | HBØ | Hauts sommets (petit) | Liechtenstein |
 | HB9 | Hauts sommets (grand) | Suisse |
-| HV | « Heiliger Vater » (Saint-Père) | Vatican |
+| HV | Haut lieu du Vatican | Vatican |
 | I | | Italie |
 | LA | | Norvège |
 | LX | LuXembourg | Luxembourg |
 | LZ | | Bulgarie |
-| OE | OEsterreich (Autriche) | Autriche |
+| OE | | Autriche |
 | OH | | Finlande |
 | OK | | Tchéquie |
 | OM | | Slovaquie |

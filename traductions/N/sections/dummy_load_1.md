@@ -1,15 +1,15 @@
-Si l'on veut vérifier la puissance d'émission d'un émetteur, on branche à la place de l'antenne ce qu'on appelle une *dummy load* (figure [ref:n_antennenanpassung_dummy_load]). Une dummy load est aussi appelée *charge fictive* (Abschlusswiderstand) ou antenne artificielle. Elle se compose d'une résistance de charge (cf. chapitre Composants et circuits) et d'un dissipateur thermique.
+Si l'on veut vérifier la puissance d'émission d'un émetteur, on branche à la place de l'antenne ce qu'on appelle une *charge fictive* (figure [ref:n_antennenanpassung_dummy_load]). On la désigne aussi par son nom anglais *dummy load*, employé tel quel en allemand au même titre qu'*Abschlusswiderstand*. Elle se compose d'une résistance de charge (cf. chapitre Composants et circuits) et d'un dissipateur thermique.
 
 <margin>
-[photo:68:n_antennenanpassung_dummy_load:Dummy load]
+[photo:68:n_antennenanpassung_dummy_load:Charge fictive]
 </margin>
 
-Une dummy load est utilisée lors des travaux de réglage et des mesures sur les émetteurs. Contrairement à une véritable antenne, la puissance d'émission y est presque entièrement convertie en chaleur. On évite ainsi que des signaux soient rayonnés. Les émissions inutiles et les éventuelles perturbations d'autres liaisons radio sont ainsi évitées.
+Une charge fictive est utilisée lors des travaux de réglage et des mesures sur les émetteurs. Contrairement à une véritable antenne, la puissance d'émission y est presque entièrement convertie en chaleur. On évite ainsi que des signaux soient rayonnés. Les émissions inutiles et les éventuelles perturbations d'autres liaisons radio sont ainsi évitées.
 
-Il est important, dans tous les cas, qu'une antenne aussi bien adaptée que possible ou une dummy load soit raccordée à l'émetteur-récepteur lorsque celui-ci émet. Sinon, toute la puissance d'émission est réfléchie au connecteur d'antenne et peut, par exemple, endommager l'amplificateur haute fréquence (étage final).
+Il est important, dans tous les cas, qu'une antenne aussi bien adaptée que possible ou une charge fictive soit raccordée à l'émetteur-récepteur lorsque celui-ci émet. Sinon, toute la puissance d'émission est réfléchie au connecteur d'antenne et peut, par exemple, endommager l'amplificateur haute fréquence (étage final).
 
 <indepth>
-Du point de vue de l'émetteur, une dummy load est indiscernable d'une antenne bien adaptée, car la puissance d'émission n'est pas réfléchie.
+Du point de vue de l'émetteur, une charge fictive est indiscernable d'une antenne bien adaptée, car la puissance d'émission n'est pas réfléchie.
 </indepth>
 
 [question:VD111]

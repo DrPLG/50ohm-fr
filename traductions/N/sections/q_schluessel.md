@@ -12,14 +12,14 @@ Pour certains codes Q, une indication précise doit suivre. Par exemple, après 
 
 Nous abordons ci-après tous les codes Q figurant à l'examen, avec des aide-mémoire, en expliquant aussi l'usage courant en radioamateurisme lorsqu'il diffère du sens d'origine. Le tableau [ref:n_q_gruppen] récapitule en outre ces informations de façon compacte.
 
-* QRV : Je suis prêt (je suis *v*orbereitet, préparé)
+* QRV : Je suis prêt (a*v*ailable, disponible)
 * QRM : Brouillage, ou en question : Êtes-vous brouillé ? Êtes-vous brouillé par des perturbations « d'origine humaine » ? Il s'agit des perturbations causées par des personnes ou des appareils qu'elles exploitent, p. ex. une installation photovoltaïque ou une émission d'un radioamateur sur une fréquence voisine.
 * QTH : Ma position (« *H*ome ») est…, p. ex. « QTH Berlin » signifie « Ma position est Berlin ».
 
 [question:BB204]
 
 * QRT : Cessez la transmission (*t*erminate = terminer) ! Au quotidien, beaucoup de radioamateurs terminent leur émission par « je passe QRT ».
-* QRZ? : On demande ainsi qui nous a appelé (invitation au correspondant : annonce ton indicatif une *z*euxième fois)
+* QRZ? : On demande ainsi qui nous a appelé (invitation au correspondant : annonce ton indicatif une deuxième fois)
 * QSL : signifie accusé de réception, ou en question : Merci d'accuser réception (tout est *l*oggé ?)
 
 [question:BB203]
@@ -28,7 +28,7 @@ Nous abordons ci-après tous les codes Q figurant à l'examen, avec des aide-mé
 
 [question:BE115]
 
-* QRO : signifie grande puissance (gr*o*ße Leistung). Ou en question : Dois-je augmenter la puissance d'émission ? On peut le retenir par : « Dois-je rajouter quelques watts par-dessus ? »
+* QRO : signifie grande puissance (puissance gr*o*sse). Ou en question : Dois-je augmenter la puissance d'émission ?
 * QSO : Au quotidien, l'abréviation s'emploie pour une liaison radio. C'est une interprétation libre, mais courante. Correctement, « QSO? » signifie : « Pouvez-vous établir une liaison directe avec… ? »
 * QRX : Je vous rappellerai. En question (QRX?) : Quand me rappellerez-vous ? Me rappellerez-vous à l'instant *X* ?
 
@@ -53,14 +53,14 @@ Certains radioamateurs cherchent à couvrir de très grandes distances avec une 
 <webmargin>
 | l: | l: Signification | X: Aide-mémoire |
 | QRN | Perturbations atmosphériques | Perturbation *N*aturelle |
-| QRM | Je suis brouillé | Perturbation d'origine humaine (*M*enschen) |
-| QRO | Augmentez la puissance d'émission ! | Quelques watts par-dessus (*o*bendrauf) |
+| QRM | Je suis brouillé | Perturbation d'origine humaine (*m*an-made) |
+| QRO | Augmentez la puissance d'émission ! | Puissance gr*o*sse |
 | QRP | Réduisez la puissance d'émission ! | *P*iano (doux), *P*sst ! |
 | QRT | Cessez la transmission ! | *T*erminate (terminer) |
-| QRV | Je suis prêt | *v*orbereitet (préparé) |
+| QRV | Je suis prêt | a*v*ailable (disponible) |
 | QRX? | Quand me rappellerez-vous ? | Instant *X* |
-| QRZ? | Qui m'a appelé ? | Annonce l'indicatif une *z*euxième fois ! |
-| QSB | Fading, fluctuations | En haut, en *b*as (*B*ergauf, *B*ergab) |
+| QRZ? | Qui m'a appelé ? | Annonce l'indicatif une deuxième fois ! |
+| QSB | Fading, fluctuations | En haut, en *b*as |
 | QSL | J'accuse réception | J'ai *l*oggé |
 | QSO? | Joignez-vous la station… ? |  |
 | QSY | Changement de fréquence | Change Frequenc*y* |

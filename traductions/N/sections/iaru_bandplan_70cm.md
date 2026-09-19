@@ -13,7 +13,7 @@ Sur le modèle des questions relatives au plan de bande des $\qty{2}{\meter}$, o
 [question:BC220]
 
 <france>
-# Le 70 cm en France, coupé en deux
+# Le 70 cm, coupé en deux
 
 Les bornes sont celles de l'Allemagne, 430 à 440 MHz, mais le statut français change **au milieu de la bande** :
 

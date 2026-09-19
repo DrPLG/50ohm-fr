@@ -24,6 +24,11 @@
     "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
     "sha256_amont": "ce874622ae0b3b78bb5fa3d2f3d492a18d94bbea119793b03a4276b74c7ffe76"
   },
+  "630": {
+    "date_fork": "2026-09-17",
+    "note": "Netzwerk -> Réseau (comme le 501 en A), CAT-/Digimode-Interface -> Interface CAT/digimode ; oublié du chantier nº 3, relevé le 17/09/2026",
+    "sha256_amont": "2ac2b261f20ca218000ef9cf7b7f07c07be4c1de0ddcd868deddebb387f9daac"
+  },
   "654": {
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",

@@ -1,0 +1,47 @@
+{
+ "SWL001": {
+  "question": "Une station radioamateur peut-elle être utilisée pour écouter des paroles non publiques ?",
+  "answer_a": "L'écoute de paroles non publiques constitue une infraction pénale.",
+  "answer_b": "L'exploitant d'une station radioamateur est considéré comme une personne qualifiée et peut donc décider lui-même sur quelles fréquences il a le droit d'écouter.",
+  "answer_c": "L'écoute de paroles non publiques requiert une autorisation particulière de la Bundesnetzagentur.",
+  "answer_d": "Chacun y est autorisé s'il utilise des récepteurs techniquement homologués."
+ },
+ "SWL002": {
+  "question": "Quel acte constitue une violation du secret des communications ?",
+  "answer_a": "La réception, l'exploitation ou la transmission de messages qui ne sont destinés ni aux radioamateurs, ni au public, ni à un cercle indéterminé de personnes.",
+  "answer_b": "L'exploitation ou la transmission du contenu de conversations et de données issues de liaisons radioamateur auxquelles le radioamateur n'a pas lui-même participé.",
+  "answer_c": "L'exploitation ou la transmission du contenu de conversations et de données issues de liaisons radioamateur, que le radioamateur y ait lui-même participé ou non.",
+  "answer_d": "L'enregistrement et la transmission du contenu de conversations et de données issues de liaisons radioamateur, en particulier lorsque la transmission se fait à des non-radioamateurs."
+ },
+ "SWL003": {
+  "question": "Comment doit se comporter une personne qui reçoit des messages qui ne sont <u>pas</u> destinés aux radioamateurs, au public ou à un cercle indéterminé de personnes ?",
+  "answer_a": "Elle ne doit communiquer à personne le contenu de ces messages, ni le fait même de les avoir reçus. Cela ne vaut pas en cas de détresse ou de catastrophe.",
+  "answer_b": "Elle peut communiquer à des tiers le fait de la réception, mais non le contenu ni les circonstances précises. Cela vaut aussi en cas de détresse ou de catastrophe.",
+  "answer_c": "Elle peut communiquer à d'autres radioamateurs le fait de la réception, mais non le contenu.",
+  "answer_d": "Elle doit immédiatement éteindre le récepteur et informer la Bundesnetzagentur."
+ },
+ "SWL004": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{1810}{2000}{\\kilo\\hertz}$ ?"
+ },
+ "SWL005": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{3,5}{3,8}{\\mega\\hertz}$ ?"
+ },
+ "SWL006": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{7,0}{7,2}{\\mega\\hertz}$ ?"
+ },
+ "SWL007": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{14}{14,35}{\\mega\\hertz}$ ?"
+ },
+ "SWL008": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{21}{21,45}{\\mega\\hertz}$ ?"
+ },
+ "SWL009": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{28}{29,7}{\\mega\\hertz}$ ?"
+ },
+ "SWL010": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{144}{146}{\\mega\\hertz}$ ?"
+ },
+ "SWL011": {
+  "question": "À quelle bande radioamateur correspond la plage de fréquences $\\qtyrange{430}{440}{\\mega\\hertz}$ ?"
+ }
+}
