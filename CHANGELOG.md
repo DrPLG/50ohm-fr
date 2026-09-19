@@ -12,6 +12,60 @@ laissés intacts et consignés), *Connu* (limitations non résolues).
 
 **Chantier ouvert le 20/08/2026 : refonte amont du chapitre DSP.**
 
+### 19 septembre 2026 — questions trop hautes, livres de la release recompilés
+
+#### Corrigé — `build_book.py` v0.31 puis v0.32 : questions plus hautes que la page
+
+En 20 × 24 marge, **AD406, AD416 et AD502** (classe A, réponses en image)
+laissaient chacune une page presque blanche : un fragment de cadre vide en
+haut, la question entière à la page suivante. La question dépassait
+`\textheight`, et son contenu insécable ne pouvait pas se répartir.
+
+- **v0.31** : `\QuestionMD` compose la question dans une boîte, la mesure, et
+  la réduit à la hauteur du bloc de texte si elle ne tient pas. Sinon, la
+  boîte est jetée et la question composée par le code d'origine.
+- **v0.32** : la v0.31 composait **toutes** les questions deux fois. À la
+  1re passe, sans cache d'images, chaque dessin de réponse créait ses
+  chaînes deux fois, et le **NEA A4 a échoué** : « TeX capacity exceeded
+  [number of strings=475704] », p. 655. Mesuré sur un extrait de la partie A
+  du NEA, une passe : v0.30 **359 317** chaînes, v0.31 **418 037**,
+  v0.32 **359 362**. La mesure n'est plus faite que pour une question
+  **coupée à la passe précédente** (labels de contrôle sur deux pages), ou
+  **déjà réduite** (marque `\DARCqReduite` écrite dans le `.aux`, sans
+  laquelle la réduction oscillerait d'une passe à l'autre).
+
+*Neutralité :* un livre sans question coupée est composé exactement comme en
+v0.30. **E** : identique au pixel à sa référence du 17/09, hormis la date de
+la page de titre. **N** : identique au pixel à la v0.31, elle-même identique
+à la v0.30 hormis la date. **SWL** : identique au pixel en v0.31.
+Seul **A en 20 × 24** a des questions réduites : AD406, AD416, AD502.
+
+#### Corrigé — N, `betriebliche_abkuerzungen`
+
+La ligne « K » du tableau récapitulatif portait encore l'aide-mémoire
+allemand « *K*ommen ». Réduite à « Invitation à émettre ».
+
+#### Modifié — SWL : avant-propos et remerciements
+
+Le cursus SWL reçoit les deux pièces liminaires, comme les livres de classe
+(décision de Pierre). **64 → 68 pages** en 20 × 24 marge.
+
+#### Livres recompilés en v0.32
+
+| livre | format | pages | « ?? » | notes rétrogradées |
+| --- | --- | ---: | ---: | ---: |
+| N | 20 × 24 marge | 318 | 0 | 1 |
+| E | 20 × 24 marge | 274 (+ 2 pages Notes = 276) | 1 | 1 |
+| A | 20 × 24 marge | 482 | 1 | 5 |
+| NEA | A4 | **818** | **2** | 5 |
+| SWL | 20 × 24 marge | 68 | 0 réelle | 1 |
+
+Tous : 0 question coupée, 0 figure séparée de sa légende, 0 erreur fatale.
+Le NEA passe de 816 à 818 pages : ses sources ont changé depuis sa dernière
+compilation A4 (09/09) ; la part de chaque changement n'a pas été mesurée.
+Les deux « ?? » du NEA (`e_ssb_am_modulation`, `a_zeppelinantenn`) étaient
+déduits ; ils sont désormais **mesurés**.
+
 ### 18 septembre 2026 — la fenêtre de compilation prépare l'impression
 
 #### Ajouté — `fenetre_compilation.py` v0.3

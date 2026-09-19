@@ -15,7 +15,47 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.30
+Version du script : v0.32
+    v0.32 — la mesure de la v0.31 n'est faite QUE pour les questions qui en
+            ont besoin (décision de Pierre, 19/09/2026).
+            *Constat :* NEA A4 en v0.31, échec fatal à la 1re passe, p. 655 :
+            « TeX capacity exceeded [number of strings=475704] ».
+            *Cause, MESURÉE :* la v0.31 compose chaque question deux fois. À la
+            1re passe, sans \DARCimageCache, chaque dessin de réponse est
+            mesuré deux fois sous deux clés, et crée ses chaînes deux fois.
+            Extrait de la partie A du NEA, une passe : v0.30 359 317 chaînes,
+            v0.31 418 037 (+58 720). Aux passes suivantes le cache existe et le
+            doublon ne coûte rien — d'où A 20 x 24 identique au chiffre près
+            (404 908) en fin de compilation, qui avait d'abord fait douter du
+            diagnostic. Le NEA v0.30 finissait déjà à 444 360 sur 475 704.
+            *Correction :* \DARCq@amesurer{id} ne lève la mesure que si la
+            passe précédente a posé les labels debut/fin de la question sur
+            deux pages différentes, ou si la question a déjà été réduite (marque
+            \DARCqReduite{id}, écrite dans le .aux au moment de la réduction —
+            sans elle, la question réduite tiendrait sur une page, ne serait
+            plus mesurée à la passe suivante, et oscillerait). \ifcsname ne crée
+            aucune chaîne : à la 1re passe, rien n'est mesuré. Un livre sans
+            question coupée est composé exactement comme en v0.30.
+    v0.31 — une QUESTION À RÉPONSES EN IMAGE trop haute pour la page est
+            RÉDUITE pour y tenir (décision de Pierre, 18/09/2026).
+            *Constat :* A en 20 x 24 marge, AD406, AD416 et AD502 laissaient
+            chacune une page presque blanche — un fragment de cadre vide en
+            haut, la question entière à la page suivante. Même trio que le NEA
+            20 x 24 du 16/09. En A4, aucun cas.
+            *Mécanisme, mesuré sur épreuve :* la question (énoncé + schéma +
+            quatre graphiques de réponse) fait un rien plus que \textheight
+            (202 mm en 20 x 24). La DARCQuestionBox est « breakable », mais
+            son contenu est un bloc insécable : le premier fragment reste vide
+            et tout part à la page suivante, où la boîte déborde légèrement.
+            *Correction :* \QuestionMD compose d'abord la question dans une
+            boîte (sans les labels de contrôle de la v0.18) et la mesure. Si
+            elle tient dans \textheight - 24 pt (marge du cadre), la boîte est
+            JETÉE et la question composée par le code d'origine, jeton pour
+            jeton : rien ne change pour elle. Sinon, la boîte est réduite
+            proportionnellement à cette hauteur, et le journal le dit
+            (« Question ... trop haute »).
+            *Portée :* \QuestionMD seule — les trois cas y sont. \Question et
+            \QuestionTwoCol ne sont pas touchées.
     v0.30 — le FILIGRANE EMPILÉ suit aussi la hauteur du papier (décision de
             Pierre, 16/09/2026, sur épreuve).
             *Constat :* NEA compilé en 20 x 24, le A du filigrane tombait sur
@@ -2193,6 +2233,86 @@ def main():
               f"DARC-ausbildungsmaterialien.sty avant de compiler.", file=sys.stderr)
         sys.exit(3)
     txt_q = txt_q.replace(FIN_AVANT, FIN_APRES)
+
+    # v0.31 — Question à réponses en image trop haute pour la page.
+    # On reprend le corps EXACT de \QuestionMD (énoncé + tableau des réponses,
+    # tel que A4 et B6 l'ont laissé) et on le compose deux fois au plus : une
+    # fois dans une boîte, pour le mesurer ; puis, s'il tient, une seconde fois
+    # par le même texte — la boîte est jetée. Les labels de contrôle restent
+    # hors de la boîte de mesure : ils ne sont écrits qu'une fois.
+    # Le bloc est dans une zone \ExplSyntaxOn de l'amont : espaces ignorés,
+    # d'où les ~ dans le message du journal.
+    motif_md = re.compile(
+        r"(\\NewDocumentCommand\{\\QuestionMD\}\{\+m\+m\+m\+m\+m\+m\+m\}\s*\{%\s*"
+        r"\\par\\samepage\s*\\label\{DARCq@debut@#1\}%\s*)"
+        r"(\\__ptxcd_question_table_head:nnn\{#1\}\{#2\}\{#3\}.*?\\end\{questiontabular\})"
+        r"(\\label\{DARCq@fin@#1\}%\s*\\par\s*\})", re.S)
+    trouves_md = motif_md.findall(txt_q)
+    if len(trouves_md) != 1:
+        print(f"!! v0.31 : {len(trouves_md)} définition(s) de \\QuestionMD reconnue(s) "
+              f"au lieu d'une.\n   L'amont a changé sous la règle — vérifier "
+              f"DARC-ausbildungsmaterialien.sty avant de compiler.", file=sys.stderr)
+        sys.exit(3)
+
+    # v0.32 — la mesure n'est plus faite pour TOUTES les questions, mais
+    # seulement pour celles que la passe précédente a trouvées coupées (labels
+    # debut/fin sur deux pages) ou déjà réduites (marque \DARCqReduite écrite
+    # dans le .aux). Composer chaque question deux fois épuisait la table des
+    # chaînes de LuaTeX à la 1re passe du NEA (voir la docstring).
+    def _question_md(m):
+        corps = m.group(2)
+        return (m.group(1)
+                + "\t\t\\DARCq@amesurer{#1}%\n"
+                + "\t\t\\ifDARCq@mesurer\n"
+                + "\t\t\\setbox\\DARCqBoite=\\vbox{" + corps + "\\par}%\n"
+                + "\t\t\\ifdim\\dimexpr\\ht\\DARCqBoite+\\dp\\DARCqBoite\\relax>\\DARCqHauteurMax\n"
+                + "\t\t\t\\typeout{Question~#1~trop~haute~pour~la~page~--~reduite~"
+                  "a~la~hauteur~du~bloc~de~texte}%\n"
+                + "\t\t\t\\immediate\\write\\@mainaux{\\string\\DARCqReduite{#1}}%\n"
+                + "\t\t\t\\noindent\\resizebox*{!}{\\DARCqHauteurMax}{\\box\\DARCqBoite}"
+                  "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\else\n"
+                + "\t\t\t" + corps + "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\fi\n"
+                + "\t\t\\else\n"
+                + "\t\t\t" + corps + "\\label{DARCq@fin@#1}%\n"
+                + "\t\t\\fi\n"
+                + "\t\t\\par\n\t}")
+
+    txt_q = motif_md.sub(_question_md, txt_q)
+    # Registre et hauteur maximale, déclarés avant le hook qui définit les
+    # questions. 24 pt : filets, marges intérieures et boxsep de la
+    # DARCQuestionBox (≈ 15 pt), plus une réserve.
+    ANCRE_Q = "\\AddToHook{begindocument}[DARC-ausbildungsmaterialien-question]{"
+    if txt_q.count(ANCRE_Q) != 1:
+        print(f"!! v0.31 : {txt_q.count(ANCRE_Q)} hook(s) de questions au lieu d'un.",
+              file=sys.stderr)
+        sys.exit(3)
+    # v0.32 — \DARCq@amesurer{id} lève \ifDARCq@mesurer si la question a été
+    # réduite (marque du .aux) ou coupée à la passe précédente. \ifcsname ne
+    # crée AUCUNE chaîne quand le nom n'existe pas — c'est tout l'objet : à la
+    # 1re passe, rien n'est mesuré et la question est composée par le code
+    # d'origine. \DARCq@page prend le 2e groupe d'un \r@ : la page, avec ou
+    # sans hyperref.
+    txt_q = txt_q.replace(
+        ANCRE_Q,
+        "\\newsavebox\\DARCqBoite\n"
+        "\\newcommand\\DARCqHauteurMax{\\dimexpr\\textheight-24pt\\relax}\n"
+        "\\newif\\ifDARCq@mesurer\n"
+        "\\newcommand\\DARCqReduite[1]{\\expandafter\\gdef\\csname DARCq@reduite@#1\\endcsname{}}\n"
+        "\\def\\DARCq@page#1#2#3\\@nil{#2}\n"
+        "\\newcommand\\DARCq@amesurer[1]{%\n"
+        "\t\\DARCq@mesurerfalse\n"
+        "\t\\ifcsname DARCq@reduite@#1\\endcsname\n"
+        "\t\t\\DARCq@mesurertrue\n"
+        "\t\\else\\ifcsname r@DARCq@debut@#1\\endcsname\\ifcsname r@DARCq@fin@#1\\endcsname\n"
+        "\t\t\\edef\\DARCq@pa{\\expandafter\\expandafter\\expandafter\\DARCq@page"
+        "\\csname r@DARCq@debut@#1\\endcsname\\@nil}%\n"
+        "\t\t\\edef\\DARCq@pb{\\expandafter\\expandafter\\expandafter\\DARCq@page"
+        "\\csname r@DARCq@fin@#1\\endcsname\\@nil}%\n"
+        "\t\t\\ifx\\DARCq@pa\\DARCq@pb\\else\\DARCq@mesurertrue\\fi\n"
+        "\t\\fi\\fi\\fi\n"
+        "}\n" + ANCRE_Q)
 
     sty_q.write_text(txt_q, encoding="utf-8")
 

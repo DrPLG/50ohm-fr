@@ -5,7 +5,7 @@ L'origine de beaucoup d'abréviations remonte à la télégraphie Morse. L'abré
 | BK | Interruption de l'émission ; passation informelle (*B*rea*k*) |
 | CQ | Appel général |
 | CW | *C*ontinuous *W*ave (synonyme de télégraphie Morse) |
-| K | Invitation à émettre (« *K*ommen », venez) |
+| K | Invitation à émettre |
 | PSE | S'il vous plaît, *P*lea*se* | 
 | R | Received (accusé de réception, *R*oger) |
 | RX | Receiver (récepteur) |
