@@ -66,8 +66,8 @@ Quatre graphies piègent régulièrement les candidats, parce qu'elles sont angl
 | l: Lettre | X: Mot |
 | A | Alfa — et non « Alpha » |
 | J | Juliett — avec deux « t » |
-| R | Romeo — sans accent |
 | U | Uniform — sans « e » final |
+| W | Whiskey — avec un « e », et non « Whisky » |
 
 L'épellation d'un indicatif suit le même principe qu'en allemand, lettre par lettre, les chiffres étant énoncés en clair : F4TES se dit Foxtrot quatre Tango Echo Sierra.
 

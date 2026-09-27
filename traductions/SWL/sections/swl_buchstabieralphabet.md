@@ -45,8 +45,8 @@ Quatre graphies piègent régulièrement, parce qu'elles sont anglaises et non f
 | l: Lettre | X: Mot |
 | A | Alfa — et non « Alpha » |
 | J | Juliett — avec deux « t » |
-| R | Romeo — sans accent |
 | U | Uniform — sans « e » final |
+| W | Whiskey — avec un « e », et non « Whisky » |
 
 Vous entendrez pourtant, en QSO local entre francophones, l'**alphabet français traditionnel** — Anatole, Berthe, Célestin, Désiré, Eugène —, encore employé par les administrations et au téléphone. Il ne gêne personne entre francophones, mais il est inintelligible pour un correspondant étranger. Pour un écouteur, mieux vaut connaître les deux : le premier pour noter, le second pour comprendre ce qu'on entend.
 
