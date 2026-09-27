@@ -25,7 +25,7 @@ Il doit aussi toujours être clair que le contenu d'une liaison radio peut être
 
 **Pas d'autorisation individuelle.** L'utilisation des fréquences par une station du service d'amateur n'est pas soumise à autorisation individuelle (article 2 de la décision n° 2012-1241) : c'est le régime d'autorisation générale de l'article L33-3 du CPCE. Le certificat d'opérateur et l'indicatif restent bien entendu obligatoires.
 
-**Déclaration de la station.** Toute installation de radioamateur dont la puissance apparente rayonnée (PAR) est supérieure à 5 W doit être déclarée à l'ANFR dans un délai de deux mois à compter de son installation (arrêté du 17 décembre 2007 modifié). Sont déclarés les coordonnées géographiques WGS 84 de l'installation et la PAR maximale utilisée en HF, VHF, UHF et SHF ; la déclaration se fait en ligne sur le téléservice de l'ANFR. Le matériel détenu, lui, n'a pas à être déclaré.
+**Déclaration de la station.** Toute installation **fixe** de radioamateur dont la puissance apparente rayonnée (PAR) est supérieure à 5 W doit être déclarée à l'ANFR dans un délai de deux mois à compter de son installation (arrêté du 17 décembre 2007 modifié). Sont déclarés les coordonnées géographiques WGS 84 de l'installation et la PAR maximale utilisée en HF, VHF, UHF et SHF ; la déclaration se fait en ligne sur le téléservice de l'ANFR. Le matériel détenu, lui, n'a pas à être déclaré.
 
 **Identification.** L'indicatif doit être transmis à de courts intervalles, et au moins au début et à la fin de toute période d'émission, toutes les 15 minutes au cours d'une émission plus longue sur une même fréquence, et au début de toute émission sur une nouvelle fréquence. L'intervalle français est donc de 15 minutes, contre 10 minutes en Allemagne.
 

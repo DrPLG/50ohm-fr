@@ -32,7 +32,22 @@ Moyen mnémotechnique : QRM est une perturbation d'origine humaine (*m*enschenge
 
 Les codes Q sont internationaux : ce sont les mêmes en France, en Allemagne et partout ailleurs. C'est d'ailleurs tout leur intérêt — ils ont été conçus pour se comprendre sans partager de langue.
 
-Un extrait du code Q figure au programme de l'examen français, à l'annexe I, chapitre 5 de l'arrêté du 21 septembre 2000 modifié, avec l'alphabet de l'UIT.
+Un extrait du code Q figure au programme de l'examen français, à l'annexe I, chapitre 5 de l'arrêté du 21 septembre 2000 modifié, avec l'alphabet de l'UIT. Il compte **22 codes** : les 11 du tableau ci-dessus, et les 11 suivants, avec les libellés du Journal officiel (n° 236 du 11 octobre 2000, p. 16099-16100) :
+
+| l: Code | X: Question | X: Réponse ou avis |
+| QRA | Quel est le nom de votre station ? | Le nom de ma station est… |
+| QRG | Voulez-vous m'indiquer ma fréquence exacte (ou la fréquence exacte de…) ? | Votre fréquence exacte (ou la fréquence exacte de…) est de … kHz (ou MHz). |
+| QRH | Ma fréquence varie-t-elle ? | Votre fréquence varie. |
+| QRK | Quelle est l'intelligibilité de mes signaux (ou des signaux de…) ? | L'intelligibilité de vos signaux (ou des signaux de…) est… |
+| QRL | Êtes-vous occupé ? | Je suis occupé (ou je suis occupé avec…). Prière de ne pas brouiller. |
+| QRP | Dois-je diminuer la puissance d'émission ? | Diminuez la puissance d'émission. |
+| QRU | Avez-vous quelque chose pour moi ? | Je n'ai rien pour vous. |
+| QSA | Quelle est la force de mes signaux (ou des signaux de…) ? | La force de vos signaux (ou des signaux de…) est… |
+| QSP | Voulez-vous retransmettre à… gratuitement ? | Je peux retransmettre à… gratuitement. |
+| QSY | Dois-je passer à la transmission sur une autre fréquence ? | Passez à la transmission sur une autre fréquence (ou sur… kHz, ou MHz). |
+| QTR | Quelle est l'heure exacte ? | L'heure exacte est… |
+
+Pour un écouteur, **QRK** et **QSA** sont les plus utiles : ils se répondent sur une échelle de 1 à 5, de 1 (mauvaise) à 5 (excellente) pour l'intelligibilité, de 1 (à peine perceptible) à 5 (très bonne) pour la force des signaux.
 
 Les moyens mnémotechniques allemands de la page précédente ne se transposent évidemment pas. En français, on retient plutôt :
 

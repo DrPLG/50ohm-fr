@@ -33,5 +33,5 @@ Le vocabulaire réglementaire français a ses propres sigles, et il vaut mieux l
 
 L'ERP, *effective radiated power*, se dit en français **puissance apparente rayonnée**, abrégée **PAR** : la puissance qu'il faudrait fournir à un dipôle demi-onde pour obtenir le même champ dans la direction considérée. C'est exactement la même grandeur qu'ici, avec le même dipôle de référence.
 
-Ce sigle n'est pas décoratif : c'est en PAR qu'est exprimé le **seuil de déclaration des stations à l'ANFR**. Toute installation de radioamateur dont la PAR dépasse 5 W doit être déclarée, et la déclaration porte sur la PAR maximale utilisée en HF, VHF, UHF et SHF. Un opérateur français a donc besoin de savoir calculer sa PAR, non pour vérifier un droit d'émettre, mais pour savoir s'il doit remplir un formulaire.
+Ce sigle n'est pas décoratif : c'est en PAR qu'est exprimé le **seuil de déclaration des stations à l'ANFR**. Toute installation fixe de radioamateur dont la PAR dépasse 5 W doit être déclarée, et la déclaration porte sur la PAR maximale utilisée en HF, VHF, UHF et SHF. Un opérateur français a donc besoin de savoir calculer sa PAR, non pour vérifier un droit d'émettre, mais pour savoir s'il doit remplir un formulaire.
 </france>

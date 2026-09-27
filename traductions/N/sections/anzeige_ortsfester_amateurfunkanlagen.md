@@ -68,7 +68,7 @@ Il arrive que des radioamateurs émettent sur plusieurs fréquences en même tem
 
 La France a bien une formalité pour les stations fixes, mais elle n'a ni le même objet ni le même déclencheur que l'*Anzeige* allemande.
 
-Le déclencheur est une **PAR supérieure à 5 W**, et non 10 W PIRE. Le destinataire est l'**ANFR**, non le régulateur. Le délai est de **deux mois après l'installation**, et non avant la mise en service. Et le contenu tient en trois informations : les coordonnées géographiques WGS 84 de l'installation et la PAR maximale utilisée en HF, VHF, UHF et SHF. La déclaration se fait en ligne sur le téléservice de l'ANFR. C'est l'objet des articles 4 et 5 de l'arrêté du 17 décembre 2007 modifié.
+Le déclencheur est une **PAR supérieure à 5 W**, et non 10 W PIRE. Le destinataire est l'**ANFR**, non le régulateur. Le délai est de **deux mois après l'installation**, et non avant la mise en service. Et le contenu tient en trois informations : les coordonnées géographiques WGS 84 de l'installation et la PAR maximale utilisée en HF, VHF, UHF et SHF. La déclaration se fait en ligne sur le téléservice de l'ANFR. C'est l'objet de l'article 5 de l'arrêté du 17 décembre 2007 modifié.
 
 Ce qui n'est **pas** demandé mérite d'être souligné, parce que c'est tout le contenu de la procédure allemande : aucun calcul de distance de sécurité, aucune représentation graphique de la zone contrôlable, aucun diagramme d'antenne, aucun plan de masse, aucun dossier technique à tenir à disposition. La déclaration française sert à cartographier les émetteurs, pas à démontrer le respect des valeurs limites. Un changement de matériel n'appelle une nouvelle déclaration que s'il modifie l'une des données déclarées.
 

@@ -67,3 +67,26 @@ Certains radioamateurs cherchent à couvrir de très grandes distances avec une 
 | QTH | Ma position | *H*ome, foyer |
 [table:n_q_gruppen:Tous les codes Q figurant à l'examen, avec aide-mémoire]
 </webmargin>
+
+<france>
+# Le code Q de l'examen français
+
+L'examen français a sa propre liste, plus longue : l'annexe I, chapitre 5, de l'arrêté du 21 septembre 2000 modifié en retient **22**. Les 13 codes vus plus haut y figurent tous ; les **9 suivants** sont propres à la liste française. Libellés du Journal officiel (n° 236 du 11 octobre 2000, p. 16099-16100) :
+
+| l: Code | X: Question | X: Réponse ou avis |
+| QRA | Quel est le nom de votre station ? | Le nom de ma station est… |
+| QRG | Voulez-vous m'indiquer ma fréquence exacte (ou la fréquence exacte de…) ? | Votre fréquence exacte (ou la fréquence exacte de…) est de … kHz (ou MHz). |
+| QRH | Ma fréquence varie-t-elle ? | Votre fréquence varie. |
+| QRK | Quelle est l'intelligibilité de mes signaux (ou des signaux de…) ? | L'intelligibilité de vos signaux (ou des signaux de…) est… |
+| QRL | Êtes-vous occupé ? | Je suis occupé (ou je suis occupé avec…). Prière de ne pas brouiller. |
+| QRU | Avez-vous quelque chose pour moi ? | Je n'ai rien pour vous. |
+| QSA | Quelle est la force de mes signaux (ou des signaux de…) ? | La force de vos signaux (ou des signaux de…) est… |
+| QSP | Voulez-vous retransmettre à… gratuitement ? | Je peux retransmettre à… gratuitement. |
+| QTR | Quelle est l'heure exacte ? | L'heure exacte est… |
+
+Quatre codes se répondent par un chiffre, sur une échelle de 1 à 5 :
+
+- **QRK**, l'intelligibilité — de 1 (mauvaise) à 5 (excellente) ;
+- **QSA**, la force des signaux — de 1 (à peine perceptible) à 5 (très bonne) ;
+- **QRM**, le brouillage, et **QRN**, les parasites — de 1 (nullement) à 5 (très fortement).
+</france>
