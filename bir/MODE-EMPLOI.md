@@ -22,7 +22,9 @@ bir/
   formateur/seance-XX.md     D3 — le livre du formateur, une page par séance
   fiches/seance-XX-eleve.md  D4 — la fiche d'activité de l'élève
   fiches/seance-XX-encadrant.md   … et sa page côté encadrant
-  maquettes/           maquettes LaTeX des documents d'accompagnement (D1, D3, D4, D7, D8)
+  composer.py          le script qui met en PDF les pages du formateur, les fiches,
+                       le référentiel et ce mode d'emploi
+  maquettes/           la classe LaTeX BIRdoc.cls, la mallette (D7) et le livret (D8)
   moodle/bir-questions.gift.txt   la banque de questions exportée pour Moodle ou éléa
   exporter_moodle.py   le script qui produit ce fichier GIFT
   SOURCES.md           d'où vient chaque section, et l'état de chaque affirmation réglementaire
@@ -31,10 +33,9 @@ bir/
 **Ce qui est compilé dans le PDF du manuel :** `toc.json`, `sections/` et
 `questions/`. Rien d'autre.
 
-**Ce qui ne l'est pas :** les pages du formateur et les fiches sont du
-Markdown ordinaire. On les lit telles quelles (GitHub les affiche mises en
-forme), on les imprime depuis un éditeur Markdown, ou on les reprend dans les
-maquettes LaTeX de `maquettes/`.
+**Ce qui ne l'est pas :** les pages du formateur, les fiches, le référentiel
+et ce mode d'emploi sont du Markdown ordinaire. On les lit tels quels (GitHub
+les affiche mis en forme), ou on les met en PDF avec `composer.py` (§ 3.5).
 
 **Ce qui vient d'ailleurs :** les dessins, les photos et les fichiers LaTeX de
 mise en page ne sont pas dans `bir/`. Ils viennent du dépôt amont du DARC
@@ -290,11 +291,36 @@ Ce sont des fichiers Markdown ordinaires : on les modifie librement, avec
 n'importe quel éditeur de texte, sans règle particulière. Ils ne passent pas
 par la compilation du manuel.
 
-Tant que les maquettes de `maquettes/` existent en parallèle (PLAN.md,
-« double saisie »), une correction faite dans un Markdown doit aussi être
-reportée dans le `.tex` correspondant, et inversement.
+Le Markdown est leur **seule source**. Pour les mettre en PDF, avec la mise
+en page du BIR :
 
-Pour compiler une maquette :
+```
+python bir/composer.py                 tous les documents
+python bir/composer.py fiches-eleve    un seul : formateur, fiches-eleve,
+                                       fiches-encadrant, mode-emploi, referentiel
+```
+
+Les PDF arrivent dans `bir/pdf/` : `livre-du-formateur.pdf`,
+`fiches-eleve.pdf` (à imprimer recto verso : chaque fiche commence sur une
+nouvelle feuille), `fiches-encadrant.pdf`, `mode-emploi.pdf` et
+`referentiel.pdf`. Comptez une à deux minutes pour le tout.
+
+Trois conventions dans les fiches de l'élève :
+
+- `☐` devient une case à cocher ;
+- une suite de `…` devient une ligne pointillée à remplir — jusqu'à la marge
+  si elle termine la ligne, de la longueur de la suite sinon ;
+- un bloc de code vide (quatre lignes blanches entre deux lignes de trois
+  accents graves) devient un cadre où dessiner.
+
+Dans un tableau, une case laissée vide est une case à remplir : le tableau
+est alors tracé avec des lignes hautes.
+
+Le script s'arrête sur toute construction qu'il ne connaît pas (citation
+`>`, balise, liste dans une liste) : il vaut mieux une erreur qu'une page
+fausse.
+
+La mallette et le livret de l'élève, eux, sont écrits directement en LaTeX :
 
 ```
 cd bir/maquettes

@@ -75,6 +75,25 @@
 \newcommand{\BIRcase}{\raisebox{-.15ex}{\fboxsep0pt\fbox{\rule{0pt}{1.7ex}\rule{1.7ex}{0pt}}}\hspace{.35em}}
 \newcommand{\BIRligne}[1][\linewidth]{\makebox[#1]{\dotfill}}
 \newcommand{\BIRhaut}{\rule{0pt}{7.5mm}}        % ligne de tableau à remplir
+% Pointillés jusqu'au bout de la ligne ou de la cellule (composer.py).
+\newcommand{\BIRfin}{\unskip~\dotfill\mbox{}}
+% Cadre vide où l'élève dessine : \BIRcadrevide{hauteur}.
+\newcommand{\BIRcadrevide}[1]{\par\smallskip\noindent
+  {\color{BIRbleu!45}\fboxsep0pt\fbox{\rule{0pt}{#1}\hspace{\dimexpr\linewidth-2\fboxrule\relax}}}\par\smallskip}
+% Symbole « courant continu » des multimètres : un trait sur trois tirets.
+\newcommand{\BIRcontinu}{\raisebox{.1ex}{\makebox[1.15em]{%
+  \rlap{\raisebox{.55ex}{\rule{1.15em}{.5pt}}}%
+  \rule{.27em}{.5pt}\hfill\rule{.27em}{.5pt}\hfill\rule{.27em}{.5pt}}}}
+
+% --- Documents composés depuis le Markdown (composer.py) -----------------
+\RequirePackage{fancyvrb}
+\tcbuselibrary{breakable}
+\tcbset{breakable}
+\newcommand{\BIRcode}[1]{{\ttfamily\small #1}}
+% Nouvelle FEUILLE : on saute à la prochaine page impaire, en laissant au
+% besoin un verso blanc, pour que des fiches recto verso restent séparables.
+\newcommand{\BIRfeuille}{\clearpage
+  \ifodd\value{page}\else\thispagestyle{empty}\null\clearpage\fi}
 
 % --- Tableaux ------------------------------------------------------------
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}

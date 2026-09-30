@@ -101,7 +101,7 @@ et la longueur d'onde calculée à 10 % près.
 ## Questions de la séance
 
 RC0801 à RC0810. La bonne réponse est toujours la réponse A dans le
-catalogue. Le mélange des réponses à l'impression reste à mettre en place.
+catalogue ; le manuel et la plateforme d'examen mélangent les réponses.
 
 ## Sources
 

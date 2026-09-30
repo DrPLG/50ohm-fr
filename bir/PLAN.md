@@ -50,7 +50,15 @@ La maquette de D2 est le manuel lui-même (`build_book.py`, édition BIR).
 Compilation : `latexmk -lualatex <fichier>.tex` depuis `maquettes/`. Les PDF
 ne sont pas suivis par git.
 
-**Double saisie, à résorber.** Le texte de D1, D3 et D4 existe pour
+**Double saisie : résorbée le 30/09/2026.** `composer.py` met en PDF, à
+partir du seul Markdown, le livre du formateur (49 p.), les fiches de l'élève
+(48 p., une feuille par fiche), les fiches côté encadrant (24 p.), le mode
+d'emploi (7 p.) et le référentiel (3 p.), dans `pdf/`. Les maquettes
+`D1-referentiel.tex`, `D3-formateur-seance-08.tex` et `D4-fiche-08.tex`, qui
+faisaient doublon, sont retirées ; restent en LaTeX la mallette (D7) et le
+livret (D8). Le paragraphe qui suit est conservé pour mémoire.
+
+*Ancien état.* Le texte de D1, D3 et D4 existait pour
 l'instant deux fois : en Markdown (`referentiel.md`, `formateur/`, `fiches/`)
 et dans ces `.tex`. Une fois la forme validée, il faudra choisir une seule
 source — soit le `.tex`, soit un Markdown converti par script.
@@ -165,8 +173,8 @@ bir/
 6. **Affirmations écrites de mémoire** dans le premier jet complet : préfixes
    étrangers, décalage des relais 2 m, réseau mondial de balises, SSTV de
    l'ISS, puissances des téléphones. Liste dans `SOURCES.md`.
-7. **Double saisie** des fiches et pages du formateur entre Markdown et
-   maquettes : seule la séance 8 existe en maquette.
+7. ~~Double saisie des fiches et pages du formateur~~ : résorbée par
+   `composer.py` (30/09/2026).
 8. **D6, diaporamas** : toujours à faire.
 
 ## Tranché par Pierre le 30/09/2026
