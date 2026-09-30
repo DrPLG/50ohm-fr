@@ -11,7 +11,18 @@
   "DE-Prüfung und DE-Kennzeichen": "L'examen DE et l'indicatif DE",
   "Diplome und nächste Ziele": "Diplômes et objectifs suivants"
  },
- "abstracts": {},
+ "abstracts": {
+  "Wir lernen das Hobby der Kurzwellenhörer kennen, grenzen Hören und Senden voneinander ab und stellen eine erste Empfangsstation zusammen.": "Nous découvrons le loisir de l'écouteur d'ondes courtes, nous distinguons l'écoute de l'émission et nous assemblons une première station de réception.",
+  "Wir bedienen einen Empfänger, wählen das passende Übertragungsverfahren und erkennen die gebräuchlichen HF-Steckverbinder.": "Nous manipulons un récepteur, nous choisissons le mode de transmission adapté et nous reconnaissons les connecteurs HF usuels.",
+  "Die Ionosphäre ermöglicht weltweiten Kurzwellenempfang; besondere Bedingungen erschließen auch auf höheren Frequenzen große Entfernungen.": "L'ionosphère rend possible la réception mondiale en ondes courtes ; des conditions particulières ouvrent aussi de grandes distances sur des fréquences plus élevées.",
+  "Auch eine reine Empfangsstation braucht eine sichere Stromversorgung und eine fachgerecht errichtete Antennenanlage.": "Même une station de simple réception a besoin d'une alimentation électrique sûre et d'une installation d'antenne montée dans les règles de l'art.",
+  "Wir lesen Amateurfunkrufzeichen, ordnen wichtige Landeskenner zu und verbinden Frequenzbereiche mit den gebräuchlichen Bandbezeichnungen.": "Nous lisons les indicatifs radioamateur, nous attribuons les principaux préfixes nationaux et nous relions les plages de fréquences aux désignations de bandes usuelles.",
+  "Buchstabieralphabet, Betriebsabkürzungen und Q-Gruppen helfen dabei, auch schwache oder fremdsprachige Funkverbindungen sicher zu verstehen.": "L'alphabet d'épellation, les abréviations opérationnelles et les codes Q aident à comprendre sûrement les liaisons radio, même faibles ou en langue étrangère.",
+  "Wir beurteilen Signale, verfolgen besondere Betriebssituationen und dokumentieren gehörte Funkverbindungen im Logbuch und auf SWL-QSL-Karten.": "Nous évaluons des signaux, nous suivons des situations de trafic particulières et nous consignons les liaisons entendues dans le carnet de trafic et sur des cartes QSL de SWL.",
+  "Hören ist grundsätzlich frei, doch das Abhörverbot und die Geheimhaltungspflicht setzen klare Grenzen. Wir unterscheiden außerdem Höramateur, Funkamateur und Amateurfunkstelle.": "L'écoute est libre par principe, mais l'interdiction d'écoute et l'obligation de confidentialité posent des limites claires. Nous distinguons en outre l'écouteur, le radioamateur et la station radioamateur.",
+  "Wir betrachten Ablauf und Inhalt der DE-Prüfung, das System der DE-Kennzeichen und den Weg vom Antrag bis zur Urkunde.": "Nous examinons le déroulement et le contenu de l'examen DE, le système des indicatifs DE et le chemin qui mène de la demande au certificat.",
+  "Bestätigte Hörberichte eröffnen den Weg zum DLD-SWL, zum Deutschen Empfangsmeister und vielleicht später zum eigenen Amateurfunkzeugnis.": "Les comptes rendus d'écoute confirmés ouvrent la voie au DLD-SWL, au titre de maître écouteur allemand et, peut-être plus tard, à son propre certificat d'opérateur."
+ },
  "sections": {
   "swl_vorwort": "Avant-propos",
   "swl_was_ist_swl": "Qu'est-ce qu'un SWL ?",

@@ -126,6 +126,13 @@ CLASSES_TRADUCTION = {
     "NEA": ["A", "E", "N"],
 }
 
+# Répertoires dont seules les QUESTIONS sont reprises (--questions-from,
+# build_book.py v0.33). 60 des 71 questions du SWL sont des questions de la
+# classe N, traduites dans traductions/N/questions.json et nulle part
+# ailleurs : sans N, elles sortaient EN ALLEMAND — release a.3 et SWL a.4 du
+# 27/09/2026 compris.
+QUESTIONS_SEULES = {"SWL": ["N"]}
+
 FORMATS = ["a4", "20x24", "20x24-marge"]
 
 # Pièces liminaires. Le « TITRE= » est celui arrêté le 15/08/2026 : « du
@@ -420,6 +427,8 @@ def construire_commande(python, edition, langue, format_papier, version,
                           "--format", format_papier]
     for classe in CLASSES_TRADUCTION[edition]:
         cmd += ["--translations", str(RACINE / "traductions" / classe)]
+    for classe in QUESTIONS_SEULES.get(edition, []):
+        cmd += ["--questions-from", str(RACINE / "traductions" / classe)]
     cmd += ["--input", str(contenus),
             "--output", str(sortie),
             "--version-label", version]

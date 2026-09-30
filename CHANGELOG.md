@@ -17,6 +17,48 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Corrigé — SWL : 60 questions sur 71 en allemand (30/09/2026)
+
+Relevé par Pierre. Soixante des 71 questions du cursus SWL sont des questions
+de la classe N, traduites dans `traductions/N/questions.json` et nulle part
+ailleurs ; le lanceur ne passait au SWL que `traductions/SWL`, qui ne porte
+que les 11 questions propres au cursus. Les 60 autres sortaient telles que le
+catalogue allemand les donne — **dans la release a.3 comme dans le SWL a.4 du
+27/09**. Le journal l'annonçait : « 11 questions traduites ».
+
+- **`build_book.py` v0.33** — option `--questions-from <répertoire>`,
+  répétable : seul son `questions.json` est repris, ni sections, ni titres,
+  ni dessins. Les répertoires `--translations` gardent la priorité.
+- **`build_book.py` v0.33** — garde-fou : en `--lang fr`, toute question sans
+  énoncé français arrête le script avant la compilation (rc=1, numéros
+  listés). Fatal et non simple message : le message existait déjà.
+- `fenetre_compilation.py` : le SWL reçoit `--questions-from traductions/N`.
+- Prouvé sans compiler : 71 questions traduites ; les 30 sections générées
+  sont identiques à celles du 27/09 hors texte des questions ; les 15 dessins
+  appelés sont identiques. SWL seul : refusé, 60 questions listées. N, E, A,
+  NEA : acceptés, et l'arbre N est identique à celui du 27/09.
+- N, E et A audités : aucun énoncé non traduit (571 · 462 · 717 questions).
+  Les réponses laissées au catalogue amont sont des valeurs, des sigles ou
+  l'alphabet d'épellation.
+
+#### Corrigé — chapeaux de chapitre en allemand : SWL 10, NEA 3 (30/09/2026)
+
+Trouvé en relisant le texte extrait du SWL recompilé. Un chapeau s'indexe
+dans `titles.json` par son texte allemand, au caractère près : la rubrique
+était vide pour le SWL, et les sommaires combinés formulent trois chapeaux
+autrement que ceux de N, E et A. Défaut présent dans la release a.3.
+
+- `traductions/SWL/titles.json` : les 10 chapeaux.
+- `traductions/N/titles.json` : 5 chapeaux des sommaires NE et NEA.
+- `build_book.py` v0.33 : le garde-fou s'étend aux titres de chapitre, aux
+  chapeaux et aux titres de section. Testé dans les deux sens.
+
+SWL recompilé le 30/09 (questions) : 68 pages, 0 question ni figure coupée,
+0 « ?? ».
+
+*Connu :* le SWL et le NEA sont à recompiler pour les chapeaux. N, E et A ne
+sont pas touchés.
+
 ---
 
 ## a.3 — 19 septembre 2026

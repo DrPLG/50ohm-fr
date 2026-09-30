@@ -15,7 +15,31 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.32
+Version du script : v0.33
+    v0.33 — garde-fou : en --lang fr, une question sans énoncé français
+            arrête le script AVANT la compilation (décision de Pierre,
+            30/09/2026).
+            *Constat :* 60 des 71 questions du SWL sortaient en allemand,
+            dans la release a.3 comme dans la a.4 du 27/09. Elles sont
+            traduites dans traductions/N/questions.json, mais le SWL n'était
+            lancé qu'avec --translations traductions/SWL. Le script annonçait
+            « 11 questions traduites » et compilait quand même.
+            *Pourquoi fatal et non un avertissement :* l'information était
+            déjà à l'écran, et personne ne l'a lue pendant cinq semaines.
+            L'arbre est généré en entier ; seul latexmk n'est pas lancé.
+            *Même garde-fou pour titles.json :* titre de chapitre, chapeau
+            de chapitre ou titre de section sans traduction = arrêt. Les
+            chapeaux s'indexent par leur texte allemand, au caractère près ;
+            10 sortaient en allemand dans le SWL et 3 dans le NEA.
+            *Option --questions-from, répétable :* ne prend d'un répertoire
+            que son questions.json. Le SWL en a besoin pour N. Passer N à
+            --translations marchait aussi, mais chargeait ses titres — 131
+            avertissements « n'est pas un ident connu » — et ses 40 dessins,
+            tous sans objet. Les répertoires --translations gardent la
+            priorité sur ceux de --questions-from.
+            *Neutralité :* rien ne change dans les fichiers produits. Les
+            sept éditions françaises sont à zéro question non traduite ;
+            l'édition allemande (--lang de) n'est pas concernée.
     v0.32 — la mesure de la v0.31 n'est faite QUE pour les questions qui en
             ont besoin (décision de Pierre, 19/09/2026).
             *Constat :* NEA A4 en v0.31, échec fatal à la 1re passe, p. 655 :
@@ -986,6 +1010,8 @@ class QuestionBuilder:
         # d'image (cf. build()).
         self.sans_metadata = set()
         self.n_translated_q = 0
+        # v0.33 — questions rendues sans énoncé français (cf. main()).
+        self.non_traduites = set()
 
         self.questions = {}
         for exampart in katalog["sections"]:
@@ -1038,6 +1064,8 @@ class QuestionBuilder:
         if tr:
             question = {**question, **{k: v for k, v in tr.items() if v}}
             self.n_translated_q += 1
+        if not (tr and tr.get("question")):
+            self.non_traduites.add(number)
 
         layout = self.layouts.get(number, {})
         macro = layout.get("type") or ("QuestionMD" if metadata.get("picture_a") else "Question")
@@ -2104,6 +2132,11 @@ def main():
                          "Répétable — indispensable pour les éditions combinées NE, EA et "
                          "NEA, dont les sections proviennent de plusieurs classes. En cas "
                          "de doublon, le premier répertoire cité l'emporte.")
+    ap.add_argument("--questions-from", action="append", default=[],
+                    help="Répertoire dont seul questions.json est repris (v0.33) : "
+                         "ni sections, ni titres, ni dessins. Répétable. Le SWL en a "
+                         "besoin pour les questions de la classe N. Les répertoires "
+                         "--translations l'emportent en cas de doublon.")
     ap.add_argument("--input", "-i", required=True, help="Chemin du dépôt 50ohm-contents-dl")
     ap.add_argument("--output", "-o", default="build-book")
     ap.add_argument("--version-label", default="0.1",
@@ -2436,7 +2469,13 @@ def main():
     q_translations = {}
     # Fusion en ordre INVERSE : le premier répertoire cité écrase les suivants,
     # ce qui rend la priorité conforme à celle de la recherche des sections.
-    for d in reversed(tr_dirs):
+    # v0.33 — les répertoires --questions-from passent APRÈS ceux de
+    # --translations dans l'ordre de priorité, donc avant eux dans la fusion.
+    q_dirs = [Path(d) for d in args.questions_from]
+    for d in q_dirs:
+        if not (d / "questions.json").exists():
+            raise SystemExit(f"!! --questions-from : pas de questions.json dans {d}")
+    for d in list(reversed(q_dirs)) + list(reversed(tr_dirs)):
         if (d / "questions.json").exists():
             q_translations.update(json.loads((d / "questions.json").read_text(encoding="utf-8")))
     qb = QuestionBuilder(contents, lambda: BookLaTeXRenderer(), translations=q_translations)
@@ -2608,6 +2647,39 @@ def main():
               f"(sans image, donc sans effet) : "
               f"{', '.join(sorted(qb.sans_metadata)[:6])}"
               f"{'...' if len(qb.sans_metadata) > 6 else ''}")
+
+    # v0.33 — une question sans énoncé français sort EN ALLEMAND, réponses
+    # comprises, sans erreur. Fatal : le même constat, en simple message,
+    # est resté cinq semaines à l'écran sans être lu (SWL, 60 questions).
+    q_allemandes = sorted(qb.non_traduites - qb.missing)
+    if args.lang == "fr" and q_allemandes:
+        print(f"!! {len(q_allemandes)} question(s) sans énoncé français : elles "
+              f"sortiraient EN ALLEMAND. Vérifier que tous les répertoires de "
+              f"classe sont passés à --translations (pour le SWL : --questions-from "
+              f"traductions/N).", file=sys.stderr)
+        print(f"   {' '.join(q_allemandes[:40])}"
+              f"{' ...' if len(q_allemandes) > 40 else ''}", file=sys.stderr)
+        raise SystemExit(1)
+
+    # v0.33 — même garde-fou pour les titres et les chapeaux de chapitre.
+    # Un chapeau s'indexe par son TEXTE allemand : une virgule corrigée en
+    # amont, ou un sommaire combiné qui le formule autrement, et il ressort
+    # en allemand sans message. Trouvé le 30/09/2026 : 10 chapeaux du SWL,
+    # 3 du NEA, tous imprimés dans la release a.3.
+    if args.lang == "fr":
+        t_allemands = (
+            [f"titre de chapitre « {c['title']} »" for c in chapters
+             if c["title"] not in tr_titles["chapters"]]
+            + [f"chapeau du chapitre « {c['title']} »" for c in chapters
+               if c.get("abstract") and c["abstract"] not in tr_titles["abstracts"]]
+            + [f"titre de section « {s['ident']} »" for c in chapters
+               for s in c["sections"] if s["ident"] not in tr_titles["sections"]])
+        if t_allemands:
+            print(f"!! {len(t_allemands)} titre(s) ou chapeau(x) sans traduction "
+                  f"dans titles.json : ils sortiraient EN ALLEMAND.", file=sys.stderr)
+            for ligne in t_allemands[:40]:
+                print(f"   {ligne}", file=sys.stderr)
+            raise SystemExit(1)
 
     if args.no_compile:
         return
