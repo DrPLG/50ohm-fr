@@ -13,11 +13,62 @@
     {"ident": "bir_premiere_ecoute", "title": "Commencer par écouter"}
    ]
   },
-  {"ident": "bir_02", "title": "Se présenter à l'antenne", "sections": []},
-  {"ident": "bir_03", "title": "Un contact radio", "sections": []},
-  {"ident": "bir_04", "title": "Tension et courant", "sections": []},
-  {"ident": "bir_05", "title": "La résistance et la loi d'Ohm", "sections": []},
-  {"ident": "bir_06", "title": "Puissance et énergie", "sections": []},
+  {
+   "ident": "bir_02",
+   "title": "Se présenter à l'antenne",
+   "abstract": "Chaque station se présente par un nom qui n'appartient qu'à elle : son indicatif. Nous apprenons à le lire, à reconnaître le pays d'une station, à épeler sans erreur, et à nous parler avec des postes que tout le monde peut utiliser.",
+   "sections": [
+    {"ident": "bir_l_indicatif", "title": "L'indicatif"},
+    {"ident": "bir_les_prefixes", "title": "Les préfixes des pays"},
+    {"ident": "bir_l_alphabet_d_epellation", "title": "L'alphabet d'épellation"},
+    {"ident": "bir_les_postes_pmr446", "title": "Les postes PMR446"}
+   ]
+  },
+  {
+   "ident": "bir_03",
+   "title": "Un contact radio",
+   "abstract": "Un contact radio n'est pas une conversation comme les autres : il suit un ordre que tous les radioamateurs connaissent. Nous apprenons à le dérouler, à dire comment nous recevons notre correspondant, à parler en codes Q et à tenir notre carnet de trafic.",
+   "sections": [
+    {"ident": "bir_deroulement_d_un_contact", "title": "Le déroulement d'un contact"},
+    {"ident": "bir_le_report_rst", "title": "Le report RST"},
+    {"ident": "bir_les_codes_q", "title": "Les codes Q"},
+    {"ident": "bir_le_carnet_de_trafic", "title": "Le carnet de trafic"}
+   ]
+  },
+  {
+   "ident": "bir_04",
+   "title": "Tension et courant",
+   "abstract": "Tous les appareils radio fonctionnent à l'électricité. Nous découvrons les deux grandeurs qui la décrivent, la tension et le courant, nous apprenons à les mesurer, et à reconnaître ce qui rend le courant dangereux.",
+   "sections": [
+    {"ident": "bir_la_tension", "title": "La tension"},
+    {"ident": "bir_le_courant_et_le_circuit", "title": "Le courant et le circuit"},
+    {"ident": "bir_conducteurs_et_isolants", "title": "Conducteurs et isolants"},
+    {"ident": "bir_mesurer_au_multimetre", "title": "Mesurer au multimètre"},
+    {"ident": "bir_les_dangers_du_courant", "title": "Les dangers du courant"}
+   ]
+  },
+  {
+   "ident": "bir_05",
+   "title": "La résistance et la loi d'Ohm",
+   "abstract": "Tous les composants ne laissent pas passer le courant de la même façon. Nous découvrons la résistance, la loi qui la relie à la tension et au courant, la manière de lire la valeur d'une résistance, et les symboles qui permettent de dessiner un circuit.",
+   "sections": [
+    {"ident": "bir_la_resistance", "title": "La résistance"},
+    {"ident": "bir_la_loi_d_ohm", "title": "La loi d'Ohm"},
+    {"ident": "bir_le_code_des_couleurs", "title": "Le code des couleurs"},
+    {"ident": "bir_les_symboles", "title": "Les symboles"}
+   ]
+  },
+  {
+   "ident": "bir_06",
+   "title": "Puissance et énergie",
+   "abstract": "Un poste radio consomme de l'énergie, et un portatif doit la prendre dans son accu. Nous apprenons à calculer une puissance, à lire la capacité d'un accumulateur, à estimer l'autonomie d'un poste et à choisir une alimentation.",
+   "sections": [
+    {"ident": "bir_la_puissance", "title": "La puissance"},
+    {"ident": "bir_piles_et_accus", "title": "Piles et accumulateurs"},
+    {"ident": "bir_l_autonomie", "title": "L'autonomie d'un poste"},
+    {"ident": "bir_l_alimentation", "title": "L'alimentation"}
+   ]
+  },
   {"ident": "bir_07", "title": "Du courant alternatif à l'onde", "sections": []},
   {
    "ident": "bir_08",

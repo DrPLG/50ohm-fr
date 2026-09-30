@@ -72,6 +72,366 @@ $CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 
 	~Un réseau social réservé aux radioamateurs
 }
 
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 2 — Se présenter à l'antenne
+
+::RE0201::À quoi sert l'indicatif d'une station de radioamateur ? {
+	=À identifier la station sans erreur possible
+	~À indiquer la fréquence sur laquelle elle émet
+	~À indiquer la puissance de son émetteur
+	~À indiquer l'âge de son titulaire
+}
+
+::RE0202::Dans l'indicatif F4XAB, quelle partie est le préfixe ? {
+	=F
+	~F4
+	~XAB
+	~4XAB
+}
+
+::RE0203::En France, qui attribue les indicatifs des radioamateurs ? {
+	=L'Agence nationale des fréquences (ANFR)
+	~Le radioamateur lui-même, qui choisit librement le sien
+	~Le radio-club auquel il est inscrit
+	~La mairie de sa commune
+}
+
+::RE0204::Qu'indique le préfixe d'un indicatif ? {
+	=Le pays de la station
+	~Le type d'antenne utilisé
+	~L'heure de l'émission
+	~Le nombre de contacts réalisés
+}
+
+::RE0205::Une station dont l'indicatif commence par TK se trouve \: {
+	=en Corse
+	~en Tunisie
+	~au Kenya
+	~en Guadeloupe
+}
+
+::RE0206::Comment épelle-t-on la lettre M avec l'alphabet de l'UIT ? {
+	=Mike
+	~Marcel
+	~Mama
+	~Mexico
+}
+
+::RE0207::Comment épelle-t-on l'indicatif F4XAB ? {
+	=Foxtrot quatre X-ray Alfa Bravo
+	~Frank quatre Xavier Anatole Berthe
+	~Foxtrot quatre Xylophone Alpha Bravo
+	~Fox quatre X-ray Alfa Baker
+}
+
+::RE0208::Pourquoi utilise-t-on un alphabet d'épellation ? {
+	=Pour éviter de confondre des lettres qui se ressemblent à l'oreille
+	~Pour cacher le sens du message aux autres auditeurs
+	~Pour parler plus vite
+	~Parce que les lettres ne passent pas par radio
+}
+
+::RE0209::Que faut-il pour utiliser un poste PMR446 ? {
+	=Rien de particulier \: ni examen, ni indicatif
+	~Un certificat d'opérateur et un indicatif
+	~Une autorisation de la mairie
+	~L'accord du radio-club le plus proche
+}
+
+::RE0210::Que se passe-t-il quand on relâche la touche PTT d'un poste PMR446 ? {
+	=Le poste repasse en réception
+	~Le poste s'éteint
+	~Le poste émet plus fort
+	~Le poste change de canal
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 3 — Un contact radio
+
+::RE0301::Que faut-il faire avant de lancer un appel sur une fréquence ? {
+	=Écouter, puis demander si la fréquence est libre
+	~Émettre tout de suite, puisque personne ne possède la fréquence
+	~Augmenter la puissance au maximum
+	~Changer d'antenne
+}
+
+::RE0302::Que signifie « CQ » ? {
+	=C'est un appel général \: toute station qui entend peut répondre.
+	~C'est un appel de détresse.
+	~C'est la fin d'un contact.
+	~C'est une demande de changement de fréquence.
+}
+
+::RE0303::F4XAB lance un appel général. F4XCD veut lui répondre. Que dit-il ? {
+	=« F4XAB, ici F4XCD »
+	~« F4XCD, ici F4XAB »
+	~« CQ CQ, ici F4XCD »
+	~« QRT, ici F4XCD »
+}
+
+::RE0304::Dans un report RST, que donne le chiffre R ? {
+	=La lisibilité du signal, de 1 à 5
+	~La force du signal, de 1 à 9
+	~La tonalité du signal, de 1 à 9
+	~La distance du correspondant, en centaines de kilomètres
+}
+
+::RE0305::Un correspondant vous donne le report « 59 » en phonie. Que veut-il dire ? {
+	=Qu'il vous comprend parfaitement et que votre signal est très fort
+	~Qu'il vous comprend à peine et que votre signal est faible
+	~Que vous êtes à 59 kilomètres de lui
+	~Que vous devez changer de fréquence
+}
+
+::RE0306::Que signifie le code QTH ? {
+	=Ma position est…
+	~Je change de fréquence.
+	~Je suis brouillé.
+	~J'arrête d'émettre.
+}
+
+::RE0307::Que signifie le code QRT ? {
+	=J'arrête d'émettre.
+	~Je suis prêt.
+	~Qui m'appelle ?
+	~J'accuse réception.
+}
+
+::RE0308::Un orage lointain produit des crépitements dans le récepteur. Quel code Q décrit cette gêne ? {
+	=QRN
+	~QRM
+	~QSY
+	~QSL
+}
+
+::RE0309::Lequel de ces renseignements doit figurer dans le carnet de trafic d'une station française ? {
+	=La fréquence utilisée
+	~La marque du microphone
+	~La météo du jour
+	~Le prix du poste
+}
+
+::RE0310::Pourquoi les radioamateurs notent-ils l'heure en UTC ? {
+	=Parce que c'est la même heure partout sur la Terre
+	~Parce que c'est l'heure de Paris
+	~Parce que l'heure légale est interdite à la radio
+	~Parce qu'elle avance d'une heure sur l'heure française
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 4 — Tension et courant
+
+::RB0401::En quelle unité mesure-t-on une tension électrique ? {
+	=En volts
+	~En ampères
+	~En watts
+	~En hertz
+}
+
+::RB0402::Quelle est la tension d'une pile ronde ordinaire ? {
+	=1,5 V
+	~9 V
+	~13,8 V
+	~230 V
+}
+
+::RB0403::En quelle unité mesure-t-on un courant électrique ? {
+	=En ampères
+	~En volts
+	~En ohms
+	~En mètres
+}
+
+::RB0404::Combien de milliampères font 1 A ? {
+	=1000
+	~100
+	~10
+	~1 000 000
+}
+
+::RB0405::Une lampe est reliée à une pile. On ouvre l'interrupteur du circuit. Que se passe-t-il ? {
+	=Le courant s'arrête et la lampe s'éteint.
+	~La lampe brille plus fort.
+	~Le courant continue de circuler par l'air.
+	~La tension de la pile tombe à zéro.
+}
+
+::RB0406::Lequel de ces matériaux est un bon conducteur ? {
+	=Le cuivre
+	~Le plastique
+	~Le verre
+	~Le caoutchouc
+}
+
+::RB0407::Dans un fil électrique, à quoi sert la gaine en plastique ? {
+	=À isoler le conducteur et à nous protéger
+	~À mieux conduire le courant
+	~À augmenter la tension
+	~À mesurer le courant
+}
+
+::RB0408::Comment branche-t-on un multimètre pour mesurer le courant qui traverse une lampe ? {
+	=En série \: on ouvre le circuit et le courant passe à travers le multimètre.
+	~En parallèle \: on pose les pointes aux bornes de la lampe.
+	~On pose les pointes directement sur les bornes de la pile.
+	~On n'a pas besoin de le brancher \: il mesure à distance.
+}
+
+::RB0409::À partir de quelle tension alternative considère-t-on une tension comme dangereuse ? {
+	=50 V
+	~1,5 V
+	~9 V
+	~1000 V
+}
+
+::RB0410::Que se passe-t-il si l'on relie directement les deux pôles d'un accumulateur par un fil ? {
+	=Un court-circuit \: le courant devient très fort et le fil peut chauffer jusqu'à brûler.
+	~Rien, car il n'y a pas de lampe.
+	~L'accumulateur se recharge.
+	~La tension double.
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 5 — La résistance et la loi d'Ohm
+
+::RB0501::En quelle unité mesure-t-on une résistance ? {
+	=En ohms
+	~En volts
+	~En ampères
+	~En watts
+}
+
+::RB0502::Combien d'ohms font 2,2 kΩ ? {
+	=2200
+	~220
+	~22
+	~22 000
+}
+
+::RB0503::Quelle relation énonce la loi d'Ohm ? {
+	=U \= R × I
+	~U \= R + I
+	~R \= U × I
+	~I \= U × R
+}
+
+::RB0504::Une résistance de 100 Ω est traversée par un courant de 0,1 A. Quelle est la tension à ses bornes ? {
+	=10 V
+	~1000 V
+	~100,1 V
+	~0,001 V
+}
+
+::RB0505::On branche une résistance de 1 kΩ sur une pile de 9 V. Quel courant la traverse ? {
+	=9 mA
+	~9 A
+	~0,9 mA
+	~9000 A
+}
+
+::RB0506::Aux bornes d'une même résistance, on double la tension. Que devient le courant ? {
+	=Il double.
+	~Il est divisé par deux.
+	~Il ne change pas.
+	~Il devient nul.
+}
+
+::RB0507::Quelle est la valeur d'une résistance marquée marron, noir, rouge, doré ? {
+	=1000 Ω
+	~102 Ω
+	~100 Ω
+	~10 Ω
+}
+
+::RB0508::Sur une résistance, que donne l'anneau doré placé à droite ? {
+	=La tolérance, ici 5 %
+	~Le premier chiffre de la valeur
+	~La puissance maximale
+	~Le sens de branchement
+}
+
+::RB0509::Sur un schéma électrique, comment reconnaît-on le symbole du voltmètre ? {
+	=Un cercle marqué d'un V
+	~Un cercle marqué d'un A
+	~Un rectangle
+	~Une flèche vers le bas
+}
+
+::RB0510::Pourquoi dessine-t-on un circuit avec des symboles plutôt que dessiner les composants réels ? {
+	=Pour que tout le monde puisse le lire de la même façon, simplement
+	~Parce que les composants réels n'ont pas de forme
+	~Pour cacher le fonctionnement du circuit
+	~Parce que la loi l'impose pour chaque dessin
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 6 — Puissance et énergie
+
+::RB0601::En quelle unité mesure-t-on une puissance ? {
+	=En watts
+	~En volts
+	~En ampères-heures
+	~En ohms
+}
+
+::RB0602::Comment calcule-t-on la puissance consommée par un appareil alimenté en courant continu ? {
+	=P \= U × I
+	~P \= U ÷ I
+	~P \= U + I
+	~P \= R ÷ U
+}
+
+::RB0603::Un poste alimenté sous 12 V consomme 2 A. Quelle puissance consomme-t-il ? {
+	=24 W
+	~6 W
+	~14 W
+	~10 W
+}
+
+::RB0604::Qu'est-ce qui distingue un accumulateur d'une pile ? {
+	=L'accumulateur se recharge, la pile ne sert qu'une fois.
+	~L'accumulateur fournit du courant alternatif.
+	~La pile se recharge, l'accumulateur ne sert qu'une fois.
+	~L'accumulateur n'a pas de pôles.
+}
+
+::RB0605::Que mesure la capacité d'un accumulateur, exprimée en mAh ? {
+	=La quantité d'électricité qu'il peut fournir avant d'être vide
+	~Sa tension
+	~Sa taille
+	~Sa résistance
+}
+
+::RB0606::Un portatif a un accu de 1500 mAh et consomme 150 mA en réception. Combien de temps peut-il écouter ? {
+	=Environ 10 heures
+	~Environ 1 heure
+	~Environ 100 heures
+	~Environ 15 minutes
+}
+
+::RB0607::Pourquoi l'autonomie réelle d'un portatif est-elle plus proche de son autonomie en réception que de son autonomie en émission ? {
+	=Parce qu'il passe la plus grande partie de son temps à écouter
+	~Parce que l'émission ne consomme rien
+	~Parce que l'accu se recharge pendant l'émission
+	~Parce que la réception consomme plus que l'émission
+}
+
+::RB0608::Quelle tension fournit le plus souvent l'alimentation d'une station de radioamateur ? {
+	=13,8 V
+	~230 V
+	~1,5 V
+	~50 V
+}
+
+::RB0609::Un poste réclame 20 A en émission. Quelle alimentation convient ? {
+	=Une alimentation de 13,8 V pouvant fournir au moins 20 A
+	~Une alimentation de 13,8 V pouvant fournir 10 A
+	~Une alimentation de 230 V pouvant fournir 20 A
+	~N'importe laquelle, le poste s'adapte
+}
+
+::RB0610::À quoi sert le fusible sur le câble d'alimentation d'un poste ? {
+	=À couper le circuit si le courant devient trop fort
+	~À augmenter la tension
+	~À filtrer les parasites
+	~À indiquer la puissance d'émission
+}
+
 $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
 
 ::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {

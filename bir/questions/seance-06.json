@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 6 — Puissance et énergie",
+     "questions": [
+      {
+       "number": "RB0601",
+       "class": "BIR",
+       "question": "En quelle unité mesure-t-on une puissance ?",
+       "answer_a": "En watts",
+       "answer_b": "En volts",
+       "answer_c": "En ampères-heures",
+       "answer_d": "En ohms"
+      },
+      {
+       "number": "RB0602",
+       "class": "BIR",
+       "question": "Comment calcule-t-on la puissance consommée par un appareil alimenté en courant continu ?",
+       "answer_a": "P = U × I",
+       "answer_b": "P = U ÷ I",
+       "answer_c": "P = U + I",
+       "answer_d": "P = R ÷ U"
+      },
+      {
+       "number": "RB0603",
+       "class": "BIR",
+       "question": "Un poste alimenté sous $\\qty{12}{\\volt}$ consomme $\\qty{2}{\\ampere}$. Quelle puissance consomme-t-il ?",
+       "answer_a": "$\\qty{24}{\\watt}$",
+       "answer_b": "$\\qty{6}{\\watt}$",
+       "answer_c": "$\\qty{14}{\\watt}$",
+       "answer_d": "$\\qty{10}{\\watt}$"
+      },
+      {
+       "number": "RB0604",
+       "class": "BIR",
+       "question": "Qu'est-ce qui distingue un accumulateur d'une pile ?",
+       "answer_a": "L'accumulateur se recharge, la pile ne sert qu'une fois.",
+       "answer_b": "L'accumulateur fournit du courant alternatif.",
+       "answer_c": "La pile se recharge, l'accumulateur ne sert qu'une fois.",
+       "answer_d": "L'accumulateur n'a pas de pôles."
+      },
+      {
+       "number": "RB0605",
+       "class": "BIR",
+       "question": "Que mesure la capacité d'un accumulateur, exprimée en mAh ?",
+       "answer_a": "La quantité d'électricité qu'il peut fournir avant d'être vide",
+       "answer_b": "Sa tension",
+       "answer_c": "Sa taille",
+       "answer_d": "Sa résistance"
+      },
+      {
+       "number": "RB0606",
+       "class": "BIR",
+       "question": "Un portatif a un accu de $\\qty{1500}{\\milli\\ampere\\hour}$ et consomme $\\qty{150}{\\milli\\ampere}$ en réception. Combien de temps peut-il écouter ?",
+       "answer_a": "Environ 10 heures",
+       "answer_b": "Environ 1 heure",
+       "answer_c": "Environ 100 heures",
+       "answer_d": "Environ 15 minutes"
+      },
+      {
+       "number": "RB0607",
+       "class": "BIR",
+       "question": "Pourquoi l'autonomie réelle d'un portatif est-elle plus proche de son autonomie en réception que de son autonomie en émission ?",
+       "answer_a": "Parce qu'il passe la plus grande partie de son temps à écouter",
+       "answer_b": "Parce que l'émission ne consomme rien",
+       "answer_c": "Parce que l'accu se recharge pendant l'émission",
+       "answer_d": "Parce que la réception consomme plus que l'émission"
+      },
+      {
+       "number": "RB0608",
+       "class": "BIR",
+       "question": "Quelle tension fournit le plus souvent l'alimentation d'une station de radioamateur ?",
+       "answer_a": "$\\qty{13,8}{\\volt}$",
+       "answer_b": "$\\qty{230}{\\volt}$",
+       "answer_c": "$\\qty{1,5}{\\volt}$",
+       "answer_d": "$\\qty{50}{\\volt}$"
+      },
+      {
+       "number": "RB0609",
+       "class": "BIR",
+       "question": "Un poste réclame $\\qty{20}{\\ampere}$ en émission. Quelle alimentation convient ?",
+       "answer_a": "Une alimentation de $\\qty{13,8}{\\volt}$ pouvant fournir au moins $\\qty{20}{\\ampere}$",
+       "answer_b": "Une alimentation de $\\qty{13,8}{\\volt}$ pouvant fournir $\\qty{10}{\\ampere}$",
+       "answer_c": "Une alimentation de $\\qty{230}{\\volt}$ pouvant fournir $\\qty{20}{\\ampere}$",
+       "answer_d": "N'importe laquelle, le poste s'adapte"
+      },
+      {
+       "number": "RB0610",
+       "class": "BIR",
+       "question": "À quoi sert le fusible sur le câble d'alimentation d'un poste ?",
+       "answer_a": "À couper le circuit si le courant devient trop fort",
+       "answer_b": "À augmenter la tension",
+       "answer_c": "À filtrer les parasites",
+       "answer_d": "À indiquer la puissance d'émission"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

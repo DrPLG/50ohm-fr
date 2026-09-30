@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 4 — Tension et courant",
+     "questions": [
+      {
+       "number": "RB0401",
+       "class": "BIR",
+       "question": "En quelle unité mesure-t-on une tension électrique ?",
+       "answer_a": "En volts",
+       "answer_b": "En ampères",
+       "answer_c": "En watts",
+       "answer_d": "En hertz"
+      },
+      {
+       "number": "RB0402",
+       "class": "BIR",
+       "question": "Quelle est la tension d'une pile ronde ordinaire ?",
+       "answer_a": "$\\qty{1,5}{\\volt}$",
+       "answer_b": "$\\qty{9}{\\volt}$",
+       "answer_c": "$\\qty{13,8}{\\volt}$",
+       "answer_d": "$\\qty{230}{\\volt}$"
+      },
+      {
+       "number": "RB0403",
+       "class": "BIR",
+       "question": "En quelle unité mesure-t-on un courant électrique ?",
+       "answer_a": "En ampères",
+       "answer_b": "En volts",
+       "answer_c": "En ohms",
+       "answer_d": "En mètres"
+      },
+      {
+       "number": "RB0404",
+       "class": "BIR",
+       "question": "Combien de milliampères font $\\qty{1}{\\ampere}$ ?",
+       "answer_a": "1000",
+       "answer_b": "100",
+       "answer_c": "10",
+       "answer_d": "1 000 000"
+      },
+      {
+       "number": "RB0405",
+       "class": "BIR",
+       "question": "Une lampe est reliée à une pile. On ouvre l'interrupteur du circuit. Que se passe-t-il ?",
+       "answer_a": "Le courant s'arrête et la lampe s'éteint.",
+       "answer_b": "La lampe brille plus fort.",
+       "answer_c": "Le courant continue de circuler par l'air.",
+       "answer_d": "La tension de la pile tombe à zéro."
+      },
+      {
+       "number": "RB0406",
+       "class": "BIR",
+       "question": "Lequel de ces matériaux est un bon conducteur ?",
+       "answer_a": "Le cuivre",
+       "answer_b": "Le plastique",
+       "answer_c": "Le verre",
+       "answer_d": "Le caoutchouc"
+      },
+      {
+       "number": "RB0407",
+       "class": "BIR",
+       "question": "Dans un fil électrique, à quoi sert la gaine en plastique ?",
+       "answer_a": "À isoler le conducteur et à nous protéger",
+       "answer_b": "À mieux conduire le courant",
+       "answer_c": "À augmenter la tension",
+       "answer_d": "À mesurer le courant"
+      },
+      {
+       "number": "RB0408",
+       "class": "BIR",
+       "question": "Comment branche-t-on un multimètre pour mesurer le courant qui traverse une lampe ?",
+       "answer_a": "En série : on ouvre le circuit et le courant passe à travers le multimètre.",
+       "answer_b": "En parallèle : on pose les pointes aux bornes de la lampe.",
+       "answer_c": "On pose les pointes directement sur les bornes de la pile.",
+       "answer_d": "On n'a pas besoin de le brancher : il mesure à distance."
+      },
+      {
+       "number": "RB0409",
+       "class": "BIR",
+       "question": "À partir de quelle tension alternative considère-t-on une tension comme dangereuse ?",
+       "answer_a": "$\\qty{50}{\\volt}$",
+       "answer_b": "$\\qty{1,5}{\\volt}$",
+       "answer_c": "$\\qty{9}{\\volt}$",
+       "answer_d": "$\\qty{1000}{\\volt}$"
+      },
+      {
+       "number": "RB0410",
+       "class": "BIR",
+       "question": "Que se passe-t-il si l'on relie directement les deux pôles d'un accumulateur par un fil ?",
+       "answer_a": "Un court-circuit : le courant devient très fort et le fil peut chauffer jusqu'à brûler.",
+       "answer_b": "Rien, car il n'y a pas de lampe.",
+       "answer_c": "L'accumulateur se recharge.",
+       "answer_d": "La tension double."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
