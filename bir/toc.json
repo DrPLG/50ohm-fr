@@ -69,7 +69,17 @@
     {"ident": "bir_l_alimentation", "title": "L'alimentation"}
    ]
   },
-  {"ident": "bir_07", "title": "Du courant alternatif à l'onde", "sections": []},
+  {
+   "ident": "bir_07",
+   "title": "Du courant alternatif à l'onde",
+   "abstract": "Une onde radio naît d'un courant qui change de sens des millions de fois par seconde. Nous découvrons le courant alternatif, apprenons à mesurer sa fréquence et sa période, puis suivons l'onde qui quitte l'antenne et calculons sa longueur d'onde.",
+   "sections": [
+    {"ident": "bir_continu_et_alternatif", "title": "Continu et alternatif"},
+    {"ident": "bir_frequence_et_periode", "title": "Fréquence et période"},
+    {"ident": "bir_l_onde_radio", "title": "L'onde radio"},
+    {"ident": "bir_la_longueur_d_onde", "title": "La longueur d'onde"}
+   ]
+  },
   {
    "ident": "bir_08",
    "title": "Le spectre et les bandes",
@@ -81,13 +91,80 @@
     {"ident": "bir_lire_une_chute_d_eau", "title": "Lire un spectre et une chute d'eau"}
    ]
   },
-  {"ident": "bir_09", "title": "La propagation à vue", "sections": []},
-  {"ident": "bir_10", "title": "Les ondes courtes et l'ionosphère", "sections": []},
-  {"ident": "bir_11", "title": "Moduler : transporter la voix", "sections": []},
-  {"ident": "bir_12", "title": "Le Morse", "sections": []},
-  {"ident": "bir_13", "title": "Les modes numériques et l'image", "sections": []},
-  {"ident": "bir_14", "title": "Les antennes : principes", "sections": []},
-  {"ident": "bir_15", "title": "Construire son antenne", "sections": []},
+  {
+   "ident": "bir_09",
+   "title": "La propagation à vue",
+   "abstract": "En VHF et en UHF, les ondes vont presque en ligne droite. Nous découvrons ce qui limite leur portée, la courbure de la Terre, le relief et les murs, ce qui l'allonge parfois, et comment les relais permettent d'aller plus loin.",
+   "sections": [
+    {"ident": "bir_l_horizon_radio", "title": "L'horizon radio"},
+    {"ident": "bir_relief_et_obstacles", "title": "Relief et obstacles"},
+    {"ident": "bir_la_troposphere", "title": "La troposphère"},
+    {"ident": "bir_les_relais", "title": "Les relais"}
+   ]
+  },
+  {
+   "ident": "bir_10",
+   "title": "Les ondes courtes et l'ionosphère",
+   "abstract": "Avec un simple fil tendu, on peut parler à l'autre bout du monde. Nous découvrons comment l'ionosphère renvoie les ondes courtes vers la Terre, pourquoi tout change entre le jour et la nuit, et comment les balises nous disent où la radio passe.",
+   "sections": [
+    {"ident": "bir_l_ionosphere", "title": "L'ionosphère"},
+    {"ident": "bir_le_bond", "title": "Le bond"},
+    {"ident": "bir_jour_et_nuit", "title": "Le jour et la nuit"},
+    {"ident": "bir_les_balises", "title": "Balises et contacts lointains"}
+   ]
+  },
+  {
+   "ident": "bir_11",
+   "title": "Moduler : transporter la voix",
+   "abstract": "Une onde radio seule ne dit rien : il faut lui confier la voix. Nous voyons comment le microphone change la voix en électricité, puis comment l'AM, la FM et la bande latérale unique la transportent, et quelle place chacune prend dans le spectre.",
+   "sections": [
+    {"ident": "bir_le_signal_vocal", "title": "Le signal de la voix"},
+    {"ident": "bir_am_et_fm", "title": "AM et FM"},
+    {"ident": "bir_la_bande_laterale_unique", "title": "La bande latérale unique"},
+    {"ident": "bir_la_largeur_de_bande", "title": "La largeur de bande"}
+   ]
+  },
+  {
+   "ident": "bir_12",
+   "title": "Le Morse",
+   "abstract": "Le plus ancien des modes radio est toujours pratiqué. Nous apprenons le code Morse et son rythme, nous découvrons le signal de détresse SOS, et nous comprenons pourquoi un signal Morse passe là où la voix ne passe plus.",
+   "sections": [
+    {"ident": "bir_le_code_morse", "title": "Le code Morse"},
+    {"ident": "bir_sos", "title": "SOS"},
+    {"ident": "bir_pourquoi_le_morse_passe", "title": "Pourquoi le Morse passe"}
+   ]
+  },
+  {
+   "ident": "bir_13",
+   "title": "Les modes numériques et l'image",
+   "abstract": "La radio transporte aussi des nombres. Nous découvrons la différence entre analogique et numérique, les modes où l'ordinateur décode ce que l'oreille n'entend pas, la voix numérique, et la transmission d'images par radio.",
+   "sections": [
+    {"ident": "bir_analogique_et_numerique", "title": "Analogique et numérique"},
+    {"ident": "bir_les_modes_par_ordinateur", "title": "Les modes par ordinateur"},
+    {"ident": "bir_la_voix_numerique", "title": "La voix numérique"},
+    {"ident": "bir_la_sstv", "title": "Des images par radio"}
+   ]
+  },
+  {
+   "ident": "bir_14",
+   "title": "Les antennes : principes",
+   "abstract": "L'antenne est la pièce maîtresse de toute station. Nous découvrons ce qu'elle fait, pourquoi sa taille dépend de la fréquence, comment calculer la plus classique d'entre elles, le dipôle demi-onde, et pourquoi son orientation compte.",
+   "sections": [
+    {"ident": "bir_le_role_de_l_antenne", "title": "Le rôle de l'antenne"},
+    {"ident": "bir_le_dipole_demi_onde", "title": "Le dipôle demi-onde"},
+    {"ident": "bir_la_polarisation", "title": "La polarisation"}
+   ]
+  },
+  {
+   "ident": "bir_15",
+   "title": "Construire son antenne",
+   "abstract": "Toutes les antennes ne rayonnent pas de la même façon. Nous apprenons à lire un diagramme de rayonnement, à distinguer une antenne omnidirectionnelle d'une antenne directive, et nous transformons notre dipôle en antenne Yagi.",
+   "sections": [
+    {"ident": "bir_omnidirectionnelle_ou_directive", "title": "Omnidirectionnelle ou directive"},
+    {"ident": "bir_l_antenne_yagi", "title": "L'antenne Yagi"},
+    {"ident": "bir_installer_une_antenne", "title": "Installer une antenne"}
+   ]
+  },
   {"ident": "bir_16", "title": "Câbles, connecteurs et réglage", "sections": []},
   {"ident": "bir_17", "title": "Le récepteur", "sections": []},
   {"ident": "bir_18", "title": "L'émetteur", "sections": []},

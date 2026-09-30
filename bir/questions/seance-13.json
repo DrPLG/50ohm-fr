@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 13 — Les modes numériques et l'image",
+     "questions": [
+      {
+       "number": "RD1301",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'un signal numérique ?",
+       "answer_a": "Un signal formé d'une suite de nombres, écrits avec des 0 et des 1",
+       "answer_b": "Un signal qui varie de façon continue, comme la voix",
+       "answer_c": "Un signal qu'on ne peut transmettre que par câble",
+       "answer_d": "Un signal émis uniquement par les satellites"
+      },
+      {
+       "number": "RD1302",
+       "class": "BIR",
+       "question": "Comment appelle-t-on un chiffre binaire, 0 ou 1 ?",
+       "answer_a": "Un bit",
+       "answer_b": "Un hertz",
+       "answer_c": "Un pixel",
+       "answer_d": "Un volt"
+      },
+      {
+       "number": "RD1303",
+       "class": "BIR",
+       "question": "Que faut-il ajouter à un poste de radioamateur pour pratiquer les modes numériques comme le FT8 ?",
+       "answer_a": "Un ordinateur relié au poste, avec le logiciel du mode",
+       "answer_b": "Une deuxième antenne",
+       "answer_c": "Un microphone plus sensible",
+       "answer_d": "Rien : le FT8 se décode à l'oreille"
+      },
+      {
+       "number": "RD1304",
+       "class": "BIR",
+       "question": "Quelle est la particularité du mode FT8 ?",
+       "answer_a": "Il décode des signaux trop faibles pour être entendus à l'oreille.",
+       "answer_b": "Il permet de longues conversations au clavier.",
+       "answer_c": "Il transmet des images en couleur.",
+       "answer_d": "Il ne fonctionne qu'en VHF."
+      },
+      {
+       "number": "RD1305",
+       "class": "BIR",
+       "question": "En FT8, combien de temps dure une tranche d'émission ?",
+       "answer_a": "Quinze secondes",
+       "answer_b": "Une heure",
+       "answer_c": "Une seconde",
+       "answer_d": "Dix minutes"
+      },
+      {
+       "number": "RD1306",
+       "class": "BIR",
+       "question": "Deux radioamateurs utilisent des systèmes de voix numérique différents. Peuvent-ils se parler directement ?",
+       "answer_a": "Non : il faut, de part et d'autre, un poste du même système.",
+       "answer_b": "Oui, toujours, les systèmes sont compatibles.",
+       "answer_c": "Oui, à condition de parler lentement.",
+       "answer_d": "Oui, mais seulement la nuit."
+      },
+      {
+       "number": "RD1307",
+       "class": "BIR",
+       "question": "Que se passe-t-il quand un signal de voix numérique devient trop faible ?",
+       "answer_a": "Le son se hache, puis disparaît d'un coup.",
+       "answer_b": "Le son devient simplement de plus en plus soufflé.",
+       "answer_c": "La voix passe automatiquement en Morse.",
+       "answer_d": "Le poste augmente sa puissance tout seul."
+      },
+      {
+       "number": "RD1308",
+       "class": "BIR",
+       "question": "Que signifie SSTV ?",
+       "answer_a": "Télévision à balayage lent : la transmission d'images fixes, ligne par ligne",
+       "answer_b": "Station de secours de télévision",
+       "answer_c": "Signal sans transmission de voix",
+       "answer_d": "Satellite de télécommunication"
+      },
+      {
+       "number": "RD1309",
+       "class": "BIR",
+       "question": "Combien de temps faut-il environ pour transmettre une image en SSTV ?",
+       "answer_a": "Une à deux minutes",
+       "answer_b": "Un millième de seconde",
+       "answer_c": "Une journée",
+       "answer_d": "Une heure"
+      },
+      {
+       "number": "RD1310",
+       "class": "BIR",
+       "question": "De quoi a-t-on besoin pour recevoir une image SSTV émise par la Station spatiale internationale ?",
+       "answer_a": "D'un récepteur pour la bande des $\\qty{2}{\\meter}$, d'une antenne et d'un logiciel de décodage",
+       "answer_b": "D'une parabole de plusieurs mètres",
+       "answer_c": "D'une autorisation de l'agence spatiale",
+       "answer_d": "D'un indicatif de radioamateur"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

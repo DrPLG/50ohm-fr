@@ -28,10 +28,10 @@
        "number": "RB0603",
        "class": "BIR",
        "question": "Un poste alimenté sous $\\qty{12}{\\volt}$ consomme $\\qty{2}{\\ampere}$. Quelle puissance consomme-t-il ?",
-       "answer_a": "$\\qty{24}{\\watt}$",
-       "answer_b": "$\\qty{6}{\\watt}$",
-       "answer_c": "$\\qty{14}{\\watt}$",
-       "answer_d": "$\\qty{10}{\\watt}$"
+       "answer_a": "24 W",
+       "answer_b": "6 W",
+       "answer_c": "14 W",
+       "answer_d": "10 W"
       },
       {
        "number": "RB0604",
@@ -73,10 +73,10 @@
        "number": "RB0608",
        "class": "BIR",
        "question": "Quelle tension fournit le plus souvent l'alimentation d'une station de radioamateur ?",
-       "answer_a": "$\\qty{13,8}{\\volt}$",
-       "answer_b": "$\\qty{230}{\\volt}$",
-       "answer_c": "$\\qty{1,5}{\\volt}$",
-       "answer_d": "$\\qty{50}{\\volt}$"
+       "answer_a": "13,8 V",
+       "answer_b": "230 V",
+       "answer_c": "1,5 V",
+       "answer_d": "50 V"
       },
       {
        "number": "RB0609",

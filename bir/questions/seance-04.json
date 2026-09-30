@@ -19,10 +19,10 @@
        "number": "RB0402",
        "class": "BIR",
        "question": "Quelle est la tension d'une pile ronde ordinaire ?",
-       "answer_a": "$\\qty{1,5}{\\volt}$",
-       "answer_b": "$\\qty{9}{\\volt}$",
-       "answer_c": "$\\qty{13,8}{\\volt}$",
-       "answer_d": "$\\qty{230}{\\volt}$"
+       "answer_a": "1,5 V",
+       "answer_b": "9 V",
+       "answer_c": "13,8 V",
+       "answer_d": "230 V"
       },
       {
        "number": "RB0403",
@@ -82,10 +82,10 @@
        "number": "RB0409",
        "class": "BIR",
        "question": "À partir de quelle tension alternative considère-t-on une tension comme dangereuse ?",
-       "answer_a": "$\\qty{50}{\\volt}$",
-       "answer_b": "$\\qty{1,5}{\\volt}$",
-       "answer_c": "$\\qty{9}{\\volt}$",
-       "answer_d": "$\\qty{1000}{\\volt}$"
+       "answer_a": "50 V",
+       "answer_b": "1,5 V",
+       "answer_c": "9 V",
+       "answer_d": "1000 V"
       },
       {
        "number": "RB0410",

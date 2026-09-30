@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine C — Ondes, spectre et propagation",
+   "sections": [
+    {
+     "title": "Séance 7 — Du courant alternatif à l'onde",
+     "questions": [
+      {
+       "number": "RC0701",
+       "class": "BIR",
+       "question": "Qu'est-ce qui distingue le courant alternatif du courant continu ?",
+       "answer_a": "Le courant alternatif change sans cesse de sens ; le courant continu garde toujours le même.",
+       "answer_b": "Le courant alternatif est toujours plus faible.",
+       "answer_c": "Le courant continu vient du secteur, le courant alternatif des piles.",
+       "answer_d": "Le courant alternatif ne circule que dans les antennes."
+      },
+      {
+       "number": "RC0702",
+       "class": "BIR",
+       "question": "Sur l'écran d'un oscilloscope, que représente l'axe horizontal ?",
+       "answer_a": "Le temps",
+       "answer_b": "La fréquence",
+       "answer_c": "La tension",
+       "answer_d": "La longueur d'onde"
+      },
+      {
+       "number": "RC0703",
+       "class": "BIR",
+       "question": "Que mesure la fréquence d'une tension alternative ?",
+       "answer_a": "Le nombre d'oscillations complètes par seconde",
+       "answer_b": "La durée d'une oscillation",
+       "answer_c": "La hauteur de la courbe",
+       "answer_d": "La distance parcourue par l'onde"
+      },
+      {
+       "number": "RC0704",
+       "class": "BIR",
+       "question": "Quelle est la période d'une tension de fréquence $\\qty{50}{\\hertz}$ ?",
+       "answer_a": "0,02 s",
+       "answer_b": "50 s",
+       "answer_c": "0,5 s",
+       "answer_d": "2 s"
+      },
+      {
+       "number": "RC0705",
+       "class": "BIR",
+       "question": "Combien de hertz font $\\qty{1}{\\mega\\hertz}$ ?",
+       "answer_a": "1 000 000",
+       "answer_b": "1 000",
+       "answer_c": "100",
+       "answer_d": "1 000 000 000"
+      },
+      {
+       "number": "RC0706",
+       "class": "BIR",
+       "question": "À quelle vitesse se propage une onde radio ?",
+       "answer_a": "À la vitesse de la lumière, environ $\\qty{300000}{\\kilo\\meter}$ par seconde",
+       "answer_b": "À la vitesse du son, environ $\\qty{340}{\\meter}$ par seconde",
+       "answer_c": "À $\\qty{300}{\\kilo\\meter}$ par heure",
+       "answer_d": "Sa vitesse dépend de la puissance de l'émetteur"
+      },
+      {
+       "number": "RC0707",
+       "class": "BIR",
+       "question": "Une onde radio a-t-elle besoin d'air pour se propager ?",
+       "answer_a": "Non : elle se propage aussi dans le vide.",
+       "answer_b": "Oui : sans air, elle s'arrête.",
+       "answer_c": "Oui, sauf la nuit.",
+       "answer_d": "Seulement si sa fréquence est basse."
+      },
+      {
+       "number": "RC0708",
+       "class": "BIR",
+       "question": "Quelle est la longueur d'onde d'un signal de $\\qty{150}{\\mega\\hertz}$ ?",
+       "answer_a": "2 m",
+       "answer_b": "150 m",
+       "answer_c": "0,5 m",
+       "answer_d": "20 m"
+      },
+      {
+       "number": "RC0709",
+       "class": "BIR",
+       "question": "Quand la fréquence augmente, que devient la longueur d'onde ?",
+       "answer_a": "Elle diminue.",
+       "answer_b": "Elle augmente.",
+       "answer_c": "Elle ne change pas.",
+       "answer_d": "Elle devient nulle."
+      },
+      {
+       "number": "RC0710",
+       "class": "BIR",
+       "question": "Quelle est la fréquence d'une onde de $\\qty{10}{\\meter}$ de longueur ?",
+       "answer_a": "30 MHz",
+       "answer_b": "3 MHz",
+       "answer_c": "300 MHz",
+       "answer_d": "3000 MHz"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

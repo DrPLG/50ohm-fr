@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 15 — Construire son antenne",
+     "questions": [
+      {
+       "number": "RD1501",
+       "class": "BIR",
+       "question": "Que représente le diagramme de rayonnement d'une antenne ?",
+       "answer_a": "La force de l'onde émise dans chaque direction autour de l'antenne",
+       "answer_b": "Le schéma électrique de l'antenne",
+       "answer_c": "La liste des fréquences qu'elle reçoit",
+       "answer_d": "La hauteur à laquelle il faut l'installer"
+      },
+      {
+       "number": "RD1502",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'une antenne omnidirectionnelle ?",
+       "answer_a": "Une antenne qui rayonne de la même façon dans toutes les directions autour d'elle",
+       "answer_b": "Une antenne qui ne rayonne que dans une direction",
+       "answer_c": "Une antenne qui fonctionne sur toutes les fréquences",
+       "answer_d": "Une antenne qui tourne sur elle-même"
+      },
+      {
+       "number": "RD1503",
+       "class": "BIR",
+       "question": "Pour un relais qui doit desservir toute une région, quelle antenne choisit-on ?",
+       "answer_a": "Une antenne verticale omnidirectionnelle",
+       "answer_b": "Une antenne Yagi pointée vers le nord",
+       "answer_c": "Une antenne horizontale dirigée vers la mer",
+       "answer_d": "Aucune : un relais n'a pas d'antenne"
+      },
+      {
+       "number": "RD1504",
+       "class": "BIR",
+       "question": "Dans une antenne Yagi, quel élément est relié au câble ?",
+       "answer_a": "Le radiateur",
+       "answer_b": "Le réflecteur",
+       "answer_c": "Le directeur",
+       "answer_d": "Tous les éléments"
+      },
+      {
+       "number": "RD1505",
+       "class": "BIR",
+       "question": "Dans une antenne Yagi, où se trouve le réflecteur ?",
+       "answer_a": "Derrière le radiateur, à l'opposé de la direction de rayonnement",
+       "answer_b": "Devant le radiateur, du côté de la direction de rayonnement",
+       "answer_c": "Au sommet du mât",
+       "answer_d": "Dans le poste"
+      },
+      {
+       "number": "RD1506",
+       "class": "BIR",
+       "question": "Que se passe-t-il quand on ajoute des directeurs à une antenne Yagi ?",
+       "answer_a": "Le faisceau devient plus étroit et l'antenne porte plus loin dans sa direction.",
+       "answer_b": "L'antenne devient omnidirectionnelle.",
+       "answer_c": "L'antenne consomme plus d'électricité.",
+       "answer_d": "L'antenne change de bande."
+      },
+      {
+       "number": "RD1507",
+       "class": "BIR",
+       "question": "Le gain d'une antenne directive crée-t-il de l'énergie ?",
+       "answer_a": "Non : il concentre dans une direction la même puissance, au détriment des autres.",
+       "answer_b": "Oui : l'antenne multiplie la puissance de l'émetteur.",
+       "answer_c": "Oui, mais seulement en réception.",
+       "answer_d": "Oui, grâce à une pile cachée dans l'antenne."
+      },
+      {
+       "number": "RD1508",
+       "class": "BIR",
+       "question": "Pourquoi installe-t-on de préférence une antenne VHF en hauteur ?",
+       "answer_a": "Parce que les ondes VHF vont en ligne droite et que les obstacles les arrêtent",
+       "answer_b": "Pour qu'elle sèche plus vite après la pluie",
+       "answer_c": "Parce que la loi interdit les antennes au sol",
+       "answer_d": "Pour qu'elle consomme moins"
+      },
+      {
+       "number": "RD1509",
+       "class": "BIR",
+       "question": "À quoi sert un rotor d'antenne ?",
+       "answer_a": "À tourner une antenne directive vers le correspondant depuis la station",
+       "answer_b": "À refroidir l'émetteur",
+       "answer_c": "À enrouler le câble",
+       "answer_d": "À changer la polarisation automatiquement toutes les minutes"
+      },
+      {
+       "number": "RD1510",
+       "class": "BIR",
+       "question": "Quelle précaution est indispensable lors de l'installation d'une antenne extérieure ?",
+       "answer_a": "S'éloigner de toute ligne électrique",
+       "answer_b": "Peindre l'antenne en rouge",
+       "answer_c": "L'installer pendant un orage pour tester la foudre",
+       "answer_d": "Travailler seul pour ne déranger personne"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

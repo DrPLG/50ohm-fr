@@ -37,19 +37,19 @@
        "number": "RB0504",
        "class": "BIR",
        "question": "Une résistance de $\\qty{100}{\\ohm}$ est traversée par un courant de $\\qty{0,1}{\\ampere}$. Quelle est la tension à ses bornes ?",
-       "answer_a": "$\\qty{10}{\\volt}$",
-       "answer_b": "$\\qty{1000}{\\volt}$",
-       "answer_c": "$\\qty{100,1}{\\volt}$",
-       "answer_d": "$\\qty{0,001}{\\volt}$"
+       "answer_a": "10 V",
+       "answer_b": "1000 V",
+       "answer_c": "100,1 V",
+       "answer_d": "0,001 V"
       },
       {
        "number": "RB0505",
        "class": "BIR",
        "question": "On branche une résistance de $\\qty{1}{\\kilo\\ohm}$ sur une pile de $\\qty{9}{\\volt}$. Quel courant la traverse ?",
-       "answer_a": "$\\qty{9}{\\milli\\ampere}$",
-       "answer_b": "$\\qty{9}{\\ampere}$",
-       "answer_c": "$\\qty{0,9}{\\milli\\ampere}$",
-       "answer_d": "$\\qty{9000}{\\ampere}$"
+       "answer_a": "9 mA",
+       "answer_b": "9 A",
+       "answer_c": "0,9 mA",
+       "answer_d": "9000 A"
       },
       {
        "number": "RB0506",
@@ -64,10 +64,10 @@
        "number": "RB0507",
        "class": "BIR",
        "question": "Quelle est la valeur d'une résistance marquée marron, noir, rouge, doré ?",
-       "answer_a": "$\\qty{1000}{\\ohm}$",
-       "answer_b": "$\\qty{102}{\\ohm}$",
-       "answer_c": "$\\qty{100}{\\ohm}$",
-       "answer_d": "$\\qty{10}{\\ohm}$"
+       "answer_a": "1000 Ω",
+       "answer_b": "102 Ω",
+       "answer_c": "100 Ω",
+       "answer_d": "10 Ω"
       },
       {
        "number": "RB0508",

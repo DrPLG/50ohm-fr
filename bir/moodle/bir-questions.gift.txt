@@ -432,6 +432,78 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 6 — Puissa
 	~À indiquer la puissance d'émission
 }
 
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 7 — Du courant alternatif à l'onde
+
+::RC0701::Qu'est-ce qui distingue le courant alternatif du courant continu ? {
+	=Le courant alternatif change sans cesse de sens ; le courant continu garde toujours le même.
+	~Le courant alternatif est toujours plus faible.
+	~Le courant continu vient du secteur, le courant alternatif des piles.
+	~Le courant alternatif ne circule que dans les antennes.
+}
+
+::RC0702::Sur l'écran d'un oscilloscope, que représente l'axe horizontal ? {
+	=Le temps
+	~La fréquence
+	~La tension
+	~La longueur d'onde
+}
+
+::RC0703::Que mesure la fréquence d'une tension alternative ? {
+	=Le nombre d'oscillations complètes par seconde
+	~La durée d'une oscillation
+	~La hauteur de la courbe
+	~La distance parcourue par l'onde
+}
+
+::RC0704::Quelle est la période d'une tension de fréquence 50 Hz ? {
+	=0,02 s
+	~50 s
+	~0,5 s
+	~2 s
+}
+
+::RC0705::Combien de hertz font 1 MHz ? {
+	=1 000 000
+	~1 000
+	~100
+	~1 000 000 000
+}
+
+::RC0706::À quelle vitesse se propage une onde radio ? {
+	=À la vitesse de la lumière, environ 300000 km par seconde
+	~À la vitesse du son, environ 340 m par seconde
+	~À 300 km par heure
+	~Sa vitesse dépend de la puissance de l'émetteur
+}
+
+::RC0707::Une onde radio a-t-elle besoin d'air pour se propager ? {
+	=Non \: elle se propage aussi dans le vide.
+	~Oui \: sans air, elle s'arrête.
+	~Oui, sauf la nuit.
+	~Seulement si sa fréquence est basse.
+}
+
+::RC0708::Quelle est la longueur d'onde d'un signal de 150 MHz ? {
+	=2 m
+	~150 m
+	~0,5 m
+	~20 m
+}
+
+::RC0709::Quand la fréquence augmente, que devient la longueur d'onde ? {
+	=Elle diminue.
+	~Elle augmente.
+	~Elle ne change pas.
+	~Elle devient nulle.
+}
+
+::RC0710::Quelle est la fréquence d'une onde de 10 m de longueur ? {
+	=30 MHz
+	~3 MHz
+	~300 MHz
+	~3000 MHz
+}
+
 $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
 
 ::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {
@@ -502,4 +574,508 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spec
 	~L'Union internationale des télécommunications (UIT)
 	~Chaque opérateur de téléphonie, pour ses propres fréquences
 	~Les associations de radioamateurs
+}
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 9 — La propagation à vue
+
+::RC0901::Comment se propagent, pour l'essentiel, les ondes VHF et UHF ? {
+	=En ligne droite, un peu comme la lumière
+	~En suivant la courbure de la Terre sur des milliers de kilomètres
+	~En se réfléchissant chaque nuit sur la Lune
+	~Uniquement à travers les fils électriques
+}
+
+::RC0902::Qu'est-ce qui limite la portée d'un contact en VHF entre deux stations éloignées sur un terrain plat ? {
+	=La courbure de la Terre, qui cache une antenne à l'autre
+	~La couleur des antennes
+	~L'heure de la journée
+	~La marque des postes
+}
+
+::RC0903::Comment augmenter le plus efficacement la portée d'une station VHF ? {
+	=En plaçant l'antenne plus haut, sur un point dégagé
+	~En parlant plus fort dans le microphone
+	~En émettant plus longtemps
+	~En changeant la couleur du câble
+}
+
+::RC0904::Lequel de ces obstacles affaiblit le plus une onde UHF ? {
+	=Un mur en béton armé
+	~Une vitre ordinaire
+	~Une cloison en bois
+	~Un rideau
+}
+
+::RC0905::En ville, un signal UHF arrive parfois là où aucune ligne droite ne le permet. Pourquoi ? {
+	=Parce que les ondes se réfléchissent sur les façades
+	~Parce que les ondes traversent le sol
+	~Parce que les ondes suivent les rues comme des voitures
+	~Parce que la ville amplifie tous les signaux
+}
+
+::RC0906::Qu'est-ce qu'une inversion de température ? {
+	=Une couche d'air chaud posée sur une couche d'air froid, qui peut porter les ondes VHF très loin
+	~Un poste qui chauffe trop en émission
+	~Une panne qui inverse l'émission et la réception
+	~Le passage de l'heure d'été à l'heure d'hiver
+}
+
+::RC0907::Qu'est-ce qu'un relais radioamateur ? {
+	=Une station automatique, installée en hauteur, qui réémet ce qu'elle reçoit
+	~Un câble qui relie deux postes
+	~Un radioamateur qui transmet des messages pour des tiers
+	~Une antenne de télévision
+}
+
+::RC0908::Pourquoi installe-t-on un relais sur un point haut ? {
+	=Pour qu'il soit en vue du plus grand nombre de stations
+	~Pour qu'il soit à l'abri de la pluie
+	~Pour qu'il consomme moins d'électricité
+	~Parce que la loi l'interdit en plaine
+}
+
+::RC0909::Pour utiliser un relais, sur quelle fréquence émet-on ? {
+	=Sur sa fréquence d'entrée ; on l'écoute sur sa fréquence de sortie
+	~Sur sa fréquence de sortie ; on l'écoute sur sa fréquence d'entrée
+	~Sur n'importe quelle fréquence de la bande
+	~Sur la fréquence de la radio FM locale
+}
+
+::RC0910::En France, par quelle lettre commence le suffixe de l'indicatif d'un relais ? {
+	=Z
+	~K
+	~R
+	~X
+}
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 10 — Les ondes courtes et l'ionosphère
+
+::RC1001::Qu'est-ce que l'ionosphère ? {
+	=Une région de la haute atmosphère, ionisée par le Soleil
+	~La couche d'air où se forment les nuages
+	~Un satellite de télécommunication
+	~Le sol humide sous l'antenne
+}
+
+::RC1002::Qu'est-ce qui ionise l'ionosphère ? {
+	=Le rayonnement du Soleil
+	~Les émetteurs de radio
+	~Les orages
+	~Le champ magnétique des antennes
+}
+
+::RC1003::Comment une onde courte peut-elle atteindre un autre continent ? {
+	=Elle est renvoyée vers le sol par l'ionosphère, parfois en plusieurs bonds.
+	~Elle traverse la Terre en ligne droite.
+	~Elle suit les câbles sous-marins.
+	~Elle passe obligatoirement par un relais.
+}
+
+::RC1004::Qu'appelle-t-on la zone de silence ? {
+	=La zone trop éloignée pour l'onde de sol et trop proche pour l'onde renvoyée par le ciel
+	~La zone située juste sous l'antenne
+	~Une zone où il est interdit d'émettre
+	~La partie d'une bande réservée à l'écoute
+}
+
+::RC1005::En journée, quelles bandes permettent le mieux les contacts lointains ? {
+	=Les bandes hautes des ondes courtes, du 20 m au 10 m
+	~Les bandes basses, 80 m et 40 m
+	~La bande des 2 m
+	~Aucune \: les contacts lointains ne sont possibles que la nuit
+}
+
+::RC1006::Pourquoi la bande des 80 m porte-t-elle peu loin en plein jour ? {
+	=Parce que la région D de l'ionosphère, présente le jour, absorbe les fréquences basses
+	~Parce que le Soleil chauffe les antennes
+	~Parce qu'elle est fermée par la loi pendant la journée
+	~Parce que les postes émettent moins fort le jour
+}
+
+::RC1007::Combien de temps dure environ le cycle d'activité du Soleil ? {
+	=Onze ans
+	~Un jour
+	~Un mois
+	~Cent ans
+}
+
+::RC1008::Qu'est-ce qu'une balise, en radio ? {
+	=Une station automatique qui émet sans arrêt un message court sur une fréquence fixe
+	~Un panneau indiquant la fréquence d'un relais
+	~Un poste réservé aux secours en mer
+	~Une antenne sans câble
+}
+
+::RC1009::On entend une balise située au Japon. Qu'en conclut-on ? {
+	=Que la propagation est ouverte entre le Japon et nous sur cette fréquence
+	~Que notre récepteur est réglé sur l'heure japonaise
+	~Que la balise est très puissante, sinon ce serait impossible
+	~Que nous pouvons émettre sur la fréquence de la balise
+}
+
+::RC1010::Que désigne le mot DX chez les radioamateurs ? {
+	=Un contact, ou une station, très lointain
+	~Une panne de récepteur
+	~Un contact entre deux voisins
+	~Le dixième contact de la journée
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 11 — Moduler : transporter la voix
+
+::RD1101::Quel est le rôle du microphone ? {
+	=Transformer les vibrations de la voix en un signal électrique
+	~Amplifier l'onde radio
+	~Choisir la fréquence d'émission
+	~Transformer l'onde radio en son
+}
+
+::RD1102::Quelle plage de fréquences suffit pour comprendre une voix ? {
+	=De 300 Hz à 3000 Hz environ
+	~De 3 MHz à 30 MHz
+	~De 20 kHz à 200 kHz
+	~Uniquement 1000 Hz
+}
+
+::RD1103::En modulation d'amplitude (AM), qu'est-ce qui varie au rythme de la voix ? {
+	=La hauteur (l'amplitude) de la porteuse
+	~La fréquence de la porteuse
+	~La longueur de l'antenne
+	~La tension de l'alimentation
+}
+
+::RD1104::En modulation de fréquence (FM), qu'est-ce qui varie au rythme de la voix ? {
+	=La fréquence de la porteuse
+	~La hauteur (l'amplitude) de la porteuse
+	~La direction de l'antenne
+	~Le nombre de bandes latérales, qui passe à zéro
+}
+
+::RD1105::Pourquoi une réception en FM est-elle souvent plus claire qu'en AM ? {
+	=Parce que les parasites touchent surtout l'amplitude, que le récepteur FM ignore
+	~Parce qu'un émetteur FM est toujours plus puissant
+	~Parce que la FM n'utilise pas d'antenne
+	~Parce que la FM ne transmet que les sons graves
+}
+
+::RD1106::Que transmet un émetteur en bande latérale unique (SSB) ? {
+	=Une seule des deux bandes latérales, sans la porteuse
+	~La porteuse seule
+	~Les deux bandes latérales et la porteuse
+	~Uniquement du Morse
+}
+
+::RD1107::Sur la bande des 40 m, quelle bande latérale utilisent habituellement les radioamateurs en phonie ? {
+	=La bande latérale inférieure (LSB)
+	~La bande latérale supérieure (USB)
+	~Les deux à la fois
+	~Aucune \: la phonie y est interdite
+}
+
+::RD1108::Qu'appelle-t-on la largeur de bande d'un signal ? {
+	=La place qu'il occupe dans le spectre, entre sa fréquence la plus basse et la plus haute
+	~La longueur de l'antenne qui l'émet
+	~La distance qu'il peut parcourir
+	~La durée d'une émission
+}
+
+::RD1109::Lequel de ces signaux occupe la plus faible largeur de bande ? {
+	=Un signal Morse
+	~Un signal SSB
+	~Un signal FM de radioamateur
+	~Une station de radio FM musicale
+}
+
+::RD1110::Quelle est, environ, la largeur de bande d'un signal SSB ? {
+	=2,7 kHz
+	~200 kHz
+	~27 Hz
+	~2,7 MHz
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 12 — Le Morse
+
+::RD1201::En Morse, de quoi se compose chaque lettre ? {
+	=D'une suite de signaux courts et de signaux longs
+	~D'une note de musique différente pour chaque lettre
+	~D'un nombre de 1 à 26
+	~D'un mot de l'alphabet d'épellation
+}
+
+::RD1202::Quelle lettre s'écrit en Morse avec un seul point ? {
+	=E
+	~T
+	~A
+	~S
+}
+
+::RD1203::En Morse, combien de points dure un trait ? {
+	=Trois
+	~Deux
+	~Un
+	~Sept
+}
+
+::RD1204::Quelle lettre s'écrit « court, long » en Morse ? {
+	=A
+	~N
+	~E
+	~T
+}
+
+::RD1205::Comment s'écrit le signal SOS en Morse ? {
+	=Trois points, trois traits, trois points
+	~Trois traits, trois points, trois traits
+	~Un point, un trait, un point
+	~Deux points, deux traits, deux points
+}
+
+::RD1206::Un radioamateur entend un appel de détresse. Que doit-il faire ? {
+	=Cesser d'émettre, écouter, noter ce qu'il peut, et prévenir les secours
+	~Continuer son contact en parlant plus fort
+	~Répondre par un autre SOS pour s'entraîner
+	~Changer de fréquence pour ne pas être gêné
+}
+
+::RD1207::Pourquoi un signal Morse reste-t-il lisible quand une voix ne l'est plus ? {
+	=Parce qu'il occupe une très faible largeur de bande, et que le récepteur peut éliminer presque tout le bruit
+	~Parce qu'un émetteur Morse est toujours plus puissant
+	~Parce que le Morse ne passe pas par l'ionosphère
+	~Parce que le Morse n'utilise pas de porteuse
+}
+
+::RD1208::Comment appelle-t-on l'appareil avec lequel on émet du Morse ? {
+	=Un manipulateur
+	~Un microphone
+	~Un wattmètre
+	~Un multimètre
+}
+
+::RD1209::Pourquoi deux radioamateurs qui ne parlent pas la même langue peuvent-ils se comprendre en Morse ? {
+	=Parce que les contacts utilisent des abréviations et des codes Q connus de tous
+	~Parce que le Morse traduit automatiquement les langues
+	~Parce que le Morse n'utilise que des chiffres
+	~Parce que c'est impossible \: ils ne se comprennent pas
+}
+
+::RD1210::Faut-il aujourd'hui connaître le Morse pour obtenir le certificat d'opérateur en France ? {
+	=Non, la télégraphie ne fait plus partie de l'examen.
+	~Oui, à 20 mots par minute.
+	~Oui, mais seulement pour les moins de 18 ans.
+	~Oui, pour les bandes VHF seulement.
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 13 — Les modes numériques et l'image
+
+::RD1301::Qu'est-ce qu'un signal numérique ? {
+	=Un signal formé d'une suite de nombres, écrits avec des 0 et des 1
+	~Un signal qui varie de façon continue, comme la voix
+	~Un signal qu'on ne peut transmettre que par câble
+	~Un signal émis uniquement par les satellites
+}
+
+::RD1302::Comment appelle-t-on un chiffre binaire, 0 ou 1 ? {
+	=Un bit
+	~Un hertz
+	~Un pixel
+	~Un volt
+}
+
+::RD1303::Que faut-il ajouter à un poste de radioamateur pour pratiquer les modes numériques comme le FT8 ? {
+	=Un ordinateur relié au poste, avec le logiciel du mode
+	~Une deuxième antenne
+	~Un microphone plus sensible
+	~Rien \: le FT8 se décode à l'oreille
+}
+
+::RD1304::Quelle est la particularité du mode FT8 ? {
+	=Il décode des signaux trop faibles pour être entendus à l'oreille.
+	~Il permet de longues conversations au clavier.
+	~Il transmet des images en couleur.
+	~Il ne fonctionne qu'en VHF.
+}
+
+::RD1305::En FT8, combien de temps dure une tranche d'émission ? {
+	=Quinze secondes
+	~Une heure
+	~Une seconde
+	~Dix minutes
+}
+
+::RD1306::Deux radioamateurs utilisent des systèmes de voix numérique différents. Peuvent-ils se parler directement ? {
+	=Non \: il faut, de part et d'autre, un poste du même système.
+	~Oui, toujours, les systèmes sont compatibles.
+	~Oui, à condition de parler lentement.
+	~Oui, mais seulement la nuit.
+}
+
+::RD1307::Que se passe-t-il quand un signal de voix numérique devient trop faible ? {
+	=Le son se hache, puis disparaît d'un coup.
+	~Le son devient simplement de plus en plus soufflé.
+	~La voix passe automatiquement en Morse.
+	~Le poste augmente sa puissance tout seul.
+}
+
+::RD1308::Que signifie SSTV ? {
+	=Télévision à balayage lent \: la transmission d'images fixes, ligne par ligne
+	~Station de secours de télévision
+	~Signal sans transmission de voix
+	~Satellite de télécommunication
+}
+
+::RD1309::Combien de temps faut-il environ pour transmettre une image en SSTV ? {
+	=Une à deux minutes
+	~Un millième de seconde
+	~Une journée
+	~Une heure
+}
+
+::RD1310::De quoi a-t-on besoin pour recevoir une image SSTV émise par la Station spatiale internationale ? {
+	=D'un récepteur pour la bande des 2 m, d'une antenne et d'un logiciel de décodage
+	~D'une parabole de plusieurs mètres
+	~D'une autorisation de l'agence spatiale
+	~D'un indicatif de radioamateur
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 14 — Les antennes : principes
+
+::RD1401::Quel est le rôle d'une antenne en émission ? {
+	=Transformer le courant de haute fréquence en onde radio
+	~Amplifier la voix
+	~Transformer l'onde radio en son
+	~Fournir l'énergie au poste
+}
+
+::RD1402::Une même antenne peut-elle servir à émettre et à recevoir ? {
+	=Oui, et elle reçoit bien dans les directions où elle émet bien.
+	~Non, il faut toujours deux antennes.
+	~Oui, mais seulement en Morse.
+	~Non, une antenne de réception ne supporte pas l'émission, quelle qu'elle soit.
+}
+
+::RD1403::Quelle est la longueur totale d'un dipôle demi-onde ? {
+	=Environ une demi-longueur d'onde
+	~Environ une longueur d'onde entière
+	~Environ un dixième de longueur d'onde
+	~Toujours 1 m, quelle que soit la fréquence
+}
+
+::RD1404::Où le câble est-il raccordé sur un dipôle demi-onde ? {
+	=Au centre, entre les deux brins
+	~À une extrémité
+	~Aux deux extrémités
+	~Il n'y a pas de câble \: le dipôle rayonne seul
+}
+
+::RD1405::Environ combien mesure chaque brin d'un dipôle pour 145 MHz ? {
+	=49 cm
+	~2 m
+	~5 cm
+	~10 m
+}
+
+::RD1406::Pourquoi coupe-t-on un dipôle un peu plus court que la demi-longueur d'onde calculée ? {
+	=Parce que l'onde circule un peu moins vite dans le métal et que les extrémités l'allongent
+	~Pour qu'il soit moins lourd
+	~Pour qu'il émette moins de puissance
+	~Pour qu'il ne touche pas le sol
+}
+
+::RD1407::Qu'est-ce qui fixe la polarisation d'une onde radio ? {
+	=L'orientation des brins de l'antenne qui l'émet
+	~La puissance de l'émetteur
+	~La longueur du câble
+	~L'heure de l'émission
+}
+
+::RD1408::Une antenne verticale émet une onde à polarisation… {
+	=verticale
+	~horizontale
+	~circulaire, toujours
+	~sans polarisation
+}
+
+::RD1409::Que se passe-t-il si l'antenne d'émission est verticale et celle de réception horizontale ? {
+	=Le signal reçu est beaucoup plus faible.
+	~Le signal reçu est plus fort.
+	~Rien ne change.
+	~Le poste se met en panne.
+}
+
+::RD1410::Quelle polarisation utilisent habituellement les relais et les portatifs en VHF ? {
+	=La polarisation verticale
+	~La polarisation horizontale
+	~Aucune
+	~Elle change à chaque contact
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 15 — Construire son antenne
+
+::RD1501::Que représente le diagramme de rayonnement d'une antenne ? {
+	=La force de l'onde émise dans chaque direction autour de l'antenne
+	~Le schéma électrique de l'antenne
+	~La liste des fréquences qu'elle reçoit
+	~La hauteur à laquelle il faut l'installer
+}
+
+::RD1502::Qu'est-ce qu'une antenne omnidirectionnelle ? {
+	=Une antenne qui rayonne de la même façon dans toutes les directions autour d'elle
+	~Une antenne qui ne rayonne que dans une direction
+	~Une antenne qui fonctionne sur toutes les fréquences
+	~Une antenne qui tourne sur elle-même
+}
+
+::RD1503::Pour un relais qui doit desservir toute une région, quelle antenne choisit-on ? {
+	=Une antenne verticale omnidirectionnelle
+	~Une antenne Yagi pointée vers le nord
+	~Une antenne horizontale dirigée vers la mer
+	~Aucune \: un relais n'a pas d'antenne
+}
+
+::RD1504::Dans une antenne Yagi, quel élément est relié au câble ? {
+	=Le radiateur
+	~Le réflecteur
+	~Le directeur
+	~Tous les éléments
+}
+
+::RD1505::Dans une antenne Yagi, où se trouve le réflecteur ? {
+	=Derrière le radiateur, à l'opposé de la direction de rayonnement
+	~Devant le radiateur, du côté de la direction de rayonnement
+	~Au sommet du mât
+	~Dans le poste
+}
+
+::RD1506::Que se passe-t-il quand on ajoute des directeurs à une antenne Yagi ? {
+	=Le faisceau devient plus étroit et l'antenne porte plus loin dans sa direction.
+	~L'antenne devient omnidirectionnelle.
+	~L'antenne consomme plus d'électricité.
+	~L'antenne change de bande.
+}
+
+::RD1507::Le gain d'une antenne directive crée-t-il de l'énergie ? {
+	=Non \: il concentre dans une direction la même puissance, au détriment des autres.
+	~Oui \: l'antenne multiplie la puissance de l'émetteur.
+	~Oui, mais seulement en réception.
+	~Oui, grâce à une pile cachée dans l'antenne.
+}
+
+::RD1508::Pourquoi installe-t-on de préférence une antenne VHF en hauteur ? {
+	=Parce que les ondes VHF vont en ligne droite et que les obstacles les arrêtent
+	~Pour qu'elle sèche plus vite après la pluie
+	~Parce que la loi interdit les antennes au sol
+	~Pour qu'elle consomme moins
+}
+
+::RD1509::À quoi sert un rotor d'antenne ? {
+	=À tourner une antenne directive vers le correspondant depuis la station
+	~À refroidir l'émetteur
+	~À enrouler le câble
+	~À changer la polarisation automatiquement toutes les minutes
+}
+
+::RD1510::Quelle précaution est indispensable lors de l'installation d'une antenne extérieure ? {
+	=S'éloigner de toute ligne électrique
+	~Peindre l'antenne en rouge
+	~L'installer pendant un orage pour tester la foudre
+	~Travailler seul pour ne déranger personne
 }
