@@ -1,0 +1,73 @@
+// Banque de questions du BIR — export GIFT
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
+
+::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {
+	=De 30 kHz à 300 GHz environ
+	~De 30 Hz à 300 Hz environ
+	~De 3 MHz à 30 MHz seulement
+	~Toutes les fréquences, lumière comprise
+}
+
+::RC0802::À quel domaine appartient la fréquence 145 MHz ? {
+	=VHF
+	~HF
+	~UHF
+	~SHF
+}
+
+::RC0803::Que désigne l'abréviation HF ? {
+	=Les fréquences de 3 MHz à 30 MHz, appelées aussi ondes courtes
+	~Les fréquences de 30 MHz à 300 MHz
+	~Les fréquences de 300 MHz à 3 GHz
+	~Les fréquences de 30 kHz à 300 kHz, appelées aussi ondes longues
+}
+
+::RC0804::Dans quel domaine se trouve la bande radioamateur des 70 cm ? {
+	=UHF
+	~VHF
+	~HF
+	~MF
+}
+
+::RC0805::En France, quelles fréquences la bande radioamateur des 2 m couvre-t-elle ? {
+	=De 144 MHz à 146 MHz
+	~De 430 MHz à 440 MHz
+	~De 87,5 MHz à 108 MHz
+	~De 28 MHz à 29,7 MHz
+}
+
+::RC0806::Pourquoi parle-t-on de la « bande des 2 m » ? {
+	=Parce que la longueur d'onde y est d'environ deux mètres.
+	~Parce que l'antenne doit être placée à deux mètres du sol.
+	~Parce que c'est la deuxième bande attribuée aux radioamateurs.
+	~Parce que la portée y est limitée à deux mètres.
+}
+
+::RC0807::Sur une chute d'eau, que lit-on de gauche à droite ? {
+	=La fréquence
+	~Le temps
+	~La force du signal
+	~La distance de l'émetteur
+}
+
+::RC0808::Sur une chute d'eau, que lit-on de haut en bas ? {
+	=Le temps qui passe
+	~La fréquence
+	~La puissance de l'émetteur
+	~La longueur d'onde
+}
+
+::RC0809::Sur le spectre d'amplitude, comment apparaît un signal plus fort qu'un autre ? {
+	=Son pic est plus haut.
+	~Son pic est plus à droite.
+	~Son pic est plus à gauche.
+	~Son pic est plus large, mais pas plus haut.
+}
+
+::RC0810::En France, quel organisme prépare le tableau national de répartition des bandes de fréquences ? {
+	=L'Agence nationale des fréquences (ANFR)
+	~L'Union internationale des télécommunications (UIT)
+	~Chaque opérateur de téléphonie, pour ses propres fréquences
+	~Les associations de radioamateurs
+}

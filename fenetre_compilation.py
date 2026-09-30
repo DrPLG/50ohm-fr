@@ -113,7 +113,12 @@ RACINE = Path(__file__).resolve().parent
 #  Tables — tout ce qui est propre au projet vit ici, et nulle part ailleurs.
 # ---------------------------------------------------------------------------
 
-EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL"]
+EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR"]
+
+# Étiquettes de version proposées : celle du chantier en cours pour les livres
+# de classe, et la numérotation propre du BIR.
+VERSION_LIVRES = "a.4"
+VERSION_BIR = "0.1"
 
 # Répertoires --translations, dans l'ORDRE. Décision de Pierre du 15/08/2026 :
 # citer la classe la plus avancée en premier, le premier répertoire cité
@@ -121,6 +126,8 @@ EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL"]
 # traduite dans plusieurs classes, N_Ende), mais la règle est écrite.
 CLASSES_TRADUCTION = {
     "N": ["N"], "E": ["E"], "A": ["A"], "SWL": ["SWL"],
+    # Le BIR lit son propre répertoire bir/ (build_book.py v0.34) : rien à passer.
+    "BIR": [],
     "NE": ["E", "N"],
     "EA": ["A", "E"],
     "NEA": ["A", "E", "N"],
@@ -172,6 +179,7 @@ DOSSIER_COUVERTURE = "build-couverture"
 DUREES = {
     "N": "environ 10 min", "E": "environ 25 min", "A": "environ 50 min",
     "NEA": "environ 1 h 40", "SWL": "quelques minutes",
+    "BIR": "quelques minutes",
     "NE": "durée inconnue — jamais compilée",
     "EA": "durée inconnue — jamais compilée",
 }
@@ -582,7 +590,7 @@ class Fenetre:
         self.v_edition = tk.StringVar(value="N")
         self.v_format = tk.StringVar(value="a4")
         self.v_langue = tk.StringVar(value="fr")
-        self.v_version = tk.StringVar(value="a.4")
+        self.v_version = tk.StringVar(value=VERSION_LIVRES)
         self.v_sortie = tk.StringVar()
         self.v_pieces = [tk.BooleanVar(value=True) for _ in PIECES]
         self.v_purger = tk.BooleanVar(value=True)
@@ -853,6 +861,14 @@ class Fenetre:
 
     def _maj_sortie(self):
         self.v_sortie.set(nom_sortie(self.v_edition.get(), self.v_format.get()))
+        # Le BIR a sa propre numérotation : on propose 0.1 d'office, et on
+        # revient à l'étiquette des livres de classe en le quittant. Une
+        # étiquette saisie à la main n'est jamais écrasée.
+        est_bir = self.v_edition.get() == "BIR"
+        if est_bir and self.v_version.get() == VERSION_LIVRES:
+            self.v_version.set(VERSION_BIR)
+        elif not est_bir and self.v_version.get() == VERSION_BIR:
+            self.v_version.set(VERSION_LIVRES)
 
     def _etat_ressources(self):
         mem = memoire_disponible_go()
@@ -935,6 +951,10 @@ class Fenetre:
     # -- lancement ----------------------------------------------------------
 
     def _pieces_choisies(self):
+        # Le BIR n'est pas une traduction : ni avant-propos ni remerciements
+        # « du traducteur ».
+        if self.v_edition.get() == "BIR":
+            return []
         return [PIECES[i] for i, v in enumerate(self.v_pieces) if v.get()]
 
     def _plan(self):

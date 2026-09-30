@@ -15,7 +15,35 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.33
+Version du script : v0.34
+    v0.34 — édition BIR : le manuel du Brevet d'Initiation à la Radio
+            (décision de Pierre, 30/09/2026). Ouvrage FRANÇAIS autonome,
+            adapté des contenus amont et non traduit.
+            *Ce qui est local* (répertoire --local, défaut : bir/ à côté du
+            script) : le sommaire toc.json, les sections sections/bir_*.md,
+            les catalogues questions/*.json, d'éventuels dessins/.
+            *Ce qui reste amont* : les fichiers LaTeX, les dessins et les
+            photos, que les sections du BIR appellent par leur numéro. Un
+            dessin déjà francisé dans traductions/<CLASSE>/dessins/ est repris
+            francisé, sans avoir à le copier.
+            *Cinq comportements propres au BIR :* titres et chapeaux lus dans
+            toc.json (pas de titles.json : il n'y a rien à traduire) ; un
+            chapitre sans section est sauté, et chaque chapitre garde le
+            numéro de sa séance ; les réponses des questions locales sont
+            MÉLANGÉES — dans le catalogue la bonne est toujours la A — par
+            un tirage fixé sur le numéro de la question, donc stable d'une
+            compilation à l'autre, et le corrigé est écrit dans
+            corrige-BIR.txt ; page de titre propre ; arrêt si une section
+            porte un encart <france>, l'ouvrage entier s'adressant déjà à
+            des Français.
+            *Paragraphes autour d'une figure de marge :* le moteur amont
+            rend un bloc <margin> sans saut de ligne, si bien que le
+            paragraphe qui le précède et celui qui le suit n'en font qu'un.
+            Pour le BIR seul, une ligne vide est rétablie AVANT le bloc : la
+            figure ouvre alors le paragraphe qu'elle illustre. Rien n'est
+            touché quand le bloc est suivi d'autre chose que du texte.
+            *Neutralité :* les sept éditions existantes ne passent par aucune
+            de ces branches — arbre N comparé avant et après.
     v0.33 — garde-fou : en --lang fr, une question sans énoncé français
             arrête le script AVANT la compilation (décision de Pierre,
             30/09/2026).
@@ -978,7 +1006,8 @@ class QuestionBuilder:
         "QuestionPictureSmall": "QuestionMD",
     }
 
-    def __init__(self, contents: Path, renderer_factory, translations: dict | None = None):
+    def __init__(self, contents: Path, renderer_factory, translations: dict | None = None,
+                 catalogues_locaux=()):
         # v0.24 — TOUS les catalogues du dossier, pas seulement le 3b.
         #
         # Les 11 questions propres au cursus SWL vivent dans un fichier
@@ -997,6 +1026,16 @@ class QuestionBuilder:
         for fichier in catalogues:
             katalog["sections"].extend(
                 json.loads(fichier.read_text(encoding="utf-8"))["sections"])
+        # v0.34 — catalogues de l'édition BIR : même format que l'amont,
+        # rédigés en français. Leurs questions n'ont pas à être « traduites »
+        # et leurs réponses sont mélangées à la composition (cf. build()).
+        locaux = {"sections": []}
+        for fichier in catalogues_locaux:
+            locaux["sections"].extend(
+                json.loads(Path(fichier).read_text(encoding="utf-8"))["sections"])
+        katalog["sections"].extend(locaux["sections"])
+        self.locales = set()
+        self.corrige = {}
         self.metadata = json.loads(
             (contents / "contents/questions/metadata3b.json").read_text(encoding="utf-8")
         )
@@ -1015,12 +1054,17 @@ class QuestionBuilder:
 
         self.questions = {}
         for exampart in katalog["sections"]:
+            est_locale = any(exampart is s for s in locaux["sections"])
             for chapter in exampart["sections"]:
                 for q in chapter.get("questions", []):
                     self.questions[q["number"]] = q
+                    if est_locale:
+                        self.locales.add(q["number"])
                 for section in chapter.get("sections", []):
                     for q in section.get("questions", []):
                         self.questions[q["number"]] = q
+                        if est_locale:
+                            self.locales.add(q["number"])
 
     def _inline(self, text: str) -> str:
         """Markdown -> LaTeX pour un fragment (texte de question/réponse)."""
@@ -1064,7 +1108,7 @@ class QuestionBuilder:
         if tr:
             question = {**question, **{k: v for k, v in tr.items() if v}}
             self.n_translated_q += 1
-        if not (tr and tr.get("question")):
+        if not (tr and tr.get("question")) and number not in self.locales:
             self.non_traduites.add(number)
 
         layout = self.layouts.get(number, {})
@@ -1082,6 +1126,16 @@ class QuestionBuilder:
             )
 
         answers = [self._answer(question, metadata, letter, ascale) for letter in "abcd"]
+        if number in self.locales:
+            # v0.34 — la bonne réponse est la A dans le catalogue : on mélange.
+            # Le tirage est fixé par le numéro de la question, pour que le
+            # livre et son corrigé ne changent pas d'une compilation à l'autre.
+            import hashlib
+            import random
+            ordre = [0, 1, 2, 3]
+            random.Random(hashlib.sha256(number.encode("utf-8")).hexdigest()).shuffle(ordre)
+            answers = [answers[i] for i in ordre]
+            self.corrige[number] = "ABCD"[ordre.index(0)]
 
         return (
             f"\\{macro}{{{number}}}{{{qtext}}}{{{qpic}}}"
@@ -1766,11 +1820,17 @@ FR_TITLES = {
 	# pas une licence d'emission. Le titre le dit, pour qu'on ne le prenne
 	# pas pour une quatrieme classe d'examen.
 	"SWL": "Cours complet\\\\\u00c9coute des bandes",
+	# v0.34 — le BIR n'est pas un « cours complet » de classe d'examen.
+	# Rien sur le bandeau : « Manuel de l'élève » est le sous-titre, à gauche.
+	"BIR": "",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
 	# Trois lettres : le filigrane les empile, comme pour NEA (v0.20).
 	"SWL": "SWL",
+	# v0.34 — trois lettres empilées dans le bandeau, comme NEA et SWL
+	# (décision de Pierre sur épreuve, 30/09/2026).
+	"BIR": "BIR",
 }
 
 MASTER_FOOTER = r"""
@@ -1883,6 +1943,23 @@ def chemin_toc(contents, edition):
             if p.stem.lower() == edition.lower():
                 return p
     return exact          # inexistant : l'appelant produira l'erreur utile
+
+
+# v0.34 — BIR : un bloc de figure en marge pris entre deux lignes de texte.
+# Groupe 1 : la ligne de texte qui précède ; groupe 2 : le bloc entier.
+# Le bloc doit être suivi d'une ligne de texte (ni vide, ni \begin, ni
+# \Margin…) : sinon il formerait un paragraphe à lui seul.
+# Le saut de ligne d'avant est un regard en arrière : consommé, il
+# manquerait au bloc suivant quand deux figures se succèdent.
+_BIR_FIGURE_DE_MARGE = re.compile(
+    r"(?<=\n)((?!\\begin|\\end|\}|%)[^\n]+\n)"
+    r"(\\Margin\{\\DARCfigbloc\{%\n(?:[^\n]*\n)*?\\label\{DARCfig:fin:[^}]*\}\}\n\}\n)"
+    r"(?=(?!\\begin|\\end|\\Margin|\\Question)[^\n])")
+
+
+def separer_paragraphes_bir(tex: str) -> str:
+    """Rétablit la ligne vide avant une figure de marge (édition BIR)."""
+    return _BIR_FIGURE_DE_MARGE.sub(lambda m: m.group(1) + "\n" + m.group(2), tex)
 
 
 def fix_latex(text: str) -> str:
@@ -2123,7 +2200,10 @@ def link_dir(link: Path, target: Path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N",
-                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL"])
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR"])
+    ap.add_argument("--local", default=None,
+                    help="Édition BIR (v0.34) : répertoire de l'ouvrage — toc.json, "
+                         "sections/, questions/. Défaut : bir/ à côté de ce script.")
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
     ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
                     help="Format de page (défaut : a4)")
@@ -2164,9 +2244,24 @@ def main():
     # qui ne désigne pas la cause. Piège classique : les archives ZIP de GitHub
     # se décompressent en un dossier imbriqué de même nom
     # (50ohm-contents-dl-main\50ohm-contents-dl-main\).
+    # v0.34 — l'édition BIR lit son sommaire, ses sections et ses questions
+    # dans un répertoire LOCAL ; le reste (LaTeX, dessins, photos) vient
+    # toujours de l'amont.
+    est_bir = args.edition == "BIR"
+    local = None
+    if est_bir:
+        if args.lang != "fr":
+            raise SystemExit("!! l'édition BIR n'existe qu'en français : ajouter --lang fr")
+        local = (Path(args.local) if args.local
+                 else Path(__file__).resolve().parent / "bir").resolve()
+        for quoi in ("toc.json", "sections", "questions"):
+            if not (local / quoi).exists():
+                raise SystemExit(f"!! édition BIR : {quoi} absent de {local}")
+        args.translations = [str(local)] + list(args.translations)
+    toc_path = (local / "toc.json") if est_bir else chemin_toc(contents, args.edition)
     attendus = [
         (contents / "latex" / "settings.tex", "fichiers LaTeX du dépôt de contenus"),
-        (chemin_toc(contents, args.edition), f"sommaire de l'édition {args.edition}"),
+        (toc_path, f"sommaire de l'édition {args.edition}"),
         (contents / "contents" / "sections", "sections DARCdown"),
         (contents / "contents" / "questions" / "fragenkatalog3b.json", "catalogue de questions"),
     ]
@@ -2428,9 +2523,16 @@ def main():
     # l'amont s'il existe, même priorité que pour sections/ (premier
     # répertoire --translations cité qui contient le fichier l'emporte).
     n_dessins_forkes = 0
+    # v0.34 — le BIR réemploie les dessins déjà francisés des livres de
+    # classe : ses sections appellent les dessins amont par leur numéro.
+    dessins_dirs = list(tr_dirs)
+    if est_bir:
+        dessins_dirs += sorted(
+            d for d in (Path(__file__).resolve().parent / "traductions").glob("*")
+            if (d / "dessins").is_dir())
     for f in (contents / "contents/drawings").glob("*.tex"):
         src = f
-        for d in tr_dirs:
+        for d in dessins_dirs:
             candidat = d / "dessins" / f.name
             if candidat.exists():
                 src = candidat
@@ -2478,10 +2580,12 @@ def main():
     for d in list(reversed(q_dirs)) + list(reversed(tr_dirs)):
         if (d / "questions.json").exists():
             q_translations.update(json.loads((d / "questions.json").read_text(encoding="utf-8")))
-    qb = QuestionBuilder(contents, lambda: BookLaTeXRenderer(), translations=q_translations)
+    qb = QuestionBuilder(
+        contents, lambda: BookLaTeXRenderer(), translations=q_translations,
+        catalogues_locaux=sorted((local / "questions").glob("*.json")) if est_bir else ())
     question_renderer = qb.build
 
-    toc = json.loads(chemin_toc(contents, args.edition).read_text(encoding="utf-8"))
+    toc = json.loads(toc_path.read_text(encoding="utf-8"))
 
     # Traductions : fichiers parallèles optionnels
     tr_titles = {"chapters": {}, "sections": {}, "abstracts": {}}
@@ -2489,11 +2593,57 @@ def main():
         if (d / "titles.json").exists():
             for cle, valeurs in json.loads((d / "titles.json").read_text(encoding="utf-8")).items():
                 tr_titles.setdefault(cle, {}).update(valeurs)
+    if est_bir:
+        # v0.34 — le sommaire du BIR est déjà en français : titres et
+        # chapeaux s'y lisent directement. On les déclare « traduits » par
+        # eux-mêmes, ce qui laisse le garde-fou v0.33 en service.
+        for c in toc["chapters"]:
+            tr_titles["chapters"][c["title"]] = c["title"]
+            if c.get("abstract"):
+                tr_titles["abstracts"][c["abstract"]] = c["abstract"]
+            for s in c["sections"]:
+                tr_titles["sections"][s["ident"]] = s["title"]
+        # Pas d'encart « En France » : tout l'ouvrage s'adresse à des Français.
+        fautives = sorted(p.name for p in (local / "sections").glob("*.md")
+                          if "<france>" in p.read_text(encoding="utf-8"))
+        if fautives:
+            raise SystemExit("!! édition BIR : encart <france> interdit — "
+                             + ", ".join(fautives))
     n_translated = 0
 
     if args.lang == "fr":
         title = FR_TITLES[args.edition]
         header = MASTER_HEADER_FR.replace("@TITLE@", title)
+        if est_bir:
+            for ancien, neuf in (
+                # Le nom du brevet est le titre (décision de Pierre sur
+                # épreuve, 30/09/2026) : deux lignes, dans un corps réduit
+                # de 56 à 32 pt en A4 pour que « Brevet d'Initiation » tienne
+                # dans les 0,55 \paperwidth du bloc.
+                ("{\\fontsize{0.0937226\\paperwidth}{0.0970699\\paperwidth}"
+                 "\\selectfont\\bfseries 50\\,Ohm}",
+                 "{\\fontsize{0.054\\paperwidth}{0.062\\paperwidth}"
+                 # \\spaceskip : l'alignement du nœud fige l'espace entre mots sur le
+                 # corps courant (10 pt) ; à 31 pt les mots se touchaient.
+                 "\\selectfont\\bfseries\\spaceskip=\\fontdimen2\\font\\relax "
+                 "Brevet d'Initiation\\\\à la Radio\\par}"),
+                # Sous-titre « Manuel de l'élève ». Le titre se termine par
+                # \\par, pour que sa dernière ligne garde son interligne :
+                # le saut qui suit devient un \\vspace (un \\\\ après \\par
+                # serait une erreur LaTeX, « There's no line here to end »).
+                ("\\\\[0.0167362\\paperwidth]\n\t\t {\\Large\\color{TitleBand}"
+                 "\\bfseries Préparation à l'examen radioamateur}",
+                 "\\vspace{0.0167362\\paperwidth}\n\t\t {\\Large\\color{TitleBand}"
+                 "\\bfseries Manuel de l'élève}"),
+                ("Réalisé à partir des contenus de 50ohm.de (en allemand)",
+                 "D'après les contenus de 50ohm.de"),
+                ("Traduit avec l'aide d'une IA par Pierre F4JWI",
+                 "Adapté avec l'aide d'une IA par Pierre F4JWI"),
+            ):
+                if header.count(ancien) != 1:
+                    raise SystemExit(f"!! v0.34 : page de titre, {header.count(ancien)} "
+                                     f"occurrence(s) de « {ancien} » au lieu d'une.")
+                header = header.replace(ancien, neuf)
         lettres = FR_CLASS_LETTER[args.edition]
         # v0.20 — Filigrane de la page de titre : EMPILÉ dès deux lettres.
         #
@@ -2520,7 +2670,9 @@ def main():
         # 35 % de la hauteur et le jeu à gauche dans le bandeau tombait de
         # 11,6 à 8,5 mm. Il ne débordait pas — vérifié pixel par pixel — mais
         # la maquette 2/3-1/3 s'en trouvait déséquilibrée.
-        if len(lettres) == 1:
+        if not lettres:
+            watermark = ""          # v0.34 — BIR : pas de filigrane
+        elif len(lettres) == 1:
             watermark = (
                 r"\node[anchor=east, text=white!22, "
                 r"font=\fontsize{0.3681960\paperwidth}{0.3681960\paperwidth}"
@@ -2594,6 +2746,12 @@ def main():
 
     n_sections = 0
     for chapter in chapters:
+        if est_bir:
+            # v0.34 — un chapitre pas encore rédigé est sauté ; les autres
+            # gardent le numéro de leur séance.
+            if not chapter["sections"]:
+                continue
+            master.append(f"\n\\setcounter{{chapter}}{{{toc['chapters'].index(chapter)}}}")
         ch_title = tr_titles["chapters"].get(chapter["title"], chapter["title"])
         master.append(f"\n\\chapter{{{escape_latex(ch_title)}}}\n")
         abstract = chapter.get("abstract")
@@ -2613,7 +2771,10 @@ def main():
                 continue
             with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
                 latex = renderer.render(Document(md_file.read_text(encoding="utf-8").splitlines(keepends=True)))
-            (out / "sections" / f"{ident}.tex").write_text(fix_latex(latex), encoding="utf-8")
+            latex = fix_latex(latex)
+            if est_bir:
+                latex = separer_paragraphes_bir(latex)
+            (out / "sections" / f"{ident}.tex").write_text(latex, encoding="utf-8")
             sec_title = tr_titles["sections"].get(ident, section["title"])
             master.append(f"\\section{{{escape_latex(sec_title)}}}\n")
             master.append(f"\\input{{sections/{ident}.tex}}\n")
@@ -2640,6 +2801,11 @@ def main():
               f"dérivé (sections renommées ou ajoutées).", file=sys.stderr)
     if qb.missing:
         print(f"Questions introuvables ({len(qb.missing)}) : {sorted(qb.missing)[:10]}...")
+        if est_bir:
+            # v0.34 — dans un ouvrage dont nous écrivons sections ET
+            # questions, un appel sans question est une faute de frappe.
+            raise SystemExit("!! édition BIR : question(s) appelée(s) mais absente(s) "
+                             "des catalogues de questions/.")
     if qb.sans_metadata:
         # Informatif, pas une alerte : sans image, une question se compose
         # parfaitement sans métadonnées (v0.24).
@@ -2680,6 +2846,13 @@ def main():
             for ligne in t_allemands[:40]:
                 print(f"   {ligne}", file=sys.stderr)
             raise SystemExit(1)
+
+    if qb.corrige:
+        # v0.34 — corrigé des questions locales, après mélange des réponses.
+        (out / f"corrige-{args.edition}.txt").write_text(
+            "".join(f"{n}\t{qb.corrige[n]}\n" for n in sorted(qb.corrige)),
+            encoding="utf-8")
+        print(f"   corrigé de {len(qb.corrige)} question(s) : corrige-{args.edition}.txt")
 
     if args.no_compile:
         return

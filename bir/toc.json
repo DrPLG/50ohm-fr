@@ -1,0 +1,39 @@
+{
+ "title": "Brevet d'Initiation à la Radio",
+ "edition": "BIR",
+ "chapters": [
+  {"ident": "bir_01", "title": "La radio autour de nous", "sections": []},
+  {"ident": "bir_02", "title": "Se présenter à l'antenne", "sections": []},
+  {"ident": "bir_03", "title": "Un contact radio", "sections": []},
+  {"ident": "bir_04", "title": "Tension et courant", "sections": []},
+  {"ident": "bir_05", "title": "La résistance et la loi d'Ohm", "sections": []},
+  {"ident": "bir_06", "title": "Puissance et énergie", "sections": []},
+  {"ident": "bir_07", "title": "Du courant alternatif à l'onde", "sections": []},
+  {
+   "ident": "bir_08",
+   "title": "Le spectre et les bandes",
+   "abstract": "Toutes les ondes radio se rangent le long d'une même échelle, le spectre. Nous apprenons à nous y repérer, à comprendre pourquoi il faut le partager, à reconnaître les bandes des radioamateurs et à lire ce qu'un récepteur nous en montre.",
+   "sections": [
+    {"ident": "bir_spectre_radio", "title": "Le spectre radio"},
+    {"ident": "bir_partage_des_frequences", "title": "Le partage des fréquences"},
+    {"ident": "bir_bandes_radioamateur", "title": "Les bandes radioamateur"},
+    {"ident": "bir_lire_une_chute_d_eau", "title": "Lire un spectre et une chute d'eau"}
+   ]
+  },
+  {"ident": "bir_09", "title": "La propagation à vue", "sections": []},
+  {"ident": "bir_10", "title": "Les ondes courtes et l'ionosphère", "sections": []},
+  {"ident": "bir_11", "title": "Moduler : transporter la voix", "sections": []},
+  {"ident": "bir_12", "title": "Le Morse", "sections": []},
+  {"ident": "bir_13", "title": "Les modes numériques et l'image", "sections": []},
+  {"ident": "bir_14", "title": "Les antennes : principes", "sections": []},
+  {"ident": "bir_15", "title": "Construire son antenne", "sections": []},
+  {"ident": "bir_16", "title": "Câbles, connecteurs et réglage", "sections": []},
+  {"ident": "bir_17", "title": "Le récepteur", "sections": []},
+  {"ident": "bir_18", "title": "L'émetteur", "sections": []},
+  {"ident": "bir_19", "title": "L'atelier de soudure", "sections": []},
+  {"ident": "bir_20", "title": "La radio en action", "sections": []},
+  {"ident": "bir_21", "title": "Préparer son contact", "sections": []},
+  {"ident": "bir_22", "title": "Au micro", "sections": []},
+  {"ident": "bir_23", "title": "Les règles, et après ?", "sections": []}
+ ]
+}

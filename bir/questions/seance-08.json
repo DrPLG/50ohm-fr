@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine C — Ondes, spectre et propagation",
+   "sections": [
+    {
+     "title": "Séance 8 — Le spectre et les bandes",
+     "questions": [
+      {
+       "number": "RC0801",
+       "class": "BIR",
+       "question": "Quelle plage de fréquences sert habituellement à la radio ?",
+       "answer_a": "De $\\qty{30}{\\kilo\\hertz}$ à $\\qty{300}{\\giga\\hertz}$ environ",
+       "answer_b": "De $\\qty{30}{\\hertz}$ à $\\qty{300}{\\hertz}$ environ",
+       "answer_c": "De $\\qty{3}{\\mega\\hertz}$ à $\\qty{30}{\\mega\\hertz}$ seulement",
+       "answer_d": "Toutes les fréquences, lumière comprise"
+      },
+      {
+       "number": "RC0802",
+       "class": "BIR",
+       "question": "À quel domaine appartient la fréquence $\\qty{145}{\\mega\\hertz}$ ?",
+       "answer_a": "VHF",
+       "answer_b": "HF",
+       "answer_c": "UHF",
+       "answer_d": "SHF"
+      },
+      {
+       "number": "RC0803",
+       "class": "BIR",
+       "question": "Que désigne l'abréviation HF ?",
+       "answer_a": "Les fréquences de $\\qty{3}{\\mega\\hertz}$ à $\\qty{30}{\\mega\\hertz}$, appelées aussi ondes courtes",
+       "answer_b": "Les fréquences de $\\qty{30}{\\mega\\hertz}$ à $\\qty{300}{\\mega\\hertz}$",
+       "answer_c": "Les fréquences de $\\qty{300}{\\mega\\hertz}$ à $\\qty{3}{\\giga\\hertz}$",
+       "answer_d": "Les fréquences de $\\qty{30}{\\kilo\\hertz}$ à $\\qty{300}{\\kilo\\hertz}$, appelées aussi ondes longues"
+      },
+      {
+       "number": "RC0804",
+       "class": "BIR",
+       "question": "Dans quel domaine se trouve la bande radioamateur des $\\qty{70}{\\centi\\meter}$ ?",
+       "answer_a": "UHF",
+       "answer_b": "VHF",
+       "answer_c": "HF",
+       "answer_d": "MF"
+      },
+      {
+       "number": "RC0805",
+       "class": "BIR",
+       "question": "En France, quelles fréquences la bande radioamateur des $\\qty{2}{\\meter}$ couvre-t-elle ?",
+       "answer_a": "De $\\qty{144}{\\mega\\hertz}$ à $\\qty{146}{\\mega\\hertz}$",
+       "answer_b": "De $\\qty{430}{\\mega\\hertz}$ à $\\qty{440}{\\mega\\hertz}$",
+       "answer_c": "De $\\qty{87,5}{\\mega\\hertz}$ à $\\qty{108}{\\mega\\hertz}$",
+       "answer_d": "De $\\qty{28}{\\mega\\hertz}$ à $\\qty{29,7}{\\mega\\hertz}$"
+      },
+      {
+       "number": "RC0806",
+       "class": "BIR",
+       "question": "Pourquoi parle-t-on de la « bande des $\\qty{2}{\\meter}$ » ?",
+       "answer_a": "Parce que la longueur d'onde y est d'environ deux mètres.",
+       "answer_b": "Parce que l'antenne doit être placée à deux mètres du sol.",
+       "answer_c": "Parce que c'est la deuxième bande attribuée aux radioamateurs.",
+       "answer_d": "Parce que la portée y est limitée à deux mètres."
+      },
+      {
+       "number": "RC0807",
+       "class": "BIR",
+       "question": "Sur une chute d'eau, que lit-on de gauche à droite ?",
+       "answer_a": "La fréquence",
+       "answer_b": "Le temps",
+       "answer_c": "La force du signal",
+       "answer_d": "La distance de l'émetteur"
+      },
+      {
+       "number": "RC0808",
+       "class": "BIR",
+       "question": "Sur une chute d'eau, que lit-on de haut en bas ?",
+       "answer_a": "Le temps qui passe",
+       "answer_b": "La fréquence",
+       "answer_c": "La puissance de l'émetteur",
+       "answer_d": "La longueur d'onde"
+      },
+      {
+       "number": "RC0809",
+       "class": "BIR",
+       "question": "Sur le spectre d'amplitude, comment apparaît un signal plus fort qu'un autre ?",
+       "answer_a": "Son pic est plus haut.",
+       "answer_b": "Son pic est plus à droite.",
+       "answer_c": "Son pic est plus à gauche.",
+       "answer_d": "Son pic est plus large, mais pas plus haut."
+      },
+      {
+       "number": "RC0810",
+       "class": "BIR",
+       "question": "En France, quel organisme prépare le tableau national de répartition des bandes de fréquences ?",
+       "answer_a": "L'Agence nationale des fréquences (ANFR)",
+       "answer_b": "L'Union internationale des télécommunications (UIT)",
+       "answer_c": "Chaque opérateur de téléphonie, pour ses propres fréquences",
+       "answer_d": "Les associations de radioamateurs"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -17,6 +17,31 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Ajouté — édition BIR, Brevet d'Initiation à la Radio (30/09/2026)
+
+Ouvrage français autonome pour collégiens et lycéens, adapté des contenus
+amont et non traduit. Dossier `bir/` : plan en 24 séances de 1 h 30,
+référentiel, et la séance pilote nº 8 (chapitre du manuel, page du formateur,
+fiches d'activité, dix questions neuves).
+
+- **`build_book.py` v0.34** — `--edition BIR` : sommaire, sections et
+  questions lus dans `bir/` ; dessins francisés des livres de classe repris ;
+  chapitres numérotés par séance ; réponses mélangées avec corrigé
+  (`corrige-BIR.txt`) ; page de titre propre ; encart `<france>` refusé.
+- Page de titre arrêtée sur épreuve : « Brevet d'Initiation à la Radio » sur
+  deux lignes, « Manuel de l'élève » en sous-titre, BIR empilé dans le
+  bandeau.
+- Pour le BIR seul, une ligne vide est rétablie avant une figure de marge :
+  le moteur amont fondait en un seul les paragraphes qui l'entourent.
+- `fenetre_compilation.py` : édition BIR, sans pièces liminaires, étiquette
+  de version `0.1` proposée d'office.
+- `bir/exporter_moodle.py` : export de la banque de questions au format
+  GIFT, pour un examen en ligne sous Moodle ou éléa. Import non essayé.
+- Les sept éditions existantes ne changent pas (arbres N et SWL comparés).
+
+*Connu :* premier jet, jamais compilé en PDF ; plusieurs points
+réglementaires à relire à la source (`bir/PLAN.md`, § 5).
+
 #### Corrigé — SWL : 60 questions sur 71 en allemand (30/09/2026)
 
 Relevé par Pierre. Soixante des 71 questions du cursus SWL sont des questions
