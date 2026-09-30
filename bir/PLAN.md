@@ -28,8 +28,34 @@ nº 1 et nº 2 de `Fichierstravail/`.
 | D4 | Fiches d'activité — `fiches/` | séances 1 et 8 en premier jet |
 | D5 | Banque de questions — `questions/` | 20 questions : séances 1 et 8 |
 | D6 | Diaporamas de séance | à faire |
-| D7 | Mallette type et budget | à faire |
-| D8 | Livret de l'élève | à faire |
+| D7 | Mallette type et budget | maquette seule, prix à vérifier |
+| D8 | Livret de l'élève | maquette seule |
+
+### Maquettes (30/09/2026)
+
+Dans `maquettes/`, une classe LaTeX commune, `BIRdoc.cls` (A4, polices et
+couleurs du manuel), et cinq documents composés :
+
+| fichier | document | pages |
+| --- | --- | ---: |
+| `D1-referentiel.tex` | le référentiel complet | 3 |
+| `D3-formateur-seance-08.tex` | une séance du livre du formateur | 2 |
+| `D4-fiche-08.tex` | une fiche d'activité : recto verso élève, puis page encadrant | 3 |
+| `D7-mallette.tex` | la mallette type, trois niveaux et trois budgets | 2 |
+| `D8-livret.tex` | le livret, en **A5**, huit pages exactement : couverture, parcours, savoir-faire, carnet d'écoute, attestation | 8 |
+| `D8-livret-a-imprimer.tex` | le même, imposé sur deux feuilles A4 : recto verso, retournement sur le petit côté, plier, agrafer | 4 |
+
+La maquette de D2 est le manuel lui-même (`build_book.py`, édition BIR).
+
+Compilation : `latexmk -lualatex <fichier>.tex` depuis `maquettes/`. Les PDF
+ne sont pas suivis par git.
+
+**Double saisie, à résorber.** Le texte de D1, D3 et D4 existe pour
+l'instant deux fois : en Markdown (`referentiel.md`, `formateur/`, `fiches/`)
+et dans ces `.tex`. Une fois la forme validée, il faudra choisir une seule
+source — soit le `.tex`, soit un Markdown converti par script.
+
+**Prix de D7** : ordres de grandeur écrits de mémoire, à vérifier à l'achat.
 
 ## 3. Les 24 séances
 

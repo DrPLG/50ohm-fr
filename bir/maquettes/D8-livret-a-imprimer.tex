@@ -1,0 +1,11 @@
+% D8 — imposition du livret pour l'impression : les huit pages A5 de
+% D8-livret.pdf réparties sur deux feuilles A4, à imprimer RECTO VERSO,
+% retournement sur le PETIT côté, puis à plier et agrafer au milieu.
+% Compiler D8-livret.tex d'abord : ce fichier lit son PDF.
+% La classe reste en portrait : c'est l'option « landscape » de \includepdf
+% qui couche la feuille. Les deux à la fois empilaient les pages de travers.
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\begin{document}
+\includepdf[pages=-,booklet=true,landscape]{D8-livret.pdf}
+\end{document}

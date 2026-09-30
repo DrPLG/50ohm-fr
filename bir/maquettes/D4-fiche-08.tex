@@ -1,0 +1,148 @@
+% D4 — maquette d'une fiche d'activité : recto verso élève, puis page encadrant.
+% Contenu : bir/fiches/seance-08-eleve.md et seance-08-encadrant.md.
+\documentclass{BIRdoc}
+\BIRdocument{Fiche d'activité nº 8}{Séance 8 --- Le spectre et les bandes}
+\begin{document}
+
+\BIRtitre{Je dresse ma carte du spectre}{Noms : \BIRligne[7cm] \hfill Date : \BIRligne[3cm]}
+
+\textbf{Aujourd'hui, nous allons} parcourir le spectre avec un récepteur relié à
+l'ordinateur, et noter ce que nous y trouvons.
+
+\begin{BIRalerte}{Règle du jour}
+Nous n'écoutons que les radios publiques et les radioamateurs. Pour tout le
+reste, le son reste coupé : nous regardons, nous notons la fréquence et la
+forme du signal.
+\end{BIRalerte}
+
+\section*{1. Je prends l'écran en main}
+
+Réglez le récepteur sur une station de radio FM que vous connaissez.
+
+\begin{itemize}[itemsep=5pt]
+\item Sa fréquence : \BIRligne[3cm] MHz
+\item Sur le spectre (la courbe), le signal forme : \BIRcase un pic \quad \BIRcase un creux
+\item Sur la chute d'eau, sa trace est : \BIRcase un trait fin \quad \BIRcase une bande large
+\item De gauche à droite, on lit : \BIRligne[6cm]
+\item De haut en bas de la chute d'eau, on lit : \BIRligne[6cm]
+\end{itemize}
+
+\section*{2. Je cherche ces signaux}
+
+\begin{tabularx}{\linewidth}{|P{48mm}|P{27mm}|P{27mm}|L|}
+\hline\BIRentete
+\BIRth{Signal} & \BIRth{Fréquence relevée} & \BIRth{Domaine : HF, VHF, UHF} & \BIRth{À la chute d'eau, il ressemble à…} \\ \hline
+\BIRhaut une deuxième station FM & & & \\ \hline
+\BIRhaut la radio numérique DAB+ & & & \\ \hline
+\BIRhaut le relais radioamateur indiqué par l'encadrant & & & \\ \hline
+\BIRhaut une balise radioamateur & & & \\ \hline
+\end{tabularx}
+
+\section*{3. Je calcule}
+
+300 divisé par la fréquence en MHz donne la longueur d'onde en mètres.
+
+\begin{tabularx}{\linewidth}{|L|P{40mm}|P{40mm}|}
+\hline\BIRentete
+\BIRth{Signal} & \BIRth{Fréquence en MHz} & \BIRth{Longueur d'onde en m} \\ \hline
+\BIRhaut ma station FM & & \\ \hline
+\BIRhaut le relais radioamateur & & \\ \hline
+\end{tabularx}
+
+\medskip
+Le relais se trouve dans la bande radioamateur des \BIRligne[3cm]
+
+\newpage
+\section*{4. Je découvre}
+
+Trouvez un signal qui n'est pas dans le tableau. Son coupé, décrivez-le.
+
+\begin{itemize}[itemsep=5pt]
+\item Fréquence : \BIRligne[3.5cm] \quad Domaine : \BIRligne[2.5cm]
+\item Il est : \BIRcase permanent \quad \BIRcase par moments
+\item Sa trace : \BIRligne[11cm]
+\end{itemize}
+
+\section*{5. Ma carte du spectre}
+
+Placez vos signaux sur l'axe, chacun avec son nom.
+
+\vspace{32mm}
+{\sffamily\small
+\setlength{\unitlength}{1mm}
+\begin{picture}(170,14)
+\put(0,8){\line(1,0){170}}
+\multiput(0,5)(34,0){6}{\line(0,1){6}}
+\put(0,0){\makebox(0,0)[bl]{80 MHz}}
+\put(34,0){\makebox(0,0)[b]{100}}
+\put(68,0){\makebox(0,0)[b]{150}}
+\put(102,0){\makebox(0,0)[b]{200}}
+\put(136,0){\makebox(0,0)[b]{300}}
+\put(170,0){\makebox(0,0)[br]{450 MHz}}
+\end{picture}}
+
+\vspace{6mm}
+\begin{BIRencadre}{À retenir}
+\begin{itemize}[itemsep=6pt]
+\item Le spectre se découpe en \BIRligne[3.5cm] ; les trois plus utiles sont
+  \BIRligne[1.5cm], \BIRligne[1.5cm] et \BIRligne[1.5cm].
+\item Une bande radioamateur porte le nom de sa \BIRligne[5cm]
+\item Sur une chute d'eau, la fréquence se lit de \BIRligne[2.2cm] à
+  \BIRligne[2.2cm] et le temps de \BIRligne[2.2cm] en \BIRligne[2.2cm]
+\end{itemize}
+\end{BIRencadre}
+
+% ------------------------------------------------------------------ encadrant
+\newpage
+\BIRdocument{Fiche d'activité nº 8 --- encadrant}{Séance 8 --- Le spectre et les bandes}
+\BIRtitre{Je dresse ma carte du spectre}{Côté encadrant --- manipulation de 50 min, groupes de 2 ou 3}
+
+\begin{minipage}[t]{.36\linewidth}
+\section*{Matériel par groupe}
+\begin{itemize}
+\item ordinateur, logiciel de réception SDR installé ;
+\item clé SDR avec son antenne ;
+\item fiche élève, crayon, calculatrice.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{.60\linewidth}
+\section*{La veille}
+\begin{itemize}
+\item Brancher chaque clé sur le poste où elle servira et vérifier la réception.
+\item Relever depuis la salle les fréquences de deux stations FM, d'un
+  multiplex DAB+, du relais local et d'une balise.
+\item Régler le logiciel pour que spectre et chute d'eau soient visibles ensemble.
+\item Prévoir un WebSDR ouvert sur le poste projeté, en secours.
+\end{itemize}
+\end{minipage}
+
+\section*{Pendant la manipulation}
+
+\begin{tabularx}{\linewidth}{P{26mm}P{48mm}L}
+\BIRentete
+\BIRth{Temps} & \BIRth{Étape de la fiche} & \BIRth{À surveiller} \\
+0 à 10 min & 1. prise en main & que chaque groupe ait un signal à l'écran \\
+10 à 30 min & 2. recherche, 3. calcul & les groupes qui restent sur la bande FM \\
+30 à 45 min & 4. découverte & le son coupé hors radiodiffusion et bandes radioamateur \\
+45 à 50 min & 5. carte & l'ordre des signaux sur l'axe \\
+\bottomrule
+\end{tabularx}
+
+\section*{Pièges matériels}
+\begin{itemize}
+\item Rien à l'écran : gain à zéro, mauvaise entrée choisie, antenne débranchée.
+\item Pics fixes qui restent sans antenne : parasites, à ignorer.
+\item Relais muet : il n'émet que lorsqu'il est utilisé. Le radioamateur
+  présent peut le déclencher pour la démonstration.
+\item DAB+ absent : toutes les zones ne sont pas couvertes ; remplacer par une
+  troisième station FM et le dire.
+\end{itemize}
+
+\begin{BIRencadre}{Savoir-faire à valider dans le livret}
+\BIRcase lit une fréquence sur l'écran \quad
+\BIRcase distingue spectre et chute d'eau \\[3pt]
+\BIRcase range un signal dans HF, VHF ou UHF \quad
+\BIRcase calcule une longueur d'onde
+\end{BIRencadre}
+
+\end{document}

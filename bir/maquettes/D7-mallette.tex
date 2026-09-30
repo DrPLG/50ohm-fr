@@ -1,0 +1,85 @@
+% D7 — maquette de la mallette type. Premier jet : quantités pour 12 élèves
+% en groupes de 2 ou 3, soit 6 postes. Les prix sont des ORDRES DE GRANDEUR
+% écrits de mémoire, à vérifier au moment de l'achat.
+\documentclass{BIRdoc}
+\BIRdocument{Mallette type}{Matériel pour un groupe de 12 élèves}
+\newenvironment{materiel}{%
+  \small\tabularx{\linewidth}{LP{13mm}P{30mm}P{22mm}}
+  \BIRentete \BIRth{Matériel} & \BIRth{Qté} & \BIRth{Séances} & \BIRth{Prix unitaire} \\}
+  {\bottomrule\endtabularx\par}
+\begin{document}
+
+\BIRtitre{La mallette du BIR}{Ce qu'il faut réunir pour mener les 24 séances avec 12 élèves, en six groupes}
+
+Le matériel se répartit en trois niveaux. Le premier suffit pour commencer ;
+les deux autres s'ajoutent à mesure que le parcours avance. Beaucoup de ce qui
+suit existe déjà dans un collège ou un lycée, ou dans le radio-club voisin.
+
+\begin{BIRalerte}{Prix}
+Les prix sont des ordres de grandeur, donnés pour bâtir un budget. Ils sont à
+vérifier au moment de l'achat.
+\end{BIRalerte}
+
+\section*{Niveau 1 --- Écouter}
+
+Pour les séances d'écoute et d'observation. L'établissement fournit les
+ordinateurs.
+
+\begin{materiel}
+Ordinateur avec navigateur et logiciel de réception & 6 & 1, 8, 10, 11, 13 & --- \\
+Clé SDR avec antenne télescopique & 6 & 8, 10, 11, 13, 15 & 40 € \\
+Écouteurs ou casque & 12 & 1, 8, 10, 11 & 5 € \\
+Vidéoprojecteur et enceintes & 1 & toutes & --- \\
+Cartes : monde, région, plan de l'établissement & 6 jeux & 9, 10, 20 & --- \\
+\end{materiel}
+
+\section*{Niveau 2 --- Manipuler}
+
+Pour l'électricité, le trafic entre élèves, le Morse et la construction.
+
+\begin{materiel}
+Postes PMR446, la paire & 6 & 2, 3, 9, 21 & 25 € \\
+Multimètre numérique & 6 & 4, 5, 6 & 15 € \\
+Platine d'essai, fils, piles, lampes, interrupteurs & 6 lots & 4, 5, 6 & 10 € \\
+Assortiment de résistances & 1 & 5 & 10 € \\
+Manipulateur Morse et buzzer & 6 & 12 & 10 € \\
+Fer à souder, support, étain, pince coupante & 6 & 19 & 30 € \\
+Kit électronique à souder & 12 & 19 & 10 € \\
+Lunettes de protection & 12 & 15, 19 & 3 € \\
+Fil, tube, dominos, mètre ruban pour les antennes & 6 lots & 14, 15 & 10 € \\
+Câble coaxial et fiches & 6 lots & 15, 16 & 10 € \\
+\end{materiel}
+
+\section*{Niveau 3 --- Mesurer et trafiquer}
+
+Matériel de démonstration, en un exemplaire. Il vient le plus souvent du
+radioamateur qui encadre, de son radio-club, ou du laboratoire de physique.
+
+\begin{materiel}
+Station du radioamateur : émetteur-récepteur, alimentation, antenne & 1 & 1, 17, 18, 22 & prêt \\
+Charge fictive et wattmètre & 1 & 18 & prêt \\
+Analyseur d'antenne & 1 ou 2 & 16 & 60 € \\
+Oscilloscope et générateur de fonctions & 1 & 7 & laboratoire \\
+Balise pour la chasse au renard & 1 & 20 & prêt \\
+\end{materiel}
+
+\section*{Trois budgets}
+
+\begin{tabularx}{\linewidth}{P{35mm}LP{30mm}}
+\BIRentete \BIRth{Budget} & \BIRth{Ce qu'il permet} & \BIRth{Ordre de grandeur} \\
+Niveau 1 seul & les séances d'écoute ; le reste en démonstration par l'encadrant & 300 € \\
+Niveaux 1 et 2 & tout le parcours, mesures et station en démonstration & 1 100 € \\
+Niveaux 1, 2 et 3 & tout le parcours, avec un analyseur d'antenne par demi-groupe & 1 200 € \\
+\bottomrule
+\end{tabularx}
+
+\begin{BIRencadre}{Avant d'acheter}
+\begin{itemize}
+\item Faire l'inventaire de ce que l'établissement possède : ordinateurs,
+  multimètres, oscilloscope, fers à souder.
+\item Demander au radio-club ce qu'il peut prêter.
+\item Commencer par le niveau 1 : il suffit pour les premières séances.
+\end{itemize}
+\end{BIRencadre}
+
+\end{document}

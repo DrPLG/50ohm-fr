@@ -1,0 +1,174 @@
+% D8 — maquette du livret de l'élève, en A5 : HUIT pages exactement, pour
+% tenir sur deux feuilles A4 pliées (voir D8-livret-a-imprimer.tex).
+%   1 couverture · 2-3 parcours · 4-5 savoir-faire · 6-7 carnet d'écoute
+%   8 attestation
+% Savoir-faire repris de bir/referentiel.md.
+\documentclass[a5]{BIRdoc}
+\BIRdocument{Livret de l'élève}{}
+\newcommand{\savoir}[2]{#1 & #2 & \BIRcase \\}
+\newenvironment{savoirfaire}{%
+  \small\tabularx{\linewidth}{P{10mm}LP{11mm}}
+  \BIRentete \BIRth{Séance} & \BIRth{Je sais…} & \BIRth{Validé} \\}
+  {\bottomrule\endtabularx\par}
+\newenvironment{parcours}{%
+  \small\tabularx{\linewidth}{|P{6mm}|L|P{24mm}|P{22mm}|}
+  \hline\BIRentete \BIRth{Nº} & \BIRth{Séance} & \BIRth{Date} & \BIRth{Visa} \\ \hline}
+  {\endtabularx\par}
+\newcommand{\seance}[2]{\rule{0pt}{9.2mm}#1 & #2 & & \\ \hline}
+\newenvironment{carnet}{%
+  \footnotesize\tabularx{\linewidth}{|P{13mm}|P{10mm}|P{17mm}|P{22mm}|L|}
+  \hline\BIRentete \BIRth{Date} & \BIRth{Heure} & \BIRth{Fréquence} & \BIRth{Indicatif, station} & \BIRth{Ce que j'ai entendu} \\ \hline}
+  {\endtabularx\par}
+\newcommand{\ecoute}{\rule{0pt}{7mm} & & & & \\ \hline}
+\begin{document}
+
+% ---------------------------------------------------------------- 1 couverture
+\thispagestyle{empty}
+\vspace*{8mm}
+{\sffamily\bfseries\fontsize{27}{32}\selectfont\color{BIRbleu}Brevet d'Initiation\\ à la Radio\par}
+\vspace{2mm}
+{\color{BIRrouge}\rule{40mm}{1.2pt}\par}
+\vspace{3mm}
+{\sffamily\LARGE Mon livret\par}
+\vspace{18mm}
+Nom : \BIRligne[8.5cm]\par\vspace{7mm}
+Prénom : \BIRligne[7.9cm]\par\vspace{7mm}
+Établissement : \BIRligne[6.8cm]\par\vspace{7mm}
+Année scolaire : \BIRligne[3.5cm]\par\vspace{7mm}
+Mon encadrant : \BIRligne[6.7cm]\par\vspace{7mm}
+Son indicatif : \BIRligne[3.5cm]\par
+\vfill
+\begin{BIRencadre}{À quoi sert ce livret ?}
+Il me suit pendant les 24 séances. J'y note ma présence, ce que je sais
+faire, et ce que j'entends sur les ondes. À la fin du parcours, il reçoit
+mon attestation.
+\end{BIRencadre}
+
+% ---------------------------------------------------------------- 2-3 parcours
+\newpage
+\BIRtitre{Mon parcours}{Je note la date, mon encadrant signe}
+\begin{parcours}
+\seance{1}{La radio autour de nous}
+\seance{2}{Se présenter à l'antenne}
+\seance{3}{Un contact radio}
+\seance{4}{Tension et courant}
+\seance{5}{La résistance et la loi d'Ohm}
+\seance{6}{Puissance et énergie}
+\seance{7}{Du courant alternatif à l'onde}
+\seance{8}{Le spectre et les bandes}
+\seance{9}{La propagation à vue}
+\seance{10}{Les ondes courtes et l'ionosphère}
+\seance{11}{Moduler : transporter la voix}
+\seance{12}{Le Morse}
+\end{parcours}
+
+\newpage
+\begin{parcours}
+\seance{13}{Les modes numériques et l'image}
+\seance{14}{Les antennes : principes}
+\seance{15}{Construire son antenne}
+\seance{16}{Câbles, connecteurs et réglage}
+\seance{17}{Le récepteur}
+\seance{18}{L'émetteur}
+\seance{19}{L'atelier de soudure}
+\seance{20}{La radio en action}
+\seance{21}{Préparer son contact}
+\seance{22}{Au micro}
+\seance{23}{Les règles, et après ?}
+\seance{24}{L'examen du BIR}
+\end{parcours}
+
+% ---------------------------------------------------------------- 4-5 savoir-faire
+\newpage
+\BIRtitre{Ce que je sais faire}{Mon encadrant coche quand il m'a vu réussir}
+
+\section*{A --- Découvrir la radio}
+\begin{savoirfaire}
+\savoir{1}{régler un récepteur sur une station et la décrire}
+\savoir{20}{trouver mon locator ; localiser un émetteur caché}
+\end{savoirfaire}
+
+\section*{B --- Électricité et électronique}
+\begin{savoirfaire}
+\savoir{4}{câbler un circuit simple ; mesurer une tension et un courant}
+\savoir{5}{calculer avec la loi d'Ohm et vérifier par la mesure}
+\savoir{6}{calculer une puissance et une autonomie}
+\savoir{17}{régler fréquence, volume, mode et squelch d'un poste}
+\savoir{18}{lire une puissance sur un wattmètre}
+\savoir{19}{réaliser une soudure propre ; suivre un schéma d'implantation}
+\end{savoirfaire}
+
+\section*{C --- Ondes, spectre et propagation}
+\begin{savoirfaire}
+\savoir{7}{calculer une longueur d'onde ; lire une période sur un oscillogramme}
+\savoir{8}{lire un spectre et une chute d'eau ; dresser une carte du spectre}
+\savoir{9}{mesurer une portée et la reporter sur un plan}
+\savoir{10}{identifier une station lointaine et la placer sur une carte}
+\end{savoirfaire}
+
+\newpage
+\section*{D --- Modulations, antennes et station}
+\begin{savoirfaire}
+\savoir{11}{reconnaître un mode à l'oreille et à l'écran}
+\savoir{12}{émettre et recevoir un mot court en Morse}
+\savoir{13}{décoder une transmission avec un logiciel}
+\savoir{14}{calculer la longueur d'un dipôle}
+\savoir{15}{assembler une antenne ; constater sa directivité}
+\savoir{16}{mesurer et améliorer le réglage d'une antenne}
+\end{savoirfaire}
+
+\section*{E --- Trafic, règles et sécurité}
+\begin{savoirfaire}
+\savoir{2}{épeler et noter un indicatif sans erreur}
+\savoir{3}{tenir un carnet de trafic}
+\savoir{21}{dérouler un contact complet, script en main}
+\savoir{22}{tenir ma place dans un vrai contact, aux côtés du radioamateur}
+\end{savoirfaire}
+
+\vfill
+\begin{BIRencadre}{Mes remarques}
+\vspace{30mm}
+\end{BIRencadre}
+
+% ---------------------------------------------------------------- 6-7 carnet
+\newpage
+\BIRtitre{Mon carnet d'écoute}{Une ligne par station entendue}
+\begin{carnet}
+\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute
+\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute
+\end{carnet}
+
+\newpage
+\begin{carnet}
+\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute
+\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute\ecoute
+\end{carnet}
+
+% ---------------------------------------------------------------- 8 attestation
+\newpage
+\thispagestyle{empty}
+\vspace*{6mm}
+\begin{center}
+{\sffamily\bfseries\fontsize{22}{27}\selectfont\color{BIRbleu}Brevet d'Initiation\\ à la Radio\par}
+\vspace{3mm}
+{\color{BIRrouge}\rule{40mm}{1.2pt}\par}
+\vspace{5mm}
+{\sffamily\LARGE Attestation\par}
+\vspace{14mm}
+Il est attesté que\par\vspace{8mm}
+\BIRligne[9cm]\par\vspace{8mm}
+a suivi les 24 séances de préparation\\ au Brevet d'Initiation à la Radio\par
+\vspace{5mm}
+et a réussi l'examen du \BIRligne[3.5cm]\par
+\vspace{3mm}
+avec \BIRligne[1.5cm] bonnes réponses sur 40.\par
+\vspace{18mm}
+À \BIRligne[4cm], le \BIRligne[3cm]\par
+\vspace{12mm}
+\begin{tabularx}{\linewidth}{LL}
+L'encadrant & Le responsable de l'établissement \\[1mm]
+{\small nom, indicatif, signature} & {\small nom, signature} \\
+\end{tabularx}
+\end{center}
+
+\end{document}

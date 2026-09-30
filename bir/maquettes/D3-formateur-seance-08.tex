@@ -1,0 +1,121 @@
+% D3 — maquette d'une séance du livre du formateur.
+% Contenu : bir/formateur/seance-08.md.
+\documentclass{BIRdoc}
+\BIRdocument{Livre du formateur}{Séance 8 --- Le spectre et les bandes}
+\begin{document}
+
+\BIRtitre{Séance 8 --- Le spectre et les bandes}{Domaine C · 1 h 30 · chapitre 8 du manuel · fiche d'activité nº 8}
+
+\begin{BIRencadre}{Ce que l'élève doit emporter}
+\begin{itemize}
+\item Le spectre radio va de 30 kHz à 300 GHz ; il se découpe en domaines, dont HF, VHF et UHF.
+\item Les fréquences sont partagées entre de nombreux usages ; ce partage est organisé entre les pays, puis dans chaque pays.
+\item Les radioamateurs disposent de bandes, nommées par leur longueur d'onde.
+\item Un spectre se lit en fréquence et en force ; une chute d'eau ajoute le temps.
+\end{itemize}
+\end{BIRencadre}
+
+\section*{Avant la séance}
+
+\textbf{Acquis nécessaires :} fréquence et longueur d'onde (séance 7).
+
+\begin{minipage}[t]{.48\linewidth}
+\textbf{Par groupe de 2 ou 3}
+\begin{itemize}
+\item un ordinateur avec un logiciel de réception SDR installé et essayé ;
+\item une clé SDR et son antenne ;
+\item la fiche élève nº 8, un crayon.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{.48\linewidth}
+\textbf{Pour l'encadrant}
+\begin{itemize}
+\item un poste ou un récepteur relié au vidéoprojecteur ;
+\item un WebSDR en secours, et pour montrer les bandes HF que la clé ne reçoit pas.
+\end{itemize}
+\end{minipage}
+
+\medskip
+\textbf{À préparer.} Relever à l'avance, depuis la salle, quatre ou cinq signaux
+sûrs : deux stations FM, un multiplex DAB+, le relais radioamateur local, une
+balise. Noter leurs fréquences : ce sont les points de repère de la séance.
+
+\section*{Déroulé}
+
+\begin{tabularx}{\linewidth}{P{14mm}P{30mm}LL}
+\BIRentete \BIRth{Durée} & \BIRth{Phase} & \BIRth{L'encadrant} & \BIRth{Les élèves} \\
+5 min & accroche & projette une chute d'eau de la bande FM : « combien de stations ici ? » & comptent les bandes verticales \\
+10 min & le spectre & déroule le tableau des domaines ; place la radio FM, le Wi-Fi, le relais local & situent trois fréquences dans HF, VHF ou UHF \\
+10 min & le partage et les bandes & pourquoi partager ; qui décide ; six bandes radioamateur & retrouvent le nom d'une bande par le calcul de la séance 7 \\
+\rowcolor{BIRclair} 50 min & manipulation & circule, dépanne, relance & dressent leur carte du spectre (fiche nº 8) \\
+15 min & bilan & fait comparer les cartes ; corrige trois questions & complètent « à retenir » ; répondent aux questions \\
+\bottomrule
+\end{tabularx}
+
+\section*{Conduite de la manipulation}
+
+\begin{enumerate}
+\item \textbf{Prise en main (10 min).} Tout le monde sur une station FM connue.
+  Faire repérer l'axe des fréquences, le pic, la trace dans la chute d'eau.
+  Couper le son, puis le remettre : la trace ne dépend pas du son.
+\item \textbf{Exploration guidée (25 min).} Les groupes cherchent les signaux de
+  la fiche, dans l'ordre. Pour chacun : fréquence, domaine, aspect à l'écran.
+\item \textbf{Exploration libre (15 min).} Chaque groupe trouve un signal qui
+  n'est pas sur la fiche et le décrit aux autres.
+\end{enumerate}
+
+\begin{BIRalerte}{Ce qu'on écoute, ce qu'on regarde}
+Les élèves n'écoutent que la radiodiffusion et les bandes radioamateur. Tout
+autre signal est observé à l'écran, son coupé : on note sa fréquence et sa
+forme, pas son contenu.
+\end{BIRalerte}
+
+\section*{Ce qui coince souvent}
+
+\begin{description}[leftmargin=0pt,itemsep=3pt]
+\item[Confondre les deux axes.] « Plus à droite » est lu comme « plus fort ».
+  Faire montrer du doigt : droite-gauche, c'est la fréquence.
+\item[Confondre spectre et oscillogramme.] À la séance 7, l'axe horizontal
+  était le temps. Ici, c'est la fréquence. Le dire explicitement.
+\item[Croire qu'une bande est une seule fréquence.] Faire compter les stations
+  visibles dans la bande FM : une bande, beaucoup de fréquences.
+\item[Croire que « 2 m » est une distance ou une taille d'antenne.] Refaire le
+  calcul : 300 divisé par 145.
+\item[Prendre un parasite pour un émetteur.] Un pic qui reste quand on débranche
+  l'antenne vient de l'ordinateur ou de la clé.
+\end{description}
+
+\section*{Pour aller plus loin}
+
+\begin{description}[leftmargin=0pt,itemsep=3pt]
+\item[Statut primaire ou secondaire.] Sur certaines bandes, les radioamateurs
+  sont prioritaires ; sur d'autres, ils ne doivent pas gêner le service
+  principal. La bande des 2 m est à statut primaire, celle de 430 à 434 MHz
+  à statut secondaire.
+\item[Les trois régions de l'UIT.] Le monde est découpé en trois régions ; les
+  bandes n'y sont pas toutes identiques. La France métropolitaine est en région 1.
+\item[Les plans de bande.] À l'intérieur d'une bande, les radioamateurs se
+  répartissent eux-mêmes les usages : télégraphie ici, voix là, balises ailleurs.
+\item[L'échelle verticale du spectre] est graduée en décibels : chaque
+  graduation correspond à un rapport, pas à un écart.
+\end{description}
+
+\section*{Corrigé de la fiche}
+
+Les fréquences relevées dépendent du lieu. Sont attendus : le bon domaine pour
+chaque signal, une description juste de la trace, et la longueur d'onde
+calculée à 10 \% près.
+
+\begin{tabularx}{\linewidth}{P{45mm}P{30mm}L}
+\BIRentete \BIRth{Signal} & \BIRth{Domaine} & \BIRth{Aspect attendu à la chute d'eau} \\
+station FM & VHF & bande large, continue \\
+multiplex DAB+ & VHF & bloc très large, uniforme, à bords nets \\
+relais radioamateur & VHF ou UHF & bande étroite, par moments seulement \\
+balise & selon la bande & trait fin, continu ou découpé \\
+\bottomrule
+\end{tabularx}
+
+\medskip
+\textbf{Questions de la séance :} RC0801 à RC0810.
+
+\end{document}
