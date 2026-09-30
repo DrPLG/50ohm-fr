@@ -165,11 +165,59 @@
     {"ident": "bir_installer_une_antenne", "title": "Installer une antenne"}
    ]
   },
-  {"ident": "bir_16", "title": "Câbles, connecteurs et réglage", "sections": []},
-  {"ident": "bir_17", "title": "Le récepteur", "sections": []},
-  {"ident": "bir_18", "title": "L'émetteur", "sections": []},
-  {"ident": "bir_19", "title": "L'atelier de soudure", "sections": []},
-  {"ident": "bir_20", "title": "La radio en action", "sections": []},
+  {
+   "ident": "bir_16",
+   "title": "Câbles, connecteurs et réglage",
+   "abstract": "Entre le poste et l'antenne, le câble et ses connecteurs comptent autant que le reste. Nous découvrons le câble coaxial, les principaux connecteurs, le rapport d'ondes stationnaires qui dit si l'antenne est bien accordée, et la façon de la régler.",
+   "sections": [
+    {"ident": "bir_le_cable_coaxial", "title": "Le câble coaxial"},
+    {"ident": "bir_les_connecteurs", "title": "Les connecteurs"},
+    {"ident": "bir_le_ros", "title": "Le rapport d'ondes stationnaires"},
+    {"ident": "bir_regler_une_antenne", "title": "Régler une antenne"}
+   ]
+  },
+  {
+   "ident": "bir_17",
+   "title": "Le récepteur",
+   "abstract": "Un récepteur doit choisir une station parmi des milliers, la rendre assez forte et en extraire le message. Nous suivons le signal de l'antenne au haut-parleur, découvrons le squelch, et apprenons à régler un vrai poste.",
+   "sections": [
+    {"ident": "bir_la_chaine_de_reception", "title": "La chaîne de réception"},
+    {"ident": "bir_le_squelch", "title": "Le squelch"},
+    {"ident": "bir_les_commandes_d_un_poste", "title": "Les commandes d'un poste"}
+   ]
+  },
+  {
+   "ident": "bir_18",
+   "title": "L'émetteur",
+   "abstract": "L'émetteur fait le chemin inverse du récepteur : il transforme la voix en onde radio. Nous suivons le signal dans un émetteur, apprenons à mesurer sa puissance sans rien rayonner, et voyons comment émettre sans gêner les autres.",
+   "sections": [
+    {"ident": "bir_la_chaine_d_emission", "title": "La chaîne d'émission"},
+    {"ident": "bir_la_puissance_d_emission", "title": "La puissance d'émission"},
+    {"ident": "bir_la_charge_fictive", "title": "La charge fictive"},
+    {"ident": "bir_ne_pas_perturber", "title": "Ne pas perturber"}
+   ]
+  },
+  {
+   "ident": "bir_19",
+   "title": "L'atelier de soudure",
+   "abstract": "Beaucoup de radioamateurs construisent eux-mêmes une partie de leur matériel. Nous apprenons à reconnaître les composants, à lire un schéma d'implantation, et à réaliser des soudures propres en montant un petit kit.",
+   "sections": [
+    {"ident": "bir_les_composants", "title": "Les composants"},
+    {"ident": "bir_lire_un_schema", "title": "Lire un schéma d'implantation"},
+    {"ident": "bir_souder_proprement", "title": "Souder proprement"}
+   ]
+  },
+  {
+   "ident": "bir_20",
+   "title": "La radio en action",
+   "abstract": "La radio d'amateur ne se limite pas à la conversation. Nous découvrons les satellites et la station spatiale, le locator qui situe chaque station sur la Terre, les concours, la chasse au renard, et la radio qui fonctionne quand tout le reste est coupé.",
+   "sections": [
+    {"ident": "bir_satellites_et_iss", "title": "Satellites et station spatiale"},
+    {"ident": "bir_le_locator", "title": "Le locator"},
+    {"ident": "bir_concours_et_chasse_au_renard", "title": "Concours et chasse au renard"},
+    {"ident": "bir_la_radio_d_urgence", "title": "La radio d'urgence"}
+   ]
+  },
   {"ident": "bir_21", "title": "Préparer son contact", "sections": []},
   {"ident": "bir_22", "title": "Au micro", "sections": []},
   {"ident": "bir_23", "title": "Les règles, et après ?", "sections": []}

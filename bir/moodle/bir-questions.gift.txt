@@ -1079,3 +1079,363 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 15 — Con
 	~L'installer pendant un orage pour tester la foudre
 	~Travailler seul pour ne déranger personne
 }
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 16 — Câbles, connecteurs et réglage
+
+::RD1601::Dans un câble coaxial, comment s'appelle le fil de cuivre central ? {
+	=L'âme
+	~La tresse
+	~La gaine
+	~L'embase
+}
+
+::RD1602::Quelle est l'impédance des câbles coaxiaux utilisés dans les stations de radioamateur ? {
+	=50 Ω
+	~75 Ω
+	~230 Ω
+	~1 Ω
+}
+
+::RD1603::Comment varient les pertes d'un câble coaxial ? {
+	=Elles augmentent avec la longueur du câble et avec la fréquence.
+	~Elles diminuent quand la fréquence augmente.
+	~Elles ne dépendent que de la couleur de la gaine.
+	~Un câble coaxial n'a jamais de pertes.
+}
+
+::RD1604::Quel connecteur trouve-t-on souvent sur les portatifs récents et les clés SDR ? {
+	=Le connecteur SMA
+	~La prise de courant
+	~Le connecteur PL de grande taille
+	~Le connecteur USB
+}
+
+::RD1605::Que se passe-t-il si un brin de tresse touche l'âme dans une fiche ? {
+	=Le câble est en court-circuit.
+	~Le signal devient plus fort.
+	~La fiche devient étanche.
+	~Rien, c'est prévu.
+}
+
+::RD1606::Que mesure le rapport d'ondes stationnaires (ROS) ? {
+	=À quel point l'antenne renvoie vers l'émetteur une partie de la puissance
+	~La vitesse de l'onde dans le câble
+	~La distance jusqu'au correspondant
+	~La tension de l'alimentation
+}
+
+::RD1607::Quelle valeur de ROS correspond à une antenne parfaitement accordée ? {
+	=1
+	~0
+	~3
+	~10
+}
+
+::RD1608::Un ROS-mètre indique un ROS infini. Quelle est la cause la plus probable ? {
+	=Une panne \: câble coupé, fiche en court-circuit ou antenne débranchée
+	~Une antenne parfaitement réglée
+	~Une propagation exceptionnelle
+	~Un poste trop récent
+}
+
+::RD1609::L'analyseur montre le creux de ROS de votre dipôle à 141 MHz ; vous visez 145 MHz. Que faut-il faire ? {
+	=Raccourcir un peu les deux brins, de la même longueur
+	~Allonger un seul brin
+	~Raccourcir un seul brin
+	~Changer le câble coaxial
+}
+
+::RD1610::Pourquoi coupe-t-on les brins d'une antenne un peu trop longs au départ ? {
+	=Parce qu'on peut les raccourcir au réglage, mais pas les rallonger
+	~Parce que les antennes rétrécissent avec le temps
+	~Pour qu'elles soient plus solides
+	~Parce que la loi l'impose
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 17 — Le récepteur
+
+::RB1701::Dans un récepteur, quel bloc retire de la porteuse le signal de la voix ? {
+	=Le démodulateur
+	~L'amplificateur haute fréquence
+	~Le filtre
+	~L'antenne
+}
+
+::RB1702::Dans un récepteur simple, quel bloc vient juste avant le haut-parleur ? {
+	=L'amplificateur basse fréquence
+	~L'antenne
+	~Le filtre d'entrée
+	~L'amplificateur haute fréquence
+}
+
+::RB1703::Qu'est-ce que la sensibilité d'un récepteur ? {
+	=Sa capacité à entendre des signaux très faibles
+	~Sa capacité à séparer deux stations voisines
+	~La force du son au haut-parleur
+	~Sa résistance aux chocs
+}
+
+::RB1704::Qu'est-ce que la sélectivité d'un récepteur ? {
+	=Sa capacité à séparer la station écoutée d'une station voisine
+	~Sa capacité à entendre des signaux très faibles
+	~Le nombre de mémoires qu'il possède
+	~Sa consommation en réception
+}
+
+::RB1705::À quoi sert le squelch ? {
+	=À couper le haut-parleur tant qu'aucun signal assez fort n'est reçu
+	~À augmenter la puissance d'émission
+	~À changer de fréquence automatiquement
+	~À enregistrer les contacts
+}
+
+::RB1706::Quel est le risque d'un squelch réglé trop haut ? {
+	=Ne pas entendre les stations faibles
+	~Entendre un souffle permanent
+	~Émettre sans le vouloir
+	~Abîmer le haut-parleur
+}
+
+::RB1707::On entend une station SSB avec une voix de canard incompréhensible. Que vérifie-t-on d'abord ? {
+	=Le mode et le réglage fin de la fréquence
+	~Le volume
+	~La tension de l'alimentation
+	~La longueur du câble
+}
+
+::RB1708::Que règle le pas de fréquence d'un poste ? {
+	=De combien la fréquence avance à chaque cran du bouton
+	~La vitesse de défilement de la chute d'eau
+	~La puissance d'émission
+	~Le volume du haut-parleur
+}
+
+::RB1709::Que peut-on enregistrer dans une mémoire d'un poste ? {
+	=Une fréquence et ses réglages, par exemple ceux du relais local
+	~Les conversations entendues, pour les réécouter
+	~La liste des radioamateurs de France
+	~La puissance de l'alimentation
+}
+
+::RB1710::Un poste n'émet aucun son alors qu'une station est affichée sur le S-mètre. Que vérifie-t-on ? {
+	=Le volume et le squelch
+	~La longueur de l'antenne
+	~Le fusible de l'alimentation
+	~Le connecteur du microphone
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 18 — L'émetteur
+
+::RB1801::Dans un émetteur, quel bloc fabrique la porteuse ? {
+	=L'oscillateur
+	~Le microphone
+	~Le filtre passe-bas
+	~Le haut-parleur
+}
+
+::RB1802::Dans un émetteur, quel bloc module la porteuse avec la voix ? {
+	=Le mélangeur
+	~L'antenne
+	~L'oscillateur seul
+	~Le filtre passe-bas
+}
+
+::RB1803::À quoi sert le filtre passe-bas placé à la sortie de l'émetteur ? {
+	=À éliminer les fréquences indésirables produites par l'amplification
+	~À augmenter la puissance
+	~À changer de bande
+	~À filtrer la voix du microphone
+}
+
+::RB1804::Avec quel appareil mesure-t-on la puissance d'émission ? {
+	=Un wattmètre
+	~Un voltmètre seul
+	~Un analyseur d'antenne
+	~Un fréquencemètre
+}
+
+::RB1805::Quelle puissance faut-il utiliser pour un contact ? {
+	=La plus faible qui permet le contact
+	~Toujours le maximum autorisé
+	~Toujours 100 W
+	~Le double de celle du correspondant
+}
+
+::RB1806::Qu'est-ce qu'une charge fictive ? {
+	=Une résistance de 50 Ω qui remplace l'antenne et transforme la puissance en chaleur
+	~Une antenne très efficace
+	~Un accumulateur de secours
+	~Un programme qui simule un contact
+}
+
+::RB1807::Pourquoi essaie-t-on un émetteur sur charge fictive ? {
+	=Pour ne rien rayonner et ne gêner personne
+	~Pour émettre plus loin
+	~Pour économiser l'électricité
+	~Pour tester l'antenne
+}
+
+::RB1808::Qu'appelle-t-on les harmoniques d'un émetteur ? {
+	=Des émissions indésirables sur des multiples de sa fréquence
+	~Les notes de musique qu'il peut transmettre
+	~Les différentes bandes qu'il sait couvrir
+	~Les réglages enregistrés dans ses mémoires
+}
+
+::RB1809::Un émetteur sur 145 MHz produit une harmonique. Sur quelle fréquence peut-elle tomber ? {
+	=290 MHz
+	~146 MHz
+	~72,5 MHz
+	~14,5 MHz
+}
+
+::RB1810::En France, quel organisme instruit les cas de brouillage ? {
+	=L'Agence nationale des fréquences (ANFR)
+	~La mairie
+	~Le radio-club le plus proche
+	~Le fabricant du poste
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 19 — L'atelier de soudure
+
+::RB1901::Quel composant ne laisse passer le courant que dans un sens ? {
+	=La diode
+	~La résistance
+	~Le condensateur céramique
+	~Le fil de cuivre
+}
+
+::RB1902::Sur une LED neuve, comment reconnaît-on l'anode, qui va vers le plus ? {
+	=C'est la patte la plus longue.
+	~C'est la patte la plus courte.
+	~C'est la patte peinte en rouge.
+	~Les deux pattes sont identiques \: le sens n'a pas d'importance.
+}
+
+::RB1903::Combien de pattes a un transistor ? {
+	=Trois
+	~Deux
+	~Quatre
+	~Une
+}
+
+::RB1904::Lequel de ces composants peut se monter dans n'importe quel sens ? {
+	=Une résistance
+	~Une LED
+	~Une diode
+	~Un condensateur électrolytique
+}
+
+::RB1905::Que montre un schéma d'implantation ? {
+	=L'emplacement et l'orientation de chaque composant sur le circuit imprimé
+	~Le prix de chaque composant
+	~La fréquence d'émission du montage
+	~Le chemin du courant dans le corps humain
+}
+
+::RB1906::Sur un schéma, que désigne le repère R3 ? {
+	=Une résistance, la troisième de la liste
+	~La troisième bande radioamateur
+	~Un relais installé sur un point haut
+	~Un report RST de 3
+}
+
+::RB1907::Où apporte-t-on le fil de soudure ? {
+	=Sur la pastille et la patte chauffées, pas sur la panne du fer
+	~Directement sur la panne, puis on étale
+	~Sur le composant, loin de la pastille
+	~N'importe où, du moment qu'il fond
+}
+
+::RB1908::À quoi reconnaît-on une bonne soudure ? {
+	=Elle est brillante et forme un petit cône régulier autour de la patte.
+	~Elle forme une grosse boule terne sur la pastille.
+	~Elle recouvre tout le composant.
+	~Elle est granuleuse et mate.
+}
+
+::RB1909::Où pose-t-on le fer à souder quand on ne s'en sert pas ? {
+	=Sur son support
+	~Sur la table, à plat
+	~Sur le circuit imprimé
+	~Dans la trousse
+}
+
+::RB1910::Le fer à souder tombe de la table. Que fait-on ? {
+	=On le laisse tomber, sans essayer de le rattraper.
+	~On le rattrape au vol par la panne.
+	~On le rattrape par le câble.
+	~On le rattrape avec la pince coupante.
+}
+
+$CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 20 — La radio en action
+
+::RA2001::Comment fonctionne la plupart des satellites radioamateur ? {
+	=Comme des relais en orbite \: ils reçoivent sur une fréquence et réémettent sur une autre.
+	~Ils photographient la Terre et envoient les images par Internet.
+	~Ils servent seulement à donner l'heure.
+	~Ils émettent de la musique en permanence.
+}
+
+::RA2002::Pendant combien de temps un satellite en orbite basse reste-t-il au-dessus de notre horizon lors d'un passage ? {
+	=Quelques minutes
+	~Toute la journée
+	~Une semaine
+	~Une seconde
+}
+
+::RA2003::Que permet le programme ARISS ? {
+	=À des élèves de parler en direct avec un astronaute de la Station spatiale internationale
+	~De lancer des satellites depuis une école
+	~D'émettre sans indicatif depuis l'espace
+	~De recevoir la télévision par satellite
+}
+
+::RA2004::Que représente un locator comme JN18 ? {
+	=Une case de la surface de la Terre, pour indiquer la position d'une station
+	~Un indicatif de radio-club
+	~Une fréquence de relais
+	~Un report de réception
+}
+
+::RA2005::Dans un locator, que désignent les deux premières lettres ? {
+	=Le champ, l'un des grands rectangles qui découpent la Terre
+	~Le pays de la station
+	~Le département
+	~L'initiale du radioamateur
+}
+
+::RA2006::Quel est le but d'un concours radioamateur ? {
+	=Faire le plus grand nombre de contacts en un temps donné
+	~Émettre avec la plus grande puissance possible
+	~Construire l'antenne la plus haute
+	~Rester le plus longtemps possible sur une même fréquence
+}
+
+::RA2007::Dans une chasse au renard, qu'est-ce que le « renard » ? {
+	=Un petit émetteur caché qu'il faut localiser
+	~Le premier coureur arrivé
+	~Un radioamateur déguisé
+	~Une antenne en forme de queue
+}
+
+::RA2008::Pourquoi la radio est-elle précieuse en cas de catastrophe ? {
+	=Parce qu'elle peut fonctionner sans électricité du réseau, sans téléphone et sans Internet
+	~Parce qu'elle est plus rapide qu'Internet
+	~Parce que les radioamateurs remplacent les pompiers
+	~Parce qu'elle fonctionne sans antenne
+}
+
+::RA2009::En France, comment s'appellent les associations départementales de radioamateurs au service de la sécurité civile ? {
+	=Les ADRASEC
+	~Les ANFR
+	~Les ARCEP
+	~Les UIT
+}
+
+::RA2010::Le service d'amateur est-il un service de secours ? {
+	=Non \: ce sont des bénévoles qui prêtent leur compétence à l'autorité.
+	~Oui, il remplace les services de secours.
+	~Oui, mais seulement la nuit.
+	~Oui, il est dirigé par les pompiers.
+}

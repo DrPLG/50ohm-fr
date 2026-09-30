@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine A — Découvrir la radio et les radioamateurs",
+   "sections": [
+    {
+     "title": "Séance 20 — La radio en action",
+     "questions": [
+      {
+       "number": "RA2001",
+       "class": "BIR",
+       "question": "Comment fonctionne la plupart des satellites radioamateur ?",
+       "answer_a": "Comme des relais en orbite : ils reçoivent sur une fréquence et réémettent sur une autre.",
+       "answer_b": "Ils photographient la Terre et envoient les images par Internet.",
+       "answer_c": "Ils servent seulement à donner l'heure.",
+       "answer_d": "Ils émettent de la musique en permanence."
+      },
+      {
+       "number": "RA2002",
+       "class": "BIR",
+       "question": "Pendant combien de temps un satellite en orbite basse reste-t-il au-dessus de notre horizon lors d'un passage ?",
+       "answer_a": "Quelques minutes",
+       "answer_b": "Toute la journée",
+       "answer_c": "Une semaine",
+       "answer_d": "Une seconde"
+      },
+      {
+       "number": "RA2003",
+       "class": "BIR",
+       "question": "Que permet le programme ARISS ?",
+       "answer_a": "À des élèves de parler en direct avec un astronaute de la Station spatiale internationale",
+       "answer_b": "De lancer des satellites depuis une école",
+       "answer_c": "D'émettre sans indicatif depuis l'espace",
+       "answer_d": "De recevoir la télévision par satellite"
+      },
+      {
+       "number": "RA2004",
+       "class": "BIR",
+       "question": "Que représente un locator comme JN18 ?",
+       "answer_a": "Une case de la surface de la Terre, pour indiquer la position d'une station",
+       "answer_b": "Un indicatif de radio-club",
+       "answer_c": "Une fréquence de relais",
+       "answer_d": "Un report de réception"
+      },
+      {
+       "number": "RA2005",
+       "class": "BIR",
+       "question": "Dans un locator, que désignent les deux premières lettres ?",
+       "answer_a": "Le champ, l'un des grands rectangles qui découpent la Terre",
+       "answer_b": "Le pays de la station",
+       "answer_c": "Le département",
+       "answer_d": "L'initiale du radioamateur"
+      },
+      {
+       "number": "RA2006",
+       "class": "BIR",
+       "question": "Quel est le but d'un concours radioamateur ?",
+       "answer_a": "Faire le plus grand nombre de contacts en un temps donné",
+       "answer_b": "Émettre avec la plus grande puissance possible",
+       "answer_c": "Construire l'antenne la plus haute",
+       "answer_d": "Rester le plus longtemps possible sur une même fréquence"
+      },
+      {
+       "number": "RA2007",
+       "class": "BIR",
+       "question": "Dans une chasse au renard, qu'est-ce que le « renard » ?",
+       "answer_a": "Un petit émetteur caché qu'il faut localiser",
+       "answer_b": "Le premier coureur arrivé",
+       "answer_c": "Un radioamateur déguisé",
+       "answer_d": "Une antenne en forme de queue"
+      },
+      {
+       "number": "RA2008",
+       "class": "BIR",
+       "question": "Pourquoi la radio est-elle précieuse en cas de catastrophe ?",
+       "answer_a": "Parce qu'elle peut fonctionner sans électricité du réseau, sans téléphone et sans Internet",
+       "answer_b": "Parce qu'elle est plus rapide qu'Internet",
+       "answer_c": "Parce que les radioamateurs remplacent les pompiers",
+       "answer_d": "Parce qu'elle fonctionne sans antenne"
+      },
+      {
+       "number": "RA2009",
+       "class": "BIR",
+       "question": "En France, comment s'appellent les associations départementales de radioamateurs au service de la sécurité civile ?",
+       "answer_a": "Les ADRASEC",
+       "answer_b": "Les ANFR",
+       "answer_c": "Les ARCEP",
+       "answer_d": "Les UIT"
+      },
+      {
+       "number": "RA2010",
+       "class": "BIR",
+       "question": "Le service d'amateur est-il un service de secours ?",
+       "answer_a": "Non : ce sont des bénévoles qui prêtent leur compétence à l'autorité.",
+       "answer_b": "Oui, il remplace les services de secours.",
+       "answer_c": "Oui, mais seulement la nuit.",
+       "answer_d": "Oui, il est dirigé par les pompiers."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

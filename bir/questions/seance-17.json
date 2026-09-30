@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 17 — Le récepteur",
+     "questions": [
+      {
+       "number": "RB1701",
+       "class": "BIR",
+       "question": "Dans un récepteur, quel bloc retire de la porteuse le signal de la voix ?",
+       "answer_a": "Le démodulateur",
+       "answer_b": "L'amplificateur haute fréquence",
+       "answer_c": "Le filtre",
+       "answer_d": "L'antenne"
+      },
+      {
+       "number": "RB1702",
+       "class": "BIR",
+       "question": "Dans un récepteur simple, quel bloc vient juste avant le haut-parleur ?",
+       "answer_a": "L'amplificateur basse fréquence",
+       "answer_b": "L'antenne",
+       "answer_c": "Le filtre d'entrée",
+       "answer_d": "L'amplificateur haute fréquence"
+      },
+      {
+       "number": "RB1703",
+       "class": "BIR",
+       "question": "Qu'est-ce que la sensibilité d'un récepteur ?",
+       "answer_a": "Sa capacité à entendre des signaux très faibles",
+       "answer_b": "Sa capacité à séparer deux stations voisines",
+       "answer_c": "La force du son au haut-parleur",
+       "answer_d": "Sa résistance aux chocs"
+      },
+      {
+       "number": "RB1704",
+       "class": "BIR",
+       "question": "Qu'est-ce que la sélectivité d'un récepteur ?",
+       "answer_a": "Sa capacité à séparer la station écoutée d'une station voisine",
+       "answer_b": "Sa capacité à entendre des signaux très faibles",
+       "answer_c": "Le nombre de mémoires qu'il possède",
+       "answer_d": "Sa consommation en réception"
+      },
+      {
+       "number": "RB1705",
+       "class": "BIR",
+       "question": "À quoi sert le squelch ?",
+       "answer_a": "À couper le haut-parleur tant qu'aucun signal assez fort n'est reçu",
+       "answer_b": "À augmenter la puissance d'émission",
+       "answer_c": "À changer de fréquence automatiquement",
+       "answer_d": "À enregistrer les contacts"
+      },
+      {
+       "number": "RB1706",
+       "class": "BIR",
+       "question": "Quel est le risque d'un squelch réglé trop haut ?",
+       "answer_a": "Ne pas entendre les stations faibles",
+       "answer_b": "Entendre un souffle permanent",
+       "answer_c": "Émettre sans le vouloir",
+       "answer_d": "Abîmer le haut-parleur"
+      },
+      {
+       "number": "RB1707",
+       "class": "BIR",
+       "question": "On entend une station SSB avec une voix de canard incompréhensible. Que vérifie-t-on d'abord ?",
+       "answer_a": "Le mode et le réglage fin de la fréquence",
+       "answer_b": "Le volume",
+       "answer_c": "La tension de l'alimentation",
+       "answer_d": "La longueur du câble"
+      },
+      {
+       "number": "RB1708",
+       "class": "BIR",
+       "question": "Que règle le pas de fréquence d'un poste ?",
+       "answer_a": "De combien la fréquence avance à chaque cran du bouton",
+       "answer_b": "La vitesse de défilement de la chute d'eau",
+       "answer_c": "La puissance d'émission",
+       "answer_d": "Le volume du haut-parleur"
+      },
+      {
+       "number": "RB1709",
+       "class": "BIR",
+       "question": "Que peut-on enregistrer dans une mémoire d'un poste ?",
+       "answer_a": "Une fréquence et ses réglages, par exemple ceux du relais local",
+       "answer_b": "Les conversations entendues, pour les réécouter",
+       "answer_c": "La liste des radioamateurs de France",
+       "answer_d": "La puissance de l'alimentation"
+      },
+      {
+       "number": "RB1710",
+       "class": "BIR",
+       "question": "Un poste n'émet aucun son alors qu'une station est affichée sur le S-mètre. Que vérifie-t-on ?",
+       "answer_a": "Le volume et le squelch",
+       "answer_b": "La longueur de l'antenne",
+       "answer_c": "Le fusible de l'alimentation",
+       "answer_d": "Le connecteur du microphone"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

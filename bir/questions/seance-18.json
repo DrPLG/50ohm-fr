@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 18 — L'émetteur",
+     "questions": [
+      {
+       "number": "RB1801",
+       "class": "BIR",
+       "question": "Dans un émetteur, quel bloc fabrique la porteuse ?",
+       "answer_a": "L'oscillateur",
+       "answer_b": "Le microphone",
+       "answer_c": "Le filtre passe-bas",
+       "answer_d": "Le haut-parleur"
+      },
+      {
+       "number": "RB1802",
+       "class": "BIR",
+       "question": "Dans un émetteur, quel bloc module la porteuse avec la voix ?",
+       "answer_a": "Le mélangeur",
+       "answer_b": "L'antenne",
+       "answer_c": "L'oscillateur seul",
+       "answer_d": "Le filtre passe-bas"
+      },
+      {
+       "number": "RB1803",
+       "class": "BIR",
+       "question": "À quoi sert le filtre passe-bas placé à la sortie de l'émetteur ?",
+       "answer_a": "À éliminer les fréquences indésirables produites par l'amplification",
+       "answer_b": "À augmenter la puissance",
+       "answer_c": "À changer de bande",
+       "answer_d": "À filtrer la voix du microphone"
+      },
+      {
+       "number": "RB1804",
+       "class": "BIR",
+       "question": "Avec quel appareil mesure-t-on la puissance d'émission ?",
+       "answer_a": "Un wattmètre",
+       "answer_b": "Un voltmètre seul",
+       "answer_c": "Un analyseur d'antenne",
+       "answer_d": "Un fréquencemètre"
+      },
+      {
+       "number": "RB1805",
+       "class": "BIR",
+       "question": "Quelle puissance faut-il utiliser pour un contact ?",
+       "answer_a": "La plus faible qui permet le contact",
+       "answer_b": "Toujours le maximum autorisé",
+       "answer_c": "Toujours 100 W",
+       "answer_d": "Le double de celle du correspondant"
+      },
+      {
+       "number": "RB1806",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'une charge fictive ?",
+       "answer_a": "Une résistance de 50 Ω qui remplace l'antenne et transforme la puissance en chaleur",
+       "answer_b": "Une antenne très efficace",
+       "answer_c": "Un accumulateur de secours",
+       "answer_d": "Un programme qui simule un contact"
+      },
+      {
+       "number": "RB1807",
+       "class": "BIR",
+       "question": "Pourquoi essaie-t-on un émetteur sur charge fictive ?",
+       "answer_a": "Pour ne rien rayonner et ne gêner personne",
+       "answer_b": "Pour émettre plus loin",
+       "answer_c": "Pour économiser l'électricité",
+       "answer_d": "Pour tester l'antenne"
+      },
+      {
+       "number": "RB1808",
+       "class": "BIR",
+       "question": "Qu'appelle-t-on les harmoniques d'un émetteur ?",
+       "answer_a": "Des émissions indésirables sur des multiples de sa fréquence",
+       "answer_b": "Les notes de musique qu'il peut transmettre",
+       "answer_c": "Les différentes bandes qu'il sait couvrir",
+       "answer_d": "Les réglages enregistrés dans ses mémoires"
+      },
+      {
+       "number": "RB1809",
+       "class": "BIR",
+       "question": "Un émetteur sur $\\qty{145}{\\mega\\hertz}$ produit une harmonique. Sur quelle fréquence peut-elle tomber ?",
+       "answer_a": "290 MHz",
+       "answer_b": "146 MHz",
+       "answer_c": "72,5 MHz",
+       "answer_d": "14,5 MHz"
+      },
+      {
+       "number": "RB1810",
+       "class": "BIR",
+       "question": "En France, quel organisme instruit les cas de brouillage ?",
+       "answer_a": "L'Agence nationale des fréquences (ANFR)",
+       "answer_b": "La mairie",
+       "answer_c": "Le radio-club le plus proche",
+       "answer_d": "Le fabricant du poste"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
