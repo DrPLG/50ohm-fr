@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine E — Trafic, règles et sécurité",
+   "sections": [
+    {
+     "title": "Séance 23 — Les règles, et après ?",
+     "questions": [
+      {
+       "number": "RE2301",
+       "class": "BIR",
+       "question": "Que faut-il pour avoir le droit d'émettre sur les bandes radioamateur en France ?",
+       "answer_a": "Un certificat d'opérateur et un indicatif",
+       "answer_b": "Un poste acheté en France",
+       "answer_c": "Le BIR",
+       "answer_d": "L'accord de ses voisins"
+      },
+      {
+       "number": "RE2302",
+       "class": "BIR",
+       "question": "En France, quel organisme délivre les certificats d'opérateur et les indicatifs ?",
+       "answer_a": "L'ANFR",
+       "answer_b": "L'ARCEP",
+       "answer_c": "L'UIT",
+       "answer_d": "La mairie"
+      },
+      {
+       "number": "RE2303",
+       "class": "BIR",
+       "question": "Quel organisme fixe les conditions d'utilisation des fréquences par les radioamateurs, comme les bandes et la puissance ?",
+       "answer_a": "L'ARCEP",
+       "answer_b": "Le radio-club local",
+       "answer_c": "Le fabricant du poste",
+       "answer_d": "Le collège"
+      },
+      {
+       "number": "RE2304",
+       "class": "BIR",
+       "question": "Un radioamateur peut-il coder ses messages pour que personne d'autre ne les comprenne ?",
+       "answer_a": "Non, c'est interdit.",
+       "answer_b": "Oui, toujours.",
+       "answer_c": "Oui, mais seulement la nuit.",
+       "answer_d": "Oui, s'il émet à faible puissance."
+      },
+      {
+       "number": "RE2305",
+       "class": "BIR",
+       "question": "En France, a-t-on le droit de posséder un récepteur et d'écouter les ondes ?",
+       "answer_a": "Oui, l'écoute est libre, mais le contenu des communications des autres est protégé.",
+       "answer_b": "Non, il faut une autorisation pour chaque récepteur.",
+       "answer_c": "Oui, et l'on peut publier tout ce qu'on entend.",
+       "answer_d": "Non, seuls les radioamateurs ont le droit d'écouter."
+      },
+      {
+       "number": "RE2306",
+       "class": "BIR",
+       "question": "On entend par hasard une conversation qui ne nous est pas destinée. Que fait-on ?",
+       "answer_a": "On ne la répète pas, on ne l'enregistre pas, on ne s'en sert pas.",
+       "answer_b": "On l'enregistre pour la publier.",
+       "answer_c": "On la raconte à ses amis.",
+       "answer_d": "On répond pour se présenter."
+      },
+      {
+       "number": "RE2307",
+       "class": "BIR",
+       "question": "Comment se passe l'examen du certificat d'opérateur en France ?",
+       "answer_a": "Sur ordinateur, dans un centre de l'ANFR, en deux épreuves : réglementation et technique",
+       "answer_b": "Par oral, devant un jury de radioamateurs",
+       "answer_c": "Uniquement par un contact radio réussi",
+       "answer_d": "Par une épreuve de Morse seulement"
+      },
+      {
+       "number": "RE2308",
+       "class": "BIR",
+       "question": "Quelle note faut-il obtenir à chaque épreuve de l'examen du certificat d'opérateur ?",
+       "answer_a": "Au moins 10 sur 20",
+       "answer_b": "Au moins 18 sur 20",
+       "answer_c": "Au moins 5 sur 20",
+       "answer_d": "Il suffit de se présenter"
+      },
+      {
+       "number": "RE2309",
+       "class": "BIR",
+       "question": "Qu'apporte un radio-club à un débutant ?",
+       "answer_a": "Une station, des conseils, du matériel et souvent des cours de préparation",
+       "answer_b": "Un indicatif personnel, sans examen",
+       "answer_c": "Le droit d'émettre seul, sans certificat",
+       "answer_d": "Un emploi"
+      },
+      {
+       "number": "RE2310",
+       "class": "BIR",
+       "question": "Que permet le BIR ?",
+       "answer_a": "De découvrir la radio et de préparer le terrain pour le certificat d'opérateur",
+       "answer_b": "D'émettre seul sur les bandes radioamateur",
+       "answer_c": "D'obtenir un indicatif",
+       "answer_d": "De réparer des postes pour les vendre"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

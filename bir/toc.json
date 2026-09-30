@@ -218,8 +218,37 @@
     {"ident": "bir_la_radio_d_urgence", "title": "La radio d'urgence"}
    ]
   },
-  {"ident": "bir_21", "title": "Préparer son contact", "sections": []},
-  {"ident": "bir_22", "title": "Au micro", "sections": []},
-  {"ident": "bir_23", "title": "Les règles, et après ?", "sections": []}
+  {
+   "ident": "bir_21",
+   "title": "Préparer son contact",
+   "abstract": "Avant de prendre le micro d'une vraie station, on prépare ce qu'on va dire. Nous apprenons le plan d'un premier contact, sous quel indicatif nous parlerons et pourquoi, et nous écrivons puis répétons notre script.",
+   "sections": [
+    {"ident": "bir_ce_qu_on_dit", "title": "Ce qu'on dit, et dans quel ordre"},
+    {"ident": "bir_l_indicatif_de_la_station", "title": "L'indicatif de la station"},
+    {"ident": "bir_un_contact_complet", "title": "Un contact complet"},
+    {"ident": "bir_que_noter", "title": "Ce qu'on note"}
+   ]
+  },
+  {
+   "ident": "bir_22",
+   "title": "Au micro",
+   "abstract": "Le jour du premier contact est venu. Nous prenons le micro d'une vraie station, aux côtés du radioamateur qui nous accueille, nous remplissons notre carte QSL, et nous regardons ce qui peut suivre.",
+   "sections": [
+    {"ident": "bir_prendre_le_micro", "title": "Prendre le micro"},
+    {"ident": "bir_la_carte_qsl", "title": "La carte QSL"},
+    {"ident": "bir_apres_le_contact", "title": "Après le contact"}
+   ]
+  },
+  {
+   "ident": "bir_23",
+   "title": "Les règles, et après ?",
+   "abstract": "Tout au long du parcours, nous avons rencontré des règles. Nous les rassemblons, nous découvrons comment se passe l'examen du certificat d'opérateur, et nous regardons les chemins qui s'ouvrent après le BIR.",
+   "sections": [
+    {"ident": "bir_qui_peut_emettre", "title": "Qui peut émettre ?"},
+    {"ident": "bir_ecouter_n_est_pas_repeter", "title": "Écouter n'est pas répéter"},
+    {"ident": "bir_l_examen_du_certificat", "title": "L'examen du certificat d'opérateur"},
+    {"ident": "bir_la_suite_du_parcours", "title": "La suite du parcours"}
+   ]
+  }
  ]
 }

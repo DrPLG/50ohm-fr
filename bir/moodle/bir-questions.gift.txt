@@ -1439,3 +1439,219 @@ $CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 20
 	~Oui, mais seulement la nuit.
 	~Oui, il est dirigé par les pompiers.
 }
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 21 — Préparer son contact
+
+::RE2101::Dans un premier contact, que donne-t-on habituellement à son correspondant ? {
+	=Le report, son prénom et son QTH
+	~Son adresse complète et son numéro de téléphone
+	~Son nom de famille et sa date de naissance
+	~Le mot de passe du poste
+}
+
+::RE2102::Que désigne le QTH qu'on annonce dans un contact ? {
+	=La ville ou le village d'où l'on émet
+	~L'adresse exacte de son domicile
+	~La fréquence utilisée
+	~Le nom de son établissement scolaire en entier, avec la classe
+}
+
+::RE2103::Comment se termine chaque passage dans un contact ? {
+	=Par les indicatifs, puis « à vous »
+	~Par un silence de dix secondes
+	~Par un signal SOS
+	~Par la fréquence du relais
+}
+
+::RE2104::Un élève sans certificat parle au micro depuis la station d'un radioamateur. Sous quel indicatif se fait l'émission ? {
+	=Sous l'indicatif de la station du radioamateur, qui en reste responsable
+	~Sous un indicatif inventé par l'élève
+	~Sans indicatif, puisque l'élève n'en a pas
+	~Sous l'indicatif du collège
+}
+
+::RE2105::Au cours d'une émission de plus de quinze minutes sur une même fréquence, à quel rythme minimal annonce-t-on l'indicatif en France ? {
+	=Toutes les quinze minutes
+	~Une seule fois, au début
+	~Toutes les heures
+	~Jamais, si le correspondant le connaît
+}
+
+::RE2106::Existe-t-il en France un indicatif spécial permettant à un débutant d'émettre seul ? {
+	=Non
+	~Oui, il commence par F0
+	~Oui, il se termine par /T
+	~Oui, il est attribué par le collège
+}
+
+::RE2107::Dans le contact type du manuel, pourquoi Paul épelle-t-il son prénom ? {
+	=Pour qu'il soit compris sans erreur, même si la liaison est difficile
+	~Parce que c'est obligatoire pour tous les prénoms
+	~Parce que Paul est un prénom étranger
+	~Pour gagner du temps
+}
+
+::RE2108::Quelle durée convient à un passage dans un premier contact ? {
+	=Trente secondes à une minute
+	~Au moins cinq minutes
+	~Une seconde
+	~Le plus longtemps possible, pour occuper le relais
+}
+
+::RE2109::Quand note-t-on un contact dans le carnet de trafic ? {
+	=Au fur et à mesure, pendant le contact
+	~Le lendemain, de mémoire
+	~Seulement si le contact a duré plus de dix minutes
+	~Jamais, c'est inutile pour un premier contact
+}
+
+::RE2110::On n'est pas sûr d'avoir bien compris l'indicatif du correspondant. Que fait-on ? {
+	=On lui demande de le répéter
+	~On écrit ce qu'on croit avoir entendu
+	~On laisse la case vide
+	~On invente un indicatif proche
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 22 — Au micro
+
+::RE2201::Que fait-on avant de prendre la parole sur une fréquence ? {
+	=On écoute, pour s'assurer qu'elle est libre ou qu'on nous rend la main.
+	~On appuie tout de suite sur la touche PTT.
+	~On monte le volume au maximum.
+	~On change de fréquence.
+}
+
+::RE2202::Pourquoi attend-on un instant après avoir appuyé sur la touche PTT avant de parler ? {
+	=Pour que le premier mot ne soit pas coupé
+	~Pour laisser chauffer le microphone
+	~Pour que le correspondant ait le temps de raccrocher
+	~Parce que la loi impose une minute de silence
+}
+
+::RE2203::Que se passe-t-il tant qu'on garde la touche PTT enfoncée ? {
+	=On n'entend pas le correspondant, et personne d'autre ne peut parler.
+	~On entend mieux le correspondant.
+	~Le poste s'éteint au bout de trois secondes.
+	~Le correspondant peut nous interrompre.
+}
+
+::RE2204::On s'est trompé en parlant. Que dit-on ? {
+	=« Correction », puis on reprend
+	~« SOS »
+	~« QRT »
+	~Rien, on relâche la touche et l'on s'en va
+}
+
+::RE2205::Qu'est-ce qu'une carte QSL ? {
+	=Une carte postale qui confirme un contact
+	~Le permis d'émettre d'un radioamateur
+	~Une carte des relais
+	~Un plan de la station
+}
+
+::RE2206::Les renseignements portés sur une carte QSL doivent correspondre à ceux… {
+	=du carnet de trafic
+	~de la notice du poste
+	~du bulletin météo
+	~de la facture du poste
+}
+
+::RE2207::Par quel moyen les radioamateurs échangent-ils souvent leurs cartes QSL ? {
+	=Par le bureau QSL d'une association nationale
+	~Par les pompiers
+	~Par le relais local
+	~Par l'ANFR
+}
+
+::RE2208::Quand complète-t-on le carnet de trafic d'un contact ? {
+	=Tout de suite, pendant que tout est frais
+	~Une semaine plus tard
+	~Seulement si l'on reçoit la carte QSL
+	~À la fin de l'année
+}
+
+::RE2209::Où trouve-t-on du matériel, des conseils et d'autres passionnés pour continuer la radio ? {
+	=Dans un radio-club
+	~À l'ANFR
+	~Dans un magasin de téléphones
+	~Nulle part \: il faut tout faire seul
+}
+
+::RE2210::Que faut-il obtenir pour avoir un jour son propre indicatif de radioamateur ? {
+	=Le certificat d'opérateur, en réussissant son examen
+	~Le BIR seulement
+	~Une carte QSL
+	~Un poste de plus de 100 W
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 23 — Les règles, et après ?
+
+::RE2301::Que faut-il pour avoir le droit d'émettre sur les bandes radioamateur en France ? {
+	=Un certificat d'opérateur et un indicatif
+	~Un poste acheté en France
+	~Le BIR
+	~L'accord de ses voisins
+}
+
+::RE2302::En France, quel organisme délivre les certificats d'opérateur et les indicatifs ? {
+	=L'ANFR
+	~L'ARCEP
+	~L'UIT
+	~La mairie
+}
+
+::RE2303::Quel organisme fixe les conditions d'utilisation des fréquences par les radioamateurs, comme les bandes et la puissance ? {
+	=L'ARCEP
+	~Le radio-club local
+	~Le fabricant du poste
+	~Le collège
+}
+
+::RE2304::Un radioamateur peut-il coder ses messages pour que personne d'autre ne les comprenne ? {
+	=Non, c'est interdit.
+	~Oui, toujours.
+	~Oui, mais seulement la nuit.
+	~Oui, s'il émet à faible puissance.
+}
+
+::RE2305::En France, a-t-on le droit de posséder un récepteur et d'écouter les ondes ? {
+	=Oui, l'écoute est libre, mais le contenu des communications des autres est protégé.
+	~Non, il faut une autorisation pour chaque récepteur.
+	~Oui, et l'on peut publier tout ce qu'on entend.
+	~Non, seuls les radioamateurs ont le droit d'écouter.
+}
+
+::RE2306::On entend par hasard une conversation qui ne nous est pas destinée. Que fait-on ? {
+	=On ne la répète pas, on ne l'enregistre pas, on ne s'en sert pas.
+	~On l'enregistre pour la publier.
+	~On la raconte à ses amis.
+	~On répond pour se présenter.
+}
+
+::RE2307::Comment se passe l'examen du certificat d'opérateur en France ? {
+	=Sur ordinateur, dans un centre de l'ANFR, en deux épreuves \: réglementation et technique
+	~Par oral, devant un jury de radioamateurs
+	~Uniquement par un contact radio réussi
+	~Par une épreuve de Morse seulement
+}
+
+::RE2308::Quelle note faut-il obtenir à chaque épreuve de l'examen du certificat d'opérateur ? {
+	=Au moins 10 sur 20
+	~Au moins 18 sur 20
+	~Au moins 5 sur 20
+	~Il suffit de se présenter
+}
+
+::RE2309::Qu'apporte un radio-club à un débutant ? {
+	=Une station, des conseils, du matériel et souvent des cours de préparation
+	~Un indicatif personnel, sans examen
+	~Le droit d'émettre seul, sans certificat
+	~Un emploi
+}
+
+::RE2310::Que permet le BIR ? {
+	=De découvrir la radio et de préparer le terrain pour le certificat d'opérateur
+	~D'émettre seul sur les bandes radioamateur
+	~D'obtenir un indicatif
+	~De réparer des postes pour les vendre
+}

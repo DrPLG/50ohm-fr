@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine E — Trafic, règles et sécurité",
+   "sections": [
+    {
+     "title": "Séance 21 — Préparer son contact",
+     "questions": [
+      {
+       "number": "RE2101",
+       "class": "BIR",
+       "question": "Dans un premier contact, que donne-t-on habituellement à son correspondant ?",
+       "answer_a": "Le report, son prénom et son QTH",
+       "answer_b": "Son adresse complète et son numéro de téléphone",
+       "answer_c": "Son nom de famille et sa date de naissance",
+       "answer_d": "Le mot de passe du poste"
+      },
+      {
+       "number": "RE2102",
+       "class": "BIR",
+       "question": "Que désigne le QTH qu'on annonce dans un contact ?",
+       "answer_a": "La ville ou le village d'où l'on émet",
+       "answer_b": "L'adresse exacte de son domicile",
+       "answer_c": "La fréquence utilisée",
+       "answer_d": "Le nom de son établissement scolaire en entier, avec la classe"
+      },
+      {
+       "number": "RE2103",
+       "class": "BIR",
+       "question": "Comment se termine chaque passage dans un contact ?",
+       "answer_a": "Par les indicatifs, puis « à vous »",
+       "answer_b": "Par un silence de dix secondes",
+       "answer_c": "Par un signal SOS",
+       "answer_d": "Par la fréquence du relais"
+      },
+      {
+       "number": "RE2104",
+       "class": "BIR",
+       "question": "Un élève sans certificat parle au micro depuis la station d'un radioamateur. Sous quel indicatif se fait l'émission ?",
+       "answer_a": "Sous l'indicatif de la station du radioamateur, qui en reste responsable",
+       "answer_b": "Sous un indicatif inventé par l'élève",
+       "answer_c": "Sans indicatif, puisque l'élève n'en a pas",
+       "answer_d": "Sous l'indicatif du collège"
+      },
+      {
+       "number": "RE2105",
+       "class": "BIR",
+       "question": "Au cours d'une émission de plus de quinze minutes sur une même fréquence, à quel rythme minimal annonce-t-on l'indicatif en France ?",
+       "answer_a": "Toutes les quinze minutes",
+       "answer_b": "Une seule fois, au début",
+       "answer_c": "Toutes les heures",
+       "answer_d": "Jamais, si le correspondant le connaît"
+      },
+      {
+       "number": "RE2106",
+       "class": "BIR",
+       "question": "Existe-t-il en France un indicatif spécial permettant à un débutant d'émettre seul ?",
+       "answer_a": "Non",
+       "answer_b": "Oui, il commence par F0",
+       "answer_c": "Oui, il se termine par /T",
+       "answer_d": "Oui, il est attribué par le collège"
+      },
+      {
+       "number": "RE2107",
+       "class": "BIR",
+       "question": "Dans le contact type du manuel, pourquoi Paul épelle-t-il son prénom ?",
+       "answer_a": "Pour qu'il soit compris sans erreur, même si la liaison est difficile",
+       "answer_b": "Parce que c'est obligatoire pour tous les prénoms",
+       "answer_c": "Parce que Paul est un prénom étranger",
+       "answer_d": "Pour gagner du temps"
+      },
+      {
+       "number": "RE2108",
+       "class": "BIR",
+       "question": "Quelle durée convient à un passage dans un premier contact ?",
+       "answer_a": "Trente secondes à une minute",
+       "answer_b": "Au moins cinq minutes",
+       "answer_c": "Une seconde",
+       "answer_d": "Le plus longtemps possible, pour occuper le relais"
+      },
+      {
+       "number": "RE2109",
+       "class": "BIR",
+       "question": "Quand note-t-on un contact dans le carnet de trafic ?",
+       "answer_a": "Au fur et à mesure, pendant le contact",
+       "answer_b": "Le lendemain, de mémoire",
+       "answer_c": "Seulement si le contact a duré plus de dix minutes",
+       "answer_d": "Jamais, c'est inutile pour un premier contact"
+      },
+      {
+       "number": "RE2110",
+       "class": "BIR",
+       "question": "On n'est pas sûr d'avoir bien compris l'indicatif du correspondant. Que fait-on ?",
+       "answer_a": "On lui demande de le répéter",
+       "answer_b": "On écrit ce qu'on croit avoir entendu",
+       "answer_c": "On laisse la case vide",
+       "answer_d": "On invente un indicatif proche"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

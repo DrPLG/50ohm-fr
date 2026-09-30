@@ -39,6 +39,24 @@ fiches d'activité, dix questions neuves).
   GIFT, pour un examen en ligne sous Moodle ou éléa. Import non essayé.
 - Les sept éditions existantes ne changent pas (arbres N et SWL comparés).
 
+#### Ajouté — BIR, premier jet complet (30/09/2026)
+
+- **Manuel de l'élève** : les 23 chapitres (séances 1 à 23 ; la séance 24
+  est l'examen), 87 sections, figures reprises des livres de classe.
+- **Livre du formateur** : une page par séance, 1 à 24.
+- **Fiches d'activité** : élève et encadrant, séances 1 à 23, avec les
+  savoir-faire à valider dans le livret.
+- **Banque de questions** : 230 questions, dix par séance ; export GIFT
+  régénéré.
+- **`bir/MODE-EMPLOI.md`** : récupérer les fichiers, les modifier,
+  recompiler le manuel, régénérer la banque Moodle.
+- `bir/SOURCES.md` : section amont de chaque section du BIR, et état de
+  chaque affirmation réglementaire (reprise d'un encart du livre N, ou
+  écrite de mémoire et à vérifier).
+- Réponses purement numériques écrites en texte (« 1,5 V ») : composées en
+  formule centrée par le moteur amont, elles triplaient la hauteur des
+  questions.
+
 *Connu :* premier jet, jamais compilé en PDF ; plusieurs points
 réglementaires à relire à la source (`bir/PLAN.md`, § 5).
 
