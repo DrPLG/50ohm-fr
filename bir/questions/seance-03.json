@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine E — Trafic, règles et sécurité",
+   "sections": [
+    {
+     "title": "Séance 3 — Un contact radio",
+     "questions": [
+      {
+       "number": "RE0301",
+       "class": "BIR",
+       "question": "Que faut-il faire avant de lancer un appel sur une fréquence ?",
+       "answer_a": "Écouter, puis demander si la fréquence est libre",
+       "answer_b": "Émettre tout de suite, puisque personne ne possède la fréquence",
+       "answer_c": "Augmenter la puissance au maximum",
+       "answer_d": "Changer d'antenne"
+      },
+      {
+       "number": "RE0302",
+       "class": "BIR",
+       "question": "Que signifie « CQ » ?",
+       "answer_a": "C'est un appel général : toute station qui entend peut répondre.",
+       "answer_b": "C'est un appel de détresse.",
+       "answer_c": "C'est la fin d'un contact.",
+       "answer_d": "C'est une demande de changement de fréquence."
+      },
+      {
+       "number": "RE0303",
+       "class": "BIR",
+       "question": "F4XAB lance un appel général. F4XCD veut lui répondre. Que dit-il ?",
+       "answer_a": "« F4XAB, ici F4XCD »",
+       "answer_b": "« F4XCD, ici F4XAB »",
+       "answer_c": "« CQ CQ, ici F4XCD »",
+       "answer_d": "« QRT, ici F4XCD »"
+      },
+      {
+       "number": "RE0304",
+       "class": "BIR",
+       "question": "Dans un report RST, que donne le chiffre R ?",
+       "answer_a": "La lisibilité du signal, de 1 à 5",
+       "answer_b": "La force du signal, de 1 à 9",
+       "answer_c": "La tonalité du signal, de 1 à 9",
+       "answer_d": "La distance du correspondant, en centaines de kilomètres"
+      },
+      {
+       "number": "RE0305",
+       "class": "BIR",
+       "question": "Un correspondant vous donne le report « 59 » en phonie. Que veut-il dire ?",
+       "answer_a": "Qu'il vous comprend parfaitement et que votre signal est très fort",
+       "answer_b": "Qu'il vous comprend à peine et que votre signal est faible",
+       "answer_c": "Que vous êtes à 59 kilomètres de lui",
+       "answer_d": "Que vous devez changer de fréquence"
+      },
+      {
+       "number": "RE0306",
+       "class": "BIR",
+       "question": "Que signifie le code QTH ?",
+       "answer_a": "Ma position est…",
+       "answer_b": "Je change de fréquence.",
+       "answer_c": "Je suis brouillé.",
+       "answer_d": "J'arrête d'émettre."
+      },
+      {
+       "number": "RE0307",
+       "class": "BIR",
+       "question": "Que signifie le code QRT ?",
+       "answer_a": "J'arrête d'émettre.",
+       "answer_b": "Je suis prêt.",
+       "answer_c": "Qui m'appelle ?",
+       "answer_d": "J'accuse réception."
+      },
+      {
+       "number": "RE0308",
+       "class": "BIR",
+       "question": "Un orage lointain produit des crépitements dans le récepteur. Quel code Q décrit cette gêne ?",
+       "answer_a": "QRN",
+       "answer_b": "QRM",
+       "answer_c": "QSY",
+       "answer_d": "QSL"
+      },
+      {
+       "number": "RE0309",
+       "class": "BIR",
+       "question": "Lequel de ces renseignements doit figurer dans le carnet de trafic d'une station française ?",
+       "answer_a": "La fréquence utilisée",
+       "answer_b": "La marque du microphone",
+       "answer_c": "La météo du jour",
+       "answer_d": "Le prix du poste"
+      },
+      {
+       "number": "RE0310",
+       "class": "BIR",
+       "question": "Pourquoi les radioamateurs notent-ils l'heure en UTC ?",
+       "answer_a": "Parce que c'est la même heure partout sur la Terre",
+       "answer_b": "Parce que c'est l'heure de Paris",
+       "answer_c": "Parce que l'heure légale est interdite à la radio",
+       "answer_d": "Parce qu'elle avance d'une heure sur l'heure française"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine C — Ondes, spectre et propagation",
+   "sections": [
+    {
+     "title": "Séance 9 — La propagation à vue",
+     "questions": [
+      {
+       "number": "RC0901",
+       "class": "BIR",
+       "question": "Comment se propagent, pour l'essentiel, les ondes VHF et UHF ?",
+       "answer_a": "En ligne droite, un peu comme la lumière",
+       "answer_b": "En suivant la courbure de la Terre sur des milliers de kilomètres",
+       "answer_c": "En se réfléchissant chaque nuit sur la Lune",
+       "answer_d": "Uniquement à travers les fils électriques"
+      },
+      {
+       "number": "RC0902",
+       "class": "BIR",
+       "question": "Qu'est-ce qui limite la portée d'un contact en VHF entre deux stations éloignées sur un terrain plat ?",
+       "answer_a": "La courbure de la Terre, qui cache une antenne à l'autre",
+       "answer_b": "La couleur des antennes",
+       "answer_c": "L'heure de la journée",
+       "answer_d": "La marque des postes"
+      },
+      {
+       "number": "RC0903",
+       "class": "BIR",
+       "question": "Comment augmenter le plus efficacement la portée d'une station VHF ?",
+       "answer_a": "En plaçant l'antenne plus haut, sur un point dégagé",
+       "answer_b": "En parlant plus fort dans le microphone",
+       "answer_c": "En émettant plus longtemps",
+       "answer_d": "En changeant la couleur du câble"
+      },
+      {
+       "number": "RC0904",
+       "class": "BIR",
+       "question": "Lequel de ces obstacles affaiblit le plus une onde UHF ?",
+       "answer_a": "Un mur en béton armé",
+       "answer_b": "Une vitre ordinaire",
+       "answer_c": "Une cloison en bois",
+       "answer_d": "Un rideau"
+      },
+      {
+       "number": "RC0905",
+       "class": "BIR",
+       "question": "En ville, un signal UHF arrive parfois là où aucune ligne droite ne le permet. Pourquoi ?",
+       "answer_a": "Parce que les ondes se réfléchissent sur les façades",
+       "answer_b": "Parce que les ondes traversent le sol",
+       "answer_c": "Parce que les ondes suivent les rues comme des voitures",
+       "answer_d": "Parce que la ville amplifie tous les signaux"
+      },
+      {
+       "number": "RC0906",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'une inversion de température ?",
+       "answer_a": "Une couche d'air chaud posée sur une couche d'air froid, qui peut porter les ondes VHF très loin",
+       "answer_b": "Un poste qui chauffe trop en émission",
+       "answer_c": "Une panne qui inverse l'émission et la réception",
+       "answer_d": "Le passage de l'heure d'été à l'heure d'hiver"
+      },
+      {
+       "number": "RC0907",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'un relais radioamateur ?",
+       "answer_a": "Une station automatique, installée en hauteur, qui réémet ce qu'elle reçoit",
+       "answer_b": "Un câble qui relie deux postes",
+       "answer_c": "Un radioamateur qui transmet des messages pour des tiers",
+       "answer_d": "Une antenne de télévision"
+      },
+      {
+       "number": "RC0908",
+       "class": "BIR",
+       "question": "Pourquoi installe-t-on un relais sur un point haut ?",
+       "answer_a": "Pour qu'il soit en vue du plus grand nombre de stations",
+       "answer_b": "Pour qu'il soit à l'abri de la pluie",
+       "answer_c": "Pour qu'il consomme moins d'électricité",
+       "answer_d": "Parce que la loi l'interdit en plaine"
+      },
+      {
+       "number": "RC0909",
+       "class": "BIR",
+       "question": "Pour utiliser un relais, sur quelle fréquence émet-on ?",
+       "answer_a": "Sur sa fréquence d'entrée ; on l'écoute sur sa fréquence de sortie",
+       "answer_b": "Sur sa fréquence de sortie ; on l'écoute sur sa fréquence d'entrée",
+       "answer_c": "Sur n'importe quelle fréquence de la bande",
+       "answer_d": "Sur la fréquence de la radio FM locale"
+      },
+      {
+       "number": "RC0910",
+       "class": "BIR",
+       "question": "En France, par quelle lettre commence le suffixe de l'indicatif d'un relais ?",
+       "answer_a": "Z",
+       "answer_b": "K",
+       "answer_c": "R",
+       "answer_d": "X"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

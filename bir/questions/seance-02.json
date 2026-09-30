@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine E — Trafic, règles et sécurité",
+   "sections": [
+    {
+     "title": "Séance 2 — Se présenter à l'antenne",
+     "questions": [
+      {
+       "number": "RE0201",
+       "class": "BIR",
+       "question": "À quoi sert l'indicatif d'une station de radioamateur ?",
+       "answer_a": "À identifier la station sans erreur possible",
+       "answer_b": "À indiquer la fréquence sur laquelle elle émet",
+       "answer_c": "À indiquer la puissance de son émetteur",
+       "answer_d": "À indiquer l'âge de son titulaire"
+      },
+      {
+       "number": "RE0202",
+       "class": "BIR",
+       "question": "Dans l'indicatif F4XAB, quelle partie est le préfixe ?",
+       "answer_a": "F",
+       "answer_b": "F4",
+       "answer_c": "XAB",
+       "answer_d": "4XAB"
+      },
+      {
+       "number": "RE0203",
+       "class": "BIR",
+       "question": "En France, qui attribue les indicatifs des radioamateurs ?",
+       "answer_a": "L'Agence nationale des fréquences (ANFR)",
+       "answer_b": "Le radioamateur lui-même, qui choisit librement le sien",
+       "answer_c": "Le radio-club auquel il est inscrit",
+       "answer_d": "La mairie de sa commune"
+      },
+      {
+       "number": "RE0204",
+       "class": "BIR",
+       "question": "Qu'indique le préfixe d'un indicatif ?",
+       "answer_a": "Le pays de la station",
+       "answer_b": "Le type d'antenne utilisé",
+       "answer_c": "L'heure de l'émission",
+       "answer_d": "Le nombre de contacts réalisés"
+      },
+      {
+       "number": "RE0205",
+       "class": "BIR",
+       "question": "Une station dont l'indicatif commence par TK se trouve :",
+       "answer_a": "en Corse",
+       "answer_b": "en Tunisie",
+       "answer_c": "au Kenya",
+       "answer_d": "en Guadeloupe"
+      },
+      {
+       "number": "RE0206",
+       "class": "BIR",
+       "question": "Comment épelle-t-on la lettre M avec l'alphabet de l'UIT ?",
+       "answer_a": "Mike",
+       "answer_b": "Marcel",
+       "answer_c": "Mama",
+       "answer_d": "Mexico"
+      },
+      {
+       "number": "RE0207",
+       "class": "BIR",
+       "question": "Comment épelle-t-on l'indicatif F4XAB ?",
+       "answer_a": "Foxtrot quatre X-ray Alfa Bravo",
+       "answer_b": "Frank quatre Xavier Anatole Berthe",
+       "answer_c": "Foxtrot quatre Xylophone Alpha Bravo",
+       "answer_d": "Fox quatre X-ray Alfa Baker"
+      },
+      {
+       "number": "RE0208",
+       "class": "BIR",
+       "question": "Pourquoi utilise-t-on un alphabet d'épellation ?",
+       "answer_a": "Pour éviter de confondre des lettres qui se ressemblent à l'oreille",
+       "answer_b": "Pour cacher le sens du message aux autres auditeurs",
+       "answer_c": "Pour parler plus vite",
+       "answer_d": "Parce que les lettres ne passent pas par radio"
+      },
+      {
+       "number": "RE0209",
+       "class": "BIR",
+       "question": "Que faut-il pour utiliser un poste PMR446 ?",
+       "answer_a": "Rien de particulier : ni examen, ni indicatif",
+       "answer_b": "Un certificat d'opérateur et un indicatif",
+       "answer_c": "Une autorisation de la mairie",
+       "answer_d": "L'accord du radio-club le plus proche"
+      },
+      {
+       "number": "RE0210",
+       "class": "BIR",
+       "question": "Que se passe-t-il quand on relâche la touche PTT d'un poste PMR446 ?",
+       "answer_a": "Le poste repasse en réception",
+       "answer_b": "Le poste s'éteint",
+       "answer_c": "Le poste émet plus fort",
+       "answer_d": "Le poste change de canal"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

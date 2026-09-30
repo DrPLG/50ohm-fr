@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine E — Trafic, règles et sécurité",
+   "sections": [
+    {
+     "title": "Séance 22 — Au micro",
+     "questions": [
+      {
+       "number": "RE2201",
+       "class": "BIR",
+       "question": "Que fait-on avant de prendre la parole sur une fréquence ?",
+       "answer_a": "On écoute, pour s'assurer qu'elle est libre ou qu'on nous rend la main.",
+       "answer_b": "On appuie tout de suite sur la touche PTT.",
+       "answer_c": "On monte le volume au maximum.",
+       "answer_d": "On change de fréquence."
+      },
+      {
+       "number": "RE2202",
+       "class": "BIR",
+       "question": "Pourquoi attend-on un instant après avoir appuyé sur la touche PTT avant de parler ?",
+       "answer_a": "Pour que le premier mot ne soit pas coupé",
+       "answer_b": "Pour laisser chauffer le microphone",
+       "answer_c": "Pour que le correspondant ait le temps de raccrocher",
+       "answer_d": "Parce que la loi impose une minute de silence"
+      },
+      {
+       "number": "RE2203",
+       "class": "BIR",
+       "question": "Que se passe-t-il tant qu'on garde la touche PTT enfoncée ?",
+       "answer_a": "On n'entend pas le correspondant, et personne d'autre ne peut parler.",
+       "answer_b": "On entend mieux le correspondant.",
+       "answer_c": "Le poste s'éteint au bout de trois secondes.",
+       "answer_d": "Le correspondant peut nous interrompre."
+      },
+      {
+       "number": "RE2204",
+       "class": "BIR",
+       "question": "On s'est trompé en parlant. Que dit-on ?",
+       "answer_a": "« Correction », puis on reprend",
+       "answer_b": "« SOS »",
+       "answer_c": "« QRT »",
+       "answer_d": "Rien, on relâche la touche et l'on s'en va"
+      },
+      {
+       "number": "RE2205",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'une carte QSL ?",
+       "answer_a": "Une carte postale qui confirme un contact",
+       "answer_b": "Le permis d'émettre d'un radioamateur",
+       "answer_c": "Une carte des relais",
+       "answer_d": "Un plan de la station"
+      },
+      {
+       "number": "RE2206",
+       "class": "BIR",
+       "question": "Les renseignements portés sur une carte QSL doivent correspondre à ceux…",
+       "answer_a": "du carnet de trafic",
+       "answer_b": "de la notice du poste",
+       "answer_c": "du bulletin météo",
+       "answer_d": "de la facture du poste"
+      },
+      {
+       "number": "RE2207",
+       "class": "BIR",
+       "question": "Par quel moyen les radioamateurs échangent-ils souvent leurs cartes QSL ?",
+       "answer_a": "Par le bureau QSL d'une association nationale",
+       "answer_b": "Par les pompiers",
+       "answer_c": "Par le relais local",
+       "answer_d": "Par l'ANFR"
+      },
+      {
+       "number": "RE2208",
+       "class": "BIR",
+       "question": "Quand complète-t-on le carnet de trafic d'un contact ?",
+       "answer_a": "Tout de suite, pendant que tout est frais",
+       "answer_b": "Une semaine plus tard",
+       "answer_c": "Seulement si l'on reçoit la carte QSL",
+       "answer_d": "À la fin de l'année"
+      },
+      {
+       "number": "RE2209",
+       "class": "BIR",
+       "question": "Où trouve-t-on du matériel, des conseils et d'autres passionnés pour continuer la radio ?",
+       "answer_a": "Dans un radio-club",
+       "answer_b": "À l'ANFR",
+       "answer_c": "Dans un magasin de téléphones",
+       "answer_d": "Nulle part : il faut tout faire seul"
+      },
+      {
+       "number": "RE2210",
+       "class": "BIR",
+       "question": "Que faut-il obtenir pour avoir un jour son propre indicatif de radioamateur ?",
+       "answer_a": "Le certificat d'opérateur, en réussissant son examen",
+       "answer_b": "Le BIR seulement",
+       "answer_c": "Une carte QSL",
+       "answer_d": "Un poste de plus de 100 W"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

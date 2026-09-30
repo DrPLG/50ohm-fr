@@ -72,6 +72,438 @@ $CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 
 	~Un réseau social réservé aux radioamateurs
 }
 
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 2 — Se présenter à l'antenne
+
+::RE0201::À quoi sert l'indicatif d'une station de radioamateur ? {
+	=À identifier la station sans erreur possible
+	~À indiquer la fréquence sur laquelle elle émet
+	~À indiquer la puissance de son émetteur
+	~À indiquer l'âge de son titulaire
+}
+
+::RE0202::Dans l'indicatif F4XAB, quelle partie est le préfixe ? {
+	=F
+	~F4
+	~XAB
+	~4XAB
+}
+
+::RE0203::En France, qui attribue les indicatifs des radioamateurs ? {
+	=L'Agence nationale des fréquences (ANFR)
+	~Le radioamateur lui-même, qui choisit librement le sien
+	~Le radio-club auquel il est inscrit
+	~La mairie de sa commune
+}
+
+::RE0204::Qu'indique le préfixe d'un indicatif ? {
+	=Le pays de la station
+	~Le type d'antenne utilisé
+	~L'heure de l'émission
+	~Le nombre de contacts réalisés
+}
+
+::RE0205::Une station dont l'indicatif commence par TK se trouve \: {
+	=en Corse
+	~en Tunisie
+	~au Kenya
+	~en Guadeloupe
+}
+
+::RE0206::Comment épelle-t-on la lettre M avec l'alphabet de l'UIT ? {
+	=Mike
+	~Marcel
+	~Mama
+	~Mexico
+}
+
+::RE0207::Comment épelle-t-on l'indicatif F4XAB ? {
+	=Foxtrot quatre X-ray Alfa Bravo
+	~Frank quatre Xavier Anatole Berthe
+	~Foxtrot quatre Xylophone Alpha Bravo
+	~Fox quatre X-ray Alfa Baker
+}
+
+::RE0208::Pourquoi utilise-t-on un alphabet d'épellation ? {
+	=Pour éviter de confondre des lettres qui se ressemblent à l'oreille
+	~Pour cacher le sens du message aux autres auditeurs
+	~Pour parler plus vite
+	~Parce que les lettres ne passent pas par radio
+}
+
+::RE0209::Que faut-il pour utiliser un poste PMR446 ? {
+	=Rien de particulier \: ni examen, ni indicatif
+	~Un certificat d'opérateur et un indicatif
+	~Une autorisation de la mairie
+	~L'accord du radio-club le plus proche
+}
+
+::RE0210::Que se passe-t-il quand on relâche la touche PTT d'un poste PMR446 ? {
+	=Le poste repasse en réception
+	~Le poste s'éteint
+	~Le poste émet plus fort
+	~Le poste change de canal
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 3 — Un contact radio
+
+::RE0301::Que faut-il faire avant de lancer un appel sur une fréquence ? {
+	=Écouter, puis demander si la fréquence est libre
+	~Émettre tout de suite, puisque personne ne possède la fréquence
+	~Augmenter la puissance au maximum
+	~Changer d'antenne
+}
+
+::RE0302::Que signifie « CQ » ? {
+	=C'est un appel général \: toute station qui entend peut répondre.
+	~C'est un appel de détresse.
+	~C'est la fin d'un contact.
+	~C'est une demande de changement de fréquence.
+}
+
+::RE0303::F4XAB lance un appel général. F4XCD veut lui répondre. Que dit-il ? {
+	=« F4XAB, ici F4XCD »
+	~« F4XCD, ici F4XAB »
+	~« CQ CQ, ici F4XCD »
+	~« QRT, ici F4XCD »
+}
+
+::RE0304::Dans un report RST, que donne le chiffre R ? {
+	=La lisibilité du signal, de 1 à 5
+	~La force du signal, de 1 à 9
+	~La tonalité du signal, de 1 à 9
+	~La distance du correspondant, en centaines de kilomètres
+}
+
+::RE0305::Un correspondant vous donne le report « 59 » en phonie. Que veut-il dire ? {
+	=Qu'il vous comprend parfaitement et que votre signal est très fort
+	~Qu'il vous comprend à peine et que votre signal est faible
+	~Que vous êtes à 59 kilomètres de lui
+	~Que vous devez changer de fréquence
+}
+
+::RE0306::Que signifie le code QTH ? {
+	=Ma position est…
+	~Je change de fréquence.
+	~Je suis brouillé.
+	~J'arrête d'émettre.
+}
+
+::RE0307::Que signifie le code QRT ? {
+	=J'arrête d'émettre.
+	~Je suis prêt.
+	~Qui m'appelle ?
+	~J'accuse réception.
+}
+
+::RE0308::Un orage lointain produit des crépitements dans le récepteur. Quel code Q décrit cette gêne ? {
+	=QRN
+	~QRM
+	~QSY
+	~QSL
+}
+
+::RE0309::Lequel de ces renseignements doit figurer dans le carnet de trafic d'une station française ? {
+	=La fréquence utilisée
+	~La marque du microphone
+	~La météo du jour
+	~Le prix du poste
+}
+
+::RE0310::Pourquoi les radioamateurs notent-ils l'heure en UTC ? {
+	=Parce que c'est la même heure partout sur la Terre
+	~Parce que c'est l'heure de Paris
+	~Parce que l'heure légale est interdite à la radio
+	~Parce qu'elle avance d'une heure sur l'heure française
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 4 — Tension et courant
+
+::RB0401::En quelle unité mesure-t-on une tension électrique ? {
+	=En volts
+	~En ampères
+	~En watts
+	~En hertz
+}
+
+::RB0402::Quelle est la tension d'une pile ronde ordinaire ? {
+	=1,5 V
+	~9 V
+	~13,8 V
+	~230 V
+}
+
+::RB0403::En quelle unité mesure-t-on un courant électrique ? {
+	=En ampères
+	~En volts
+	~En ohms
+	~En mètres
+}
+
+::RB0404::Combien de milliampères font 1 A ? {
+	=1000
+	~100
+	~10
+	~1 000 000
+}
+
+::RB0405::Une lampe est reliée à une pile. On ouvre l'interrupteur du circuit. Que se passe-t-il ? {
+	=Le courant s'arrête et la lampe s'éteint.
+	~La lampe brille plus fort.
+	~Le courant continue de circuler par l'air.
+	~La tension de la pile tombe à zéro.
+}
+
+::RB0406::Lequel de ces matériaux est un bon conducteur ? {
+	=Le cuivre
+	~Le plastique
+	~Le verre
+	~Le caoutchouc
+}
+
+::RB0407::Dans un fil électrique, à quoi sert la gaine en plastique ? {
+	=À isoler le conducteur et à nous protéger
+	~À mieux conduire le courant
+	~À augmenter la tension
+	~À mesurer le courant
+}
+
+::RB0408::Comment branche-t-on un multimètre pour mesurer le courant qui traverse une lampe ? {
+	=En série \: on ouvre le circuit et le courant passe à travers le multimètre.
+	~En parallèle \: on pose les pointes aux bornes de la lampe.
+	~On pose les pointes directement sur les bornes de la pile.
+	~On n'a pas besoin de le brancher \: il mesure à distance.
+}
+
+::RB0409::À partir de quelle tension alternative considère-t-on une tension comme dangereuse ? {
+	=50 V
+	~1,5 V
+	~9 V
+	~1000 V
+}
+
+::RB0410::Que se passe-t-il si l'on relie directement les deux pôles d'un accumulateur par un fil ? {
+	=Un court-circuit \: le courant devient très fort et le fil peut chauffer jusqu'à brûler.
+	~Rien, car il n'y a pas de lampe.
+	~L'accumulateur se recharge.
+	~La tension double.
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 5 — La résistance et la loi d'Ohm
+
+::RB0501::En quelle unité mesure-t-on une résistance ? {
+	=En ohms
+	~En volts
+	~En ampères
+	~En watts
+}
+
+::RB0502::Combien d'ohms font 2,2 kΩ ? {
+	=2200
+	~220
+	~22
+	~22 000
+}
+
+::RB0503::Quelle relation énonce la loi d'Ohm ? {
+	=U \= R × I
+	~U \= R + I
+	~R \= U × I
+	~I \= U × R
+}
+
+::RB0504::Une résistance de 100 Ω est traversée par un courant de 0,1 A. Quelle est la tension à ses bornes ? {
+	=10 V
+	~1000 V
+	~100,1 V
+	~0,001 V
+}
+
+::RB0505::On branche une résistance de 1 kΩ sur une pile de 9 V. Quel courant la traverse ? {
+	=9 mA
+	~9 A
+	~0,9 mA
+	~9000 A
+}
+
+::RB0506::Aux bornes d'une même résistance, on double la tension. Que devient le courant ? {
+	=Il double.
+	~Il est divisé par deux.
+	~Il ne change pas.
+	~Il devient nul.
+}
+
+::RB0507::Quelle est la valeur d'une résistance marquée marron, noir, rouge, doré ? {
+	=1000 Ω
+	~102 Ω
+	~100 Ω
+	~10 Ω
+}
+
+::RB0508::Sur une résistance, que donne l'anneau doré placé à droite ? {
+	=La tolérance, ici 5 %
+	~Le premier chiffre de la valeur
+	~La puissance maximale
+	~Le sens de branchement
+}
+
+::RB0509::Sur un schéma électrique, comment reconnaît-on le symbole du voltmètre ? {
+	=Un cercle marqué d'un V
+	~Un cercle marqué d'un A
+	~Un rectangle
+	~Une flèche vers le bas
+}
+
+::RB0510::Pourquoi dessine-t-on un circuit avec des symboles plutôt que dessiner les composants réels ? {
+	=Pour que tout le monde puisse le lire de la même façon, simplement
+	~Parce que les composants réels n'ont pas de forme
+	~Pour cacher le fonctionnement du circuit
+	~Parce que la loi l'impose pour chaque dessin
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 6 — Puissance et énergie
+
+::RB0601::En quelle unité mesure-t-on une puissance ? {
+	=En watts
+	~En volts
+	~En ampères-heures
+	~En ohms
+}
+
+::RB0602::Comment calcule-t-on la puissance consommée par un appareil alimenté en courant continu ? {
+	=P \= U × I
+	~P \= U ÷ I
+	~P \= U + I
+	~P \= R ÷ U
+}
+
+::RB0603::Un poste alimenté sous 12 V consomme 2 A. Quelle puissance consomme-t-il ? {
+	=24 W
+	~6 W
+	~14 W
+	~10 W
+}
+
+::RB0604::Qu'est-ce qui distingue un accumulateur d'une pile ? {
+	=L'accumulateur se recharge, la pile ne sert qu'une fois.
+	~L'accumulateur fournit du courant alternatif.
+	~La pile se recharge, l'accumulateur ne sert qu'une fois.
+	~L'accumulateur n'a pas de pôles.
+}
+
+::RB0605::Que mesure la capacité d'un accumulateur, exprimée en mAh ? {
+	=La quantité d'électricité qu'il peut fournir avant d'être vide
+	~Sa tension
+	~Sa taille
+	~Sa résistance
+}
+
+::RB0606::Un portatif a un accu de 1500 mAh et consomme 150 mA en réception. Combien de temps peut-il écouter ? {
+	=Environ 10 heures
+	~Environ 1 heure
+	~Environ 100 heures
+	~Environ 15 minutes
+}
+
+::RB0607::Pourquoi l'autonomie réelle d'un portatif est-elle plus proche de son autonomie en réception que de son autonomie en émission ? {
+	=Parce qu'il passe la plus grande partie de son temps à écouter
+	~Parce que l'émission ne consomme rien
+	~Parce que l'accu se recharge pendant l'émission
+	~Parce que la réception consomme plus que l'émission
+}
+
+::RB0608::Quelle tension fournit le plus souvent l'alimentation d'une station de radioamateur ? {
+	=13,8 V
+	~230 V
+	~1,5 V
+	~50 V
+}
+
+::RB0609::Un poste réclame 20 A en émission. Quelle alimentation convient ? {
+	=Une alimentation de 13,8 V pouvant fournir au moins 20 A
+	~Une alimentation de 13,8 V pouvant fournir 10 A
+	~Une alimentation de 230 V pouvant fournir 20 A
+	~N'importe laquelle, le poste s'adapte
+}
+
+::RB0610::À quoi sert le fusible sur le câble d'alimentation d'un poste ? {
+	=À couper le circuit si le courant devient trop fort
+	~À augmenter la tension
+	~À filtrer les parasites
+	~À indiquer la puissance d'émission
+}
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 7 — Du courant alternatif à l'onde
+
+::RC0701::Qu'est-ce qui distingue le courant alternatif du courant continu ? {
+	=Le courant alternatif change sans cesse de sens ; le courant continu garde toujours le même.
+	~Le courant alternatif est toujours plus faible.
+	~Le courant continu vient du secteur, le courant alternatif des piles.
+	~Le courant alternatif ne circule que dans les antennes.
+}
+
+::RC0702::Sur l'écran d'un oscilloscope, que représente l'axe horizontal ? {
+	=Le temps
+	~La fréquence
+	~La tension
+	~La longueur d'onde
+}
+
+::RC0703::Que mesure la fréquence d'une tension alternative ? {
+	=Le nombre d'oscillations complètes par seconde
+	~La durée d'une oscillation
+	~La hauteur de la courbe
+	~La distance parcourue par l'onde
+}
+
+::RC0704::Quelle est la période d'une tension de fréquence 50 Hz ? {
+	=0,02 s
+	~50 s
+	~0,5 s
+	~2 s
+}
+
+::RC0705::Combien de hertz font 1 MHz ? {
+	=1 000 000
+	~1 000
+	~100
+	~1 000 000 000
+}
+
+::RC0706::À quelle vitesse se propage une onde radio ? {
+	=À la vitesse de la lumière, environ 300000 km par seconde
+	~À la vitesse du son, environ 340 m par seconde
+	~À 300 km par heure
+	~Sa vitesse dépend de la puissance de l'émetteur
+}
+
+::RC0707::Une onde radio a-t-elle besoin d'air pour se propager ? {
+	=Non \: elle se propage aussi dans le vide.
+	~Oui \: sans air, elle s'arrête.
+	~Oui, sauf la nuit.
+	~Seulement si sa fréquence est basse.
+}
+
+::RC0708::Quelle est la longueur d'onde d'un signal de 150 MHz ? {
+	=2 m
+	~150 m
+	~0,5 m
+	~20 m
+}
+
+::RC0709::Quand la fréquence augmente, que devient la longueur d'onde ? {
+	=Elle diminue.
+	~Elle augmente.
+	~Elle ne change pas.
+	~Elle devient nulle.
+}
+
+::RC0710::Quelle est la fréquence d'une onde de 10 m de longueur ? {
+	=30 MHz
+	~3 MHz
+	~300 MHz
+	~3000 MHz
+}
+
 $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
 
 ::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {
@@ -142,4 +574,1084 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spec
 	~L'Union internationale des télécommunications (UIT)
 	~Chaque opérateur de téléphonie, pour ses propres fréquences
 	~Les associations de radioamateurs
+}
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 9 — La propagation à vue
+
+::RC0901::Comment se propagent, pour l'essentiel, les ondes VHF et UHF ? {
+	=En ligne droite, un peu comme la lumière
+	~En suivant la courbure de la Terre sur des milliers de kilomètres
+	~En se réfléchissant chaque nuit sur la Lune
+	~Uniquement à travers les fils électriques
+}
+
+::RC0902::Qu'est-ce qui limite la portée d'un contact en VHF entre deux stations éloignées sur un terrain plat ? {
+	=La courbure de la Terre, qui cache une antenne à l'autre
+	~La couleur des antennes
+	~L'heure de la journée
+	~La marque des postes
+}
+
+::RC0903::Comment augmenter le plus efficacement la portée d'une station VHF ? {
+	=En plaçant l'antenne plus haut, sur un point dégagé
+	~En parlant plus fort dans le microphone
+	~En émettant plus longtemps
+	~En changeant la couleur du câble
+}
+
+::RC0904::Lequel de ces obstacles affaiblit le plus une onde UHF ? {
+	=Un mur en béton armé
+	~Une vitre ordinaire
+	~Une cloison en bois
+	~Un rideau
+}
+
+::RC0905::En ville, un signal UHF arrive parfois là où aucune ligne droite ne le permet. Pourquoi ? {
+	=Parce que les ondes se réfléchissent sur les façades
+	~Parce que les ondes traversent le sol
+	~Parce que les ondes suivent les rues comme des voitures
+	~Parce que la ville amplifie tous les signaux
+}
+
+::RC0906::Qu'est-ce qu'une inversion de température ? {
+	=Une couche d'air chaud posée sur une couche d'air froid, qui peut porter les ondes VHF très loin
+	~Un poste qui chauffe trop en émission
+	~Une panne qui inverse l'émission et la réception
+	~Le passage de l'heure d'été à l'heure d'hiver
+}
+
+::RC0907::Qu'est-ce qu'un relais radioamateur ? {
+	=Une station automatique, installée en hauteur, qui réémet ce qu'elle reçoit
+	~Un câble qui relie deux postes
+	~Un radioamateur qui transmet des messages pour des tiers
+	~Une antenne de télévision
+}
+
+::RC0908::Pourquoi installe-t-on un relais sur un point haut ? {
+	=Pour qu'il soit en vue du plus grand nombre de stations
+	~Pour qu'il soit à l'abri de la pluie
+	~Pour qu'il consomme moins d'électricité
+	~Parce que la loi l'interdit en plaine
+}
+
+::RC0909::Pour utiliser un relais, sur quelle fréquence émet-on ? {
+	=Sur sa fréquence d'entrée ; on l'écoute sur sa fréquence de sortie
+	~Sur sa fréquence de sortie ; on l'écoute sur sa fréquence d'entrée
+	~Sur n'importe quelle fréquence de la bande
+	~Sur la fréquence de la radio FM locale
+}
+
+::RC0910::En France, par quelle lettre commence le suffixe de l'indicatif d'un relais ? {
+	=Z
+	~K
+	~R
+	~X
+}
+
+$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 10 — Les ondes courtes et l'ionosphère
+
+::RC1001::Qu'est-ce que l'ionosphère ? {
+	=Une région de la haute atmosphère, ionisée par le Soleil
+	~La couche d'air où se forment les nuages
+	~Un satellite de télécommunication
+	~Le sol humide sous l'antenne
+}
+
+::RC1002::Qu'est-ce qui ionise l'ionosphère ? {
+	=Le rayonnement du Soleil
+	~Les émetteurs de radio
+	~Les orages
+	~Le champ magnétique des antennes
+}
+
+::RC1003::Comment une onde courte peut-elle atteindre un autre continent ? {
+	=Elle est renvoyée vers le sol par l'ionosphère, parfois en plusieurs bonds.
+	~Elle traverse la Terre en ligne droite.
+	~Elle suit les câbles sous-marins.
+	~Elle passe obligatoirement par un relais.
+}
+
+::RC1004::Qu'appelle-t-on la zone de silence ? {
+	=La zone trop éloignée pour l'onde de sol et trop proche pour l'onde renvoyée par le ciel
+	~La zone située juste sous l'antenne
+	~Une zone où il est interdit d'émettre
+	~La partie d'une bande réservée à l'écoute
+}
+
+::RC1005::En journée, quelles bandes permettent le mieux les contacts lointains ? {
+	=Les bandes hautes des ondes courtes, du 20 m au 10 m
+	~Les bandes basses, 80 m et 40 m
+	~La bande des 2 m
+	~Aucune \: les contacts lointains ne sont possibles que la nuit
+}
+
+::RC1006::Pourquoi la bande des 80 m porte-t-elle peu loin en plein jour ? {
+	=Parce que la région D de l'ionosphère, présente le jour, absorbe les fréquences basses
+	~Parce que le Soleil chauffe les antennes
+	~Parce qu'elle est fermée par la loi pendant la journée
+	~Parce que les postes émettent moins fort le jour
+}
+
+::RC1007::Combien de temps dure environ le cycle d'activité du Soleil ? {
+	=Onze ans
+	~Un jour
+	~Un mois
+	~Cent ans
+}
+
+::RC1008::Qu'est-ce qu'une balise, en radio ? {
+	=Une station automatique qui émet sans arrêt un message court sur une fréquence fixe
+	~Un panneau indiquant la fréquence d'un relais
+	~Un poste réservé aux secours en mer
+	~Une antenne sans câble
+}
+
+::RC1009::On entend une balise située au Japon. Qu'en conclut-on ? {
+	=Que la propagation est ouverte entre le Japon et nous sur cette fréquence
+	~Que notre récepteur est réglé sur l'heure japonaise
+	~Que la balise est très puissante, sinon ce serait impossible
+	~Que nous pouvons émettre sur la fréquence de la balise
+}
+
+::RC1010::Que désigne le mot DX chez les radioamateurs ? {
+	=Un contact, ou une station, très lointain
+	~Une panne de récepteur
+	~Un contact entre deux voisins
+	~Le dixième contact de la journée
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 11 — Moduler : transporter la voix
+
+::RD1101::Quel est le rôle du microphone ? {
+	=Transformer les vibrations de la voix en un signal électrique
+	~Amplifier l'onde radio
+	~Choisir la fréquence d'émission
+	~Transformer l'onde radio en son
+}
+
+::RD1102::Quelle plage de fréquences suffit pour comprendre une voix ? {
+	=De 300 Hz à 3000 Hz environ
+	~De 3 MHz à 30 MHz
+	~De 20 kHz à 200 kHz
+	~Uniquement 1000 Hz
+}
+
+::RD1103::En modulation d'amplitude (AM), qu'est-ce qui varie au rythme de la voix ? {
+	=La hauteur (l'amplitude) de la porteuse
+	~La fréquence de la porteuse
+	~La longueur de l'antenne
+	~La tension de l'alimentation
+}
+
+::RD1104::En modulation de fréquence (FM), qu'est-ce qui varie au rythme de la voix ? {
+	=La fréquence de la porteuse
+	~La hauteur (l'amplitude) de la porteuse
+	~La direction de l'antenne
+	~Le nombre de bandes latérales, qui passe à zéro
+}
+
+::RD1105::Pourquoi une réception en FM est-elle souvent plus claire qu'en AM ? {
+	=Parce que les parasites touchent surtout l'amplitude, que le récepteur FM ignore
+	~Parce qu'un émetteur FM est toujours plus puissant
+	~Parce que la FM n'utilise pas d'antenne
+	~Parce que la FM ne transmet que les sons graves
+}
+
+::RD1106::Que transmet un émetteur en bande latérale unique (SSB) ? {
+	=Une seule des deux bandes latérales, sans la porteuse
+	~La porteuse seule
+	~Les deux bandes latérales et la porteuse
+	~Uniquement du Morse
+}
+
+::RD1107::Sur la bande des 40 m, quelle bande latérale utilisent habituellement les radioamateurs en phonie ? {
+	=La bande latérale inférieure (LSB)
+	~La bande latérale supérieure (USB)
+	~Les deux à la fois
+	~Aucune \: la phonie y est interdite
+}
+
+::RD1108::Qu'appelle-t-on la largeur de bande d'un signal ? {
+	=La place qu'il occupe dans le spectre, entre sa fréquence la plus basse et la plus haute
+	~La longueur de l'antenne qui l'émet
+	~La distance qu'il peut parcourir
+	~La durée d'une émission
+}
+
+::RD1109::Lequel de ces signaux occupe la plus faible largeur de bande ? {
+	=Un signal Morse
+	~Un signal SSB
+	~Un signal FM de radioamateur
+	~Une station de radio FM musicale
+}
+
+::RD1110::Quelle est, environ, la largeur de bande d'un signal SSB ? {
+	=2,7 kHz
+	~200 kHz
+	~27 Hz
+	~2,7 MHz
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 12 — Le Morse
+
+::RD1201::En Morse, de quoi se compose chaque lettre ? {
+	=D'une suite de signaux courts et de signaux longs
+	~D'une note de musique différente pour chaque lettre
+	~D'un nombre de 1 à 26
+	~D'un mot de l'alphabet d'épellation
+}
+
+::RD1202::Quelle lettre s'écrit en Morse avec un seul point ? {
+	=E
+	~T
+	~A
+	~S
+}
+
+::RD1203::En Morse, combien de points dure un trait ? {
+	=Trois
+	~Deux
+	~Un
+	~Sept
+}
+
+::RD1204::Quelle lettre s'écrit « court, long » en Morse ? {
+	=A
+	~N
+	~E
+	~T
+}
+
+::RD1205::Comment s'écrit le signal SOS en Morse ? {
+	=Trois points, trois traits, trois points
+	~Trois traits, trois points, trois traits
+	~Un point, un trait, un point
+	~Deux points, deux traits, deux points
+}
+
+::RD1206::Un radioamateur entend un appel de détresse. Que doit-il faire ? {
+	=Cesser d'émettre, écouter, noter ce qu'il peut, et prévenir les secours
+	~Continuer son contact en parlant plus fort
+	~Répondre par un autre SOS pour s'entraîner
+	~Changer de fréquence pour ne pas être gêné
+}
+
+::RD1207::Pourquoi un signal Morse reste-t-il lisible quand une voix ne l'est plus ? {
+	=Parce qu'il occupe une très faible largeur de bande, et que le récepteur peut éliminer presque tout le bruit
+	~Parce qu'un émetteur Morse est toujours plus puissant
+	~Parce que le Morse ne passe pas par l'ionosphère
+	~Parce que le Morse n'utilise pas de porteuse
+}
+
+::RD1208::Comment appelle-t-on l'appareil avec lequel on émet du Morse ? {
+	=Un manipulateur
+	~Un microphone
+	~Un wattmètre
+	~Un multimètre
+}
+
+::RD1209::Pourquoi deux radioamateurs qui ne parlent pas la même langue peuvent-ils se comprendre en Morse ? {
+	=Parce que les contacts utilisent des abréviations et des codes Q connus de tous
+	~Parce que le Morse traduit automatiquement les langues
+	~Parce que le Morse n'utilise que des chiffres
+	~Parce que c'est impossible \: ils ne se comprennent pas
+}
+
+::RD1210::Faut-il aujourd'hui connaître le Morse pour obtenir le certificat d'opérateur en France ? {
+	=Non, la télégraphie ne fait plus partie de l'examen.
+	~Oui, à 20 mots par minute.
+	~Oui, mais seulement pour les moins de 18 ans.
+	~Oui, pour les bandes VHF seulement.
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 13 — Les modes numériques et l'image
+
+::RD1301::Qu'est-ce qu'un signal numérique ? {
+	=Un signal formé d'une suite de nombres, écrits avec des 0 et des 1
+	~Un signal qui varie de façon continue, comme la voix
+	~Un signal qu'on ne peut transmettre que par câble
+	~Un signal émis uniquement par les satellites
+}
+
+::RD1302::Comment appelle-t-on un chiffre binaire, 0 ou 1 ? {
+	=Un bit
+	~Un hertz
+	~Un pixel
+	~Un volt
+}
+
+::RD1303::Que faut-il ajouter à un poste de radioamateur pour pratiquer les modes numériques comme le FT8 ? {
+	=Un ordinateur relié au poste, avec le logiciel du mode
+	~Une deuxième antenne
+	~Un microphone plus sensible
+	~Rien \: le FT8 se décode à l'oreille
+}
+
+::RD1304::Quelle est la particularité du mode FT8 ? {
+	=Il décode des signaux trop faibles pour être entendus à l'oreille.
+	~Il permet de longues conversations au clavier.
+	~Il transmet des images en couleur.
+	~Il ne fonctionne qu'en VHF.
+}
+
+::RD1305::En FT8, combien de temps dure une tranche d'émission ? {
+	=Quinze secondes
+	~Une heure
+	~Une seconde
+	~Dix minutes
+}
+
+::RD1306::Deux radioamateurs utilisent des systèmes de voix numérique différents. Peuvent-ils se parler directement ? {
+	=Non \: il faut, de part et d'autre, un poste du même système.
+	~Oui, toujours, les systèmes sont compatibles.
+	~Oui, à condition de parler lentement.
+	~Oui, mais seulement la nuit.
+}
+
+::RD1307::Que se passe-t-il quand un signal de voix numérique devient trop faible ? {
+	=Le son se hache, puis disparaît d'un coup.
+	~Le son devient simplement de plus en plus soufflé.
+	~La voix passe automatiquement en Morse.
+	~Le poste augmente sa puissance tout seul.
+}
+
+::RD1308::Que signifie SSTV ? {
+	=Télévision à balayage lent \: la transmission d'images fixes, ligne par ligne
+	~Station de secours de télévision
+	~Signal sans transmission de voix
+	~Satellite de télécommunication
+}
+
+::RD1309::Combien de temps faut-il environ pour transmettre une image en SSTV ? {
+	=Une à deux minutes
+	~Un millième de seconde
+	~Une journée
+	~Une heure
+}
+
+::RD1310::De quoi a-t-on besoin pour recevoir une image SSTV émise par la Station spatiale internationale ? {
+	=D'un récepteur pour la bande des 2 m, d'une antenne et d'un logiciel de décodage
+	~D'une parabole de plusieurs mètres
+	~D'une autorisation de l'agence spatiale
+	~D'un indicatif de radioamateur
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 14 — Les antennes : principes
+
+::RD1401::Quel est le rôle d'une antenne en émission ? {
+	=Transformer le courant de haute fréquence en onde radio
+	~Amplifier la voix
+	~Transformer l'onde radio en son
+	~Fournir l'énergie au poste
+}
+
+::RD1402::Une même antenne peut-elle servir à émettre et à recevoir ? {
+	=Oui, et elle reçoit bien dans les directions où elle émet bien.
+	~Non, il faut toujours deux antennes.
+	~Oui, mais seulement en Morse.
+	~Non, une antenne de réception ne supporte pas l'émission, quelle qu'elle soit.
+}
+
+::RD1403::Quelle est la longueur totale d'un dipôle demi-onde ? {
+	=Environ une demi-longueur d'onde
+	~Environ une longueur d'onde entière
+	~Environ un dixième de longueur d'onde
+	~Toujours 1 m, quelle que soit la fréquence
+}
+
+::RD1404::Où le câble est-il raccordé sur un dipôle demi-onde ? {
+	=Au centre, entre les deux brins
+	~À une extrémité
+	~Aux deux extrémités
+	~Il n'y a pas de câble \: le dipôle rayonne seul
+}
+
+::RD1405::Environ combien mesure chaque brin d'un dipôle pour 145 MHz ? {
+	=49 cm
+	~2 m
+	~5 cm
+	~10 m
+}
+
+::RD1406::Pourquoi coupe-t-on un dipôle un peu plus court que la demi-longueur d'onde calculée ? {
+	=Parce que l'onde circule un peu moins vite dans le métal et que les extrémités l'allongent
+	~Pour qu'il soit moins lourd
+	~Pour qu'il émette moins de puissance
+	~Pour qu'il ne touche pas le sol
+}
+
+::RD1407::Qu'est-ce qui fixe la polarisation d'une onde radio ? {
+	=L'orientation des brins de l'antenne qui l'émet
+	~La puissance de l'émetteur
+	~La longueur du câble
+	~L'heure de l'émission
+}
+
+::RD1408::Une antenne verticale émet une onde à polarisation… {
+	=verticale
+	~horizontale
+	~circulaire, toujours
+	~sans polarisation
+}
+
+::RD1409::Que se passe-t-il si l'antenne d'émission est verticale et celle de réception horizontale ? {
+	=Le signal reçu est beaucoup plus faible.
+	~Le signal reçu est plus fort.
+	~Rien ne change.
+	~Le poste se met en panne.
+}
+
+::RD1410::Quelle polarisation utilisent habituellement les relais et les portatifs en VHF ? {
+	=La polarisation verticale
+	~La polarisation horizontale
+	~Aucune
+	~Elle change à chaque contact
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 15 — Construire son antenne
+
+::RD1501::Que représente le diagramme de rayonnement d'une antenne ? {
+	=La force de l'onde émise dans chaque direction autour de l'antenne
+	~Le schéma électrique de l'antenne
+	~La liste des fréquences qu'elle reçoit
+	~La hauteur à laquelle il faut l'installer
+}
+
+::RD1502::Qu'est-ce qu'une antenne omnidirectionnelle ? {
+	=Une antenne qui rayonne de la même façon dans toutes les directions autour d'elle
+	~Une antenne qui ne rayonne que dans une direction
+	~Une antenne qui fonctionne sur toutes les fréquences
+	~Une antenne qui tourne sur elle-même
+}
+
+::RD1503::Pour un relais qui doit desservir toute une région, quelle antenne choisit-on ? {
+	=Une antenne verticale omnidirectionnelle
+	~Une antenne Yagi pointée vers le nord
+	~Une antenne horizontale dirigée vers la mer
+	~Aucune \: un relais n'a pas d'antenne
+}
+
+::RD1504::Dans une antenne Yagi, quel élément est relié au câble ? {
+	=Le radiateur
+	~Le réflecteur
+	~Le directeur
+	~Tous les éléments
+}
+
+::RD1505::Dans une antenne Yagi, où se trouve le réflecteur ? {
+	=Derrière le radiateur, à l'opposé de la direction de rayonnement
+	~Devant le radiateur, du côté de la direction de rayonnement
+	~Au sommet du mât
+	~Dans le poste
+}
+
+::RD1506::Que se passe-t-il quand on ajoute des directeurs à une antenne Yagi ? {
+	=Le faisceau devient plus étroit et l'antenne porte plus loin dans sa direction.
+	~L'antenne devient omnidirectionnelle.
+	~L'antenne consomme plus d'électricité.
+	~L'antenne change de bande.
+}
+
+::RD1507::Le gain d'une antenne directive crée-t-il de l'énergie ? {
+	=Non \: il concentre dans une direction la même puissance, au détriment des autres.
+	~Oui \: l'antenne multiplie la puissance de l'émetteur.
+	~Oui, mais seulement en réception.
+	~Oui, grâce à une pile cachée dans l'antenne.
+}
+
+::RD1508::Pourquoi installe-t-on de préférence une antenne VHF en hauteur ? {
+	=Parce que les ondes VHF vont en ligne droite et que les obstacles les arrêtent
+	~Pour qu'elle sèche plus vite après la pluie
+	~Parce que la loi interdit les antennes au sol
+	~Pour qu'elle consomme moins
+}
+
+::RD1509::À quoi sert un rotor d'antenne ? {
+	=À tourner une antenne directive vers le correspondant depuis la station
+	~À refroidir l'émetteur
+	~À enrouler le câble
+	~À changer la polarisation automatiquement toutes les minutes
+}
+
+::RD1510::Quelle précaution est indispensable lors de l'installation d'une antenne extérieure ? {
+	=S'éloigner de toute ligne électrique
+	~Peindre l'antenne en rouge
+	~L'installer pendant un orage pour tester la foudre
+	~Travailler seul pour ne déranger personne
+}
+
+$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 16 — Câbles, connecteurs et réglage
+
+::RD1601::Dans un câble coaxial, comment s'appelle le fil de cuivre central ? {
+	=L'âme
+	~La tresse
+	~La gaine
+	~L'embase
+}
+
+::RD1602::Quelle est l'impédance des câbles coaxiaux utilisés dans les stations de radioamateur ? {
+	=50 Ω
+	~75 Ω
+	~230 Ω
+	~1 Ω
+}
+
+::RD1603::Comment varient les pertes d'un câble coaxial ? {
+	=Elles augmentent avec la longueur du câble et avec la fréquence.
+	~Elles diminuent quand la fréquence augmente.
+	~Elles ne dépendent que de la couleur de la gaine.
+	~Un câble coaxial n'a jamais de pertes.
+}
+
+::RD1604::Quel connecteur trouve-t-on souvent sur les portatifs récents et les clés SDR ? {
+	=Le connecteur SMA
+	~La prise de courant
+	~Le connecteur PL de grande taille
+	~Le connecteur USB
+}
+
+::RD1605::Que se passe-t-il si un brin de tresse touche l'âme dans une fiche ? {
+	=Le câble est en court-circuit.
+	~Le signal devient plus fort.
+	~La fiche devient étanche.
+	~Rien, c'est prévu.
+}
+
+::RD1606::Que mesure le rapport d'ondes stationnaires (ROS) ? {
+	=À quel point l'antenne renvoie vers l'émetteur une partie de la puissance
+	~La vitesse de l'onde dans le câble
+	~La distance jusqu'au correspondant
+	~La tension de l'alimentation
+}
+
+::RD1607::Quelle valeur de ROS correspond à une antenne parfaitement accordée ? {
+	=1
+	~0
+	~3
+	~10
+}
+
+::RD1608::Un ROS-mètre indique un ROS infini. Quelle est la cause la plus probable ? {
+	=Une panne \: câble coupé, fiche en court-circuit ou antenne débranchée
+	~Une antenne parfaitement réglée
+	~Une propagation exceptionnelle
+	~Un poste trop récent
+}
+
+::RD1609::L'analyseur montre le creux de ROS de votre dipôle à 141 MHz ; vous visez 145 MHz. Que faut-il faire ? {
+	=Raccourcir un peu les deux brins, de la même longueur
+	~Allonger un seul brin
+	~Raccourcir un seul brin
+	~Changer le câble coaxial
+}
+
+::RD1610::Pourquoi coupe-t-on les brins d'une antenne un peu trop longs au départ ? {
+	=Parce qu'on peut les raccourcir au réglage, mais pas les rallonger
+	~Parce que les antennes rétrécissent avec le temps
+	~Pour qu'elles soient plus solides
+	~Parce que la loi l'impose
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 17 — Le récepteur
+
+::RB1701::Dans un récepteur, quel bloc retire de la porteuse le signal de la voix ? {
+	=Le démodulateur
+	~L'amplificateur haute fréquence
+	~Le filtre
+	~L'antenne
+}
+
+::RB1702::Dans un récepteur simple, quel bloc vient juste avant le haut-parleur ? {
+	=L'amplificateur basse fréquence
+	~L'antenne
+	~Le filtre d'entrée
+	~L'amplificateur haute fréquence
+}
+
+::RB1703::Qu'est-ce que la sensibilité d'un récepteur ? {
+	=Sa capacité à entendre des signaux très faibles
+	~Sa capacité à séparer deux stations voisines
+	~La force du son au haut-parleur
+	~Sa résistance aux chocs
+}
+
+::RB1704::Qu'est-ce que la sélectivité d'un récepteur ? {
+	=Sa capacité à séparer la station écoutée d'une station voisine
+	~Sa capacité à entendre des signaux très faibles
+	~Le nombre de mémoires qu'il possède
+	~Sa consommation en réception
+}
+
+::RB1705::À quoi sert le squelch ? {
+	=À couper le haut-parleur tant qu'aucun signal assez fort n'est reçu
+	~À augmenter la puissance d'émission
+	~À changer de fréquence automatiquement
+	~À enregistrer les contacts
+}
+
+::RB1706::Quel est le risque d'un squelch réglé trop haut ? {
+	=Ne pas entendre les stations faibles
+	~Entendre un souffle permanent
+	~Émettre sans le vouloir
+	~Abîmer le haut-parleur
+}
+
+::RB1707::On entend une station SSB avec une voix de canard incompréhensible. Que vérifie-t-on d'abord ? {
+	=Le mode et le réglage fin de la fréquence
+	~Le volume
+	~La tension de l'alimentation
+	~La longueur du câble
+}
+
+::RB1708::Que règle le pas de fréquence d'un poste ? {
+	=De combien la fréquence avance à chaque cran du bouton
+	~La vitesse de défilement de la chute d'eau
+	~La puissance d'émission
+	~Le volume du haut-parleur
+}
+
+::RB1709::Que peut-on enregistrer dans une mémoire d'un poste ? {
+	=Une fréquence et ses réglages, par exemple ceux du relais local
+	~Les conversations entendues, pour les réécouter
+	~La liste des radioamateurs de France
+	~La puissance de l'alimentation
+}
+
+::RB1710::Un poste n'émet aucun son alors qu'une station est affichée sur le S-mètre. Que vérifie-t-on ? {
+	=Le volume et le squelch
+	~La longueur de l'antenne
+	~Le fusible de l'alimentation
+	~Le connecteur du microphone
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 18 — L'émetteur
+
+::RB1801::Dans un émetteur, quel bloc fabrique la porteuse ? {
+	=L'oscillateur
+	~Le microphone
+	~Le filtre passe-bas
+	~Le haut-parleur
+}
+
+::RB1802::Dans un émetteur, quel bloc module la porteuse avec la voix ? {
+	=Le mélangeur
+	~L'antenne
+	~L'oscillateur seul
+	~Le filtre passe-bas
+}
+
+::RB1803::À quoi sert le filtre passe-bas placé à la sortie de l'émetteur ? {
+	=À éliminer les fréquences indésirables produites par l'amplification
+	~À augmenter la puissance
+	~À changer de bande
+	~À filtrer la voix du microphone
+}
+
+::RB1804::Avec quel appareil mesure-t-on la puissance d'émission ? {
+	=Un wattmètre
+	~Un voltmètre seul
+	~Un analyseur d'antenne
+	~Un fréquencemètre
+}
+
+::RB1805::Quelle puissance faut-il utiliser pour un contact ? {
+	=La plus faible qui permet le contact
+	~Toujours le maximum autorisé
+	~Toujours 100 W
+	~Le double de celle du correspondant
+}
+
+::RB1806::Qu'est-ce qu'une charge fictive ? {
+	=Une résistance de 50 Ω qui remplace l'antenne et transforme la puissance en chaleur
+	~Une antenne très efficace
+	~Un accumulateur de secours
+	~Un programme qui simule un contact
+}
+
+::RB1807::Pourquoi essaie-t-on un émetteur sur charge fictive ? {
+	=Pour ne rien rayonner et ne gêner personne
+	~Pour émettre plus loin
+	~Pour économiser l'électricité
+	~Pour tester l'antenne
+}
+
+::RB1808::Qu'appelle-t-on les harmoniques d'un émetteur ? {
+	=Des émissions indésirables sur des multiples de sa fréquence
+	~Les notes de musique qu'il peut transmettre
+	~Les différentes bandes qu'il sait couvrir
+	~Les réglages enregistrés dans ses mémoires
+}
+
+::RB1809::Un émetteur sur 145 MHz produit une harmonique. Sur quelle fréquence peut-elle tomber ? {
+	=290 MHz
+	~146 MHz
+	~72,5 MHz
+	~14,5 MHz
+}
+
+::RB1810::En France, quel organisme instruit les cas de brouillage ? {
+	=L'Agence nationale des fréquences (ANFR)
+	~La mairie
+	~Le radio-club le plus proche
+	~Le fabricant du poste
+}
+
+$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 19 — L'atelier de soudure
+
+::RB1901::Quel composant ne laisse passer le courant que dans un sens ? {
+	=La diode
+	~La résistance
+	~Le condensateur céramique
+	~Le fil de cuivre
+}
+
+::RB1902::Sur une LED neuve, comment reconnaît-on l'anode, qui va vers le plus ? {
+	=C'est la patte la plus longue.
+	~C'est la patte la plus courte.
+	~C'est la patte peinte en rouge.
+	~Les deux pattes sont identiques \: le sens n'a pas d'importance.
+}
+
+::RB1903::Combien de pattes a un transistor ? {
+	=Trois
+	~Deux
+	~Quatre
+	~Une
+}
+
+::RB1904::Lequel de ces composants peut se monter dans n'importe quel sens ? {
+	=Une résistance
+	~Une LED
+	~Une diode
+	~Un condensateur électrolytique
+}
+
+::RB1905::Que montre un schéma d'implantation ? {
+	=L'emplacement et l'orientation de chaque composant sur le circuit imprimé
+	~Le prix de chaque composant
+	~La fréquence d'émission du montage
+	~Le chemin du courant dans le corps humain
+}
+
+::RB1906::Sur un schéma, que désigne le repère R3 ? {
+	=Une résistance, la troisième de la liste
+	~La troisième bande radioamateur
+	~Un relais installé sur un point haut
+	~Un report RST de 3
+}
+
+::RB1907::Où apporte-t-on le fil de soudure ? {
+	=Sur la pastille et la patte chauffées, pas sur la panne du fer
+	~Directement sur la panne, puis on étale
+	~Sur le composant, loin de la pastille
+	~N'importe où, du moment qu'il fond
+}
+
+::RB1908::À quoi reconnaît-on une bonne soudure ? {
+	=Elle est brillante et forme un petit cône régulier autour de la patte.
+	~Elle forme une grosse boule terne sur la pastille.
+	~Elle recouvre tout le composant.
+	~Elle est granuleuse et mate.
+}
+
+::RB1909::Où pose-t-on le fer à souder quand on ne s'en sert pas ? {
+	=Sur son support
+	~Sur la table, à plat
+	~Sur le circuit imprimé
+	~Dans la trousse
+}
+
+::RB1910::Le fer à souder tombe de la table. Que fait-on ? {
+	=On le laisse tomber, sans essayer de le rattraper.
+	~On le rattrape au vol par la panne.
+	~On le rattrape par le câble.
+	~On le rattrape avec la pince coupante.
+}
+
+$CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 20 — La radio en action
+
+::RA2001::Comment fonctionne la plupart des satellites radioamateur ? {
+	=Comme des relais en orbite \: ils reçoivent sur une fréquence et réémettent sur une autre.
+	~Ils photographient la Terre et envoient les images par Internet.
+	~Ils servent seulement à donner l'heure.
+	~Ils émettent de la musique en permanence.
+}
+
+::RA2002::Pendant combien de temps un satellite en orbite basse reste-t-il au-dessus de notre horizon lors d'un passage ? {
+	=Quelques minutes
+	~Toute la journée
+	~Une semaine
+	~Une seconde
+}
+
+::RA2003::Que permet le programme ARISS ? {
+	=À des élèves de parler en direct avec un astronaute de la Station spatiale internationale
+	~De lancer des satellites depuis une école
+	~D'émettre sans indicatif depuis l'espace
+	~De recevoir la télévision par satellite
+}
+
+::RA2004::Que représente un locator comme JN18 ? {
+	=Une case de la surface de la Terre, pour indiquer la position d'une station
+	~Un indicatif de radio-club
+	~Une fréquence de relais
+	~Un report de réception
+}
+
+::RA2005::Dans un locator, que désignent les deux premières lettres ? {
+	=Le champ, l'un des grands rectangles qui découpent la Terre
+	~Le pays de la station
+	~Le département
+	~L'initiale du radioamateur
+}
+
+::RA2006::Quel est le but d'un concours radioamateur ? {
+	=Faire le plus grand nombre de contacts en un temps donné
+	~Émettre avec la plus grande puissance possible
+	~Construire l'antenne la plus haute
+	~Rester le plus longtemps possible sur une même fréquence
+}
+
+::RA2007::Dans une chasse au renard, qu'est-ce que le « renard » ? {
+	=Un petit émetteur caché qu'il faut localiser
+	~Le premier coureur arrivé
+	~Un radioamateur déguisé
+	~Une antenne en forme de queue
+}
+
+::RA2008::Pourquoi la radio est-elle précieuse en cas de catastrophe ? {
+	=Parce qu'elle peut fonctionner sans électricité du réseau, sans téléphone et sans Internet
+	~Parce qu'elle est plus rapide qu'Internet
+	~Parce que les radioamateurs remplacent les pompiers
+	~Parce qu'elle fonctionne sans antenne
+}
+
+::RA2009::En France, comment s'appellent les associations départementales de radioamateurs au service de la sécurité civile ? {
+	=Les ADRASEC
+	~Les ANFR
+	~Les ARCEP
+	~Les UIT
+}
+
+::RA2010::Le service d'amateur est-il un service de secours ? {
+	=Non \: ce sont des bénévoles qui prêtent leur compétence à l'autorité.
+	~Oui, il remplace les services de secours.
+	~Oui, mais seulement la nuit.
+	~Oui, il est dirigé par les pompiers.
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 21 — Préparer son contact
+
+::RE2101::Dans un premier contact, que donne-t-on habituellement à son correspondant ? {
+	=Le report, son prénom et son QTH
+	~Son adresse complète et son numéro de téléphone
+	~Son nom de famille et sa date de naissance
+	~Le mot de passe du poste
+}
+
+::RE2102::Que désigne le QTH qu'on annonce dans un contact ? {
+	=La ville ou le village d'où l'on émet
+	~L'adresse exacte de son domicile
+	~La fréquence utilisée
+	~Le nom de son établissement scolaire en entier, avec la classe
+}
+
+::RE2103::Comment se termine chaque passage dans un contact ? {
+	=Par les indicatifs, puis « à vous »
+	~Par un silence de dix secondes
+	~Par un signal SOS
+	~Par la fréquence du relais
+}
+
+::RE2104::Un élève sans certificat parle au micro depuis la station d'un radioamateur. Sous quel indicatif se fait l'émission ? {
+	=Sous l'indicatif de la station du radioamateur, qui en reste responsable
+	~Sous un indicatif inventé par l'élève
+	~Sans indicatif, puisque l'élève n'en a pas
+	~Sous l'indicatif du collège
+}
+
+::RE2105::Au cours d'une émission de plus de quinze minutes sur une même fréquence, à quel rythme minimal annonce-t-on l'indicatif en France ? {
+	=Toutes les quinze minutes
+	~Une seule fois, au début
+	~Toutes les heures
+	~Jamais, si le correspondant le connaît
+}
+
+::RE2106::Existe-t-il en France un indicatif spécial permettant à un débutant d'émettre seul ? {
+	=Non
+	~Oui, il commence par F0
+	~Oui, il se termine par /T
+	~Oui, il est attribué par le collège
+}
+
+::RE2107::Dans le contact type du manuel, pourquoi Paul épelle-t-il son prénom ? {
+	=Pour qu'il soit compris sans erreur, même si la liaison est difficile
+	~Parce que c'est obligatoire pour tous les prénoms
+	~Parce que Paul est un prénom étranger
+	~Pour gagner du temps
+}
+
+::RE2108::Quelle durée convient à un passage dans un premier contact ? {
+	=Trente secondes à une minute
+	~Au moins cinq minutes
+	~Une seconde
+	~Le plus longtemps possible, pour occuper le relais
+}
+
+::RE2109::Quand note-t-on un contact dans le carnet de trafic ? {
+	=Au fur et à mesure, pendant le contact
+	~Le lendemain, de mémoire
+	~Seulement si le contact a duré plus de dix minutes
+	~Jamais, c'est inutile pour un premier contact
+}
+
+::RE2110::On n'est pas sûr d'avoir bien compris l'indicatif du correspondant. Que fait-on ? {
+	=On lui demande de le répéter
+	~On écrit ce qu'on croit avoir entendu
+	~On laisse la case vide
+	~On invente un indicatif proche
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 22 — Au micro
+
+::RE2201::Que fait-on avant de prendre la parole sur une fréquence ? {
+	=On écoute, pour s'assurer qu'elle est libre ou qu'on nous rend la main.
+	~On appuie tout de suite sur la touche PTT.
+	~On monte le volume au maximum.
+	~On change de fréquence.
+}
+
+::RE2202::Pourquoi attend-on un instant après avoir appuyé sur la touche PTT avant de parler ? {
+	=Pour que le premier mot ne soit pas coupé
+	~Pour laisser chauffer le microphone
+	~Pour que le correspondant ait le temps de raccrocher
+	~Parce que la loi impose une minute de silence
+}
+
+::RE2203::Que se passe-t-il tant qu'on garde la touche PTT enfoncée ? {
+	=On n'entend pas le correspondant, et personne d'autre ne peut parler.
+	~On entend mieux le correspondant.
+	~Le poste s'éteint au bout de trois secondes.
+	~Le correspondant peut nous interrompre.
+}
+
+::RE2204::On s'est trompé en parlant. Que dit-on ? {
+	=« Correction », puis on reprend
+	~« SOS »
+	~« QRT »
+	~Rien, on relâche la touche et l'on s'en va
+}
+
+::RE2205::Qu'est-ce qu'une carte QSL ? {
+	=Une carte postale qui confirme un contact
+	~Le permis d'émettre d'un radioamateur
+	~Une carte des relais
+	~Un plan de la station
+}
+
+::RE2206::Les renseignements portés sur une carte QSL doivent correspondre à ceux… {
+	=du carnet de trafic
+	~de la notice du poste
+	~du bulletin météo
+	~de la facture du poste
+}
+
+::RE2207::Par quel moyen les radioamateurs échangent-ils souvent leurs cartes QSL ? {
+	=Par le bureau QSL d'une association nationale
+	~Par les pompiers
+	~Par le relais local
+	~Par l'ANFR
+}
+
+::RE2208::Quand complète-t-on le carnet de trafic d'un contact ? {
+	=Tout de suite, pendant que tout est frais
+	~Une semaine plus tard
+	~Seulement si l'on reçoit la carte QSL
+	~À la fin de l'année
+}
+
+::RE2209::Où trouve-t-on du matériel, des conseils et d'autres passionnés pour continuer la radio ? {
+	=Dans un radio-club
+	~À l'ANFR
+	~Dans un magasin de téléphones
+	~Nulle part \: il faut tout faire seul
+}
+
+::RE2210::Que faut-il obtenir pour avoir un jour son propre indicatif de radioamateur ? {
+	=Le certificat d'opérateur, en réussissant son examen
+	~Le BIR seulement
+	~Une carte QSL
+	~Un poste de plus de 100 W
+}
+
+$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 23 — Les règles, et après ?
+
+::RE2301::Que faut-il pour avoir le droit d'émettre sur les bandes radioamateur en France ? {
+	=Un certificat d'opérateur et un indicatif
+	~Un poste acheté en France
+	~Le BIR
+	~L'accord de ses voisins
+}
+
+::RE2302::En France, quel organisme délivre les certificats d'opérateur et les indicatifs ? {
+	=L'ANFR
+	~L'ARCEP
+	~L'UIT
+	~La mairie
+}
+
+::RE2303::Quel organisme fixe les conditions d'utilisation des fréquences par les radioamateurs, comme les bandes et la puissance ? {
+	=L'ARCEP
+	~Le radio-club local
+	~Le fabricant du poste
+	~Le collège
+}
+
+::RE2304::Un radioamateur peut-il coder ses messages pour que personne d'autre ne les comprenne ? {
+	=Non, c'est interdit.
+	~Oui, toujours.
+	~Oui, mais seulement la nuit.
+	~Oui, s'il émet à faible puissance.
+}
+
+::RE2305::En France, a-t-on le droit de posséder un récepteur et d'écouter les ondes ? {
+	=Oui, l'écoute est libre, mais le contenu des communications des autres est protégé.
+	~Non, il faut une autorisation pour chaque récepteur.
+	~Oui, et l'on peut publier tout ce qu'on entend.
+	~Non, seuls les radioamateurs ont le droit d'écouter.
+}
+
+::RE2306::On entend par hasard une conversation qui ne nous est pas destinée. Que fait-on ? {
+	=On ne la répète pas, on ne l'enregistre pas, on ne s'en sert pas.
+	~On l'enregistre pour la publier.
+	~On la raconte à ses amis.
+	~On répond pour se présenter.
+}
+
+::RE2307::Comment se passe l'examen du certificat d'opérateur en France ? {
+	=Sur ordinateur, dans un centre de l'ANFR, en deux épreuves \: réglementation et technique
+	~Par oral, devant un jury de radioamateurs
+	~Uniquement par un contact radio réussi
+	~Par une épreuve de Morse seulement
+}
+
+::RE2308::Quelle note faut-il obtenir à chaque épreuve de l'examen du certificat d'opérateur ? {
+	=Au moins 10 sur 20
+	~Au moins 18 sur 20
+	~Au moins 5 sur 20
+	~Il suffit de se présenter
+}
+
+::RE2309::Qu'apporte un radio-club à un débutant ? {
+	=Une station, des conseils, du matériel et souvent des cours de préparation
+	~Un indicatif personnel, sans examen
+	~Le droit d'émettre seul, sans certificat
+	~Un emploi
+}
+
+::RE2310::Que permet le BIR ? {
+	=De découvrir la radio et de préparer le terrain pour le certificat d'opérateur
+	~D'émettre seul sur les bandes radioamateur
+	~D'obtenir un indicatif
+	~De réparer des postes pour les vendre
 }

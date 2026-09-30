@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine C — Ondes, spectre et propagation",
+   "sections": [
+    {
+     "title": "Séance 10 — Les ondes courtes et l'ionosphère",
+     "questions": [
+      {
+       "number": "RC1001",
+       "class": "BIR",
+       "question": "Qu'est-ce que l'ionosphère ?",
+       "answer_a": "Une région de la haute atmosphère, ionisée par le Soleil",
+       "answer_b": "La couche d'air où se forment les nuages",
+       "answer_c": "Un satellite de télécommunication",
+       "answer_d": "Le sol humide sous l'antenne"
+      },
+      {
+       "number": "RC1002",
+       "class": "BIR",
+       "question": "Qu'est-ce qui ionise l'ionosphère ?",
+       "answer_a": "Le rayonnement du Soleil",
+       "answer_b": "Les émetteurs de radio",
+       "answer_c": "Les orages",
+       "answer_d": "Le champ magnétique des antennes"
+      },
+      {
+       "number": "RC1003",
+       "class": "BIR",
+       "question": "Comment une onde courte peut-elle atteindre un autre continent ?",
+       "answer_a": "Elle est renvoyée vers le sol par l'ionosphère, parfois en plusieurs bonds.",
+       "answer_b": "Elle traverse la Terre en ligne droite.",
+       "answer_c": "Elle suit les câbles sous-marins.",
+       "answer_d": "Elle passe obligatoirement par un relais."
+      },
+      {
+       "number": "RC1004",
+       "class": "BIR",
+       "question": "Qu'appelle-t-on la zone de silence ?",
+       "answer_a": "La zone trop éloignée pour l'onde de sol et trop proche pour l'onde renvoyée par le ciel",
+       "answer_b": "La zone située juste sous l'antenne",
+       "answer_c": "Une zone où il est interdit d'émettre",
+       "answer_d": "La partie d'une bande réservée à l'écoute"
+      },
+      {
+       "number": "RC1005",
+       "class": "BIR",
+       "question": "En journée, quelles bandes permettent le mieux les contacts lointains ?",
+       "answer_a": "Les bandes hautes des ondes courtes, du $\\qty{20}{\\meter}$ au $\\qty{10}{\\meter}$",
+       "answer_b": "Les bandes basses, $\\qty{80}{\\meter}$ et $\\qty{40}{\\meter}$",
+       "answer_c": "La bande des $\\qty{2}{\\meter}$",
+       "answer_d": "Aucune : les contacts lointains ne sont possibles que la nuit"
+      },
+      {
+       "number": "RC1006",
+       "class": "BIR",
+       "question": "Pourquoi la bande des $\\qty{80}{\\meter}$ porte-t-elle peu loin en plein jour ?",
+       "answer_a": "Parce que la région D de l'ionosphère, présente le jour, absorbe les fréquences basses",
+       "answer_b": "Parce que le Soleil chauffe les antennes",
+       "answer_c": "Parce qu'elle est fermée par la loi pendant la journée",
+       "answer_d": "Parce que les postes émettent moins fort le jour"
+      },
+      {
+       "number": "RC1007",
+       "class": "BIR",
+       "question": "Combien de temps dure environ le cycle d'activité du Soleil ?",
+       "answer_a": "Onze ans",
+       "answer_b": "Un jour",
+       "answer_c": "Un mois",
+       "answer_d": "Cent ans"
+      },
+      {
+       "number": "RC1008",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'une balise, en radio ?",
+       "answer_a": "Une station automatique qui émet sans arrêt un message court sur une fréquence fixe",
+       "answer_b": "Un panneau indiquant la fréquence d'un relais",
+       "answer_c": "Un poste réservé aux secours en mer",
+       "answer_d": "Une antenne sans câble"
+      },
+      {
+       "number": "RC1009",
+       "class": "BIR",
+       "question": "On entend une balise située au Japon. Qu'en conclut-on ?",
+       "answer_a": "Que la propagation est ouverte entre le Japon et nous sur cette fréquence",
+       "answer_b": "Que notre récepteur est réglé sur l'heure japonaise",
+       "answer_c": "Que la balise est très puissante, sinon ce serait impossible",
+       "answer_d": "Que nous pouvons émettre sur la fréquence de la balise"
+      },
+      {
+       "number": "RC1010",
+       "class": "BIR",
+       "question": "Que désigne le mot DX chez les radioamateurs ?",
+       "answer_a": "Un contact, ou une station, très lointain",
+       "answer_b": "Une panne de récepteur",
+       "answer_c": "Un contact entre deux voisins",
+       "answer_d": "Le dixième contact de la journée"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 5 — La résistance et la loi d'Ohm",
+     "questions": [
+      {
+       "number": "RB0501",
+       "class": "BIR",
+       "question": "En quelle unité mesure-t-on une résistance ?",
+       "answer_a": "En ohms",
+       "answer_b": "En volts",
+       "answer_c": "En ampères",
+       "answer_d": "En watts"
+      },
+      {
+       "number": "RB0502",
+       "class": "BIR",
+       "question": "Combien d'ohms font $\\qty{2,2}{\\kilo\\ohm}$ ?",
+       "answer_a": "2200",
+       "answer_b": "220",
+       "answer_c": "22",
+       "answer_d": "22 000"
+      },
+      {
+       "number": "RB0503",
+       "class": "BIR",
+       "question": "Quelle relation énonce la loi d'Ohm ?",
+       "answer_a": "U = R × I",
+       "answer_b": "U = R + I",
+       "answer_c": "R = U × I",
+       "answer_d": "I = U × R"
+      },
+      {
+       "number": "RB0504",
+       "class": "BIR",
+       "question": "Une résistance de $\\qty{100}{\\ohm}$ est traversée par un courant de $\\qty{0,1}{\\ampere}$. Quelle est la tension à ses bornes ?",
+       "answer_a": "10 V",
+       "answer_b": "1000 V",
+       "answer_c": "100,1 V",
+       "answer_d": "0,001 V"
+      },
+      {
+       "number": "RB0505",
+       "class": "BIR",
+       "question": "On branche une résistance de $\\qty{1}{\\kilo\\ohm}$ sur une pile de $\\qty{9}{\\volt}$. Quel courant la traverse ?",
+       "answer_a": "9 mA",
+       "answer_b": "9 A",
+       "answer_c": "0,9 mA",
+       "answer_d": "9000 A"
+      },
+      {
+       "number": "RB0506",
+       "class": "BIR",
+       "question": "Aux bornes d'une même résistance, on double la tension. Que devient le courant ?",
+       "answer_a": "Il double.",
+       "answer_b": "Il est divisé par deux.",
+       "answer_c": "Il ne change pas.",
+       "answer_d": "Il devient nul."
+      },
+      {
+       "number": "RB0507",
+       "class": "BIR",
+       "question": "Quelle est la valeur d'une résistance marquée marron, noir, rouge, doré ?",
+       "answer_a": "1000 Ω",
+       "answer_b": "102 Ω",
+       "answer_c": "100 Ω",
+       "answer_d": "10 Ω"
+      },
+      {
+       "number": "RB0508",
+       "class": "BIR",
+       "question": "Sur une résistance, que donne l'anneau doré placé à droite ?",
+       "answer_a": "La tolérance, ici 5 %",
+       "answer_b": "Le premier chiffre de la valeur",
+       "answer_c": "La puissance maximale",
+       "answer_d": "Le sens de branchement"
+      },
+      {
+       "number": "RB0509",
+       "class": "BIR",
+       "question": "Sur un schéma électrique, comment reconnaît-on le symbole du voltmètre ?",
+       "answer_a": "Un cercle marqué d'un V",
+       "answer_b": "Un cercle marqué d'un A",
+       "answer_c": "Un rectangle",
+       "answer_d": "Une flèche vers le bas"
+      },
+      {
+       "number": "RB0510",
+       "class": "BIR",
+       "question": "Pourquoi dessine-t-on un circuit avec des symboles plutôt que dessiner les composants réels ?",
+       "answer_a": "Pour que tout le monde puisse le lire de la même façon, simplement",
+       "answer_b": "Parce que les composants réels n'ont pas de forme",
+       "answer_c": "Pour cacher le fonctionnement du circuit",
+       "answer_d": "Parce que la loi l'impose pour chaque dessin"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

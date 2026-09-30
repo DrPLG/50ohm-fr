@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 14 — Les antennes : principes",
+     "questions": [
+      {
+       "number": "RD1401",
+       "class": "BIR",
+       "question": "Quel est le rôle d'une antenne en émission ?",
+       "answer_a": "Transformer le courant de haute fréquence en onde radio",
+       "answer_b": "Amplifier la voix",
+       "answer_c": "Transformer l'onde radio en son",
+       "answer_d": "Fournir l'énergie au poste"
+      },
+      {
+       "number": "RD1402",
+       "class": "BIR",
+       "question": "Une même antenne peut-elle servir à émettre et à recevoir ?",
+       "answer_a": "Oui, et elle reçoit bien dans les directions où elle émet bien.",
+       "answer_b": "Non, il faut toujours deux antennes.",
+       "answer_c": "Oui, mais seulement en Morse.",
+       "answer_d": "Non, une antenne de réception ne supporte pas l'émission, quelle qu'elle soit."
+      },
+      {
+       "number": "RD1403",
+       "class": "BIR",
+       "question": "Quelle est la longueur totale d'un dipôle demi-onde ?",
+       "answer_a": "Environ une demi-longueur d'onde",
+       "answer_b": "Environ une longueur d'onde entière",
+       "answer_c": "Environ un dixième de longueur d'onde",
+       "answer_d": "Toujours $\\qty{1}{\\meter}$, quelle que soit la fréquence"
+      },
+      {
+       "number": "RD1404",
+       "class": "BIR",
+       "question": "Où le câble est-il raccordé sur un dipôle demi-onde ?",
+       "answer_a": "Au centre, entre les deux brins",
+       "answer_b": "À une extrémité",
+       "answer_c": "Aux deux extrémités",
+       "answer_d": "Il n'y a pas de câble : le dipôle rayonne seul"
+      },
+      {
+       "number": "RD1405",
+       "class": "BIR",
+       "question": "Environ combien mesure chaque brin d'un dipôle pour $\\qty{145}{\\mega\\hertz}$ ?",
+       "answer_a": "49 cm",
+       "answer_b": "2 m",
+       "answer_c": "5 cm",
+       "answer_d": "10 m"
+      },
+      {
+       "number": "RD1406",
+       "class": "BIR",
+       "question": "Pourquoi coupe-t-on un dipôle un peu plus court que la demi-longueur d'onde calculée ?",
+       "answer_a": "Parce que l'onde circule un peu moins vite dans le métal et que les extrémités l'allongent",
+       "answer_b": "Pour qu'il soit moins lourd",
+       "answer_c": "Pour qu'il émette moins de puissance",
+       "answer_d": "Pour qu'il ne touche pas le sol"
+      },
+      {
+       "number": "RD1407",
+       "class": "BIR",
+       "question": "Qu'est-ce qui fixe la polarisation d'une onde radio ?",
+       "answer_a": "L'orientation des brins de l'antenne qui l'émet",
+       "answer_b": "La puissance de l'émetteur",
+       "answer_c": "La longueur du câble",
+       "answer_d": "L'heure de l'émission"
+      },
+      {
+       "number": "RD1408",
+       "class": "BIR",
+       "question": "Une antenne verticale émet une onde à polarisation…",
+       "answer_a": "verticale",
+       "answer_b": "horizontale",
+       "answer_c": "circulaire, toujours",
+       "answer_d": "sans polarisation"
+      },
+      {
+       "number": "RD1409",
+       "class": "BIR",
+       "question": "Que se passe-t-il si l'antenne d'émission est verticale et celle de réception horizontale ?",
+       "answer_a": "Le signal reçu est beaucoup plus faible.",
+       "answer_b": "Le signal reçu est plus fort.",
+       "answer_c": "Rien ne change.",
+       "answer_d": "Le poste se met en panne."
+      },
+      {
+       "number": "RD1410",
+       "class": "BIR",
+       "question": "Quelle polarisation utilisent habituellement les relais et les portatifs en VHF ?",
+       "answer_a": "La polarisation verticale",
+       "answer_b": "La polarisation horizontale",
+       "answer_c": "Aucune",
+       "answer_d": "Elle change à chaque contact"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -23,10 +23,10 @@ nº 1 et nº 2 de `Fichierstravail/`.
 | nº | document | état |
 | --- | --- | --- |
 | D1 | Référentiel — `referentiel.md` | premier jet |
-| D2 | Manuel de l'élève — `sections/` | chapitres 1 et 8 en premier jet |
-| D3 | Livre du formateur — `formateur/` | séances 1 et 8 en premier jet |
-| D4 | Fiches d'activité — `fiches/` | séances 1 et 8 en premier jet |
-| D5 | Banque de questions — `questions/` | 20 questions : séances 1 et 8 |
+| D2 | Manuel de l'élève — `sections/` | **23 chapitres en premier jet** (séances 1 à 23 ; la 24 est l'examen) |
+| D3 | Livre du formateur — `formateur/` | **24 séances en premier jet** |
+| D4 | Fiches d'activité — `fiches/` | **séances 1 à 23 en premier jet**, élève et encadrant |
+| D5 | Banque de questions — `questions/` | **230 questions** : dix par séance, 1 à 23 |
 | D6 | Diaporamas de séance | à faire |
 | D7 | Mallette type et budget | maquette seule, prix à vérifier |
 | D8 | Livret de l'élève | maquette seule |
@@ -95,11 +95,43 @@ Domaines : **A** découvrir la radio · **B** électricité et électronique ·
 
 Répartition : A 2 · B 6 · C 4 · D 6 · E 5 · examen 1.
 
+### Le premier jet complet (30/09/2026)
+
+Écrit d'après la séance pilote, même structure partout : chapitre du manuel
+en trois à cinq sections, page du formateur (ce que l'élève doit emporter,
+avant la séance, déroulé, conduite de la manipulation, ce qui coince, pour
+aller plus loin, corrigé), fiche élève, fiche encadrant avec les
+savoir-faire du livret, dix questions.
+
+Choix faits en l'absence de Pierre, à relire :
+
+- **Indicatifs d'exercice en F4X…** partout (manuel, fiches, questions) :
+  les suffixes en X sont en réserve (encart de `N/persoenliche_rufzeichen`),
+  aucun vrai radioamateur n'est emprunté. Aux séances 21 et 22, l'émission
+  réelle se fait sous l'indicatif réel de la station.
+- **Séance 15** : la manipulation transforme le dipôle de la séance 14 en
+  Yagi à deux éléments (réflecteur + 5 %, à 40 cm), plutôt qu'un kit du
+  commerce dont il aurait fallu inventer les cotes.
+- **Séance 20** : les « renards » peuvent être des postes PMR446 si l'on n'a
+  pas d'émetteurs de chasse au renard.
+- **Séance 23** : l'examen blanc se passe sur la plateforme, 40 questions en
+  40 minutes, pour laisser le temps de la correction.
+- **Réponses numériques en texte** (« 1,5 V ») : le moteur amont compose une
+  réponse faite d'une seule formule en formule centrée, ce qui triplait la
+  hauteur des questions. Règle ajoutée à `MODE-EMPLOI.md`.
+- Tout ce qui touche au droit français vient des encarts « En France » du
+  livre N ; ce qui est écrit de mémoire est marqué comme tel dans
+  `SOURCES.md`.
+
+`MODE-EMPLOI.md` explique à un nouveau venu comment récupérer les fichiers,
+les modifier et recompiler.
+
 ## 4. Arborescence
 
 ```
 bir/
   PLAN.md               ce document
+  MODE-EMPLOI.md        récupérer, modifier, recompiler
   referentiel.md        D1
   toc.json              sommaire du manuel
   SOURCES.md            sections amont dont dérive chaque section du BIR
@@ -115,9 +147,14 @@ bir/
    fait parcourir le spectre. Par prudence, elle ne fait *écouter* que la
    radiodiffusion et les bandes radioamateur ; le reste est seulement observé
    à l'écran. La règle française exacte n'a pas été relue à la source
-   (CLAUDE.md §7 : sujet écarté faute de vérification).
+   (CLAUDE.md §7 : sujet écarté faute de vérification). La section
+   `bir_ecouter_n_est_pas_repeter` (séance 23) s'appuie sur l'encart de
+   `N/fernmeldegeheimnis_abhoerverbot` — écoute libre, art. 226-15 du code
+   pénal — sans relecture à la source.
 2. **PMR446** : conditions d'usage libre (fréquences, puissance, antenne) à
-   relire à la source avant de rédiger les séances 2, 3, 9 et 21.
+   relire à la source. Les séances 2, 3, 9, 20 et 21 sont rédigées ; la
+   section `bir_les_postes_pmr446` et le tableau des puissances de
+   `bir_la_puissance_d_emission` citent 446 MHz et 0,5 W de mémoire.
 3. **Fréquences des services cités au chapitre 8** (radiodiffusion FM, DAB+,
    aviation, télévision, Wi-Fi) : écrites de mémoire, à contrôler au TNRBF.
 4. **Rattachement au programme du certificat** dans le référentiel :
@@ -125,6 +162,12 @@ bir/
    le texte.
 5. **Examen** : nombre de questions, durée et seuil restent une proposition ;
    la possibilité d'un format de type Pix n'a pas été étudiée.
+6. **Affirmations écrites de mémoire** dans le premier jet complet : préfixes
+   étrangers, décalage des relais 2 m, réseau mondial de balises, SSTV de
+   l'ISS, puissances des téléphones. Liste dans `SOURCES.md`.
+7. **Double saisie** des fiches et pages du formateur entre Markdown et
+   maquettes : seule la séance 8 existe en maquette.
+8. **D6, diaporamas** : toujours à faire.
 
 ## Tranché par Pierre le 30/09/2026
 
@@ -151,6 +194,13 @@ Première compilation par Pierre le 30/09/2026 (20 × 24 marge) : 12 pages,
 Compilation des chapitres 1 et 8, même jour, version 0.1 : **18 pages**,
 0 erreur, 20 questions, 0 coupée, 0 « ?? » ; un débordement de 0,34 pt,
 invisible. Les paragraphes de la section 8.4 sont bien séparés.
+
+Compilation du premier jet complet, même jour, version 0.1, 20 × 24 marge,
+hors de la machine de Pierre (TeX Live 2023 sous Linux) : **122 pages**,
+23 chapitres, 230 questions, 0 référence indéfinie, 0 note de marge perdue,
+0 « Float too large » ; 8 débordements de 0,2 à 8,6 pt, dont deux visibles
+à relire (sections `bir_ne_pas_perturber` et `bir_la_radio_d_urgence`).
+À refaire sur la machine de Pierre, avec les contrôles de la fenêtre.
 
 ## 6. Compiler le manuel
 

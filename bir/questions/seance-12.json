@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 12 — Le Morse",
+     "questions": [
+      {
+       "number": "RD1201",
+       "class": "BIR",
+       "question": "En Morse, de quoi se compose chaque lettre ?",
+       "answer_a": "D'une suite de signaux courts et de signaux longs",
+       "answer_b": "D'une note de musique différente pour chaque lettre",
+       "answer_c": "D'un nombre de 1 à 26",
+       "answer_d": "D'un mot de l'alphabet d'épellation"
+      },
+      {
+       "number": "RD1202",
+       "class": "BIR",
+       "question": "Quelle lettre s'écrit en Morse avec un seul point ?",
+       "answer_a": "E",
+       "answer_b": "T",
+       "answer_c": "A",
+       "answer_d": "S"
+      },
+      {
+       "number": "RD1203",
+       "class": "BIR",
+       "question": "En Morse, combien de points dure un trait ?",
+       "answer_a": "Trois",
+       "answer_b": "Deux",
+       "answer_c": "Un",
+       "answer_d": "Sept"
+      },
+      {
+       "number": "RD1204",
+       "class": "BIR",
+       "question": "Quelle lettre s'écrit « court, long » en Morse ?",
+       "answer_a": "A",
+       "answer_b": "N",
+       "answer_c": "E",
+       "answer_d": "T"
+      },
+      {
+       "number": "RD1205",
+       "class": "BIR",
+       "question": "Comment s'écrit le signal SOS en Morse ?",
+       "answer_a": "Trois points, trois traits, trois points",
+       "answer_b": "Trois traits, trois points, trois traits",
+       "answer_c": "Un point, un trait, un point",
+       "answer_d": "Deux points, deux traits, deux points"
+      },
+      {
+       "number": "RD1206",
+       "class": "BIR",
+       "question": "Un radioamateur entend un appel de détresse. Que doit-il faire ?",
+       "answer_a": "Cesser d'émettre, écouter, noter ce qu'il peut, et prévenir les secours",
+       "answer_b": "Continuer son contact en parlant plus fort",
+       "answer_c": "Répondre par un autre SOS pour s'entraîner",
+       "answer_d": "Changer de fréquence pour ne pas être gêné"
+      },
+      {
+       "number": "RD1207",
+       "class": "BIR",
+       "question": "Pourquoi un signal Morse reste-t-il lisible quand une voix ne l'est plus ?",
+       "answer_a": "Parce qu'il occupe une très faible largeur de bande, et que le récepteur peut éliminer presque tout le bruit",
+       "answer_b": "Parce qu'un émetteur Morse est toujours plus puissant",
+       "answer_c": "Parce que le Morse ne passe pas par l'ionosphère",
+       "answer_d": "Parce que le Morse n'utilise pas de porteuse"
+      },
+      {
+       "number": "RD1208",
+       "class": "BIR",
+       "question": "Comment appelle-t-on l'appareil avec lequel on émet du Morse ?",
+       "answer_a": "Un manipulateur",
+       "answer_b": "Un microphone",
+       "answer_c": "Un wattmètre",
+       "answer_d": "Un multimètre"
+      },
+      {
+       "number": "RD1209",
+       "class": "BIR",
+       "question": "Pourquoi deux radioamateurs qui ne parlent pas la même langue peuvent-ils se comprendre en Morse ?",
+       "answer_a": "Parce que les contacts utilisent des abréviations et des codes Q connus de tous",
+       "answer_b": "Parce que le Morse traduit automatiquement les langues",
+       "answer_c": "Parce que le Morse n'utilise que des chiffres",
+       "answer_d": "Parce que c'est impossible : ils ne se comprennent pas"
+      },
+      {
+       "number": "RD1210",
+       "class": "BIR",
+       "question": "Faut-il aujourd'hui connaître le Morse pour obtenir le certificat d'opérateur en France ?",
+       "answer_a": "Non, la télégraphie ne fait plus partie de l'examen.",
+       "answer_b": "Oui, à 20 mots par minute.",
+       "answer_c": "Oui, mais seulement pour les moins de 18 ans.",
+       "answer_d": "Oui, pour les bandes VHF seulement."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

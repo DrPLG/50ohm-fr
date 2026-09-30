@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 11 — Moduler : transporter la voix",
+     "questions": [
+      {
+       "number": "RD1101",
+       "class": "BIR",
+       "question": "Quel est le rôle du microphone ?",
+       "answer_a": "Transformer les vibrations de la voix en un signal électrique",
+       "answer_b": "Amplifier l'onde radio",
+       "answer_c": "Choisir la fréquence d'émission",
+       "answer_d": "Transformer l'onde radio en son"
+      },
+      {
+       "number": "RD1102",
+       "class": "BIR",
+       "question": "Quelle plage de fréquences suffit pour comprendre une voix ?",
+       "answer_a": "De $\\qty{300}{\\hertz}$ à $\\qty{3000}{\\hertz}$ environ",
+       "answer_b": "De $\\qty{3}{\\mega\\hertz}$ à $\\qty{30}{\\mega\\hertz}$",
+       "answer_c": "De $\\qty{20}{\\kilo\\hertz}$ à $\\qty{200}{\\kilo\\hertz}$",
+       "answer_d": "Uniquement $\\qty{1000}{\\hertz}$"
+      },
+      {
+       "number": "RD1103",
+       "class": "BIR",
+       "question": "En modulation d'amplitude (AM), qu'est-ce qui varie au rythme de la voix ?",
+       "answer_a": "La hauteur (l'amplitude) de la porteuse",
+       "answer_b": "La fréquence de la porteuse",
+       "answer_c": "La longueur de l'antenne",
+       "answer_d": "La tension de l'alimentation"
+      },
+      {
+       "number": "RD1104",
+       "class": "BIR",
+       "question": "En modulation de fréquence (FM), qu'est-ce qui varie au rythme de la voix ?",
+       "answer_a": "La fréquence de la porteuse",
+       "answer_b": "La hauteur (l'amplitude) de la porteuse",
+       "answer_c": "La direction de l'antenne",
+       "answer_d": "Le nombre de bandes latérales, qui passe à zéro"
+      },
+      {
+       "number": "RD1105",
+       "class": "BIR",
+       "question": "Pourquoi une réception en FM est-elle souvent plus claire qu'en AM ?",
+       "answer_a": "Parce que les parasites touchent surtout l'amplitude, que le récepteur FM ignore",
+       "answer_b": "Parce qu'un émetteur FM est toujours plus puissant",
+       "answer_c": "Parce que la FM n'utilise pas d'antenne",
+       "answer_d": "Parce que la FM ne transmet que les sons graves"
+      },
+      {
+       "number": "RD1106",
+       "class": "BIR",
+       "question": "Que transmet un émetteur en bande latérale unique (SSB) ?",
+       "answer_a": "Une seule des deux bandes latérales, sans la porteuse",
+       "answer_b": "La porteuse seule",
+       "answer_c": "Les deux bandes latérales et la porteuse",
+       "answer_d": "Uniquement du Morse"
+      },
+      {
+       "number": "RD1107",
+       "class": "BIR",
+       "question": "Sur la bande des $\\qty{40}{\\meter}$, quelle bande latérale utilisent habituellement les radioamateurs en phonie ?",
+       "answer_a": "La bande latérale inférieure (LSB)",
+       "answer_b": "La bande latérale supérieure (USB)",
+       "answer_c": "Les deux à la fois",
+       "answer_d": "Aucune : la phonie y est interdite"
+      },
+      {
+       "number": "RD1108",
+       "class": "BIR",
+       "question": "Qu'appelle-t-on la largeur de bande d'un signal ?",
+       "answer_a": "La place qu'il occupe dans le spectre, entre sa fréquence la plus basse et la plus haute",
+       "answer_b": "La longueur de l'antenne qui l'émet",
+       "answer_c": "La distance qu'il peut parcourir",
+       "answer_d": "La durée d'une émission"
+      },
+      {
+       "number": "RD1109",
+       "class": "BIR",
+       "question": "Lequel de ces signaux occupe la plus faible largeur de bande ?",
+       "answer_a": "Un signal Morse",
+       "answer_b": "Un signal SSB",
+       "answer_c": "Un signal FM de radioamateur",
+       "answer_d": "Une station de radio FM musicale"
+      },
+      {
+       "number": "RD1110",
+       "class": "BIR",
+       "question": "Quelle est, environ, la largeur de bande d'un signal SSB ?",
+       "answer_a": "2,7 kHz",
+       "answer_b": "200 kHz",
+       "answer_c": "27 Hz",
+       "answer_d": "2,7 MHz"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

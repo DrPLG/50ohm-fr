@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine B — Électricité et électronique",
+   "sections": [
+    {
+     "title": "Séance 19 — L'atelier de soudure",
+     "questions": [
+      {
+       "number": "RB1901",
+       "class": "BIR",
+       "question": "Quel composant ne laisse passer le courant que dans un sens ?",
+       "answer_a": "La diode",
+       "answer_b": "La résistance",
+       "answer_c": "Le condensateur céramique",
+       "answer_d": "Le fil de cuivre"
+      },
+      {
+       "number": "RB1902",
+       "class": "BIR",
+       "question": "Sur une LED neuve, comment reconnaît-on l'anode, qui va vers le plus ?",
+       "answer_a": "C'est la patte la plus longue.",
+       "answer_b": "C'est la patte la plus courte.",
+       "answer_c": "C'est la patte peinte en rouge.",
+       "answer_d": "Les deux pattes sont identiques : le sens n'a pas d'importance."
+      },
+      {
+       "number": "RB1903",
+       "class": "BIR",
+       "question": "Combien de pattes a un transistor ?",
+       "answer_a": "Trois",
+       "answer_b": "Deux",
+       "answer_c": "Quatre",
+       "answer_d": "Une"
+      },
+      {
+       "number": "RB1904",
+       "class": "BIR",
+       "question": "Lequel de ces composants peut se monter dans n'importe quel sens ?",
+       "answer_a": "Une résistance",
+       "answer_b": "Une LED",
+       "answer_c": "Une diode",
+       "answer_d": "Un condensateur électrolytique"
+      },
+      {
+       "number": "RB1905",
+       "class": "BIR",
+       "question": "Que montre un schéma d'implantation ?",
+       "answer_a": "L'emplacement et l'orientation de chaque composant sur le circuit imprimé",
+       "answer_b": "Le prix de chaque composant",
+       "answer_c": "La fréquence d'émission du montage",
+       "answer_d": "Le chemin du courant dans le corps humain"
+      },
+      {
+       "number": "RB1906",
+       "class": "BIR",
+       "question": "Sur un schéma, que désigne le repère R3 ?",
+       "answer_a": "Une résistance, la troisième de la liste",
+       "answer_b": "La troisième bande radioamateur",
+       "answer_c": "Un relais installé sur un point haut",
+       "answer_d": "Un report RST de 3"
+      },
+      {
+       "number": "RB1907",
+       "class": "BIR",
+       "question": "Où apporte-t-on le fil de soudure ?",
+       "answer_a": "Sur la pastille et la patte chauffées, pas sur la panne du fer",
+       "answer_b": "Directement sur la panne, puis on étale",
+       "answer_c": "Sur le composant, loin de la pastille",
+       "answer_d": "N'importe où, du moment qu'il fond"
+      },
+      {
+       "number": "RB1908",
+       "class": "BIR",
+       "question": "À quoi reconnaît-on une bonne soudure ?",
+       "answer_a": "Elle est brillante et forme un petit cône régulier autour de la patte.",
+       "answer_b": "Elle forme une grosse boule terne sur la pastille.",
+       "answer_c": "Elle recouvre tout le composant.",
+       "answer_d": "Elle est granuleuse et mate."
+      },
+      {
+       "number": "RB1909",
+       "class": "BIR",
+       "question": "Où pose-t-on le fer à souder quand on ne s'en sert pas ?",
+       "answer_a": "Sur son support",
+       "answer_b": "Sur la table, à plat",
+       "answer_c": "Sur le circuit imprimé",
+       "answer_d": "Dans la trousse"
+      },
+      {
+       "number": "RB1910",
+       "class": "BIR",
+       "question": "Le fer à souder tombe de la table. Que fait-on ?",
+       "answer_a": "On le laisse tomber, sans essayer de le rattraper.",
+       "answer_b": "On le rattrape au vol par la panne.",
+       "answer_c": "On le rattrape par le câble.",
+       "answer_d": "On le rattrape avec la pince coupante."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

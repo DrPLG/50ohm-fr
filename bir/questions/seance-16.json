@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine D — Modulations, antennes et station",
+   "sections": [
+    {
+     "title": "Séance 16 — Câbles, connecteurs et réglage",
+     "questions": [
+      {
+       "number": "RD1601",
+       "class": "BIR",
+       "question": "Dans un câble coaxial, comment s'appelle le fil de cuivre central ?",
+       "answer_a": "L'âme",
+       "answer_b": "La tresse",
+       "answer_c": "La gaine",
+       "answer_d": "L'embase"
+      },
+      {
+       "number": "RD1602",
+       "class": "BIR",
+       "question": "Quelle est l'impédance des câbles coaxiaux utilisés dans les stations de radioamateur ?",
+       "answer_a": "50 Ω",
+       "answer_b": "75 Ω",
+       "answer_c": "230 Ω",
+       "answer_d": "1 Ω"
+      },
+      {
+       "number": "RD1603",
+       "class": "BIR",
+       "question": "Comment varient les pertes d'un câble coaxial ?",
+       "answer_a": "Elles augmentent avec la longueur du câble et avec la fréquence.",
+       "answer_b": "Elles diminuent quand la fréquence augmente.",
+       "answer_c": "Elles ne dépendent que de la couleur de la gaine.",
+       "answer_d": "Un câble coaxial n'a jamais de pertes."
+      },
+      {
+       "number": "RD1604",
+       "class": "BIR",
+       "question": "Quel connecteur trouve-t-on souvent sur les portatifs récents et les clés SDR ?",
+       "answer_a": "Le connecteur SMA",
+       "answer_b": "La prise de courant",
+       "answer_c": "Le connecteur PL de grande taille",
+       "answer_d": "Le connecteur USB"
+      },
+      {
+       "number": "RD1605",
+       "class": "BIR",
+       "question": "Que se passe-t-il si un brin de tresse touche l'âme dans une fiche ?",
+       "answer_a": "Le câble est en court-circuit.",
+       "answer_b": "Le signal devient plus fort.",
+       "answer_c": "La fiche devient étanche.",
+       "answer_d": "Rien, c'est prévu."
+      },
+      {
+       "number": "RD1606",
+       "class": "BIR",
+       "question": "Que mesure le rapport d'ondes stationnaires (ROS) ?",
+       "answer_a": "À quel point l'antenne renvoie vers l'émetteur une partie de la puissance",
+       "answer_b": "La vitesse de l'onde dans le câble",
+       "answer_c": "La distance jusqu'au correspondant",
+       "answer_d": "La tension de l'alimentation"
+      },
+      {
+       "number": "RD1607",
+       "class": "BIR",
+       "question": "Quelle valeur de ROS correspond à une antenne parfaitement accordée ?",
+       "answer_a": "1",
+       "answer_b": "0",
+       "answer_c": "3",
+       "answer_d": "10"
+      },
+      {
+       "number": "RD1608",
+       "class": "BIR",
+       "question": "Un ROS-mètre indique un ROS infini. Quelle est la cause la plus probable ?",
+       "answer_a": "Une panne : câble coupé, fiche en court-circuit ou antenne débranchée",
+       "answer_b": "Une antenne parfaitement réglée",
+       "answer_c": "Une propagation exceptionnelle",
+       "answer_d": "Un poste trop récent"
+      },
+      {
+       "number": "RD1609",
+       "class": "BIR",
+       "question": "L'analyseur montre le creux de ROS de votre dipôle à $\\qty{141}{\\mega\\hertz}$ ; vous visez $\\qty{145}{\\mega\\hertz}$. Que faut-il faire ?",
+       "answer_a": "Raccourcir un peu les deux brins, de la même longueur",
+       "answer_b": "Allonger un seul brin",
+       "answer_c": "Raccourcir un seul brin",
+       "answer_d": "Changer le câble coaxial"
+      },
+      {
+       "number": "RD1610",
+       "class": "BIR",
+       "question": "Pourquoi coupe-t-on les brins d'une antenne un peu trop longs au départ ?",
+       "answer_a": "Parce qu'on peut les raccourcir au réglage, mais pas les rallonger",
+       "answer_b": "Parce que les antennes rétrécissent avec le temps",
+       "answer_c": "Pour qu'elles soient plus solides",
+       "answer_d": "Parce que la loi l'impose"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
