@@ -195,6 +195,13 @@ Compilation des chapitres 1 et 8, même jour, version 0.1 : **18 pages**,
 0 erreur, 20 questions, 0 coupée, 0 « ?? » ; un débordement de 0,34 pt,
 invisible. Les paragraphes de la section 8.4 sont bien séparés.
 
+Compilation du premier jet complet, même jour, version 0.1, 20 × 24 marge,
+hors de la machine de Pierre (TeX Live 2023 sous Linux) : **122 pages**,
+23 chapitres, 230 questions, 0 référence indéfinie, 0 note de marge perdue,
+0 « Float too large » ; 8 débordements de 0,2 à 8,6 pt, dont deux visibles
+à relire (sections `bir_ne_pas_perturber` et `bir_la_radio_d_urgence`).
+À refaire sur la machine de Pierre, avec les contrôles de la fenêtre.
+
 ## 6. Compiler le manuel
 
 `build_book.py` v0.34, édition `BIR` (dans la fenêtre : édition BIR). À la
