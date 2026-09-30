@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Domaine A — Découvrir la radio et les radioamateurs",
+   "sections": [
+    {
+     "title": "Séance 1 — La radio autour de nous",
+     "questions": [
+      {
+       "number": "RA0101",
+       "class": "BIR",
+       "question": "De quoi a-t-on besoin pour transmettre un message par radio ?",
+       "answer_a": "D'un émetteur, d'un récepteur, et d'une antenne pour chacun",
+       "answer_b": "D'un émetteur seulement, l'onde faisant le reste",
+       "answer_c": "D'un câble entre l'émetteur et le récepteur",
+       "answer_d": "De deux récepteurs reliés à la même antenne"
+      },
+      {
+       "number": "RA0102",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'un émetteur-récepteur ?",
+       "answer_a": "Un appareil qui réunit un émetteur et un récepteur",
+       "answer_b": "Un appareil qui ne fait que recevoir",
+       "answer_c": "Une antenne qui sert à la fois à émettre et à recevoir",
+       "answer_d": "Un câble qui relie l'émetteur au récepteur"
+      },
+      {
+       "number": "RA0103",
+       "class": "BIR",
+       "question": "Que signifie l'abréviation PTT ?",
+       "answer_a": "Push to talk — appuyer pour parler",
+       "answer_b": "Poste de transmission téléphonique",
+       "answer_c": "Puissance totale transmise",
+       "answer_d": "Prêt à transmettre"
+      },
+      {
+       "number": "RA0104",
+       "class": "BIR",
+       "question": "Que fait un émetteur-récepteur quand on relâche la touche PTT ?",
+       "answer_a": "Il repasse en réception.",
+       "answer_b": "Il continue d'émettre jusqu'au prochain appui.",
+       "answer_c": "Il s'éteint.",
+       "answer_d": "Il change de fréquence."
+      },
+      {
+       "number": "RA0105",
+       "class": "BIR",
+       "question": "Comment transmet-on un message en télégraphie Morse ?",
+       "answer_a": "En coupant et en rétablissant l'onde, selon un code de signaux courts et longs",
+       "answer_b": "En parlant très lentement dans le microphone",
+       "answer_c": "En changeant d'antenne à chaque lettre",
+       "answer_d": "En envoyant une onde continue, sans jamais la couper"
+      },
+      {
+       "number": "RA0106",
+       "class": "BIR",
+       "question": "Qu'appelle-t-on la porteuse ?",
+       "answer_a": "L'onde qui transporte le message de l'émetteur au récepteur",
+       "answer_b": "Le câble qui relie le poste à l'antenne",
+       "answer_c": "La personne qui tient le microphone",
+       "answer_d": "Le support sur lequel l'antenne est fixée"
+      },
+      {
+       "number": "RA0107",
+       "class": "BIR",
+       "question": "Que veut dire « moduler » ?",
+       "answer_a": "Modifier la porteuse pour lui confier un message",
+       "answer_b": "Régler le volume du récepteur",
+       "answer_c": "Augmenter la puissance de l'émetteur",
+       "answer_d": "Orienter l'antenne vers le correspondant"
+      },
+      {
+       "number": "RA0108",
+       "class": "BIR",
+       "question": "Que faut-il pour avoir le droit d'émettre avec un poste de radioamateur ?",
+       "answer_a": "Un certificat d'opérateur, obtenu par examen, et un indicatif",
+       "answer_b": "Rien de particulier : il suffit d'avoir acheté le poste",
+       "answer_c": "Seulement l'accord de ses voisins",
+       "answer_d": "Un abonnement auprès d'un opérateur de téléphonie"
+      },
+      {
+       "number": "RA0109",
+       "class": "BIR",
+       "question": "De quoi se compose une station de réception simple ?",
+       "answer_a": "D'un récepteur, d'une antenne et d'un câble pour les relier",
+       "answer_b": "D'un émetteur et d'un microphone",
+       "answer_c": "D'un récepteur seul, l'antenne étant inutile pour écouter",
+       "answer_d": "De deux antennes reliées entre elles"
+      },
+      {
+       "number": "RA0110",
+       "class": "BIR",
+       "question": "Qu'est-ce qu'un WebSDR ?",
+       "answer_a": "Un récepteur relié à Internet, que l'on écoute depuis son navigateur",
+       "answer_b": "Un émetteur que chacun peut utiliser par Internet",
+       "answer_c": "Un site qui vend des postes de radio",
+       "answer_d": "Un réseau social réservé aux radioamateurs"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

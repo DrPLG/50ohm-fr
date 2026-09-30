@@ -23,10 +23,10 @@ nº 1 et nº 2 de `Fichierstravail/`.
 | nº | document | état |
 | --- | --- | --- |
 | D1 | Référentiel — `referentiel.md` | premier jet |
-| D2 | Manuel de l'élève — `sections/` | chapitre 8 en premier jet |
-| D3 | Livre du formateur — `formateur/` | séance 8 en premier jet |
-| D4 | Fiches d'activité — `fiches/` | séance 8 en premier jet |
-| D5 | Banque de questions — `questions/` | 10 questions pour la séance 8 |
+| D2 | Manuel de l'élève — `sections/` | chapitres 1 et 8 en premier jet |
+| D3 | Livre du formateur — `formateur/` | séances 1 et 8 en premier jet |
+| D4 | Fiches d'activité — `fiches/` | séances 1 et 8 en premier jet |
+| D5 | Banque de questions — `questions/` | 20 questions : séances 1 et 8 |
 | D6 | Diaporamas de séance | à faire |
 | D7 | Mallette type et budget | à faire |
 | D8 | Livret de l'élève | à faire |
@@ -121,6 +121,10 @@ BIR empilé dans le bandeau.
 
 Première compilation par Pierre le 30/09/2026 (20 × 24 marge) : 12 pages,
 0 erreur, 10 questions, 0 coupée.
+
+Compilation des chapitres 1 et 8, même jour, version 0.1 : **18 pages**,
+0 erreur, 20 questions, 0 coupée, 0 « ?? » ; un débordement de 0,34 pt,
+invisible. Les paragraphes de la section 8.4 sont bien séparés.
 
 ## 6. Compiler le manuel
 

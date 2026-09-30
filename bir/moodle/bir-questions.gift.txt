@@ -1,5 +1,77 @@
 // Banque de questions du BIR — export GIFT
 
+$CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 — La radio autour de nous
+
+::RA0101::De quoi a-t-on besoin pour transmettre un message par radio ? {
+	=D'un émetteur, d'un récepteur, et d'une antenne pour chacun
+	~D'un émetteur seulement, l'onde faisant le reste
+	~D'un câble entre l'émetteur et le récepteur
+	~De deux récepteurs reliés à la même antenne
+}
+
+::RA0102::Qu'est-ce qu'un émetteur-récepteur ? {
+	=Un appareil qui réunit un émetteur et un récepteur
+	~Un appareil qui ne fait que recevoir
+	~Une antenne qui sert à la fois à émettre et à recevoir
+	~Un câble qui relie l'émetteur au récepteur
+}
+
+::RA0103::Que signifie l'abréviation PTT ? {
+	=Push to talk — appuyer pour parler
+	~Poste de transmission téléphonique
+	~Puissance totale transmise
+	~Prêt à transmettre
+}
+
+::RA0104::Que fait un émetteur-récepteur quand on relâche la touche PTT ? {
+	=Il repasse en réception.
+	~Il continue d'émettre jusqu'au prochain appui.
+	~Il s'éteint.
+	~Il change de fréquence.
+}
+
+::RA0105::Comment transmet-on un message en télégraphie Morse ? {
+	=En coupant et en rétablissant l'onde, selon un code de signaux courts et longs
+	~En parlant très lentement dans le microphone
+	~En changeant d'antenne à chaque lettre
+	~En envoyant une onde continue, sans jamais la couper
+}
+
+::RA0106::Qu'appelle-t-on la porteuse ? {
+	=L'onde qui transporte le message de l'émetteur au récepteur
+	~Le câble qui relie le poste à l'antenne
+	~La personne qui tient le microphone
+	~Le support sur lequel l'antenne est fixée
+}
+
+::RA0107::Que veut dire « moduler » ? {
+	=Modifier la porteuse pour lui confier un message
+	~Régler le volume du récepteur
+	~Augmenter la puissance de l'émetteur
+	~Orienter l'antenne vers le correspondant
+}
+
+::RA0108::Que faut-il pour avoir le droit d'émettre avec un poste de radioamateur ? {
+	=Un certificat d'opérateur, obtenu par examen, et un indicatif
+	~Rien de particulier \: il suffit d'avoir acheté le poste
+	~Seulement l'accord de ses voisins
+	~Un abonnement auprès d'un opérateur de téléphonie
+}
+
+::RA0109::De quoi se compose une station de réception simple ? {
+	=D'un récepteur, d'une antenne et d'un câble pour les relier
+	~D'un émetteur et d'un microphone
+	~D'un récepteur seul, l'antenne étant inutile pour écouter
+	~De deux antennes reliées entre elles
+}
+
+::RA0110::Qu'est-ce qu'un WebSDR ? {
+	=Un récepteur relié à Internet, que l'on écoute depuis son navigateur
+	~Un émetteur que chacun peut utiliser par Internet
+	~Un site qui vend des postes de radio
+	~Un réseau social réservé aux radioamateurs
+}
+
 $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
 
 ::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {

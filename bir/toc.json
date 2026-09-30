@@ -2,7 +2,17 @@
  "title": "Brevet d'Initiation à la Radio",
  "edition": "BIR",
  "chapters": [
-  {"ident": "bir_01", "title": "La radio autour de nous", "sections": []},
+  {
+   "ident": "bir_01",
+   "title": "La radio autour de nous",
+   "abstract": "La radio est partout, et elle repose toujours sur la même idée. Nous découvrons comment un message voyage sur une onde, qui sont les radioamateurs, et comment commencer par le plus simple : écouter.",
+   "sections": [
+    {"ident": "bir_la_radio_partout", "title": "La radio est partout"},
+    {"ident": "bir_des_signaux_de_fumee_au_morse", "title": "Des signaux de fumée au Morse"},
+    {"ident": "bir_les_radioamateurs", "title": "Les radioamateurs"},
+    {"ident": "bir_premiere_ecoute", "title": "Commencer par écouter"}
+   ]
+  },
   {"ident": "bir_02", "title": "Se présenter à l'antenne", "sections": []},
   {"ident": "bir_03", "title": "Un contact radio", "sections": []},
   {"ident": "bir_04", "title": "Tension et courant", "sections": []},
