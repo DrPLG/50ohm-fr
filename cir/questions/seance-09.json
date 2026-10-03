@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Certificat d'Initiation à la Radio",
+   "sections": [
+    {
+     "title": "Séance 9 — Le Morse",
+     "questions": [
+      {
+       "number": "CI0901",
+       "class": "CIR",
+       "question": "Avec quoi le code Morse écrit-il les lettres ?",
+       "answer_a": "Avec des points et des traits",
+       "answer_b": "Avec des chiffres",
+       "answer_c": "Avec des couleurs",
+       "answer_d": "Avec des dessins"
+      },
+      {
+       "number": "CI0902",
+       "class": "CIR",
+       "question": "Quelle lettre s'écrit avec un seul point ?",
+       "answer_a": "E",
+       "answer_b": "T",
+       "answer_c": "A",
+       "answer_d": "S"
+      },
+      {
+       "number": "CI0903",
+       "class": "CIR",
+       "question": "Combien de temps dure un trait, comparé à un point ?",
+       "answer_a": "Trois fois plus longtemps",
+       "answer_b": "Aussi longtemps",
+       "answer_c": "Deux fois moins longtemps",
+       "answer_d": "Dix fois plus longtemps"
+      },
+      {
+       "number": "CI0904",
+       "class": "CIR",
+       "question": "Comment envoie-t-on la lettre É en Morse ?",
+       "answer_a": "Comme un E",
+       "answer_b": "Avec un code spécial pour l'accent",
+       "answer_c": "On ne peut pas l'envoyer.",
+       "answer_d": "Comme un T"
+      },
+      {
+       "number": "CI0905",
+       "class": "CIR",
+       "question": "Que veut dire le signal SOS ?",
+       "answer_a": "C'est un appel de détresse.",
+       "answer_b": "C'est une façon de dire bonjour.",
+       "answer_c": "C'est la fin d'un message.",
+       "answer_d": "C'est le nom d'un émetteur."
+      },
+      {
+       "number": "CI0906",
+       "class": "CIR",
+       "question": "A-t-on le droit d'émettre SOS à la radio pour s'amuser ?",
+       "answer_a": "Non, jamais : pour s'entraîner, on utilise un buzzer.",
+       "answer_b": "Oui, si l'émetteur est petit.",
+       "answer_c": "Oui, le dimanche.",
+       "answer_d": "Oui, si on l'envoie en Morse."
+      },
+      {
+       "number": "CI0907",
+       "class": "CIR",
+       "question": "Pourquoi les radioamateurs utilisent-ils encore le Morse ?",
+       "answer_a": "Parce qu'il reste compréhensible quand le signal est très faible",
+       "answer_b": "Parce que c'est obligatoire pour parler à la radio",
+       "answer_c": "Parce qu'il va plus vite que la lumière",
+       "answer_d": "Parce que la voix ne passe jamais à la radio"
+      },
+      {
+       "number": "CI0908",
+       "class": "CIR",
+       "question": "Avec quoi un radioamateur envoie-t-il du Morse ?",
+       "answer_a": "Avec un manipulateur",
+       "answer_b": "Avec un micro",
+       "answer_c": "Avec un clavier de piano",
+       "answer_d": "Avec une lampe de poche"
+      },
+      {
+       "number": "CI0909",
+       "class": "CIR",
+       "question": "Dans le montage d'entraînement au Morse, quel élément sonne quand le courant passe ?",
+       "answer_a": "Le buzzer",
+       "answer_b": "La pile",
+       "answer_c": "Le bouton-poussoir",
+       "answer_d": "Le fil"
+      },
+      {
+       "number": "CI0910",
+       "class": "CIR",
+       "question": "Dans le montage d'entraînement, on relâche le bouton-poussoir. Que se passe-t-il ?",
+       "answer_a": "Le circuit s'ouvre et le buzzer se tait.",
+       "answer_b": "Le buzzer sonne plus fort.",
+       "answer_c": "La pile se décharge plus vite.",
+       "answer_d": "Le buzzer continue de sonner."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

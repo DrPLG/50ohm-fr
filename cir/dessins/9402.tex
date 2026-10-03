@@ -1,0 +1,28 @@
+% Dessin propre au CIR, séance 4 : les symboles d'un circuit simple, avec
+% leur nom. Le buzzer et le bouton-poussoir servent à la séance 9 (Morse).
+% Les interrupteurs sont dessinés à la main, comme au dessin 9401.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+% Unités FIXÉES (x=1cm, y=1cm) : \DARCimage met un dessin à l'échelle en
+% agrandissant les unités TikZ, pas les symboles de circuitikz ni le texte.
+% Ce dessin étroit en sortait étiré, ses symboles minuscules (épreuve du
+% 03/10/2026). Fixées, il est composé à sa taille naturelle.
+\begin{circuitikz}[thick, x=1cm, y=1cm]
+  \foreach \y/\nom in {0/fil, -1.2/pile, -2.4/lampe, -3.6/interrupteur ouvert,
+                       -4.8/interrupteur fermé, -6.0/bouton-poussoir, -7.2/buzzer} {
+    \node[anchor=west] at (3.3,\y) {\nom};
+  }
+  \draw (0,0) -- (2.5,0);
+  \draw (0,-1.2) to[battery1] (2.5,-1.2);
+  \node[DARCred] at (0.95,-0.55) {$+$};
+  \node[DARCred] at (1.55,-0.55) {$-$};
+  \draw (0,-2.4) to[lamp] (2.5,-2.4);
+  % interrupteur ouvert : la lame est levée
+  \draw (0,-3.6) -- (0.85,-3.6) -- ++(30:0.85);
+  \draw (1.65,-3.6) -- (2.5,-3.6);
+  \fill (0.85,-3.6) circle (0.06) (1.65,-3.6) circle (0.06);
+  % interrupteur fermé : la lame est couchée
+  \draw (0,-4.8) -- (2.5,-4.8);
+  \fill (0.85,-4.8) circle (0.06) (1.65,-4.8) circle (0.06);
+  \draw (0,-6.0) to[nopb] (2.5,-6.0);
+  \draw (0,-7.2) to[buzzer] (2.5,-7.2);
+\end{circuitikz}

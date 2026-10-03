@@ -1,0 +1,14 @@
+% Dessin propre au CIR, séance 9 : le montage d'entraînement au Morse,
+% une pile, un bouton-poussoir et un buzzer — le circuit de la séance 4,
+% où la lampe devient un buzzer et l'interrupteur un bouton.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+% Unités FIXÉES (x=1cm, y=1cm) : \DARCimage met un dessin à l'échelle en
+% agrandissant les unités TikZ, pas les symboles de circuitikz ni le texte.
+% Ce dessin étroit en sortait étiré, ses symboles minuscules (épreuve du
+% 03/10/2026). Fixées, il est composé à sa taille naturelle.
+\begin{circuitikz}[thick, x=1cm, y=1cm]
+  \draw (0,0) to[battery1, l=pile] (0,2.5)
+        to[nopb, l=bouton-poussoir] (3,2.5)
+        to[buzzer, l_=buzzer] (3,0) -- (0,0);
+  \node[align=center] at (1.5,-0.75) {on appuie, le buzzer sonne ;\\on relâche, il se tait};
+\end{circuitikz}

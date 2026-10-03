@@ -15,7 +15,19 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.34
+Version du script : v0.35
+    v0.35 — dessins PROPRES à un ouvrage autonome (03/10/2026, chantier
+            CIR) : un fichier <local>/dessins/<n>.tex dont le numéro
+            n'existe pas dans l'amont est copié dans img/ comme les autres.
+            Les sections l'appellent par [picture:<n>:…] ; le CIR prend
+            ses numéros à partir de 9601 (séance 6). Neutralité prouvée :
+            arbres N et BIR identiques à la v0.34.
+            *Édition CIR*, même jour (demande de Pierre) : le Certificat
+            d'Initiation à la Radio, CM2-6ᵉ-5ᵉ, lu dans cir/ (cir/PLAN.md).
+            Elle suit exactement le chemin du BIR, généralisé par la table
+            AUTONOMES (répertoire par défaut, nom en titre) : seuls changent
+            le titre « Certificat d'Initiation / à la Radio » et le
+            filigrane CIR. Arbres BIR et N identiques à la v0.34.
     v0.34 — édition BIR : le manuel du Brevet d'Initiation à la Radio
             (décision de Pierre, 30/09/2026). Ouvrage FRANÇAIS autonome,
             adapté des contenus amont et non traduit.
@@ -1823,6 +1835,8 @@ FR_TITLES = {
 	# v0.34 — le BIR n'est pas un « cours complet » de classe d'examen.
 	# Rien sur le bandeau : « Manuel de l'élève » est le sous-titre, à gauche.
 	"BIR": "",
+	# v0.35 — le CIR, même maquette que le BIR.
+	"CIR": "",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
@@ -1831,6 +1845,16 @@ FR_CLASS_LETTER = {
 	# v0.34 — trois lettres empilées dans le bandeau, comme NEA et SWL
 	# (décision de Pierre sur épreuve, 30/09/2026).
 	"BIR": "BIR",
+	"CIR": "CIR",
+}
+# v0.35 — ouvrages FRANÇAIS autonomes : répertoire par défaut (à côté de ce
+# script) et nom porté en titre, sur la première ligne de la page de titre.
+# Mesuré le 03/10/2026 en Libertinus Serif gras au corps du BIR :
+# « Certificat d'Initiation » fait 297 pt pour un bloc de 313 pt en 20 x 24,
+# 312 pt pour 329 pt en A4 — il tient sur une ligne, comme celui du BIR.
+AUTONOMES = {
+	"BIR": ("bir", "Brevet d'Initiation"),
+	"CIR": ("cir", "Certificat d'Initiation"),
 }
 
 MASTER_FOOTER = r"""
@@ -2200,10 +2224,11 @@ def link_dir(link: Path, target: Path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N",
-                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR"])
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR", "CIR"])
     ap.add_argument("--local", default=None,
-                    help="Édition BIR (v0.34) : répertoire de l'ouvrage — toc.json, "
-                         "sections/, questions/. Défaut : bir/ à côté de ce script.")
+                    help="Éditions BIR et CIR (v0.34, v0.35) : répertoire de l'ouvrage — "
+                         "toc.json, sections/, questions/, dessins/. Défaut : bir/ "
+                         "ou cir/ à côté de ce script.")
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
     ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
                     help="Format de page (défaut : a4)")
@@ -2247,18 +2272,19 @@ def main():
     # v0.34 — l'édition BIR lit son sommaire, ses sections et ses questions
     # dans un répertoire LOCAL ; le reste (LaTeX, dessins, photos) vient
     # toujours de l'amont.
-    est_bir = args.edition == "BIR"
+    # v0.35 — le CIR suit exactement le même chemin (AUTONOMES).
+    est_autonome = args.edition in AUTONOMES
     local = None
-    if est_bir:
+    if est_autonome:
         if args.lang != "fr":
-            raise SystemExit("!! l'édition BIR n'existe qu'en français : ajouter --lang fr")
+            raise SystemExit(f"!! l'édition {args.edition} n'existe qu'en français : ajouter --lang fr")
         local = (Path(args.local) if args.local
-                 else Path(__file__).resolve().parent / "bir").resolve()
+                 else Path(__file__).resolve().parent / AUTONOMES[args.edition][0]).resolve()
         for quoi in ("toc.json", "sections", "questions"):
             if not (local / quoi).exists():
-                raise SystemExit(f"!! édition BIR : {quoi} absent de {local}")
+                raise SystemExit(f"!! édition {args.edition} : {quoi} absent de {local}")
         args.translations = [str(local)] + list(args.translations)
-    toc_path = (local / "toc.json") if est_bir else chemin_toc(contents, args.edition)
+    toc_path = (local / "toc.json") if est_autonome else chemin_toc(contents, args.edition)
     attendus = [
         (contents / "latex" / "settings.tex", "fichiers LaTeX du dépôt de contenus"),
         (toc_path, f"sommaire de l'édition {args.edition}"),
@@ -2526,7 +2552,7 @@ def main():
     # v0.34 — le BIR réemploie les dessins déjà francisés des livres de
     # classe : ses sections appellent les dessins amont par leur numéro.
     dessins_dirs = list(tr_dirs)
-    if est_bir:
+    if est_autonome:
         dessins_dirs += sorted(
             d for d in (Path(__file__).resolve().parent / "traductions").glob("*")
             if (d / "dessins").is_dir())
@@ -2539,6 +2565,19 @@ def main():
                 n_dessins_forkes += 1
                 break
         shutil.copy(src, out / "img" / f"{f.stem}include.tex")
+    # v0.35 — un ouvrage autonome (BIR, CIR) peut porter des dessins
+    # PROPRES, sous un numéro absent de l'amont (9601…) : ils sont copiés à
+    # leur tour. Un numéro qui existe dans l'amont reste un fork, traité
+    # ci-dessus ; le décompte des dessins propres est affiché à part.
+    n_dessins_propres = 0
+    if est_autonome:
+        for f in sorted((local / "dessins").glob("*.tex")):
+            if not (contents / "contents/drawings" / f.name).exists():
+                shutil.copy(f, out / "img" / f"{f.stem}include.tex")
+                n_dessins_propres += 1
+        if n_dessins_propres:
+            print(f"   {n_dessins_propres} dessin(s) propre(s) à l'ouvrage, "
+                  f"absent(s) de l'amont")
 
     # v0.12 — Précompilation des dessins hors gabarit.
     #
@@ -2582,7 +2621,7 @@ def main():
             q_translations.update(json.loads((d / "questions.json").read_text(encoding="utf-8")))
     qb = QuestionBuilder(
         contents, lambda: BookLaTeXRenderer(), translations=q_translations,
-        catalogues_locaux=sorted((local / "questions").glob("*.json")) if est_bir else ())
+        catalogues_locaux=sorted((local / "questions").glob("*.json")) if est_autonome else ())
     question_renderer = qb.build
 
     toc = json.loads(toc_path.read_text(encoding="utf-8"))
@@ -2593,7 +2632,7 @@ def main():
         if (d / "titles.json").exists():
             for cle, valeurs in json.loads((d / "titles.json").read_text(encoding="utf-8")).items():
                 tr_titles.setdefault(cle, {}).update(valeurs)
-    if est_bir:
+    if est_autonome:
         # v0.34 — le sommaire du BIR est déjà en français : titres et
         # chapeaux s'y lisent directement. On les déclare « traduits » par
         # eux-mêmes, ce qui laisse le garde-fou v0.33 en service.
@@ -2607,14 +2646,14 @@ def main():
         fautives = sorted(p.name for p in (local / "sections").glob("*.md")
                           if "<france>" in p.read_text(encoding="utf-8"))
         if fautives:
-            raise SystemExit("!! édition BIR : encart <france> interdit — "
+            raise SystemExit(f"!! édition {args.edition} : encart <france> interdit — "
                              + ", ".join(fautives))
     n_translated = 0
 
     if args.lang == "fr":
         title = FR_TITLES[args.edition]
         header = MASTER_HEADER_FR.replace("@TITLE@", title)
-        if est_bir:
+        if est_autonome:
             for ancien, neuf in (
                 # Le nom du brevet est le titre (décision de Pierre sur
                 # épreuve, 30/09/2026) : deux lignes, dans un corps réduit
@@ -2626,7 +2665,7 @@ def main():
                  # \\spaceskip : l'alignement du nœud fige l'espace entre mots sur le
                  # corps courant (10 pt) ; à 31 pt les mots se touchaient.
                  "\\selectfont\\bfseries\\spaceskip=\\fontdimen2\\font\\relax "
-                 "Brevet d'Initiation\\\\à la Radio\\par}"),
+                 + AUTONOMES[args.edition][1] + "\\\\à la Radio\\par}"),
                 # Sous-titre « Manuel de l'élève ». Le titre se termine par
                 # \\par, pour que sa dernière ligne garde son interligne :
                 # le saut qui suit devient un \\vspace (un \\\\ après \\par
@@ -2746,7 +2785,7 @@ def main():
 
     n_sections = 0
     for chapter in chapters:
-        if est_bir:
+        if est_autonome:
             # v0.34 — un chapitre pas encore rédigé est sauté ; les autres
             # gardent le numéro de leur séance.
             if not chapter["sections"]:
@@ -2772,7 +2811,7 @@ def main():
             with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
                 latex = renderer.render(Document(md_file.read_text(encoding="utf-8").splitlines(keepends=True)))
             latex = fix_latex(latex)
-            if est_bir:
+            if est_autonome:
                 latex = separer_paragraphes_bir(latex)
             (out / "sections" / f"{ident}.tex").write_text(latex, encoding="utf-8")
             sec_title = tr_titles["sections"].get(ident, section["title"])
@@ -2801,10 +2840,10 @@ def main():
               f"dérivé (sections renommées ou ajoutées).", file=sys.stderr)
     if qb.missing:
         print(f"Questions introuvables ({len(qb.missing)}) : {sorted(qb.missing)[:10]}...")
-        if est_bir:
+        if est_autonome:
             # v0.34 — dans un ouvrage dont nous écrivons sections ET
             # questions, un appel sans question est une faute de frappe.
-            raise SystemExit("!! édition BIR : question(s) appelée(s) mais absente(s) "
+            raise SystemExit(f"!! édition {args.edition} : question(s) appelée(s) mais absente(s) "
                              "des catalogues de questions/.")
     if qb.sans_metadata:
         # Informatif, pas une alerte : sans image, une question se compose

@@ -1,0 +1,21 @@
+% Dessin propre au CIR, séance 6 : l'onde radio part de l'antenne de
+% l'émetteur et atteint celle du récepteur.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+\begin{tikzpicture}[>={Triangle}, thick]
+  % émetteur et son antenne
+  \draw[fill=DARCgray!40] (-0.7,0) rectangle (0.7,0.7);
+  \node[below] at (0,0) {émetteur};
+  \draw[very thick] (0,0.7) -- (0,2.6);
+  \fill (0,2.6) circle (0.06);
+  % l'onde, en arcs qui s'éloignent de l'antenne
+  \foreach \r/\o in {0.6/1, 1.2/0.8, 1.8/0.6, 2.4/0.4} {
+    \draw[DARCblue, ultra thick, opacity=\o] ([shift={(-40:\r)}]0,2.6) arc (-40:40:\r);
+    \draw[DARCblue, ultra thick, opacity=\o] ([shift={(140:\r)}]0,2.6) arc (140:220:\r);
+  }
+  \draw[->, DARCred, very thick] (2.8,2.6) -- (5.6,2.6) node[midway, above] {onde radio};
+  % récepteur et son antenne
+  \draw[fill=DARCgray!40] (5.3,0) rectangle (6.7,0.7);
+  \node[below] at (6,0) {récepteur};
+  \draw[very thick] (6,0.7) -- (6,2.6);
+  \fill (6,2.6) circle (0.06);
+\end{tikzpicture}

@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Certificat d'Initiation à la Radio",
+   "sections": [
+    {
+     "title": "Séance 4 — Le circuit électrique",
+     "questions": [
+      {
+       "number": "CI0401",
+       "class": "CIR",
+       "question": "Comment s'appellent les deux bornes d'une pile ?",
+       "answer_a": "Le pôle plus et le pôle moins",
+       "answer_b": "L'entrée et la sortie",
+       "answer_c": "Le haut et le bas",
+       "answer_d": "Le pôle nord et le pôle sud"
+      },
+      {
+       "number": "CI0402",
+       "class": "CIR",
+       "question": "Sur une pile, on lit « 4,5 V ». Qu'indique ce nombre ?",
+       "answer_a": "Sa tension, en volts",
+       "answer_b": "Son poids, en grammes",
+       "answer_c": "Sa durée de vie, en heures",
+       "answer_d": "Son numéro de série"
+      },
+      {
+       "number": "CI0403",
+       "class": "CIR",
+       "question": "Dans un circuit pile-lampe, on débranche un seul des deux fils. Que se passe-t-il ?",
+       "answer_a": "La lampe s'éteint : le circuit est ouvert.",
+       "answer_b": "La lampe brille moitié moins.",
+       "answer_c": "La lampe continue de briller grâce à l'autre fil.",
+       "answer_d": "La pile se met à chauffer."
+      },
+      {
+       "number": "CI0404",
+       "class": "CIR",
+       "question": "Comment appelle-t-on le dessin d'un circuit fait avec des symboles ?",
+       "answer_a": "Un schéma",
+       "answer_b": "Une photo",
+       "answer_c": "Un plan de la salle",
+       "answer_d": "Une carte"
+      },
+      {
+       "number": "CI0405",
+       "class": "CIR",
+       "question": "Un interrupteur est fermé. Que fait le courant ?",
+       "answer_a": "Il passe.",
+       "answer_b": "Il s'arrête.",
+       "answer_c": "Il change de sens.",
+       "answer_d": "Il s'échappe dans l'air."
+      },
+      {
+       "number": "CI0406",
+       "class": "CIR",
+       "question": "Lequel de ces objets laisse passer le courant ?",
+       "answer_a": "Un clou en fer",
+       "answer_b": "Une gomme",
+       "answer_c": "Une règle en plastique",
+       "answer_d": "Un verre"
+      },
+      {
+       "number": "CI0407",
+       "class": "CIR",
+       "question": "Pourquoi un fil électrique a-t-il une gaine en plastique ?",
+       "answer_a": "Le plastique est isolant : il empêche le courant de s'échapper et protège les doigts.",
+       "answer_b": "Le plastique conduit mieux le courant que le cuivre.",
+       "answer_c": "Pour que le fil soit plus lourd.",
+       "answer_d": "Pour que le courant aille plus vite."
+      },
+      {
+       "number": "CI0408",
+       "class": "CIR",
+       "question": "Avec quoi avons-nous le droit de faire nos montages ?",
+       "answer_a": "Avec des piles seulement",
+       "answer_b": "Avec la prise de courant de la salle",
+       "answer_c": "Avec une rallonge branchée sur le secteur",
+       "answer_d": "Avec tout ce qui a une prise"
+      },
+      {
+       "number": "CI0409",
+       "class": "CIR",
+       "question": "Que se passe-t-il si l'on relie directement les deux pôles d'une pile par un fil, sans lampe ?",
+       "answer_a": "Un court-circuit : le fil et la pile chauffent.",
+       "answer_b": "Rien du tout.",
+       "answer_c": "La pile se recharge.",
+       "answer_d": "Le fil s'allume comme une lampe, sans danger."
+      },
+      {
+       "number": "CI0410",
+       "class": "CIR",
+       "question": "Le corps humain conduit-il le courant ?",
+       "answer_a": "Oui : c'est pourquoi la prise de courant est dangereuse.",
+       "answer_b": "Non, jamais.",
+       "answer_c": "Seulement quand il fait froid.",
+       "answer_d": "Seulement les cheveux."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

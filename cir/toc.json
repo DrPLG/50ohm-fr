@@ -1,0 +1,117 @@
+{
+ "title": "Certificat d'Initiation à la Radio",
+ "edition": "CIR",
+ "chapters": [
+  {
+   "ident": "cir_01",
+   "title": "La radio autour de nous",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_02",
+   "title": "Se présenter : indicatif et alphabet",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_03",
+   "title": "Un contact radio",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_04",
+   "title": "Le circuit électrique",
+   "abstract": "Une pile, une lampe, deux fils : la lampe s'allume. Nous découvrons le chemin que suit le courant, la façon de le dessiner avec des symboles, les objets qui le laissent passer, et pourquoi nous ne travaillons qu'avec des piles.",
+   "sections": [
+    {
+     "ident": "cir_allumer_une_lampe",
+     "title": "Allumer une lampe"
+    },
+    {
+     "ident": "cir_le_schema",
+     "title": "Le schéma"
+    },
+    {
+     "ident": "cir_conducteurs_et_isolants",
+     "title": "Conducteurs et isolants"
+    }
+   ]
+  },
+  {
+   "ident": "cir_05",
+   "title": "L'énergie : piles et accus",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_06",
+   "title": "Les ondes",
+   "abstract": "Une vague avance sur l'eau, et pourtant l'eau ne part pas avec elle. Nous découvrons ce qu'est une onde, comment on la décrit par sa fréquence et sa longueur d'onde, et ce qui rend l'onde radio si particulière.",
+   "sections": [
+    {
+     "ident": "cir_une_vague_qui_voyage",
+     "title": "Une vague qui voyage"
+    },
+    {
+     "ident": "cir_frequence_et_longueur_d_onde",
+     "title": "Fréquence et longueur d'onde"
+    },
+    {
+     "ident": "cir_l_onde_radio",
+     "title": "L'onde radio"
+    }
+   ]
+  },
+  {
+   "ident": "cir_07",
+   "title": "Le spectre",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_08",
+   "title": "Jusqu'où va une onde ?",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_09",
+   "title": "Le Morse",
+   "abstract": "Le plus ancien des codes de la radio est toujours utilisé. Nous apprenons à écrire et à chanter les lettres en Morse, nous découvrons le signal SOS, et nous fabriquons un montage pour nous entraîner.",
+   "sections": [
+    {
+     "ident": "cir_des_points_et_des_traits",
+     "title": "Des points et des traits"
+    },
+    {
+     "ident": "cir_sos",
+     "title": "SOS"
+    },
+    {
+     "ident": "cir_le_morse_aujourd_hui",
+     "title": "Le Morse aujourd'hui"
+    }
+   ]
+  },
+  {
+   "ident": "cir_10",
+   "title": "L'antenne",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_11",
+   "title": "La radio en action",
+   "abstract": "",
+   "sections": []
+  },
+  {
+   "ident": "cir_12",
+   "title": "Au micro, et l'attestation",
+   "abstract": "",
+   "sections": []
+  }
+ ]
+}

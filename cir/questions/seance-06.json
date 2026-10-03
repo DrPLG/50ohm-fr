@@ -1,0 +1,104 @@
+{
+ "sections": [
+  {
+   "title": "Certificat d'Initiation à la Radio",
+   "sections": [
+    {
+     "title": "Séance 6 — Les ondes",
+     "questions": [
+      {
+       "number": "CI0601",
+       "class": "CIR",
+       "question": "On jette un caillou dans une mare où flotte un bouchon. Que fait le bouchon ?",
+       "answer_a": "Il monte et descend, en restant presque à la même place.",
+       "answer_b": "Il part vers le bord avec la vague.",
+       "answer_c": "Il coule au fond de la mare.",
+       "answer_d": "Il ne bouge pas du tout."
+      },
+      {
+       "number": "CI0602",
+       "class": "CIR",
+       "question": "Qu'est-ce qui avance quand une vague traverse la mare ?",
+       "answer_a": "Un mouvement, transmis de proche en proche",
+       "answer_b": "L'eau de la mare, qui part vers le bord",
+       "answer_c": "Le caillou, qui glisse sous l'eau",
+       "answer_d": "L'air qui est au-dessus de l'eau"
+      },
+      {
+       "number": "CI0603",
+       "class": "CIR",
+       "question": "Comment s'appelle le point le plus haut d'une vague ?",
+       "answer_a": "La crête",
+       "answer_b": "Le creux",
+       "answer_c": "La fréquence",
+       "answer_d": "L'antenne"
+      },
+      {
+       "number": "CI0604",
+       "class": "CIR",
+       "question": "Que compte la fréquence d'une onde ?",
+       "answer_a": "Le nombre de vagues qui passent en une seconde",
+       "answer_b": "La distance entre deux crêtes",
+       "answer_c": "La hauteur d'une vague",
+       "answer_d": "La distance parcourue par l'onde en une heure"
+      },
+      {
+       "number": "CI0605",
+       "class": "CIR",
+       "question": "Dans quelle unité mesure-t-on une fréquence ?",
+       "answer_a": "Le hertz",
+       "answer_b": "Le mètre",
+       "answer_c": "Le volt",
+       "answer_d": "La seconde"
+      },
+      {
+       "number": "CI0606",
+       "class": "CIR",
+       "question": "Un mégahertz, c'est combien de vagues par seconde ?",
+       "answer_a": "Un million",
+       "answer_b": "Mille",
+       "answer_c": "Cent",
+       "answer_d": "Un milliard"
+      },
+      {
+       "number": "CI0607",
+       "class": "CIR",
+       "question": "On agite une corde de plus en plus vite. Que deviennent les vagues ?",
+       "answer_a": "Elles se serrent : la longueur d'onde devient plus courte.",
+       "answer_b": "Elles s'espacent : la longueur d'onde devient plus longue.",
+       "answer_c": "Elles ne changent pas.",
+       "answer_d": "Elles disparaissent."
+      },
+      {
+       "number": "CI0608",
+       "class": "CIR",
+       "question": "À quelle vitesse voyage une onde radio ?",
+       "answer_a": "Aussi vite que la lumière, environ $\\qty{300000}{\\kilo\\meter}$ par seconde",
+       "answer_b": "Aussi vite que le son, environ $\\qty{340}{\\meter}$ par seconde",
+       "answer_c": "Aussi vite qu'un avion de ligne",
+       "answer_d": "Plus vite quand l'émetteur est plus puissant"
+      },
+      {
+       "number": "CI0609",
+       "class": "CIR",
+       "question": "Un astronaute est dans le vide de l'espace, hors de la station. Qu'est-ce qui peut lui parvenir ?",
+       "answer_a": "Une onde radio",
+       "answer_b": "Un son",
+       "answer_c": "Les deux",
+       "answer_d": "Aucun des deux"
+      },
+      {
+       "number": "CI0610",
+       "class": "CIR",
+       "question": "Où naît une onde radio ?",
+       "answer_a": "Dans l'antenne d'un émetteur, où un courant va et vient très vite",
+       "answer_b": "Dans le haut-parleur d'un récepteur",
+       "answer_c": "Dans l'écran du poste de radio",
+       "answer_d": "Dans la pile d'un poste de radio"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

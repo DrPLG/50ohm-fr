@@ -1,0 +1,19 @@
+% Dessin propre au CIR, séance 6 : la vague avance, le bouchon reste sur place.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+\begin{tikzpicture}[>={Triangle}, thick]
+  % l'eau
+  \fill[DARCblue!15] plot[domain=0:9, samples=150] (\x, {0.6*sin(120*\x)})
+    -- (9,-1.5) -- (0,-1.5) -- cycle;
+  \draw[DARCblue, ultra thick] plot[domain=0:9, samples=150] (\x, {0.6*sin(120*\x)});
+  % crête et creux
+  \node[above] at (0.75,0.65) {crête};
+  \node[below] at (2.25,-0.65) {creux};
+  % le bouchon, sur une crête puis, en pointillés, dans le creux suivant
+  \fill[DARCorange, draw=black, thin] (3.75,0.74) ellipse (0.24 and 0.15);
+  \draw[fill=DARCorange!35, dashed, thin] (3.75,-0.46) ellipse (0.24 and 0.15);
+  \draw[<->, DARCred] (4.25,-0.5) -- (4.25,0.8);
+  \node[align=center] at (3.75,1.65) {le bouchon\\monte et descend};
+  % la vague avance
+  \draw[->, DARCred, very thick] (6.0,1.4) -- (8.8,1.4)
+    node[midway, above] {la vague avance};
+\end{tikzpicture}

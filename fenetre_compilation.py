@@ -113,12 +113,16 @@ RACINE = Path(__file__).resolve().parent
 #  Tables — tout ce qui est propre au projet vit ici, et nulle part ailleurs.
 # ---------------------------------------------------------------------------
 
-EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR"]
+EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR", "CIR"]
 
 # Étiquettes de version proposées : celle du chantier en cours pour les livres
-# de classe, et la numérotation propre du BIR.
+# de classe, et la numérotation propre du BIR et du CIR.
 VERSION_LIVRES = "a.4"
 VERSION_BIR = "0.1"
+# Ouvrages français autonomes (build_book.py v0.34 et v0.35) : ils lisent
+# leur propre répertoire, bir/ ou cir/, n'ont ni avant-propos ni
+# remerciements du traducteur, et ont leur propre numérotation.
+AUTONOMES = {"BIR", "CIR"}
 
 # Répertoires --translations, dans l'ORDRE. Décision de Pierre du 15/08/2026 :
 # citer la classe la plus avancée en premier, le premier répertoire cité
@@ -127,7 +131,7 @@ VERSION_BIR = "0.1"
 CLASSES_TRADUCTION = {
     "N": ["N"], "E": ["E"], "A": ["A"], "SWL": ["SWL"],
     # Le BIR lit son propre répertoire bir/ (build_book.py v0.34) : rien à passer.
-    "BIR": [],
+    "BIR": [], "CIR": [],
     "NE": ["E", "N"],
     "EA": ["A", "E"],
     "NEA": ["A", "E", "N"],
@@ -179,7 +183,7 @@ DOSSIER_COUVERTURE = "build-couverture"
 DUREES = {
     "N": "environ 10 min", "E": "environ 25 min", "A": "environ 50 min",
     "NEA": "environ 1 h 40", "SWL": "quelques minutes",
-    "BIR": "quelques minutes",
+    "BIR": "quelques minutes", "CIR": "quelques minutes",
     "NE": "durée inconnue — jamais compilée",
     "EA": "durée inconnue — jamais compilée",
 }
@@ -861,10 +865,10 @@ class Fenetre:
 
     def _maj_sortie(self):
         self.v_sortie.set(nom_sortie(self.v_edition.get(), self.v_format.get()))
-        # Le BIR a sa propre numérotation : on propose 0.1 d'office, et on
-        # revient à l'étiquette des livres de classe en le quittant. Une
-        # étiquette saisie à la main n'est jamais écrasée.
-        est_bir = self.v_edition.get() == "BIR"
+        # Le BIR et le CIR ont leur propre numérotation : on propose 0.1
+        # d'office, et on revient à l'étiquette des livres de classe en les
+        # quittant. Une étiquette saisie à la main n'est jamais écrasée.
+        est_bir = self.v_edition.get() in AUTONOMES
         if est_bir and self.v_version.get() == VERSION_LIVRES:
             self.v_version.set(VERSION_BIR)
         elif not est_bir and self.v_version.get() == VERSION_BIR:
@@ -951,9 +955,9 @@ class Fenetre:
     # -- lancement ----------------------------------------------------------
 
     def _pieces_choisies(self):
-        # Le BIR n'est pas une traduction : ni avant-propos ni remerciements
-        # « du traducteur ».
-        if self.v_edition.get() == "BIR":
+        # Le BIR et le CIR ne sont pas des traductions : ni avant-propos ni
+        # remerciements « du traducteur ».
+        if self.v_edition.get() in AUTONOMES:
             return []
         return [PIECES[i] for i, v in enumerate(self.v_pieces) if v.get()]
 

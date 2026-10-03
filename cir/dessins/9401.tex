@@ -1,0 +1,32 @@
+% Dessin propre au CIR, séance 4 : le même circuit pile, interrupteur,
+% lampe, interrupteur fermé puis ouvert.
+% Les interrupteurs sont dessinés à la main : ceux de circuitikz (cspst,
+% ospst) se distinguent à peine l'un de l'autre à cette taille.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+% Unités FIXÉES (x=1cm, y=1cm) : \DARCimage met un dessin à l'échelle en
+% agrandissant les unités TikZ, pas les symboles de circuitikz ni le texte.
+% Ici, le xshift (absolu) ne suivait pas : les deux circuits se
+% chevauchaient (épreuve du 03/10/2026). Fixées, le dessin est composé à
+% sa taille naturelle.
+\begin{circuitikz}[thick, x=1cm, y=1cm]
+  % interrupteur fermé : la lampe brille
+  \draw (0,0) to[battery1, l=pile] (0,2.5) -- (0.85,2.5);
+  \draw (0.85,2.5) -- (1.65,2.5) -- (2.5,2.5);
+  \fill (0.85,2.5) circle (0.06) (1.65,2.5) circle (0.06);
+  \node[above] at (1.25,2.6) {interrupteur};
+  \draw (2.5,2.5) to[lamp, l_=lampe, name=L1] (2.5,0) -- (0,0);
+  \foreach \a in {-60,-30,0,30,60} {
+    \draw[DARCorange, very thick] ($(L1)+(\a:0.45)$) -- ($(L1)+(\a:0.75)$);
+  }
+  \node[align=center] at (1.25,-0.75) {interrupteur fermé\\la lampe brille};
+  % interrupteur ouvert : la lampe est éteinte
+  \begin{scope}[xshift=5.5cm]
+    \draw (0,0) to[battery1, l=pile] (0,2.5) -- (0.85,2.5);
+    \draw (0.85,2.5) -- ++(30:0.85);
+    \draw (1.65,2.5) -- (2.5,2.5);
+    \fill (0.85,2.5) circle (0.06) (1.65,2.5) circle (0.06);
+    \node[above] at (1.25,2.95) {interrupteur};
+    \draw (2.5,2.5) to[lamp, l_=lampe] (2.5,0) -- (0,0);
+    \node[align=center] at (1.25,-0.75) {interrupteur ouvert\\la lampe est éteinte};
+  \end{scope}
+\end{circuitikz}

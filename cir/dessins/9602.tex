@@ -1,0 +1,18 @@
+% Dessin propre au CIR, séance 6 : main lente, main rapide, longueur d'onde.
+% Auteur : Pierre F4JWI, 2026. Licence CC BY 4.0.
+\begin{tikzpicture}[>={Triangle}, thick]
+  % main lente : deux vagues sur la corde
+  \node[left, align=right] at (-0.3,0) {la main\\bouge\\lentement};
+  \draw[DARCblue, ultra thick] plot[domain=0:8, samples=150] (\x, {0.6*sin(90*\x)});
+  \draw[dashed, thin] (1,0.6) -- (1,1.15);
+  \draw[dashed, thin] (5,0.6) -- (5,1.15);
+  \draw[<->, DARCred] (1,1.05) -- (5,1.05) node[midway, above] {longueur d'onde};
+  % main rapide : quatre vagues sur la même longueur de corde
+  \begin{scope}[yshift=-3cm]
+    \node[left, align=right] at (-0.3,0) {la main\\bouge\\vite};
+    \draw[DARCblue, ultra thick] plot[domain=0:8, samples=150] (\x, {0.6*sin(180*\x)});
+    \draw[dashed, thin] (0.5,0.6) -- (0.5,1.15);
+    \draw[dashed, thin] (2.5,0.6) -- (2.5,1.15);
+    \draw[<->, DARCred] (0.5,1.05) -- (2.5,1.05) node[midway, above] {longueur d'onde};
+  \end{scope}
+\end{tikzpicture}
