@@ -4,7 +4,7 @@ Les changements de nom ou d'adresse doivent être communiqués à la BNetzA a po
 
 Si l'on n'est pas sûr d'avoir bien compris le nom d'un correspondant allemand, on peut rechercher l'indicatif sur le site Internet de la BNetzA. On y voit affiché, en plus de l'indicatif, le nom. L'adresse est également affichée, pour autant que le radioamateur n'ait pas fait opposition à sa publication. Les mêmes informations se trouvent aussi dans la liste des indicatifs, téléchargeable sous forme de document PDF.
 
-Comme petit exercice, on peut rechercher un indicatif connu dans les deux sources :
+Comme exercice, on peut rechercher un indicatif connu dans les deux sources :
 * [Recherche d'indicatifs en ligne](https://50ohm.de/rza)
 * [Liste des indicatifs en document PDF](https://50ohm.de/rzl)
 

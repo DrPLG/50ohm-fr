@@ -15,7 +15,16 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.35
+Version du script : v0.36
+    v0.36 — tiret des plages de valeurs (décision de Pierre, 11/10/2026) :
+            \sisetup{range-phrase=\text{--}} après \input{settings.tex}.
+            Le range-phrase=-- de l'amont compose, en mode mathématique,
+            « 28 − −29,7 MHz » (deux signes moins) dans tous les livres.
+            Relevé par Pauline F4LDR, feuille d'arbitrage nº 11, C03.
+            Même jour : fix_latex() protège le deux-points des rapports
+            « 10:1 » écrits hors formule (\hbox{:}, français seulement),
+            que l'espace fine de la v0.17 composait « 10 :1 ». 36
+            substitutions mesurées (E 5, A 31), A allemand identique.
     v0.35 — dessins PROPRES à un ouvrage autonome (03/10/2026, chantier
             CIR) : un fichier <local>/dessins/<n>.tex dont le numéro
             n'existe pas dans l'amont est copié dans img/ comme les autres.
@@ -1364,6 +1373,21 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 \setmathfont[version=bold, FakeBold=2]{Libertinus Math}
 
 % ---------------------------------------------------------------------------
+% v0.36 — Tiret des plages de valeurs (décision de Pierre, 11/10/2026).
+%
+% settings.tex (l. 53) règle range-phrase=-- : en mode texte, « -- » donne bien
+% un tiret demi-cadratin, mais le corpus écrit ses plages en mode
+% MATHÉMATIQUE ($\qtyrange{28}{29.7}{\mega\hertz}$), où « -- » compose DEUX
+% signes moins : « 28 − −29,7 MHz ». Aucune erreur, aucun avertissement.
+% Relevé par Pauline F4LDR (N p. 178, « 1240 – – 1300 MHz ») ; 12 occurrences
+% au texte extrait de N a.4, ~95 dans nos sources des cinq livres. Le livre
+% allemand a le même défaut (defauts-amont.md).
+%
+% \text{} rend le tiret en police de texte dans les deux modes.
+% ---------------------------------------------------------------------------
+\sisetup{range-phrase=\text{--}}
+
+% ---------------------------------------------------------------------------
 % v0.17 (A3) — Remplissage vertical.
 %
 % La classe amont FiftyOhm.cls fait \raggedbottom ; cette classe-ci ne l'avait
@@ -2037,7 +2061,35 @@ def fix_latex(text: str) -> str:
     # Expression complète dans \qty : la sortir de siunitx
     text = re.sub(r"\\qty\{(\\d?frac\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})\}\{(\\?\w+)\}",
                   r"\1\\,\\unit{\2}", text)
+    if UI_LANG == "fr":
+        text = _proteger_rapports(text)
     return text
+
+
+# v0.36 — Rapports « 10:1 », « 1:49 » écrits hors mode mathématique (sondes,
+# baluns, transformateurs : 36 occurrences dans A et E, mesurées le
+# 11/10/2026). Le transform punctuation.space de babel (v0.17) insère son
+# espace fine devant TOUT deux-points — règle punctuation.space.3 de
+# babel-fr.ini, qui ne regarde pas ce qui suit — et composait « 10 :1 ».
+# Un deux-points mis en boîte lui échappe : babel ne descend pas dans les
+# \hbox. Vérifié sur document réduit, corps du texte et \Question : « 1:49 »
+# collé, le deux-points ordinaire garde son espace.
+# Le mode mathématique n'est pas touché ($1:49$ y reste une relation
+# espacée), ni les arguments de \label et \ref. Français seulement : en
+# allemand le transform n'existe pas et le texte sort déjà correctement.
+_SEGMENTS_INTACTS = re.compile(
+    r"(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$.*?(?<!\\)\$|\\\[.*?\\\]"
+    r"|\\(?:label|ref)\{[^{}]*\}", re.DOTALL)
+
+
+def _proteger_rapports(text: str) -> str:
+    morceaux, fin = [], 0
+    for m in _SEGMENTS_INTACTS.finditer(text):
+        morceaux.append(re.sub(r"(?<=\d):(?=\d)", r"\\hbox{:}", text[fin:m.start()]))
+        morceaux.append(m.group())
+        fin = m.end()
+    morceaux.append(re.sub(r"(?<=\d):(?=\d)", r"\\hbox{:}", text[fin:]))
+    return "".join(morceaux)
 
 
 def escape_latex(text: str) -> str:

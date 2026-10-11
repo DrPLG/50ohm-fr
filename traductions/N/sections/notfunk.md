@@ -71,7 +71,7 @@ L'IARU a fixé, pour la Région 1 de l'UIT, les fréquences radio d'urgence suiv
 
 L'organisation française du radioamateurisme d'urgence n'a pas d'équivalent dans le paysage allemand : elle est **intégrée à la sécurité civile de l'État**, département par département.
 
-La **FNRASEC**, Fédération nationale des radioamateurs au service de la sécurité civile, a été créée en 1972 à la demande du ministère de l'Intérieur. Elle fédère une **ADRASEC par département**, association de bénévoles, radioamateurs et écouteurs, agréée comme association de sécurité civile pour l'établissement et l'exploitation de **réseaux supplétifs de transmission**. Chaque ADRASEC reçoit ses ordres de la préfecture.
+La **FNRASEC**, Fédération nationale des radioamateurs au service de la sécurité civile, fédère une **ADRASEC par département**, association de bénévoles, radioamateurs et écouteurs, agréée comme association de sécurité civile pour l'établissement et l'exploitation de **réseaux supplétifs de transmission**. Chaque ADRASEC reçoit ses ordres de la préfecture.
 
 Trois missions principales :
 

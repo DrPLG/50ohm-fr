@@ -1051,3 +1051,33 @@ Mesuré dans le PDF de la classe A, la première ligne sortait :
 massivement touché.
 
 **Côté allemand, les deux défauts demeurent.** À signaler.
+
+---
+
+## 26. `range-phrase=--` — les plages en mode mathématique composent deux signes moins
+
+*Relevé le 11/10/2026 par Pauline F4LDR (livre N, p. 178 de l'A4 a.3 :
+« 1240 – – 1300 MHz »). Feuille d'arbitrage nº 11, C03.*
+
+`latex/settings.tex`, l. 53, règle siunitx par `range-phrase=--`. En mode
+texte, `--` donne bien le tiret demi-cadratin voulu. Mais le corpus écrit ses
+plages **en mode mathématique** — `$\qtyrange{1240}{1300}{\mega\hertz}$` —
+où `--` n'est pas une ligature : ce sont **deux signes moins**.
+
+```
+1240 − −1300 MHz      (rendu)
+1240–1300 MHz         (voulu)
+```
+
+Aucune erreur, aucun avertissement. **12 occurrences** au texte extrait du
+livre N a.4 (balises, bande passante, longueurs d'onde, plans de bande),
+**~95** dans nos sources des cinq livres ; 31 sections amont emploient
+`\qtyrange`. **Le livre allemand a le même défaut.**
+
+**Contourné en v0.36** de `build_book.py`, décision de Pierre :
+`\sisetup{range-phrase=\text{--}}` après `\input{settings.tex}`. Aucune
+formule de nos sources ne change. Vérifié sur document réduit : tiret correct
+en mode texte, en mode math et pour `\numrange`, 0 erreur.
+
+**Correctif à proposer au DARC :** `range-phrase=\text{--}`, la même ligne
+dans `settings.tex`.

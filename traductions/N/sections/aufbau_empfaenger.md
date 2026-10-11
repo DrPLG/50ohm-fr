@@ -4,6 +4,10 @@ Voyons d'abord comment est constitué un récepteur. Dans la figure [ref:aufbau_
 [picture:736:aufbau_empfaenger_blockdiagramm:Schéma-bloc d'un récepteur simple]
 </margin>
 
+<margin>
+Un schéma-bloc s'appelle aussi un *synoptique*.
+</margin>
+
 <indepth>
 Le récepteur représenté ici est appelé récepteur à amplification directe (Geradeausempfänger). Ce nom vient du fait que la fréquence du signal capté par l'antenne n'est pas modifiée jusqu'au démodulateur.
 </indepth>
@@ -18,6 +22,10 @@ Examinons en détail, de gauche à droite, les différents blocs du récepteur :
 4. Démodulateur : le signal amplifié est ensuite traité par le démodulateur. La démodulation est l'opération inverse de la modulation. Alors que la modulation consiste à moduler un signal (par exemple un signal vocal) sur une porteuse haute fréquence, la démodulation fait exactement l'inverse : le signal d'origine est récupéré à partir de la porteuse haute fréquence modulée. On retrouve alors, par exemple, le signal vocal qui a été prononcé dans le microphone du côté de l'émetteur. On parle aussi de signal basse fréquence, en abrégé signal BF (NF en allemand), car il présente des fréquences relativement basses — pour un signal vocal, par exemple, des fréquences inférieures à $\qty{20}{\kilo\hertz}$.
 5. Amplificateur BF : le signal démodulé est ensuite amplifié. Il s'agit cette fois d'un amplificateur basse fréquence (amplificateur BF) destiné à amplifier le signal pour le haut-parleur. Le symbole de l'amplificateur BF est le même que celui de l'amplificateur haute fréquence.
 6. Haut-parleur : le signal est enfin converti par le haut-parleur d'une oscillation électrique en une onde sonore, et redevient ainsi audible.
+
+<margin>
+Un signal *démodulé* est un signal débarrassé de sa porteuse haute fréquence : il ne reste que l'information transmise, par exemple la voix.
+</margin>
 
 <indepth>
 Sur le symbole du *filtre passe-bande*, les deux ondes barrées symbolisent le blocage des fréquences situées au-dessus et au-dessous de la plage de fréquences souhaitée. L'onde du milieu signifie que la plage de fréquences souhaitée est laissée passer.

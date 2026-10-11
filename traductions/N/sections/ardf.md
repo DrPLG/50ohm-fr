@@ -1,5 +1,9 @@
 Un autre type de compétition est l'*Amateur Radio Direction Finding (ARDF)*. Il s'agit de compétitions de radiogoniométrie, le plus souvent appelées *chasse au renard* (Fuchsjagd) dans l'espace germanophone. Les « renards » sont de petits émetteurs cachés que les participants doivent localiser à l'aide de récepteurs de radiogoniométrie et rejoindre à pied. Le vainqueur est le premier à atteindre le point d'arrivée après avoir trouvé tous les renards.
 
+<margin>
+*ARDF* : de l'anglais *Amateur Radio Direction Finding*, « radiogoniométrie d'amateur ». La radiogoniométrie consiste à déterminer la direction d'où vient un signal radio.
+</margin>
+
 Les renards émettent en alternance temporelle — par exemple pendant une minute chacun — un indicatif spécial différent en télégraphie morse CW. Le tableau [ref:ardf_morse_code] présente les six indicatifs attribués spécialement par la Bundesnetzagentur aux émetteurs de chasse au renard.
 
 <margin>

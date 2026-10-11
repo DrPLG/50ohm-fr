@@ -42,7 +42,7 @@ Si l'on passe, par exemple, d'un carnet de trafic tenu à la main sur papier à 
 
 ---
 
-Les heures devraient toujours être inscrites dans le carnet de trafic en temps universel coordonné, le plus souvent désigné par *UTC* (de Universal Time Coordinated). Cela évite d'avoir à convertir l'heure lors de liaisons radio traversant différents fuseaux horaires. Par exemple, quand il est 8 h 00 heure locale à Berlin, il n'est que 2 h 00 heure locale à New York. Mais pour les deux, il est 07:00 UTC. Avec l'UTC, il est toujours la même heure partout dans le monde.
+Les heures devraient toujours être inscrites dans le carnet de trafic en temps universel coordonné, le plus souvent désigné par *UTC* (de Universal Time Coordinated). Cela évite d'avoir à convertir l'heure lors de liaisons radio traversant différents fuseaux horaires. Par exemple, quand il est 8 h 00 heure locale à Berlin, il n'est que 2 h 00 heure locale à New York. Mais pour les deux, il est 7 h 00 UTC. Avec l'UTC, il est toujours la même heure partout dans le monde.
 
 <indepth>
 L'UTC a été introduit en 1972 comme heure universelle et uniforme dans le monde entier.
@@ -50,7 +50,7 @@ L'UTC a été introduit en 1972 comme heure universelle et uniforme dans le mond
 
 La façon de convertir notre heure locale en UTC dépend de la période de l'année. Pendant l'heure d'hiver, c'est l'*heure d'Europe centrale (MEZ / HEC)* qui s'applique chez nous. Pour la convertir en UTC, il faut retrancher une heure. En été, quand l'*heure d'été d'Europe centrale (MESZ / HEEC)* est utilisée, il faut en revanche retrancher 2 heures.
 
-Un exemple : il est 9 h 00 MEZ à Berlin. Pour convertir en UTC, il faut retrancher une heure. Il est donc 08:00 UTC. Mais s'il est 9 h 00 MESZ à Berlin, il faut retrancher deux heures. Il est alors 7:00 UTC. Inversement, pour convertir l'UTC en heure locale, il faut ajouter une heure (MEZ) ou deux heures (MESZ).
+Un exemple : il est 9 h 00 MEZ à Berlin. Pour convertir en UTC, il faut retrancher une heure. Il est donc 8 h 00 UTC. Mais s'il est 9 h 00 MESZ à Berlin, il faut retrancher deux heures. Il est alors 7 h 00 UTC. Inversement, pour convertir l'UTC en heure locale, il faut ajouter une heure (MEZ) ou deux heures (MESZ).
 
 <france>
 # Le journal de bord est obligatoire

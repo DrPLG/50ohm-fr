@@ -2989,18 +2989,18 @@
   "answer_d": "heure locale personnelle et en plus en heure locale du correspondant, afin de satisfaire aux prescriptions allemandes et de faciliter aux correspondants à l'étranger la recherche dans leur carnet de trafic."
  },
  "BG107": {
-  "question": "Quelle heure inscrivez-vous sur la carte QSL si vous avez eu un QSO à 15:30 MEZ ?",
-  "answer_a": "14:30 UTC",
-  "answer_b": "13:30 UTC",
-  "answer_c": "17:30 UTC",
-  "answer_d": "16:30 UTC"
+  "question": "Quelle heure inscrivez-vous sur la carte QSL si vous avez eu un QSO à 15 h 30 MEZ ?",
+  "answer_a": "14 h 30 UTC",
+  "answer_b": "13 h 30 UTC",
+  "answer_c": "17 h 30 UTC",
+  "answer_d": "16 h 30 UTC"
  },
  "BG108": {
-  "question": "Quelle heure inscrivez-vous sur la carte QSL si vous avez eu une liaison radio à 13:30 MESZ ?",
-  "answer_a": "11:30 UTC",
-  "answer_b": "13:30 UTC",
-  "answer_c": "12:30 UTC",
-  "answer_d": "14:30 UTC"
+  "question": "Quelle heure inscrivez-vous sur la carte QSL si vous avez eu une liaison radio à 13 h 30 MESZ ?",
+  "answer_a": "11 h 30 UTC",
+  "answer_b": "13 h 30 UTC",
+  "answer_c": "12 h 30 UTC",
+  "answer_d": "14 h 30 UTC"
  },
  "BE305": {
   "question": "Que signifie le terme « pile up » ? Dans le radioamateurisme, on désigne ainsi…",
@@ -3136,11 +3136,11 @@
   "answer_d": "J'informe les médias afin que l'opération de secours puisse être couverte en direct."
  },
  "BF108": {
-  "question": "Le 16 août (date locale) à 20 h 00, heure d'été d'Europe centrale (MESZ), vous avez capté un message radio d'urgence de 9J2NG et l'avez retransmis par téléphone à une organisation d'assistance. La station radioamateur 9J2NG vous a demandé de reprendre contact avec elle à 23:00 UTC. Quel moment cela représente-t-il en Allemagne ?",
-  "answer_a": "01:00 MESZ le 17 août (date locale)",
-  "answer_b": "21:00 MESZ le 16 août (date locale)",
-  "answer_c": "22:00 MESZ le 16 août (date locale)",
-  "answer_d": "00:00 MESZ le 18 août (date locale)"
+  "question": "Le 16 août (date locale) à 20 h 00, heure d'été d'Europe centrale (MESZ), vous avez capté un message radio d'urgence de 9J2NG et l'avez retransmis par téléphone à une organisation d'assistance. La station radioamateur 9J2NG vous a demandé de reprendre contact avec elle à 23 h 00 UTC. Quel moment cela représente-t-il en Allemagne ?",
+  "answer_a": "1 h 00 MESZ le 17 août (date locale)",
+  "answer_b": "21 h 00 MESZ le 16 août (date locale)",
+  "answer_c": "22 h 00 MESZ le 16 août (date locale)",
+  "answer_d": "0 h 00 MESZ le 18 août (date locale)"
  },
  "BF101": {
   "question": "Comment s'appellent les signaux de détresse internationaux en dehors du radioamateurisme ?",

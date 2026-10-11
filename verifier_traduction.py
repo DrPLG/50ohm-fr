@@ -138,6 +138,23 @@ ALLEMAND = re.compile(
 # Écarts VOULUS, décidés et documentés. Affichés, mais sans effet sur le rc.
 # Les retirer d'ici si la raison disparaît — ce n'est pas une liste d'excuses.
 DEROGATIONS = {
+    # Relecture de Pauline F4LDR, chapitres 9 à 14 de N — feuille d'arbitrage
+    # nº 11, décisions de Pierre du 11/10/2026. Définitions ajoutées en note
+    # de marge (P15, J50) et approfondissement fondu dans le paragraphe (P16).
+    ("N", "aufbau_empfaenger"):
+        "deux notes de marge françaises ajoutées : « synoptique » (J50) et "
+        "définition de « démodulé » (P15)",
+    ("N", "vox"):
+        "note de marge française ajoutée : définition de la touche PTT (P15)",
+    ("N", "ardf"):
+        "note de marge française ajoutée : définition d'ARDF (P15)",
+    ("N", "split_betrieb"):
+        "l'approfondissement « avantage du trafic en split » est intégré au "
+        "premier paragraphe, sur demande de Pauline F4LDR (P16)",
+    ("N", "aufbau_sender"):
+        "liste numérotée des 8 blocs de l'émetteur mise en tableau (numéro de "
+        "la figure, bloc et rôle), sur demande de Pauline F4LDR (P16) ; "
+        "texte des blocs inchangé",
     # Le moyen mnémotechnique des codes Q REPOSE sur les mots allemands :
     # « QRM est une perturbation d'origine humaine (*m*enschengemacht) »,
     # « QSB fait monter et descendre la force du signal (*S*ignalstärke

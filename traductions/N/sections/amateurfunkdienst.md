@@ -7,7 +7,7 @@ Puisque le radioamateurisme est lui aussi un service radio officiel, il comporte
 [question:VA102]
 [question:VA103]
 
-Comme petit exercice, comparons la définition internationale du radioamateurisme ci-dessus avec le passage correspondant du § 2 alinéa 2 de la loi sur le radioamateurisme (AFuG) :
+Comme exercice, comparons la définition internationale du radioamateurisme ci-dessus avec le passage correspondant du § 2 alinéa 2 de la loi sur le radioamateurisme (AFuG) :
 
 « Au sens de la présente loi, le service radioamateur est un service radio exercé par des radioamateurs entre eux, à des fins d'études expérimentales et technico-scientifiques, pour leur propre formation continue, pour la compréhension entre les peuples et pour le soutien d'opérations de secours en cas d'urgence et de catastrophe ; le service radioamateur inclut l'utilisation de stations spatiales. Le service radioamateur et le service radioamateur par satellite ne sont pas des services radio de sécurité, … »
 
