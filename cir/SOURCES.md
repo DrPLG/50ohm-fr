@@ -1,10 +1,10 @@
 # Sources du CIR
 
 Chaque section du CIR est **réécrite** pour des élèves de CM2, 6ᵉ et 5ᵉ à
-partir d'une section du BIR, elle-même adaptée des contenus CC BY 4.0 du
+partir d'une section du CIR 2, elle-même adaptée des contenus CC BY 4.0 du
 DARC (voir `bir/SOURCES.md`).
 
-| section CIR | section BIR | adaptation | figures |
+| section CIR | section CIR 2 | adaptation | figures |
 | --- | --- | --- | --- |
 | `cir_allumer_une_lampe` | `bir_la_tension`, `bir_le_courant_et_le_circuit` | sans ampère ni charges ; tension seulement lue sur la pile | dessin propre 9401 |
 | `cir_le_schema` | — (neuve) ; symboles de `bir_les_symboles` | symboles du cycle 3, schéma à la règle | dessin propre 9402 |
@@ -14,7 +14,7 @@ DARC (voir `bir/SOURCES.md`).
 | `cir_l_onde_radio` | `bir_l_onde_radio` | sans champs électrique et magnétique ; comparaison avec le son | dessin propre 9603 |
 | `cir_des_points_et_des_traits` | `bir_le_code_morse` | sans les chiffres ni le compte des blancs ; le télégraphe | — |
 | `cir_sos` | `bir_sos` | simplifiée | — |
-| `cir_le_morse_aujourd_hui` | `bir_pourquoi_le_morse_passe` | sans largeur de bande ; montage d'entraînement | photo amont 109 (comme le BIR) ; dessin propre 9901 |
+| `cir_le_morse_aujourd_hui` | `bir_pourquoi_le_morse_passe` | sans largeur de bande ; montage d'entraînement | photo amont 109 (comme le CIR 2) ; dessin propre 9901 |
 
 ## Écrit de mémoire, à vérifier
 

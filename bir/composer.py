@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""Compose en PDF les documents d'accompagnement du BIR écrits en Markdown.
+r"""Compose en PDF les documents d'accompagnement du CIR 2 écrits en Markdown.
 
     python composer.py                  tout composer
     python composer.py formateur        un seul document (voir DOCUMENTS)
@@ -359,7 +359,7 @@ def court(titre):
 def couverture(titre, sous_titre, lignes):
     return "\n".join([
         r"\thispagestyle{empty}", r"\vspace*{35mm}",
-        r"{\sffamily\bfseries\fontsize{30}{36}\selectfont\color{BIRbleu}Brevet d'Initiation\\ à la Radio\par}",
+        r"{\sffamily\bfseries\fontsize{30}{36}\selectfont\color{BIRbleu}Certificat d'Initiation\\ à la Radio\,—\,2\par}",
         r"\vspace{3mm}{\color{BIRrouge}\rule{50mm}{1.2pt}\par}\vspace{6mm}",
         r"{\sffamily\fontsize{20}{24}\selectfont %s\par}" % en_ligne(titre),
         r"\vspace{4mm}{\sffamily\large %s\par}" % en_ligne(sous_titre),

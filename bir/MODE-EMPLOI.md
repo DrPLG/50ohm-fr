@@ -1,7 +1,7 @@
-# Manuel de l'utilisateur — le BIR : récupérer, modifier, recompiler
+# Manuel de l'utilisateur — le CIR 2 : récupérer, modifier, recompiler
 
-Ce document explique comment récupérer les fichiers du Brevet d'Initiation à
-la Radio, les modifier sans rien casser, et reconstruire le manuel de l'élève
+Ce document explique comment récupérer les fichiers du Certificat d'Initiation à
+la Radio 2, les modifier sans rien casser, et reconstruire le manuel de l'élève
 en PDF. Il s'adresse à quelqu'un qui n'a jamais ouvert le dépôt.
 
 État au 30/09/2026 : `build_book.py` v0.34, `fenetre_compilation.py` v0.3,
@@ -161,7 +161,7 @@ Un conseil, en encadré bleu.
 | `<margin>` | contenu placé dans la marge (figure, petit tableau) |
 | `<qso>` | un dialogue radio ; les répliques du correspondant commencent par `> ` |
 
-**Interdit dans le BIR :** l'encadré `<france>`. Tout l'ouvrage s'adresse à des
+**Interdit dans le CIR 2 :** l'encadré `<france>`. Tout l'ouvrage s'adresse à des
 Français ; la compilation s'arrête si une section en contient un.
 
 **Les tableaux.** La première ligne donne les titres et l'alignement de
@@ -264,7 +264,7 @@ Règles :
 
 - **la bonne réponse est toujours `answer_a`.** Le manuel mélange les
   réponses à l'impression, toujours de la même façon pour une même question,
-  et écrit le corrigé dans `corrige-BIR.txt` ; Moodle les mélange à
+  et écrit le corrigé dans `corrige-CIR2.txt` ; Moodle les mélange à
   l'affichage ;
 - **le numéro** se lit R + lettre du domaine + numéro de séance sur deux
   chiffres + numéro d'ordre : `RD1405` est la question 5 de la séance 14,
@@ -292,7 +292,7 @@ n'importe quel éditeur de texte, sans règle particulière. Ils ne passent pas
 par la compilation du manuel.
 
 Le Markdown est leur **seule source**. Pour les mettre en PDF, avec la mise
-en page du BIR :
+en page du CIR 2 :
 
 ```
 python bir/composer.py                 tous les documents
@@ -342,19 +342,19 @@ python fenetre_compilation.py
 (avec le Python du générateur si le `python` du PATH ne convient pas :
 `C:\50ohm\50ohm-main\.venv\Scripts\python.exe fenetre_compilation.py`).
 
-1. **Tome :** BIR.
+1. **Tome :** CIR 2.
 2. **Format :** A4, 20 × 24, ou 20 × 24 avec marge de 52 mm (celui des
-   premières épreuves du BIR).
-3. **Langue :** français (le BIR n'existe qu'en français).
+   premières épreuves du CIR 2).
+3. **Langue :** français (le CIR 2 n'existe qu'en français).
 4. **Version :** `0.1` est proposée d'office ; changer le numéro à chaque
    édition diffusée.
-5. **Pièces liminaires :** aucune pour le BIR, la fenêtre les désactive.
+5. **Pièces liminaires :** aucune pour le CIR 2, la fenêtre les désactive.
 6. **Étapes :** laisser « purger les auxiliaires avant » coché. « Compresser »
    produit une version allégée pour l'envoi.
 7. **Copier la commande** met dans le presse-papiers la ligne de commande
    exacte, utile pour la noter ou la relancer à la main.
 8. **Lancer**, puis confirmer. Le journal défile dans la fenêtre ; il est
-   aussi enregistré dans `build-BIR-…-console-<date>.txt`.
+   aussi enregistré dans `build-CIR2-…-console-<date>.txt`.
 
 Compter quelques minutes pour le manuel complet.
 
@@ -364,18 +364,18 @@ Windows (à adapter à l'emplacement de l'amont) :
 
 ```
 set OHM_RENDERER=C:\50ohm\50ohm-main
-python build_book.py --edition BIR --lang fr --format 20x24-marge ^
+python build_book.py --edition CIR2 --lang fr --format 20x24-marge ^
   --input C:\50ohm\50ohm-contents-dl-main ^
-  --output build-BIR-20x24-marge --version-label 0.1
+  --output build-CIR2-20x24-marge --version-label 0.1
 ```
 
 Linux ou macOS :
 
 ```
 export OHM_RENDERER=~/50ohm-amont/50ohm-main
-python3 build_book.py --edition BIR --lang fr --format 20x24-marge \
+python3 build_book.py --edition CIR2 --lang fr --format 20x24-marge \
   --input ~/50ohm-amont/50ohm-contents-dl-main \
-  --output build-BIR-20x24-marge --version-label 0.1
+  --output build-CIR2-20x24-marge --version-label 0.1
 ```
 
 - `--input` désigne la **racine** du dépôt de contenus, celle qui contient
@@ -392,16 +392,16 @@ python3 build_book.py --edition BIR --lang fr --format 20x24-marge \
 
 ### 4.3 Ce que l'on obtient
 
-Dans le dossier de sortie (`build-BIR-20x24-marge/`, par exemple) :
+Dans le dossier de sortie (`build-CIR2-20x24-marge/`, par exemple) :
 
 | fichier | contenu |
 | --- | --- |
-| `book-BIR.pdf` | le manuel de l'élève |
-| `corrige-BIR.txt` | le corrigé : pour chaque question, la lettre de la bonne réponse **telle qu'imprimée** |
-| `book-BIR.log` | le journal de LuaLaTeX, à consulter en cas d'erreur |
+| `book-CIR2.pdf` | le manuel de l'élève |
+| `corrige-CIR2.txt` | le corrigé : pour chaque question, la lettre de la bonne réponse **telle qu'imprimée** |
+| `book-CIR2.log` | le journal de LuaLaTeX, à consulter en cas d'erreur |
 | `sections/*.tex` | le LaTeX produit pour chaque section |
 
-Avec la compression, la fenêtre écrit aussi `livre-BIR-0.1-20x24-marge.pdf`
+Avec la compression, la fenêtre écrit aussi `livre-CIR2-0.1-20x24-marge.pdf`
 à la racine du dépôt.
 
 Les PDF ne sont pas versionnés (ils sont exclus par `.gitignore`) : ils se
@@ -428,8 +428,8 @@ formule autre que `\qty` ou `\qtyrange` : la réécrire en texte (§ 3.4).
 | --- | --- | --- |
 | `--input ne désigne pas la racine de 50ohm-contents-dl` | mauvais chemin, souvent le dossier imbriqué d'une archive ZIP | suivre la suggestion affichée (« le bon chemin est probablement… ») |
 | `No module named renderer` ou `mistletoe` | mauvais Python, ou `OHM_RENDERER` non défini | utiliser le Python du générateur ; définir `OHM_RENDERER` |
-| `édition BIR : toc.json absent` | on ne lance pas depuis le bon dépôt, ou `--local` pointe mal | lancer depuis la racine de `50ohm-fr` |
-| `édition BIR : encart <france> interdit — …` | une section contient `<france>` | retirer l'encadré, ou le réécrire en texte courant |
+| `édition CIR2 : toc.json absent` | on ne lance pas depuis le bon dépôt, ou `--local` pointe mal | lancer depuis la racine de `50ohm-fr` |
+| `édition CIR2 : encart <france> interdit — …` | une section contient `<france>` | retirer l'encadré, ou le réécrire en texte courant |
 | `question(s) appelée(s) mais absente(s)` | une ligne `[question:…]` appelle un numéro absent des JSON | corriger le numéro, ou ajouter la question |
 | erreur JSON au démarrage | virgule, guillemet ou barre oblique inverse mal placés dans `toc.json` ou un `questions/*.json` | ouvrir le fichier dans un éditeur qui vérifie le JSON |
 | « ?? » dans le PDF à la place d'un numéro de figure | identifiant mal écrit, ou deux-points dans une légende | corriger la balise (§ 3.1) |
@@ -446,8 +446,8 @@ Avec Git, depuis la racine du dépôt :
 
 ```
 git status                      voir ce qui a changé
-git add bir                     préparer les fichiers du BIR
-git commit -m "BIR : séance 12, corrections de la fiche"
+git add bir                     préparer les fichiers du CIR 2
+git commit -m "CIR 2 : séance 12, corrections de la fiche"
 git push                        envoyer sur GitHub
 ```
 
@@ -475,5 +475,5 @@ Bonnes habitudes :
 | ajouter une section | `sections/`, `toc.json`, `SOURCES.md` | idem |
 | corriger une question | `questions/seance-XX.json` | la compilation, puis `exporter_moodle.py` |
 | corriger une fiche ou une page du formateur | `fiches/` ou `formateur/` | rien : c'est du Markdown |
-| refaire le PDF | — | la fenêtre, tome BIR |
+| refaire le PDF | — | la fenêtre, tome CIR 2 |
 | mettre à jour Moodle | — | `exporter_moodle.py`, puis import GIFT |

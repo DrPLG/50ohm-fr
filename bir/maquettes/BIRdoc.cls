@@ -1,9 +1,9 @@
-% BIRdoc — documents d'accompagnement du Brevet d'Initiation à la Radio
+% BIRdoc — documents d'accompagnement du Certificat d'Initiation à la Radio~2
 % (référentiel, livre du formateur, fiches d'activité, mallette, livret).
-% Le manuel de l'élève, lui, est composé par build_book.py (édition BIR).
+% Le manuel de l'élève, lui, est composé par build_book.py (édition CIR~2).
 % Compilation : lualatex. Polices et couleurs reprises du manuel.
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{BIRdoc}[2026/09/30 Documents d'accompagnement du BIR]
+\ProvidesClass{BIRdoc}[2026/09/30 Documents d'accompagnement du CIR~2]
 % Option a5 : page A5, pour le livret de l'élève (imprimé en A4 plié).
 \newif\ifBIRacinq
 \DeclareOption{a5}{\BIRacinqtrue}
@@ -43,11 +43,11 @@
 \newcommand{\BIRdocument}[2]{\renewcommand{\BIR@type}{#1}\renewcommand{\BIR@court}{#2}}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\colorbox{BIRbleu}{\textcolor{white}{\sffamily\bfseries\large\strut\ BIR\ }}%
+\fancyhead[L]{\colorbox{BIRbleu}{\textcolor{white}{\sffamily\bfseries\large\strut\ CIR~2\ }}%
   \hspace{.7em}{\sffamily\bfseries\color{BIRbleu}\BIR@type}}
 \fancyhead[R]{\sffamily\small\BIR@court}
 \renewcommand{\headrule}{{\color{BIRrouge}\hrule height 1.2pt}}
-\fancyfoot[L]{\sffamily\scriptsize\color{black!55}Brevet d'Initiation à la Radio --- d'après les contenus de 50ohm.de, licence CC BY 4.0}
+\fancyfoot[L]{\sffamily\scriptsize\color{black!55}Certificat d'Initiation à la Radio~2 --- d'après les contenus de 50ohm.de, licence CC BY 4.0}
 \fancyfoot[R]{\sffamily\small\thepage}
 \renewcommand{\footrulewidth}{0pt}
 

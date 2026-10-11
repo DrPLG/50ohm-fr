@@ -28,7 +28,7 @@ Mon binôme a reçu : ……………………  ☐ juste du premier coup
 
 | mot | en Morse |
 | --- | --- |
-| BIR | |
+| CIR2 | |
 | CQ | |
 | 73 | |
 | SOS | |

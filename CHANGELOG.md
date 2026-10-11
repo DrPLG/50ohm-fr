@@ -17,6 +17,34 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Modifié — le CIR devient CIR 1, le BIR devient CIR 2 (11/10/2026)
+
+- Décision de Pierre. `build_book.py` : éditions `CIR1` (répertoire `cir/`)
+  et `CIR2` (répertoire `bir/`) ; les codes `CIR` et `BIR` ne sont plus
+  acceptés. Titre « Certificat d'Initiation / à la Radio — 1 » (ou 2),
+  filigrane de quatre caractères empilés (C/I/R/1, C/I/R/2) — **pile à
+  vérifier sur épreuve**, surtout en 20 × 24.
+- `fenetre_compilation.py` v0.4 : cases « CIR 1 » et « CIR 2 ». Sorties
+  `build-CIR1-…`, `livre-CIR2-…`, `corrige-CIR2.txt`.
+- Textes imprimés du CIR 2 (sections, questions RE2210, RE2301, RE2310,
+  fiches, livre du formateur, référentiel), documents d'accompagnement
+  (`BIRdoc.cls`, `composer.py`, D7, D8), export Moodle et mode d'emploi :
+  « BIR » → « CIR 2 », « Brevet d'Initiation à la Radio » → « Certificat
+  d'Initiation à la Radio 2 ».
+- Inchangés : répertoires `bir/` et `cir/`, idents `bir_*` et `cir_*`,
+  macros `\BIR…`, champ `"class": "BIR"` des catalogues.
+- Exercice de Morse de la séance 12 (fiche élève, livre du formateur) :
+  « BIR » → « CIR2 » (décision de Pierre).
+- « CIR 2 » et « Radio 2 » **insécables** (décision de Pierre) : U+00A0 dans
+  le Markdown et le JSON (un `~` y serait imprimé en tilde), `~` dans les
+  `.tex` ; blocs de code laissés en espace ordinaire. Prouvé par document
+  réduit à coupure forcée (l'espace ordinaire coupe, l'insécable tient) ;
+  `composer.py` : référentiel, formateur, fiches élève, mode d'emploi,
+  0 caractère manquant, 0 débordement.
+- Neutralité vérifiée par génération sans compilation : arbres CIR1 et
+  CIR2 identiques à ceux de CIR et BIR hors page de titre et texte renommé ;
+  corrigés identiques. **Rien compilé.**
+
 #### Ajouté — édition BIR, Brevet d'Initiation à la Radio (30/09/2026)
 
 Ouvrage français autonome pour collégiens et lycéens, adapté des contenus

@@ -12,7 +12,7 @@
        "question": "Que faut-il pour avoir le droit d'émettre sur les bandes radioamateur en France ?",
        "answer_a": "Un certificat d'opérateur et un indicatif",
        "answer_b": "Un poste acheté en France",
-       "answer_c": "Le BIR",
+       "answer_c": "Le CIR 2",
        "answer_d": "L'accord de ses voisins"
       },
       {
@@ -90,7 +90,7 @@
       {
        "number": "RE2310",
        "class": "BIR",
-       "question": "Que permet le BIR ?",
+       "question": "Que permet le CIR 2 ?",
        "answer_a": "De découvrir la radio et de préparer le terrain pour le certificat d'opérateur",
        "answer_b": "D'émettre seul sur les bandes radioamateur",
        "answer_c": "D'obtenir un indicatif",

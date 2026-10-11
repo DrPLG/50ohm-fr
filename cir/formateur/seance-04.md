@@ -75,7 +75,7 @@ chauffent bien plus qu'une pile plate.
 ## Pour aller plus loin
 
 - **Le courant** se mesure en ampères, avec un multimètre ; c'est l'affaire
-  du BIR.
+  du CIR 2.
 - **La LED** ne s'allume que dans un sens : la retourner dans le circuit.
 - **Deux lampes à la suite** brillent moins qu'une seule ; **côte à côte**,
   chacune brille à peu près autant qu'une seule.

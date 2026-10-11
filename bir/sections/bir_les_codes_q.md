@@ -14,7 +14,7 @@ Un code Q peut être une affirmation ou, suivi d'un point d'interrogation, une q
 | QSO | un contact entre deux stations |
 | QSY | je change de fréquence |
 | QTH | ma position est… |
-[table:bir_codes_q:Les codes Q du BIR]
+[table:bir_codes_q:Les codes Q du CIR 2]
 
 ---
 

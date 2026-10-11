@@ -1,4 +1,10 @@
-# Certificat d'Initiation à la Radio (CIR) — plan de l'ouvrage
+# Certificat d'Initiation à la Radio 1 (CIR 1) — plan de l'ouvrage
+
+> **11/10/2026 — décision de Pierre : le CIR devient le CIR 1** (et le BIR
+> devient le CIR 2, `bir/`). Édition `--edition CIR1`, case « CIR 1 » de la
+> fenêtre, titre « Certificat d'Initiation / à la Radio — 1 », filigrane
+> C/I/R/1 empilé. Le répertoire reste `cir/`. L'historique ci-dessous
+> garde les noms de l'époque.
 
 État au 01/10/2026. **Document de travail.** Second ouvrage autonome du
 dépôt, construit sur le modèle du BIR (`bir/PLAN.md`).

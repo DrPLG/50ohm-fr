@@ -1,6 +1,6 @@
-// Banque de questions du BIR — export GIFT
+// Banque de questions du CIR 2 — export GIFT
 
-$CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 — La radio autour de nous
+$CATEGORY: CIR2/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 — La radio autour de nous
 
 ::RA0101::De quoi a-t-on besoin pour transmettre un message par radio ? {
 	=D'un émetteur, d'un récepteur, et d'une antenne pour chacun
@@ -72,7 +72,7 @@ $CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 1 
 	~Un réseau social réservé aux radioamateurs
 }
 
-$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 2 — Se présenter à l'antenne
+$CATEGORY: CIR2/Domaine E — Trafic, règles et sécurité/Séance 2 — Se présenter à l'antenne
 
 ::RE0201::À quoi sert l'indicatif d'une station de radioamateur ? {
 	=À identifier la station sans erreur possible
@@ -144,7 +144,7 @@ $CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 2 — Se pré
 	~Le poste change de canal
 }
 
-$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 3 — Un contact radio
+$CATEGORY: CIR2/Domaine E — Trafic, règles et sécurité/Séance 3 — Un contact radio
 
 ::RE0301::Que faut-il faire avant de lancer un appel sur une fréquence ? {
 	=Écouter, puis demander si la fréquence est libre
@@ -216,7 +216,7 @@ $CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 3 — Un cont
 	~Parce qu'elle avance d'une heure sur l'heure française
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 4 — Tension et courant
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 4 — Tension et courant
 
 ::RB0401::En quelle unité mesure-t-on une tension électrique ? {
 	=En volts
@@ -288,7 +288,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 4 — Tensio
 	~La tension double.
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 5 — La résistance et la loi d'Ohm
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 5 — La résistance et la loi d'Ohm
 
 ::RB0501::En quelle unité mesure-t-on une résistance ? {
 	=En ohms
@@ -360,7 +360,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 5 — La ré
 	~Parce que la loi l'impose pour chaque dessin
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 6 — Puissance et énergie
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 6 — Puissance et énergie
 
 ::RB0601::En quelle unité mesure-t-on une puissance ? {
 	=En watts
@@ -432,7 +432,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 6 — Puissa
 	~À indiquer la puissance d'émission
 }
 
-$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 7 — Du courant alternatif à l'onde
+$CATEGORY: CIR2/Domaine C — Ondes, spectre et propagation/Séance 7 — Du courant alternatif à l'onde
 
 ::RC0701::Qu'est-ce qui distingue le courant alternatif du courant continu ? {
 	=Le courant alternatif change sans cesse de sens ; le courant continu garde toujours le même.
@@ -504,7 +504,7 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 7 — Du cour
 	~3000 MHz
 }
 
-$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
+$CATEGORY: CIR2/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spectre et les bandes
 
 ::RC0801::Quelle plage de fréquences sert habituellement à la radio ? {
 	=De 30 kHz à 300 GHz environ
@@ -576,7 +576,7 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 8 — Le spec
 	~Les associations de radioamateurs
 }
 
-$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 9 — La propagation à vue
+$CATEGORY: CIR2/Domaine C — Ondes, spectre et propagation/Séance 9 — La propagation à vue
 
 ::RC0901::Comment se propagent, pour l'essentiel, les ondes VHF et UHF ? {
 	=En ligne droite, un peu comme la lumière
@@ -648,7 +648,7 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 9 — La prop
 	~X
 }
 
-$CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 10 — Les ondes courtes et l'ionosphère
+$CATEGORY: CIR2/Domaine C — Ondes, spectre et propagation/Séance 10 — Les ondes courtes et l'ionosphère
 
 ::RC1001::Qu'est-ce que l'ionosphère ? {
 	=Une région de la haute atmosphère, ionisée par le Soleil
@@ -720,7 +720,7 @@ $CATEGORY: BIR/Domaine C — Ondes, spectre et propagation/Séance 10 — Les on
 	~Le dixième contact de la journée
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 11 — Moduler : transporter la voix
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 11 — Moduler : transporter la voix
 
 ::RD1101::Quel est le rôle du microphone ? {
 	=Transformer les vibrations de la voix en un signal électrique
@@ -792,7 +792,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 11 — Mod
 	~2,7 MHz
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 12 — Le Morse
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 12 — Le Morse
 
 ::RD1201::En Morse, de quoi se compose chaque lettre ? {
 	=D'une suite de signaux courts et de signaux longs
@@ -864,7 +864,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 12 — Le 
 	~Oui, pour les bandes VHF seulement.
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 13 — Les modes numériques et l'image
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 13 — Les modes numériques et l'image
 
 ::RD1301::Qu'est-ce qu'un signal numérique ? {
 	=Un signal formé d'une suite de nombres, écrits avec des 0 et des 1
@@ -936,7 +936,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 13 — Les
 	~D'un indicatif de radioamateur
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 14 — Les antennes : principes
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 14 — Les antennes : principes
 
 ::RD1401::Quel est le rôle d'une antenne en émission ? {
 	=Transformer le courant de haute fréquence en onde radio
@@ -1008,7 +1008,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 14 — Les
 	~Elle change à chaque contact
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 15 — Construire son antenne
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 15 — Construire son antenne
 
 ::RD1501::Que représente le diagramme de rayonnement d'une antenne ? {
 	=La force de l'onde émise dans chaque direction autour de l'antenne
@@ -1080,7 +1080,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 15 — Con
 	~Travailler seul pour ne déranger personne
 }
 
-$CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 16 — Câbles, connecteurs et réglage
+$CATEGORY: CIR2/Domaine D — Modulations, antennes et station/Séance 16 — Câbles, connecteurs et réglage
 
 ::RD1601::Dans un câble coaxial, comment s'appelle le fil de cuivre central ? {
 	=L'âme
@@ -1152,7 +1152,7 @@ $CATEGORY: BIR/Domaine D — Modulations, antennes et station/Séance 16 — Câ
 	~Parce que la loi l'impose
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 17 — Le récepteur
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 17 — Le récepteur
 
 ::RB1701::Dans un récepteur, quel bloc retire de la porteuse le signal de la voix ? {
 	=Le démodulateur
@@ -1224,7 +1224,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 17 — Le r�
 	~Le connecteur du microphone
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 18 — L'émetteur
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 18 — L'émetteur
 
 ::RB1801::Dans un émetteur, quel bloc fabrique la porteuse ? {
 	=L'oscillateur
@@ -1296,7 +1296,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 18 — L'ém
 	~Le fabricant du poste
 }
 
-$CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 19 — L'atelier de soudure
+$CATEGORY: CIR2/Domaine B — Électricité et électronique/Séance 19 — L'atelier de soudure
 
 ::RB1901::Quel composant ne laisse passer le courant que dans un sens ? {
 	=La diode
@@ -1368,7 +1368,7 @@ $CATEGORY: BIR/Domaine B — Électricité et électronique/Séance 19 — L'ate
 	~On le rattrape avec la pince coupante.
 }
 
-$CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 20 — La radio en action
+$CATEGORY: CIR2/Domaine A — Découvrir la radio et les radioamateurs/Séance 20 — La radio en action
 
 ::RA2001::Comment fonctionne la plupart des satellites radioamateur ? {
 	=Comme des relais en orbite \: ils reçoivent sur une fréquence et réémettent sur une autre.
@@ -1440,7 +1440,7 @@ $CATEGORY: BIR/Domaine A — Découvrir la radio et les radioamateurs/Séance 20
 	~Oui, il est dirigé par les pompiers.
 }
 
-$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 21 — Préparer son contact
+$CATEGORY: CIR2/Domaine E — Trafic, règles et sécurité/Séance 21 — Préparer son contact
 
 ::RE2101::Dans un premier contact, que donne-t-on habituellement à son correspondant ? {
 	=Le report, son prénom et son QTH
@@ -1512,7 +1512,7 @@ $CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 21 — Prépa
 	~On invente un indicatif proche
 }
 
-$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 22 — Au micro
+$CATEGORY: CIR2/Domaine E — Trafic, règles et sécurité/Séance 22 — Au micro
 
 ::RE2201::Que fait-on avant de prendre la parole sur une fréquence ? {
 	=On écoute, pour s'assurer qu'elle est libre ou qu'on nous rend la main.
@@ -1579,17 +1579,17 @@ $CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 22 — Au mic
 
 ::RE2210::Que faut-il obtenir pour avoir un jour son propre indicatif de radioamateur ? {
 	=Le certificat d'opérateur, en réussissant son examen
-	~Le BIR seulement
+	~Le CIR 2 seulement
 	~Une carte QSL
 	~Un poste de plus de 100 W
 }
 
-$CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 23 — Les règles, et après ?
+$CATEGORY: CIR2/Domaine E — Trafic, règles et sécurité/Séance 23 — Les règles, et après ?
 
 ::RE2301::Que faut-il pour avoir le droit d'émettre sur les bandes radioamateur en France ? {
 	=Un certificat d'opérateur et un indicatif
 	~Un poste acheté en France
-	~Le BIR
+	~Le CIR 2
 	~L'accord de ses voisins
 }
 
@@ -1649,7 +1649,7 @@ $CATEGORY: BIR/Domaine E — Trafic, règles et sécurité/Séance 23 — Les r�
 	~Un emploi
 }
 
-::RE2310::Que permet le BIR ? {
+::RE2310::Que permet le CIR 2 ? {
 	=De découvrir la radio et de préparer le terrain pour le certificat d'opérateur
 	~D'émettre seul sur les bandes radioamateur
 	~D'obtenir un indicatif

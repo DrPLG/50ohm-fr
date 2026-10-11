@@ -2,7 +2,7 @@
 [photo:58:bir_radio_club:La station d'un radio-club]
 </margin>
 
-Le BIR est un premier pas. Pour la suite, plusieurs chemins sont possibles, et l'on peut les suivre tous à la fois.
+Le CIR 2 est un premier pas. Pour la suite, plusieurs chemins sont possibles, et l'on peut les suivre tous à la fois.
 
 **Rejoindre un radio-club.** Il en existe dans toute la France. On y trouve une station, des antennes, du matériel à emprunter, des conseils, et souvent des cours de préparation à l'examen. C'est là que l'on peut continuer à parler au micro aux côtés d'un radioamateur. Les associations nationales, dont le REF, fédèrent ces clubs.
 

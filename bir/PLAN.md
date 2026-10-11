@@ -1,4 +1,12 @@
-# Brevet d'Initiation à la Radio (BIR) — plan de l'ouvrage
+# Certificat d'Initiation à la Radio 2 (CIR 2, ex-BIR) — plan de l'ouvrage
+
+> **11/10/2026 — décision de Pierre : le BIR devient le CIR 2** (et le CIR
+> devient le CIR 1). Édition `--edition CIR2`, case « CIR 2 » de la fenêtre,
+> titre « Certificat d'Initiation / à la Radio — 2 », filigrane C/I/R/2
+> empilé. Le répertoire reste `bir/`, les idents `bir_*`, les macros
+> `\BIR…` et le champ `"class": "BIR"` des catalogues aussi. Textes
+> imprimés, référentiel, mode d'emploi et documents d'accompagnement mis
+> à jour ; l'historique ci-dessous garde le nom de l'époque.
 
 État au 30/09/2026. **Document de travail.** Il remplace les propositions
 nº 1 et nº 2 de `Fichierstravail/`.
@@ -212,17 +220,17 @@ hors de la machine de Pierre (TeX Live 2023 sous Linux) : **122 pages**,
 
 ## 6. Compiler le manuel
 
-`build_book.py` v0.34, édition `BIR` (dans la fenêtre : édition BIR). À la
+`build_book.py` v0.36, édition `CIR2` (dans la fenêtre : case CIR 2). À la
 main :
 
 ```
-python build_book.py --edition BIR --lang fr --format 20x24-marge \
-  --input <amont>/50ohm-contents-dl-main --output build-BIR-20x24-marge \
+python build_book.py --edition CIR2 --lang fr --format 20x24-marge \
+  --input <amont>/50ohm-contents-dl-main --output build-CIR2-20x24-marge \
   --version-label 0.1
 ```
 
 - Dans le catalogue, la bonne réponse est toujours la A. Le livre mélange
-  les réponses ; le corrigé est écrit dans `corrige-BIR.txt`, dans le
+  les réponses ; le corrigé est écrit dans `corrige-CIR2.txt`, dans le
   répertoire de sortie.
 - Un chapitre sans section est sauté ; les autres portent le numéro de leur
   séance.

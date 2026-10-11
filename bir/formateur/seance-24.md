@@ -1,4 +1,4 @@
-# Séance 24 — L'examen du BIR
+# Séance 24 — L'examen du CIR 2
 
 Tous domaines · 1 h 30 · pas de chapitre au manuel
 
@@ -17,7 +17,7 @@ proposition :
 | --- | --- |
 | forme | questionnaire à choix unique en ligne, quatre réponses proposées |
 | durée | 1 heure |
-| questions | 40, soit 8 par domaine, tirées dans la banque du BIR |
+| questions | 40, soit 8 par domaine, tirées dans la banque du CIR 2 |
 | réussite | 20 sur 40, avec au moins 3 bonnes réponses dans chaque domaine |
 | savoir-faire | validés en cours de formation dans le livret, sans note |
 
@@ -52,7 +52,7 @@ porte la validation des savoir-faire. La règle exacte reste à arrêter
 
 ## Élève qui n'atteint pas le seuil
 
-Le BIR n'est pas un couperet. Prévoir une seconde tentative à une date
+Le CIR 2 n'est pas un couperet. Prévoir une seconde tentative à une date
 ultérieure, après révision des sections indiquées par les scores par
 domaine. L'élève conserve ses savoir-faire validés.
 

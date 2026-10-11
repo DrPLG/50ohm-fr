@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exporte la banque de questions du BIR au format GIFT (Moodle, éléa).
+"""Exporte la banque de questions du CIR 2 au format GIFT (Moodle, éléa).
 
     python exporter_moodle.py            -> bir/moodle/bir-questions.gift.txt
 
@@ -55,11 +55,11 @@ def gift(s):
 
 
 def main():
-    lignes, total = ["// Banque de questions du BIR — export GIFT", ""], 0
+    lignes, total = ["// Banque de questions du CIR 2 — export GIFT", ""], 0
     for fichier in sorted((ICI / "questions").glob("*.json")):
         for domaine in json.loads(fichier.read_text(encoding="utf-8"))["sections"]:
             for seance in domaine["sections"]:
-                lignes += ["$CATEGORY: BIR/{}/{}".format(
+                lignes += ["$CATEGORY: CIR2/{}/{}".format(
                     domaine["title"].replace("/", "-"), seance["title"].replace("/", "-")), ""]
                 for q in seance["questions"]:
                     n = q["number"]

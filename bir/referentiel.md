@@ -1,16 +1,16 @@
-# Référentiel du Brevet d'Initiation à la Radio
+# Référentiel du Certificat d'Initiation à la Radio 2
 
 Premier jet du 30/09/2026 — **à arbitrer**.
 
 ## 1. Objet
 
-Le Brevet d'Initiation à la Radio (BIR) atteste qu'un élève de collège ou de
+Le Certificat d'Initiation à la Radio 2 (CIR 2) atteste qu'un élève de collège ou de
 lycée connaît les bases de la radio et sait les mettre en œuvre : écouter,
 mesurer, construire une antenne simple, tenir sa place dans un contact.
 
 Il se prépare en 24 séances de 1 h 30, par groupes réduits, en présence d'un
 radioamateur. Il ne donne aucun droit d'émettre : ce droit s'obtient par le
-certificat d'opérateur des services d'amateur, auquel le BIR prépare le
+certificat d'opérateur des services d'amateur, auquel le CIR 2 prépare le
 terrain.
 
 ## 2. Cinq domaines
@@ -96,7 +96,7 @@ Les valeurs ci-dessous restent une proposition.
 | réussite | 20 sur 40, avec au moins 3 bonnes réponses dans chaque domaine |
 | savoir-faire | validés en cours de formation dans le livret de l'élève, sans note |
 
-Les questions sont tirées de la banque du BIR, rédigée pour lui.
+Les questions sont tirées de la banque du CIR 2, rédigée pour lui.
 
 ## 5. Niveaux d'exigence
 
@@ -106,5 +106,5 @@ Trois niveaux, pour graduer le manuel et les questions :
 2. **Expliquer** — dire pourquoi, avec ses mots.
 3. **Mettre en œuvre** — calculer, mesurer, régler.
 
-Le BIR vise les niveaux 1 et 2 partout, et le niveau 3 sur les savoir-faire
+Le CIR 2 vise les niveaux 1 et 2 partout, et le niveau 3 sur les savoir-faire
 des fiches d'activité.

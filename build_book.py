@@ -25,6 +25,12 @@ Version du script : v0.36
             « 10:1 » écrits hors formule (\hbox{:}, français seulement),
             que l'espace fine de la v0.17 composait « 10 :1 ». 36
             substitutions mesurées (E 5, A 31), A allemand identique.
+            Même jour (décision de Pierre) : le CIR devient CIR 1 et le BIR
+            devient CIR 2. Éditions --edition CIR1 (répertoire cir/) et
+            CIR2 (répertoire bir/), titre « Certificat d'Initiation / à la
+            Radio — 1 » (ou 2), filigrane de quatre caractères empilés.
+            Les codes BIR et CIR ne sont plus acceptés ; les répertoires et
+            les idents bir_*, cir_* ne changent pas.
     v0.35 — dessins PROPRES à un ouvrage autonome (03/10/2026, chantier
             CIR) : un fichier <local>/dessins/<n>.tex dont le numéro
             n'existe pas dans l'amont est copié dans img/ comme les autres.
@@ -1858,27 +1864,29 @@ FR_TITLES = {
 	"SWL": "Cours complet\\\\\u00c9coute des bandes",
 	# v0.34 — le BIR n'est pas un « cours complet » de classe d'examen.
 	# Rien sur le bandeau : « Manuel de l'élève » est le sous-titre, à gauche.
-	"BIR": "",
-	# v0.35 — le CIR, même maquette que le BIR.
-	"CIR": "",
+	# 11/10/2026 — décision de Pierre : le CIR devient CIR 1 et le BIR
+	# devient CIR 2. Les répertoires restent cir/ et bir/.
+	"CIR1": "",
+	"CIR2": "",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
 	# Trois lettres : le filigrane les empile, comme pour NEA (v0.20).
 	"SWL": "SWL",
-	# v0.34 — trois lettres empilées dans le bandeau, comme NEA et SWL
-	# (décision de Pierre sur épreuve, 30/09/2026).
-	"BIR": "BIR",
-	"CIR": "CIR",
+	# v0.34 — lettres empilées dans le bandeau, comme NEA et SWL
+	# (décision de Pierre sur épreuve, 30/09/2026). Quatre caractères depuis
+	# le 11/10/2026 (C / I / R / 1) : pile à vérifier sur épreuve.
+	"CIR1": "CIR1",
+	"CIR2": "CIR2",
 }
 # v0.35 — ouvrages FRANÇAIS autonomes : répertoire par défaut (à côté de ce
-# script) et nom porté en titre, sur la première ligne de la page de titre.
+# script) et titre sur deux lignes, en tête de la page de titre.
 # Mesuré le 03/10/2026 en Libertinus Serif gras au corps du BIR :
 # « Certificat d'Initiation » fait 297 pt pour un bloc de 313 pt en 20 x 24,
-# 312 pt pour 329 pt en A4 — il tient sur une ligne, comme celui du BIR.
+# 312 pt pour 329 pt en A4 — il tient sur une ligne.
 AUTONOMES = {
-	"BIR": ("bir", "Brevet d'Initiation"),
-	"CIR": ("cir", "Certificat d'Initiation"),
+	"CIR1": ("cir", "Certificat d'Initiation", "à la Radio\\,—\\,1"),
+	"CIR2": ("bir", "Certificat d'Initiation", "à la Radio\\,—\\,2"),
 }
 
 MASTER_FOOTER = r"""
@@ -2276,11 +2284,11 @@ def link_dir(link: Path, target: Path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N",
-                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR", "CIR"])
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2"])
     ap.add_argument("--local", default=None,
-                    help="Éditions BIR et CIR (v0.34, v0.35) : répertoire de l'ouvrage — "
-                         "toc.json, sections/, questions/, dessins/. Défaut : bir/ "
-                         "ou cir/ à côté de ce script.")
+                    help="Éditions CIR1 et CIR2 (v0.34, v0.35) : répertoire de l'ouvrage — "
+                         "toc.json, sections/, questions/, dessins/. Défaut : cir/ "
+                         "(CIR 1) ou bir/ (CIR 2) à côté de ce script.")
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
     ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
                     help="Format de page (défaut : a4)")
@@ -2717,7 +2725,8 @@ def main():
                  # \\spaceskip : l'alignement du nœud fige l'espace entre mots sur le
                  # corps courant (10 pt) ; à 31 pt les mots se touchaient.
                  "\\selectfont\\bfseries\\spaceskip=\\fontdimen2\\font\\relax "
-                 + AUTONOMES[args.edition][1] + "\\\\à la Radio\\par}"),
+                 + AUTONOMES[args.edition][1] + "\\\\"
+                 + AUTONOMES[args.edition][2] + "\\par}"),
                 # Sous-titre « Manuel de l'élève ». Le titre se termine par
                 # \\par, pour que sa dernière ligne garde son interligne :
                 # le saut qui suit devient un \\vspace (un \\\\ après \\par

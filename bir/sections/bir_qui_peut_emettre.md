@@ -3,7 +3,7 @@ N'importe qui peut acheter un émetteur-récepteur de radioamateur. Mais pour ap
 * un *certificat d'opérateur des services d'amateur* [index:Certificat d'opérateur], qui prouve qu'on connaît la technique et les règles ; il s'obtient par un examen ;
 * un *indicatif d'appel personnel*, attribué ensuite par l'Agence nationale des fréquences.
 
-Le BIR ne donne aucun droit d'émettre : il prépare à ce certificat.
+Le CIR 2 ne donne aucun droit d'émettre : il prépare à ce certificat.
 
 ---
 

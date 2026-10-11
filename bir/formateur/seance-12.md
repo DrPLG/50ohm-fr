@@ -80,8 +80,8 @@ vitesse réglable, projeté avec le son.
 
 - Lettres dictées : conformes à la liste de l'encadrant.
 - SOS : trois points, trois traits, trois points.
-- Écritures demandées : BIR = trait point point point / point point /
-  point trait point ; CQ = trait point trait point / trait trait point
+- Écritures demandées : CIR2 = trait point trait point / point point /
+  point trait point / point point trait trait trait ; CQ = trait point trait point / trait trait point
   trait ; 73 = trait trait point point point / point point point trait
   trait.
 - Mot mystère du bilan : au choix de l'encadrant.

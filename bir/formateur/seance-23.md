@@ -5,7 +5,7 @@ Domaine E · 1 h 30 · chapitre 23 du manuel · fiche d'activité nº 23
 ## Ce que l'élève doit emporter
 
 - Pour émettre : certificat d'opérateur et indicatif ; l'ARCEP fixe les
-  conditions, l'ANFR délivre et contrôle ; le BIR ne donne aucun droit
+  conditions, l'ANFR délivre et contrôle ; le CIR 2 ne donne aucun droit
   d'émettre.
 - Les règles d'exploitation rencontrées pendant le parcours.
 - L'écoute est libre ; le contenu des communications des autres est
@@ -27,7 +27,7 @@ Domaine E · 1 h 30 · chapitre 23 du manuel · fiche d'activité nº 23
 - pour la partie « et après ? » : les coordonnées du radio-club le plus
   proche, et, si possible, la présence d'un de ses membres.
 
-**L'examen blanc.** Il reprend la forme de l'examen du BIR (référentiel,
+**L'examen blanc.** Il reprend la forme de l'examen du CIR 2 (référentiel,
 § 4) : 40 questions, 8 par domaine, tirées au hasard dans la banque
 importée (`moodle/bir-questions.gift.txt`), réponses mélangées par la
 plateforme, durée 1 heure — ramenée ici à **40 minutes** pour laisser le
@@ -61,7 +61,7 @@ par domaine et la correction à la fin.
 
 - **Confondre ARCEP et ANFR.** L'une fixe les règles d'utilisation des
   fréquences, l'autre organise l'examen, délivre et contrôle.
-- **« Avec le BIR, je peux émettre. »** Non : le BIR prépare au
+- **« Avec le CIR 2, je peux émettre. »** Non : le CIR 2 prépare au
   certificat ; seule la présence du radioamateur, sous son indicatif, a
   permis la séance 22.
 - **L'écoute « interdite ».** Elle est libre ; ce qui est protégé, c'est le

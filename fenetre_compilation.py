@@ -4,8 +4,8 @@
 r"""
 fenetre_compilation.py — lanceur graphique des compilations 50ohm-fr.
 
-Une fenêtre Tkinter pour choisir le tome (N, E, A, NE, EA, NEA, SWL), le format
-du papier, la langue, l'étiquette de version et les pièces liminaires, puis
+Une fenêtre Tkinter pour choisir le tome (N, E, A, NE, EA, NEA, SWL, CIR 1,
+CIR 2), le format du papier, la langue, l'étiquette de version et les pièces liminaires, puis
 lancer la chaîne complète : purge des auxiliaires, build_book.py, contrôles de
 non-régression du § 4 de CLAUDE.md, compression Ghostscript, et — en option —
 la couverture dos carré collé pour l'imprimeur (couverture.tex).
@@ -17,7 +17,7 @@ commande, mais il ne sait faire que N, E et A : il ne définit VERSION que pour
 ces trois classes, et surtout il ne sait pas RÉPÉTER --translations, dont les
 éditions combinées (NE, EA, NEA) ont besoin. Le NEA et le SWL se lancent donc
 aujourd'hui à la main, contrôles et compression compris. Cette fenêtre couvre
-les sept éditions et les trois formats, et passe les contrôles elle-même.
+les neuf éditions et les trois formats, et passe les contrôles elle-même.
 
 CE QU'ELLE NE FAIT PAS, ET C'EST DÉLIBÉRÉ :
 
@@ -48,6 +48,11 @@ PIÈGES DU DÉPÔT REPRIS ICI, chacun payé au moins une fois :
     Windows est en cp1252 et le corpus est plein de λ, µ et Ω.
 
 HISTORIQUE :
+
+  v0.4 (11/10/2026) — décision de Pierre : le CIR devient CIR 1 et le BIR
+     devient CIR 2. Cases « CIR 1 » et « CIR 2 », éditions CIR1 et CIR2 de
+     build_book.py (répertoires cir/ et bir/, inchangés). Sorties nommées
+     build-CIR1-…, livre-CIR2-…
 
   v0.3 (18/09/2026) — trois ajouts, demandés par Pierre après l'impression de E :
      - « PDF INTÉRIEUR POUR L'IMPRIMEUR », en case à cocher : /prepress
@@ -113,16 +118,19 @@ RACINE = Path(__file__).resolve().parent
 #  Tables — tout ce qui est propre au projet vit ici, et nulle part ailleurs.
 # ---------------------------------------------------------------------------
 
-EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "BIR", "CIR"]
+EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2"]
+# Libellé de la case, quand il diffère du code passé à build_book.py.
+LIBELLES_EDITIONS = {"CIR1": "CIR 1", "CIR2": "CIR 2"}
 
 # Étiquettes de version proposées : celle du chantier en cours pour les livres
-# de classe, et la numérotation propre du BIR et du CIR.
+# de classe, et la numérotation propre des CIR 1 et CIR 2.
 VERSION_LIVRES = "a.4"
-VERSION_BIR = "0.1"
+VERSION_AUTONOMES = "0.1"
 # Ouvrages français autonomes (build_book.py v0.34 et v0.35) : ils lisent
-# leur propre répertoire, bir/ ou cir/, n'ont ni avant-propos ni
-# remerciements du traducteur, et ont leur propre numérotation.
-AUTONOMES = {"BIR", "CIR"}
+# leur propre répertoire, cir/ (CIR 1) ou bir/ (CIR 2, ex-BIR), n'ont ni
+# avant-propos ni remerciements du traducteur, et ont leur propre
+# numérotation.
+AUTONOMES = {"CIR1", "CIR2"}
 
 # Répertoires --translations, dans l'ORDRE. Décision de Pierre du 15/08/2026 :
 # citer la classe la plus avancée en premier, le premier répertoire cité
@@ -130,8 +138,8 @@ AUTONOMES = {"BIR", "CIR"}
 # traduite dans plusieurs classes, N_Ende), mais la règle est écrite.
 CLASSES_TRADUCTION = {
     "N": ["N"], "E": ["E"], "A": ["A"], "SWL": ["SWL"],
-    # Le BIR lit son propre répertoire bir/ (build_book.py v0.34) : rien à passer.
-    "BIR": [], "CIR": [],
+    # Les CIR lisent leur propre répertoire (build_book.py v0.34) : rien à passer.
+    "CIR1": [], "CIR2": [],
     "NE": ["E", "N"],
     "EA": ["A", "E"],
     "NEA": ["A", "E", "N"],
@@ -183,7 +191,7 @@ DOSSIER_COUVERTURE = "build-couverture"
 DUREES = {
     "N": "environ 10 min", "E": "environ 25 min", "A": "environ 50 min",
     "NEA": "environ 1 h 40", "SWL": "quelques minutes",
-    "BIR": "quelques minutes", "CIR": "quelques minutes",
+    "CIR1": "quelques minutes", "CIR2": "quelques minutes",
     "NE": "durée inconnue — jamais compilée",
     "EA": "durée inconnue — jamais compilée",
 }
@@ -625,7 +633,7 @@ class Fenetre:
         boite = ttk.Frame(cadre)
         boite.grid(row=ligne, column=1, sticky="w")
         for e in EDITIONS:
-            ttk.Radiobutton(boite, text=e, value=e,
+            ttk.Radiobutton(boite, text=LIBELLES_EDITIONS.get(e, e), value=e,
                             variable=self.v_edition).pack(side="left", padx=(0, 8))
         ligne += 1
 
@@ -836,8 +844,8 @@ class Fenetre:
         elif shutil.which("lualatex") is None:
             pourquoi = "lualatex introuvable dans le PATH"
         elif edition not in COUVERTURE_EDITIONS:
-            pourquoi = ("pas de couverture SWL : sa 4e de couverture n'est pas "
-                        "rédigée")
+            pourquoi = ("pas de couverture {} : sa 4e de couverture n'est pas "
+                        "rédigée".format(LIBELLES_EDITIONS.get(edition, edition)))
         elif livre == "generer":
             pourquoi = "il faut un livre compilé pour connaître la pagination"
         self._activer(self.c_couverture, self.v_couverture, not pourquoi)
@@ -865,13 +873,13 @@ class Fenetre:
 
     def _maj_sortie(self):
         self.v_sortie.set(nom_sortie(self.v_edition.get(), self.v_format.get()))
-        # Le BIR et le CIR ont leur propre numérotation : on propose 0.1
+        # Les CIR 1 et CIR 2 ont leur propre numérotation : on propose 0.1
         # d'office, et on revient à l'étiquette des livres de classe en les
         # quittant. Une étiquette saisie à la main n'est jamais écrasée.
-        est_bir = self.v_edition.get() in AUTONOMES
-        if est_bir and self.v_version.get() == VERSION_LIVRES:
-            self.v_version.set(VERSION_BIR)
-        elif not est_bir and self.v_version.get() == VERSION_BIR:
+        autonome = self.v_edition.get() in AUTONOMES
+        if autonome and self.v_version.get() == VERSION_LIVRES:
+            self.v_version.set(VERSION_AUTONOMES)
+        elif not autonome and self.v_version.get() == VERSION_AUTONOMES:
             self.v_version.set(VERSION_LIVRES)
 
     def _etat_ressources(self):
@@ -887,7 +895,7 @@ class Fenetre:
         self.tk.after(20000, self._etat_ressources)
 
     def _verdict_environnement(self):
-        self._ecrire("fenetre_compilation.py v0.3\n", "titre")
+        self._ecrire("fenetre_compilation.py v0.4\n", "titre")
         if self.generateur:
             self._ecrire("Générateur : {}\n".format(self.generateur))
             self._ecrire("Contenus   : {}\n".format(self.contenus))
@@ -955,7 +963,7 @@ class Fenetre:
     # -- lancement ----------------------------------------------------------
 
     def _pieces_choisies(self):
-        # Le BIR et le CIR ne sont pas des traductions : ni avant-propos ni
+        # Les CIR 1 et CIR 2 ne sont pas des traductions : ni avant-propos ni
         # remerciements « du traducteur ».
         if self.v_edition.get() in AUTONOMES:
             return []

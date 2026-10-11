@@ -3,7 +3,7 @@
 Nom : ……………………………………………  Date : ……………
 
 **Aujourd'hui, nous allons** faire le point sur les règles, passer un
-examen blanc, et voir ce qu'on peut faire après le BIR.
+examen blanc, et voir ce qu'on peut faire après le CIR 2.
 
 ## 1. Les règles, et où je les ai rencontrées
 

@@ -1,14 +1,14 @@
-# Sources des sections du BIR
+# Sources des sections du CIR 2
 
-Le manuel du BIR est une œuvre dérivée des contenus CC BY 4.0 du projet
+Le manuel du CIR 2 est une œuvre dérivée des contenus CC BY 4.0 du projet
 50ohm.de (50ohm.de-Autorenteam / DARC e. V.), à travers leur traduction
 française du présent dépôt. Les textes sont **adaptés et réécrits** pour un
 public scolaire français ; ce tableau dit de quelles sections chacun part.
 
 Il sert aussi au suivi : quand l'amont modifie une section citée ici, la
-section du BIR correspondante est à relire.
+section du CIR 2 correspondante est à relire.
 
-| section du BIR | part de (classe N, sauf mention) | nature de l'adaptation | figures reprises |
+| section du CIR 2 | part de (classe N, sauf mention) | nature de l'adaptation | figures reprises |
 | --- | --- | --- | --- |
 | `bir_la_radio_partout` | — | texte neuf | — |
 | `bir_des_signaux_de_fumee_au_morse` | `rauch_und_morsezeichen` | réécrit et simplifié ; fréquence d'exemple et renvois retirés | photos 104, 109, 216 |
@@ -102,31 +102,31 @@ section du BIR correspondante est à relire.
 
 | affirmation | source | état |
 | --- | --- | --- |
-| limites des six bandes radioamateur | décision ARCEP n° 2012-1241 modifiée, via l'encart de `N/amateurfunkbaender` | repris du livre N, non relu à la source pour le BIR |
-| TNRBF préparé par l'ANFR ; décision ARCEP pour le service d'amateur | encart de `N/frequenzzuteilung` | repris du livre N, non relu à la source pour le BIR |
-| pour émettre : certificat d'opérateur et indicatif | arrêté du 21/09/2000 modifié, art. 1er, via l'encart de `N/funkamateur` | repris du livre N, non relu à la source pour le BIR |
+| limites des six bandes radioamateur | décision ARCEP n° 2012-1241 modifiée, via l'encart de `N/amateurfunkbaender` | repris du livre N, non relu à la source pour le CIR 2 |
+| TNRBF préparé par l'ANFR ; décision ARCEP pour le service d'amateur | encart de `N/frequenzzuteilung` | repris du livre N, non relu à la source pour le CIR 2 |
+| pour émettre : certificat d'opérateur et indicatif | arrêté du 21/09/2000 modifié, art. 1er, via l'encart de `N/funkamateur` | repris du livre N, non relu à la source pour le CIR 2 |
 | « plusieurs millions » de radioamateurs dans le monde | — | **écrit de mémoire, à vérifier** |
 | code Morse fixé au milieu du XIXe siècle | `N/rauch_und_morsezeichen` | repris de l'amont |
 | fréquences de la radio FM, de l'aviation, du DAB+, de la TNT, du Wi-Fi | — | **écrites de mémoire, à contrôler au TNRBF** |
-| indicatif attribué par l'ANFR d'après l'adresse ; F4 + trois lettres ; K radio-club, Z relais et balises, X non attribué | encarts de `N/anschrift`, `N/persoenliche_rufzeichen`, `N/klubstationen`, `N/relaisfunkstellen` | repris du livre N, non relu à la source pour le BIR |
-| préfixes français (F, TK, FG, FM, FY, FR, FK) ; indicatifs spéciaux en TM | encarts de `N/internationale_landeskenner`, `N/besondere_anlaesse` | repris du livre N, non relu à la source pour le BIR |
+| indicatif attribué par l'ANFR d'après l'adresse ; F4 + trois lettres ; K radio-club, Z relais et balises, X non attribué | encarts de `N/anschrift`, `N/persoenliche_rufzeichen`, `N/klubstationen`, `N/relaisfunkstellen` | repris du livre N, non relu à la source pour le CIR 2 |
+| préfixes français (F, TK, FG, FM, FY, FR, FK) ; indicatifs spéciaux en TM | encarts de `N/internationale_landeskenner`, `N/besondere_anlaesse` | repris du livre N, non relu à la source pour le CIR 2 |
 | préfixes étrangers du tableau du chapitre 2 (ON, HB, LX, DL, EA, I, G, W, JA) | — | **écrits de mémoire, à vérifier** |
 | PMR446 : usage libre, sans examen ni indicatif ; autour de 446 MHz ; 0,5 W au plus ; antenne non amovible ; canaux partagés | — | **écrit de mémoire, à relire à la source** (PLAN.md, point ouvert 2) |
-| journal de bord obligatoire, ses rubriques, conservation un an | encart de `N/logbuch` | repris du livre N, non relu à la source pour le BIR |
-| identification au début, à la fin, toutes les quinze minutes, à chaque changement de fréquence | encart de `N/betriebsabwicklung` | repris du livre N, non relu à la source pour le BIR |
-| codes Q de la liste française (QRA, QRK, QSA…) | encart de `N/q_schluessel` | repris du livre N, non relu à la source pour le BIR |
+| journal de bord obligatoire, ses rubriques, conservation un an | encart de `N/logbuch` | repris du livre N, non relu à la source pour le CIR 2 |
+| identification au début, à la fin, toutes les quinze minutes, à chaque changement de fréquence | encart de `N/betriebsabwicklung` | repris du livre N, non relu à la source pour le CIR 2 |
+| codes Q de la liste française (QRA, QRK, QSA…) | encart de `N/q_schluessel` | repris du livre N, non relu à la source pour le CIR 2 |
 | seuils de tension dangereuse (50 V alternatif, 120 V continu) ; 30 mA | `N/gefahren` | repris de l'amont |
-| puissances maximales françaises (500 W décamétriques, 120 W à partir de 50 MHz) ; indicateur de puissance obligatoire | encarts de `N/amateurfunkstelle`, `N/dummy_load_1` | repris du livre N, non relu à la source pour le BIR |
+| puissances maximales françaises (500 W décamétriques, 120 W à partir de 50 MHz) ; indicateur de puissance obligatoire | encarts de `N/amateurfunkstelle`, `N/dummy_load_1` | repris du livre N, non relu à la source pour le CIR 2 |
 | puissances d'émission d'un téléphone portable, d'un portatif, d'une station | — | **ordres de grandeur écrits de mémoire** |
-| brouillages instruits par l'ANFR | encart de `N/elektromagnetische_vertraeglichkeit` | repris du livre N, non relu à la source pour le BIR |
+| brouillages instruits par l'ANFR | encart de `N/elektromagnetische_vertraeglichkeit` | repris du livre N, non relu à la source pour le CIR 2 |
 | décalage de 600 kHz des relais sur 2 m | — | **écrit de mémoire, à vérifier** |
 | réseau mondial de balises : 18 balises, 10 s chacune, cycle de 3 min, 14,100 MHz et quatre autres fréquences | — | **écrit de mémoire, à vérifier** auprès de l'organisme qui gère le réseau |
 | ISS : émissions SSTV dans la bande des 2 m ; programme ARISS | — | **écrit de mémoire, à vérifier** |
-| télégraphie retirée de l'examen français en 2012 ; classe unique | encart de `N/funkamateur` | repris du livre N, non relu à la source pour le BIR |
-| ADRASEC, FNRASEC, missions | encart de `N/notfunk` | repris du livre N, non relu à la source pour le BIR |
-| pas d'indicatif de formation en France ; micro tendu sous la responsabilité du titulaire ; indicatif de radio-club suivi de l'indicatif personnel | encarts de `N/ausbildungsrufzeichen`, `N/klubstationen` | repris du livre N, non relu à la source pour le BIR |
-| contenu des liaisons limité ; interdiction du codage ; tiers seulement en cas d'urgence | encarts de `N/amateurfunkdienst`, `N/nur_mit_afu_stellen`, `N/offene_sprache` | repris du livre N, non relu à la source pour le BIR |
-| rôles de l'ARCEP et de l'ANFR | encart de `N/gesetze_vorschriften` | repris du livre N, non relu à la source pour le BIR |
-| écoute libre ; secret des correspondances (code pénal, art. 226-15) | encart de `N/fernmeldegeheimnis_abhoerverbot` | repris du livre N, non relu à la source pour le BIR ; lève en partie le point ouvert 1 de PLAN.md |
-| examen du certificat : sur ordinateur, centre ANFR, deux épreuves, 10/20, épreuve acquise un an, gratuit | encart de `N/N_Ende` | repris du livre N, non relu à la source pour le BIR |
-| certificat reconnu dans d'autres pays (CEPT T/R 61-01, HAREC) | encart de `N/funken_im_ausland` | repris du livre N, non relu à la source pour le BIR |
+| télégraphie retirée de l'examen français en 2012 ; classe unique | encart de `N/funkamateur` | repris du livre N, non relu à la source pour le CIR 2 |
+| ADRASEC, FNRASEC, missions | encart de `N/notfunk` | repris du livre N, non relu à la source pour le CIR 2 |
+| pas d'indicatif de formation en France ; micro tendu sous la responsabilité du titulaire ; indicatif de radio-club suivi de l'indicatif personnel | encarts de `N/ausbildungsrufzeichen`, `N/klubstationen` | repris du livre N, non relu à la source pour le CIR 2 |
+| contenu des liaisons limité ; interdiction du codage ; tiers seulement en cas d'urgence | encarts de `N/amateurfunkdienst`, `N/nur_mit_afu_stellen`, `N/offene_sprache` | repris du livre N, non relu à la source pour le CIR 2 |
+| rôles de l'ARCEP et de l'ANFR | encart de `N/gesetze_vorschriften` | repris du livre N, non relu à la source pour le CIR 2 |
+| écoute libre ; secret des correspondances (code pénal, art. 226-15) | encart de `N/fernmeldegeheimnis_abhoerverbot` | repris du livre N, non relu à la source pour le CIR 2 ; lève en partie le point ouvert 1 de PLAN.md |
+| examen du certificat : sur ordinateur, centre ANFR, deux épreuves, 10/20, épreuve acquise un an, gratuit | encart de `N/N_Ende` | repris du livre N, non relu à la source pour le CIR 2 |
+| certificat reconnu dans d'autres pays (CEPT T/R 61-01, HAREC) | encart de `N/funken_im_ausland` | repris du livre N, non relu à la source pour le CIR 2 |
