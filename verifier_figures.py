@@ -56,7 +56,8 @@ Code de retour : 1 si au moins une figure est séparée de sa légende, 0 sinon.
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version : v0.1 (26/08/2026)
+Version : v0.2 (21/10/2026) — livret « Corrigés de la classe A » (CA)
+(v0.1 : 26/08/2026)
 """
 import argparse
 import io
@@ -70,7 +71,7 @@ import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
-LIVRES = ["N", "E", "A", "NEA", "SWL"]
+LIVRES = ["N", "E", "A", "NEA", "SWL", "CA"]   # v0.2 — CA : livret de corrigés
 
 # \newlabel{DARCfig:debut:<ident>}{{<num>}{<page>}...}
 MOTIF = re.compile(

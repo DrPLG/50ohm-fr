@@ -1081,3 +1081,43 @@ en mode texte, en mode math et pour `\numrange`, 0 erreur.
 
 **Correctif à proposer au DARC :** `range-phrase=\text{--}`, la même ligne
 dans `settings.tex`.
+
+## 27. Trois unités non déclarées dans les corrigés (`\Ohm`, `\decibelmilliwatt`, `\dezibel`)
+
+**Constaté le** 21/10/2026, au document réduit du livret « Corrigés de la
+classe A » (feuille d'arbitrage nº 12). Les corrigés (`contents/solutions/`)
+ne passent jamais par le livre allemand : ces unités ne gênent que le site, si
+tant est qu'elles le gênent, et **aucune compilation LaTeX ne les avait encore
+vues**.
+
+| macro | occurrences | corrigés | unité voulue |
+| --- | ---: | --- | --- |
+| `\Ohm` | 4 | AK103 (3, dont `\qty{120\pi}{\Ohm}`), AK201 (`\kilo\Ohm`) | `\ohm`, qu'emploient 71 autres corrigés |
+| `\decibelmilliwatt` | 4 | AF428 | `\dBm`, déclarée par l'amont |
+| `\dezibel` | 4 | AA106, AA107, AA109 | `\decibel` |
+
+Même signature qu'aux § 18 et § 24 : « Undefined control sequence », `rc=12`,
+**fatal et non silencieux**. Les trois sont absentes des déclarations du
+dépôt (`DARC-ausbildungsmaterialien.sty`, `settings.tex`) **et** du bloc
+d'unités de `build_book.py`.
+
+*Méthode :* les 81 macros distinctes des corrigés ont été comparées à celles
+des 410 sections amont et de nos sections traduites. Onze n'apparaissent dans
+aucune section : six sont standard (`\circ`, `\lesssim`, `\minute`,
+`\numrange`, `\parallel`, `\xrightarrow`), deux sont de faux positifs (`\N`
+et `\Q`, un saut de ligne `\\` suivi d'une majuscule), et restent ces trois-là.
+Cette comparaison ne voit qu'un **nom** de macro inconnu : une macro connue
+mal employée ne se verra qu'à la compilation du prototype.
+
+**Correctif côté français (décision de Pierre du 21/10/2026, comme `\dBc` au
+§ 24) :** `\DeclareSIUnit{\Ohm}{\ohm}`, `\DeclareSIUnit{\decibelmilliwatt}{dBm}`
+et `\DeclareSIUnit{\dezibel}{dB}` ajoutés au bloc d'unités commun de
+`build_book.py` (v0.37). Les formules restent verbatim. **Neutralité
+prouvée** par génération sans compilation : sur N, E, A, NEA, SWL, CIR 1 et
+CIR 2, le seul fichier qui change est `FiftyOhmBook.cls`, de ces quatre lignes
+(commentaire compris), et aucune section n'emploie ces unités. Document
+réduit recompilé sans autre déclaration : `rc=0`, « 100 kΩ » et « √30 Ω »
+rendus correctement.
+
+**Correctif à proposer au DARC :** écrire `\ohm`, `\dBm` et `\decibel` dans les
+six corrigés.

@@ -1560,6 +1560,10 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 	\DeclareSIUnit{\dBuV}{dBµV}%
 	\DeclareSIUnit{\sps}{Sps}%
 	\DeclareSIUnit{\dBc}{dBc}%
+	% v0.37 — trois unités des corrigés amont (defauts-amont.md § 27).
+	\DeclareSIUnit{\Ohm}{\ohm}%
+	\DeclareSIUnit{\decibelmilliwatt}{dBm}%
+	\DeclareSIUnit{\dezibel}{dB}%
 }
 % Le contenu utilise parfois siunitx de façon non stricte (préfixe seul,
 % nombres comme 10^3...) : on dégrade ces erreurs en avertissements.
@@ -2015,8 +2019,7 @@ def composer_corriges(chapters, contents, tr_dirs, tr_titles, lang, out,
                 texte = suffixer_etiquettes(dispo[num].read_text(encoding="utf-8"), num)
                 with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
                     c = renderer.render(Document(texte.splitlines(keepends=True)))
-                tex.append(f"\\phantomsection\\label{{DARCca:{num}}}%\n{q}"
-                           f"\\minisec{{{titre_corrige}}}\n{c}\n\\bigskip\n")
+                tex.append(f"{q}\\minisec{{{titre_corrige}}}\n{c}\n\\bigskip\n")
             fichier = f"corriges_{ident}"
             (out / "sections" / f"{fichier}.tex").write_text(
                 fix_latex("".join(tex)), encoding="utf-8")
@@ -2043,7 +2046,11 @@ def composer_corriges(chapters, contents, tr_dirs, tr_titles, lang, out,
     index = [f"\n\\chapter*{{{titre_index}}}\n"
              f"\\addcontentsline{{toc}}{{chapter}}{{{titre_index}}}\n"
              "\\begin{multicols}{4}\\small\\raggedright\n"]
-    index += [f"\\noindent {n}\\dotfill\\pageref{{DARCca:{n}}}\\par\n" for n in sorted(vus)]
+    # Page de l'ÉNONCÉ : le \label que la v0.18 pose dans la question même. Une
+    # étiquette posée avant la boîte restait en bas de page quand la boîte
+    # passait à la suivante (AF201, document réduit du 21/10/2026).
+    index += [f"\\noindent {n}\\dotfill\\pageref{{DARCq@debut@{n}}}\\par\n"
+              for n in sorted(vus)]
     index.append("\\end{multicols}\n")
     return pieces, len(vus), m, n_sections, "".join(index)
 

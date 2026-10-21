@@ -38,6 +38,16 @@ branche `version-a.4`.
   dérive, introuvable).
 - `veille.py` v0.2 : les corrigés du livret A sortent du R0 (R1 traduits, R2 à
   traduire) ; ligne d'information « *n* traduits sur *m* ».
+- **Document réduit** (six corrigés, voie française, 20 × 24 marge) : 18 pages,
+  0 erreur, 0 question ni figure coupée, 0 `??`, numéros de chapitre et de
+  section identiques au livre A du 27/09. Il a corrigé deux défauts du livret :
+  l'index pointe sur l'énoncé (`DARCq@debut@…`) et non sur une étiquette
+  posée avant la boîte, restée une page trop tôt (AF201) ; et
+  `verifier_figures.py` v0.2 connaît le livre `CA` (il rendait `rc=2`).
+- **Trois unités non déclarées par l'amont** dans six corrigés : `\Ohm`,
+  `\decibelmilliwatt`, `\dezibel` (`docs/defauts-amont.md` § 27). Déclarées
+  dans le bloc d'unités commun, comme `\dBc` (décision de Pierre). Seule la
+  classe des sept autres éditions change, de ces quatre lignes.
 
 #### Modifié — le CIR devient CIR 1, le BIR devient CIR 2 (11/10/2026)
 
