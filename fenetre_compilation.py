@@ -49,6 +49,11 @@ PIÈGES DU DÉPÔT REPRIS ICI, chacun payé au moins une fois :
 
 HISTORIQUE :
 
+  v0.5 (11/10/2026) — le CIR 2 reçoit son avant-propos (bir/avant-propos.md),
+     passé d'office en --front-matter « Avant-propos » ; table
+     PIECES_AUTONOMES. Les cases des pièces « du traducteur » restent sans
+     effet sur les CIR. Le CIR 1 n'a toujours pas de pièce liminaire.
+
   v0.4 (11/10/2026) — décision de Pierre : le CIR devient CIR 1 et le BIR
      devient CIR 2. Cases « CIR 1 » et « CIR 2 », éditions CIR1 et CIR2 de
      build_book.py (répertoires cir/ et bir/, inchangés). Sorties nommées
@@ -162,6 +167,12 @@ PIECES = [
     ("Avant-propos du traducteur", "avant-propos.md"),
     ("Remerciements du traducteur", "remerciements.md"),
 ]
+
+# v0.5 — pièces liminaires PROPRES aux éditions autonomes, passées d'office
+# (les cases ci-dessus restent celles des traductions). Le CIR 1 n'en a pas.
+PIECES_AUTONOMES = {
+    "CIR2": [("Avant-propos", "bir/avant-propos.md")],
+}
 
 # Contrôle nº 4 du § 4 de CLAUDE.md. Celui-ci se COMPTE au lieu de se détecter :
 # le garde-fou \DARCmarginpar (v0.13) rétrograde légitimement des notes dans le
@@ -895,7 +906,7 @@ class Fenetre:
         self.tk.after(20000, self._etat_ressources)
 
     def _verdict_environnement(self):
-        self._ecrire("fenetre_compilation.py v0.4\n", "titre")
+        self._ecrire("fenetre_compilation.py v0.5\n", "titre")
         if self.generateur:
             self._ecrire("Générateur : {}\n".format(self.generateur))
             self._ecrire("Contenus   : {}\n".format(self.contenus))
@@ -964,9 +975,10 @@ class Fenetre:
 
     def _pieces_choisies(self):
         # Les CIR 1 et CIR 2 ne sont pas des traductions : ni avant-propos ni
-        # remerciements « du traducteur ».
+        # remerciements « du traducteur », mais leurs propres pièces (v0.5).
         if self.v_edition.get() in AUTONOMES:
-            return []
+            return [(t, f) for t, f in PIECES_AUTONOMES.get(self.v_edition.get(), [])
+                    if (RACINE / f).exists()]
         return [PIECES[i] for i, v in enumerate(self.v_pieces) if v.get()]
 
     def _plan(self):
