@@ -1121,3 +1121,51 @@ rendus correctement.
 
 **Correctif à proposer au DARC :** écrire `\ohm`, `\dBm` et `\decibel` dans les
 six corrigés.
+
+## 28. Des calculs passés à `\qty` et `\num` dans les corrigés
+
+**Constaté le** 21/10/2026, à la première compilation du prototype du livret
+« Corrigés de la classe A » : arrêt fatal en page 17, sur
+`\qty{10^{-3}}{\watt}` (`dezibel_2`).
+
+**Méthode — la liste est complète, pas seulement la première panne.** Les
+685 expressions `\qty`, `\num` et `\unit` distinctes des corrigés générés
+(après `fix_latex()`) ont été composées une à une dans un document d'essai.
+Quand l'une emportait la suite du fichier (siunitx lit alors jusqu'à la fin),
+elle était notée fatale et retirée, et l'essai repris : **15 passes, jusqu'à
+une composition complète.** Résultat :
+
+| famille | expressions | corrigés | effet |
+| --- | ---: | --- | --- |
+| exposant négatif entre accolades, `\qty{10^{-6}}{\farad}` | 7 | `schwingkreis_2`, `dezibel_2`, `kondensator_2` | **fatal** |
+| `\cancel` dans le nombre, `\qty{29 \cdot \cancel{10^6}}{\hertz}` | 5 | `frequenzgenauigkeit` | **fatal** |
+| calcul, `\qty{1000\cdot3600}{\joule}`, `\qty{(6,28 \cdot 100 \cdot 3)}{\ohm}` | 2 | `ladung_energie`, `spule_2` | **fatal** |
+| fraction avec unité composée, `\qty{\frac{100}{100}}{\volt\ampere}` | 1 | `ladung_energie` | **fatal** |
+| rapport, `\num{10{:}1}` (AI306) | 1 | `ssb_3` | **silencieux** : rien n'est imprimé, le PDF porte « mit einem -Tastkopf » |
+
+Les sections n'en portent aucune : ces idiomes ne vivent que dans les
+corrigés, que le livre allemand ne compose jamais.
+
+**Correctif côté français (`build_book.py` v0.37, `fix_latex()`) :**
+
+- la règle `\qty{10^n}` → `\qty{en}` accepte un exposant **négatif** ;
+- un `\qty` dont le nombre contient `\cdot`, `\cancel`, `\frac`, une
+  parenthèse ou un exposant sort de siunitx :
+  `\ensuremath{<nombre>}\,\unit{<unité>}`, comme la v0.14 pour `120\pi`.
+  *Première version trop large* : elle visait toute macro et touchait
+  `\qty{\pm 5}{\percent}`, valide, dans 4 sections de N, E et A — attrapé
+  par la comparaison des arbres, la règle a été restreinte ;
+- `\num{10{:}1}` → `\ensuremath{10{:}1}`, composé « 10∶1 ».
+
+**Neutralité prouvée** par génération sans compilation : N, E, A, NEA, SWL,
+CIR 1, CIR 2 et A allemand identiques avant et après. Après correctif,
+l'essai des 678 expressions va au bout en une passe, sans aucun arrêt fatal,
+et le prototype compile en `rc=0` (278 pages).
+
+**Au même endroit, sans correctif :** `$ü = \frac{I_S}{I_P}$` (AC302) et
+`$ü$` (AD306), umlaut nu en mode mathématique, qui disparaît du PDF — le
+§ 2, à l'identique. La traduction française le fera disparaître.
+
+**Correctif à proposer au DARC :** sortir les calculs de `\qty` (écrire
+`$29 \cdot \cancel{10^6}\,\unit{\hertz}$`), utiliser la notation `e-6` de
+siunitx, et écrire le rapport `$10:1$` hors de `\num`.

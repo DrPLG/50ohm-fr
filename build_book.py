@@ -2183,11 +2183,24 @@ def separer_paragraphes_bir(tex: str) -> str:
     return _BIR_FIGURE_DE_MARGE.sub(lambda m: m.group(1) + "\n" + m.group(2), tex)
 
 
+# v0.37 — \qty dont le nombre est un calcul : \cdot, \cancel, \frac, une
+# parenthèse ou un exposant (deux niveaux d'accolades : \cancel{10^6},
+# \frac{100}{100}). PAS toute macro : \qty{\pm 5}{\percent} est valide pour
+# siunitx, et une première version trop large touchait 4 sections de N, E et A.
+_QTY_NOMBRE = r"(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*"
+_QTY_CALCUL = re.compile(
+    r"\\qty\{(" + _QTY_NOMBRE + r"(?:\\cdot|\\cancel|\\frac|\(|\^)" + _QTY_NOMBRE + r")\}"
+    r"\{((?:\\[A-Za-z]+)+)\}")
+
+
 def fix_latex(text: str) -> str:
     """Corrige des idiomes du contenu que siunitx v3 rejette."""
     text = text.replace("\\qty{\\infty}", "\\infty\\,\\unit")
     # \qty{10^5} -> \qty{e5} (notation exigée par siunitx v3)
-    text = re.sub(r"\\qty\{10\^\{?(\d+)\}?\}", r"\\qty{e\1}", text)
+    # v0.37 — exposants négatifs aussi : \qty{10^{-6}}{\farad} est FATAL
+    # (siunitx lit jusqu'à la fin du document). Huit occurrences, toutes dans
+    # les corrigés amont ; aucune dans les sections.
+    text = re.sub(r"\\qty\{10\^\{?(-?\d+)\}?\}", r"\\qty{e\1}", text)
     # v0.14 — \qty{120\pi}{\ohm} : siunitx v3 refuse un « nombre » contenant une
     # macro (« Invalid number '120\mitpi' »), puis part en runaway argument et fait
     # échouer toute la compilation. Idiome amont (nahfeld, naeherungsformel_2).
@@ -2234,6 +2247,19 @@ def fix_latex(text: str) -> str:
     # Expression complète dans \qty : la sortir de siunitx
     text = re.sub(r"\\qty\{(\\d?frac\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})\}\{(\\?\w+)\}",
                   r"\1\\,\\unit{\2}", text)
+    # v0.37 — même chose pour tout « nombre » qui est en fait un calcul :
+    # macro (\cdot, \cancel, \frac devant une unité composée), parenthèse ou
+    # exposant. siunitx v3 le refuse (« Invalid number ») et la compilation
+    # meurt. Mesuré le 21/10/2026 sur les 685 expressions distinctes des
+    # corrigés amont, composées une à une : 14 fatales, dont 6 de cette
+    # famille (frequenzgenauigkeit, ladung_energie, spule_2). Les sections
+    # n'en portent aucune — neutralité prouvée par génération.
+    text = _QTY_CALCUL.sub(r"\\ensuremath{\1}\\,\\unit{\2}", text)
+    # v0.37 — \num{10{:}1} : un rapport n'est pas un nombre. siunitx ne
+    # s'arrête pas (simple avertissement « Invalid number ») mais n'imprime
+    # RIEN : le corrigé AI306 sortait « mit einem -Tastkopf ». Le rapport est
+    # rendu tel quel, deux-points ordinaire grâce aux accolades.
+    text = re.sub(r"\\num\{(\d+)\{:\}(\d+)\}", r"\\ensuremath{\1{:}\2}", text)
     if UI_LANG == "fr":
         text = _proteger_rapports(text)
     return text

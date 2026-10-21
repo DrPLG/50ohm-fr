@@ -48,6 +48,20 @@ branche `version-a.4`.
   `\decibelmilliwatt`, `\dezibel` (`docs/defauts-amont.md` § 27). Déclarées
   dans le bloc d'unités commun, comme `\dBc` (décision de Pierre). Seule la
   classe des sept autres éditions change, de ces quatre lignes.
+- **Prototype compilé le 21/10/2026** (allemand, 20 × 24 marge, 281 corrigés,
+  6 min 53 s) : **278 pages**, contre 130 à 170 estimées — l'estimation
+  sous-comptait la place des questions ; environ une page par corrigé, 9 pages
+  blanches seulement. Contrôles : 0 erreur, 0 `??`, 0 question coupée,
+  0 figure coupée sur 14, 0 note de marge rétrogradée, 171 295 chaînes sur
+  475 704. **278 n'est pas un multiple de 4** (pour l'imprimeur : +2 pages
+  Notes). Compressé en `/ebook` : 1,5 Mo.
+- `fix_latex()` : trois règles pour les calculs passés à `\qty` et `\num`
+  dans les corrigés (`docs/defauts-amont.md` § 28) — 14 expressions fatales
+  et 1 silencieuse (AI306, « 10:1 » non imprimé), relevées toutes ensemble
+  par composition une à une des 685 expressions des corrigés. Neutralité
+  prouvée sur les huit arbres (sept éditions et A allemand).
+  La règle d'AI306 est postérieure au prototype compilé, qui porte encore
+  « mit einem -Tastkopf » ; vérifiée par composition isolée.
 
 #### Modifié — le CIR devient CIR 1, le BIR devient CIR 2 (11/10/2026)
 
