@@ -17,6 +17,28 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Ajouté — livret « Corrigés de la classe A », outillage (21/10/2026)
+
+- Feuille d'arbitrage nº 12, option D (livret séparé). Les « Lösungshinweise »
+  de l'amont (`contents/solutions/`), affichés sur le site et absents du livre
+  allemand : **281** pour les questions du livre A. **Aucun traduit à ce jour.**
+- Instantané amont basculé de `48e18bf4` à `0d034a09` : `diff -r` = les
+  9 corrigés neufs annoncés par l'API, 4 277 blobs identiques à l'arbre amont,
+  0 nom corrompu. L'ancien est conservé sous `50ohm-contents-dl-48e18bf4`.
+- `build_book.py` v0.37 : édition `CA`. Ordre et numéros du livre A, question
+  complète puis corrigé, étiquettes de figure suffixées au numéro de question,
+  index des numéros, « *n* corrigés sur *m* » en page de titre. En français,
+  seuls les corrigés traduits ; arrêt fatal sur corrigé hors manifeste, sans
+  original amont ou dont la question n'est plus appelée. **Neutralité prouvée**
+  par génération sans compilation : arbres N, E, A, NEA, SWL, CIR 1 et CIR 2
+  identiques à la v0.36. Prototype allemand généré (281 corrigés, 70 sections),
+  **jamais compilé**.
+- `verifier_amont.py` v0.4 : type `corriges` (`traductions/A/solutions/`,
+  `solutions-manifest.json`), essayé dans les quatre cas (non suivi, suivi,
+  dérive, introuvable).
+- `veille.py` v0.2 : les corrigés du livret A sortent du R0 (R1 traduits, R2 à
+  traduire) ; ligne d'information « *n* traduits sur *m* ».
+
 #### Modifié — le CIR devient CIR 1, le BIR devient CIR 2 (11/10/2026)
 
 - Décision de Pierre. `build_book.py` : éditions `CIR1` (répertoire `cir/`)

@@ -3,7 +3,7 @@
     "date_integration": "2026-10-21",
     "depot": "DARC-e-V/50ohm-contents-dl",
     "instantane": "C:\\50ohm\\50ohm-contents-dl-main",
-    "note": "écart R0 seul (contents/solutions), instantané 48e18bf4 conservé",
+    "note": "instantané basculé de 48e18bf4 (9 corrigés neufs, diff -r exact), ancien conservé sous 50ohm-contents-dl-48e18bf4",
     "sha": "0d034a090238113a7432f6905146371edd1440aa"
   },
   "generateur": {

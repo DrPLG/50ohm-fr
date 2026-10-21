@@ -4,7 +4,7 @@
 > **l'amont DARC** (contenus et générateur) et **les retours des relecteurs**.
 > Le réglementaire français et les outils de la chaîne restent hors protocole.
 >
-> Outil : `veille.py` v0.1. Registre des décisions :
+> Outil : `veille.py` v0.2. Registre des décisions :
 > `Fichierstravail/REGISTRE-VEILLE.md` (local, comme les feuilles d'arbitrage).
 
 Ce protocole **regroupe** ce qui existait en morceaux — `verifier_amont.py`,
@@ -58,9 +58,9 @@ CLAUDE.md § 11). Il faut aussi `gh` authentifié.
 
 | code | changement | réponse | qui |
 | --- | --- | --- | --- |
-| **R0** | hors périmètre : `solutions/`, `slides/`, `html/`, `static/`, section hors sommaire, dessin appelé par aucune section traduite | consigner ; solder par `amont-integre --note "écart R0 seul, instantané <sha> conservé"` | autonome |
-| **R1** | section **traduite** modifiée | nouvel instantané (§ 5) ; diff exact ; traduire le changement ; `verifier_traduction.py` ; réenregistrer au manifeste ; document réduit | **Pierre** dès que la prose change |
-| **R2** | section **au sommaire** sans traduction | traduire en entier, contrôles § 5 de CLAUDE.md, enregistrer | **Pierre** |
+| **R0** | hors périmètre : corrigé (`solutions/`) d'une question hors livret, `slides/`, `html/`, `static/`, section hors sommaire, dessin appelé par aucune section traduite | consigner ; solder par `amont-integre --note "écart R0 seul, instantané <sha> conservé"` | autonome |
+| **R1** | section ou corrigé **traduit** modifié | nouvel instantané (§ 5) ; diff exact ; traduire le changement ; `verifier_traduction.py` ; réenregistrer au manifeste ; document réduit | **Pierre** dès que la prose change |
+| **R2** | section **au sommaire**, ou corrigé d'une question du livret A (`solutions/`), sans traduction | traduire en entier, contrôles § 5 de CLAUDE.md, enregistrer | **Pierre** |
 | **R3** | dessin **forké** modifié | reporter le diff dans le fork ; compiler le dessin isolément ; `sonde_dessins.py` ; réenregistrer | autonome, sauf texte nouveau à traduire |
 | **R4** | dessin **non forké** mais appelé | sort tel quel à la recompilation ; vérifier qu'il n'ajoute pas d'allemand visible, sinon forker (→ R3) | autonome |
 | **R5** | question modifiée (détail par numéro dans le rapport) | traduite : revoir énoncé et réponses ; non traduite : rien, l'allemand est repris | **Pierre** si le sens change |
@@ -68,6 +68,13 @@ CLAUDE.md § 11). Il faut aussi `gh` authentifié.
 | **R7** | `latex/` amont (`settings.tex`, `.sty`) | document réduit **avant** toute compilation ; vérifier les patchs de `build_book.py` (substitution à zéro correspondance = arrêt, § 10) | **Pierre** |
 | **R8** | photo | sort telle quelle | autonome |
 | **R9** | générateur `renderer/` | régénérer les arbres N, E, A **sans compiler** avant et après ; comparer | **Pierre** si un arbre change |
+
+**Corrigés (`contents/solutions/`) — depuis le 21/10/2026, feuille nº 12.**
+Ceux des questions du livre A alimentent le livret « Corrigés de la classe A »
+(`--edition CA`) : traduits dans `traductions/A/solutions/`, suivis par
+`solutions-manifest.json` (`verifier_amont.py enregistrer --type corriges`).
+Les autres restent R0. Le rapport donne en information le nombre de corrigés
+traduits : ce stock ne change pas le code de retour.
 
 **Défaut amont rencontré en route** (unité non déclarée, coquille, label
 orphelin) : préserver, documenter dans `docs/defauts-amont.md`, ne jamais

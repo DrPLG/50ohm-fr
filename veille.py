@@ -42,11 +42,15 @@ deux sous-commandes explicites. Le rapport ne marque jamais rien comme vu :
     veille-amont.json                               versionné ; sha intégrés
     Fichierstravail/Relectures/veille-relectures.json  local ; fichiers reçus
 
-Version du script : v0.1 (21/10/2026).
+Version du script : v0.2 (21/10/2026) — les corrigés amont de la classe A
+(contents/solutions/) sortent du R0 : R1 s'ils sont traduits, R2 s'ils
+manquent au livret « Corrigés de la classe A » (feuille d'arbitrage nº 12).
+v0.1 (21/10/2026) : première version.
 """
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from datetime import date
@@ -74,8 +78,8 @@ PLAFOND_FICHIERS = 300
 # Réponses types — le détail est au §3 de docs/PROTOCOLE-MISES-A-JOUR.md.
 REPONSES = {
     "R0": "hors périmètre du livre — consigner, rien à faire",
-    "R1": "section traduite modifiée — resynchroniser la traduction",
-    "R2": "section au sommaire SANS traduction — traduire",
+    "R1": "section ou corrigé traduit modifié — resynchroniser la traduction",
+    "R2": "section au sommaire ou corrigé de livret SANS traduction — traduire",
     "R3": "dessin forké modifié — reporter le changement dans le fork",
     "R4": "dessin non forké employé — sort tel quel ; sonder à la recompilation",
     "R5": "question modifiée — revoir l'énoncé traduit",
@@ -85,6 +89,10 @@ REPONSES = {
     "R9": "générateur modifié — régénérer et comparer les arbres",
 }
 DECISION_PIERRE = {"R1", "R2", "R5", "R6", "R7", "R9"}
+# v0.2 — classes dotées d'un livret de corrigés (feuille nº 12, 21/10/2026).
+# Leurs corrigés amont sortent du R0 : R1 traduits, R2 à traduire.
+LIVRETS_CORRIGES = ("A",)
+MOTIF_QUESTION = re.compile(r"\[question:([A-Z]{2}\d{3})\]")
 
 
 class Incomplet(Exception):
@@ -121,8 +129,11 @@ def charger(chemin: Path, defaut):
 
 
 def sauver(chemin: Path, data):
+    # newline="\n" : sous Windows, write_text écrirait des CRLF dans un
+    # fichier versionné en LF (constaté le 21/10/2026 sur veille-amont.json).
     chemin.write_text(json.dumps(data, ensure_ascii=False, indent=2,
-                                 sort_keys=True) + "\n", encoding="utf-8")
+                                 sort_keys=True) + "\n", encoding="utf-8",
+                      newline="\n")
 
 
 # --------------------------------------------------------------------------
@@ -157,13 +168,39 @@ def index_local(instantane: Path):
         for chap in data.get("chapters", []):
             for s in chap.get("sections", []):
                 sommaires.setdefault(s["ident"], []).append(toc.stem)
-    return traduites, forkes, employes, questions, sommaires
+    # v0.2 — corrigés amont (contents/solutions/) : traduits pour un livret
+    # de classe (feuille nº 12), et questions que ce livret peut accueillir,
+    # c'est-à-dire celles que le livre de la classe appelle.
+    corriges = {}
+    for c in CLASSES:
+        for f in (RACINE / "traductions" / c / "solutions").glob("*.md"):
+            corriges.setdefault(f.stem, []).append(c)
+    questions_livret = {}
+    for c in LIVRETS_CORRIGES:
+        for ident in (i for i, eds in sommaires.items() if c in eds):
+            f = RACINE / "traductions" / c / "sections" / f"{ident}.md"
+            if not f.exists():
+                f = instantane / "contents" / "sections" / f"{ident}.md"
+            if f.exists():
+                for num in MOTIF_QUESTION.findall(f.read_text(encoding="utf-8")):
+                    questions_livret.setdefault(num, []).append(c)
+    return (traduites, forkes, employes, questions, sommaires,
+            corriges, questions_livret)
 
 
 def classer_contenu(chemin: str, idx):
     """Rend (code, précision) pour un fichier du dépôt de contenus."""
-    traduites, forkes, employes, _questions, sommaires = idx
+    (traduites, forkes, employes, _questions, sommaires,
+     corriges, questions_livret) = idx
     nom = Path(chemin)
+    if chemin.startswith("contents/solutions/") and nom.suffix == ".md":
+        num = nom.stem
+        if num in corriges:
+            return "R1", "corrigé traduit en " + ", ".join(corriges[num])
+        if num in questions_livret:
+            return "R2", ("corrigé à traduire pour le livret "
+                          + ", ".join(sorted(set(questions_livret[num]))))
+        return "R0", "corrigé d'une question hors livret"
     if chemin.startswith("contents/sections/") and nom.suffix == ".md":
         ident = nom.stem
         if ident in traduites:
@@ -327,6 +364,27 @@ def verifier_local(etat, lignes, a_traiter):
         raise Incomplet(f"verifier_amont.py rc={r.returncode}")
 
 
+def etat_livrets(etat, lignes):
+    """v0.2 — avancement des livrets de corrigés, pour information.
+
+    La veille ne classe que ce qui CHANGE en amont : les corrigés présents
+    avant leur entrée au périmètre (feuille nº 12) n'y paraîtraient jamais.
+    Ce stock ne modifie pas le code de retour — il est connu et planifié.
+    """
+    instantane = Path(etat["contenus"]["instantane"])
+    if not (instantane / "toc").is_dir():
+        raise Incomplet(f"instantané introuvable : {instantane}")
+    idx = index_local(instantane)
+    corriges, questions_livret = idx[5], idx[6]
+    lignes.append("\n## Livrets de corrigés (information)")
+    for c in LIVRETS_CORRIGES:
+        amont = {f.stem for f in (instantane / "contents" / "solutions").glob("*.md")
+                 if c in questions_livret.get(f.stem, [])}
+        faits = {n for n, eds in corriges.items() if c in eds}
+        lignes.append(f"   {c} : {len(faits & amont)} corrigé(s) traduit(s) sur "
+                      f"{len(amont)} à l'instantané local")
+
+
 # --------------------------------------------------------------------------
 # Relectures
 # --------------------------------------------------------------------------
@@ -399,6 +457,7 @@ def cmd_rapport(args):
         if not args.hors_ligne:
             etapes.append(lambda: veille_amont(etat, lignes, a_traiter))
         etapes.append(lambda: verifier_local(etat, lignes, a_traiter))
+        etapes.append(lambda: etat_livrets(etat, lignes))
     etapes.append(lambda: veille_relectures(lignes, a_traiter, args.hors_ligne))
     # Chaque étape est indépendante : l'échec de l'une n'empêche pas de
     # rapporter ce que les autres ont mesuré.

@@ -49,8 +49,10 @@ TROIS ÉTATS SONT RAPPORTÉS, et le troisième est le plus insidieux :
     dessins de la classe A (260, 303, 315), forkés après un « initialiser » :
     « verifier » répondait « 261 éléments suivis, 0 dérive » sans rien dire.
 
-Version du script : v0.3 — détection des forks absents du manifeste
-(v0.2 : généralisation aux sections ; v0.1 : dessins seuls).
+Version du script : v0.4 — suivi des corrigés traduits (type « corriges »,
+traductions/<CLASSE>/solutions/, feuille nº 12 du 21/10/2026)
+(v0.3 : détection des forks absents du manifeste ; v0.2 : généralisation aux
+sections ; v0.1 : dessins seuls).
 """
 import argparse
 import hashlib
@@ -100,6 +102,18 @@ TYPES = {
         "libelle": "section",
         "tri": lambda k: (0, k),
     },
+    # v0.4 — corrigés amont (« Lösungshinweise », contents/solutions/), traduits
+    # pour le livret « Corrigés de la classe A » (feuille d'arbitrage nº 12).
+    # Identifiés par le numéro de question : traductions/A/solutions/AB403.md.
+    "corriges": {
+        "amont": ("contents", "solutions"),
+        "suffixe": ".md",
+        "fork": "solutions",
+        "manifeste": "solutions-manifest.json",
+        "cle_date": "date_traduction",
+        "libelle": "corrigé",
+        "tri": lambda k: (0, k),
+    },
 }
 
 
@@ -134,6 +148,7 @@ def sauver_manifeste(edition: str, type_: str, data: dict):
     p.write_text(
         json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
+        newline="\n",   # v0.4 — sinon CRLF sous Windows, le dépôt est en LF
     )
 
 
@@ -286,7 +301,8 @@ def main():
                        help="Racine de 50ohm-contents-dl (amont).")
     p_enr.add_argument("--id", required=True,
                        help="Identifiant : numéro pour un dessin (357), "
-                            "nom de fichier sans extension pour une section.")
+                            "nom de fichier sans extension pour une section, "
+                            "numéro de question pour un corrigé (AB403).")
     p_enr.add_argument("--note", default="", help="Raison (facultatif).")
     p_enr.set_defaults(func=cmd_enregistrer)
 
@@ -311,7 +327,7 @@ def main():
     p_ver.add_argument("--input", required=True,
                        help="Racine de 50ohm-contents-dl (amont).")
     p_ver.add_argument("--type", choices=list(TYPES), default=None,
-                       help="Limiter à un type (par défaut : les deux).")
+                       help="Limiter à un type (par défaut : tous).")
     p_ver.add_argument("--edition", choices=CLASSES, default=None,
                        help="Limiter à une classe (par défaut : les trois).")
     p_ver.add_argument("--verbeux", action="store_true",

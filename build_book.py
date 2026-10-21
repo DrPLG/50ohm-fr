@@ -15,7 +15,28 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.36
+Version du script : v0.37
+    v0.37 — édition CA, le livret « Corrigés de la classe A » (feuille
+            d'arbitrage nº 12, 21/10/2026, option D : livret séparé, le
+            livre A ne bouge pas). Il compose les « Lösungshinweise » de
+            l'amont (contents/solutions/<nº>.md), que le site 50ohm.de
+            affiche question par question et que le livre allemand ignore.
+            *Ordre* : celui du livre A — mêmes chapitres et sections, aux
+            mêmes numéros ; section ou chapitre sans corrigé sautés ; index
+            des numéros en fin de livret. *Entrée* : la question complète,
+            puis son corrigé. *Étiquettes* : celles des figures et leurs
+            [ref:] sont suffixées au numéro de question (« -AF201 ») — deux
+            corrigés appellent le même dessin (806, 943), ce qui ne se voit
+            pas sur le site, où chaque corrigé est une page.
+            *En --lang fr*, seuls les corrigés TRADUITS sont composés
+            (<traductions>/solutions/, livret publié par tranches) ; la page
+            de titre dit « n corrigés sur m ». Arrêt fatal sur : corrigé
+            traduit absent du manifeste solutions-manifest.json, ou absent
+            de l'amont, ou dont la question n'est plus appelée par le livre
+            A ; aucun corrigé à composer. *En --lang de*, les corrigés amont
+            tels quels : c'est le prototype qui donne la pagination réelle.
+            Les autres éditions ne changent pas : la page de titre des
+            ouvrages autonomes est seulement factorisée avec celle du livret.
     v0.36 — tiret des plages de valeurs (décision de Pierre, 11/10/2026) :
             \sisetup{range-phrase=\text{--}} après \input{settings.tex}.
             Le range-phrase=-- de l'amont compose, en mode mathématique,
@@ -1868,6 +1889,8 @@ FR_TITLES = {
 	# devient CIR 2. Les répertoires restent cir/ et bir/.
 	"CIR1": "",
 	"CIR2": "",
+	# v0.37 — le décompte est substitué une fois le livret composé.
+	"CA": "Classe A\\\\@NCORRIGES@ corrigés sur @MCORRIGES@",
 }
 FR_CLASS_LETTER = {
 	"N": "N", "E": "E", "A": "A", "NE": "NE", "EA": "EA", "NEA": "NEA",
@@ -1878,6 +1901,8 @@ FR_CLASS_LETTER = {
 	# le 11/10/2026 (C / I / R / 1) : pile à vérifier sur épreuve.
 	"CIR1": "CIR1",
 	"CIR2": "CIR2",
+	# v0.37 — le livret de corrigés porte la lettre de sa classe.
+	"CA": "A",
 }
 # v0.35 — ouvrages FRANÇAIS autonomes : répertoire par défaut (à côté de ce
 # script) et titre sur deux lignes, en tête de la page de titre.
@@ -1888,6 +1913,139 @@ AUTONOMES = {
 	"CIR1": ("cir", "Certificat d'Initiation", "à la Radio\\,—\\,1"),
 	"CIR2": ("bir", "Certificat d'Initiation", "à la Radio\\,—\\,2"),
 }
+
+# v0.37 — livrets de corrigés (feuille d'arbitrage nº 12) : classe dont le
+# livret suit le sommaire, puis titre sur deux lignes, comme AUTONOMES.
+CORRIGES = {
+	"CA": ("A", "Corrigés", "de la classe A"),
+}
+MOTIF_QUESTION = re.compile(r"\[question:([A-Z]{2}\d{3})\]")
+_MOTIF_FIGURE = re.compile(r"\[(picture|photo):(\d+):([^:\]]+):")
+_MOTIF_RENVOI = re.compile(r"\[ref:([^\]\s]+)\]")
+
+
+def suffixer_etiquettes(texte: str, num: str) -> str:
+    r"""v0.37 — rend uniques, dans le livret, les étiquettes d'un corrigé.
+
+    Sur le site, chaque corrigé est une page : deux corrigés peuvent appeler
+    le même dessin sous la même étiquette (806 dans AF106 et AF201, 943 deux
+    fois). Réunis dans un livret, ils donneraient deux \label identiques, et
+    le second [ref:] pointerait vers la figure de l'autre corrigé. Seuls les
+    renvois à une étiquette DU MÊME corrigé sont suffixés : un renvoi vers
+    l'extérieur reste tel quel, et validate_output() le signale orphelin.
+    """
+    propres = {m.group(3) for m in _MOTIF_FIGURE.finditer(texte)}
+    texte = _MOTIF_FIGURE.sub(
+        lambda m: f"[{m.group(1)}:{m.group(2)}:{m.group(3)}-{num}:", texte)
+    return _MOTIF_RENVOI.sub(
+        lambda m: (f"[ref:{m.group(1)}-{num}]" if m.group(1) in propres
+                   else m.group(0)), texte)
+
+
+def questions_appelees(md_file: Path) -> list:
+    """Numéros des [question:…] d'une section, dans l'ordre, hors commentaires."""
+    nums = []
+    for ligne in md_file.read_text(encoding="utf-8").splitlines():
+        if not ligne.lstrip().startswith("%"):
+            nums += MOTIF_QUESTION.findall(ligne)
+    return nums
+
+
+def composer_corriges(chapters, contents, tr_dirs, tr_titles, lang, out,
+                      question_renderer):
+    """v0.37 — corps du livret de corrigés : rend (pièces, n, m, sections, index).
+
+    n = corrigés composés ; m = corrigés amont des questions du livre.
+    """
+    amont_sol = contents / "contents" / "solutions"
+    if lang == "fr":
+        sources = [d / "solutions" for d in tr_dirs if (d / "solutions").is_dir()]
+        if not sources:
+            raise SystemExit("!! livret de corrigés : aucun répertoire solutions/ dans "
+                             "les --translations (passer --translations traductions/A)")
+        for d in tr_dirs:
+            if not (d / "solutions").is_dir():
+                continue
+            man = d / "solutions-manifest.json"
+            suivis = json.loads(man.read_text(encoding="utf-8")) if man.exists() else {}
+            presents = sorted(f.stem for f in (d / "solutions").glob("*.md"))
+            sans = [n for n in presents if n not in suivis]
+            if sans:
+                raise SystemExit(f"!! corrigé(s) traduit(s) absent(s) de {man.name} — "
+                                 f"jamais signalé(s) en dérive : {' '.join(sans)}\n"
+                                 f"   verifier_amont.py enregistrer --type corriges …")
+            absents = [n for n in presents if not (amont_sol / f"{n}.md").exists()]
+            if absents:
+                raise SystemExit(f"!! corrigé(s) traduit(s) sans original amont "
+                                 f"(renommé ou retiré ?) : {' '.join(absents)}")
+    else:
+        sources = [amont_sol]
+    # Premier répertoire cité l'emporte, comme pour les sections.
+    dispo = {}
+    for s in reversed(sources):
+        for f in s.glob("*.md"):
+            dispo[f.stem] = f
+
+    titre_corrige = "Corrigé" if lang == "fr" else "Lösungshinweis"
+    pieces, vus, appelees, n_sections = [], [], set(), 0
+    for ci, chapter in enumerate(chapters, 1):
+        bloc = []
+        for si, section in enumerate(chapter["sections"], 1):
+            ident = section["ident"]
+            md_file = contents / "contents/sections" / f"{ident}.md"
+            for d in tr_dirs:
+                if (d / "sections" / f"{ident}.md").exists():
+                    md_file = d / "sections" / f"{ident}.md"
+                    break
+            if not md_file.exists():
+                print(f"!! section manquante : {ident}", file=sys.stderr)
+                continue
+            entrees = []
+            for num in questions_appelees(md_file):
+                appelees.add(num)
+                if num in dispo and num not in vus:
+                    vus.append(num)
+                    entrees.append(num)
+            if not entrees:
+                continue
+            tex = []
+            for num in entrees:
+                with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
+                    q = renderer.render(Document([f"[question:{num}]\n"]))
+                texte = suffixer_etiquettes(dispo[num].read_text(encoding="utf-8"), num)
+                with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
+                    c = renderer.render(Document(texte.splitlines(keepends=True)))
+                tex.append(f"\\phantomsection\\label{{DARCca:{num}}}%\n{q}"
+                           f"\\minisec{{{titre_corrige}}}\n{c}\n\\bigskip\n")
+            fichier = f"corriges_{ident}"
+            (out / "sections" / f"{fichier}.tex").write_text(
+                fix_latex("".join(tex)), encoding="utf-8")
+            sec_title = tr_titles["sections"].get(ident, section["title"])
+            # Même numéro que dans le livre, sections sautées comprises.
+            bloc.append(f"\\setcounter{{section}}{{{si - 1}}}\n"
+                        f"\\section{{{escape_latex(sec_title)}}}\n"
+                        f"\\input{{sections/{fichier}.tex}}\n")
+            n_sections += 1
+        if bloc:
+            ch_title = tr_titles["chapters"].get(chapter["title"], chapter["title"])
+            pieces.append(f"\n\\setcounter{{chapter}}{{{ci - 1}}}\n"
+                          f"\\chapter{{{escape_latex(ch_title)}}}\n" + "".join(bloc))
+
+    orphelins = sorted(set(dispo) - appelees)
+    if lang == "fr" and orphelins:
+        raise SystemExit(f"!! corrigé(s) traduit(s) dont la question n'est plus appelée "
+                         f"par le livre : {' '.join(orphelins)}")
+    if not vus:
+        raise SystemExit("!! livret de corrigés : aucun corrigé à composer")
+    m = sum(1 for n in appelees if (amont_sol / f"{n}.md").exists())
+
+    titre_index = "Index des questions" if lang == "fr" else "Fragenverzeichnis"
+    index = [f"\n\\chapter*{{{titre_index}}}\n"
+             f"\\addcontentsline{{toc}}{{chapter}}{{{titre_index}}}\n"
+             "\\begin{multicols}{4}\\small\\raggedright\n"]
+    index += [f"\\noindent {n}\\dotfill\\pageref{{DARCca:{n}}}\\par\n" for n in sorted(vus)]
+    index.append("\\end{multicols}\n")
+    return pieces, len(vus), m, n_sections, "".join(index)
 
 MASTER_FOOTER = r"""
 \printindex
@@ -2284,7 +2442,7 @@ def link_dir(link: Path, target: Path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N",
-                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2"])
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2", "CA"])
     ap.add_argument("--local", default=None,
                     help="Éditions CIR1 et CIR2 (v0.34, v0.35) : répertoire de l'ouvrage — "
                          "toc.json, sections/, questions/, dessins/. Défaut : cir/ "
@@ -2344,7 +2502,11 @@ def main():
             if not (local / quoi).exists():
                 raise SystemExit(f"!! édition {args.edition} : {quoi} absent de {local}")
         args.translations = [str(local)] + list(args.translations)
-    toc_path = (local / "toc.json") if est_autonome else chemin_toc(contents, args.edition)
+    # v0.37 — le livret de corrigés suit le sommaire de sa classe.
+    est_corriges = args.edition in CORRIGES
+    toc_path = ((local / "toc.json") if est_autonome
+                else chemin_toc(contents, CORRIGES[args.edition][0] if est_corriges
+                                else args.edition))
     attendus = [
         (contents / "latex" / "settings.tex", "fichiers LaTeX du dépôt de contenus"),
         (toc_path, f"sommaire de l'édition {args.edition}"),
@@ -2713,8 +2875,14 @@ def main():
     if args.lang == "fr":
         title = FR_TITLES[args.edition]
         header = MASTER_HEADER_FR.replace("@TITLE@", title)
-        if est_autonome:
-            for ancien, neuf in (
+        # v0.37 — le livret de corrigés prend la page de titre des ouvrages
+        # autonomes (nom sur deux lignes, sous-titre propre), mais reste une
+        # traduction : le pied de page n'est pas réécrit.
+        titre_propre = AUTONOMES.get(args.edition) or CORRIGES.get(args.edition)
+        if titre_propre:
+            sous_titre = ("Manuel de l'élève" if est_autonome
+                          else "Lösungshinweise du DARC, traduits")
+            remplacements = [
                 # Le nom du brevet est le titre (décision de Pierre sur
                 # épreuve, 30/09/2026) : deux lignes, dans un corps réduit
                 # de 56 à 32 pt en A4 pour que « Brevet d'Initiation » tienne
@@ -2725,8 +2893,8 @@ def main():
                  # \\spaceskip : l'alignement du nœud fige l'espace entre mots sur le
                  # corps courant (10 pt) ; à 31 pt les mots se touchaient.
                  "\\selectfont\\bfseries\\spaceskip=\\fontdimen2\\font\\relax "
-                 + AUTONOMES[args.edition][1] + "\\\\"
-                 + AUTONOMES[args.edition][2] + "\\par}"),
+                 + titre_propre[1] + "\\\\"
+                 + titre_propre[2] + "\\par}"),
                 # Sous-titre « Manuel de l'élève ». Le titre se termine par
                 # \\par, pour que sa dernière ligne garde son interligne :
                 # le saut qui suit devient un \\vspace (un \\\\ après \\par
@@ -2734,12 +2902,16 @@ def main():
                 ("\\\\[0.0167362\\paperwidth]\n\t\t {\\Large\\color{TitleBand}"
                  "\\bfseries Préparation à l'examen radioamateur}",
                  "\\vspace{0.0167362\\paperwidth}\n\t\t {\\Large\\color{TitleBand}"
-                 "\\bfseries Manuel de l'élève}"),
-                ("Réalisé à partir des contenus de 50ohm.de (en allemand)",
-                 "D'après les contenus de 50ohm.de"),
-                ("Traduit avec l'aide d'une IA par Pierre F4JWI",
-                 "Adapté avec l'aide d'une IA par Pierre F4JWI"),
-            ):
+                 "\\bfseries " + sous_titre + "}"),
+            ]
+            if est_autonome:
+                remplacements += [
+                    ("Réalisé à partir des contenus de 50ohm.de (en allemand)",
+                     "D'après les contenus de 50ohm.de"),
+                    ("Traduit avec l'aide d'une IA par Pierre F4JWI",
+                     "Adapté avec l'aide d'une IA par Pierre F4JWI"),
+                ]
+            for ancien, neuf in remplacements:
                 if header.count(ancien) != 1:
                     raise SystemExit(f"!! v0.34 : page de titre, {header.count(ancien)} "
                                      f"occurrence(s) de « {ancien} » au lieu d'une.")
@@ -2807,7 +2979,14 @@ def main():
         header = header.replace("@VERSION@", args.version_label)
         master = [header]
     else:
-        master = [MASTER_HEADER_DE.replace("@TITLE@", escape_latex(toc["title"]))]
+        master = [MASTER_HEADER_DE.replace("@TITLE@", escape_latex(
+            ("Lösungshinweise --- " if est_corriges else "") + toc["title"]))]
+    if est_corriges:
+        # v0.37 — l'index des numéros, en fin de livret, est sur quatre colonnes.
+        if master[0].count("\\begin{document}") != 1:
+            raise SystemExit("!! v0.37 : \\begin{document} introuvable dans l'en-tête.")
+        master[0] = master[0].replace("\\begin{document}",
+                                      "\\usepackage{multicol}\n\\begin{document}")
 
     # v0.9 — Pièces liminaires optionnelles : avant-propos, remerciements,
     # avertissement. Rendues par la même chaîne DARCdown que les sections — gras,
@@ -2845,7 +3024,20 @@ def main():
         chapters = chapters[: args.limit_chapters]
 
     n_sections = 0
-    for chapter in chapters:
+    if est_corriges:
+        pieces, n_corriges, m_corriges, n_sections, index_corriges = composer_corriges(
+            chapters, contents, tr_dirs, tr_titles, args.lang, out, question_renderer)
+        master += pieces
+        master.append(index_corriges)
+        for marque, valeur in (("@NCORRIGES@", n_corriges), ("@MCORRIGES@", m_corriges)):
+            if args.lang == "fr" and master[0].count(marque) != 1:
+                raise SystemExit(f"!! v0.37 : page de titre, {master[0].count(marque)} "
+                                 f"occurrence(s) de {marque} au lieu d'une.")
+            master[0] = master[0].replace(marque, str(valeur))
+        chapters_corps = []         # le corps du livret est déjà composé
+    else:
+        chapters_corps = chapters
+    for chapter in chapters_corps:
         if est_autonome:
             # v0.34 — un chapitre pas encore rédigé est sauté ; les autres
             # gardent le numéro de leur séance.
@@ -2880,20 +3072,32 @@ def main():
             master.append(f"\\input{{sections/{ident}.tex}}\n")
             n_sections += 1
 
-    master.append(MASTER_FOOTER)
+    if est_corriges:
+        # v0.37 — pas d'index alphabétique : les corrigés n'en portent aucune
+        # entrée, et l'index des numéros le remplace.
+        if MASTER_FOOTER.count("\\printindex\n") != 1:
+            raise SystemExit("!! v0.37 : \\printindex introuvable dans MASTER_FOOTER.")
+        master.append(MASTER_FOOTER.replace("\\printindex\n", ""))
+    else:
+        master.append(MASTER_FOOTER)
     master_file = out / f"book-{args.edition}.tex"
     master_file.write_text("".join(master), encoding="utf-8")
 
     n_warn = validate_output(out, toc, tr_titles, tr_dirs)
 
     print(f"OK : {n_sections} sections rendues dans {out}"
-          + (f" ({n_translated} traduites)" if tr_dirs else "")
+          + (f" ({n_translated} traduites)" if tr_dirs and not est_corriges else "")
           + (f", {qb.n_translated_q} questions traduites" if q_translations else "")
           + (f", {n_dessins_forkes} dessin(s) francisé(s)" if n_dessins_forkes else ""))
+    if est_corriges:
+        print(f"   {n_corriges} corrigé(s) composé(s) sur {m_corriges} "
+              f"pour les questions du livre {CORRIGES[args.edition][0]}")
     # Une section sans fichier français sort EN ALLEMAND sans erreur ni message.
     # Sur une édition combinée, c'est le défaut le plus facile à ne pas voir :
     # le livre compile, il est simplement bilingue par endroits.
-    if tr_dirs and n_translated < n_sections:
+    # v0.37 — sans objet pour un livret de corrigés : ses « sections » sont
+    # des corrigés, comptés à part.
+    if tr_dirs and n_translated < n_sections and not est_corriges:
         manque = n_sections - n_translated
         print(f"!! {manque} section(s) sans traduction française : elles sortiront "
               f"EN ALLEMAND. Vérifier que tous les répertoires de classe sont "
