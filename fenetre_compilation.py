@@ -49,6 +49,12 @@ PIÈGES DU DÉPÔT REPRIS ICI, chacun payé au moins une fois :
 
 HISTORIQUE :
 
+  v0.6 (21/10/2026) — case « Corrigés A » : le livret des corrigés de la
+     classe A (édition CA de build_book.py v0.37, feuille d'arbitrage nº 12).
+     --translations traductions/A, étiquette a.4, ni pièce liminaire ni
+     couverture ; verifier_figures.py v0.2 le connaît. Sortie build-CA en A4,
+     build-CA-<format> sinon, comme les autres livres.
+
   v0.5 (11/10/2026) — le CIR 2 reçoit son avant-propos (bir/avant-propos.md),
      passé d'office en --front-matter « Avant-propos » ; table
      PIECES_AUTONOMES. Les cases des pièces « du traducteur » restent sans
@@ -123,9 +129,15 @@ RACINE = Path(__file__).resolve().parent
 #  Tables — tout ce qui est propre au projet vit ici, et nulle part ailleurs.
 # ---------------------------------------------------------------------------
 
-EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2"]
+EDITIONS = ["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2", "CA"]
 # Libellé de la case, quand il diffère du code passé à build_book.py.
-LIBELLES_EDITIONS = {"CIR1": "CIR 1", "CIR2": "CIR 2"}
+LIBELLES_EDITIONS = {"CIR1": "CIR 1", "CIR2": "CIR 2", "CA": "Corrigés A"}
+
+# v0.6 — livrets de corrigés (build_book.py v0.37, feuille d'arbitrage nº 12).
+# Traductions des « Lösungshinweise » amont : étiquette des livres de classe,
+# mais ni avant-propos ni remerciements du traducteur — décision non prise,
+# le livret n'en prévoit pas.
+LIVRETS = {"CA"}
 
 # Étiquettes de version proposées : celle du chantier en cours pour les livres
 # de classe, et la numérotation propre des CIR 1 et CIR 2.
@@ -148,6 +160,9 @@ CLASSES_TRADUCTION = {
     "NE": ["E", "N"],
     "EA": ["A", "E"],
     "NEA": ["A", "E", "N"],
+    # Le livret lit les corrigés traduits dans traductions/A/solutions/, et
+    # les énoncés, titres et dessins francisés du même répertoire.
+    "CA": ["A"],
 }
 
 # Répertoires dont seules les QUESTIONS sont reprises (--questions-from,
@@ -186,8 +201,9 @@ PIECES_AUTONOMES = {
 # à 685 et 621 pt. Une seule mesure ne fait pas une référence.
 NMARGE_ATTENDU = {"N": 1, "E": 0, "A": 4, "NEA": 5, "SWL": 1}
 
-# verifier_figures.py ne connaît que ces livres (sa liste LIVRES).
-FIGURES_LIVRES = {"N", "E", "A", "NEA", "SWL"}
+# verifier_figures.py ne connaît que ces livres (sa liste LIVRES ; CA depuis
+# sa v0.2).
+FIGURES_LIVRES = {"N", "E", "A", "NEA", "SWL", "CA"}
 
 # couverture.tex ne sait pas faire le SWL : sa 4e de couverture parle des
 # classes N, E et A, et le texte propre au cursus n'est pas rédigé.
@@ -203,6 +219,8 @@ DUREES = {
     "N": "environ 10 min", "E": "environ 25 min", "A": "environ 50 min",
     "NEA": "environ 1 h 40", "SWL": "quelques minutes",
     "CIR1": "quelques minutes", "CIR2": "quelques minutes",
+    # Prototype allemand complet (281 corrigés, 278 p.), 21/10/2026.
+    "CA": "environ 7 min",
     "NE": "durée inconnue — jamais compilée",
     "EA": "durée inconnue — jamais compilée",
 }
@@ -906,7 +924,7 @@ class Fenetre:
         self.tk.after(20000, self._etat_ressources)
 
     def _verdict_environnement(self):
-        self._ecrire("fenetre_compilation.py v0.5\n", "titre")
+        self._ecrire("fenetre_compilation.py v0.6\n", "titre")
         if self.generateur:
             self._ecrire("Générateur : {}\n".format(self.generateur))
             self._ecrire("Contenus   : {}\n".format(self.contenus))
@@ -976,7 +994,8 @@ class Fenetre:
     def _pieces_choisies(self):
         # Les CIR 1 et CIR 2 ne sont pas des traductions : ni avant-propos ni
         # remerciements « du traducteur », mais leurs propres pièces (v0.5).
-        if self.v_edition.get() in AUTONOMES:
+        # Un livret de corrigés n'en a pas non plus (v0.6).
+        if self.v_edition.get() in AUTONOMES | LIVRETS:
             return [(t, f) for t, f in PIECES_AUTONOMES.get(self.v_edition.get(), [])
                     if (RACINE / f).exists()]
         return [PIECES[i] for i, v in enumerate(self.v_pieces) if v.get()]
