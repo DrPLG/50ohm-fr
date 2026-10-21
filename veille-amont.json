@@ -1,0 +1,14 @@
+{
+  "contenus": {
+    "date_integration": "2026-10-21",
+    "depot": "DARC-e-V/50ohm-contents-dl",
+    "instantane": "C:\\50ohm\\50ohm-contents-dl-main",
+    "note": "écart R0 seul (contents/solutions), instantané 48e18bf4 conservé",
+    "sha": "0d034a090238113a7432f6905146371edd1440aa"
+  },
+  "generateur": {
+    "date_integration": "2026-09-17",
+    "depot": "DARC-e-V/50ohm",
+    "sha": "28cf11437e80e03920e5ef1cb00f43b7fc375c29"
+  }
+}
