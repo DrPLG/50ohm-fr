@@ -1169,3 +1169,25 @@ et le prototype compile en `rc=0` (278 pages).
 **Correctif à proposer au DARC :** sortir les calculs de `\qty` (écrire
 `$29 \cdot \cancel{10^6}\,\unit{\hertz}$`), utiliser la notation `e-6` de
 siunitx, et écrire le rapport `$10:1$` hors de `\num`.
+
+## 29. Corrigés du chapitre 2 de A : erreurs de fond et coquilles
+
+**Constaté le** 21/10/2026, en traduisant la première tranche du livret
+« Corrigés de la classe A » (21 corrigés, chapitre 2).
+
+**Erreurs de fond**, laissées en l'état dans la traduction sauf mention :
+
+| corrigé | défaut | traduction française |
+| --- | --- | --- |
+| AB102 | le corrigé **s'arrête** sur la donnée de la section, sans calcul ni résultat | traduit tel quel, inachevé |
+| AB503 | « *Strom* : $R = \qty{100}{\ohm}$ » — « courant » pour une résistance | **« Résistance : »** — corrigé, décision de Pierre du 21/10/2026 |
+| AI105 | « l'échauffement est proportionnel à l'intensité du courant » : il l'est à son **carré** ($P = R I^2$), c'est même pour cela que le thermoconvertisseur donne la valeur efficace | **« proportionnel au carré de l'intensité »** — corrigé, décision de Pierre du 21/10/2026 |
+| AB101 | $\rho=0,018\frac{mm^2}{m}$ : il manque les ohms (la ligne suivante écrit bien `\ohm\milli\meter\squared\per\meter`) | formule verbatim (§ 5) |
+| AA107 | « le gain de $\qty{10}{\dBW}$ » : un gain s'exprime en dB, pas en dBW | formule verbatim |
+| AA109 | $10 \cdot \qty{3}{\dBm}$ et AA111 $20 \cdot \qty{1.176}{\dB}$ : l'unité est collée au logarithme, pas au résultat | formules verbatim |
+
+**Coquilles de prose**, sans effet sur la traduction : *Eingangsleitung* pour
+*Eingangsleistung* (AA106, AA107), *einfach Addition* (AA107, AA109),
+*Wir setzten* (AA110), *aus den Hilfsmittel* (AA108, AA109, AA110).
+
+**À signaler au DARC**, en allemand, avec les autres.

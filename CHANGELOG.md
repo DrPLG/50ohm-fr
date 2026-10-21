@@ -62,6 +62,23 @@ branche `version-a.4`.
   prouvée sur les huit arbres (sept éditions et A allemand).
   La règle d'AI306 est postérieure au prototype compilé, qui porte encore
   « mit einem -Tastkopf » ; vérifiée par composition isolée.
+- `verifier_traduction.py` v0.2 : option `--corriges` ; `--tout` couvre aussi
+  les corrigés. Sections inchangées (412 éléments, même verdict qu'en v0.1).
+- Livret : les intertitres des corrigés (« Gegeben », « Lösungsweg ») sortent
+  en `\minisec` au lieu de sous-sections numérotées inscrites au sommaire
+  (47 entrées parasites sur le prototype).
+- `fenetre_compilation.py` v0.6 : case « Corrigés A » (édition `CA`,
+  `--translations traductions/A`, étiquette a.4, ni pièce liminaire ni
+  couverture, `verifier_figures.py` lancé). Commande vérifiée par script en A4
+  et en 20 × 24 marge ; la fenêtre elle-même n'a pas été ouverte.
+- **Tranche 1 traduite** (chapitre 2, 21 corrigés, ~1 400 mots), en attente de
+  relecture par Pierre : `verifier_traduction.py` 21/21 conformes, manifeste
+  enregistré (`verifier_amont.py` : 666 éléments, 0 dérive), document réduit
+  compilé (22 pages, 0 erreur, 0 `??`, 0 question coupée). Défauts amont
+  relevés : `docs/defauts-amont.md` § 29. Deux corrigés de fond, décision de
+  Pierre du 21/10/2026 : AB503 « Résistance » (l'amont écrit *Strom*), AI105
+  échauffement « proportionnel au carré de l'intensité » (l'amont : à
+  l'intensité).
 
 #### Modifié — le CIR devient CIR 1, le BIR devient CIR 2 (11/10/2026)
 

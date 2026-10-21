@@ -71,14 +71,18 @@ Usage :
     python verifier_traduction.py --amont <chemin>/50ohm-contents-dl-main A
     python verifier_traduction.py --amont <chemin> A swr_meter_2 traps
     python verifier_traduction.py --amont <chemin> --tout
+    python verifier_traduction.py --amont <chemin> A --corriges [AB403 ...]
 
 Code de retour : 1 si au moins un contrôle échoue, 0 sinon — même convention
 que verifier_amont.py et sonde_dessins.py.
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version : v0.1 (17/08/2026) — écrit pendant la resynchronisation amont
-(feuille d'arbitrage nº 5), versé au dépôt sur décision de Pierre.
+Version : v0.2 (21/10/2026) — les corrigés traduits pour le livret
+« Corrigés de la classe A » (traductions/A/solutions/, feuille d'arbitrage
+nº 12) passent les mêmes huit contrôles ; --tout les inclut.
+v0.1 (17/08/2026) — écrit pendant la resynchronisation amont (feuille
+d'arbitrage nº 5), versé au dépôt sur décision de Pierre.
 """
 import argparse
 import pathlib
@@ -360,14 +364,23 @@ def formules(texte):
             for m in FORMULE.finditer(l)]
 
 
-def controler(racine, classe, ident, amont):
+# v0.2 — un corrigé (« Lösungshinweis », feuille nº 12) se contrôle comme une
+# section : mêmes huit contrôles, seuls les répertoires changent.
+DOSSIERS = {
+    "sections": ("sections", ("contents", "sections")),
+    "corriges": ("solutions", ("contents", "solutions")),
+}
+
+
+def controler(racine, classe, ident, amont, type_="sections"):
     """Renvoie la liste des anomalies ; vide = tout va bien."""
-    f_fr = racine / "traductions" / classe / "sections" / f"{ident}.md"
-    f_de = amont / "contents" / "sections" / f"{ident}.md"
+    local, distant = DOSSIERS[type_]
+    f_fr = racine / "traductions" / classe / local / f"{ident}.md"
+    f_de = amont.joinpath(*distant, f"{ident}.md")
     if not f_fr.is_file():
         return [f"traduction absente : {f_fr}"]
     if not f_de.is_file():
-        return [f"amont absent (section supprimée en amont ?) : {f_de}"]
+        return [f"amont absent (supprimé en amont ?) : {f_de}"]
 
     fr = sans_encarts_france(f_fr.read_text(encoding="utf-8"))
     de = f_de.read_text(encoding="utf-8")
@@ -453,7 +466,12 @@ def main():
     ap.add_argument("--racine", default=None,
                     help="racine du dépôt (défaut : le répertoire de ce script)")
     ap.add_argument("--tout", action="store_true",
-                    help="les trois classes, toutes leurs sections")
+                    help="toutes les classes, toutes leurs sections ET tous "
+                         "leurs corrigés")
+    ap.add_argument("--corriges", action="store_true",
+                    help="v0.2 — vérifier les corrigés (traductions/<CLASSE>/"
+                         "solutions/) au lieu des sections ; les idents sont "
+                         "alors des numéros de question (AB403)")
     args = ap.parse_args()
 
     racine = pathlib.Path(args.racine).resolve() if args.racine \
@@ -462,21 +480,23 @@ def main():
     if not (amont / "contents" / "sections").is_dir():
         sys.exit(f"amont introuvable : {amont}\\contents\\sections")
 
+    def presents(classe, type_):
+        dossier = racine / "traductions" / classe / DOSSIERS[type_][0]
+        return [p.stem for p in sorted(dossier.glob("*.md"))]
+
     if args.tout:
-        travail = [(c, p.stem)
-                   for c in CLASSES
-                   for p in sorted((racine / "traductions" / c / "sections").glob("*.md"))]
+        travail = [(c, i, t) for t in DOSSIERS for c in CLASSES
+                   for i in presents(c, t)]
     elif not args.classe:
         ap.error("préciser une classe, ou --tout")
     else:
-        idents = args.idents or [
-            p.stem for p in
-            sorted((racine / "traductions" / args.classe / "sections").glob("*.md"))]
-        travail = [(args.classe, i) for i in idents]
+        type_ = "corriges" if args.corriges else "sections"
+        idents = args.idents or presents(args.classe, type_)
+        travail = [(args.classe, i, type_) for i in idents]
 
     echecs = derogations = ok = 0
-    for classe, ident in travail:
-        pb = controler(racine, classe, ident, amont)
+    for classe, ident, type_ in travail:
+        pb = controler(racine, classe, ident, amont, type_)
         if not pb:
             ok += 1
             if len(travail) <= 20:
@@ -490,7 +510,7 @@ def main():
             for x in pb:
                 print(f"  {x}")
 
-    print(f"\n{len(travail)} section(s) : {ok} conforme(s), "
+    print(f"\n{len(travail)} élément(s) : {ok} conforme(s), "
           f"{derogations} dérogation(s) assumée(s), {echecs} écart(s).")
     if echecs:
         print("Rappel : un ajout français hors encart <france> est compté ici "

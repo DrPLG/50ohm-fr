@@ -1,1 +1,107 @@
-{}
+{
+  "AA102": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "c325a6bca95d3cdf98bad5bc99d464f54c94e7029856b8432ce95d2d5f980183"
+  },
+  "AA103": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "ad38c4e0d4aa69edcc542094388c442502c5b50f54d4c88036f4c3b4f72cfc5f"
+  },
+  "AA105": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "61ba705982c3ca09d75a2b69c99730bb93568b58076209e8efe8c6d592b1643e"
+  },
+  "AA106": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "9000d7174d268d00435993039d4cbd480df7ae8c6f078ffc228f1285e080f7ad"
+  },
+  "AA107": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "e14ca61470f433cecf77f4866153617b2ef4e058a291101abef432acc9753f29"
+  },
+  "AA108": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "08c5aa46dbccde1ad55c6d5a200c28e4e94b1ce8bf3d3671e02fbf5176760181"
+  },
+  "AA109": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "5f4e27da26299b8d0cf8659c9d309406ef8d4560a9953b325d6a9a83f285c936"
+  },
+  "AA110": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "58a4c5bad58bab2b8ea8047d77b104efffd93baeadd17f0cad4da57837716e51"
+  },
+  "AA111": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "aff7b1dda596a5d8cd4d63f52fe915a94ecbb05ccb78f55d4d040b8538a67b25"
+  },
+  "AA112": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "ab794f9439623c0b95ac9ed6967647811626a82c3229a63f58d8ebf1a1027225"
+  },
+  "AB101": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "8c896eaae2e07cb6cfae0c17dfdd19dc786a2b6e0547ed0d7a1d067119835f68"
+  },
+  "AB102": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "46931a6dfe55379b4ca32b18c33e8f6ef1b865261c3f37927dcd310e7e143835"
+  },
+  "AB301": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "497ad7bbd441ecb944cefed108fedbf7f93c94de58b61a2652a3650f0b6b89af"
+  },
+  "AB502": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "d8a77c25b50397bbc7ca67c1abc6ccc9e9510ed068cf2f6ad4419d8aaa101a19"
+  },
+  "AB503": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "f27e6ce950087b926ed893a84ee5d13cda1643666c55ba7ffdb2113acb435704"
+  },
+  "AD426": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "5c6c8266f54e325e55f104178664fb0606c14749c9065f0f2f76c8f671047069"
+  },
+  "AD427": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "369cabc38aaa8f2841cbcac44d90680fe36fdd60aff3a760abf5c55d3d86d8cd"
+  },
+  "AD428": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "a56e37e1f8a87ad738be8230ed7f4ae2ce3886f7f7fe6e98690981af93c6a447"
+  },
+  "AF428": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "6bdb99216707df9acb54741226a12a19f8434eac189e39794b5e1670f9c682f3"
+  },
+  "AI104": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "c693335debeb1d85a58730bec7f309915fa31f0005c33328d272312bc8e947df"
+  },
+  "AI105": {
+    "date_traduction": "2026-10-21",
+    "note": "tranche 1, chapitre 2",
+    "sha256_amont": "42df434d2a6539ca7d780026c078b8bc6874889658738cfd6aae8bc459d3c0db"
+  }
+}

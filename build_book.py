@@ -2019,6 +2019,11 @@ def composer_corriges(chapters, contents, tr_dirs, tr_titles, lang, out,
                 texte = suffixer_etiquettes(dispo[num].read_text(encoding="utf-8"), num)
                 with BookLaTeXRenderer(question_renderer=question_renderer) as renderer:
                     c = renderer.render(Document(texte.splitlines(keepends=True)))
+                # Les intertitres d'un corrigé (« # Gegeben », « # Lösungsweg »)
+                # sortent en \subsection : numérotés, au sommaire (47 entrées
+                # sur le prototype), et décalant la numérotation. Même remède
+                # que pour les pièces liminaires, en plus discret.
+                c = re.sub(r"\\(?:sub)*section\*?\{", r"\\minisec{", c)
                 tex.append(f"{q}\\minisec{{{titre_corrige}}}\n{c}\n\\bigskip\n")
             fichier = f"corriges_{ident}"
             (out / "sections" / f"{fichier}.tex").write_text(
