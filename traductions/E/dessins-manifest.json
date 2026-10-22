@@ -59,6 +59,11 @@
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "4a86f01d72278f14da5a0366f8bf4ff7d0f695b2f919966874906e21fdb2ea08"
   },
+  "1141": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) et boucle superieure a 3 unites, chevauchements dus a l'autoscale",
+    "sha256_amont": "47cb328a4b9e578675d9c9e44f0fa86e8690f19dcc516b5e39c0f8f8af1783ad"
+  },
   "192": {
     "date_fork": "2026-08-15",
     "note": "fork B4 du 14/08/2026 : dessins affichant de l'allemand, forkes depuis l'amont du jour et traduits",
@@ -114,6 +119,11 @@
     "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
     "sha256_amont": "cec2b167d0a40e33cdb818f3ad16f5e0c10b84a6ed2e001c289e4e8f82fa1e9d"
   },
+  "306": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) et boucle superieure a 3 unites, chevauchements dus a l'autoscale",
+    "sha256_amont": "51c12cdf015139acfd81c151f40c878e21cc950080a06999e77c2ad47534d4f8"
+  },
   "311": {
     "date_fork": "2026-08-15",
     "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
@@ -128,6 +138,16 @@
     "date_fork": "2026-08-15",
     "note": "Feuille d'arbitrage nº 3 — francisation des dessins (15/08/2026)",
     "sha256_amont": "93352149c11b78c29bb8a915171f66254aaf43234ca5c1184b0469865f960ae3"
+  },
+  "395": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) et boucle superieure a 3 unites, chevauchements dus a l'autoscale",
+    "sha256_amont": "ecd03ba1401cf2591c32e94e3eaa7d8af970be64576543f330dc9b3f063056c9"
+  },
+  "396": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) et boucle superieure a 3 unites, chevauchements dus a l'autoscale",
+    "sha256_amont": "24f4a1d126ff74f51f04b9970d9a6b086cd043cf14c048c7611f9c7ef7662fb9"
   },
   "411": {
     "date_fork": "2026-08-15",
@@ -218,6 +238,21 @@
     "date_fork": "2026-08-11",
     "note": "fork initial (session 2026-08-11)",
     "sha256_amont": "4ba428179339e1ed2c603237f32a71fc06f86897c99d5ea694491050d1ae588c"
+  },
+  "816": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) comme 1141, harmonisation des etapes, decision de Pierre",
+    "sha256_amont": "3074c8128d8057c30dfad76ba5e42d568c96b70cab2136d0cbc7889f0bda820b"
+  },
+  "817": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) comme 1141, harmonisation des etapes, decision de Pierre",
+    "sha256_amont": "fff1076abf3910777367e6880d5190de906f5c107a6905ce57d202770eacafb9"
+  },
+  "818": {
+    "date_fork": "2026-10-21",
+    "note": "Fork mise en page 21/10/2026 : composants reduits (bipoles/length=0.7cm) comme 1141, harmonisation des etapes, decision de Pierre",
+    "sha256_amont": "8b5646c0beb78e8c8199f20e92bd756bbd8ce7bddfdfc201521ff2480999f292"
   },
   "828": {
     "date_fork": "2026-08-11",

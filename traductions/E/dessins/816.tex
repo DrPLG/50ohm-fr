@@ -1,0 +1,20 @@
+% Author: Prof. Dr. Matthias Jung, DL9MJ
+% Year: 2024
+% Fork 50ohm-fr (21/10/2026), montage inchange : composants reduits comme
+% au dessin 1141 (Etape 0), pour que les quatre etapes soient homogenes.
+\begin{circuitikz}[american]
+    \ctikzset{bipoles/length=0.7cm}
+    \draw (0, 1.5) node [ocirc](I1){};
+    \draw (0,-1.5) node [ocirc](I2){};
+    \draw (I1) to [european resistor, l={$R_1=\qty{200}{\ohm}$}] ++(3,0) coordinate(C1) 
+               to [european resistor, l={$R_2=\qty{200}{\ohm}$}] ++(3,0) coordinate(C2)
+               to [european resistor, l={$R_8=\qty{200}{\ohm}$},-*] ++(3,0) coordinate(C3)
+               to [short] ++(0,-3)
+               to [european resistor, l={$R_4=\qty{150}{\ohm}$}] (I2);
+    \draw (C1) to [short, *-] ++(0,-2)
+               to [european resistor, l={$R_{3,6}=\qty{200}{\ohm}$}] ++(3,0)
+               to [short, -*] ++(0,2);
+    \draw (C2) to [short] ++(0,2)
+               to [european resistor, l ={$R_{5,7}=\qty{200}{\ohm}$}] ++(3,0)
+               to [short] (C3);
+\end{circuitikz}

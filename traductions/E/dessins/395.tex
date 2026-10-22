@@ -1,0 +1,22 @@
+% Author: Stephan Kregel, DG1HXJ
+% Year: 2021
+% Fork 50ohm-fr (21/10/2026), montage inchange. L'autoscale ramene l'unite a
+% ~0,5 cm sans reduire les composants (1,4 cm) : sur les branches de 2 unites,
+% les resistances se chevauchaient. D'ou le \ctikzset, et la boucle superieure
+% montee de 2 a 3 unites pour degager l'etiquette de R5 de celle de R8.
+\begin{circuitikz}[american]
+    \ctikzset{bipoles/length=0.7cm}
+    \draw (0, 1.5) node [ocirc](I1){};
+    \draw (0,-1.5) node [ocirc](I2){};
+    \draw (I1) to [european resistor, l={\qty{400}{\ohm}}] ++(3,0) coordinate(C1) 
+               to [european resistor, l={\qty{400}{\ohm}}] ++(3,0) coordinate(C2)
+               to [european resistor, l={\qty{400}{\ohm}},-*] ++(3,0) coordinate(C3)
+               to [short] ++(0,-3)
+               to [european resistor, l={\qty{150}{\ohm}}] (I2);
+    \draw (C1) to [short, *-] ++(0,-2)
+               to [european resistor, l ={\qty{200}{\ohm}}] ++(3,0)
+               to [european resistor, l_={\qty{200}{\ohm}}, -*] ++(0,2);
+    \draw (C2) to [european resistor, l_={\qty{200}{\ohm}}] ++(0,3)
+               to [european resistor, l ={\qty{200}{\ohm}}] ++(3,0)
+               to [short] (C3);
+\end{circuitikz}

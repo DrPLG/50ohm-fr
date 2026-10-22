@@ -1191,3 +1191,29 @@ siunitx, et écrire le rapport `$10:1$` hors de `\num`.
 *Wir setzten* (AA110), *aus den Hilfsmittel* (AA108, AA109, AA110).
 
 **À signaler au DARC**, en allemand, avec les autres.
+
+## 30. Réseaux de résistances de E : composants superposés par l'autoscale
+
+**Constaté le** 21/10/2026 par Pierre, sur le livre E 20 × 24 (p. 108-109).
+**Présent aussi en A4** (p. 87-88) et donc dans le livre allemand : ce n'est
+pas un effet du format.
+
+**Dessins :** 306, 395, 396 (questions ED115, ED116, ED114) et 1141 (fig.
+« Étape 0 », `reihe_parallel_widerstandsnetz_1`).
+
+**Mécanisme.** `\DARCimage` met le dessin à la largeur demandée en changeant
+l'unité TikZ (`x=`, `y=`) : les coordonnées rétrécissent, **les composants
+circuitikz non** (1,4 cm). Ici l'unité tombe à ~0,5 cm ; les branches
+verticales de 2 unités ne mesurent plus que 1 cm, moins qu'une résistance :
+R5 et R6 débordent sur la ligne principale, et l'étiquette de R5 tombe sur
+celle de R8. Aucune erreur, aucun avertissement.
+
+**Contournement (fork, montage inchangé) :** `\ctikzset{bipoles/length=0.7cm}`
+— soit la taille du dessin d'origine ramenée à l'échelle 0,5 — et boucle
+supérieure portée de 2 à 3 unités. Vérifié sur document réduit 20 × 24 :
+facteur d'autoscale 0,50 → 0,50, plus aucun chevauchement. Les étapes 1 à 3
+(816-818), sans défaut, ont reçu la même réduction pour rester homogènes avec
+l'étape 0 (décision de Pierre).
+
+**Correctif à proposer au DARC :** espacer les branches verticales, ou
+réduire `bipoles/length` dans ces quatre dessins.

@@ -41,6 +41,19 @@ branche `version-a.4`.
   emphase des encadrés « Approfondissement ») et le fond de ces encadrés
   fonce : palette noir et blanc à régler.
 
+#### Corrigé — E, schémas de réseaux de résistances superposés (21/10/2026)
+
+- Relevé par Pierre en 20 × 24 (p. 108-109), présent aussi en A4 et dans
+  l'amont : questions ED114, ED115, ED116 et fig. « Étape 0 » de
+  `reihe_parallel_widerstandsnetz_1`. Dessins 306, 395, 396 et 1141 forkés :
+  composants réduits à `bipoles/length=0.7cm`, boucle supérieure à 3 unités,
+  montage inchangé. Document réduit 20 × 24 : 0 erreur, plus aucun
+  chevauchement. `docs/defauts-amont.md` § 30. **E et NEA non recompilés.**
+- Fig. « Étapes 1 à 3 » (816, 817, 818) forkées à leur tour, **décision de
+  Pierre** : mêmes composants réduits que l'étape 0, géométrie amont
+  inchangée, pour une série homogène (les quatre au même facteur, 0,573).
+  E : 73 → **80** dessins forkés.
+
 #### Ajouté — livret « Corrigés de la classe A », outillage (21/10/2026)
 
 - Feuille d'arbitrage nº 12, option D (livret séparé). Les « Lösungshinweise »
