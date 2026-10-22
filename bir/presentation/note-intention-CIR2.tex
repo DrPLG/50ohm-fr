@@ -1,0 +1,197 @@
+% Note d'intention du CIR 2 — pendant de « Note_intention CIR1.pdf »
+% (Fichierstravail/), dont elle reprend le plan et la mise en page.
+% Compilation : latexmk -lualatex note-intention-CIR2.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[french]{babel}
+\usepackage[a4paper,top=20mm,bottom=22mm,left=22mm,right=22mm,
+            headheight=14pt,headsep=8mm,footskip=12mm]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{bleu}{HTML}{1F5FA6}
+\definecolor{gristexte}{HTML}{555555}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\titleformat{\section}{\color{bleu}\Large\bfseries}{\thesection.}{0.4em}{}
+  [{\color{bleu!45}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{10pt}{3pt}
+
+\setlist[itemize]{label={\color{bleu}\small\textbullet},
+  topsep=2pt,itemsep=2pt,parsep=0pt,leftmargin=1.6em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{bleu}\textbf{CIR2} — Certificat d'Initiation à la Radio, niveau 2}
+\fancyhead[R]{\color{gristexte}Note d'intention}
+\renewcommand{\headrule}{{\color{bleu}\hrule height 0.8pt}}
+\fancyfoot[L]{\scriptsize\color{gristexte}F4JWI — F4JTL}
+\fancyfoot[C]{\color{gristexte}Page \thepage{} / {\color{bleu}\pageref{LastPage}}}
+\fancyfoot[R]{\scriptsize\color{gristexte}Licence CC BY 4.0 — Version d'octobre 2026}
+
+% Pictogramme radio du bandeau, comme dans la note du CIR 1
+\newcommand{\pictoradio}{%
+  \begin{tikzpicture}[white, line width=1.6pt, line cap=round]
+    \fill (0,0) circle (2.6pt);
+    \foreach \r in {0.25,0.45,0.65}
+      \draw (25:\r) arc (25:155:\r);
+  \end{tikzpicture}}
+
+\begin{document}
+
+\begin{tcolorbox}[colback=bleu, colframe=bleu, arc=2mm,
+                  left=4mm, right=4mm, top=2mm, bottom=2mm]
+  \color{white}
+  \begin{minipage}[c]{0.8\linewidth}
+    {\LARGE\bfseries CIR2 — Note d'intention}\par\smallskip
+    {\color{white!85!bleu}Présentation du projet \quad|\quad Collège — 4\textsuperscript{e} et 3\textsuperscript{e}}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.15\linewidth}\raggedleft\pictoradio\end{minipage}
+\end{tcolorbox}
+
+\section{Le CIR2}
+
+Le \textbf{CIR2} est le \textbf{second niveau du Certificat d'Initiation à la
+Radio}. Il reprend, en les approfondissant, les notions découvertes au CIR1 et
+conduit les élèves jusqu'à \textbf{la pratique} : écouter et identifier une
+station lointaine, mesurer dans un circuit, construire et régler une antenne,
+décoder un mode numérique, préparer puis tenir un vrai contact radio.
+
+Le CIR2 s'adresse aux \textbf{élèves de 4\textsuperscript{e} et de
+3\textsuperscript{e}}. Il ne suppose pas d'avoir suivi le CIR1 : les notions de
+base sont reprises dès les premières séances. Il constitue la deuxième étape
+d'un parcours, après le \textbf{CIR1} (6\textsuperscript{e} et
+5\textsuperscript{e}) et avant la \textbf{préparation à la licence de
+radioamateur} au lycée. Chaque séance est rattachée, dans le référentiel, au
+programme du certificat d'opérateur des services d'amateur.
+
+Le CIR2 est \textbf{adapté du cours en ligne 50ohm.de}, écrit par le
+50ohm.de-Autorenteam et le référat AJW du DARC e.\,V., l'association allemande
+des radioamateurs, et publié sous licence libre. Il n'en est pas une
+traduction : le texte a été réécrit pour des collégiens français, le droit
+français y est le texte courant, et les questions d'évaluation sont neuves.
+
+Ce travail a été conçu par \textbf{Pierre LE GALL F4JWI} et \textbf{Jérôme
+DIEUDONNE F4JTL}. Les auteurs sont \textbf{professeurs de mathématiques}. La
+rédaction du CIR2 a été réalisée avec l'assistance d'une IA. La conception, les
+choix pédagogiques et la relecture sont ceux des auteurs.
+
+Le CIR2 est diffusé sous licence \textbf{Creative Commons Attribution 4.0
+International (CC BY 4.0)}, comme le cours dont il est issu : il peut être
+librement copié, modifié et redistribué, à condition de citer ses auteurs et
+ceux du cours d'origine.
+
+\section{Par des profs, pour des profs}
+
+Le CIR2 a été pensé pour simplifier le travail des enseignants. En particulier :
+\begin{itemize}
+  \item il est prévu pour être traité \textbf{en une année scolaire}, à raison
+    d'\textbf{une séance de 1\,h\,30 par semaine} ;
+  \item chaque séance suit la même trame : \textbf{25 minutes de cours},
+    \textbf{50 minutes de manipulation} par groupes de deux ou trois, puis
+    \textbf{15 minutes de bilan} ;
+  \item un \textbf{radioamateur} est présent à chaque séance : il fait les
+    démonstrations à l'antenne et apporte son expérience ; l'enseignant n'a
+    pas besoin d'être lui-même radioamateur ;
+  \item les séances suivent une progression, mais seuls quelques blocs sont
+    liés (les antennes, séances 14 à 16 ; le contact, séances 21 et 22) : les
+    autres peuvent être déplacées ;
+  \item le \textbf{matériel} est décrit dans une mallette type, en trois
+    niveaux d'équipement ; les exercices de trafic entre élèves se font avec
+    des \textbf{postes PMR446}, utilisables sans licence ;
+  \item l'évaluation finale se fait \textbf{en ligne} et se corrige seule ;
+  \item à la radio, les élèves ne donnent que leur \textbf{prénom} et leur
+    \textbf{ville} : jamais leur nom de famille ni leur adresse ; les exercices
+    se font sous des indicatifs fictifs.
+\end{itemize}
+
+\section{Le programme}
+
+Le cours du CIR2 compte \textbf{24 séances de 1\,h\,30}, soit 36 heures,
+réparties en \textbf{cinq domaines} : \textbf{A}~découvrir la radio,
+\textbf{B}~électricité et électronique, \textbf{C}~ondes, spectre et
+propagation, \textbf{D}~modulations, antennes et station, \textbf{E}~trafic,
+règles et sécurité.
+
+\newpage
+
+{\small
+\begin{tabularx}{\linewidth}{@{}c c >{\raggedright\arraybackslash}p{0.33\linewidth} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Séance} & \textbf{Dom.} & \textbf{Titre} & \textbf{Manipulation} \\
+\midrule
+1  & A & La radio autour de nous & première écoute, récepteur et WebSDR \\
+2  & E & Se présenter à l'antenne & épeler et noter des indicatifs en PMR \\
+3  & E & Un contact radio & contact simulé en PMR, carnet de trafic \\
+4  & B & Tension et courant & circuit pile-lampe, mesures au multimètre \\
+5  & B & La résistance et la loi d'Ohm & vérifier la loi d'Ohm sur trois résistances \\
+6  & B & Puissance et énergie & mesurer une puissance, calculer une autonomie \\
+7  & C & Du courant alternatif à l'onde & visualiser une sinusoïde \\
+8  & C & Le spectre et les bandes & dresser sa carte du spectre à la clé SDR \\
+9  & C & La propagation à vue & mesurer la portée d'un poste PMR \\
+10 & C & Les ondes courtes et l'ionosphère & écouter balises et stations lointaines \\
+11 & D & Moduler : transporter la voix & reconnaître AM, FM et SSB \\
+12 & D & Le Morse & envoyer et recevoir son prénom \\
+13 & D & Les modes numériques et l'image & décoder du FT8 et une image SSTV \\
+14 & D & Les antennes : principes & calculer et couper un dipôle 2\,m \\
+15 & D & Construire son antenne & en faire une antenne directive, comparer \\
+16 & D & Câbles, connecteurs et réglage & régler l'antenne à l'analyseur \\
+17 & B & Le récepteur & prise en main d'un poste en réception \\
+18 & B & L'émetteur & démonstration sur charge fictive \\
+19 & B & L'atelier de soudure & souder un petit kit \\
+20 & A & La radio en action & chasse au renard dans l'établissement \\
+21 & E & Préparer son contact & répétition générale en PMR, script en main \\
+22 & E & Au micro & un vrai contact, aux côtés du radioamateur \\
+23 & E & Les règles, et après ? & examen blanc corrigé \\
+\midrule
+24 & — & L'évaluation du CIR2 & évaluation, correction, remise des attestations \\
+\bottomrule
+\end{tabularx}
+}
+
+\section{Les documents fournis}
+
+Pour l'ensemble du parcours, sont fournis :
+\begin{itemize}
+  \item un \textbf{manuel de l'élève}, un chapitre par séance, avec ses
+    questions d'entraînement ;
+  \item un \textbf{livre du formateur}, une fiche par séance : ce que l'élève
+    doit retenir, préparation, déroulé minuté, conduite de la manipulation,
+    difficultés fréquentes, pour aller plus loin, corrigé ;
+  \item des \textbf{fiches d'activité}, une par séance, en deux versions :
+    l'une pour l'élève, l'autre pour l'encadrant ;
+  \item une \textbf{banque de 230 questions}, dix par séance, exportable vers
+    une plateforme d'enseignement ;
+  \item un \textbf{référentiel} : connaissances et savoir-faire attendus, et
+    leur rattachement au programme du certificat d'opérateur ;
+  \item un \textbf{livret de l'élève}, où sont validés les savoir-faire, et
+    une \textbf{mallette type}, chiffrée.
+\end{itemize}
+
+\section{L'évaluation du CIR2}
+
+L'évaluation se passe \textbf{en ligne}, sur une plateforme de type Moodle ou
+éléa : \textbf{40 questions à choix multiple} en \textbf{une heure}, soit
+\textbf{8 questions par domaine}, tirées au hasard dans la banque du CIR2. Un
+examen blanc corrigé est prévu à la séance 23.
+
+Le CIR2 est obtenu avec \textbf{au moins 20 bonnes réponses sur 40}, dont
+\textbf{au moins 3 dans chaque domaine}. Les savoir-faire pratiques sont
+validés au fil des séances dans le livret de l'élève, sans note.
+
+\section{Remerciements}
+
+Les auteurs remercient le \textbf{Réseau des Émetteurs Français (REF)} pour
+son soutien, Freddy \textbf{ON6FS} pour sa participation aux premières étapes
+du projet, ainsi que \textbf{F4LDR} et \textbf{F4MHI} pour leurs relectures.
+
+\end{document}

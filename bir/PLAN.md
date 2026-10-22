@@ -38,6 +38,8 @@ nº 1 et nº 2 de `Fichierstravail/`.
 | D6 | Diaporamas de séance | à faire |
 | D7 | Mallette type et budget | maquette seule, prix à vérifier |
 | D8 | Livret de l'élève | maquette seule |
+| — | Avant-propos du manuel — `avant-propos.md` | premier jet du 11/10/2026, passé d'office par la fenêtre v0.5 (`--front-matter "Avant-propos=bir/avant-propos.md"` à la main) |
+| — | Note d'intention — `presentation/note-intention-CIR2.tex` | premier jet du 11/10/2026, pendant de celle du CIR 1 ; PDF dans `Fichierstravail/` |
 
 ### Maquettes (30/09/2026)
 
