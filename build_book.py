@@ -15,7 +15,26 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.37
+Version du script : v0.38
+    v0.38 — manuel HAREC français, A5 noir et blanc (feuille d'arbitrage
+            nº 13, 22/10/2026). Trois ajouts, tous inertes tant qu'on ne les
+            demande pas :
+            *--format a5* : 148 x 210 mm, UNE colonne (18 + 112 + 18 mm),
+            pas de colonne de marge. Toute note de marge est composée dans
+            le corps, en boîte sécable — le chemin de la parade v0.13, sans
+            son avertissement « Note de marge trop haute », qui garde son
+            sens d'alerte ; un compte unique est donné en fin de journal.
+            *--nb* : xcolor reçoit l'option « gray » avant tout chargement,
+            et convertit en niveaux de gris TOUTES les couleurs composées
+            (classe, encadrés, dessins TikZ). Les photos, images
+            matricielles, ne sont pas touchées : c'est l'affaire de
+            Ghostscript, à la compression.
+            *--edition HAREC* : ouvrage français autonome lu dans harec/
+            (table AUTONOMES), comme le CIR ; sous-titre propre, pas de
+            filigrane. Titre provisoire, à arrêter par Pierre (D8).
+            Deux marqueurs de classe de plus (@NB@, @UNE_COLONNE@), retirés
+            avec leur saut de ligne quand ils ne servent pas : la .cls des
+            autres éditions est identique à l'octet.
     v0.37 — édition CA, le livret « Corrigés de la classe A » (feuille
             d'arbitrage nº 12, 21/10/2026, option D : livret séparé, le
             livre A ne bouge pas). Il compose les « Lösungshinweise » de
@@ -1289,6 +1308,20 @@ FORMATS = {
         "commentaire": "Maquette 20 x 24, colonne de marge d'A4 conservee : "
                        "15 + 114 + 7 + 52 + 12 = 200 mm",
     },
+    # v0.38 — A5 hoch de WIRmachenDRUCK (feuille nº 13) : UNE colonne, bloc
+    # centré, donc folio sur l'axe : 2 x (74 - (18 + 56)) = 0. Zone de
+    # sécurité de l'imprimeur : 5 mm du bord fini, à vérifier sur épreuve
+    # pour le folio. « precompile » remplace la largeur de marge, nulle ici,
+    # pour la précompilation du dessin 202.
+    "a5": {
+        "papier": "paperwidth=148mm,paperheight=210mm",
+        "inner": "18mm", "textwidth": "112mm",
+        "top": "18mm", "bottom": "20mm",
+        "sep": "0mm", "marge": "0mm",
+        "folio": "0mm",
+        "une_colonne": True, "precompile": "80mm",
+        "commentaire": "Maquette A5 sur une colonne : 18 + 112 + 18 = 148 mm",
+    },
 }
 
 
@@ -1308,6 +1341,7 @@ def geometrie_de(fmt):
 
 
 BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
+@NB@
 % Classe « livre » dérivée de FiftyOhm.cls (une colonne, marges identiques).
 \disable@package@load{physics}{}
 \LoadClass[ngerman,10pt,twoside,open=right,twocolumn=false,fontsize=10pt,parskip=half-,listof=leveldown,bibliography=leveldown]{scrreprt}
@@ -1793,7 +1827,47 @@ BOOK_CLASS = r"""\ProvidesClass{FiftyOhmBook}
 			composee(s) dans le corps du texte (trop hautes)}%
 	\fi}
 \makeatother
+@UNE_COLONNE@
 """
+
+# v0.38 — injectés à la place des marqueurs de BOOK_CLASS, sur demande seulement.
+NB = r"""% v0.38 (--nb) — impression en noir et blanc : xcolor convertit TOUTES les
+% couleurs en niveaux de gris dès leur définition (classe, encadrés, dessins
+% TikZ). Doit précéder tout chargement de xcolor. Photos non touchées.
+\PassOptionsToPackage{gray}{xcolor}"""
+
+UNE_COLONNE = r"""% ---------------------------------------------------------------------------
+% v0.38 — maquette sur UNE colonne (A5) : il n'y a plus de colonne de marge.
+% Toute note de marge est composée dans le corps, en boîte sécable, par le
+% chemin de la parade v0.13 ci-dessus — mais sans son avertissement « trop
+% haute », qui garde son sens d'alerte : ici, c'est la règle.
+%
+% Les FIGURES de ces notes sont bornées à \DARCfigmargefacteur de la largeur.
+% Elles sont appelées à 1.0\linewidth, pensées pour une colonne de 52 mm :
+% composées telles quelles, elles prennent 112 mm. Mesuré sur le document
+% réduit du 22/10/2026 : la fig. 1.3 (dessin 1050) occupait une page A5
+% entière. Seul \DARCfigbloc est redéfini, le texte garde toute la largeur.
+% ---------------------------------------------------------------------------
+\newcommand{\DARCfigmargefacteur}{0.6}
+\newcounter{DARCmargecorps}
+\makeatletter
+\renewcommand{\DARCmarginpar}[1]{%
+	\stepcounter{DARCmargecorps}%
+	\par\addvspace{\medskipamount}%
+	\begingroup
+		\renewcommand{\DARCfigbloc}[1]{%
+			\par\noindent\hfil\begin{minipage}{\DARCfigmargefacteur\linewidth}##1%
+			\end{minipage}\hfil\par}%
+		\tcbset{marginboxstyle/.append style={breakable}}%
+		\setupDARCmargin #1\par
+	\endgroup
+	\addvspace{\medskipamount}}
+\AddToHook{enddocument/afterlastpage}{%
+	\ifnum\value{DARCmargecorps}>\z@
+		\@latex@warning@no@line{Maquette une colonne : \arabic{DARCmargecorps}
+			note(s) de marge composee(s) dans le corps}%
+	\fi}
+\makeatother"""
 
 MASTER_HEADER_DE = r"""\documentclass{FiftyOhmBook}
 \begin{document}
@@ -1893,6 +1967,8 @@ FR_TITLES = {
 	# devient CIR 2. Les répertoires restent cir/ et bir/.
 	"CIR1": "",
 	"CIR2": "",
+	# v0.38 — rien sur le bandeau, comme le CIR.
+	"HAREC": "",
 	# v0.37 — le décompte est substitué une fois le livret composé.
 	"CA": "Classe A\\\\@NCORRIGES@ corrigés sur @MCORRIGES@",
 }
@@ -1905,6 +1981,9 @@ FR_CLASS_LETTER = {
 	# le 11/10/2026 (C / I / R / 1) : pile à vérifier sur épreuve.
 	"CIR1": "CIR1",
 	"CIR2": "CIR2",
+	# v0.38 — pas de filigrane : cinq lettres empilées ne tiennent pas dans
+	# la hauteur d'un A5. À revoir sur épreuve si Pierre en veut un (D8).
+	"HAREC": "",
 	# v0.37 — le livret de corrigés porte la lettre de sa classe.
 	"CA": "A",
 }
@@ -1916,6 +1995,10 @@ FR_CLASS_LETTER = {
 AUTONOMES = {
 	"CIR1": ("cir", "Certificat d'Initiation", "à la Radio\\,—\\,1"),
 	"CIR2": ("bir", "Certificat d'Initiation", "à la Radio\\,—\\,2"),
+	# v0.38 — quatrième élément : le sous-titre (« Manuel de l'élève » si
+	# absent). Titre et sous-titre PROVISOIRES, à arrêter par Pierre (D8).
+	"HAREC": ("harec", "Préparer le certificat", "de radioamateur",
+	          "Réglementation et technique — HAREC"),
 }
 
 # v0.37 — livrets de corrigés (feuille d'arbitrage nº 12) : classe dont le
@@ -2480,7 +2563,8 @@ def link_dir(link: Path, target: Path):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--edition", default="N",
-                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2", "CA"])
+                    choices=["N", "E", "A", "NE", "EA", "NEA", "SWL", "CIR1", "CIR2", "CA",
+                             "HAREC"])
     ap.add_argument("--local", default=None,
                     help="Éditions CIR1 et CIR2 (v0.34, v0.35) : répertoire de l'ouvrage — "
                          "toc.json, sections/, questions/, dessins/. Défaut : cir/ "
@@ -2488,6 +2572,8 @@ def main():
     ap.add_argument("--lang", default="de", choices=["de", "fr"], help="Langue de l'habillage du document")
     ap.add_argument("--format", default="a4", choices=sorted(FORMATS),
                     help="Format de page (défaut : a4)")
+    ap.add_argument("--nb", action="store_true",
+                    help="v0.38 — noir et blanc : toutes les couleurs composées passent en gris")
     ap.add_argument("--translations", action="append", default=[],
                     help="Répertoire de traductions : sections/{ident}.md + titles.json. "
                          "Répétable — indispensable pour les éditions combinées NE, EA et "
@@ -2779,7 +2865,8 @@ def main():
     # n'était pas commentée. Attrapé par la comparaison des .cls, pas par le
     # garde-fou d'alors.
     for marqueur in ("@GEOMETRIE@", "@FOLIO@",
-                     "@BABEL_FRANCAIS@", "@CONVENTIONS_FRANCAISES@"):
+                     "@BABEL_FRANCAIS@", "@CONVENTIONS_FRANCAISES@",
+                     "@NB@", "@UNE_COLONNE@"):
         n = BOOK_CLASS.count(marqueur)
         if n != 1:
             raise SystemExit(
@@ -2788,7 +2875,13 @@ def main():
                 "commentaire de la classe." % (marqueur, n))
     geom, folio = geometrie_de(args.format)
     classe = BOOK_CLASS.replace("@GEOMETRIE@", geom).replace("@FOLIO@", folio)
-    if "@GEOMETRIE@" in classe or "@FOLIO@" in classe:
+    # v0.38 — retirés AVEC leur saut de ligne quand ils ne servent pas : la
+    # classe des éditions existantes reste identique à l'octet.
+    classe = classe.replace("@NB@", NB) if args.nb else classe.replace("@NB@\n", "")
+    classe = (classe.replace("@UNE_COLONNE@", UNE_COLONNE)
+              if FORMATS[args.format].get("une_colonne")
+              else classe.replace("@UNE_COLONNE@\n", ""))
+    if any(m in classe for m in ("@GEOMETRIE@", "@FOLIO@", "@NB@", "@UNE_COLONNE@")):
         raise SystemExit("ECHEC FATAL : marqueur de format non substitue "
                          "dans FiftyOhmBook.cls")
     if args.lang == "fr":
@@ -2856,7 +2949,8 @@ def main():
     # n'y voit que du feu.
     for ident, largeur in PRECOMPILE_DRAWINGS.items():
         if largeur is None:          # v0.23 — largeur pilotée par le format
-            largeur = FORMATS[args.format]["marge"]
+            largeur = FORMATS[args.format].get("precompile",
+                                               FORMATS[args.format]["marge"])
         src = out / "img" / f"{ident}include.tex"
         if not src.exists():
             continue
@@ -2918,7 +3012,8 @@ def main():
         # traduction : le pied de page n'est pas réécrit.
         titre_propre = AUTONOMES.get(args.edition) or CORRIGES.get(args.edition)
         if titre_propre:
-            sous_titre = ("Manuel de l'élève" if est_autonome
+            sous_titre = ((titre_propre[3] if len(titre_propre) > 3
+                           else "Manuel de l'élève") if est_autonome
                           else "Lösungshinweise du DARC, traduits")
             remplacements = [
                 # Le nom du brevet est le titre (décision de Pierre sur

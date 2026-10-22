@@ -17,6 +17,30 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Ajouté — manuel HAREC A5 noir et blanc, outillage (22/10/2026)
+
+- Feuille d'arbitrage nº 13, validée par Pierre. `harec/PROGRAMME.md` et
+  `harec/programme.json` : programme en vigueur (arrêté du 21/09/2000 modifié
+  le 02/03/2021, lu sur Légifrance) et table rubrique → sections NEA.
+  **Barème depuis 2021 : +1 / 0, plus de point négatif.** Épreuve de
+  réglementation à moitié technique (brouillages, décibels, antennes, lignes).
+- `build_book.py` **v0.38** : `--format a5` (une colonne, notes de marge dans
+  le corps, leurs figures bornées à 0,6 de la largeur), `--nb` (xcolor
+  `gray`), `--edition HAREC` (répertoire `harec/`). Neutralité prouvée par
+  génération sans compilation sur 9 éditions : 0 écart hors horodatage du
+  dessin 202.
+- Document réduit A5 nb (1 section, hors dépôt) : 10 pages, 0 erreur,
+  0 débordement, **0 pixel coloré** (la même source sans `--nb` : jusqu'à
+  168 685), folio à 6,6 mm du bord fini.
+
+#### Connu — HAREC A5
+
+- Page de titre non adaptée à l'A5 : texte du pied sous le bandeau, sous-titre
+  coupé « HA-REC ».
+- En gris, des couleurs claires deviennent trop pâles (étiquette « U »,
+  emphase des encadrés « Approfondissement ») et le fond de ces encadrés
+  fonce : palette noir et blanc à régler.
+
 #### Ajouté — livret « Corrigés de la classe A », outillage (21/10/2026)
 
 - Feuille d'arbitrage nº 12, option D (livret séparé). Les « Lösungshinweise »
