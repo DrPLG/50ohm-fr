@@ -413,7 +413,15 @@ Toutes dans des sections réécrites en amont les 14, 15 et 16/08.
 La dernière est ancienne et **corrigée en amont** dans la nouvelle version de
 `strom_spannung_speisung_2`, mais subsiste dans `strom_spannung_speisung_1`.
 
-## 11. Coefficient de vélocité donné en pourcent — `wellenwiderstand`
+## 11. Coefficient de vélocité donné en pourcent — `wellenwiderstand` — CORRIGÉ EN AMONT
+
+> **Corrigé en amont le 26/10/2026** (commit `a7bcec1b`, « fix: typo ») :
+> l'amont écrit désormais `$\qty{66}{\percent}$`. Relevé par la veille du
+> 29/10/2026 ; la correction est reportée dans notre traduction **en
+> brouillon** (branche `veille-2026-10-29`, feuille d'arbitrage nº 14), en
+> attente de validation. La coquille voisine `Ausbreitungsgeschwingkeit`
+> (§ 9) n'est **pas** corrigée par ce commit ; elle reste sans effet côté
+> français (« Vitesse de propagation »).
 
 **Constaté le** 16/08/2026 dans le tableau `a_rg58`, ajouté en amont le 15/08 :
 

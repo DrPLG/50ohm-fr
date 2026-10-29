@@ -103,5 +103,10 @@
     "date_traduction": "2026-10-21",
     "note": "tranche 1, chapitre 2",
     "sha256_amont": "42df434d2a6539ca7d780026c078b8bc6874889658738cfd6aae8bc459d3c0db"
+  },
+  "AI509": {
+    "date_traduction": "2026-10-29",
+    "note": "veille 29/10/2026, amont f41a333b : MHz -> Hz",
+    "sha256_amont": "13baec438ddc34b2c59b0c0bf6f2af1d04e96b3b2697384ea1e1e296020c6d00"
   }
 }

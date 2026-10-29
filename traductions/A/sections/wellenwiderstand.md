@@ -10,7 +10,7 @@ $Z_0 = \sqrt{\frac{L'}{C'}}.$
 | Plage de fréquences          | $ < \qty{1}{\giga\hertz}$             |
 | Capacité linéique            | $\qty{100}{\pico\farad\per\meter}$    |
 | Inductance linéique          | $\qty{0,25}{\micro\henry\per\meter}$  |
-| Vitesse de propagation       | $\qty{0,66}{\percent}$                |
+| Vitesse de propagation       | $\qty{66}{\percent}$                |
 [table:a_rg58:Données techniques issues de la fiche d'un câble coaxial RG-58]
 </margin>
 

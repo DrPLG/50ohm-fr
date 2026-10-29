@@ -730,9 +730,9 @@
     "sha256_amont": "df44cb9fd2d96824edecfd50c5a948573577dfcb650036f12732bfc2ec81e2f6"
   },
   "wellenwiderstand": {
-    "date_traduction": "2026-08-16",
-    "note": "resynchronisation amont du 16/08/2026 (feuille d'arbitrage nº 5) — traduction relue contre l'amont a290eb28",
-    "sha256_amont": "f885b6cd8094aa9b0d4fe3f01ab2d90f043c0bdc7f853c5e4dea9d0958e06245"
+    "date_traduction": "2026-10-29",
+    "note": "veille 29/10/2026, amont a7bcec1b : 0,66 % -> 66 %",
+    "sha256_amont": "d52ee299d6b7945759ea270feb7b28eb1b34589a407b961c72cb01004b781760"
   },
   "yagi_uda_3": {
     "date_traduction": "2026-08-16",
