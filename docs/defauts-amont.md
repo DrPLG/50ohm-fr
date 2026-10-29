@@ -417,9 +417,9 @@ La dernière est ancienne et **corrigée en amont** dans la nouvelle version de
 
 > **Corrigé en amont le 26/10/2026** (commit `a7bcec1b`, « fix: typo ») :
 > l'amont écrit désormais `$\qty{66}{\percent}$`. Relevé par la veille du
-> 29/10/2026 ; la correction est reportée dans notre traduction **en
-> brouillon** (branche `veille-2026-10-29`, feuille d'arbitrage nº 14), en
-> attente de validation. La coquille voisine `Ausbreitungsgeschwingkeit`
+> 29/10/2026 ; la correction est **adoptée** dans notre traduction
+> (feuille d'arbitrage nº 14, validée par Pierre le 29/10/2026). Le
+> signalement de ce défaut au DARC devient sans objet. La coquille voisine `Ausbreitungsgeschwingkeit`
 > (§ 9) n'est **pas** corrigée par ce commit ; elle reste sans effet côté
 > français (« Vitesse de propagation »).
 
