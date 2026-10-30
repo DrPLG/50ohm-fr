@@ -17,6 +17,17 @@ branche `version-a.4`.
 
 - `compiler.bat` et `fenetre_compilation.py` : étiquette de version `a.4`.
 
+#### Corrigé — N, encart « Écoute libre, mais secret des correspondances » (30/10/2026)
+
+- `fernmeldegeheimnis_abhoerverbot` : l'exclusion des bandes d'amateur,
+  de la radiodiffusion, des installations L33-3 et de la CB était rattachée
+  à l'art. R. 226-3 du code pénal ; elle relève de l'**annexe II** de
+  l'arrêté du 4 juillet 2012, donc de l'**art. R226-7** (acquisition ou
+  détention). Retiré aussi « depuis 1990, l'écoute est libre et la détention
+  d'un récepteur n'est soumise à aucune déclaration », dont aucune source n'a
+  été retrouvée. Textes relus sur Légifrance le même jour (décision de
+  Pierre). `verifier_traduction.py` rc=0. **N et NEA non recompilés.**
+
 #### Ajouté — manuel HAREC A5 noir et blanc, outillage (22/10/2026)
 
 - Feuille d'arbitrage nº 13, validée par Pierre. `harec/PROGRAMME.md` et

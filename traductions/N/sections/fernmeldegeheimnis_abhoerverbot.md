@@ -24,12 +24,12 @@ L'écoute de la parole non publique constitue une *infraction pénale*. Quiconqu
 <france>
 # Écoute libre, mais secret des correspondances
 
-La France ne connaît pas d'interdiction d'écoute comparable à l'*Abhörverbot* allemand : depuis 1990, l'écoute est libre et la détention d'un récepteur n'est soumise à aucune déclaration. Ce que la loi protège, ce n'est pas l'accès aux ondes, c'est le **contenu** des correspondances.
+La France ne connaît pas d'interdiction d'écoute comparable à l'*Abhörverbot* allemand : écouter les bandes d'amateur ou la radiodiffusion ne demande aucune autorisation. Ce que la loi protège, ce n'est pas l'accès aux ondes, c'est le **contenu** des correspondances.
 
 L'article 226-15 du code pénal punit d'un an d'emprisonnement et de 45 000 € d'amende le fait, commis de mauvaise foi, d'intercepter, de détourner, d'utiliser ou de divulguer des correspondances émises, transmises ou reçues par la voie électronique. La règle pratique rejoint celle du droit allemand : entendre par hasard n'est pas une faute, exploiter ou répéter en est une.
 
 Deux compléments méritent d'être connus :
 
-- l'article R. 226-3 du code pénal soumet à autorisation certains appareils d'analyse ou d'exploration du spectre conçus pour écouter au-delà des bandes ouvertes que sont la radiodiffusion, le service d'amateur, les installations libres de l'article L33-3 et la CB ;
+- l'article R. 226-7 du code pénal soumet à autorisation l'acquisition ou la détention des appareils d'une liste fixée par l'arrêté du 4 juillet 2012 modifié ; on y trouve les appareils d'analyse ou d'exploration du spectre destinés à écouter **en dehors** des bandes de la radiodiffusion, du service d'amateur, des installations libres de l'article L33-3 et de la CB — un récepteur qui ne sert qu'à ces bandes n'est donc pas concerné ;
 - côté émission, la décision n° 2012-1241 interdit de coder les transmissions pour en obscurcir le sens et limite le contenu des liaisons à l'objet du service d'amateur et à des remarques d'un caractère purement personnel.
 </france>
