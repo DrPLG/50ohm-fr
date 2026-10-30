@@ -50,7 +50,7 @@ Depuis avril 2012, tout nouvel indicatif personnel de France continentale est en
 [table:harec_suffixes:Première lettre du suffixe]
 
 <tip>
-**Méthode — lire un indicatif.** Découper dans l'ordre : préfixe, sous-localisation éventuelle, chiffre, suffixe. Pour un indicatif fictif $\mathrm{FY5KA}$ : F, puis Y (Guyane), puis 5, puis KA, dont le K désigne un radio-club. Pour $\mathrm{F4ABC}$ : France continentale, certificat actuel, station individuelle. Le préfixe suit la **station**, pas l'opérateur : déménager de métropole en Corse ou outre-mer change l'indicatif.
+**Méthode — lire un indicatif.** Découper dans l'ordre : préfixe, sous-localisation éventuelle, chiffre, suffixe. Pour un indicatif fictif $\text{FY5KA}$ : F, puis Y (Guyane), puis 5, puis KA, dont le K désigne un radio-club. Pour $\text{F4ABC}$ : France continentale, certificat actuel, station individuelle. Le préfixe suit la **station**, pas l'opérateur : déménager de métropole en Corse ou outre-mer change l'indicatif.
 </tip>
 
 ---

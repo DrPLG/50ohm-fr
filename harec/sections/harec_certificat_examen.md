@@ -24,4 +24,4 @@ L'inscription, l'examen, la délivrance du certificat et l'attribution de l'indi
 
 ---
 
-Les titulaires d'anciens certificats gardent leurs droits. Les classes 1 et 2 ont les mêmes droits que le certificat actuel. L'**ex-classe 3**, dite « novice » (indicatifs en F0), n'est plus délivrée depuis 2012 : ses titulaires restent limités à la bande de $\num{144}$ à $\qty{146}{\mega\hertz}$, à $\qty{10}{\watt}$ en crête et à six classes d'émission ($\mathrm{A1A}$, $\mathrm{A2A}$, $\mathrm{A3E}$, $\mathrm{F3E}$, $\mathrm{G3E}$ et $\mathrm{J3E}$).
+Les titulaires d'anciens certificats gardent leurs droits. Les classes 1 et 2 ont les mêmes droits que le certificat actuel. L'**ex-classe 3**, dite « novice » (indicatifs en F0), n'est plus délivrée depuis 2012 : ses titulaires restent limités à la bande de $\num{144}$ à $\qty{146}{\mega\hertz}$, à $\qty{10}{\watt}$ en crête et à six classes d'émission ($\text{A1A}$, $\text{A2A}$, $\text{A3E}$, $\text{F3E}$, $\text{G3E}$ et $\text{J3E}$).

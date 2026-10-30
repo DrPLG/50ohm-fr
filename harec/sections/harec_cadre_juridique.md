@@ -1,6 +1,6 @@
 Le service d'amateur repose sur le **Règlement des radiocommunications** (RR) de l'UIT et sur les recommandations de la CEPT. Ces textes internationaux ne s'appliquent pas directement au radioamateur : ils sont repris en droit français, dans plusieurs textes plutôt que dans une loi unique.
 
-| l: Texte | X: Ce qu'il règle |
+| X: Texte | X: Ce qu'il règle |
 | Code des postes et des communications électroniques (CPCE) | article L33-3 (installations établies librement), L42-4 (certificats et indicatifs), L39-1 (sanctions pénales) |
 | arrêté du 21 septembre 2000 modifié | examen, certificat d'opérateur, attribution et retrait des indicatifs ; son annexe I est le programme de l'examen |
 | décision ARCEP n° 2012-1241 modifiée (2013 et 2019) | conditions d'utilisation des fréquences : bandes, puissances, largeur de bande, identification, journal de bord |

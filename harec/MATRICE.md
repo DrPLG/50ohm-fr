@@ -168,6 +168,19 @@ Les questions de technique peuvent être adaptées du catalogue allemand
 > compilation : 0 renvoi pendant, 1 faux positif d'unité corrigé.
 > **Non compilé.**
 >
+> **Compilé le 30/10/2026 avec II.6** (accord de Pierre), A5 noir et
+> blanc, 1 min 30 : **44 pages** (44 % 4 = 0). **I.2 : pp. 5 à 19, soit
+> 15 pages** pour 26 prévues (≈ 4 800 mots et 9 tableaux) ; II.6 : pp. 21
+> à 40, inchangé. 0 erreur, 0 débordement, 0 caractère manquant, 0 renvoi
+> non résolu, 21 figures sans coupure, 0 pixel coloré, folio à 6,6 mm.
+> **Corrigé sur épreuve :** le tableau des textes (§ 2.1) avait une
+> première colonne rigide qui écrasait la seconde (un mot par ligne,
+> 14 débordements et une page trop haute de 125 pt) — colonnes passées en
+> `X` ; trois lignes reformulées ; codes (A1A, J3E, indicatifs) passés de
+> `\mathrm` à `\text`, la police mathématique les composant trop petits.
+> Les tableaux sont légendés « Fig. » : comportement du moteur amont, commun
+> à tous nos livres. PDF : `build-HAREC/livre-HAREC-v0.1-a5-nb.pdf`.
+>
 > **À valider par Pierre avant publication (réglementaire) :**
 > 1. décision ARCEP n° 2012-1241 : aucune modification trouvée après la
 >    n° 2019-1412 (recherche du 30/10) — à confirmer sur Légifrance ;

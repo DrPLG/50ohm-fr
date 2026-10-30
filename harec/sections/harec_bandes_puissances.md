@@ -22,7 +22,7 @@ Les bandes ouvertes au service d'amateur, leur statut et la puissance maximale f
 | $\num{5650}$ à $\qty{5850}{\mega\hertz}$ | secondaire | $\qty{120}{\watt}$ |
 [table:harec_bandes:Bandes, statuts et puissances en France continentale]
 
-Au-delà, le service d'amateur dispose encore de $\num{10}$ à $\qty{10,5}{\giga\hertz}$, $\num{24}$ à $\qty{24,25}{\giga\hertz}$, $\num{47}$ à $\qty{47,2}{\giga\hertz}$, $\num{76}$ à $\qty{81,5}{\giga\hertz}$, $\num{122,25}$ à $\qty{123}{\giga\hertz}$, $\num{134}$ à $\qty{141}{\giga\hertz}$ et $\num{241}$ à $\qty{250}{\giga\hertz}$, à $\qty{120}{\watt}$.
+Au-delà, le service d'amateur dispose encore de sept bandes, toutes à $\qty{120}{\watt}$, en gigahertz : $\num{10}$ à $\num{10,5}$ ; $\num{24}$ à $\num{24,25}$ ; $\num{47}$ à $\num{47,2}$ ; $\num{76}$ à $\num{81,5}$ ; $\num{122,25}$ à $\num{123}$ ; $\num{134}$ à $\num{141}$ ; $\num{241}$ à $\num{250}$.
 
 <tip>
 **Méthode — retenir les puissances.** Trois paliers : $\qty{500}{\watt}$ de $\num{1,81}$ à $\qty{24,99}{\mega\hertz}$, $\qty{250}{\watt}$ sur $\qty{28}{\mega\hertz}$, $\qty{120}{\watt}$ à partir de $\qty{50}{\mega\hertz}$. Trois exceptions en PIRE, où le gain d'antenne compte : $\qty{137}{\kilo\hertz}$ et $\qty{472}{\kilo\hertz}$ à $\qty{1}{\watt}$, $\qty{60}{\meter}$ à $\qty{15}{\watt}$. Deux absences à connaître : la bande des $\qty{160}{\meter}$ s'arrête à $\qty{1850}{\kilo\hertz}$ et la bande des $\qty{70}{\mega\hertz}$ (4 m) n'existe pas en France.
