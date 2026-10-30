@@ -1,0 +1,55 @@
+{
+ "title": "Préparer le certificat de radioamateur",
+ "edition": "HAREC",
+ "chapters": [
+  {"ident": "harec_I1", "title": "Réglementation internationale", "abstract": "", "sections": []},
+  {
+   "ident": "harec_I2",
+   "title": "Réglementation nationale",
+   "abstract": "Les textes et les autorités du service d'amateur en France ; le certificat et l'examen ; l'indicatif, comment il se lit et se complète ; les règles d'exploitation, les bandes, les puissances et les classes d'émission ; le contrôle, les sanctions, l'exposition du public et l'urbanisme.",
+   "sections": [
+    {"ident": "harec_cadre_juridique", "title": "Les textes et les autorités"},
+    {"ident": "harec_service_amateur", "title": "Le service d'amateur et la teneur des messages"},
+    {"ident": "harec_ecoute_secret", "title": "Écoute et secret des correspondances"},
+    {"ident": "harec_certificat_examen", "title": "Le certificat d'opérateur et l'examen"},
+    {"ident": "harec_indicatifs", "title": "L'indicatif d'appel"},
+    {"ident": "harec_indicatifs_particuliers", "title": "Portable, radio-club, relais, indicatifs spéciaux, étranger"},
+    {"ident": "harec_exploitation_station", "title": "Exploiter sa station"},
+    {"ident": "harec_bandes_puissances", "title": "Bandes, statuts et puissances"},
+    {"ident": "harec_classes_emission", "title": "Les classes d'émission"},
+    {"ident": "harec_controle_sanctions", "title": "Contrôle, brouillages et sanctions"},
+    {"ident": "harec_exposition_urbanisme", "title": "Exposition du public, urbanisme et droit à l'antenne"}
+   ]
+  },
+  {"ident": "harec_I3", "title": "Brouillages et protections", "abstract": "", "sections": []},
+  {"ident": "harec_I4", "title": "Antennes et lignes", "abstract": "", "sections": []},
+  {"ident": "harec_I5", "title": "Code Q et alphabet", "abstract": "", "sections": []},
+  {"ident": "harec_II1", "title": "Électricité, électromagnétisme et radioélectricité", "abstract": "", "sections": []},
+  {"ident": "harec_II2", "title": "Composants", "abstract": "", "sections": []},
+  {"ident": "harec_II3", "title": "Circuits", "abstract": "", "sections": []},
+  {"ident": "harec_II4", "title": "Récepteurs", "abstract": "", "sections": []},
+  {"ident": "harec_II5", "title": "Émetteurs", "abstract": "", "sections": []},
+  {
+   "ident": "harec_II6",
+   "title": "Propagation et antennes",
+   "abstract": "Comment une onde radio voyage d'une station à l'autre, selon sa fréquence, l'heure et le Soleil ; comment le courant et la tension se répartissent sur une antenne ; et comment les lignes guident l'onde jusqu'à elle.",
+   "sections": [
+    {"ident": "harec_chemins_propagation", "title": "Les chemins d'une onde radio"},
+    {"ident": "harec_ionosphere", "title": "L'ionosphère"},
+    {"ident": "harec_frequences_utilisables", "title": "Fréquences utilisables — MUF, LUF, fréquence critique"},
+    {"ident": "harec_saut_zone_silence", "title": "Saut et zone de silence"},
+    {"ident": "harec_evanouissement", "title": "Trajets multiples et évanouissement"},
+    {"ident": "harec_troposphere", "title": "Propagation troposphérique"},
+    {"ident": "harec_sporadique_e_aurores", "title": "Couche E sporadique et aurores"},
+    {"ident": "harec_repartition_courant_tension", "title": "Courant et tension sur une antenne"},
+    {"ident": "harec_antenne_non_accordee", "title": "Antenne trop courte, antenne trop longue"},
+    {"ident": "harec_impedance_caracteristique", "title": "Impédance caractéristique"},
+    {"ident": "harec_coefficient_velocite", "title": "Coefficient de vélocité"},
+    {"ident": "harec_pertes", "title": "Pertes dans les câbles et en espace libre"},
+    {"ident": "harec_lignes_accordees", "title": "Lignes accordées"},
+    {"ident": "harec_guides_ondes", "title": "Guides d'ondes"}
+   ]
+  },
+  {"ident": "harec_II7", "title": "Mesures", "abstract": "", "sections": []}
+ ]
+}

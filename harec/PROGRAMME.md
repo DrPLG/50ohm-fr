@@ -32,7 +32,9 @@ dernier par l'**arrêté du 2 mars 2021** (art. 2 et 14), en vigueur le
 - Après un échec, on ne peut se représenter qu'après un délai de **deux
   mois**.
 - Taux d'incapacité de 70 % ou plus : **temps triplé** et épreuve adaptée.
-- **Calculatrice : le texte n'en dit rien.** À chercher ailleurs (ANFR).
+- **Calculatrice : le texte n'en dit rien.** Pierre indique le 29/10/2026
+  qu'une **calculatrice de type collège est autorisée** ; source officielle
+  (ANFR) à citer avant publication.
 
 ### Article 3 : l'équivalence
 
