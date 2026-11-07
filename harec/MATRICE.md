@@ -159,6 +159,68 @@ Les questions de technique peuvent être adaptées du catalogue allemand
 
 ## 8. Points à arbitrer
 
+> **07/11/2026 — I.4 Antennes et lignes rédigé** (choix de Pierre) :
+> 14 sections, **≈ 3 570 mots** (24 % des 14 900 du corpus, cible 4 600),
+> 21 figures, 4 tableaux, 9 encadrés « méthode » ou « attention ». Arbre
+> généré sans compilation : 21 figures sur 21, 0 label en double, 0 faux
+> positif d'unité, 0 accent en mode math, 0 deux-points en légende.
+> **Non compilé.** À la densité du pilote (≈ 180 mots et une figure par
+> page), compter **18 à 20 pages** pour 16 prévues.
+>
+> **Partage avec II.6 (fait sans arbitrage, à confirmer) :** I.4 garde les
+> types d'antennes, leurs caractéristiques et l'usage pratique des lignes
+> (coaxial et bifilaire, ROS, quart d'onde, symétriseur, boîte d'accord) ;
+> le calcul de $Z_0$, le coefficient de vélocité, l'affaiblissement
+> linéique et les lignes accordées restent en II.6, où I.4 renvoie par le
+> titre du chapitre. La $\frac{5}{8}\lambda$ n'est que citée.
+>
+> **Écrit au-delà du corpus** (technique, pas réglementaire) : boîte
+> d'accord (rubrique « à écrire » : filtre en pi repris de
+> `impedanztransformation`, montage en T, où placer la boîte), formule
+> $s = R/Z_0$ et coefficient de réflexion, pertes de polarisation croisée
+> (> 20 dB, 3 dB circulaire/linéaire), rotation de polarisation en HF,
+> symétriseur 4:1 du dipôle replié, impédance basse des Yagi. **À faire
+> relire par Sylvain F6DBI.** Aucune règle nouvelle : PAR et PIRE renvoient
+> à I.2.
+>
+> **Compilé le 07/11/2026** (accord de Pierre), I.2 + I.4 + II.6, A5 noir
+> et blanc, v0.38, 2 min 05 : **68 pages** (68 % 4 = 0). **I.4 : pp. 21 à
+> 43, soit 23 pages** pour 16 prévues (p. 44, verso blanc). 0 erreur,
+> 0 note de marge trop haute, 0 caractère manquant, 0 « ?? », 42 figures
+> sur 42 sans coupure (mesuré au `.aux`), 0 pixel coloré (pp. 21-43).
+> 1 débordement de 12 pt (`harec_parabole`, « décimètres » non coupé) :
+> phrase reformulée dans la source, **non recompilé**.
+> **Densité : ≈ 155 mots par page**, moins que le pilote (180). Cause vue
+> sur planche : les figures sont composées à pleine largeur et plusieurs
+> occupent une demi-page ou plus (669 Marconi p. 26, 1046 p. 27, 326 et
+> 51 pp. 33-34, 633 p. 41, 1100 filtre en pi p. 42). C'est le levier
+> « borne des figures à 0,45 » déjà noté plus bas, plus pressant ici.
+>
+> **Réglé le même jour en `build_book.py` v0.39** (demande de Pierre) :
+> figures des notes bornées à **0,45 de la largeur et 0,3 de la hauteur
+> du bloc** (la largeur seule ne réduisait pas les dessins élancés). Bloc
+> injecté en A5 seulement : arbre N régénéré **identique** à la v0.38.
+> Document réduit (verticales, parabole, polarisation, adaptation, boîte
+> d'accord) : 0 erreur, 0 débordement, 6 figures ramenées, 0 pixel
+> coloré, **8 pages contre ≈ 12 dans le livre du 07/11**. Touche aussi
+> I.2 et II.6.
+>
+> **Recompilé en v0.39 le 07/11/2026** (accord de Pierre), 2 min 09 :
+> **62 pages** (68 en v0.38). **I.4 : pp. 21 à 40, 20 pages** (23 en
+> v0.38, 16 prévues) ; **II.6 : pp. 41 à 59, 19 pages** (21) ; I.2
+> inchangé (pp. 5 à 19). 0 erreur, 0 débordement (celui de la parabole a
+> disparu), 0 caractère manquant, 0 « ?? », 42 figures sur 42 sans
+> coupure, 36 figures ramenées par le clamp, 0 pixel coloré sur tout le
+> livre. **62 % 4 = 2** : sans importance tant que le livre est incomplet.
+> **Vu sur planche :** le tableau des ROS (p. 37) est séparé de sa légende,
+> rejetée en haut de la p. 38. `verifier_figures.py` ne contrôle pas les
+> tableaux, et le moteur ne rend pas un tableau insécable avec sa légende.
+> Il reste aussi un blanc en bas de la p. 37.
+>
+> **Défaut repéré :** le dessin 562 (dipôle replié, non forké) porte
+> $V_\mathrm{K}$ (*Verkürzungsfaktor*), là où II.6 écrit $k_\mathrm{v}$.
+> Il sort ainsi dans le livre E publié. Forker le dessin toucherait E.
+
 > **30/10/2026 — I.2 Réglementation nationale rédigé** (choix de Pierre) :
 > 10 sections, **≈ 4 400 mots**, 8 tableaux, 4 encadrés « méthode » (lire un
 > indicatif, faut-il déclarer sa station, retenir les puissances, décoder une

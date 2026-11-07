@@ -22,7 +22,27 @@
    ]
   },
   {"ident": "harec_I3", "title": "Brouillages et protections", "abstract": "", "sections": []},
-  {"ident": "harec_I4", "title": "Antennes et lignes", "abstract": "", "sections": []},
+  {
+   "ident": "harec_I4",
+   "title": "Antennes et lignes",
+   "abstract": "Les antennes de l'amateur, du dipôle à la parabole ; ce qui les caractérise, impédance, polarisation, gain, PAR et PIRE ; et les lignes qui les alimentent, avec le ROS, l'adaptation, le symétriseur et la boîte d'accord.",
+   "sections": [
+    {"ident": "harec_dipole", "title": "Le dipôle demi-onde"},
+    {"ident": "harec_alimentation_extremite", "title": "Alimentation en bout"},
+    {"ident": "harec_dipole_trappes", "title": "Le dipôle à trappes"},
+    {"ident": "harec_antennes_verticales", "title": "Ground-plane et antennes verticales"},
+    {"ident": "harec_yagi", "title": "L'antenne Yagi"},
+    {"ident": "harec_parabole", "title": "L'antenne parabolique"},
+    {"ident": "harec_impedance_alimentation", "title": "Impédance au point d'alimentation"},
+    {"ident": "harec_polarisation", "title": "Polarisation"},
+    {"ident": "harec_gain_diagrammes", "title": "Gain et diagramme de rayonnement"},
+    {"ident": "harec_par_pire", "title": "PAR et PIRE"},
+    {"ident": "harec_lignes_transmission", "title": "Câble coaxial et ligne bifilaire"},
+    {"ident": "harec_ros", "title": "Rapport d'ondes stationnaires"},
+    {"ident": "harec_adaptation_symetriseur", "title": "Adaptation et symétriseur"},
+    {"ident": "harec_boite_accord", "title": "La boîte d'accord"}
+   ]
+  },
   {"ident": "harec_I5", "title": "Code Q et alphabet", "abstract": "", "sections": []},
   {"ident": "harec_II1", "title": "Électricité, électromagnétisme et radioélectricité", "abstract": "", "sections": []},
   {"ident": "harec_II2", "title": "Composants", "abstract": "", "sections": []},

@@ -15,7 +15,13 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.38
+Version du script : v0.39
+    v0.39 — maquette A5 une colonne seulement (07/11/2026, demande de
+            Pierre) : figures des notes de marge bornées à 0,45 de la
+            largeur (au lieu de 0,6) ET à 0,3 \textheight de hauteur (au
+            lieu de 0,8). Mesuré sur I.4 compilé : six dessins élancés
+            prenaient une demi-page ou plus. Les autres formats n'injectent
+            pas ce bloc : leur .cls ne change pas.
     v0.38 — manuel HAREC français, A5 noir et blanc (feuille d'arbitrage
             nº 13, 22/10/2026). Trois ajouts, tous inertes tant qu'on ne les
             demande pas :
@@ -1847,14 +1853,21 @@ UNE_COLONNE = r"""% ------------------------------------------------------------
 % composées telles quelles, elles prennent 112 mm. Mesuré sur le document
 % réduit du 22/10/2026 : la fig. 1.3 (dessin 1050) occupait une page A5
 % entière. Seul \DARCfigbloc est redéfini, le texte garde toute la largeur.
+%
+% v0.39 (07/11/2026, demande de Pierre) — borne de largeur 0,6 -> 0,45, et
+% borne de HAUTEUR \DARCfighauteurmarge \textheight (au lieu de 0,8) : la
+% largeur seule laissait les dessins élancés (669, 1046, 326, 51) occuper
+% une demi-page ou plus dans le chapitre I.4 compilé le même jour.
 % ---------------------------------------------------------------------------
-\newcommand{\DARCfigmargefacteur}{0.6}
+\newcommand{\DARCfigmargefacteur}{0.45}
+\newcommand{\DARCfighauteurmarge}{0.3}
 \newcounter{DARCmargecorps}
 \makeatletter
 \renewcommand{\DARCmarginpar}[1]{%
 	\stepcounter{DARCmargecorps}%
 	\par\addvspace{\medskipamount}%
 	\begingroup
+		\setlength{\DARCimagemaxheight}{\DARCfighauteurmarge\textheight}%
 		\renewcommand{\DARCfigbloc}[1]{%
 			\par\noindent\hfil\begin{minipage}{\DARCfigmargefacteur\linewidth}##1%
 			\end{minipage}\hfil\par}%
