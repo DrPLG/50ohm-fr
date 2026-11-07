@@ -217,6 +217,30 @@ Les questions de technique peuvent être adaptées du catalogue allemand
 > tableaux, et le moteur ne rend pas un tableau insécable avec sa légende.
 > Il reste aussi un blanc en bas de la p. 37.
 >
+> **Corrigé en `build_book.py` v0.40** (07/11/2026), A5 seulement : avant
+> de poser un tableau, la place restante sur la page est mesurée ; s'il
+> manque tableau + 5 lignes, le tableau passe à la page suivante (logique
+> de `\Needspace*`), puis `\nopagebreak` après lui. **Balayage sur document
+> réduit** (tableau des ROS à 30 hauteurs de page, labels dans la dernière
+> ligne du tableau et dans la légende) : pénalité seule **3 séparés**,
+> réserve de 3 lignes **1**, réserve de 5 lignes **0**. Arbre N identique
+> à la v0.38, sections HAREC identiques.
+>
+> **Page de titre refaite le même jour (v0.40, HAREC seulement)** : l'aplat
+> d'un tiers de page sortait en noir plein en A5 nb, le pied débordait
+> dessus, « HA-REC » se coupait. Trois maquettes composées ; **Pierre
+> retient la B** : bandeau étroit (0,15 de la largeur) gris moyen, « HAREC »
+> vertical en blanc, sous-titre « Réglementation et technique ». Arbre N
+> identique.
+>
+> **Recompilé en v0.40 le 07/11/2026**, 2 min 04 : **66 pages** (62 en
+> v0.39). I.2 pp. 5-21 (15 → 17), I.4 pp. 23-43 (20 → 21), II.6
+> pp. 45-64 (inchangé). 0 erreur, 0 débordement, 0 « ?? », 42 figures sur
+> 42 sans coupure, 0 pixel coloré. Tableau des ROS et sa légende sur la
+> même page (p. 40). **Coût de la règle des tableaux : 3 pages** (I.2 a
+> neuf tableaux, dont plusieurs hauts, qui partent à la page suivante avec
+> leur réserve de 5 lignes), plus une page blanche d'ouverture de chapitre.
+>
 > **Défaut repéré :** le dessin 562 (dipôle replié, non forké) porte
 > $V_\mathrm{K}$ (*Verkürzungsfaktor*), là où II.6 écrit $k_\mathrm{v}$.
 > Il sort ainsi dans le livre E publié. Forker le dessin toucherait E.

@@ -15,7 +15,15 @@ Usage :
 
 Licence des contenus : CC BY 4.0 — 50ohm.de-Autorenteam / DARC e. V.
 
-Version du script : v0.39
+Version du script : v0.40
+    v0.40 — maquette A5 une colonne seulement (07/11/2026) : un tableau du
+            corps ne peut plus être séparé de sa légende par une coupure de
+            page (\nopagebreak en fin de DARCtabular). Cas : tableau des ROS
+            de I.4, légende rejetée en haut de la page suivante. Autres
+            formats inchangés. Même jour, édition HAREC seulement : page de
+            titre propre (TITRE_HAREC, maquette B choisie par Pierre sur
+            épreuve) — bandeau étroit gris, « HAREC » vertical ; sous-titre
+            ramené à « Réglementation et technique ». Arbre N identique.
     v0.39 — maquette A5 une colonne seulement (07/11/2026, demande de
             Pierre) : figures des notes de marge bornées à 0,45 de la
             largeur (au lieu de 0,6) ET à 0,3 \textheight de hauteur (au
@@ -1880,6 +1888,45 @@ UNE_COLONNE = r"""% ------------------------------------------------------------
 		\@latex@warning@no@line{Maquette une colonne : \arabic{DARCmargecorps}
 			note(s) de marge composee(s) dans le corps}%
 	\fi}
+\makeatother
+% v0.40 — tableau du corps INSÉPARABLE de ce qui le suit (sa légende, ou la
+% première ligne du paragraphe suivant). Le moteur émet la légende après
+% \end{DARCtabular}, en paragraphe distinct : en A5, la légende du tableau des
+% ROS (I.4) est partie seule en haut de la page suivante. Un \nopagebreak
+% après le tableau NE SUFFIT PAS (mesuré : 3 légendes séparées sur 30
+% positions). On mesure donc la place restante AVANT de poser le tableau :
+% s'il ne reste pas de quoi loger tableau + 5 lignes, on passe à la page
+% suivante — logique de \Needspace*. Mesuré au balayage : une légende d'une
+% ligne demande 38 à 50 pt après le tableau (3 lignes = 36 pt laissaient
+% encore 1 cas sur 30) ; 5 lignes couvrent une légende sur deux lignes.
+% A5 seulement, pour ne pas changer la pagination des autres livres.
+\newlength{\DARCtabbesoin}
+\makeatletter
+\ExplSyntaxOn
+\RenewDocumentEnvironment{DARCtabular}{m +b}{
+	\par\medskip
+	\sbox\DARCblocbox{
+		\str_if_in:nnTF {#1} {X}
+			{\begin{tabularx}{\linewidth}{#1}#2\end{tabularx}}
+			{\begin{tabular}{#1}#2\end{tabular}}
+	}
+	\ifdim\wd\DARCblocbox>\linewidth
+		\stepcounter{DARCtabreduit}
+		\sbox\DARCblocbox{\resizebox{\linewidth}{!}{\usebox\DARCblocbox}}
+	\fi
+	\setlength{\DARCtabbesoin}{\dimexpr\ht\DARCblocbox+\dp\DARCblocbox+5\baselineskip\relax}
+	\penalty-100
+	\begingroup
+		\dimen@ii\pagegoal \advance\dimen@ii-\pagetotal
+		\ifdim\DARCtabbesoin>\dimen@ii
+			\ifdim\dimen@ii>\z@ \vfil \fi
+			\penalty-\@M
+		\fi
+	\endgroup
+	\noindent\usebox\DARCblocbox
+	\par\nopagebreak\medskip
+}{}
+\ExplSyntaxOff
 \makeatother"""
 
 MASTER_HEADER_DE = r"""\documentclass{FiftyOhmBook}
@@ -1963,6 +2010,34 @@ MASTER_HEADER_FR = r"""\documentclass{FiftyOhmBook}
 \tableofcontents
 """
 
+# v0.40 — page de titre du HAREC, maquette B (décision de Pierre sur épreuve,
+# 07/11/2026). Remplace le contenu de la tikzpicture du gabarit commun : la
+# fin « \end{tikzpicture} » reste celle du gabarit. Cotes en fractions du
+# papier ; corps fixes, le HAREC n'existant qu'en A5.
+TITRE_HAREC = r"""\begin{tikzpicture}[remember picture,overlay]
+	% Bandeau étroit à droite, gris moyen (lisible en noir et blanc)
+	\fill[black!55] (current page.north east)
+		rectangle ($(current page.south east)+(-0.15\paperwidth,0)$);
+	\node[rotate=90, anchor=south east, text=white,
+		font=\fontsize{58}{58}\selectfont\bfseries]
+		at ($(current page.north east)+(-0.035\paperwidth,-0.05\paperheight)$) {HAREC};
+	% Titre et sous-titre dans la zone claire
+	\node[anchor=west, align=left, text width=0.70\paperwidth]
+		at ($(current page.west)+(0.09\paperwidth,0.14\paperheight)$)
+		{{\fontsize{30}{34}\selectfont\bfseries\spaceskip=\fontdimen2\font\relax
+		  @TITRE1@\\@TITRE2@\par}
+		 \vspace{10pt}{\Large\bfseries\color{black!65} @SOUSTITRE@}};
+	% Pied : source, licence, version, tenu dans la zone claire
+	\node[anchor=south west, align=left, font=\footnotesize, text=black!70,
+		text width=0.72\paperwidth]
+		at ($(current page.south west)+(0.09\paperwidth,0.06\paperheight)$)
+		{D'après les contenus de 50ohm.de\\
+		 50ohm.de-Autorenteam, coordonné par le référat AJW du DARC e.\,V.\\
+		 Adapté avec l'aide d'une IA par Pierre F4JWI\\[2pt]
+		 Licence CC BY 4.0 --- \texttt{github.com/DARC-e-V/50ohm-contents-dl}\\
+		 Version @VERSION@ --- compilée le \today};
+"""
+
 FR_TITLES = {
 	"N": "Cours complet\\\\Classe N",
 	"E": "Cours complet\\\\Classe E",
@@ -2011,7 +2086,7 @@ AUTONOMES = {
 	# v0.38 — quatrième élément : le sous-titre (« Manuel de l'élève » si
 	# absent). Titre et sous-titre PROVISOIRES, à arrêter par Pierre (D8).
 	"HAREC": ("harec", "Préparer le certificat", "de radioamateur",
-	          "Réglementation et technique — HAREC"),
+	          "Réglementation et technique"),
 }
 
 # v0.37 — livrets de corrigés (feuille d'arbitrage nº 12) : classe dont le
@@ -3121,6 +3196,22 @@ def main():
                 r"\selectfont\bfseries]" "\n"
                 r"		at ($(current page.north east)+(-0.17\paperwidth,-0.0505051\paperheight)$) "
                 f"{{{empilees}}};")
+        if args.edition == "HAREC":
+            # v0.40 — page de titre propre au HAREC (maquette B, choisie par
+            # Pierre sur épreuve le 07/11/2026). L'aplat d'un tiers de page,
+            # pensé pour la couleur et l'A4, sortait en noir plein en A5 nb ;
+            # le pied débordait dessus et « HAREC » se coupait. Ici : bandeau
+            # ÉTROIT (0,15 de la largeur), gris moyen, « HAREC » vertical en
+            # blanc ; titre et pied tenus dans la zone claire.
+            debut = header.index("\\begin{tikzpicture}[remember picture,overlay]")
+            fin = header.index("\\end{tikzpicture}", debut)
+            if header.count("\\begin{tikzpicture}[remember picture,overlay]") != 1:
+                raise SystemExit("!! v0.40 : page de titre HAREC, tikzpicture non unique.")
+            header = header[:debut] + TITRE_HAREC.replace(
+                "@TITRE1@", titre_propre[1]).replace(
+                "@TITRE2@", titre_propre[2]).replace(
+                "@SOUSTITRE@", titre_propre[3]) + header[fin:]
+            watermark = ""
         header = header.replace("@WATERMARK@", watermark)
         header = header.replace("@VERSION@", args.version_label)
         master = [header]
