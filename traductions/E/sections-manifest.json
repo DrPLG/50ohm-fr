@@ -480,9 +480,9 @@
     "sha256_amont": "43bf5153a1514486e20c56cb5fdf5bc29ce2ebcf57d5cb336a9c4b31d9d34cd5"
   },
   "widerstand_materialien": {
-    "date_traduction": "2026-09-04",
-    "note": "Resynchronisation amont bc8dfcd8 -> 04cc9316 du 04/09/2026",
-    "sha256_amont": "64253002ae381394bf924aaa27c3bce7a0fe12e0145968bb7829a94e5fd7374d"
+    "date_traduction": "2026-11-14",
+    "note": "veille 14/11/2026 : reformulation Kohleschichtwiderstaende (45ac5793)",
+    "sha256_amont": "eeee29abc8894268e64f6c49c308c139b48d13ba6fbcb7035f61c9d4a78ffb55"
   },
   "widerstand_ntc_ptc": {
     "date_traduction": "2026-09-04",

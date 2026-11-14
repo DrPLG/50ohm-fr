@@ -94,6 +94,11 @@
     "note": "tranche 1, chapitre 2",
     "sha256_amont": "6bdb99216707df9acb54741226a12a19f8434eac189e39794b5e1670f9c682f3"
   },
+  "AG404": {
+    "date_traduction": "2026-11-14",
+    "note": "veille 14/11/2026 : corrige traduit (45ac5793)",
+    "sha256_amont": "df93d8dd4c601c367b03122295a039275bab9116c816fb7b8f41841c323bc558"
+  },
   "AI104": {
     "date_traduction": "2026-10-21",
     "note": "tranche 1, chapitre 2",

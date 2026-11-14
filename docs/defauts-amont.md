@@ -1225,3 +1225,17 @@ l'étape 0 (décision de Pierre).
 
 **Correctif à proposer au DARC :** espacer les branches verticales, ou
 réduire `bipoles/length` dans ces quatre dessins.
+
+## 31. Corrigé AG404 : « = ≈ » dans la formule directe
+
+**Constaté le** 14/11/2026 par la routine de veille, en traduisant le corrigé
+réécrit par l'amont le 13/11 (commit `815063c3`, « fix: solution AG404 »).
+
+**Défaut.** La « Lösungsweg 2 » ajoutée se termine par
+`… = \approx\num{1,92}$` : un signe égal suivi d'un signe environ, composé
+« =≈ 1,92 » (lu dans le PDF du document réduit). Il manque aussi le point
+final que porte la formule de la « Lösungsweg 1 ».
+
+**Traduction française :** formule **verbatim** (§ 5), défaut conservé.
+
+**Correctif à proposer au DARC :** supprimer le `=` devant `\approx`.
