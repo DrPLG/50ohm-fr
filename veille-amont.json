@@ -1,10 +1,10 @@
 {
   "contenus": {
-    "date_integration": "2026-10-29",
+    "date_integration": "2026-11-15",
     "depot": "DARC-e-V/50ohm-contents-dl",
     "instantane": "C:\\50ohm\\50ohm-contents-dl-main",
-    "note": "veille 29/10/2026, feuille 14 validee ; instantane 0d034a09 conserve",
-    "sha": "a7bcec1b882c088b30db7e11fa6630937c2ac584"
+    "note": "veille 14-15/11/2026, feuille 15 validee ; instantane a7bcec1b conserve",
+    "sha": "45ac57939d94356910700a2e4eb2b7af4ec23c2b"
   },
   "generateur": {
     "date_integration": "2026-09-17",
