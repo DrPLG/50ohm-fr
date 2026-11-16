@@ -21,7 +21,21 @@
     {"ident": "harec_exposition_urbanisme", "title": "Exposition du public, urbanisme et droit à l'antenne"}
    ]
   },
-  {"ident": "harec_I3", "title": "Brouillages et protections", "abstract": "", "sections": []},
+  {
+   "ident": "harec_I3",
+   "title": "Brouillages et protections",
+   "abstract": "Les décibels, la puissance, le rendement et la PEP ; d'où viennent les brouillages, comment ils entrent dans un appareil et comment on s'en protège ; enfin la sécurité électrique de la station, la terre et la foudre.",
+   "sections": [
+    {"ident": "harec_decibels", "title": "Les décibels"},
+    {"ident": "harec_puissance_rendement", "title": "Puissance, adaptation et rendement"},
+    {"ident": "harec_pep", "title": "La puissance en crête (PEP)"},
+    {"ident": "harec_emissions_non_desirees", "title": "Émissions non désirées"},
+    {"ident": "harec_voies_brouillage", "title": "Comment un appareil est brouillé"},
+    {"ident": "harec_proteger_brouillages", "title": "Se protéger des brouillages"},
+    {"ident": "harec_securite_electrique", "title": "Sécurité électrique"},
+    {"ident": "harec_terre_foudre", "title": "Terre, foudre et antennes"}
+   ]
+  },
   {
    "ident": "harec_I4",
    "title": "Antennes et lignes",
@@ -43,7 +57,15 @@
     {"ident": "harec_boite_accord", "title": "La boîte d'accord"}
    ]
   },
-  {"ident": "harec_I5", "title": "Code Q et alphabet", "abstract": "", "sections": []},
+  {
+   "ident": "harec_I5",
+   "title": "Code Q et alphabet",
+   "abstract": "Les 22 codes Q et la table d'épellation que retient l'examen français, tels que les fixe le Journal officiel.",
+   "sections": [
+    {"ident": "harec_code_q", "title": "Le code Q"},
+    {"ident": "harec_alphabet", "title": "La table d'épellation"}
+   ]
+  },
   {"ident": "harec_II1", "title": "Électricité, électromagnétisme et radioélectricité", "abstract": "", "sections": []},
   {"ident": "harec_II2", "title": "Composants", "abstract": "", "sections": []},
   {"ident": "harec_II3", "title": "Circuits", "abstract": "", "sections": []},

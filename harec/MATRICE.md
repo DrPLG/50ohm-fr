@@ -159,6 +159,39 @@ Les questions de technique peuvent être adaptées du catalogue allemand
 
 ## 8. Points à arbitrer
 
+> **16/11/2026 — I.3 Brouillages et protections et I.5 Code Q et alphabet
+> rédigés** (choix de Pierre). **I.3 :** 8 sections, ≈ 2 480 mots, 7
+> figures, 2 tableaux, encadrés « méthode » (décibels de tête, puissance
+> dans une charge, rendement, produits du 3e ordre, atténuateur).
+> Rubriques 3.1 à 3.5 de l'annexe ; transfert maximal de puissance écrit
+> à neuf. Aucune règle nouvelle : ANFR, appendice 3 du RR et plafonds en
+> PEP renvoient à I.2 ; normes NF C 15-100 et NF EN 62305 reprises de
+> l'encart de N/`n_blitzschutz`. Sections de conducteurs de terre de la
+> norme VDE **non reprises** (pas de source française vérifiée).
+> **I.5 :** 2 sections, ≈ 1 060 mots, 5 tableaux. **Libellés des
+> 22 codes et table d'épellation relus sur le fac-similé du JO n° 236**
+> (`C:\50ohm-fr-videos\sources\`, p. 16099-16100), table d'épellation
+> vérifiée sur l'image (mots, prononciations, syllabes accentuées en
+> gras). Seule retouche : « … » dans la réponse de QRG, où le JO écrit
+> « est de kHz ». Graphies du JO (Écho, Fox-trot, Hôtel, Québec, Roméo,
+> Zoulou) avec la remarque sur l'UIT ; pièges Alfa, Juliett, Uniform,
+> Whiskey comme dans N. Le code Q tient en **trois tableaux** : en un
+> seul, il dépasserait une page, et un tableau ne se coupe pas (v0.40).
+> Arbre généré sans compilation : 7 figures sur 7, 6 tableaux sur 6,
+> 0 label en double, 0 accent en math, 0 deux-points en légende,
+> 1 faux positif d'unité corrigé (« D, F » lu en farads). **Document
+> réduit** : 0 erreur, 0 pixel coloré, 19 pages (I.3 11 p. pour 12
+> prévues, I.5 7 p. pour 6), tableau des échelles 1-5 retourné en quatre
+> colonnes pour ne plus être réduit ; 1 débordement de 0,25 pt
+> (`harec_terre_foudre`), négligeable.
+> **Compilé le 16/11/2026** (accord de Pierre), v0.40, 2 min 13 :
+> **86 pages** (66 avant). I.2 pp. 5-21, **I.3 pp. 23-34** (12 pages pour
+> 12 prévues), I.4 pp. 35-56, **I.5 pp. 57-63** (7 pour 6), II.6
+> pp. 65-84. 0 erreur, 0 caractère manquant, 0 « ?? », 49 figures sur 49
+> sans coupure (`.aux`), 0 pixel coloré, 1 débordement de 0,25 pt connu.
+> La p. 34 ne porte que la fin de I.3 : la resserrer ne ferait rien gagner,
+> I.4 ouvrant de toute façon en page impaire. **86 % 4 = 2.**
+
 > **07/11/2026 — I.4 Antennes et lignes rédigé** (choix de Pierre) :
 > 14 sections, **≈ 3 570 mots** (24 % des 14 900 du corpus, cible 4 600),
 > 21 figures, 4 tableaux, 9 encadrés « méthode » ou « attention ». Arbre
