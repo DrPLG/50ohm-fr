@@ -159,6 +159,50 @@ Les questions de technique peuvent être adaptées du catalogue allemand
 
 ## 8. Points à arbitrer
 
+> **21/11/2026 — I.1 Réglementation internationale rédigé** (choix de
+> Pierre). 6 sections, ≈ 3 300 mots (3 500 visés), 2 figures (cartes 658
+> des Régions et 656 des préfixes, cette dernière non forkée : elle ne porte
+> que des préfixes), 7 tableaux. **Sources lues, aucune de mémoire :**
+> RR 2024 en français (`R-REG-RR-2024-ZPF-F.zip`, 68 Mo, téléchargé sur
+> itu.int avec l'accord de Pierre, extrait dans
+> `C:\50ohm-fr-videos\sources\RR-2024\`) — numéros 1.56, 1.57, 1.96, 4.9,
+> 5.2-5.9, 5.23-5.31, article 19 (19.5, 19.29, 19.68-19.69), article 25
+> entier, 32.9, 32.13BA, 33.10-33.11, 33.33-33.34, appendice 42 (relevé en
+> `appendice42.tsv`, 307 séries), résolutions 642 et 646 ; T/R 61-01
+> (édition du 18/10/2024), T/R 61-02 (16/02/2024) et ECC/REC/(05)06
+> (16/02/2024), lues sur docdb.cept.org et archivées dans
+> `C:\50ohm-fr-videos\sources\CEPT\` ; pages de l'IARU (iaru.org).
+> Les préfixes européens sont ceux de l'**annexe 2 de la T/R 61-01**
+> (préfixe à employer dans le pays visité), les séries françaises celles
+> de l'appendice 42. Ce que I.2 traite déjà (trois mois sans formalité,
+> suffixes V et W, statuts primaire et secondaire en France) n'est pas
+> répété : renvois.
+> **À arbitrer par Pierre :**
+> - **la résolution 640, citée par le programme de 2000, n'existe plus
+>   dans le RR 2024** (le volume 3 passe de la 612 à la 642). Écrit tel
+>   quel dans un encadré, avec renvoi à 25.3, 25.9A et à la résolution 646 ;
+> - en Région 1, 430-440 MHz est **primaire pour l'amateur et la
+>   radiolocalisation** (amateur secondaire en Régions 2 et 3 seulement) :
+>   mon premier exemple disait l'inverse, corrigé sur le tableau du RR ;
+> - l'association française membre de l'IARU n'est pas nommée (non
+>   vérifiée sur la liste de l'IARU) ;
+> - Russie et Bélarus absents de la liste de la T/R 61-01 : absents du
+>   tableau, sans commentaire.
+> **Document réduit** (6 sections, 1 min 27) : 12 pages pour 12 prévues,
+> 0 erreur, 0 débordement, 0 caractère manquant, 0 « ?? », 0 pixel coloré.
+> Tableau de l'article 25 coupé en deux (insécable, il laissait les trois
+> quarts de la p. 4 vides). Reste un blanc d'environ 40 % avant le tableau
+> des préfixes. Carte 656 lisible en gris, étiquettes HB9 et 9A amont un peu
+> chevauchées.
+> **Compilé le 21/11/2026** (accord de Pierre), v0.40, 3 min 38 :
+> **98 pages** (86 avant). **I.1 pp. 5-16** (12 pages pour 12 prévues),
+> I.2 pp. 17-33, I.3 pp. 35-46, I.4 pp. 47-68, I.5 pp. 69-75, II.6
+> pp. 77-96. 0 erreur, 0 caractère manquant, 0 référence indéfinie,
+> 0 « ?? », 51 figures sur 51 sans coupure (`.aux`), 0 pixel coloré,
+> 1 débordement de 0,25 pt connu (`harec_terre_foudre`). Mise en page de
+> I.1 identique au document réduit. PDF compressé : 755 Ko.
+> **98 % 4 = 2.**
+
 > **16/11/2026 — I.3 Brouillages et protections et I.5 Code Q et alphabet
 > rédigés** (choix de Pierre). **I.3 :** 8 sections, ≈ 2 480 mots, 7
 > figures, 2 tableaux, encadrés « méthode » (décibels de tête, puissance

@@ -2,7 +2,19 @@
  "title": "Préparer le certificat de radioamateur",
  "edition": "HAREC",
  "chapters": [
-  {"ident": "harec_I1", "title": "Réglementation internationale", "abstract": "", "sections": []},
+  {
+   "ident": "harec_I1",
+   "title": "Réglementation internationale",
+   "abstract": "Le Règlement des radiocommunications de l'UIT, son article 25, les indicatifs et les préfixes, la détresse, les recommandations de la CEPT et l'IARU.",
+   "sections": [
+    {"ident": "harec_uit_rr", "title": "L'UIT et le Règlement des radiocommunications"},
+    {"ident": "harec_article_25", "title": "L'article 25, la charte du service d'amateur"},
+    {"ident": "harec_prefixes", "title": "Indicatifs et préfixes"},
+    {"ident": "harec_detresse_catastrophes", "title": "Détresse, urgence et catastrophes"},
+    {"ident": "harec_cept", "title": "Les recommandations de la CEPT"},
+    {"ident": "harec_iaru", "title": "L'IARU et les plans de bandes"}
+   ]
+  },
   {
    "ident": "harec_I2",
    "title": "Réglementation nationale",
